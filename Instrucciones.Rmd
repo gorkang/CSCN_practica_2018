@@ -1,0 +1,76 @@
+---
+title: "Practica CSCN 2018"
+output: 
+  html_notebook: 
+    toc: yes
+---
+
+# Introduccion  
+En el pasado hemos usado [JSPsych](http://www.jspsych.org/) para crear un protocolo experimental (conjunto de pruebas a realizar en un computador; ver carpeta Protocolo_Final_Experimento4 en https://github.com/gorkang/CSCN_practica_2018).
+
+Este sistema nos ha funcionado razonablemente bien en el pasado, pero en lugar de lo que tenemos ahora (creamos un protocolo a mano para cada situacion), queremos usar toda la potencia de [Experiment Factory](https://expfactory.github.io/expfactory/) para crear protocolos de manera automatica. Con Experiment Factory, uno puede [generar un protocolo](https://expfactory.github.io/expfactory/generate) a partir de un conjunto de pruebas individuales con un solo comando. Por ejemplo:  
+`docker run -v $PWD:/data vanessa/expfactory-builder build digit-span spatial-span tower-of-london test-task`
+
+
+# Descripcion de situacion actual  
+Ahora mismo tenemos un [repositorio privado de Github](https://github.com/gorkang/CSCN_practica_2018) donde podemos encontrar lo siguiente:
+
+* **Protocolo_Final_Experimento4**: carpeta con el protocolo final usado en 2017
+* **Modulos**: carpeta con donde se empezo a trabajar en tratar de modularizar cada una de las pruebas del protocolo (el estado de esta carpeta es un misterio)
+* **Explicación breve de JsPsych para ExpFactory.odt**: Documento con algunos detalles sobre el funcionamiento de JSPsych
+* **Instrucciones.Rmd, Instrucciones.nb.html**: Este documento con instrucciones.
+
+La carpeta **Protocolo_Final_Experimento4** contiene el protocolo completo. Al llegar los participantes se les lanzaba con Firefox, uno a uno, los archivos Bloque1_A.html, Bloque1_B.html y Bloque2.html. Tras completar cada uno de ellos, se guardaba automaticamente un archivo .csv con las respuestas. Los archivos Bloque1_A.html y Bloque1_B.html contienen dos partes de una tarea experimental sobre probabilidades, y Bloque2.html contiene un conjunto de pruebas de diferencias individuales que se deberia presentar en orden aleatorio.
+
+# Objetivos de la practica  
+
+## Objetivo 1
+El objetivo central es adaptar lo que tenemos para acabar teniendo un conjunto de pruebas individuales que funcionen de manera independiente, y a partir de las cuales podamos crear protocolos experimentales a medida usando [Experiment Factory](https://expfactory.github.io/expfactory/).
+
+En el protocolo usado en **Protocolo_Final_Experimento4** tenemos las siguientes pruebas:
+
+* Pruebas Bayesianas
+    + Modulo 1
+    + Modulo 2
+    
+* Pruebas de diferencias individuales
+    + Reading comprehension
+    + Verbal Cognitive Reflective test
+    + Arithmetic ability
+    + Math anxiety
+    + WAIS – Matrix Reasoning
+    + Mental Rotation
+    + Numeracy
+    + WAIS Digits: Working memory
+    + Graph literacy
+    + Cognitive Reflective Test – Verbal
+    + Cognitive Reflextive Test – 7
+    
+Al finalizar deberiamos ser capaces de crear un protocolo a partir de cualquier subconjunto de las pruebas anteriores.
+
+
+## Objetivo 2
+Implementar varias pruebas nuevas e integrarlas en el sistema anterior.
+
+Una vez completados los aspectos centrales del Objetivo 1, iniciaremos la implementacion de nuevas pruebas, o la mejora de pruebas ya existentes. En muchos casos esta deberia ser muy sencilla, ya que podremos usar plantillas pre-existentes. En otros casos, es posible que sea necesaria alguna implementacion mas compleja. 
+Estas incluiran, entre otras:
+
+* Mejora de pruebas existentes:
+    + Incluir teclado en pantalla para WAIS Digits: Working memory
+    
+* Nuevas pruebas:
+    + Toma de decisiones (GDMS)
+    + Aversión y toma de riesgos (BRET, BART)
+    + Ansiedad matemática (sMARS)
+    + Ansiedad (BAI).
+    + etc.
+
+
+
+
+# Manera de trabajar  
+Trabajaremos usando un [repositorio privado de Github](https://github.com/gorkang/CSCN_practica_2018), de tal modo que podamos trazar vuestras contribuciones, ademas de revertir cambios catastroficos, etc.  
+
+La rama "master" se usara solo para cambios que hayan sido probados en una rama "desarrollo" o similar.  
+
+El equipo completo os incluira a vosotros, ademas de a Gorka Navarrete (gorka.navarrete@uai.cl), Alvaro Rivera (alvaro.rivera@uai.cl) y Nicolas Sanchez (nicolas.csanchez@gmail.com).
