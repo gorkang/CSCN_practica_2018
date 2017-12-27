@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Experimento Numeracy</title>
+        <!-- INICIO llamadas de JS, JQuery y CSS -->
+        
+        <!--
+        Notas:
+        * Este template asume que el archivo HTML a ejecutar, se encuentra en el mismo directorio que las
+        carpetas de JsPsych, de imagenes y otros recursos a utilizar. Si se desea emplear otra estructura para
+        ordenar las carpetas, se deben realizar los cambios respectivos en las llamadas a dichos recursos.
+        * Si bien se listan todos los plugins empleados en la bateria completa, cuando se quiere ejecutar un modulo
+        en particular, no es necesario que esten todas, para lo cual basta con dejar las que se requieren y borrar
+        el resto.
+        * Dado que la distribucion de elementos e imagenes en pantallas esta fijada para resoluciones de 1920x1080,
+        hay elementos que se veran de forma erronea en otras resoluciones. Para corregir esto, se deben editar los
+        valores respectivos en el archivo style.css
+        * Para cumplir los requerimientos de cada prueba, los archivos javascript de varios plugin fueron
+        modificados de distinta forma, por lo tanto, se recomienda emplear la carpeta que contiene los plugins
+        modificados. En caso contrario, los experimentos pueden no comportarse de la forma esperada, o
+        bien, simplemente no funcionar.
+        -->
+        
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Libreria principal JsPsych -->
+        <script src="jspsych-5.0.3/jspsych.js"></script>
+        
+        <!-- Plugin para recibir texto estilo survey -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textnum2.js"></script>
+        <!-- Plugin custom numeracy -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textnum1.js"></script>
+        <!-- Plugin para desplegar elementos tipo instrucciones -->
+        <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+        <!-- Plugin custom multi choice 2 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice2.js"></script>
+        
+        <!-- Documento CSS principal -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <!-- Libreria para alertas customizadas + CSS respectivo -->
+        <script src="dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+        
+        <!-- FIN llamadas de JS, JQuery y CSS -->
+    </head>
+    <body>
+        <script>
+            
+            // Funciones de apoyo
+            function block_fkeys(event){
+                var x = event.which || event.keyCode;
+                if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
+                    console.log("Blocked key");
+                    event.preventDefault();
+                    return false;
+                }else{
+                    return;
+                }
+            }
+            
+            function block_enter(event){
+                var x = event.which || event.keyCode;
+                if(x == 13){
+                    console.log("Blocked enter key");
+                    event.preventDefault();
+                    return false;
+                }else{
+                    return;
+                }
+            }
+                
+            // Inicio prueba
+            var numeracyexplanation={
+                type: "instructions",
+                pages: ["<div class = centerbox>"+
+                       //"<p class = center-block-text>"+
+                       "<p>"+
+                       "A continuaci&oacute;n debe responder 11 preguntas que servir&aacute;n para evaluar sus habilidades de c&aacute;lculo.<br /><br />"+
+                       "Debe leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita.<br /><br />"+
+                       "</p></div>"],
+                allow_keys: false,
+                show_clickable_nav: true,
+                timing_post_trial: 50,
+                data:{trialid: "Instructions_Numeracy"}
+            };
+            
+            var numeracy1 = {
+                type: "survey-text",
+                timeline: [
+                    {questions: ["<p class='limitnumeracy'>1. Imagina que tiramos un dado no cargado (de seis caras) 1000 veces.<br /> De esas 1000 veces, &iquest;cu&aacute;ntas veces crees que saldr&aacute; un numero par <br />(un 2, un 4 o un 6)?</p>"], data:{trialid: "LIP_01"}},
+                    {questions: ["<p class='limitnumeracy'>2. Las probabilidades de ganar un premio de 10 d&oacute;lares en la loter&iacute;a de JUEGA-GANA es del 1%. &iquest;Cu&aacute;nta gente crees que ganar&iacute;a el premio de 10 d&oacute;lares si 1000 personas <br /> compran un boleto de la loter&iacute;a JUEGA-GANA?</p>"], data:{trialid: "LIP_02"}}//,
+                    //{questions: ["<p class='limitnumeracy'>3. La probabilidad de ganar un auto en el RIVERA EDICIONES es de 1 de cada 1000.<br /> &iquest;Que porcentaje de boletos de RIVERA EDICIONES ganan un auto?</p>"], data:{trialid: "LIP_03"}}
+                ]
+            };
+            
+            // Porcentual
+            var numeracy1_a = {
+                type: "survey-textnum2",
+                questions: ["<p class='limitnumeracy'>3. La probabilidad de ganar un auto en el RIVERA EDICIONES es de 1 de cada 1000.<br /> &iquest;Que porcentaje de boletos de RIVERA EDICIONES ganan un auto?</p>"], data:{trialid: "LIP_03"}               
+            };
+            
+            var numeracy2 = {
+                type: "survey-multi-choice2",
+                timeline: [
+                           {questions: ["4. &iquest;Cu&aacute;l de los siguientes numeros representa el mayor riesgo de padecer una enfermedad?"], options: [["a) 1 de cada 100","b) 1 de cada 1000","c) 1 de cada 10"]]},                                          
+                           {questions: ["5. &iquest;Cu&aacute;l de los siguientes representa el mayor riesgo de padecer una enfermedad?"], options: [["a) 1%","b) 10%","c) 5%"]]}
+                           ],
+                required: true
+            };
+            
+            // Porcentual
+            var numeracy3 = {
+                type: "survey-textnum2",
+                questions: ["<p class='limitnumeracy'>6. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1% y el riesgo para otra persona (B) es el doble, &iquest;cu&aacute;l es<br /> el riesgo para la persona B?</p>"], data:{trialid: "LIP_06"}              
+            };
+            
+            var numeracy3_a = {
+                type: "survey-text",
+                timeline: [
+                    //normal
+                    //{questions: ["<p class='limitnumeracy'>6. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1% y el riesgo para otra persona (B) es el doble, &iquest;cu&aacute;l es<br /> el riesgo para la persona B?</p>"], data:{trialid: "LIP_06"}},
+                    {questions: ["<p class='limitnumeracy'>7. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1 de cada 100 y el riesgo para otra persona (B) es el doble,<br /> &iquest;cu&aacute;l es el riesgo para la persona B?</p>"], data:{trialid: "LIP_07"}},
+                    {questions: ["<p class='limitnumeracy'>8. Si el riesgo de padecer una enfermedad es del 10%, de cada 100 personas,<br /> &iquest;cu&aacute;nta gente se puede esperar que enferme?</p>"], data:{trialid: "LIP_08"}},
+                    {questions: ["<p class='limitnumeracy'>9. Si el riesgo de padecer una enfermedad es del 10%, de cada 1000 personas,<br /> &iquest;cu&aacute;nta gente se puede esperar que enferme?</p>"], data:{trialid: "LIP_09"}}
+                ]
+            };
+            
+            var numeracy4 = {
+                type: "survey-textnum1",
+                questions: ["<p class='limitnumeracy'>10. Si el riesgo de padecer una enfermedad es de 20 de cada 100, esto ser&iacute;a lo <br />mismo que tener una probabilidad del</p>"]
+            };
+            
+            var numeracy5 = {
+                type: "survey-text",
+                questions: ["<p class='limitnumeracy'>11. La probabilidad de contagiarse con un virus infeccioso es de 0,0005.<br /> De cada 10000 personas, &iquest;cu&aacute;ntas de ellas crees que se contagiar&aacute;n con <br />este virus?</p>"], data:{trialid: "LIP_11"}
+            };
+            
+            // Creacion de timeline e inclusion de trials
+            experimento_numeracy = [];
+            experimento_numeracy.push(numeracyexplanation);
+            experimento_numeracy.push(numeracy1);
+            experimento_numeracy.push(numeracy1_a);
+            experimento_numeracy.push(numeracy2);
+            experimento_numeracy.push(numeracy3);
+            experimento_numeracy.push(numeracy3_a);
+            experimento_numeracy.push(numeracy4);
+            experimento_numeracy.push(numeracy5);
+            
+            // Inicializacion
+            jsPsych.init({
+                timeline: experimento_numeracy,
+                fullscreen: true,
+                on_trial_start: function(){
+                    document.onkeypress = block_fkeys;
+                    document.onkeypress = block_enter; 
+                },
+                on_finish: function(){
+                jsPsych.data.localSave('modulo_numeracy.csv', 'csv');
+                },
+                default_iti: 0
+            });
+            
+        </script>
+    </body>
+</html>

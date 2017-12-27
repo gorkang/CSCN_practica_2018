@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Experimento Mental Rotation V2</title>
+        <!-- INICIO llamadas de JS, JQuery y CSS -->
+        
+        <!--
+        Notas:
+        * Este template asume que el archivo HTML a ejecutar, se encuentra en el mismo directorio que las
+        carpetas de JsPsych, de imagenes y otros recursos a utilizar. Si se desea emplear otra estructura para
+        ordenar las carpetas, se deben realizar los cambios respectivos en las llamadas a dichos recursos.
+        * Si bien se listan todos los plugins empleados en la bateria completa, cuando se quiere ejecutar un modulo
+        en particular, no es necesario que esten todas, para lo cual basta con dejar las que se requieren y borrar
+        el resto.
+        * Dado que la distribucion de elementos e imagenes en pantallas esta fijada para resoluciones de 1920x1080,
+        hay elementos que se veran de forma erronea en otras resoluciones. Para corregir esto, se deben editar los
+        valores respectivos en el archivo style.css
+        * Para cumplir los requerimientos de cada prueba, los archivos javascript de varios plugin fueron
+        modificados de distinta forma, por lo tanto, se recomienda emplear la carpeta que contiene los plugins
+        modificados. En caso contrario, los experimentos pueden no comportarse de la forma esperada, o
+        bien, simplemente no funcionar.
+        -->
+        
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Libreria principal JsPsych -->
+        <script src="jspsych-5.0.3/jspsych.js"></script>
+        
+        <!-- Plugin para recibir texto estilo survey -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
+        <!-- Plugin custom multi choice 3 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice3.js"></script>
+        <!-- Plugin para desplegar elementos tipo instrucciones -->
+        <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+        
+        <!-- Plugin custom multi choice MR Beta -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choicemrbeta2.js"></script>
+        
+        <!-- Documento CSS principal -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <!-- Libreria para alertas customizadas + CSS respectivo -->
+        <script src="dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+        
+        <!-- FIN llamadas de JS, JQuery y CSS -->
+    </head>
+    <body>
+        <script>
+            
+            // Variables globales
+            
+            mr_timeleft_1 = 5000;
+            mr_timeleft_2 = 180000;
+            mr_timeleft_3 = 180000;
+            mr_timeleft_4 = 180000;
+            mr_timeleft_5 = 180000;
+            
+            var mr_timeout_status1 = 0;
+            var mr_timeout_status2 = 0;
+            var mr_timeout_status3 = 0;
+            var mr_timeout_status4 = 0;
+            var mr_timeout_status5 = 0;
+            
+            // Funciones de apoyo
+            function block_fkeys(event){
+                var x = event.which || event.keyCode;
+                if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
+                    console.log("Blocked key");
+                    event.preventDefault();
+                    return false;
+                }else{
+                    return;
+                }
+            }
+                
+            // Inicio prueba
+            
+            /* Mental Rotation - MRT A */
+                
+                var check_mrt = function(elem) {
+                    if ($('#opcion1').is(':checked') || $('#opcion2').is(':checked') ||$('#opcion3').is(':checked') ||$('#opcion4').is(':checked') ||$('#opcion5').is(':checked')) {
+                      return true;
+                    }
+                    else {
+                      alert("Debes seleccionar al menos una alternativa");
+                      return false;
+                    }
+                    return false;
+                };
+                
+                /* ********************************************************  INICIO INSTRUCCIONES ******************************************************** */
+                
+                
+                
+                /* ********************************************************  FIN ENSAYO ******************************************************** */
+                
+                /* ********************************************************  INICIO PAGINA 1 ******************************************************** */
+                
+                var mr_trial1_a={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["1.a"]
+                                ],
+                    data: {trialid: "MR_Trial1_a"},
+                    options: [
+                              ["<br /><img src='img/pag3_1_1.png' />","<br /><img src='img/pag3_1_2.png' />","<br /><img src='img/pag3_1_3.png' />","<br /><img src='img/pag3_1_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                    timing_response: function() {
+                        return mr_timeleft_1;
+                    },
+                    on_finish: function(data) {
+                        mr_timeleft_1 = mr_timeleft_1 - data.rt;
+                        if (mr_timeleft_1 <= 0) {
+                          mr_timeout_status1 = 1;
+                        }
+                    },
+                    timing_post_trial: 0
+                };
+                
+                var mr_trial1_b={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["2.a"]
+                                ],
+                    data: {trialid: "MR_Trial1_b"},
+                    options: [
+                              ["<br /><img src='img/pag3_2_1.png' />","<br /><img src='img/pag3_2_2.png' />","<br /><img src='img/pag3_2_3.png' />","<br /><img src='img/pag3_2_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial1_c={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["3.a"]
+                                ],
+                    data: {trialid: "MR_Trial1_c"},
+                    options: [
+                              ["<br /><img src='img/pag3_3_1.png' />","<br /><img src='img/pag3_3_2.png' />","<br /><img src='img/pag3_3_3.png' />","<br /><img src='img/pag3_3_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial1_d={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["4.a"]
+                                ],
+                    data: {trialid: "MR_Trial1_d"},
+                    options: [
+                              ["<br /><img src='img/pag3_4_1.png' />","<br /><img src='img/pag3_4_2.png' />","<br /><img src='img/pag3_4_3.png' />","<br /><img src='img/pag3_4_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial1_e={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["5.a"]
+                                ],
+                    data: {trialid: "MR_Trial1_e"},
+                    options: [
+                              ["<br /><img src='img/pag3_5_1.png' />","<br /><img src='img/pag3_5_2.png' />","<br /><img src='img/pag3_5_3.png' />","<br /><img src='img/pag3_5_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial1_f={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["6.a"]
+                                ],
+                    data: {trialid: "MR_Trial1_f"},
+                    options: [
+                              ["<br /><img src='img/pag3_6_1.png' />","<br /><img src='img/pag3_6_2.png' />","<br /><img src='img/pag3_6_3.png' />","<br /><img src='img/pag3_6_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial2_a={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["7.a"]
+                                ],
+                    data: {trialid: "MR_Trial2_a"},
+                    options: [
+                              ["<br /><img src='img/pag4_1_1.png' />","<br /><img src='img/pag4_1_2.png' />","<br /><img src='img/pag4_1_3.png' />","<br /><img src='img/pag4_1_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial2_b={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["8.a"]
+                                ],
+                    data: {trialid: "MR_Trial2_b"},
+                    options: [
+                              ["<br /><img src='img/pag4_2_1.png' />","<br /><img src='img/pag4_2_2.png' />","<br /><img src='img/pag4_2_3.png' />","<br /><img src='img/pag4_2_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial2_c={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["9.a"]
+                                ],
+                    data: {trialid: "MR_Trial2_c"},
+                    options: [
+                              ["<br /><img src='img/pag4_3_1.png' />","<br /><img src='img/pag4_3_2.png' />","<br /><img src='img/pag4_3_3.png' />","<br /><img src='img/pag4_3_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial2_d={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["10.a"]
+                                ],
+                    data: {trialid: "MR_Trial2_d"},
+                    options: [
+                              ["<br /><img src='img/pag4_4_1.png' />","<br /><img src='img/pag4_4_2.png' />","<br /><img src='img/pag4_4_3.png' />","<br /><img src='img/pag4_4_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial2_e={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["11.a"]
+                                ],
+                    data: {trialid: "MR_Trial2_e"},
+                    options: [
+                              ["<br /><img src='img/pag4_5_1.png' />","<br /><img src='img/pag4_5_2.png' />","<br /><img src='img/pag4_5_3.png' />","<br /><img src='img/pag4_5_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial2_f={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["12.a"]
+                                ],
+                    data: {trialid: "MR_Trial2_f"},
+                    options: [
+                              ["<br /><img src='img/pag4_6_1.png' />","<br /><img src='img/pag4_6_2.png' />","<br /><img src='img/pag4_6_3.png' />","<br /><img src='img/pag4_6_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial3_a={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["13.a"]
+                                ],
+                    data: {trialid: "MR_Trial3_a"},
+                    options: [
+                              ["<br /><img src='img/pag5_1_1.png' />","<br /><img src='img/pag5_1_2.png' />","<br /><img src='img/pag5_1_3.png' />","<br /><img src='img/pag5_1_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial3_b={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["14.a"]
+                                ],
+                    data: {trialid: "MR_Trial3_b"},
+                    options: [
+                              ["<br /><img src='img/pag5_2_1.png' />","<br /><img src='img/pag5_2_2.png' />","<br /><img src='img/pag5_2_3.png' />","<br /><img src='img/pag5_2_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial3_c={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["15.a"]
+                                ],
+                    data: {trialid: "MR_Trial3_c"},
+                    options: [
+                              ["<br /><img src='img/pag5_3_1.png' />","<br /><img src='img/pag5_3_2.png' />","<br /><img src='img/pag5_3_3.png' />","<br /><img src='img/pag5_3_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial3_d={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["16.a"]
+                                ],
+                    data: {trialid: "MR_Trial3_d"},
+                    options: [
+                              ["<br /><img src='img/pag5_4_1.png' />","<br /><img src='img/pag5_4_2.png' />","<br /><img src='img/pag5_4_3.png' />","<br /><img src='img/pag5_4_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial3_e={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["17.a"]
+                                ],
+                    data: {trialid: "MR_Trial3_e"},
+                    options: [
+                              ["<br /><img src='img/pag5_5_1.png' />","<br /><img src='img/pag5_5_2.png' />","<br /><img src='img/pag5_5_3.png' />","<br /><img src='img/pag5_5_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial3_f={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["18.a"]
+                                ],
+                    data: {trialid: "MR_Trial3_f"},
+                    options: [
+                              ["<br /><img src='img/pag5_6_1.png' />","<br /><img src='img/pag5_6_2.png' />","<br /><img src='img/pag5_6_3.png' />","<br /><img src='img/pag5_6_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial4_a={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["19.a"]
+                                ],
+                    data: {trialid: "MR_Trial4_a"},
+                    options: [
+                              ["<br /><img src='img/pag6_1_1.png' />","<br /><img src='img/pag6_1_2.png' />","<br /><img src='img/pag6_1_3.png' />","<br /><img src='img/pag6_1_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial4_b={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["20.a"]
+                                ],
+                    data: {trialid: "MR_Trial4_b"},
+                    options: [
+                              ["<br /><img src='img/pag6_2_1.png' />","<br /><img src='img/pag6_2_2.png' />","<br /><img src='img/pag6_2_3.png' />","<br /><img src='img/pag6_2_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial4_c={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["21.a"]
+                                ],
+                    data: {trialid: "MR_Trial4_c"},
+                    options: [
+                              ["<br /><img src='img/pag6_3_1.png' />","<br /><img src='img/pag6_3_2.png' />","<br /><img src='img/pag6_3_3.png' />","<br /><img src='img/pag6_3_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial4_d={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["22.a"]
+                                ],
+                    data: {trialid: "MR_Trial4_d"},
+                    options: [
+                              ["<br /><img src='img/pag6_4_1.png' />","<br /><img src='img/pag6_4_2.png' />","<br /><img src='img/pag6_4_3.png' />","<br /><img src='img/pag6_4_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial4_e={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["23.a"]
+                                ],
+                    data: {trialid: "MR_Trial4_e"},
+                    options: [
+                              ["<br /><img src='img/pag6_5_1.png' />","<br /><img src='img/pag6_5_2.png' />","<br /><img src='img/pag6_5_3.png' />","<br /><img src='img/pag6_5_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+                
+                var mr_trial4_f={
+                    type: "survey-multi-choicemrbeta2",
+                    questions: [
+                                ["24.a"]
+                                ],
+                    data: {trialid: "MR_Trial4_f"},
+                    options: [
+                              ["<br /><img src='img/pag6_6_1.png' />","<br /><img src='img/pag6_6_2.png' />","<br /><img src='img/pag6_6_3.png' />","<br /><img src='img/pag6_6_4.png' />"]
+                              ],
+                    horizontal: 'true',
+                };
+            
+            // Creacion de timeline e inclusion de trials
+            
+            experimento_mental_rotation = [];
+            /*
+            experimento_mental_rotation.push(mr_instruct);
+            experimento_mental_rotation.push(mr_trialstarter);
+            experimento_mental_rotation.push(mr_prueba1);
+            experimento_mental_rotation.push(mr_prueba2_a);
+            experimento_mental_rotation.push(mr_prueba2_b);
+            experimento_mental_rotation.push(mr_prueba2_c);*/
+            // Pagina 1
+            experimento_mental_rotation.push(mr_trial1_a);
+            experimento_mental_rotation.push(mr_trial1_b);
+            experimento_mental_rotation.push(mr_trial1_c);
+            experimento_mental_rotation.push(mr_trial1_d);
+            experimento_mental_rotation.push(mr_trial1_e);
+            experimento_mental_rotation.push(mr_trial1_f);
+            // Pagina 2
+            experimento_mental_rotation.push(mr_trial2_a);
+            experimento_mental_rotation.push(mr_trial2_b);
+            experimento_mental_rotation.push(mr_trial2_c);
+            experimento_mental_rotation.push(mr_trial2_d);
+            experimento_mental_rotation.push(mr_trial2_e);
+            experimento_mental_rotation.push(mr_trial2_f);
+            // Pagina 3
+            experimento_mental_rotation.push(mr_trial3_a);
+            experimento_mental_rotation.push(mr_trial3_b);
+            experimento_mental_rotation.push(mr_trial3_c);
+            experimento_mental_rotation.push(mr_trial3_d);
+            experimento_mental_rotation.push(mr_trial3_e);
+            experimento_mental_rotation.push(mr_trial3_f);
+            // Pagina 4
+            experimento_mental_rotation.push(mr_trial4_a);
+            experimento_mental_rotation.push(mr_trial4_b);
+            experimento_mental_rotation.push(mr_trial4_c);
+            experimento_mental_rotation.push(mr_trial4_d);
+            experimento_mental_rotation.push(mr_trial4_e);
+            experimento_mental_rotation.push(mr_trial4_f);
+            
+            // Inicializacion
+            jsPsych.init({
+                timeline: experimento_mental_rotation,
+                fullscreen: true,
+                on_trial_start: function(){
+                    document.onkeypress = block_fkeys;                   
+                },
+                on_finish: function(){
+                jsPsych.data.localSave('modulo_mental_rotation.csv', 'csv');
+                },
+                default_iti: 0
+            });
+            
+        </script>
+    </body>
+</html>

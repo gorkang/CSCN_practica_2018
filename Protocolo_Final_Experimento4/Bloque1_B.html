@@ -1,0 +1,3159 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Bloque 1B</title>
+        <!-- *** Inicio llamada a libreria JsPsych + Plugin + CSS *** -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="jspsych-5.0.3/jspsych.js"></script>
+        <!-- Plugin de texto -->
+        <script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+        <!-- Plugin para recibir texto estilo survey -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textrut.js"></script>
+		<script src="jspsych-5.0.3/plugins/jspsych-survey-textglpercent.js"></script>
+        <!-- Plugin para desplegar elementos tipo instrucciones -->
+        <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+        <!-- Plugin para survey de opciones multiples-->
+        <script src="jspsych-5.0.3/plugins/jspsych-poldrack-survey-multi-choice.js"></script>
+        <!-- Plugin para recibir texto estilo survey multi choice -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice.js"></script>
+        <!-- Plugin custom multi choice 1 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice1.js"></script>
+        <!-- Plugin custom multi choice 2 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice2.js"></script>
+        <!-- Plugin custom multi choice 3 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice3.js"></script>
+        <!-- Plugin custom multi choice bayes -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choicebayes.js"></script>
+        <!-- Plugin custom multi choice MR Beta -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choicemrbeta.js"></script>
+        <!-- Plugin custom single audio -->
+        <script src="jspsych-5.0.3/plugins/jspsych-single-audio.js"></script>
+        <!-- Plugin custom single stim -->
+        <script src="jspsych-5.0.3/plugins/jspsych-single-stim.js"></script>
+        <!-- Plugin custom multi choice bayes -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textbayes.js"></script>
+        <!-- Plugin para llamar funciones -->
+        <script src="jspsych-5.0.3/plugins/jspsych-call-function.js"></script>
+        <!-- Plugin para incrustar HTML -->
+        <script src="jspsych-5.0.3/plugins/jspsych-html.js"></script>
+        <!-- Plugin moddeado de survey text para HA -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textha.js"></script>
+        <!-- ***  *** -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <!-- Libreria para lectura/escritura/procesamiento de datos -->
+        <script src="jquery-csv.js"></script>
+        
+        <!-- Libreria 3 -->
+        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        
+        <!-- Libreria de parsing para SCV -->
+        <script src="PapaParse-4.1.2/papaparse.min.js"></script>
+        
+        <!-- Plugin custom crt 1 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt1.js"></script>
+        <!-- Plugin custom crt 2 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt2.js"></script>
+        <!-- Plugin custom crt 3 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt3.js"></script>
+        
+        <!-- Plugin custom numeracy 1 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textnum1.js"></script>
+        
+        <!-- Plugin custom bayes 1 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textbayes.js"></script>
+        
+        <!-- Libreria para alertas customizadas -->
+        <script src="dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+        
+    </head>
+    <body onload="itemreader();">
+        <div class="centered">
+        <p id="intro">Por favor, ingresa n&uacute;mero de participante y luego presiona el bot&oacute;n Continuar</p>
+        <input type="text" id="subjectid" name="subject"><br />
+        <!--<input type="file" id="csv-file" name="files"/>-->
+        <button onclick="secondPart();" id="buttonb" class="button">Continuar</button>
+        </div>
+        
+        <!-- Parsing de datos -->
+        <div class="centered">
+        <script>
+            
+            // ****************************************************************************************************
+            // Variables Iniciales
+            
+            function* shuffle(array) {
+                    var i = array.length;
+                    while (i--) {
+                        yield array.splice(Math.floor(Math.random() * (i+1)), 1)[0];
+                    }
+            };
+			
+			function blockrut(event) {
+                validation = $("textarea").val();
+                
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    $.isNumeric();
+                    if ($.isNumeric(validation) === true) {
+                          console.log("bien",validation);
+                          console.log("User pressed enter. Clicking continue button");
+                          var btn = document.getElementById("jspsych-survey-textrut-next");
+                          btn.click(); 
+                      }else{
+                          sweetAlert({title: "Por favor ingresa un n\&uacute;mero v\&aacute;lido", html: true});
+                          console.log("mal",validation);
+                          event.stopPropagation();
+                         if (event.stopPropagation) {
+                          event.stopPropagation();
+                          } else{
+                            event.cancelBubble = true;
+                          } 
+                      }
+                }
+            }
+			
+			function tapbayes(event){
+				if (event.keyCode == 13){
+					event.preventDefault();
+					event.stopPropagation();
+					if (event.stopPropagation) {
+						event.stopPropagation();
+					} else{
+					    event.cancelBubble = true;
+					}
+				}
+			}
+			
+			function advance_glpercent(event){
+                
+                validation = $("textarea").val();
+                
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    $.isNumeric();
+                    if ($.isNumeric(validation) === true && validation <= 100) {
+                          console.log("bien",validation);
+                          console.log("User pressed enter. Clicking continue button");
+                          var btn = document.getElementById("jspsych-survey-textglpercent-next");
+                          btn.click(); 
+                      }else{
+                          sweetAlert({title: "Por favor ingresa un n\&uacute;mero v\&aacute;lido", html: true});
+                          console.log("mal",validation);
+                          event.stopPropagation();
+                         if (event.stopPropagation) {
+                          event.stopPropagation();
+                          } else{
+                            event.cancelBubble = true;
+                          } 
+                      }
+                }
+            }
+            
+            var linesfile = [];
+
+             
+			function itemreader(){
+				var client = new XMLHttpRequest();
+				client.open('GET', 'ITEMS/Bloque1_B_FINAL_V2.csv');
+				client.onreadystatechange = function() {
+					  console.log("*********************************");
+					  console.log(client.responseText);  
+					  console.log("*********************************");
+					  linesfile = client.responseText.split('\n');
+					  console.log(linesfile);
+				};
+			client.send();
+			}
+            
+            var evento = window.event;
+                
+            var ranNumsBayes = [];
+            var dividedarray = [];
+            
+            var experiment_index = 0;
+            
+            var bloquear_enter = 0; // 0 = permitir, 1 = bloquear
+            
+            // Variables de Datos Demograficos
+            var id_participante = "";
+            var refined_id = "";
+            var refined_bayes_id = "";
+            
+            var res4 = "";
+            
+            var checkfield = document.getElementsByTagName("textarea");
+            console.log("asd",checkfield);
+            
+            filearrayreader = [];
+            refinedarray = [];
+            idfromredinedarray1="";
+            idfromredinedarray2="";
+            idfromredinedarray3="";
+            idfromredinedarray4="";
+             
+             removedlines = [];
+            
+            document.getElementById('csv-file').onchange = function(){
+
+            var file = this.files[0];
+          
+            var reader = new FileReader();
+            reader.onload = function(progressEvent){
+              // Entire file
+              console.log(this.result);
+          
+              // By lines
+              var lines = this.result.split('\n');
+              for(var line = 0; line < lines.length; line++){
+                console.log(lines[line]);
+                filearrayreader[line] = lines[line];
+              }
+            };
+            reader.readAsText(file);
+          };            
+            
+            // ****************************************************************************************************
+            // Inicio Funcion experimental
+            
+            function secondPart() {
+                /***************************************************************/
+                // Borrar Botones
+                document.getElementById('buttonb').style.visibility = 'hidden';
+                document.getElementById('intro').style.visibility = 'hidden';
+                //document.getElementById('csv-file').style.visibility = 'hidden';
+                document.getElementById('subjectid').style.visibility = 'hidden';
+                res4 = document.getElementById('subjectid').value;
+                console.log("received subject id: ", res4);
+                /***************************************************************/
+                
+                //retrievedata();
+                autoretrievedata();
+                
+                function retrievedata(){
+                    console.log("***********");
+                    for(var line = 0; line < filearrayreader.length; line++){                      
+                        console.log(filearrayreader[line]);
+                        aux = filearrayreader[line];
+                        var result = aux.substring(aux.lastIndexOf(",") + 1);
+                        console.log("result: ",result);
+                        //filearrayreader.append(filearrayreaders[line]);
+                        if(result === res4){
+                            refinedarray.push(aux);
+                            console.log("Got ID: ",res4);
+                            console.log("Added line: ",result);
+                        }
+                    }
+                    console.log("***********");
+                    console.log(refinedarray[0]);
+                    console.log(refinedarray[1]);
+                    console.log(refinedarray[2]);
+                    console.log(refinedarray[3]);
+                }
+                
+                function autoretrievedata(){
+                    console.log("***********");
+                    for(var line = 0; line < linesfile.length; line++){                      
+                        console.log(linesfile[line]);
+                        aux = linesfile[line];
+                        var result = aux.substring(aux.lastIndexOf(",") + 1);
+                        console.log("result: ",result);
+                        //filearrayreader.append(linesfile[line]);
+                        if(result === res4){
+                            refinedarray.push(aux);
+                            console.log("Got ID: ",res4);
+                            console.log("Added line: ",result);
+                        }
+                    }
+                    console.log("***********");
+                    console.log(refinedarray[0]);
+                    console.log(refinedarray[1]);
+                    console.log(refinedarray[2]);
+                    console.log(refinedarray[3]);
+                } 
+                
+                var data;
+                
+                idfromredinedarray1 = refinedarray[0].substring(0, refinedarray[0].indexOf(','));
+                idfromredinedarray2 = refinedarray[1].substring(0, refinedarray[1].indexOf(','));
+                idfromredinedarray3 = refinedarray[2].substring(0, refinedarray[2].indexOf(','));
+                idfromredinedarray4 = refinedarray[3].substring(0, refinedarray[3].indexOf(','));
+                
+                var bayescase1_0 = "bayes"+idfromredinedarray1+"_0";
+                var bayescase1_1 = "bayes"+idfromredinedarray1+"_1";
+                var bayescase1_2 = "bayes"+idfromredinedarray1+"_2";
+                var bayescase1_3 = "bayes"+idfromredinedarray1+"_3";
+                var bayescase1_4 = "bayes"+idfromredinedarray1+"_4";
+				var bayescase1_5 = "bayes"+idfromredinedarray1+"_5";
+                
+                var bayescase2_0 = "bayes"+idfromredinedarray2+"_0";
+                var bayescase2_1 = "bayes"+idfromredinedarray2+"_1";
+                var bayescase2_2 = "bayes"+idfromredinedarray2+"_2";
+                var bayescase2_3 = "bayes"+idfromredinedarray2+"_3";
+                var bayescase2_4 = "bayes"+idfromredinedarray2+"_4";
+				var bayescase2_5 = "bayes"+idfromredinedarray2+"_5";
+                
+                var bayescase3_0 = "bayes"+idfromredinedarray3+"_0";
+                var bayescase3_1 = "bayes"+idfromredinedarray3+"_1";
+                var bayescase3_2 = "bayes"+idfromredinedarray3+"_2";
+                var bayescase3_3 = "bayes"+idfromredinedarray3+"_3";
+                var bayescase3_4 = "bayes"+idfromredinedarray3+"_4";
+				var bayescase3_5 = "bayes"+idfromredinedarray3+"_5";
+                
+                var bayescase4_0 = "bayes"+idfromredinedarray4+"_0";
+                var bayescase4_1 = "bayes"+idfromredinedarray4+"_1";
+                var bayescase4_2 = "bayes"+idfromredinedarray4+"_2";
+                var bayescase4_3 = "bayes"+idfromredinedarray4+"_3";
+                var bayescase4_4 = "bayes"+idfromredinedarray4+"_4";
+				var bayescase4_5 = "bayes"+idfromredinedarray4+"_5";
+                
+                
+                var textobayes = "bayes";
+                
+                
+                function setchosenbayes(chosenvalue01,chosenvalue1, chosenvalue2, chosenvalue3, chosenvalue4, chosenvalue01meta, chosenvalue02, chosenvalue5, chosenvalue6, chosenvalue7, chosenvalue8, chosenvalue02meta, chosenvalue03, chosenvalue9, chosenvalue10, chosenvalue11, chosenvalue12, chosenvalue03meta, chosenvalue04, chosenvalue13, chosenvalue14, chosenvalue15, chosenvalue16, chosenvalue04meta){
+                    // Trial 1
+                    second_battery.push(eval(chosenvalue01));
+                    second_battery.push(eval(chosenvalue1));
+                    second_battery.push(eval(chosenvalue2));
+                    second_battery.push(eval(chosenvalue3));
+                    second_battery.push(eval(chosenvalue4));
+					second_battery.push(eval(chosenvalue01meta))
+                    // Trial 2
+                    second_battery.push(eval(chosenvalue02));
+                    second_battery.push(eval(chosenvalue5));
+                    second_battery.push(eval(chosenvalue6));
+                    second_battery.push(eval(chosenvalue7));
+                    second_battery.push(eval(chosenvalue8));
+					second_battery.push(eval(chosenvalue02meta))
+                    // Trial 3
+                    second_battery.push(eval(chosenvalue03));
+                    second_battery.push(eval(chosenvalue9));
+                    second_battery.push(eval(chosenvalue10));
+                    second_battery.push(eval(chosenvalue11));
+                    second_battery.push(eval(chosenvalue12));
+					second_battery.push(eval(chosenvalue03meta))
+                    // Trial 4
+                    second_battery.push(eval(chosenvalue04));
+                    second_battery.push(eval(chosenvalue13));
+                    second_battery.push(eval(chosenvalue14));
+                    second_battery.push(eval(chosenvalue15));
+                    second_battery.push(eval(chosenvalue16));
+					second_battery.push(eval(chosenvalue04meta));
+                }                
+                
+                /* Calculos para timeline*/
+                function* shuffle(array) {
+                    var i = array.length;
+                    while (i--) {
+                        yield array.splice(Math.floor(Math.random() * (i+1)), 1)[0];
+                    }
+                };
+                    
+                var welcome={
+                    type: "survey-text",
+                    questions: ["<div class = centerbox><p class = block-text>Ingrese RUT del participante, <strong>sin puntos ni guiones</strong>.</p></div>","<div class = centerbox><p class = block-text>Ingrese <strong>numero</strong> del computador.</p></div>"],
+                    data:{trialid: "ID_Usuario"},
+                    
+                    on_finish: function(data) {
+                        
+                        id_participante = data.responses;
+                        id_for_bayes = data.responses;
+                        var res = id_for_bayes.split(",");
+                        var res2 = res.pop();
+                        res3 = res2.substring(0, res2.length - 1);
+                        res4 = res3.substring(6,res3.length - 1);
+                        //refined_bayes_id = res4;
+                        
+                        var res_rut = res.shift();
+                        var res_rut_3 = res_rut.substring(7,res_rut.length);
+                        var res_rut_4 = res_rut_3.substring(0, res_rut_3.length - 1);
+                        refined_id = res_rut_4;
+						data.RUT_Participante = refined_id;
+
+                      }
+                };
+                
+                var welcome_01={
+                    type: "survey-textrut",
+                    questions: ["<div class = centerbox><p class = block-text>Ingrese RUT del participante, <strong>sin puntos ni guiones</strong>.</p></div>"],
+                    data:{trialid: "ID_Usuario"},
+                    
+                    on_finish: function(data) {
+                        
+                        id_participante = data.responses;
+                        var res = id_participante.split(",");
+                        var res_rut = res.shift();
+                        var res_rut_3 = res_rut.substring(7,res_rut.length);
+                        //var res_rut_4 = res_rut_3.substring(0, res_rut_3.length - 1); // <--- Windows
+						var res_rut_4 = res_rut_3.substring(0, res_rut_3.length - 2); // <--- Linux
+                        refined_id = res_rut_4;
+                        console.log("NEW REFINED ID: ", refined_id);
+                        
+
+                      }
+                };
+                
+                var mainexplanation={
+                    type: "instructions",
+                    pages: ["<div class = centerbox>"+
+                           "<p class = center-block-text>"+
+                           "Gracias por participar en este estudio.<br /><br />"+
+                           "A continuaci&oacute;n te presentaremos una serie de preguntas, mediante textos, im&aacute;genes o audio.<br /><br />"+
+                           "Cada bloque de preguntas tiene sus propias instrucciones, que ver&aacute;s al inicio de cada uno.<br /><br />"+
+                           "Para empezar, haz click en el siguiente bot&oacute;n.<br />"+
+                           "</p></div>"],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "Welcome_Screen"}
+                };
+                
+                function advance(event){
+                    $("textarea").keydown(function(event){
+                        console.log(event.keyCode);
+                        //event.preventDefault();
+                        if (event.keyCode == 13) {
+                            console.log("User pressed enter. Clicking continue button");
+                            var btn = document.getElementById("jspsych-survey-text-next");
+                            btn.click();
+                            //event.preventDefault(); 
+                        }
+                    });
+                }
+                
+                function control_functionkeys(evt) {
+                    evt = (evt) ? evt : window.event;
+                    var charCode = (evt.which) ? evt.which : evt.keyCode;
+                    if (evt.charCode == 112 || evt.charCode == 113 || evt.charCode == 114 || evt.charCode == 115 || evt.charCode == 116 || evt.charCode == 117 || evt.charCode == 118 || evt.charCode == 119 || evt.charCode == 120 || evt.charCode == 121 || evt.charCode == 122 || evt.charCode == 123) {
+                        evt.preventDefault();
+                        console.log(evt.charCode);
+                        console.log("NOPE!");
+                        return false;
+                    }
+                    else{
+                        console.log(evt.charCode);
+                        return;
+                    }
+                }
+                
+                function block_fkeys(event){
+                    var x = event.which || event.keyCode;
+                    if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
+                        console.log("Blocked key");
+                        event.preventDefault();
+                        return false;
+                    }else{
+                        return;
+                    }
+                }
+                
+                function block_enter(event){
+                    var x = event.which || event.keyCode;
+                    if(x == 13){
+                        console.log("Blocked enter key");
+                        event.preventDefault();
+                        return false;
+                    }else{
+                        return;
+                    }
+                }
+                
+                var interblock={
+                    type: "instructions",
+                    pages: ["<div class= centered><p class= center-block-text>Por favor, avisa al examinador que has llegado a esta pantalla.<br />"+
+                            "Cuando el examinador te indique, haz click en el siguiente bot&oacute;n para continuar.</p></div>"],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_opost_trial: 50,
+                    data:{trialid: "InterBlock"}
+                };
+                
+                /****************************** INICIO Pruebas Bayes ******************************/
+
+                /***** BOTELLAS / ALTA / PICT / QT *****/
+                      var bayes1_0 = {
+                          type: "instructions",
+                          pages: [
+                                  "<p class =listabayes><ul class='listabayes'>"+
+                                  "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                                  "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                                  ],
+                          allow_keys: false,
+                          show_clickable_nav: true,
+                          timing_post_trial: 50,
+                          data:{trialid: "BAYES_01_BO_AL_PI_QT_0"}
+                      };  
+                
+                      var bayes1_1 = {
+                          type: "instructions",
+                          pages: [
+                                  "<p class =listabayes><ul class='listabayes'>"+
+                                  "<li><strong>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>"+
+                                  "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                                  ],
+                          allow_keys: false,
+                          show_clickable_nav: true,
+                          timing_post_trial: 50,
+                          data:{trialid: "BAYES_01_BO_AL_PI_QT_1"}
+                      };
+                      
+                      var bayes1_2 = {
+                          type: "instructions",
+                          pages: [
+                                  "<p class =listabayes><ul class='listabayes'>"+
+                                  "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                  "<li><strong>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>"+
+                                  "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                                  ],
+                          allow_keys: false,
+                          show_clickable_nav: true,
+                          timing_post_trial: 50,
+                          data:{trialid: "BAYES_01_BO_AL_PI_QT_2"}
+                      };
+                      
+                      var bayes1_3 = {
+                          type: "instructions",
+                          pages: [
+                                  "<p class =listabayes><ul class='listabayes'>"+
+                                  "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                  "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                  "<li><strong>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>"+
+								  "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                                  ],
+                          allow_keys: false,
+                          show_clickable_nav: true,
+                          timing_post_trial: 50,
+                          data:{trialid: "BAYES_01_BO_AL_PI_QT_3"}
+                      };
+                      
+                      var bayes1_4={
+                          type: "survey-textbayes",
+                          preamble: [
+                                      "<p class =listabayes><ul class='listabayes'>"+
+                                      "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                      "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                      "<li>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                      "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                      "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>"
+                                      ],
+                          data: {trialid: "BAYES_01_BO_AL_PI_QT_4"},
+                          questions: [""]
+                      };
+                      
+                
+                      var bayes1_5 = {
+						type: "survey-textglpercent",
+						timeline: [
+							{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+							questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_01_BO_AL_PI_QT_5"}}
+						],
+						rows: [1],
+						columns: [5],
+						horizontal: true
+					  };
+                 
+                
+                  /***** CANCER / ALTA / PICT / QT *****/
+                  
+                    var bayes2_0 = {
+                        type: "instructions",
+                        pages: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                                "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                                ],
+                        allow_keys: false,
+                        show_clickable_nav: true,
+                        timing_post_trial: 50,
+                        data:{trialid: "BAYES_02_CA_AL_PI_QT_0"}
+                    };
+                
+                    var bayes2_1 = {
+                        type: "instructions",
+                        pages: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li><strong>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                                ],
+                        allow_keys: false,
+                        show_clickable_nav: true,
+                        timing_post_trial: 50,
+                        data:{trialid: "BAYES_02_CA_AL_PI_QT_1"}
+                    };
+                    
+                    var bayes2_2 = {
+                        type: "instructions",
+                        pages: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li><strong>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                                ],
+                        allow_keys: false,
+                        show_clickable_nav: true,
+                        timing_post_trial: 50,
+                        data:{trialid: "BAYES_02_CA_AL_PI_QT_2"}
+                    };
+                    
+                    var bayes2_3 = {
+                        type: "instructions",
+                        pages: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li><strong>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                                ],
+                        allow_keys: false,
+                        show_clickable_nav: true,
+                        timing_post_trial: 50,
+                        data:{trialid: "BAYES_02_CA_AL_PI_QT_3"}
+                    };
+                    
+                    var bayes2_4={
+                        type: "survey-textbayes",
+                        preamble: [
+                                    "<p class =listabayes><ul class='listabayes'>"+
+                                    "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                    "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                    "<li>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                    "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                    "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                    ],
+                        questions: [""],
+                        data: {trialid: "BAYES_02_CA_AL_PI_QT_4"}
+                    };
+                    
+					var bayes2_5 = {
+						type: "survey-textglpercent",
+						timeline: [
+							{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+							questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_02_CA_AL_PI_QT_5"}}
+						],
+						rows: [1],
+						columns: [5],
+						horizontal: true
+					};
+                
+                /***** VIH / ALTA / PICT / QT *****/
+                
+                var bayes3_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_03_VI_AL_PI_QT_0"}
+                };
+                
+                var bayes3_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_03_VI_AL_PI_QT_1"}
+                };
+                
+                var bayes3_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_03_VI_AL_PI_QT_2"}
+                };
+                
+                var bayes3_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_03_VI_AL_PI_QT_3"}
+                };
+                
+                var bayes3_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_03_VI_AL_PI_QT_4"}
+                };
+                
+                
+                var bayes3_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_03_VI_AL_PI_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};                
+                          
+                
+                /***** SPAM / ALTA / PICT / QT *****/
+                
+                var bayes4_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_04_SP_AL_PI_QT_0"}
+                };
+                
+                var bayes4_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>40 de cada 800 correos electr&oacute;nicos son spam.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_04_SP_AL_PI_QT_1"}
+                };
+                
+                var bayes4_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                            "<li><strong>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_04_SP_AL_PI_QT_2"}
+                };
+                
+                var bayes4_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                            "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                            "<li><strong>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_04_SP_AL_PI_QT_3"}
+                };
+                
+                var bayes4_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                                "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                                "<li>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_04_SP_AL_PI_QT_4"}
+                };                
+                  
+                  
+                var bayes4_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_04_SP_AL_PI_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};  
+                       
+                /***** BOTELLAS / BAJA / PICT / QT *****/
+                 
+                var bayes5_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_05_BO_BA_PI_QT_0"}
+                };      
+                      
+                var bayes5_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_05_BO_BA_PI_QT_1"}
+                };
+                
+                var bayes5_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li><strong>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_05_BO_BA_PI_QT_2"}
+                };
+                
+                var bayes5_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                            "<li><strong>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_05_BO_BA_PI_QT_3"}
+                };
+                
+                var bayes5_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                "<li>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_05_BO_BA_PI_QT_4"}
+                };
+                
+                var bayes5_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_05_BO_BA_PI_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};
+                                
+                /***** CANCER / BAJA / PICT / QT *****/         
+                
+                var bayes6_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_06_CA_BA_PI_QT_0"}
+                };
+                
+                
+                var bayes6_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_06_CA_BA_PI_QT_1"}
+                };
+                
+                var bayes6_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li><strong>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_06_CA_BA_PI_QT_2"}
+                };
+                
+                var bayes6_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                            "<li><strong>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_06_CA_BA_PI_QT_3"}
+                };
+                
+                var bayes6_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_06_CA_BA_PI_QT_4"}
+                };
+                
+                var bayes6_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_06_CA_BA_PI_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};
+                
+                
+                /***** VIH / BAJA / PICT / QT *****/
+                
+                var bayes7_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_07_VI_BA_PI_QT_0"}
+                };
+                
+                var bayes7_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_07_VI_BA_PI_QT_1"}
+                };
+                
+                var bayes7_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_07_VI_BA_PI_QT_2"}
+                };
+                
+                var bayes7_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_07_VI_BA_PI_QT_3"}
+                };
+                
+                var bayes7_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_07_VI_BA_PI_QT_4"}
+                };
+                      
+                 var bayes7_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_07_VI_BA_PI_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};
+				                
+                /***** SPAM / BAJA / PICT / QT *****/   
+                
+                var bayes8_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_08_SP_BA_PI_QT_0"}
+                };
+                
+                var bayes8_1 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li><strong>20 de cada 400 correos electr&oacute;nicos son spam.</strong></li>"+
+                             "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_08_SP_BA_PI_QT_1"}
+                 };
+                 
+                 var bayes8_2 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                             "<li><strong>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</strong></li>"+
+                             "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_08_SP_BA_PI_QT_2"}
+                 };
+                 
+                 var bayes8_3 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                             "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                             "<li><strong>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"+
+                             "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_08_SP_BA_PI_QT_3"}
+                 };
+                 
+                 var bayes8_4={
+                     type: "survey-textbayes",
+                     preamble: [
+                                 "<p class =listabayes><ul class='listabayes'>"+
+                                 "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                                 "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                                 "<li>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                                 "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                 "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"
+                                 ],
+                     questions: [""],
+                     data: {trialid: "BAYES_08_SP_BA_PI_QT_4"}
+                 };
+                                
+                                
+                 var bayes8_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_08_SP_BA_PI_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};                
+                                
+                                
+                /***** BOTELLAS / ALTA / TEXT / QT *****/
+                
+                var bayes9_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_09_BO_AL_TE_QT_0"}
+                };
+                
+                var bayes9_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>",
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_09_BO_AL_TE_QT_1"}
+                };
+                
+                var bayes9_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li><strong>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>",
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_09_BO_AL_TE_QT_2"}
+                };
+                
+                var bayes9_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                            "<li><strong>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>",
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_09_BO_AL_TE_QT_3"}
+                };
+                
+                var bayes9_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                "<li>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_09_BO_AL_TE_QT_4"}
+                };
+                                
+                
+                var bayes9_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_09_BO_AL_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};
+                              
+                /***** CANCER / ALTA / TEXT / QT *****/               
+                
+                var bayes10_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_10_CA_AL_TE_QT_0"}
+                };      
+                                
+                var bayes10_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_10_CA_AL_TE_QT_1"}
+                };
+                
+                var bayes10_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li><strong>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_10_CA_AL_TE_QT_2"}
+                };
+                
+                var bayes10_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                            "<li><strong>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_10_CA_AL_TE_QT_3"}
+                };
+                
+                var bayes10_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_10_CA_AL_TE_QT_4"}
+                };
+                                
+                                
+                var bayes10_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_10_CA_AL_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};
+                
+                
+                /***** VIH / ALTA / TEXT / QT *****/
+                
+                var bayes11_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_11_VI_AL_TE_QT_0"}
+                };
+                
+                var bayes11_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_11_VI_AL_TE_QT_1"}
+                };
+                
+                var bayes11_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_11_VI_AL_TE_QT_2"}
+                };
+                
+                var bayes11_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_11_VI_AL_TE_QT_3"}
+                };
+                
+                var bayes11_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</li>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_11_VI_AL_TE_QT_4"}
+                };
+                                                                
+                var bayes11_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_11_VI_AL_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};   
+                
+                /***** SPAM / ALTA / TEXT / QT *****/
+                
+                var bayes12_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_12_SP_AL_TE_QT_0"}
+                };
+                
+                var bayes12_1 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li><strong>40 de cada 800 correos electr&oacute;nicos son spam.</strong></li>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_12_SP_AL_TE_QT_1"}
+                 };
+                 
+                 var bayes12_2 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                             "<li><strong>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</strong></li>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_12_SP_AL_TE_QT_2"}
+                 };
+                 
+                 var bayes12_3 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                             "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                             "<li><strong>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_12_SP_AL_TE_QT_3"}
+                 };
+                 
+                 var bayes12_4={
+                     type: "survey-textbayes",
+                     preamble: [
+                                 "<p class =listabayes><ul class='listabayes'>"+
+                                 "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                                 "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                                 "<li>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                                 "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"
+                                 ],
+                     questions: [""],
+                     data: {trialid: "BAYES_12_SP_AL_TE_QT_4"}
+                 };                
+                                
+                var bayes12_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_12_SP_AL_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};               
+                           
+                /***** BOTELLAS / BAJA / TEXT / QT *****/
+                
+                var bayes13_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_13_BO_BA_TE_QT_0"}
+                };
+                
+                var bayes13_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_13_BO_BA_TE_QT_1"}
+                };
+                
+                var bayes13_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li><strong>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_13_BO_BA_TE_QT_2"}
+                };
+                
+                var bayes13_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                            "<li><strong>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_13_BO_BA_TE_QT_3"}
+                };
+                
+                var bayes13_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                "<li>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_13_BO_BA_TE_QT_4"}
+                };
+                                
+                var bayes13_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_13_BO_BA_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};                 
+                                      
+                /***** CANCER / BAJA / TEXT / QT *****/     
+                
+                var bayes14_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_14_CA_BA_TE_QT_0"}
+                };
+                
+                var bayes14_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_14_CA_BA_TE_QT_1"}
+                };
+                
+                var bayes14_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li><strong>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_14_CA_BA_TE_QT_2"}
+                };
+                
+                var bayes14_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                            "<li><strong>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_14_CA_BA_TE_QT_3"}
+                };
+                
+                var bayes14_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_14_CA_BA_TE_QT_4"}
+                };
+                 
+				var bayes14_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_14_CA_BA_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};
+				                                
+                /***** VIH / BAJA / TEXT / QT *****/
+                
+                var bayes15_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_15_VI_BA_TE_QT_0"}
+                };
+                
+                var bayes15_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_15_VI_BA_TE_QT_1"}
+                };
+                
+                var bayes15_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_15_VI_BA_TE_QT_2"}
+                };
+                
+                var bayes15_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_15_VI_BA_TE_QT_3"}
+                };
+                
+                var bayes15_4={
+                    type: "survey-textbayes",
+                    preamble: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</li>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    questions: [""],
+                    data: {trialid: "BAYES_15_VI_BA_TE_QT_4"}
+                };
+                
+				var bayes15_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_15_VI_BA_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};                
+                                
+                /***** SPAM / BAJA / TEXT / QT *****/   
+                
+                var bayes16_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_16_SP_BA_TE_QT_0"}
+                };
+                
+                var bayes16_1 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li><strong>20 de cada 400 correos electr&oacute;nicos son spam.</strong></li>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_16_SP_BA_TE_QT_1"}
+                 };
+                 
+                 var bayes16_2 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                             "<li><strong>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</strong></li>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_16_SP_BA_TE_QT_2"}
+                 };
+                 
+                 var bayes16_3 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                             "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                             "<li><strong>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_16_SP_BA_TE_QT_3"}
+                 };
+                 
+                 var bayes16_4={
+                     type: "survey-textbayes",
+                     preamble: [
+                                 "<p class =listabayes><ul class='listabayes'>"+
+                                 "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                                 "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                                 "<li>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                                 "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"
+                                 ],
+                     questions: [""],
+                     data: {trialid: "BAYES_16_SP_BA_TE_QT_4"}
+                 };                
+                                
+                 var bayes16_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_16_SP_BA_TE_QT_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};                
+                                
+                 /***** BOTELLAS / ALTA / PICT / QL *****/
+                 
+                 var bayes17_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_17_BO_AL_PI_QL_0"}
+                };
+                    
+                var bayes17_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_17_BO_AL_PI_QL_1"}
+                };
+                
+                var bayes17_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li><strong>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_17_BO_AL_PI_QL_2"}
+                };
+                
+                var bayes17_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+							"<li><strong>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>"+     
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_17_BO_AL_PI_QL_3"}
+                };
+                
+                var bayes17_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                "<li>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_17_BO_AL_PI_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                      
+                var bayes17_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_17_BO_AL_PI_QL_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};      
+                     
+                                
+                /***** CANCER / ALTA / PICT / QL *****/
+                
+                var bayes18_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_18_CA_AL_PI_QL_0"}
+                };
+                
+                var bayes18_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_18_CA_AL_PI_QL_1"}
+                };
+                
+                var bayes18_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li><strong>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_18_CA_AL_PI_QL_2"}
+                };
+                
+                var bayes18_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                            "<li><strong>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_18_CA_AL_PI_QL_3"}
+                };
+                
+                var bayes18_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_18_CA_AL_PI_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                                
+                var bayes18_5 = {
+					type: "survey-textglpercent",
+					timeline: [
+						{//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+						questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_18_CA_AL_PI_QL_5"}}
+					],
+					rows: [1],
+					columns: [5],
+					horizontal: true
+				};                
+                                
+                /***** VIH / ALTA / PICT / QL *****/
+                
+                var bayes19_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_19_VI_AL_PI_QL_0"}
+                };
+                
+                var bayes19_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_19_VI_AL_PI_QL_1"}
+                };
+                
+                var bayes19_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_19_VI_AL_PI_QL_2"}
+                };
+                
+                var bayes19_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_19_VI_AL_PI_QL_3"}
+                };
+                
+                var bayes19_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_19_VI_AL_PI_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                   
+                var bayes19_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_19_VI_AL_PI_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };
+				   
+                /***** SPAM / ALTA / PICT / QL *****/                
+                
+                var bayes20_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_20_SP_AL_PI_QL_0"}
+                };
+                                
+                var bayes20_1 = {
+                   type: "instructions",
+                   pages: [
+                           "<p class =listabayes><ul class='listabayes'>"+
+                           "<li><strong>40 de cada 800 correos electr&oacute;nicos son spam.</strong></li>"+
+                           "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                           ],
+                   allow_keys: false,
+                   show_clickable_nav: true,
+                   timing_post_trial: 50,
+                   data:{trialid: "BAYES_20_SP_AL_PI_QL_1"}
+               };
+               
+               var bayes20_2 = {
+                   type: "instructions",
+                   pages: [
+                           "<p class =listabayes><ul class='listabayes'>"+
+                           "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                           "<li><strong>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</strong></li>"+
+                           "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                           ],
+                   allow_keys: false,
+                   show_clickable_nav: true,
+                   timing_post_trial: 50,
+                   data:{trialid: "BAYES_20_SP_AL_PI_QL_2"}
+               };
+               
+               var bayes20_3 = {
+                   type: "instructions",
+                   pages: [
+                           "<p class =listabayes><ul class='listabayes'>"+
+                           "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                           "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                           "<li><strong>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"+
+                           "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                           ],
+                   allow_keys: false,
+                   show_clickable_nav: true,
+                   timing_post_trial: 50,
+                   data:{trialid: "BAYES_20_SP_AL_PI_QL_3"}
+               };
+               
+               var bayes20_4={
+                   type: "survey-multi-choicebayes",
+                   questions: [
+                               "<p class =listabayes><ul class='listabayes'>"+
+                               "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                               "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                               "<li>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                               "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/AL_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                               "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"
+                               ],
+                   data: {trialid: "BAYES_20_SP_AL_PI_QL_4"},
+                   options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                   horizontal: true,
+                   required: 'true'
+               };
+                                
+                var bayes20_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_20_SP_AL_PI_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };                
+                                
+                /***** BOTELLAS / BAJA / PICT / QL *****/
+                
+                var bayes21_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_21_BO_BA_PI_QL_0"}
+                };
+                
+                var bayes21_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_21_BO_BA_PI_QL_1"}
+                };
+                
+                var bayes21_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li><strong>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_21_BO_BA_PI_QL_2"}
+                };
+                
+                var bayes21_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                            "<li><strong>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_21_BO_BA_PI_QL_3"}
+                };
+                
+                var bayes21_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                "<li>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_BO_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_21_BO_BA_PI_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                
+                var bayes21_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_21_BO_BA_PI_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };
+                
+                
+                /***** CANCER / BAJA / PICT / QL *****/
+                
+                var bayes22_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_22_CA_BA_PI_QL_0"}
+                };
+                
+                var bayes22_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_22_CA_BA_PI_QL_1"}
+                };
+                
+                var bayes22_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li><strong>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_22_CA_BA_PI_QL_2"}
+                };
+                
+                var bayes22_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                            "<li><strong>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_22_CA_BA_PI_QL_3"}
+                };
+                
+                var bayes22_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_CA_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_22_CA_BA_PI_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                                                
+                                                
+                var bayes22_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_22_CA_BA_PI_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };                                
+                 
+                             
+                
+                /***** VIH / BAJA / PICT / QL *****/
+                
+                var bayes23_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_23_VI_BA_PI_QL_0"}
+                };
+                
+                var bayes23_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_23_VI_BA_PI_QL_1"}
+                };
+                
+                var bayes23_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_23_VI_BA_PI_QL_2"}
+                };
+                
+                var bayes23_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</strong></li>"+
+                            "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_23_VI_BA_PI_QL_3"}
+                };
+                
+                var bayes23_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</li>"+
+                                "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_VI_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_23_VI_BA_PI_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                
+                var bayes23_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_23_VI_BA_PI_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };
+                                               
+                /***** SPAM / BAJA / PICT / QL *****/      
+                
+                var bayes24_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_24_SP_BA_PI_QL_0"}
+                };
+                
+                var bayes24_1 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li><strong>20 de cada 400 correos electr&oacute;nicos son spam.</strong></li>"+
+                             "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_01.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_24_SP_BA_PI_QL_1"}
+                 };
+                 
+                 var bayes24_2 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                             "<li><strong>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</strong></li>"+
+                             "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_02.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_24_SP_BA_PI_QL_2"}
+                 };
+                 
+                 var bayes24_3 = {
+                     type: "instructions",
+                     pages: [
+                             "<p class =listabayes><ul class='listabayes'>"+
+                             "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                             "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                             "<li><strong>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"+
+                             "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"
+                             ],
+                     allow_keys: false,
+                     show_clickable_nav: true,
+                     timing_post_trial: 50,
+                     data:{trialid: "BAYES_24_SP_BA_PI_QL_3"}
+                 };
+                 
+                 var bayes24_4={
+                     type: "survey-multi-choicebayes",
+                     questions: [
+                                 "<p class =listabayes><ul class='listabayes'>"+
+                                 "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                                 "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                                 "<li>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                                 "<div style='position: relative; width: 830px; min-height: 520px;'><img src='img/BA_EM_03.png' style='display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: 20px; width: 100%;' /></div>"+
+                                 "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"                                
+                                 ],
+                     data: {trialid: "BAYES_24_SP_BA_PI_QL_4"},
+                     options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                     horizontal: true,
+                     required: 'true'
+                 };
+                                
+                 var bayes24_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_24_SP_BA_PI_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };               
+                                
+                /***** BOTELLAS / ALTA / TEXT / QL *****/
+                
+                var bayes25_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_25_BO_AL_TE_QL_0"}
+                };
+                
+                var bayes25_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>",                        
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_25_BO_AL_TE_QL_1"}
+                };
+                
+                var bayes25_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li><strong>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_25_BO_AL_TE_QL_2"}
+                };
+                
+                var bayes25_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                            "<li><strong>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_25_BO_AL_TE_QL_3"}
+                };
+                
+                var bayes25_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>20 de cada 400 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                "<li>16 de cada 20 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                "<li>8 de cada 380 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>",
+                                ],
+                    data: {trialid: "BAYES_25_BO_AL_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                                
+                var bayes25_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_25_BO_AL_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };                
+                              
+                
+                /***** CANCER / ALTA / TEXT / QL *****/
+                
+                var bayes26_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_26_CA_AL_TE_QL_0"}
+                }; 
+                
+                var bayes26_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_26_CA_AL_TE_QL_1"}
+                };
+                
+                var bayes26_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li><strong>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_26_CA_AL_TE_QL_2"}
+                };
+                
+                var bayes26_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                            "<li><strong>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_26_CA_AL_TE_QL_3"}
+                };
+                
+                var bayes26_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>8 de esas 10 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li>4 de cada 190 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_26_CA_AL_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                
+                
+                var bayes26_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_26_CA_AL_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };   
+                 
+                 
+                /***** VIH / ALTA / TEXT / QL *****/
+                
+                var bayes27_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_27_VI_AL_TE_QL_0"}
+                }; 
+                
+                var bayes27_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_27_VI_AL_TE_QL_1"}
+                };
+                
+                var bayes27_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_27_VI_AL_TE_QL_2"}
+                };
+                
+                var bayes27_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_27_VI_AL_TE_QL_3"}
+                };
+                
+                var bayes27_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>30 de cada 600 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 24 de cada 30 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 12 de cada 570 personas sanas.</li>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_27_VI_AL_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                
+                var bayes27_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_27_VI_AL_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };            
+                           
+                
+                /***** SPAM / ALTA / TEXT / QL *****/                
+                     
+                 var bayes28_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_28_SP_AL_TE_QL_0"}
+                };    
+                                
+                var bayes28_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>40 de cada 800 correos electr&oacute;nicos son spam.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_28_SP_AL_TE_QL_1"}
+                };
+                
+                var bayes28_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                            "<li><strong>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_28_SP_AL_TE_QL_2"}
+                };
+                
+                var bayes28_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                            "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                            "<li><strong>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_28_SP_AL_TE_QL_3"}
+                };
+                
+                var bayes28_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>40 de cada 800 correos electr&oacute;nicos son spam.</li>"+
+                                "<li>Los filtros de spam detectan y bloquean 32 de cada 40 mensajes spam.</li>"+
+                                "<li>Sin embargo, 16 de cada 760 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                                "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_28_SP_AL_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                
+				                
+                var bayes28_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_28_SP_AL_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };                
+                               
+                              
+                /***** BOTELLAS / BAJA / TEXT / QL *****/
+                
+                var bayes29_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre botellas contaminadas.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_29_BO_BA_TE_QL_0"}
+                };
+                
+                var bayes29_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_29_BO_BA_TE_QL_1"}
+                };
+                
+                var bayes29_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li><strong>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_29_BO_BA_TE_QL_2"}
+                };
+                
+                var bayes29_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                            "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                            "<li><strong>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_29_BO_BA_TE_QL_3"}
+                };
+                
+                var bayes29_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>10 de cada 200 botellas producidas en una planta de agua embotellada est&aacute;n contaminadas con bacterias peligrosas.</li>"+
+                                "<li>8 de cada 10 botellas contaminadas son identificadas como contaminadas mediante la prueba del tornasol.</li>"+
+                                "<li>16 de cada 190 botellas no contaminadas son tambi&eacute;n identificadas como contaminadas.</li>"+
+                                "<li><br /><strong>De las botellas identificadas como contaminadas, &iquest;cu&aacute;ntas est&aacute;n realmente contaminadas?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_29_BO_BA_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                                
+                                
+                var bayes29_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_29_BO_BA_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };                
+                                
+                  
+                /***** CANCER / BAJA / TEXT / QL *****/
+                
+                var bayes30_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre c&aacute;ncer de mama.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_30_CA_BA_TE_QL_0"}
+                };
+                
+                var bayes30_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_30_CA_BA_TE_QL_1"}
+                };
+                
+                var bayes30_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li><strong>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_30_CA_BA_TE_QL_2"}
+                };
+                
+                var bayes30_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                            "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                            "<li><strong>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_30_CA_BA_TE_QL_3"}
+                };
+                
+                var bayes30_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>5 de cada 100 mujeres de 50 a&ntilde;os que participan en screening masivo tiene c&aacute;ncer de mama.</li>"+
+                                "<li>4 de esas 5 mujeres con c&aacute;ncer recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li>8 de cada 95 mujeres sin c&aacute;ncer tambi&eacute;n recibir&aacute;n una mamograf&iacute;a positiva.</li>"+
+                                "<li><br /><strong>De las mujeres que reciben mamograf&iacute;as positivas, &iquest;cu&aacute;ntas esperar&iacute;as que tuvieran c&aacute;ncer?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_30_CA_BA_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                    
+                };            
+                                
+                var bayes30_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_30_CA_BA_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                }; 
+                 
+                /***** VIH / BAJA / TEXT / QL *****/
+                
+                var bayes31_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre VIH.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_31_VI_BA_TE_QL_0"}
+                };
+                
+                var bayes31_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_31_VI_BA_TE_QL_1"}
+                };
+                
+                var bayes31_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li><strong>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_31_VI_BA_TE_QL_2"}
+                };
+                
+                var bayes31_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                            "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                            "<li><strong>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_31_VI_BA_TE_QL_3"}
+                };
+                
+                var bayes31_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>15 de cada 300 personas en el sur de &Aacute;frica puede tener VIH sin saberlo.</li>"+
+                                "<li>La prueba del VIH indicar&aacute; correctamente la infecci&oacute;n por VIH en 12 de cada 15 personas infectadas.</li>"+
+                                "<li>Sin embargo, la prueba da positivo en 24 de cada 285 personas sanas.</li>"+
+                                "<li><br /><strong>&iquest;C&uacute;antas de las personas con resultados positivos en la prueba tienen el virus?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_31_VI_BA_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };
+                
+				               
+                var bayes31_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_31_VI_BA_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };                
+                                                                     
+                /***** SPAM / BAJA / TEXT / QL *****/   
+                
+                
+                var bayes32_0 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>Resuelve el siguiente problema sobre correo no deseado.</li>"+
+                            "<li>Haz click en el siguiente bot&oacute;n para continuar.</li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_32_SP_BA_TE_QL_0"}
+                };
+                
+                var bayes32_1 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li><strong>20 de cada 400 correos electr&oacute;nicos son spam.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_32_SP_BA_TE_QL_1"}
+                };
+                
+                var bayes32_2 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                            "<li><strong>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_32_SP_BA_TE_QL_2"}
+                };
+                
+                var bayes32_3 = {
+                    type: "instructions",
+                    pages: [
+                            "<p class =listabayes><ul class='listabayes'>"+
+                            "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                            "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                            "<li><strong>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</strong></li>"
+                            ],
+                    allow_keys: false,
+                    show_clickable_nav: true,
+                    timing_post_trial: 50,
+                    data:{trialid: "BAYES_32_SP_BA_TE_QL_3"}
+                };
+                
+                var bayes32_4={
+                    type: "survey-multi-choicebayes",
+                    questions: [
+                                "<p class =listabayes><ul class='listabayes'>"+
+                                "<li>20 de cada 400 correos electr&oacute;nicos son spam.</li>"+
+                                "<li>Los filtros de spam detectan y bloquean 16 de cada 20 mensajes spam.</li>"+
+                                "<li>Sin embargo, 32 de cada 380 emails leg&iacute;timos son err&oacute;neamente bloqueados como spam.</li>"+
+                                "<li><br /><strong>De los emails bloqueados como mensajes de spam, &iquest;c&uacute;antos son realmente spam?<strong></li></ul></p>"
+                                ],
+                    data: {trialid: "BAYES_32_SP_BA_TE_QL_4"},
+                    options: [["<br />Muy pocas <br />(0-20%)","<br />Pocas <br />(21-40%)","<br />La mitad <br />(41-60%)","<br />Bastantes <br />(61-80%)","<br />Muchas <br />(81-100%)"]],
+                    horizontal: true,
+                    required: 'true'
+                };                
+                                
+                var bayes32_5 = {
+                    type: "survey-textglpercent",
+                    timeline: [
+                        {//preamble: "<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior?</p><br />",
+                        questions: ["<p>&iquest;Qu&eacute; seguridad tienes en tu respuesta anterior? (de 0=muy baja a 100=muy alta)</p>"], data:{trialid: "BAYES_32_SP_BA_TE_QL_5"}}
+                    ],
+                    rows: [1],
+                    columns: [5],
+                    horizontal: true
+                };                
+                                
+                                
+                /****************************** FIN Pruebas Bayes ******************************/
+                
+                /* Pantalla de despedida */
+                var goodbye = {
+                    type: 'single-stim',
+                    stimulus: '<p>Haz terminado este bloque. Por favor, avisa al examinador.</p>',
+                    is_html: true,
+                    choices: [50],
+					timing_response: 1000
+                };
+                /* FIN Pantalla de despedida */
+                
+                var second_battery = [];
+            
+                second_battery.push(welcome_01);
+                second_battery.push(mainexplanation);
+                
+                /* Pantallas dinamicas: Test Blocks */
+                setchosenbayes(bayescase1_0,bayescase1_1,bayescase1_2,bayescase1_3,bayescase1_4,bayescase1_5,bayescase2_0,bayescase2_1,bayescase2_2,bayescase2_3,bayescase2_4,bayescase2_5,bayescase3_0,bayescase3_1,bayescase3_2,bayescase3_3,bayescase3_4,bayescase3_5,bayescase4_0,bayescase4_1,bayescase4_2,bayescase4_3,bayescase4_4,bayescase4_5);
+                
+                second_battery.push(goodbye);
+                
+                    jsPsych.init({
+                        timeline: second_battery,
+                        fullscreen: true,
+                        on_trial_start: function(){
+
+                            document.onkeypress = block_fkeys;
+                            
+                            if(bloquear_enter == 1){
+                                document.onkeypress = block_enter;
+                            }
+                        },
+                        on_trial_finish: function(data) {
+                            data.RUT = refined_id;
+							data.NumParticipante = res4;
+                        },
+                        on_finish: function(){
+							var today = new Date();
+                            var dd = today.getDate();
+                            var mm = today.getMonth()+1; //January is 0!
+                            var yyyy = today.getFullYear();                            
+                            if(dd<10) {
+                                dd='0'+dd
+                            } 
+                            
+                            if(mm<10) {
+                                mm='0'+mm
+                            } 
+                            
+                            today = dd+'/'+mm+'/'+yyyy;
+							jsPsych.data.localSave('Bloque1_B_'+refined_id+'_'+today+'.csv', 'csv');
+                        },
+                        default_iti: 0
+                    });
+                
+                //});
+            };
+            
+        </script>
+        </div>
+        <div id="div_index"><p></p></div>
+    </body>
+</html>
