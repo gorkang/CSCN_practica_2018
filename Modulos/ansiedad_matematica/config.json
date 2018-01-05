@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder en escala del 1 al 7",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "ansiedad_matematica",
+    "name": "Ansiedad Matematica",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
