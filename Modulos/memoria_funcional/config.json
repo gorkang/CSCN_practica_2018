@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Memorizar numeros y anotarlos",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "memoria_funcional",
+    "name": "Memoria Funcional",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
