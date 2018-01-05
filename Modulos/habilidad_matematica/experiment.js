@@ -1,8 +1,3 @@
-function getDisplayElement() {
-  $('<div class = display_stage_background></div>').appendTo('body')
-  return $('<div class = display_stage></div>').appendTo('body')
-}
-
 var time_left = 8000;
 var time_left2 = 8000;
 var time_left3 = 8000;
@@ -65,28 +60,28 @@ var ha_explanation02 = {
 
 var ha_prueba01 = {
     type: 'survey-textha',
-    questions:['<p>2 + 4 = </p>'],
+    questions:[{prompt:'<p>2 + 4 = </p>'}],
     data:{trialid: "Prueba_ha01"},
     timing_post_trial: 0
 };
 
 var ha_prueba02 = {
     type: 'survey-textha',
-    questions:['<p>8 - 4 = </p>'],
+    questions:[{prompt:'<p>8 - 4 = </p>'}],
     data:{trialid: "Prueba_ha02"},
     timing_post_trial: 0
 };
 
 var ha_prueba03 = {
     type: 'survey-textha',
-    questions:['<p>2 x 2 = </p>'],
+    questions:[{prompt:'<p>2 x 2 = </p>'}],
     data:{trialid: "Prueba_ha03"},
     timing_post_trial: 0
 };
 
 var ha_prueba04 = {
     type: 'survey-textha',
-    questions:['<p>8 : 4 = </p>'],
+    questions:[{prompt:'<p>8 : 4 = </p>'}],
     data:{trialid: "Prueba_ha04"},
     timing_post_trial: 0
 };
@@ -106,7 +101,6 @@ var ha_intercolumna1 = {
     timing_post_trial: 0,
     data:{trialid: "Instructions_intercolumna"},
     on_start: function(){
-      console.log("nfnfknfgnlas");
         time_left = 0;
     }
 };
@@ -137,7 +131,6 @@ var ha_intercolumna3 = {
     timing_post_trial: 0,
     data:{trialid: "Instructions_intercolumna"},
     on_start: function(){
-      console.log("nfnfknfgnlas");
         time_left3 = 0;
     }
 };
@@ -153,7 +146,6 @@ var ha_intercolumna4 = {
     timing_post_trial: 0,
     data:{trialid: "Instructions_intercolumna"},
     on_start: function(){
-      console.log("nfnfknfgnlas");
         time_left4 = 0;
     }
 };
@@ -178,8 +170,8 @@ var ha_intercolumna5 = {
 /**************   INICIO Columna 1   *********/
 var aritm01={
     type: 'survey-textha',
-    questions:['<p>1 + 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>1 + 1 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -194,8 +186,8 @@ var aritm01={
 
 var aritm02={
     type: 'survey-textha',
-    questions:['<p>2 + 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 + 1 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -209,8 +201,8 @@ var aritm02={
 
 var aritm03={
     type: 'survey-textha',
-    questions:['<p>3 + 0 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 + 0 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -225,8 +217,8 @@ var aritm03={
 
 var aritm04={
     type: 'survey-textha',
-    questions:['<p>4 + 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 + 1 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -240,8 +232,8 @@ var aritm04={
 
 var aritm05={
     type: 'survey-textha',
-    questions:['<p>2 + 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 + 3 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -255,8 +247,8 @@ var aritm05={
 
 var aritm06={
     type: 'survey-textha',
-    questions:['<p>7 + 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 + 2 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -270,8 +262,8 @@ var aritm06={
 
 var aritm07={
     type: 'survey-textha',
-    questions:['<p>3 + 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 + 5 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -285,8 +277,8 @@ var aritm07={
 
 var aritm08={
     type: 'survey-textha',
-    questions:['<p>0 + 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>0 + 7 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -300,8 +292,8 @@ var aritm08={
 
 var aritm09={
     type: 'survey-textha',
-    questions:['<p>2 + 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 + 5 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -312,8 +304,8 @@ var aritm09={
 
 var aritm10={
     type: 'survey-textha',
-    questions:['<p>4 + 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 + 6 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -327,8 +319,8 @@ var aritm10={
 
 var aritm11={
     type: 'survey-textha',
-    questions:['<p>6 + 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 + 3 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -342,8 +334,8 @@ var aritm11={
 
 var aritm12={
     type: 'survey-textha',
-    questions:['<p>4 + 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 + 3 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -357,8 +349,8 @@ var aritm12={
 
 var aritm13={
     type: 'survey-textha',
-    questions:['<p>8 + 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 + 2 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -372,8 +364,8 @@ var aritm13={
 
 var aritm14={
     type: 'survey-textha',
-    questions:['<p>3 + 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 + 6 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -387,8 +379,8 @@ var aritm14={
 
 var aritm15={
     type: 'survey-textha',
-    questions:['<p>5 + 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 + 2 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -402,8 +394,8 @@ var aritm15={
 
 var aritm16={
     type: 'survey-textha',
-    questions:['<p>3 + 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 + 8 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -417,8 +409,8 @@ var aritm16={
 
 var aritm17={
     type: 'survey-textha',
-    questions:['<p>5 + 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 + 7 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -432,8 +424,8 @@ var aritm17={
 
 var aritm18={
     type: 'survey-textha',
-    questions:['<p>2 + 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 + 6 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -447,8 +439,8 @@ var aritm18={
 
 var aritm19={
     type: 'survey-textha',
-    questions:['<p>7 + 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 + 5 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -462,8 +454,8 @@ var aritm19={
 
 var aritm20={
     type: 'survey-textha',
-    questions:['<p>9 + 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>9 + 4 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -477,8 +469,8 @@ var aritm20={
 
 var aritm21={
     type: 'survey-textha',
-    questions:['<p>13 + 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>13 + 4 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -492,8 +484,8 @@ var aritm21={
 
 var aritm22={
     type: 'survey-textha',
-    questions:['<p>7 + 12 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 + 12 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -507,8 +499,8 @@ var aritm22={
 
 var aritm23={
     type: 'survey-textha',
-    questions:['<p>16 + 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>16 + 8 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -522,8 +514,8 @@ var aritm23={
 
 var aritm24={
     type: 'survey-textha',
-    questions:['<p>4 + 15 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 + 15 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -537,8 +529,8 @@ var aritm24={
 
 var aritm25={
     type: 'survey-textha',
-    questions:['<p>17 + 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>17 + 3 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -552,8 +544,8 @@ var aritm25={
 
 var aritm26={
     type: 'survey-textha',
-    questions:['<p>6 + 15 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 + 15 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -567,8 +559,8 @@ var aritm26={
 
 var aritm27={
     type: 'survey-textha',
-    questions:['<p>18 + 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>18 + 5 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -582,8 +574,8 @@ var aritm27={
 
 var aritm28={
     type: 'survey-textha',
-    questions:['<p>3 + 14 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 + 14 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -597,8 +589,8 @@ var aritm28={
 
 var aritm29={
     type: 'survey-textha',
-    questions:['<p>17 + 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>17 + 8 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -612,8 +604,8 @@ var aritm29={
 
 var aritm30={
     type: 'survey-textha',
-    questions:['<p>7 + 16 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 + 16 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -627,8 +619,8 @@ var aritm30={
 
 var aritm31={
     type: 'survey-textha',
-    questions:['<p>17 + 16 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>17 + 16 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -642,8 +634,8 @@ var aritm31={
 
 var aritm32={
     type: 'survey-textha',
-    questions:['<p>22 + 13 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>22 + 13 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -657,8 +649,8 @@ var aritm32={
 
 var aritm33={
     type: 'survey-textha',
-    questions:['<p>19 + 32 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>19 + 32 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -672,8 +664,8 @@ var aritm33={
 
 var aritm34={
     type: 'survey-textha',
-    questions:['<p>34 + 15 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>34 + 15 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -687,8 +679,8 @@ var aritm34={
 
 var aritm35={
     type: 'survey-textha',
-    questions:['<p>28 + 27 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>28 + 27 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -702,8 +694,8 @@ var aritm35={
 
 var aritm36={
     type: 'survey-textha',
-    questions:['<p>23 + 38 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>23 + 38 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -717,8 +709,8 @@ var aritm36={
 
 var aritm37={
     type: 'survey-textha',
-    questions:['<p>39 + 46 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>39 + 46 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -732,8 +724,8 @@ var aritm37={
 
 var aritm38={
     type: 'survey-textha',
-    questions:['<p>65 + 33 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>65 + 33 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -747,8 +739,8 @@ var aritm38={
 
 var aritm39={
     type: 'survey-textha',
-    questions:['<p>76 + 18 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>76 + 18 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -762,8 +754,8 @@ var aritm39={
 
 var aritm40={
     type: 'survey-textha',
-    questions:['<p>54 + 27 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>54 + 27 = </p>'}],
+    trial_duration: function() {
       return time_left;
     },
     on_finish: function(data) {
@@ -786,8 +778,8 @@ var aritm40={
 
 var aritm41={
     type: 'survey-textha',
-    questions:['<p>2 - 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 - 1 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -801,8 +793,8 @@ var aritm41={
 
 var aritm42={
     type: 'survey-textha',
-    questions:['<p>3 - 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 - 2 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -816,8 +808,8 @@ var aritm42={
 
 var aritm43={
     type: 'survey-textha',
-    questions:['<p>4 - 0 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 - 0 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -831,8 +823,8 @@ var aritm43={
 
 var aritm44={
     type: 'survey-textha',
-    questions:['<p>3 - 0 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 - 0 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -846,8 +838,8 @@ var aritm44={
 
 var aritm45={
     type: 'survey-textha',
-    questions:['<p>5 - 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 - 2 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -861,8 +853,8 @@ var aritm45={
 
 var aritm46={
     type: 'survey-textha',
-    questions:['<p>8 - 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 - 3 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -876,8 +868,8 @@ var aritm46={
 
 var aritm47={
     type: 'survey-textha',
-    questions:['<p>6 - 0 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 - 0 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -891,8 +883,8 @@ var aritm47={
 
 var aritm48={
     type: 'survey-textha',
-    questions:['<p>9 - 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>9 - 2 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -906,8 +898,8 @@ var aritm48={
 
 var aritm49={
     type: 'survey-textha',
-    questions:['<p>7 - 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 - 5 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -921,8 +913,8 @@ var aritm49={
 
 var aritm50={
     type: 'survey-textha',
-    questions:['<p>8 - 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 - 6 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -936,8 +928,8 @@ var aritm50={
 
 var aritm51={
     type: 'survey-textha',
-    questions:['<p>7 - 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 - 4 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -951,8 +943,8 @@ var aritm51={
 
 var aritm52={
     type: 'survey-textha',
-    questions:['<p>8 - 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 - 7 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -966,8 +958,8 @@ var aritm52={
 
 var aritm53={
     type: 'survey-textha',
-    questions:['<p>7 - 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 - 5 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -981,8 +973,8 @@ var aritm53={
 
 var aritm54={
     type: 'survey-textha',
-    questions:['<p>8 - 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 - 3 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -996,8 +988,8 @@ var aritm54={
 
 var aritm55={
     type: 'survey-textha',
-    questions:['<p>6 - 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 - 5 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1011,8 +1003,8 @@ var aritm55={
 
 var aritm56={
     type: 'survey-textha',
-    questions:['<p>15 - 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>15 - 3 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1026,8 +1018,8 @@ var aritm56={
 
 var aritm57={
     type: 'survey-textha',
-    questions:['<p>13 - 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>13 - 7 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1041,8 +1033,8 @@ var aritm57={
 
 var aritm58={
     type: 'survey-textha',
-    questions:['<p>18 - 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>18 - 6 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1056,8 +1048,8 @@ var aritm58={
 
 var aritm59={
     type: 'survey-textha',
-    questions:['<p>16 - 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>16 - 9 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1071,8 +1063,8 @@ var aritm59={
 
 var aritm60={
     type: 'survey-textha',
-    questions:['<p>17 - 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>17 - 4 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1086,8 +1078,8 @@ var aritm60={
 
 var aritm61={
     type: 'survey-textha',
-    questions:['<p>18 - 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>18 - 6 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1101,8 +1093,8 @@ var aritm61={
 
 var aritm62={
     type: 'survey-textha',
-    questions:['<p>15 - 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>15 - 3 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1116,8 +1108,8 @@ var aritm62={
 
 var aritm63={
     type: 'survey-textha',
-    questions:['<p>16 - 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>16 - 8 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1131,8 +1123,8 @@ var aritm63={
 
 var aritm64={
     type: 'survey-textha',
-    questions:['<p>13 - 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>13 - 2 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1146,8 +1138,8 @@ var aritm64={
 
 var aritm65={
     type: 'survey-textha',
-    questions:['<p>19 - 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>19 - 7 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1161,8 +1153,8 @@ var aritm65={
 
 var aritm66={
     type: 'survey-textha',
-    questions:['<p>28 - 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>28 - 5 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1176,8 +1168,8 @@ var aritm66={
 
 var aritm67={
     type: 'survey-textha',
-    questions:['<p>21 - 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>21 - 9 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1191,8 +1183,8 @@ var aritm67={
 
 var aritm68={
     type: 'survey-textha',
-    questions:['<p>27 - 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>27 - 7 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1206,8 +1198,8 @@ var aritm68={
 
 var aritm69={
     type: 'survey-textha',
-    questions:['<p>25 - 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>25 - 8 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1221,8 +1213,8 @@ var aritm69={
 
 var aritm70={
     type: 'survey-textha',
-    questions:['<p>26 - 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>26 - 9 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1236,8 +1228,8 @@ var aritm70={
 
 var aritm71={
     type: 'survey-textha',
-    questions:['<p>35 - 17 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>35 - 17 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1251,8 +1243,8 @@ var aritm71={
 
 var aritm72={
     type: 'survey-textha',
-    questions:['<p>48 - 23 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>48 - 23 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1266,8 +1258,8 @@ var aritm72={
 
 var aritm73={
     type: 'survey-textha',
-    questions:['<p>26 - 19 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>26 - 19 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1281,8 +1273,8 @@ var aritm73={
 
 var aritm74={
     type: 'survey-textha',
-    questions:['<p>44 - 32 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>44 - 32 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1296,8 +1288,8 @@ var aritm74={
 
 var aritm75={
     type: 'survey-textha',
-    questions:['<p>23 - 18 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>23 - 18 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1311,8 +1303,8 @@ var aritm75={
 
 var aritm76={
     type: 'survey-textha',
-    questions:['<p>73 - 48 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>73 - 48 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1326,8 +1318,8 @@ var aritm76={
 
 var aritm77={
     type: 'survey-textha',
-    questions:['<p>54 - 37 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>54 - 37 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1341,8 +1333,8 @@ var aritm77={
 
 var aritm78={
     type: 'survey-textha',
-    questions:['<p>87 - 43 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>87 - 43 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1356,8 +1348,8 @@ var aritm78={
 
 var aritm79={
     type: 'survey-textha',
-    questions:['<p>67 - 49 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>67 - 49 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1371,8 +1363,8 @@ var aritm79={
 
 var aritm80={
     type: 'survey-textha',
-    questions:['<p>43 - 27 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>43 - 27 = </p>'}],
+    trial_duration: function() {
       return time_left2;
     },
     on_finish: function(data) {
@@ -1390,8 +1382,8 @@ var aritm80={
 
 var aritm81={
     type: 'survey-textha',
-    questions:['<p>1 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>1 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1405,8 +1397,8 @@ var aritm81={
 
 var aritm82={
     type: 'survey-textha',
-    questions:['<p>2 x 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 x 2 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1420,8 +1412,8 @@ var aritm82={
 
 var aritm83={
     type: 'survey-textha',
-    questions:['<p>1 x 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>1 x 7 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1435,8 +1427,8 @@ var aritm83={
 
 var aritm84={
     type: 'survey-textha',
-    questions:['<p>0 x 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>0 x 5 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1450,8 +1442,8 @@ var aritm84={
 
 var aritm85={
     type: 'survey-textha',
-    questions:['<p>8 x 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 x 1 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1465,8 +1457,8 @@ var aritm85={
 
 var aritm86={
     type: 'survey-textha',
-    questions:['<p>3 x 10 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 x 10 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1480,8 +1472,8 @@ var aritm86={
 
 var aritm87={
     type: 'survey-textha',
-    questions:['<p>2 x 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 x 9 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1495,8 +1487,8 @@ var aritm87={
 
 var aritm88={
     type: 'survey-textha',
-    questions:['<p>4 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1510,8 +1502,8 @@ var aritm88={
 
 var aritm89={
     type: 'survey-textha',
-    questions:['<p>5 x 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 x 8 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1525,8 +1517,8 @@ var aritm89={
 
 var aritm90={
     type: 'survey-textha',
-    questions:['<p>6 x 0 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 x 0 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1540,8 +1532,8 @@ var aritm90={
 
 var aritm91={
     type: 'survey-textha',
-    questions:['<p>10 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>10 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1555,8 +1547,8 @@ var aritm91={
 
 var aritm92={
     type: 'survey-textha',
-    questions:['<p>3 x 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 x 3 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1570,8 +1562,8 @@ var aritm92={
 
 var aritm93={
     type: 'survey-textha',
-    questions:['<p>6 x 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 x 3 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1585,8 +1577,8 @@ var aritm93={
 
 var aritm94={
     type: 'survey-textha',
-    questions:['<p>7 x 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 x 3 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1600,8 +1592,8 @@ var aritm94={
 
 var aritm95={
     type: 'survey-textha',
-    questions:['<p>2 x 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 x 8 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1615,8 +1607,8 @@ var aritm95={
 
 var aritm96={
     type: 'survey-textha',
-    questions:['<p>6 x 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 x 6 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1630,8 +1622,8 @@ var aritm96={
 
 var aritm97={
     type: 'survey-textha',
-    questions:['<p>4 x 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 5 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1645,8 +1637,8 @@ var aritm97={
 
 var aritm98={
     type: 'survey-textha',
-    questions:['<p>8 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1660,8 +1652,8 @@ var aritm98={
 
 var aritm99={
     type: 'survey-textha',
-    questions:['<p>5 x 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 x 9 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1675,8 +1667,8 @@ var aritm99={
 
 var aritm100={
     type: 'survey-textha',
-    questions:['<p>7 x 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 x 6 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1690,8 +1682,8 @@ var aritm100={
 
 var aritm101={
     type: 'survey-textha',
-    questions:['<p>8 x 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 x 9 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1705,8 +1697,8 @@ var aritm101={
 
 var aritm102={
     type: 'survey-textha',
-    questions:['<p>4 x 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 7 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1720,8 +1712,8 @@ var aritm102={
 
 var aritm103={
     type: 'survey-textha',
-    questions:['<p>8 x 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 x 8 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1735,8 +1727,8 @@ var aritm103={
 
 var aritm104={
     type: 'survey-textha',
-    questions:['<p>7 x 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 x 8 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1750,8 +1742,8 @@ var aritm104={
 
 var aritm105={
     type: 'survey-textha',
-    questions:['<p>6 x 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 x 5 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1765,8 +1757,8 @@ var aritm105={
 
 var aritm106={
     type: 'survey-textha',
-    questions:['<p>12 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>12 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1780,8 +1772,8 @@ var aritm106={
 
 var aritm107={
     type: 'survey-textha',
-    questions:['<p>13 x 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>13 x 3 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1795,8 +1787,8 @@ var aritm107={
 
 var aritm108={
     type: 'survey-textha',
-    questions:['<p>7 x 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 x 7 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1810,8 +1802,8 @@ var aritm108={
 
 var aritm109={
     type: 'survey-textha',
-    questions:['<p>2 x 14 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 x 14 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1825,8 +1817,8 @@ var aritm109={
 
 var aritm110={
     type: 'survey-textha',
-    questions:['<p>4 x 16 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 16 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1840,8 +1832,8 @@ var aritm110={
 
 var aritm111={
     type: 'survey-textha',
-    questions:['<p>11 x 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>11 x 6 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1855,8 +1847,8 @@ var aritm111={
 
 var aritm112={
     type: 'survey-textha',
-    questions:['<p>7 x 12 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 x 12 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1870,8 +1862,8 @@ var aritm112={
 
 var aritm113={
     type: 'survey-textha',
-    questions:['<p>23 x 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>23 x 3 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1885,8 +1877,8 @@ var aritm113={
 
 var aritm114={
     type: 'survey-textha',
-    questions:['<p>9 x 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>9 x 9 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1900,8 +1892,8 @@ var aritm114={
 
 var aritm115={
     type: 'survey-textha',
-    questions:['<p>17 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>17 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1915,8 +1907,8 @@ var aritm115={
 
 var aritm116={
     type: 'survey-textha',
-    questions:['<p>4 x 23 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 23 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1930,8 +1922,8 @@ var aritm116={
 
 var aritm117={
     type: 'survey-textha',
-    questions:['<p>16 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>16 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1945,8 +1937,8 @@ var aritm117={
 
 var aritm118={
     type: 'survey-textha',
-    questions:['<p>2 x 36 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 x 36 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1960,8 +1952,8 @@ var aritm118={
 
 var aritm119={
     type: 'survey-textha',
-    questions:['<p>28 x 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>28 x 3 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1975,8 +1967,8 @@ var aritm119={
 
 var aritm120={
     type: 'survey-textha',
-    questions:['<p>5 x 17 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 x 17 = </p>'}],
+    trial_duration: function() {
       return time_left3;
     },
     on_finish: function(data) {
@@ -1994,8 +1986,8 @@ var aritm120={
 
 var aritm121={
     type: 'survey-textha',
-    questions:['<p>4 : 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 : 2 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2009,8 +2001,8 @@ var aritm121={
 
 var aritm122={
     type: 'survey-textha',
-    questions:['<p>5 : 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 : 1 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2024,8 +2016,8 @@ var aritm122={
 
 var aritm123={
     type: 'survey-textha',
-    questions:['<p>12 : 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>12 : 2 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2039,8 +2031,8 @@ var aritm123={
 
 var aritm124={
     type: 'survey-textha',
-    questions:['<p>15 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>15 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2054,8 +2046,8 @@ var aritm124={
 
 var aritm125={
     type: 'survey-textha',
-    questions:['<p>10 : 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>10 : 5 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2069,8 +2061,8 @@ var aritm125={
 
 var aritm126={
     type: 'survey-textha',
-    questions:['<p>6 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2084,8 +2076,8 @@ var aritm126={
 
 var aritm127={
     type: 'survey-textha',
-    questions:['<p>20 : 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>20 : 2 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2099,8 +2091,8 @@ var aritm127={
 
 var aritm128={
     type: 'survey-textha',
-    questions:['<p>24 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>24 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2114,8 +2106,8 @@ var aritm128={
 
 var aritm129={
     type: 'survey-textha',
-    questions:['<p>36 : 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>36 : 6 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2129,8 +2121,8 @@ var aritm129={
 
 var aritm130={
     type: 'survey-textha',
-    questions:['<p>9 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>9 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2144,8 +2136,8 @@ var aritm130={
 
 var aritm131={
     type: 'survey-textha',
-    questions:['<p>24 : 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>24 : 6 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2159,8 +2151,8 @@ var aritm131={
 
 var aritm132={
     type: 'survey-textha',
-    questions:['<p>18 : 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>18 : 2 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2174,8 +2166,8 @@ var aritm132={
 
 var aritm133={
     type: 'survey-textha',
-    questions:['<p>35 : 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>35 : 5 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2189,8 +2181,8 @@ var aritm133={
 
 var aritm134={
     type: 'survey-textha',
-    questions:['<p>27 : 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>27 : 9 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2204,8 +2196,8 @@ var aritm134={
 
 var aritm135={
     type: 'survey-textha',
-    questions:['<p>16 : 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>16 : 4 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2219,8 +2211,8 @@ var aritm135={
 
 var aritm136={
     type: 'survey-textha',
-    questions:['<p>49 : 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>49 : 7 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2234,8 +2226,8 @@ var aritm136={
 
 var aritm137={
     type: 'survey-textha',
-    questions:['<p>27 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>27 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2249,8 +2241,8 @@ var aritm137={
 
 var aritm138={
     type: 'survey-textha',
-    questions:['<p>35 : 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>35 : 5 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2264,8 +2256,8 @@ var aritm138={
 
 var aritm139={
     type: 'survey-textha',
-    questions:['<p>63 : 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>63 : 9 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2279,8 +2271,8 @@ var aritm139={
 
 var aritm140={
     type: 'survey-textha',
-    questions:['<p>64 : 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>64 : 8 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2294,8 +2286,8 @@ var aritm140={
 
 var aritm141={
     type: 'survey-textha',
-    questions:['<p>45 : 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>45 : 5 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2309,8 +2301,8 @@ var aritm141={
 
 var aritm142={
     type: 'survey-textha',
-    questions:['<p>24 : 8 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>24 : 8 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2324,8 +2316,8 @@ var aritm142={
 
 var aritm143={
     type: 'survey-textha',
-    questions:['<p>28 : 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>28 : 4 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2339,8 +2331,8 @@ var aritm143={
 
 var aritm144={
     type: 'survey-textha',
-    questions:['<p>81 : 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>81 : 9 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2354,8 +2346,8 @@ var aritm144={
 
 var aritm145={
     type: 'survey-textha',
-    questions:['<p>18 : 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>18 : 6 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2369,8 +2361,8 @@ var aritm145={
 
 var aritm146={
     type: 'survey-textha',
-    questions:['<p>24 : 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>24 : 2 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2384,8 +2376,8 @@ var aritm146={
 
 var aritm147={
     type: 'survey-textha',
-    questions:['<p>44 : 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>44 : 4 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2399,8 +2391,8 @@ var aritm147={
 
 var aritm148={
     type: 'survey-textha',
-    questions:['<p>39 : 13 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>39 : 13 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2414,8 +2406,8 @@ var aritm148={
 
 var aritm149={
     type: 'survey-textha',
-    questions:['<p>60 : 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>60 : 5 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2429,8 +2421,8 @@ var aritm149={
 
 var aritm150={
     type: 'survey-textha',
-    questions:['<p>36 : 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>36 : 2 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2444,8 +2436,8 @@ var aritm150={
 
 var aritm151={
     type: 'survey-textha',
-    questions:['<p>48 : 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>48 : 4 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2459,8 +2451,8 @@ var aritm151={
 
 var aritm152={
     type: 'survey-textha',
-    questions:['<p>60 : 15 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>60 : 15 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2474,8 +2466,8 @@ var aritm152={
 
 var aritm153={
     type: 'survey-textha',
-    questions:['<p>56 : 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>56 : 4 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2489,8 +2481,8 @@ var aritm153={
 
 var aritm154={
     type: 'survey-textha',
-    questions:['<p>80 : 20 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>80 : 20 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2504,8 +2496,8 @@ var aritm154={
 
 var aritm155={
     type: 'survey-textha',
-    questions:['<p>72 : 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>72 : 6 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2519,8 +2511,8 @@ var aritm155={
 
 var aritm156={
     type: 'survey-textha',
-    questions:['<p>48 : 12 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>48 : 12 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2534,8 +2526,8 @@ var aritm156={
 
 var aritm157={
     type: 'survey-textha',
-    questions:['<p>75 : 25 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>75 : 25 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2549,8 +2541,8 @@ var aritm157={
 
 var aritm158={
     type: 'survey-textha',
-    questions:['<p>52 : 13 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>52 : 13 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2564,8 +2556,8 @@ var aritm158={
 
 var aritm159={
     type: 'survey-textha',
-    questions:['<p>90 : 30 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>90 : 30 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2579,8 +2571,8 @@ var aritm159={
 
 var aritm160={
     type: 'survey-textha',
-    questions:['<p>45 : 15 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>45 : 15 = </p>'}],
+    trial_duration: function() {
       return time_left4;
     },
     on_finish: function(data) {
@@ -2598,8 +2590,8 @@ var aritm160={
 
 var aritm161={
     type: 'survey-textha',
-    questions:['<p>2 + 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 + 1 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2613,8 +2605,8 @@ var aritm161={
 
 var aritm162={
     type: 'survey-textha',
-    questions:['<p>2 - 1 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 - 1 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2628,8 +2620,8 @@ var aritm162={
 
 var aritm163={
     type: 'survey-textha',
-    questions:['<p>2 x 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>2 x 5 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2643,8 +2635,8 @@ var aritm163={
 
 var aritm164={
     type: 'survey-textha',
-    questions:['<p>4 : 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 : 2 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2658,8 +2650,8 @@ var aritm164={
 
 var aritm165={
     type: 'survey-textha',
-    questions:['<p>3 + 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 + 2 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2673,8 +2665,8 @@ var aritm165={
 
 var aritm166={
     type: 'survey-textha',
-    questions:['<p>8 - 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 - 4 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2688,8 +2680,8 @@ var aritm166={
 
 var aritm167={
     type: 'survey-textha',
-    questions:['<p>9 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>9 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2703,8 +2695,8 @@ var aritm167={
 
 var aritm168={
     type: 'survey-textha',
-    questions:['<p>4 x 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 5 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2718,10 +2710,11 @@ var aritm168={
 
 var aritm169={
     type: 'survey-textha',
-    questions:['<p>7 + 2 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 + 2 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
+
     on_finish: function(data) {
       time_left5 = time_left5 - data.rt;
       if (time_left5 <= 0) {
@@ -2733,8 +2726,8 @@ var aritm169={
 
 var aritm170={
     type: 'survey-textha',
-    questions:['<p>9 - 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>9 - 5 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2748,8 +2741,8 @@ var aritm170={
 
 var aritm171={
     type: 'survey-textha',
-    questions:['<p>15 : 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>15 : 5 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2763,8 +2756,8 @@ var aritm171={
 
 var aritm172={
     type: 'survey-textha',
-    questions:['<p>3 x 9 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 x 9 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2778,8 +2771,8 @@ var aritm172={
 
 var aritm173={
     type: 'survey-textha',
-    questions:['<p>10 - 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>10 - 3 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2793,8 +2786,8 @@ var aritm173={
 
 var aritm174={
     type: 'survey-textha',
-    questions:['<p>5 + 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 + 4 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2808,8 +2801,8 @@ var aritm174={
 
 var aritm175={
     type: 'survey-textha',
-    questions:['<p>5 x 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 x 5 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2823,8 +2816,8 @@ var aritm175={
 
 var aritm176={
     type: 'survey-textha',
-    questions:['<p>8 + 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 + 5 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2838,8 +2831,8 @@ var aritm176={
 
 var aritm177={
     type: 'survey-textha',
-    questions:['<p>24 : 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>24 : 4 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2853,8 +2846,8 @@ var aritm177={
 
 var aritm178={
     type: 'survey-textha',
-    questions:['<p>13 - 5 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>13 - 5 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2868,8 +2861,8 @@ var aritm178={
 
 var aritm179={
     type: 'survey-textha',
-    questions:['<p>7 x 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>7 x 4 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2883,8 +2876,8 @@ var aritm179={
 
 var aritm180={
     type: 'survey-textha',
-    questions:['<p>9 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>9 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2898,8 +2891,8 @@ var aritm180={
 
 var aritm181={
     type: 'survey-textha',
-    questions:['<p>17 - 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>17 - 6 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2913,8 +2906,8 @@ var aritm181={
 
 var aritm182={
     type: 'survey-textha',
-    questions:['<p>8 x 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>8 x 6 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2928,8 +2921,8 @@ var aritm182={
 
 var aritm183={
     type: 'survey-textha',
-    questions:['<p>6 + 13 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 + 13 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2943,8 +2936,8 @@ var aritm183={
 
 var aritm184={
     type: 'survey-textha',
-    questions:['<p>18 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>18 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2958,8 +2951,8 @@ var aritm184={
 
 var aritm185={
     type: 'survey-textha',
-    questions:['<p>19 - 4 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>19 - 4 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2973,8 +2966,8 @@ var aritm185={
 
 var aritm186={
     type: 'survey-textha',
-    questions:['<p>24 - 6 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>24 - 6 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -2988,8 +2981,8 @@ var aritm186={
 
 var aritm187={
     type: 'survey-textha',
-    questions:['<p>15 + 7 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>15 + 7 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3003,8 +2996,8 @@ var aritm187={
 
 var aritm188={
     type: 'survey-textha',
-    questions:['<p>4 x 13 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 13 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3018,8 +3011,8 @@ var aritm188={
 
 var aritm189={
     type: 'survey-textha',
-    questions:['<p>33 : 11 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>33 : 11 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3033,8 +3026,8 @@ var aritm189={
 
 var aritm190={
     type: 'survey-textha',
-    questions:['<p>3 + 19 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>3 + 19 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3048,8 +3041,8 @@ var aritm190={
 
 var aritm191={
     type: 'survey-textha',
-    questions:['<p>36 : 3 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>36 : 3 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3063,8 +3056,8 @@ var aritm191={
 
 var aritm192={
     type: 'survey-textha',
-    questions:['<p>6 x 14 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>6 x 14 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3078,8 +3071,8 @@ var aritm192={
 
 var aritm193={
     type: 'survey-textha',
-    questions:['<p>43 - 16 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>43 - 16 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3093,8 +3086,8 @@ var aritm193={
 
 var aritm194={
     type: 'survey-textha',
-    questions:['<p>4 x 16 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>4 x 16 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3108,8 +3101,8 @@ var aritm194={
 
 var aritm195={
     type: 'survey-textha',
-    questions:['<p>37 + 28 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>37 + 28 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3123,8 +3116,8 @@ var aritm195={
 
 var aritm196={
     type: 'survey-textha',
-    questions:['<p>37 - 29 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>37 - 29 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3138,8 +3131,8 @@ var aritm196={
 
 var aritm197={
     type: 'survey-textha',
-    questions:['<p>42 : 14 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>42 : 14 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3153,8 +3146,8 @@ var aritm197={
 
 var aritm198={
     type: 'survey-textha',
-    questions:['<p>5 x 12 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>5 x 12 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3168,8 +3161,8 @@ var aritm198={
 
 var aritm199={
     type: 'survey-textha',
-    questions:['<p>67 + 24 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>67 + 24 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -3183,8 +3176,8 @@ var aritm199={
 
 var aritm200={
     type: 'survey-textha',
-    questions:['<p>64 : 32 = </p>'],
-    timing_response: function() {
+    questions:[{prompt:'<p>64 : 32 = </p>'}],
+    trial_duration: function() {
       return time_left5;
     },
     on_finish: function(data) {
@@ -5396,15 +5389,14 @@ var ha_condicional199 = {
 /**************   FIN Condiciones HA   *********/
 
 function advance(event){
-    $("textarea").keydown(function(event){
-        console.log(event.keyCode);
+    document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event){
         if (event.keyCode == 13) {
             console.log("User pressed enter. Clicking continue button");
-            var btn = document.getElementById("jspsych-survey-textha-next");
+            var btn = document.getElementById("jspsych-survey-text-next");
             btn.click();
             //event.preventDefault();
         }
-    });
+    };
 }
 
 // Creacion de timeline e inclusion de trials
