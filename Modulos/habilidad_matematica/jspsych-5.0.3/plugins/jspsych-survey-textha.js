@@ -8,7 +8,8 @@
  *
  */
 
-var focused_box
+var focused_box;
+var setTimeoutHandlers = [];
 jsPsych.plugins['survey-textha'] = (function() {
 
   var plugin = {};
@@ -28,19 +29,19 @@ jsPsych.plugins['survey-textha'] = (function() {
         trial.columns.push(40);
       }
     }
-    
+
     trial.timing_response = trial.timing_response || -1;
-    var setTimeoutHandlers = [];
+
 
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
-    
+
     //***************************************************************modificacion*********************************************************
     display_element.append($('<br /><p><br />'));
     //***************************************************************modificacion*********************************************************
-    
+
     // show preamble text
     display_element.append($('<div>', {
       "id": 'jspsych-survey-textha-preamble',
@@ -65,7 +66,7 @@ jsPsych.plugins['survey-textha'] = (function() {
       focused_box = $("#jspsych-survey-textha-" + i).append('<textarea id="id'+ i +'" autofocus onfocus="advance(event)" required name="#jspsych-survey-textha-response-' + i + '" cols="' + trial.columns[i] + '" rows="' + trial.rows[i] + '"></textarea>');
       $("#jspsych-survey-textha-" + i +" textarea").focus();
     }
-    
+
     //***************************************************************modificacion*********************************************************
     display_element.append($('<p>'));
     //***************************************************************modificacion*********************************************************
@@ -78,7 +79,7 @@ jsPsych.plugins['survey-textha'] = (function() {
           event.cancelBubble = true;
         }
     }
-    
+
     display_element.append($('<button>', {
       'id': 'jspsych-survey-textha-next',
       'class': 'jspsych-btn jspsych-survey-textha',
@@ -88,8 +89,8 @@ jsPsych.plugins['survey-textha'] = (function() {
     $("#jspsych-survey-textha-next").html('Guardar Respuestas');
     //***************************************************************modificacion*********************************************************
     display_element.append($('<br /><p><br />'));
-    //***************************************************************modificacion*********************************************************   
-    
+    //***************************************************************modificacion*********************************************************
+
     $("#jspsych-survey-textha-next").click(function() {
       var validation;
         // measure response time
@@ -98,7 +99,7 @@ jsPsych.plugins['survey-textha'] = (function() {
 
       // create object to hold responses
       var question_data = {};
-      
+
       var obje;
       $("div.jspsych-survey-textha-question").each(function(index) {
         var id = "Q" + index;
@@ -108,19 +109,19 @@ jsPsych.plugins['survey-textha'] = (function() {
         obje[id] = val;
         console.log('obje is:   '+val);
         $.extend(question_data, obje);
-        
+
         validation = val;
-        
+
       });
       var trialdata = {
         "rt": response_time,
         "responses": JSON.stringify(question_data)
       };
-      
+
       $.isNumeric();
       if ($.isNumeric(validation) === true) {
             console.log("bien",validation);
-            display_element.html('');  
+            display_element.html('');
             jsPsych.finishTrial(trialdata);
         }else{
             sweetAlert({title: "Por favor ingresa un n\&uacute;mero v\&aacute;lido", html: true});
@@ -130,28 +131,27 @@ jsPsych.plugins['survey-textha'] = (function() {
             event.stopPropagation();
             } else{
               event.cancelBubble = true;
-            } 
+            }
         }
-      
+
       /*
       display_element.html('');
 
       //console.log(question_data);
       // next trial
-      jsPsych.finishTrial(trialdata);  */   
+      jsPsych.finishTrial(trialdata);  */
     });
     var end_trial = function() {
     var endTime = (new Date()).getTime();
     var response_time = endTime - startTime;
 
     // kill any remaining setTimeout handlers
-    /*
+
     for (var i = 0; i < setTimeoutHandlers.length; i++) {
       clearTimeout(setTimeoutHandlers[i]);
     }
-    */
-    clearTimeout(setTimeoutHandlers[0]);
-    
+
+
     // kill keyboard listeners
     if (typeof keyboardListener !== 'undefined') {
       jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
@@ -166,14 +166,14 @@ jsPsych.plugins['survey-textha'] = (function() {
 
     // clear the display
     display_element.html('');
-    
+
     // move on to the next trial
     //jsPsych.endCurrentTimeline();
     jsPsych.finishTrial(trial_data);
 };
 
     var startTime = (new Date()).getTime();
-    
+
     if (trial.tiiming_response < 0){ end_trial();}
     if (trial.timing_response > 0) {
       var t2 = setTimeout(function() {
