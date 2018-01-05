@@ -3,7 +3,7 @@
     <head>
         <title>Experimento Numeracy</title>
         <!-- INICIO llamadas de JS, JQuery y CSS -->
-        
+
         <!--
         Notas:
         * Este template asume que el archivo HTML a ejecutar, se encuentra en el mismo directorio que las
@@ -20,34 +20,34 @@
         modificados. En caso contrario, los experimentos pueden no comportarse de la forma esperada, o
         bien, simplemente no funcionar.
         -->
-        
+
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Libreria principal JsPsych -->
-        <script src="jspsych-5.0.3/jspsych.js"></script>
-        
+        <script src="jsPsych-6/jspsych.js"></script>
+
         <!-- Plugin para recibir texto estilo survey -->
-        <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
-        <script src="jspsych-5.0.3/plugins/jspsych-survey-textnum2.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textnum2.js"></script>
         <!-- Plugin custom numeracy -->
-        <script src="jspsych-5.0.3/plugins/jspsych-survey-textnum1.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textnum1.js"></script>
         <!-- Plugin para desplegar elementos tipo instrucciones -->
-        <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
         <!-- Plugin custom multi choice 2 -->
-        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice2.js"></script>
-        
+        <script src="jsPsych-6/plugins/jspsych-survey-multi-choice2.js"></script>
+
         <!-- Documento CSS principal -->
         <link rel="stylesheet" type="text/css" href="style.css">
-        
+
         <!-- Libreria para alertas customizadas + CSS respectivo -->
         <script src="dist/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-        
+
         <!-- FIN llamadas de JS, JQuery y CSS -->
     </head>
     <body>
         <script>
-            
+
             // Funciones de apoyo
             function block_fkeys(event){
                 var x = event.which || event.keyCode;
@@ -59,7 +59,7 @@
                     return;
                 }
             }
-            
+
             function block_enter(event){
                 var x = event.which || event.keyCode;
                 if(x == 13){
@@ -70,7 +70,7 @@
                     return;
                 }
             }
-                
+
             // Inicio prueba
             var numeracyexplanation={
                 type: "instructions",
@@ -85,58 +85,67 @@
                 timing_post_trial: 50,
                 data:{trialid: "Instructions_Numeracy"}
             };
-            
+
             var numeracy1 = {
                 type: "survey-text",
                 timeline: [
-                    {questions: ["<p class='limitnumeracy'>1. Imagina que tiramos un dado no cargado (de seis caras) 1000 veces.<br /> De esas 1000 veces, &iquest;cu&aacute;ntas veces crees que saldr&aacute; un numero par <br />(un 2, un 4 o un 6)?</p>"], data:{trialid: "LIP_01"}},
-                    {questions: ["<p class='limitnumeracy'>2. Las probabilidades de ganar un premio de 10 d&oacute;lares en la loter&iacute;a de JUEGA-GANA es del 1%. &iquest;Cu&aacute;nta gente crees que ganar&iacute;a el premio de 10 d&oacute;lares si 1000 personas <br /> compran un boleto de la loter&iacute;a JUEGA-GANA?</p>"], data:{trialid: "LIP_02"}}//,
+                    {questions: [{prompt:"<p class='limitnumeracy'>1. Imagina que tiramos un dado no cargado (de seis caras) 1000 veces.<br /> De esas 1000 veces, &iquest;cu&aacute;ntas veces crees que saldr&aacute; un numero par <br />(un 2, un 4 o un 6)?</p>"}],
+                    data:{trialid: "LIP_01"}},
+                    {questions: [{prompt:"<p class='limitnumeracy'>2. Las probabilidades de ganar un premio de 10 d&oacute;lares en la loter&iacute;a de JUEGA-GANA es del 1%. &iquest;Cu&aacute;nta gente crees que ganar&iacute;a el premio de 10 d&oacute;lares si 1000 personas <br /> compran un boleto de la loter&iacute;a JUEGA-GANA?</p>"}],
+                    data:{trialid: "LIP_02"}}//,
                     //{questions: ["<p class='limitnumeracy'>3. La probabilidad de ganar un auto en el RIVERA EDICIONES es de 1 de cada 1000.<br /> &iquest;Que porcentaje de boletos de RIVERA EDICIONES ganan un auto?</p>"], data:{trialid: "LIP_03"}}
                 ]
             };
-            
+
             // Porcentual
             var numeracy1_a = {
                 type: "survey-textnum2",
-                questions: ["<p class='limitnumeracy'>3. La probabilidad de ganar un auto en el RIVERA EDICIONES es de 1 de cada 1000.<br /> &iquest;Que porcentaje de boletos de RIVERA EDICIONES ganan un auto?</p>"], data:{trialid: "LIP_03"}               
+                questions: [{prompt:"<p class='limitnumeracy'>3. La probabilidad de ganar un auto en el RIVERA EDICIONES es de 1 de cada 1000.<br /> &iquest;Que porcentaje de boletos de RIVERA EDICIONES ganan un auto?</p>"}],
+                data:{trialid: "LIP_03"}
             };
-            
+
             var numeracy2 = {
                 type: "survey-multi-choice2",
                 timeline: [
-                           {questions: ["4. &iquest;Cu&aacute;l de los siguientes numeros representa el mayor riesgo de padecer una enfermedad?"], options: [["a) 1 de cada 100","b) 1 de cada 1000","c) 1 de cada 10"]]},                                          
-                           {questions: ["5. &iquest;Cu&aacute;l de los siguientes representa el mayor riesgo de padecer una enfermedad?"], options: [["a) 1%","b) 10%","c) 5%"]]}
+                           {questions: [{prompt:"4. &iquest;Cu&aacute;l de los siguientes numeros representa el mayor riesgo de padecer una enfermedad?",
+                           options: ["a) 1 de cada 100","b) 1 de cada 1000","c) 1 de cada 10"]}]},
+                           {questions: [{prompt:"5. &iquest;Cu&aacute;l de los siguientes representa el mayor riesgo de padecer una enfermedad?",
+                           options: ["a) 1%","b) 10%","c) 5%"]}]}
                            ],
                 required: true
             };
-            
+
             // Porcentual
             var numeracy3 = {
                 type: "survey-textnum2",
-                questions: ["<p class='limitnumeracy'>6. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1% y el riesgo para otra persona (B) es el doble, &iquest;cu&aacute;l es<br /> el riesgo para la persona B?</p>"], data:{trialid: "LIP_06"}              
+                questions: [{prompt:"<p class='limitnumeracy'>6. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1% y el riesgo para otra persona (B) es el doble, &iquest;cu&aacute;l es<br /> el riesgo para la persona B?</p>"}],
+                 data:{trialid: "LIP_06"}
             };
-            
+
             var numeracy3_a = {
                 type: "survey-text",
                 timeline: [
                     //normal
                     //{questions: ["<p class='limitnumeracy'>6. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1% y el riesgo para otra persona (B) es el doble, &iquest;cu&aacute;l es<br /> el riesgo para la persona B?</p>"], data:{trialid: "LIP_06"}},
-                    {questions: ["<p class='limitnumeracy'>7. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1 de cada 100 y el riesgo para otra persona (B) es el doble,<br /> &iquest;cu&aacute;l es el riesgo para la persona B?</p>"], data:{trialid: "LIP_07"}},
-                    {questions: ["<p class='limitnumeracy'>8. Si el riesgo de padecer una enfermedad es del 10%, de cada 100 personas,<br /> &iquest;cu&aacute;nta gente se puede esperar que enferme?</p>"], data:{trialid: "LIP_08"}},
-                    {questions: ["<p class='limitnumeracy'>9. Si el riesgo de padecer una enfermedad es del 10%, de cada 1000 personas,<br /> &iquest;cu&aacute;nta gente se puede esperar que enferme?</p>"], data:{trialid: "LIP_09"}}
+                    {questions: [{prompt:"<p class='limitnumeracy'>7. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1 de cada 100 y el riesgo para otra persona (B) es el doble,<br /> &iquest;cu&aacute;l es el riesgo para la persona B?</p>"}],
+                    data:{trialid: "LIP_07"}},
+                    {questions: [{prompt:"<p class='limitnumeracy'>8. Si el riesgo de padecer una enfermedad es del 10%, de cada 100 personas,<br /> &iquest;cu&aacute;nta gente se puede esperar que enferme?</p>"}],
+                    data:{trialid: "LIP_08"}},
+                    {questions: [{prompt:"<p class='limitnumeracy'>9. Si el riesgo de padecer una enfermedad es del 10%, de cada 1000 personas,<br /> &iquest;cu&aacute;nta gente se puede esperar que enferme?</p>"}],
+                    data:{trialid: "LIP_09"}}
                 ]
             };
-            
+
             var numeracy4 = {
                 type: "survey-textnum1",
-                questions: ["<p class='limitnumeracy'>10. Si el riesgo de padecer una enfermedad es de 20 de cada 100, esto ser&iacute;a lo <br />mismo que tener una probabilidad del</p>"]
+                questions: [{prompt:"<p class='limitnumeracy'>10. Si el riesgo de padecer una enfermedad es de 20 de cada 100, esto ser&iacute;a lo <br />mismo que tener una probabilidad del</p>"}]
             };
-            
+
             var numeracy5 = {
                 type: "survey-text",
-                questions: ["<p class='limitnumeracy'>11. La probabilidad de contagiarse con un virus infeccioso es de 0,0005.<br /> De cada 10000 personas, &iquest;cu&aacute;ntas de ellas crees que se contagiar&aacute;n con <br />este virus?</p>"], data:{trialid: "LIP_11"}
+                questions: [{prompt:"<p class='limitnumeracy'>11. La probabilidad de contagiarse con un virus infeccioso es de 0,0005.<br /> De cada 10000 personas, &iquest;cu&aacute;ntas de ellas crees que se contagiar&aacute;n con <br />este virus?</p>"}], data:{trialid: "LIP_11"}
             };
-            
+
             // Creacion de timeline e inclusion de trials
             experimento_numeracy = [];
             experimento_numeracy.push(numeracyexplanation);
@@ -147,21 +156,21 @@
             experimento_numeracy.push(numeracy3_a);
             experimento_numeracy.push(numeracy4);
             experimento_numeracy.push(numeracy5);
-            
+
             // Inicializacion
             jsPsych.init({
                 timeline: experimento_numeracy,
                 fullscreen: true,
                 on_trial_start: function(){
                     document.onkeypress = block_fkeys;
-                    document.onkeypress = block_enter; 
+                    document.onkeypress = block_enter;
                 },
                 on_finish: function(){
-                jsPsych.data.localSave('modulo_numeracy.csv', 'csv');
+                jsPsych.data.get().localSave( 'csv', 'modulo_numeracy.csv');
                 },
                 default_iti: 0
             });
-            
+
         </script>
     </body>
 </html>
