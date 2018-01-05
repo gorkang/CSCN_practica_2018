@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class=''>
+  <head>
+      <meta charset='UTF-8'>
+      <meta name="robots" content="noindex">
+      <title>Comprension Lectora</title>
+  </head>
+
+  <body>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Libreria principal JsPsych -->
+    <script src="jspsych-5.0.3/jspsych.js"></script>
+
+    <!-- Plugin para recibir texto estilo survey multi choice -->
+    <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice.js"></script>
+    <!-- Plugin para desplegar elementos tipo instrucciones -->
+    <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+
+    <!-- Documento CSS principal -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src='experiment.js'></script>
+
+    <script>
+    $( document ).ready(function() {
+
+        jsPsych.init({
+                 timeline: comprension_lectora_experiment,
+                 display_element: "getDisplayElement",
+                 fullscreen: true,
+
+                 on_finish: function(data){
+
+                     // Serialize the data
+                     var promise = new Promise(function(resolve, reject) {
+                         var data = jsPsych.data.dataAsJSON();
+                         resolve(data);
+                     })
+
+                     promise.then(function(data) {
+
+
+                         $.ajax({
+                             type: "POST",
+                             url: '/save',
+                             data: { "data": data },
+                             success: function(){ document.location = "/next" },
+                             dataType: "application/json",
+
+                             // Endpoint not running, local save
+                             error: function(err) {
+
+                                 if (err.status == 200){
+                                     document.location = "/next";
+                                 } else {
+                                     // If error, assue local save
+                                     jsPsych.data.localSave('comprension_lectora_results.csv', 'csv');
+                                 }
+                             }
+                         });
+                     })
+                 }
+
+          });
+    });
+    </script>
+  </body>
+</html>
