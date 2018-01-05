@@ -1,0 +1,652 @@
+/*************************************************************************************/
+/**********************************Tags nativos**************************************/
+ul{
+    list-style: none;
+}
+
+input[type="radio"] {
+    margin-left:10px;
+    display: inline-block !important;
+} 
+
+body{
+    /*background: url(img/bg.png);*/
+    background: white;
+    max-width: 1200px !important;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-top: 50px;
+    font-family: sans-serif;
+    font-size: 18px !important;
+}
+
+textarea{
+    width: 200px !important;
+    height: 25px !important;
+    font-size: 20px !important;
+    margin-left: 20%;
+}
+button{
+    margin-left: 20%;
+    margin-bottom: 20px;
+}
+
+/*
+p{
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+}
+*/
+p{
+    text-align: justify;
+    -moz-text-align-last: left;
+    text-align-last: left;
+    margin-left: 20%;
+}
+
+/*************************************************************************************/
+/**********************************CSS Propio**************************************/
+
+.likertbutton{
+    visibility: hidden;
+}
+
+.underlined{
+    text-decoration: underline;
+}
+
+.titulo{
+    font-size: 22px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-left: 0px;
+}
+.titulobayes{
+    font-size: 22px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-left: 20%;
+}
+.button{
+    left: 20px;
+    width: 150px;
+    margin-top: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-left: 0px;
+}
+.centered{
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+.justified{
+    margin: 0 auto;
+    text-align: justify !important;
+}
+.leftaligned{
+    margin: 0 auto;
+    text-align: left;
+}
+.centercontainer{
+    width: 100%;
+    min-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.cl_text{
+    margin: 0 auto;
+    text-align: justify;
+    max-width: 760px;
+}
+.crt_text{
+    margin: 0 auto;
+    text-align: left; 
+    margin-left: 20%;
+}
+
+.crux{
+    width: 100%;
+    margin: 0 auto;
+    min-height: 200px;
+    margin-top: 100px;
+    text-align: center;
+}
+.crux img{
+    vertical-align: middle;
+}
+
+.centerlectura{
+    width: 1000px;
+}
+
+.listabayes{
+    width: 830px;
+    text-align: justify;
+    -moz-text-align-last: left;
+    text-align-last: left;
+    margin-left: 17%;
+}
+.listabayes ul{
+    text-align: left;
+}
+.listabayes li{
+    margin: 0px 0px 10px 0px;
+}
+
+.listabayes1{
+    width: 830px;
+    text-align: justify;
+    -moz-text-align-last: left;
+    text-align-last: left;
+    margin-left: 10%;
+}
+
+.listagraph{
+    text-align: left;
+    margin-left: 450px;
+}
+
+.listanumeracy{
+    margin-left: 20%;
+}
+
+.limitnumeracy{
+    width: 800px !important;
+}
+
+.pcrt{
+    position: absolute;/*
+    left: 422px;
+    top: 205px;*/
+    left: 280px;
+    top: 205px;
+}
+.pcrt3{
+    position: absolute;/*
+    left: 422px;
+    top: 230px;*/
+    left: 280px;
+    top: 200px;
+}
+
+.pnum1{
+    position: absolute;
+    top: 140px;
+    left: 420px;
+}
+
+.bayesdiv1{
+    float: left;
+    margin-left: 16%;
+    padding-top: 10px;
+}
+.bayesdiv2{
+    float: left;
+    margin-right: -35px;
+}
+.bayesdiv3{
+    float: left;
+    padding-top: 10px;
+}
+
+.bayesbutton{
+    /*
+    position: absolute;
+    bottom: 2%;
+    */
+    position: relative;
+    right: 65%;
+    margin-top: 60px;
+}
+
+.mrimg1{
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.mrimg2{
+    margin-left: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.mrpreamble1{
+    margin-left: 18%;
+}
+.mrpreamble2{
+    position: absolute;
+    right: 340px;
+    top: 10px;
+}
+.matrizfeedback{
+    width: 800px;
+    text-align: justify;
+    /*margin-left: 20%;*/
+}
+.matrizlimit{
+    width: 800px !important;
+    margin-left: 20%;
+}
+
+.bias_meta_left{
+    position: fixed;
+    left: 40%;
+    top: 100px;
+}
+
+.bias_meta_right{
+    position: fixed;
+    right: 40%;
+    top: 100px;
+}
+
+.modded_list:hover{
+    background: #99ff99;
+    color: GREEN;
+}
+
+/*************************************************************************************/
+/**********************************CSS JsPsych**************************************/
+
+.jspsych-survey-multi-choice-option {
+  line-height: 2;
+  /*display: inline-block;*/
+}
+.jspsych-survey-multi-choice1-option {
+  line-height: 2;
+  display: inline-block;
+  margin-left: 75px;
+  margin-right: 46px;
+}
+
+/*
+.jspsych-survey-multi-choice1 jspsych-btn{
+    margin-left: 310px !important;
+}
+*/
+.jspsych-survey-multi-choice2-option {
+  line-height: 2;
+  margin-left: 20%;
+}
+.jspsych-survey-multi-choice3-option {
+  margin-left: 20%;
+}
+.jspsych-survey-multi-choicebayes-option {
+  line-height: 2;
+  display: inline-block;
+  margin-right: 50px;
+}
+.jspsych-survey-multi-choicemr-option {
+  line-height: 2;
+  display: inline-block;
+  margin-right: 97px;
+}
+/***************BETA**************/
+.jspsych-survey-multi-choicemrbeta-option {
+  line-height: 2;
+  display: inline-block;
+  margin-right: 25px;
+}
+/***************!BETA**************/
+
+#jspsych-survey-multi-choicebayes-option-0-0 {
+  margin-left: 28%;
+}
+#jspsych-survey-multi-choicemr-option-0-0 {
+  margin-left: 41%;
+}
+
+/***************BETA**************/
+#jspsych-survey-multi-choicemrbeta-option-0-0 {
+  margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-1-0 {
+  margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-2-0 {
+  margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-3-0 {
+  margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-4-0 {
+  margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-5-0 {
+  margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-6-0 {
+  margin-left: 245px;
+}
+
+#jspsych-survey-multi-choicemrbeta-option-0-0 input[name="jspsych-survey-multi-choicemrbeta-response-0"]{
+    margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-0-1 input[name="jspsych-survey-multi-choicemrbeta-response-0"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-0-2 input[name="jspsych-survey-multi-choicemrbeta-response-0"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-0-3 input[name="jspsych-survey-multi-choicemrbeta-response-0"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-0-4 input[name="jspsych-survey-multi-choicemrbeta-response-0"]{
+    margin-left: 45px;
+}
+
+#jspsych-survey-multi-choicemrbeta-option-1-0 input[name="jspsych-survey-multi-choicemrbeta-response-1"]{
+    margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-1-1 input[name="jspsych-survey-multi-choicemrbeta-response-1"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-1-2 input[name="jspsych-survey-multi-choicemrbeta-response-1"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-1-3 input[name="jspsych-survey-multi-choicemrbeta-response-1"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-1-4 input[name="jspsych-survey-multi-choicemrbeta-response-1"]{
+    margin-left: 45px;
+}
+
+#jspsych-survey-multi-choicemrbeta-option-2-0 input[name="jspsych-survey-multi-choicemrbeta-response-2"]{
+    margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-2-1 input[name="jspsych-survey-multi-choicemrbeta-response-2"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-2-2 input[name="jspsych-survey-multi-choicemrbeta-response-2"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-2-3 input[name="jspsych-survey-multi-choicemrbeta-response-2"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-2-4 input[name="jspsych-survey-multi-choicemrbeta-response-2"]{
+    margin-left: 45px;
+}
+
+#jspsych-survey-multi-choicemrbeta-option-3-0 input[name="jspsych-survey-multi-choicemrbeta-response-3"]{
+    margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-3-1 input[name="jspsych-survey-multi-choicemrbeta-response-3"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-3-2 input[name="jspsych-survey-multi-choicemrbeta-response-3"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-3-3 input[name="jspsych-survey-multi-choicemrbeta-response-3"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-3-4 input[name="jspsych-survey-multi-choicemrbeta-response-3"]{
+    margin-left: 45px;
+}
+
+#jspsych-survey-multi-choicemrbeta-option-4-0 input[name="jspsych-survey-multi-choicemrbeta-response-4"]{
+    margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-4-1 input[name="jspsych-survey-multi-choicemrbeta-response-4"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-4-2 input[name="jspsych-survey-multi-choicemrbeta-response-4"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-4-3 input[name="jspsych-survey-multi-choicemrbeta-response-4"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-4-4 input[name="jspsych-survey-multi-choicemrbeta-response-4"]{
+    margin-left: 45px;
+}
+
+#jspsych-survey-multi-choicemrbeta-option-5-0 input[name="jspsych-survey-multi-choicemrbeta-response-5"]{
+    margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-5-1 input[name="jspsych-survey-multi-choicemrbeta-response-5"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-5-2 input[name="jspsych-survey-multi-choicemrbeta-response-5"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-5-3 input[name="jspsych-survey-multi-choicemrbeta-response-5"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-5-4 input[name="jspsych-survey-multi-choicemrbeta-response-5"]{
+    margin-left: 45px;
+}
+
+#jspsych-survey-multi-choicemrbeta-option-6-0 input[name="jspsych-survey-multi-choicemrbeta-response-6"]{
+    margin-left: 245px;
+}
+#jspsych-survey-multi-choicemrbeta-option-6-1 input[name="jspsych-survey-multi-choicemrbeta-response-6"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-6-2 input[name="jspsych-survey-multi-choicemrbeta-response-6"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-6-3 input[name="jspsych-survey-multi-choicemrbeta-response-6"]{
+    margin-left: 45px;
+}
+#jspsych-survey-multi-choicemrbeta-option-6-4 input[name="jspsych-survey-multi-choicemrbeta-response-6"]{
+    margin-left: 45px;
+}
+/***************!BETA**************/
+#jspsych-survey-multi-choicemr-option-1-0 {
+  position: absolute;
+  top: 245px;
+  left: 700px;
+}
+#jspsych-survey-multi-choicemr-option-2-0 {
+  position: absolute;
+  top: 245px;
+  left: 830px;
+}
+#jspsych-survey-multi-choicemr-option-3-0 {
+  position: absolute;
+  top: 245px;
+  left: 960px;
+}
+
+/*
+.jspsych-display-element{
+    text-align: center;
+    margin: 0 auto;
+}
+*/
+.jspsych-display-element{
+    text-align: left;
+    margin: 0 auto;
+}
+.jspsych-survey-text-preamble{
+    text-align: center;
+}
+.jspsych-survey-text{
+    margin: 0 auto;
+    /*modificado v*/
+    margin-left: 20%;
+    text-align: justify;
+}
+#jspsych-survey-multi-choice1-form{
+    width: 800px !important;
+    margin-left: 20%;
+}
+#jspsych-survey-multi-choice2-form{
+    width: 1200px !important;
+    margin-top: 80px;
+}
+#jspsych-survey-multi-choice2-form input[type="submit"]{
+    margin-left: 20%;
+}
+
+#jspsych-survey-multi-choice3-form input[type="submit"]{
+    margin-left: 20%;
+}
+
+#jspsych-survey-multi-choicebayes-form{
+    width: 1200px !important;
+}
+
+.jspsych-survey-text-question ul{
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    /*margin-left: 40%;*/
+    margin-left: 17%;
+}
+
+.jspsych-btn1 {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 0px 8px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  cursor: pointer;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  margin-left: 20% !important;
+}
+
+.jspsych-btn1:hover {
+  background-color: #ddd;
+  border-color: #aaa;
+  margin-left: 20% !important;
+}
+
+/* Likert */
+.jspsych-survey-likert-opts {
+  display:inline-flex;
+  padding-left:0px;
+}
+
+.jspsych-survey-likert-opts li {
+  width: 250px !important;
+  vertical-align: middle;
+}
+
+#jspsych-survey-likert-form{
+    width: 90%;
+}
+
+.jspsych-survey-likert-opts li input[type=radio] {
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+.jspsych-survey-likert-opts li input[type=radio]:hover {
+  margin-left: 0px;
+  margin-right: 10px;
+  
+}
+
+.jspsych-survey-likert-opt-label{
+    text-align: center;
+}
+/*
+.jspsych-survey-likert-opt-label:hover{
+    text-align: center;
+    color: GREEN;
+}*/
+
+/* Likert-Meta*/
+.jspsych-survey-likert-meta-opts {
+    display:inline-flex;
+    text-align:center;
+    padding: 0px;
+}
+
+.jspsych-survey-likert-meta-opts label{
+    display:block;
+}
+
+.jspsych-survey-likert-meta-opts input[type="radio"]{
+    margin: 0 auto;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#jspsych-survey-likert-meta-form{
+    text-align: center;
+}
+
+/* Instrucciones bias */
+.jspsych-instructionsbias-nav{
+    text-align: center;
+}
+
+.jspsych-btnbias{
+    margin-left: 0px !important;
+    margin-top: 20px;
+}
+
+/* Likert eyes */
+.eye_op0{
+    position: absolute;
+    top: 20px;
+}
+
+.eye_op1{
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.eye_op2{
+    position: absolute;
+}
+
+.eye_op3{
+    position: absolute;
+    right: 40px;
+}
+
+.eye_op0:hover{
+    background: #99ff99;
+    color: GREEN;
+}
+
+.eye_op1:hover{
+    background: #99ff99;
+    color: GREEN;
+}
+
+.eye_op2:hover{
+    background: #99ff99;
+    color: GREEN;
+}
+
+.eye_op3:hover{
+    background: #99ff99;
+    color: GREEN;
+}
+
+.jspsych-survey-likert-eyes-statement img{
+    margin-left: 80px;
+}
+
+/* ** ** ** BNT ** ** ** */
+.pbnt1{
+    position: absolute;
+    top: 205px;
+    left: 270px;
+}
+.pbnt2{
+    position: absolute;
+    top: 250px;
+    left: 270px;
+}
+.pbnt3{
+    position: absolute;
+    top: 225px;
+    left: 270px;
+}

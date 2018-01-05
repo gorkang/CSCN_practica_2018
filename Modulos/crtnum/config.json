@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "crtnum",
+    "name": "crtnum",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
