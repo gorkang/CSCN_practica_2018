@@ -298,9 +298,11 @@
                     if(matrix_response =='{"Q0":"<img src=\'img/op3.png\' />"}'){
                         matrixflag01 = 0;
                         matrixflag02 +=1;
+                        matrixflag03 +=1;
                     }else{
                         matrixflag01 = matrixflag01+1;
                         matrixflag02 = 0;
+                        matrixflag03 =0;
                     }
                 }
                 };
@@ -317,9 +319,11 @@
                     if(matrix_response =='{"Q0":"<img src=\'img/op2.png\' />"}'){
                         matrixflag01 = 0;
                         matrixflag02 +=1;
+                        matrixflag03 +=1;
                     }else{
                         matrixflag01 = matrixflag01+1;
                         matrixflag02 =0;
+                        matrixflag03 =0;
                     }
                 }
                 };
@@ -336,9 +340,11 @@
                     if(matrix_response =='{"Q0":"<img src=\'img/op1.png\' />"}'){
                         matrixflag01 = 0;
                         matrixflag02 +=1;
+                        matrixflag03 +=1;
                     }else{
                         matrixflag01 = matrixflag01+1;
                         matrixflag02 =0;
+                        matrixflag03 =0;
                     }
                 }
                 };
@@ -355,9 +361,11 @@
                     if(matrix_response =='{"Q0":"<img src=\'img/op5.png\' />"}'){
                         matrixflag01 = 0;
                         matrixflag02 =3;
+                        matrixflag03 +=1;
                     }else{
                         matrixflag01 = matrixflag01+1;
                         matrixflag02 =0;
+                        matrixflag03 =0;
                     }
                 }
                 };
@@ -373,8 +381,12 @@
                     var matrix_response = data.responses;
                     if(matrix_response =='{"Q0":"<img src=\'img/op3.png\' />"}'){
                         matrixflag01 = 0;
+                        matrixflag02 =3;
+                        matrixflag03 =3;
                     }else{
                         matrixflag01 = matrixflag01+1;
+                        matrixflag02 =0;
+                        matrixflag03 =0;
                     }
                 }
                 };
@@ -753,7 +765,7 @@
             var matriz_condicional_99 = {
                 timeline: [matriz01],
                 conditional_function: function(){
-                    if(matrixflag01 == 3 || matrixflag02 >=2){
+                    if(matrixflag01 == 3 || (matrixflag02 >=2 && matrixflag03 >=2)){
                         return false;
                     } else {
                         return true;
@@ -765,7 +777,7 @@
             var matriz_condicional_v00 = {
                 timeline: [matriz02],
                 conditional_function: function(){
-                    if(matrixflag01 == 3 || matrixflag02 >=2){
+                    if(matrixflag01 == 3 || (matrixflag02 >=2 && matrixflag03 >=2)){
                         return false;
                     } else {
                         return true;
@@ -776,7 +788,7 @@
             var matriz_condicional_v1 = {
                 timeline: [matriz03],
                 conditional_function: function(){
-                    if(matrixflag01 == 3 || matrixflag02 >=2){
+                    if(matrixflag01 == 3 || (matrixflag02 >=2 && matrixflag03 >=2)){
                         return false;
                     } else {
                         return true;
@@ -799,6 +811,17 @@
                 timeline: [matriz03],
                 conditional_function: function(){
                     if(matrixflag01 == 3){
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            };
+
+            var matriz_condicional_v2 = {
+                timeline: [matriz04],
+                conditional_function: function(){
+                    if(matrixflag01 == 3 || (matrixflag02 >=2 && matrixflag03 >=2)){
                         return false;
                     } else {
                         return true;
@@ -842,7 +865,7 @@
 
 
             var errorIn5 = {
-                timeline : [matriz_condicional02, matriz_condicional01, matriz_condicional00, matriz_condicional_99],
+                timeline : [matriz_condicional_v2, matriz_condicional_v1, matriz_condicional_v00, matriz_condicional_99],
                 loop_function: function(data){
                     if(matrixflag03<2 && matrixflag01 <3){
                         return true;
