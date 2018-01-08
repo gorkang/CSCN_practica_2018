@@ -336,7 +336,7 @@
                     }
                 }
                 };
-
+/*************************************************************************************************************************************/
             var matriz04 = {
                 type: "survey-multi-choice1",
                 questions: [{prompt:"<div class='centered'><img src ='img/6A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/6B.png' </img></div>",
@@ -370,6 +370,9 @@
                     }
                 }
                 };
+
+
+/*************************************************************************************************************************************/
 
             var matriz06 = {
                 type: "survey-multi-choice1",
@@ -771,6 +774,17 @@
                     }
                 }
             };
+/*------------------------------------------------------------------------------------------*/
+            var errorIn4 = {
+                timeline : [matriz03, matriz02, matriz01],
+                loop_function: function(data){
+                    if(true){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            };
 
             var matriz_condicional03 = {
                 timeline: [matriz05],
@@ -794,6 +808,19 @@
                 }
             };
 
+
+            var errorIn5 = {
+                timeline : [matriz04, matriz03, matriz02, matriz01],
+                loop_function: function(data){
+                    if(true){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            };
+
+/*____________________________________________________________________________________________________*/
             var matriz_condicional05 = {
                 timeline: [matriz07],
                 conditional_function: function(){
@@ -1033,7 +1060,13 @@
             matrices.push(matriz_condicional00);
             matrices.push(matriz_condicional01);
             matrices.push(matriz_condicional02);
+
+            matrices.push(errorIn4);
+
             matrices.push(matriz_condicional03);
+
+            matrices.push(errorIn5);
+
             matrices.push(matriz_condicional04);
             matrices.push(matriz_condicional05);
             matrices.push(matriz_condicional06);
