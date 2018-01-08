@@ -3,33 +3,35 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>Cognitive Reflective Test-7</title>
+      <title>Habilidad Matematica</title>
   </head>
 
   <body>
-     <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <!-- Libreria principal JsPsych -->
+   <link rel="stylesheet" type="text/css" href="style.css">
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+        <script src="jquery/jquery.min.js"></script>
         <script src="jsPsych-6/jspsych.js"></script>
-
-        <!-- Plugin para recibir texto estilo survey -->
         <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
-        <script src="jsPsych-6/plugins/jspsych-survey-textnum2.js"></script>
-        <!-- Plugin custom numeracy -->
-        <script src="jsPsych-6/plugins/jspsych-survey-textnum1.js"></script>
-        <!-- Plugin para desplegar elementos tipo instrucciones -->
+        <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textbnt1.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textbnt2.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textbnt3.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textcrt1.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textcrt2.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textcrt3.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-textcrt4.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-likert.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-likert-meta.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-likert-eyes.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-text.js"></script>
         <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
-        <!-- Plugin custom multi choice 2 -->
-        <script src="jsPsych-6/plugins/jspsych-survey-multi-choice2.js"></script>
-
-        <!-- Documento CSS principal -->
-        <link rel="stylesheet" type="text/css" href="style.css">
-
-        <!-- Libreria para alertas customizadas + CSS respectivo -->
+        <script src="jsPsych-6/plugins/jspsych-instructionsbias.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-single-stim.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-multi-choice.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-survey-multi-choice1.js"></script>
+        <script src="jsPsych-6/plugins/jspsych-single-audio.js"></script>
         <script src="dist/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-
-        <!-- FIN llamadas de JS, JQuery y CSS -->
 
     <script src='experiment.js'></script>
 
@@ -37,7 +39,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: crtnum_experiment,
+                 timeline: crt_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -65,7 +67,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv' , 'crtNum_results.csv');
+                                     jsPsych.data.get().localSave('csv' , 'habilidad_matematica_results.csv' );
                                  }
                              }
                          });
