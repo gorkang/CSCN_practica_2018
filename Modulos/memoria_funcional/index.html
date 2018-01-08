@@ -3,32 +3,17 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>Mempria Funcional</title>
+      <title>Memoria Funcional</title>
   </head>
 
   <body>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="jspsych-5.0.3/jspsych.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textonly.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textbnt1.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textbnt2.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textbnt3.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt1.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt2.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt3.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt4.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-likert.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-likert-meta.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-likert-eyes.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-instructionsbias.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-single-stim.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice1.js"></script>
-    <script src="jspsych-5.0.3/plugins/jspsych-single-audio.js"></script>
+    <script src="jsPsych-6/jspsych.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-single-stim.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-single-audio.js"></script>
 
     <script src='experiment.js'></script>
 
@@ -37,14 +22,13 @@
 
         jsPsych.init({
                  timeline: memoria_funcional_experiment,
-                 display_element: "getDisplayElement",
                  fullscreen: true,
 
                  on_finish: function(data){
 
                      // Serialize the data
                      var promise = new Promise(function(resolve, reject) {
-                         var data = jsPsych.data.dataAsJSON();
+                         var data = jsPsych.data.get().json();
                          resolve(data);
                      })
 
@@ -65,7 +49,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.localSave('memoria_funcional_results.csv', 'csv');
+                                     jsPsych.data.get().localSave('csv', 'memoria_funcional_results.csv');
                                  }
                              }
                          });
