@@ -742,6 +742,17 @@
                 }
                 };
 
+            var matriz_condicional_99 = {
+                timeline: [matriz01],
+                conditional_function: function(){
+                    if(matrixflag01 == 3){
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            };
+
             var matriz_condicional00 = {
                 timeline: [matriz02],
                 conditional_function: function(){
@@ -776,9 +787,10 @@
             };
 /*------------------------------------------------------------------------------------------*/
             var errorIn4 = {
-                timeline : [matriz03, matriz02, matriz01],
+                timeline : [matriz_condicional01, matriz_condicional00, matriz_condicional_99],
                 loop_function: function(data){
-                    if(true){
+                    if(matrixflag02<2 && matrixflag01 <3){
+                        console.log(matrixflag01);
                         return true;
                     } else {
                         return false;
@@ -797,6 +809,20 @@
                 }
             };
 
+
+            var errorIn5 = {
+                timeline : [matriz_condicional02, matriz_condicional01, matriz_condicional00, matriz_condicional_99],
+                loop_function: function(data){
+                    if(matrixflag03<2 && matrixflag01 <3){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            };
+
+/*____________________________________________________________________________________________________*/
+
             var matriz_condicional04 = {
                 timeline: [matriz06],
                 conditional_function: function(){
@@ -809,18 +835,6 @@
             };
 
 
-            var errorIn5 = {
-                timeline : [matriz04, matriz03, matriz02, matriz01],
-                loop_function: function(data){
-                    if(true){
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }
-            };
-
-/*____________________________________________________________________________________________________*/
             var matriz_condicional05 = {
                 timeline: [matriz07],
                 conditional_function: function(){
