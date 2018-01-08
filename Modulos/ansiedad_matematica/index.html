@@ -10,11 +10,11 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Libreria principal JsPsych -->
-    <script src="jspsych-5.0.3/jspsych.js"></script>
+    <script src="jsPsych-6/jspsych.js"></script>
     <!-- Plugin para desplegar elementos tipo instrucciones -->
-    <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
     <!-- Plugin custom multi choice 2 -->
-    <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice1.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-survey-multi-choice1.js"></script>
     <!-- Documento CSS principal -->
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -25,14 +25,13 @@
 
         jsPsych.init({
                  timeline: ansiedad_matematica_experiment,
-                 display_element: "getDisplayElement",
                  fullscreen: true,
 
                  on_finish: function(data){
 
                      // Serialize the data
                      var promise = new Promise(function(resolve, reject) {
-                         var data = jsPsych.data.dataAsJSON();
+                         var data = jsPsych.data.get().json();
                          resolve(data);
                      })
 
@@ -53,7 +52,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.localSave('ansiedad_matematica_results.csv', 'csv');
+                                     jsPsych.data.get().localSave( 'csv', 'ansiedad_matematica_results.csv');
                                  }
                              }
                          });

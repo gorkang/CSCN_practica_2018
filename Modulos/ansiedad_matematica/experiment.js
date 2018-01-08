@@ -1,8 +1,3 @@
-function getDisplayElement() {
-  $('<div class = display_stage_background></div>').appendTo('body')
-  return $('<div class = display_stage></div>').appendTo('body')
-}
-
 // Funciones de apoyo
 function block_fkeys(event){
     var x = event.which || event.keyCode;
@@ -30,200 +25,84 @@ var mathexplanation={
     data:{trialid: "Instructions_Math"}
 };
 
+var likert_scale = ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"];
+
 var math02 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><br />Las matem&aacute;ticas son la materia que m&aacute;s temo.<br /></div>"]
-   ],
-  data: {trialid: "Math_02"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><br />Las matem&aacute;ticas son la materia que m&aacute;s temo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_02"}
 };
 
 var math03 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><br />Me siento/sent&iacute;a preocupado antes de entrar a la clase de matem&aacute;ticas.<br /></div>"]
-   ],
-  data: {trialid: "Math_03"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><br />Me siento/sent&iacute;a preocupado antes de entrar a la clase de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_03"}
 };
 
 var math04 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Las matem&aacute;ticas me parecen interesantes.<br /></div>"]
-   ],
-  data: {trialid: "Math_04"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas me parecen interesantes.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_04"}
 };
 
 var math05 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Las matem&aacute;ticas son una de mis materias favoritas<br /></div>"]
-   ],
-  data: {trialid: "Math_05"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas son una de mis materias favoritas<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_05"}
 };
 
 var math06 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Siempre tengo/tuve miedo de los ex&aacute;menes de matem&aacute;ticas.<br /></div>"]
-   ],
-  data: {trialid: "Math_06"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Siempre tengo/tuve miedo de los ex&aacute;menes de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_06"}
 };
 
 var math07 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Resolver problemas de matem&aacute;ticas siempre es agradable para m&iacute;.<br /></div>"]
-   ],
-  data: {trialid: "Math_07"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Resolver problemas de matem&aacute;ticas siempre es agradable para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_07"}
 };
 
 var math08 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Me siento/sent&iacute;a nervioso cuando estoy/estaba a punto de hacer la tarea de matem&aacute;ticas.<br /></div>"]
-   ],
-  data: {trialid: "Math_08"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Me siento/sent&iacute;a nervioso cuando estoy/estaba a punto de hacer la tarea de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_08"}
 };
 
 var math09 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Me siento/sent&iacute;a feliz y emocionado en una clase de matem&aacute;ticas en comparaci&oacute;n con cualquier otra clase.<br /></div>"]
-   ],
-  data: {trialid: "Math_09"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Me siento/sent&iacute;a feliz y emocionado en una clase de matem&aacute;ticas en comparaci&oacute;n con cualquier otra clase.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_09"}
 };
 
 var math10 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Preferir&iacute;a/prefer&iacute;a que matem&aacute;ticas fuera una de mis materias en los estudios superiores.<br /></div>"]
-   ],
-  data: {trialid: "Math_10"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Preferir&iacute;a/prefer&iacute;a que matem&aacute;ticas fuera una de mis materias en los estudios superiores.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_10"}
 };
 
 var math11 = {
   type: "survey-multi-choice1",
-  questions: [
-
-    ["<div class='justified'><hr /><br />Las matem&aacute;ticas son un dolor de cabeza para m&iacute;.<br /></div>"]
-   ],
-  data: {trialid: "Math_11"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas son un dolor de cabeza para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_11"}
 };
 
 var math12 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Tengo/ten&iacute;a miedo de hacer preguntas en clase de matem&aacute;ticas.<br /></div>"]
-   ],
-  data: {trialid: "Math_12"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Tengo/ten&iacute;a miedo de hacer preguntas en clase de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_12"}
 };
 
 var math13 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Las matem&aacute;ticas no me asustan en absoluto.<br /></div>"]
-   ],
-  data: {trialid: "Math_13"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas no me asustan en absoluto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_13"}
 };
 
 var math14 = {
   type: "survey-multi-choice1",
-  questions: [
-    ["<div class='justified'><hr /><br />Mi mente se queda/quedaba en blanco cuando el profesor hace/hac&iacute;a preguntas de matem&aacute;ticas.<br /></div>"]
-   ],
-  data: {trialid: "Math_14"},
-
-  options: [
-            ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
-            ],
-
-    horizontal: true,
-    required: 'true',
+  questions: [{prompt: "<div class='justified'><hr /><br />Mi mente se queda/quedaba en blanco cuando el profesor hace/hac&iacute;a preguntas de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "Math_14"}
 };
 
 // Creacion de timeline e inclusion de trials

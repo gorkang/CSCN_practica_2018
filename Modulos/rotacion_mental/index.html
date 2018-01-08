@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>Memoria Funcional</title>
+      <title>Rotacion Mental</title>
   </head>
 
   <body>
@@ -12,8 +12,10 @@
     <script src="jsPsych-6/jspsych.js"></script>
     <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
     <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
-    <script src="jsPsych-6/plugins/jspsych-single-stim.js"></script>
-    <script src="jsPsych-6/plugins/jspsych-single-audio.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-survey-multi-selectmr.js"></script>
+
+    <!-- Documento CSS principal -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <script src='experiment.js'></script>
 
@@ -21,7 +23,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: memoria_funcional_experiment,
+                 timeline: rotacion_mental_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -49,7 +51,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'memoria_funcional_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'rotacion_mental_results.csv');
                                  }
                              }
                          });

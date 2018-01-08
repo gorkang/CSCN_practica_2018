@@ -1,8 +1,3 @@
-function getDisplayElement() {
-  $('<div class = display_stage_background></div>').appendTo('body')
-  return $('<div class = display_stage></div>').appendTo('body')
-}
-
 var audioindex = 0;
 var wm_correcto = false;
 var wm_correcto2 = false;
@@ -56,12 +51,23 @@ function block_enter(event){
     }
 }
 
+function advance(event){
+    document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event){
+        if (event.keyCode == 13) {
+            console.log("User pressed enter. Clicking continue button");
+            var btn = document.getElementById("jspsych-survey-text-next");
+            btn.click();
+            //event.preventDefault();
+        }
+    };
+}
+
 /* ********************************* PANTALLAS DE INICIO Y DESPEDIDA ********************************* */
 
 var screen_memoria_funcional_experiment = {
-    type: 'text',
-    text: '<p><center>Working Memory<br /><br />Presiona la tecla ENTER para continuar.</center></p>',
-    cont_key: [13],
+    type: 'instructions',
+    pages: ['<p><center>Working Memory<br /><br />Presiona la tecla ENTER para continuar.</center></p>'],
+    key_forward: 'enter',
     data:{trialid: "Screen_WM"},
     on_trial_start: function(){
         bloquear_enter = 0;
@@ -69,9 +75,8 @@ var screen_memoria_funcional_experiment = {
 };
 
 var screen_goodbye = {
-    type: 'text',
-    text: '<p><center>Hemos terminado, excelente trabajo.<br /><br />Muchas gracias por su colaboraci&oacute;n.<br /><br />Por favor, llame al examinador.',
-    cont_key: [13],
+    type: 'instructions',
+    pages: ['<p><center>Hemos terminado, excelente trabajo.<br /><br />Muchas gracias por su colaboraci&oacute;n.<br /><br />Por favor, llame al examinador.'],
     data:{trialid: "Screen_goodbye"},
     on_trial_start: function(){
         bloquear_enter = 0;
@@ -126,7 +131,7 @@ var wmexplanation3={
 
 var answeraudio = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     data: {trialid: "WM_"+audioindex}
 };
 
@@ -134,7 +139,7 @@ var answeraudio = {
 
 var answeraudio_00 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_00"},
     on_finish: function(data){
@@ -165,7 +170,7 @@ var answeraudio_00 = {
 
 var answeraudio_01 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_01"},
     on_finish: function(data){
@@ -197,7 +202,7 @@ var answeraudio_01 = {
 
 var answeraudio_02 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_02"},
     on_finish: function(data){
@@ -228,7 +233,7 @@ var answeraudio_02 = {
 
 var answeraudio_03 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_03"},
     on_finish: function(data){
@@ -260,7 +265,7 @@ var answeraudio_03 = {
 
 var answeraudio_04 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_04"},
     on_finish: function(data){
@@ -291,7 +296,7 @@ var answeraudio_04 = {
 
 var answeraudio_05 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_05"},
     on_finish: function(data){
@@ -323,7 +328,7 @@ var answeraudio_05 = {
 
 var answeraudio_06 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_06"},
     on_finish: function(data){
@@ -354,7 +359,7 @@ var answeraudio_06 = {
 
 var answeraudio_07 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_07"},
     on_finish: function(data){
@@ -386,7 +391,7 @@ var answeraudio_07 = {
 
 var answeraudio_08 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_08"},
     on_finish: function(data){
@@ -417,7 +422,7 @@ var answeraudio_08 = {
 
 var answeraudio_09 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_09"},
     on_finish: function(data){
@@ -449,7 +454,7 @@ var answeraudio_09 = {
 
 var answeraudio_10 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_10"},
     on_finish: function(data){
@@ -480,7 +485,7 @@ var answeraudio_10 = {
 
 var answeraudio_11 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_11"},
     on_finish: function(data){
@@ -512,7 +517,7 @@ var answeraudio_11 = {
 
 var answeraudio_12 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_12"},
     on_finish: function(data){
@@ -543,7 +548,7 @@ var answeraudio_12 = {
 
 var answeraudio_13 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_13"},
     on_finish: function(data){
@@ -575,7 +580,7 @@ var answeraudio_13 = {
 
 var answeraudio_14 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_14"},
     on_finish: function(data){
@@ -606,7 +611,7 @@ var answeraudio_14 = {
 
 var answeraudio_15 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_15"},
     on_finish: function(data){
@@ -657,6 +662,7 @@ var wm_practice01={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_1.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -666,6 +672,7 @@ var wm_practice02={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_2.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -673,7 +680,7 @@ var wm_practice02={
 
 var wmi_practiceanswer01 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_01"},
     on_finish: function(data){
@@ -695,7 +702,7 @@ var wmi_practiceanswer01 = {
 
 var wmi_practiceanswer02 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_02"},
     on_finish: function(data){
@@ -716,21 +723,25 @@ var wmi_practiceanswer02 = {
 };
 
 var wmi_right01 = {
-    type: 'text',
-    text: "<p>Respuesta correcta.<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages: ["<p>Respuesta correcta.<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 var wmi_wrong01 = {
-    type: 'text',
-    text: "<p>Eso no es correcto. Los n&uacute;meros eran 71, por lo que en orden inverso la respuesta correcta era 17.<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages: ["<p>Eso no es correcto. Los n&uacute;meros eran 71, por lo que en orden inverso la respuesta correcta era 17.<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 
 var wmi_right02 = {
-    type: 'text',
-    text: "<p>Respuesta correcta.<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages: ["<p>Respuesta correcta.<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 var wmi_wrong02 = {
-    type: 'text',
-    text: "<p>Eso no es correcto. Los n&uacute;meros eran 34, por lo en orden inverso la respuesta correcta era 43. Hagamos algunos m&aacute;s<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages: ["<p>Eso no es correcto. Los n&uacute;meros eran 34, por lo en orden inverso la respuesta correcta era 43. Hagamos algunos m&aacute;s<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 
 var wmi_conditional01 = {
@@ -783,7 +794,7 @@ var wmi_conditional12 = {
 
 var answeraudio_16 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_03"},
     on_finish: function(data){
@@ -814,7 +825,7 @@ var answeraudio_16 = {
 
 var answeraudio_17 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_04"},
     on_finish: function(data){
@@ -847,7 +858,7 @@ var answeraudio_17 = {
 
 var answeraudio_18 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_03"},
     on_finish: function(data){
@@ -878,7 +889,7 @@ var answeraudio_18 = {
 
 var answeraudio_19 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_04"},
     on_finish: function(data){
@@ -910,7 +921,7 @@ var answeraudio_19 = {
 
 var answeraudio_20 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_05"},
     on_finish: function(data){
@@ -941,7 +952,7 @@ var answeraudio_20 = {
 
 var answeraudio_21 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_06"},
     on_finish: function(data){
@@ -973,7 +984,7 @@ var answeraudio_21 = {
 
 var answeraudio_22 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_07"},
     on_finish: function(data){
@@ -1004,7 +1015,7 @@ var answeraudio_22 = {
 
 var answeraudio_23 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_08"},
     on_finish: function(data){
@@ -1036,7 +1047,7 @@ var answeraudio_23 = {
 
 var answeraudio_24 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_09"},
     on_finish: function(data){
@@ -1067,7 +1078,7 @@ var answeraudio_24 = {
 
 var answeraudio_25 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_10"},
     on_finish: function(data){
@@ -1099,7 +1110,7 @@ var answeraudio_25 = {
 
 var answeraudio_26 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_11"},
     on_finish: function(data){
@@ -1130,7 +1141,7 @@ var answeraudio_26 = {
 
 var answeraudio_27 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_12"},
     on_finish: function(data){
@@ -1162,7 +1173,7 @@ var answeraudio_27 = {
 
 var answeraudio_28 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_13"},
     on_finish: function(data){
@@ -1193,7 +1204,7 @@ var answeraudio_28 = {
 
 var answeraudio_29 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_14"},
     on_finish: function(data){
@@ -1225,7 +1236,7 @@ var answeraudio_29 = {
 
 var answeraudio_30 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_15"},
     on_finish: function(data){
@@ -1256,7 +1267,7 @@ var answeraudio_30 = {
 
 var answeraudio_31 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_16"},
     on_finish: function(data){
@@ -1288,7 +1299,7 @@ var answeraudio_31 = {
 
 var answeraudio_32 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_17"},
     on_finish: function(data){
@@ -1319,7 +1330,7 @@ var answeraudio_32 = {
 
 var answeraudio_33 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_18"},
     on_finish: function(data){
@@ -1370,6 +1381,7 @@ var wm_practice01={
     type: 'single-audio',
     stimulus: "sounds/Secuencial/hombre_1.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -1379,6 +1391,7 @@ var wm_practice02={
     type: 'single-audio',
     stimulus: "sounds/Secuencial/hombre_2.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -1386,7 +1399,7 @@ var wm_practice02={
 
 var wms_practiceanswer01 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_01"},
     on_finish: function(data){
@@ -1408,7 +1421,7 @@ var wms_practiceanswer01 = {
 
 var wm_practiceanswer02 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_02"},
     on_finish: function(data){
@@ -1429,21 +1442,25 @@ var wm_practiceanswer02 = {
 };
 
 var wms_right01 = {
-    type: 'text',
-    text: "<p>Eso es correcto.<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages: ["<p>Eso es correcto.<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 var wms_wrong01 = {
-    type: 'text',
-    text: "<p>Eso no es correcto. Los n&uacute;meros eran 231, por lo que si los ordena secuenciados, comenzando por el menor, los n&uacute;meros eran 123.<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages: ["<p>Eso no es correcto. Los n&uacute;meros eran 231, por lo que si los ordena secuenciados, comenzando por el menor, los n&uacute;meros eran 123.<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 
 var wms_right02 = {
-    type: 'text',
-    text: "<p>Eso es correcto.<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages: ["<p>Eso es correcto.<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 var wms_wrong02 = {
-    type: 'text',
-    text: "<p>Eso no es correcto. Los n&uacute;meros eran 522, por lo que si los ordena secuenciados, comenzando por el menor, los n&uacute;meros eran 225. Hagamos algunos m&aacute;s<br /><br />Presione la tecla ENTER para continuar.</p>"
+    type: 'instructions',
+    pages:[ "<p>Eso no es correcto. Los n&uacute;meros eran 522, por lo que si los ordena secuenciados, comenzando por el menor, los n&uacute;meros eran 225. Hagamos algunos m&aacute;s<br /><br />Presione la tecla ENTER para continuar.</p>"],
+    key_forward: 'enter'
 };
 
 var wms_conditional01 = {
@@ -1497,7 +1514,7 @@ var wm_conditional12 = {
 
 var answeraudio_34 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_03"},
     on_finish: function(data){
@@ -1527,7 +1544,7 @@ var answeraudio_34 = {
 
 var answeraudio_35 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_04"},
     on_finish: function(data){
@@ -1560,7 +1577,7 @@ var answeraudio_35 = {
 
 var answeraudio_36 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_03"},
     on_finish: function(data){
@@ -1591,7 +1608,7 @@ var answeraudio_36 = {
 
 var answeraudio_37 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_04"},
     on_finish: function(data){
@@ -1623,7 +1640,7 @@ var answeraudio_37 = {
 
 var answeraudio_38 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_05"},
     on_finish: function(data){
@@ -1654,7 +1671,7 @@ var answeraudio_38 = {
 
 var answeraudio_39 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_06"},
     on_finish: function(data){
@@ -1686,7 +1703,7 @@ var answeraudio_39 = {
 
 var answeraudio_40 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_07"},
     on_finish: function(data){
@@ -1717,7 +1734,7 @@ var answeraudio_40 = {
 
 var answeraudio_41 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_08"},
     on_finish: function(data){
@@ -1749,7 +1766,7 @@ var answeraudio_41 = {
 
 var answeraudio_42 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_09"},
     on_finish: function(data){
@@ -1780,7 +1797,7 @@ var answeraudio_42 = {
 
 var answeraudio_43 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_10"},
     on_finish: function(data){
@@ -1812,7 +1829,7 @@ var answeraudio_43 = {
 
 var answeraudio_44 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_11"},
     on_finish: function(data){
@@ -1843,7 +1860,7 @@ var answeraudio_44 = {
 
 var answeraudio_45 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_12"},
     on_finish: function(data){
@@ -1875,7 +1892,7 @@ var answeraudio_45 = {
 
 var answeraudio_46 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_13"},
     on_finish: function(data){
@@ -1906,7 +1923,7 @@ var answeraudio_46 = {
 
 var answeraudio_47 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_14"},
     on_finish: function(data){
@@ -1938,7 +1955,7 @@ var answeraudio_47 = {
 
 var answeraudio_48 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_15"},
     on_finish: function(data){
@@ -1969,7 +1986,7 @@ var answeraudio_48 = {
 
 var answeraudio_49 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_16"},
     on_finish: function(data){
@@ -1997,7 +2014,7 @@ var answeraudio_49 = {
 
 var answeraudio_50 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_17"},
     on_finish: function(data){
@@ -2024,7 +2041,7 @@ var answeraudio_50 = {
 
 var answeraudio_51 = {
     type: 'survey-text',
-    questions: ["<p>Escribe a continuacion, los numeros que escuchaste </p>"],
+    questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_18"},
     on_finish: function(data){
@@ -2064,6 +2081,7 @@ var p1_a1={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_1.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2073,6 +2091,7 @@ var p1_a2={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_2.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2082,6 +2101,7 @@ var p1_a3={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_3.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2091,6 +2111,7 @@ var p1_a4={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_4.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2100,6 +2121,7 @@ var p1_a5={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_5.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2109,6 +2131,7 @@ var p1_a6={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_6.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2118,6 +2141,7 @@ var p1_a7={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_7.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2127,6 +2151,7 @@ var p1_a8={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_8.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2136,6 +2161,7 @@ var p1_a9={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_9.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2145,6 +2171,7 @@ var p1_a10={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_10.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2154,6 +2181,7 @@ var p1_a11={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_11.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2163,6 +2191,7 @@ var p1_a12={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_12.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2172,6 +2201,7 @@ var p1_a13={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_13.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2181,6 +2211,7 @@ var p1_a14={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_14.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2190,6 +2221,7 @@ var p1_a15={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_15.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2199,6 +2231,7 @@ var p1_a16={
     type: 'single-audio',
     stimulus: "sounds/Directo/hombre_16.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2212,6 +2245,7 @@ var p2_a1={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_1.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2221,6 +2255,7 @@ var p2_a2={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_2.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2230,6 +2265,7 @@ var p2_a3={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_3.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2239,6 +2275,7 @@ var p2_a4={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_4.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2248,6 +2285,7 @@ var p2_a5={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_5.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2257,6 +2295,7 @@ var p2_a6={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_6.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2266,6 +2305,7 @@ var p2_a7={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_7.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2275,6 +2315,7 @@ var p2_a8={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_8.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2284,6 +2325,7 @@ var p2_a9={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_9.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2293,6 +2335,7 @@ var p2_a10={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_10.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2302,6 +2345,7 @@ var p2_a11={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_11.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2311,6 +2355,7 @@ var p2_a12={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_12.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2320,6 +2365,7 @@ var p2_a13={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_13.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2329,6 +2375,7 @@ var p2_a14={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_14.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2338,6 +2385,7 @@ var p2_a15={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_15.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2347,6 +2395,7 @@ var p2_a16={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_16.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2356,6 +2405,7 @@ var p2_a17={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_17.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2365,6 +2415,7 @@ var p2_a18={
     type: 'single-audio',
     stimulus: "sounds/Inverso/hombre_18.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2378,6 +2429,7 @@ var p3_a1={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_1.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2387,6 +2439,7 @@ var p3_a2={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_2.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2396,6 +2449,7 @@ var p3_a3={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_3.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2405,6 +2459,7 @@ var p3_a4={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_4.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2414,6 +2469,7 @@ var p3_a5={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_5.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2423,6 +2479,7 @@ var p3_a6={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_6.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2432,6 +2489,7 @@ var p3_a7={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_7.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2441,6 +2499,7 @@ var p3_a8={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_8.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2450,6 +2509,7 @@ var p3_a9={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_9.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2459,6 +2519,7 @@ var p3_a10={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_10.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2468,6 +2529,7 @@ var p3_a11={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_11.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2477,6 +2539,7 @@ var p3_a12={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_12.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2486,6 +2549,7 @@ var p3_a13={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_13.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2495,6 +2559,7 @@ var p3_a14={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_14.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2504,6 +2569,7 @@ var p3_a15={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_15.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2513,6 +2579,7 @@ var p3_a16={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_16.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2522,6 +2589,7 @@ var p3_a17={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_17.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
@@ -2531,6 +2599,7 @@ var p3_a18={
     type: 'single-audio',
     stimulus: "sounds/Secuenciacion/hombre_18.mp3",
     trial_ends_after_audio: true,
+    choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
     prompt: '<div class="crux" id="cruz"><img src="img/cruz.png" /></div>'
 };
