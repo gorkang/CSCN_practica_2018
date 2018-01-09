@@ -124,9 +124,10 @@
             };
 
             var screen_goodbye = {
-                type: 'text',
-                text: '<p><center>Hemos terminado, excelente trabajo.<br /><br />Muchas gracias por su colaboraci&oacute;n.<br /><br />Por favor, llame al examinador.',
+                type: 'instructions',
+                pages: ['<p><center>Hemos terminado, excelente trabajo.<br /><br />Muchas gracias por su colaboraci&oacute;n.<br /><br />Por favor, llame al examinador.'],
                 cont_key: [13],
+                show_clickable_nav: true,
                 data:{trialid: "Screen_goodbye"},
                 on_trial_start: function(){
                     bloquear_enter = 0;
@@ -323,15 +324,14 @@
             set_verbalcrt(nineth_verbalcrt);
             set_verbalcrt(tenth_verbalcrt);
 
-            crt_experiment.push(crtexplanation);
+            //crt_experiment.push(crtexplanation);
 
-            set_crt_experiment(first_crt_experiment);
-            set_crt_experiment(second_crt_experiment);
-            set_crt_experiment(third_crt_experiment);
-            set_crt_experiment(fourth_crt_experiment);
-            set_crt_experiment(fifth_crt_experiment);
-            set_crt_experiment(sixth_crt_experiment);
-            set_crt_experiment(seventh_crt_experiment);
+            //set_crt_experiment(first_crt_experiment);
+            //set_crt_experiment(second_crt_experiment);
+            //set_crt_experiment(third_crt_experiment);
+            //set_crt_experiment(fourth_crt_experiment);
+            //set_crt_experiment(fifth_crt_experiment);
+            //set_crt_experiment(sixth_crt_experiment);
+            //set_crt_experiment(seventh_crt_experiment);
 
             crt_experiment.push(screen_goodbye);
-
