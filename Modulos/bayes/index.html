@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class=''>
+  <head>
+      <meta charset='UTF-8'>
+      <meta name="robots" content="noindex">
+      <title>Bayes</title>
+  </head>
+
+  <body>
+      <!-- JQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- Libreria principal JsPsych -->
+      <script src="jspsych-6/jspsych.js"></script>
+
+
+      <!-- Documento CSS principal -->
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+      <!-- Libreria para alertas customizadas + CSS respectivo -->
+      <script src="dist/sweetalert.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+
+
+    <script src='experiment.js'></script>
+
+    <script>
+    $( document ).ready(function() {
+
+        jsPsych.init({
+                 timeline: habilidad_matematica_experiment,
+                 fullscreen: true,
+
+                 on_finish: function(data){
+
+                     // Serialize the data
+                     var promise = new Promise(function(resolve, reject) {
+                         var data = jsPsych.data.get().json();
+                         resolve(data);
+                     })
+
+                     promise.then(function(data) {
+
+
+                         $.ajax({
+                             type: "POST",
+                             url: '/save',
+                             data: { "data": data },
+                             success: function(){ document.location = "/next" },
+                             dataType: "application/json",
+
+                             // Endpoint not running, local save
+                             error: function(err) {
+
+                                 if (err.status == 200){
+                                     document.location = "/next";
+                                 } else {
+                                     // If error, assue local save
+                                     jsPsych.data.get().localSave('csv', 'habilidad_matematica_results.csv');
+                                 }
+                             }
+                         });
+                     })
+                 }
+
+          });
+    });
+    </script>
+  </body>
+</html>
