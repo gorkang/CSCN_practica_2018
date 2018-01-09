@@ -98,9 +98,9 @@ jsPsych.plugins['survey-text'] = (function() {
       html += '<div id="jspsych-survey-text-"'+i+'" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
       if(trial.questions[i].rows == 1){
-        html += '<input type="text" name="#jspsych-survey-text-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'"></input>';
+        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'" autofocus onfocus="advance(event)"></input>';
       } else {
-        html += '<textarea name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '">'+trial.questions[i].value+'</textarea>';
+        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus onfocus="advance(event)"></input>';
       }
       html += '</div>';
     }
@@ -134,13 +134,15 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
 
-      $.isNumeric();
       if ($.isNumeric(validation) === true) {
+      //if ((validation >= 12 && validation <= 14) || (validation >= 21 && validation <= 24) || (validation >= 31 && validation <= 34) || (validation >= 41 && validation <= 43) &&  validation != 22 && validation != 33 ) {
             console.log("bien",validation);
             display_element.innerHTML = '';
+            jsPsych.pluginAPI.clearAllTimeouts();
             jsPsych.finishTrial(trialdata);
         }else{
-            sweetAlert({title: "Por favor ingresa un n\&uacute;mero v\&aacute;lido", html: true});
+            firstTextBox.blur();
+            alert("Por favor ingresa un número válido");
             console.log("mal",validation);
             event.stopPropagation();
            if (event.stopPropagation) {
