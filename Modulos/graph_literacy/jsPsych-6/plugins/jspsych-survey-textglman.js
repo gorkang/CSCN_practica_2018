@@ -98,17 +98,19 @@ jsPsych.plugins['survey-textglman'] = (function() {
       html += '<div id="jspsych-survey-text-"'+i+'" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
       if(trial.questions[i].rows == 1){
-        html += '<input type="text" name="#jspsych-survey-text-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'"></input>';
+        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'" autofocus onfocus="advance(event)"></input>';
       } else {
-        html += '<textarea name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '">'+trial.questions[i].value+'</textarea>';
+        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus onfocus="advance(event)"></input>';
       }
-      html += '<p></div>';
+      html += '</div>';
     }
 
     // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><br /><p><br />';
+    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
 
     display_element.innerHTML = html;
+    var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
+    firstTextBox.focus();
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
         var validation;
@@ -121,7 +123,7 @@ jsPsych.plugins['survey-textglman'] = (function() {
       var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
       for(var index=0; index<matches.length; index++){
         var id = "Q" + index;
-        var val = matches[index].querySelector('textarea, input').value;
+        var val = matches[index].querySelector('input, input').value;
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);

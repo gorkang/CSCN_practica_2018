@@ -106,9 +106,11 @@ jsPsych.plugins['survey-text'] = (function() {
     }
 
     // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><br /><p><br />';
+    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
 
     display_element.innerHTML = html;
+    var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
+    firstTextBox.focus();
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
         var validation;
@@ -121,7 +123,7 @@ jsPsych.plugins['survey-text'] = (function() {
       var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
       for(var index=0; index<matches.length; index++){
         var id = "Q" + index;
-        var val = matches[index].querySelector('textarea, input').value;
+        var val = matches[index].querySelector('input, input').value;
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
@@ -135,7 +137,9 @@ jsPsych.plugins['survey-text'] = (function() {
 
 
 
+      // next trial
       if ($.isNumeric(validation) === true) {
+      //if ((validation >= 12 && validation <= 14) || (validation >= 21 && validation <= 24) || (validation >= 31 && validation <= 34) || (validation >= 41 && validation <= 43) &&  validation != 22 && validation != 33 ) {
             console.log("bien",validation);
             display_element.innerHTML = '';
             jsPsych.pluginAPI.clearAllTimeouts();
@@ -151,9 +155,6 @@ jsPsych.plugins['survey-text'] = (function() {
               event.cancelBubble = true;
             }
         }
-
-      // next trial
-      jsPsych.finishTrial(trialdata);
     });
 
     var startTime = (new Date()).getTime();

@@ -116,7 +116,7 @@
             };
 
             var graph_literacy3_b={
-                type: "survey-textglman",
+                type: "survey-text",
                 preamble: "<p>En la figura que aparece a continuaci&oacute;n, se representa mediante c&iacute;rculos el n&uacute;mero <br />de hombres y mujeres en un grupo de pacientes que padecen el trastorno X. <br />El n&uacute;mero total de c&iacute;rculos es 100.</p><br /><div class='centered'><img src='img/graph_4.png' /></div>",
                 questions: [{prompt:"<p>&iquest;Cu&aacute;ntos m&aacute;s hombres que mujeres hay entre los 100 pacientes que padecen <br />el trastorno X?</p>"}], data:{trialid: "GL_04_b"}
             };
@@ -171,4 +171,3 @@
             graph_literacy_experiment.push(gl_alt2_1_2);
             graph_literacy_experiment.push(gl_alt2_1_3);
             graph_literacy_experiment.push(graph_literacy3);
-

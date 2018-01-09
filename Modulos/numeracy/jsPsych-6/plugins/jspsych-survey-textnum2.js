@@ -109,6 +109,10 @@ jsPsych.plugins['survey-textnum2'] = (function() {
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
 
     display_element.innerHTML = html;
+    var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
+    firstTextBox.focus();
+
+    display_element.innerHTML = html;
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
         var validation;
@@ -121,7 +125,7 @@ jsPsych.plugins['survey-textnum2'] = (function() {
       var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
       for(var index=0; index<matches.length; index++){
         var id = "Q" + index;
-        var val = matches[index].querySelector('textarea, input').value;
+        var val = matches[index].querySelector('input, input').value;
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
