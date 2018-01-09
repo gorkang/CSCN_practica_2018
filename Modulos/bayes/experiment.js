@@ -15,6 +15,13 @@ var mainexplanation={
     data:{trialid: "Welcome_Screen"}
 };
 
+var idCsv={
+    type:"survey-textID",
+    questions: [{prompt: "Ingrese su ID:"}]
+};
+
+
 var bayes_experiment = [];
 
 bayes_experiment.push(mainexplanation);
+bayes_experiment.push(idCsv);
