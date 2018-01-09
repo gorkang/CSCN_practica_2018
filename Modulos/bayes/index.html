@@ -10,7 +10,8 @@
       <!-- JQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <!-- Libreria principal JsPsych -->
-      <script src="jspsych-6/jspsych.js"></script>
+      <script src="jsPsych-6/jspsych.js"></script>
+      <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
 
 
       <!-- Documento CSS principal -->
@@ -27,7 +28,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: habilidad_matematica_experiment,
+                 timeline: bayes_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -55,7 +56,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'habilidad_matematica_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'bayes.csv');
                                  }
                              }
                          });
