@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class=''>
+  <head>
+      <meta charset='UTF-8'>
+      <meta name="robots" content="noindex">
+<<<<<<< HEAD:Modulos/crtnum/index.html
+      <title>Cognitive Reflective Test-7</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+  </head>
+
+  <body>
+     <!-- JQuery -->
+=======
+      <title>Numeracy</title>
+      <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+
+  <!-- Documento CSS principal -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <!-- JQuery -->
+>>>>>>> alejandro:numeracy/index.html
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Libreria principal JsPsych -->
+        <script src="jsPsych-6/jspsych.js"></script>
+
+        <!-- Plugin para recibir texto estilo survey -->
+        <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+<<<<<<< HEAD:Modulos/crtnum/index.html
+
+        <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+        <!-- Plugin custom multi choice 2 -->
+        <script src="jsPsych-6/plugins/jspsych-survey-multi-choice2.js"></script>
+
+        <!-- Documento CSS principal -->
+
+=======
+        <script src="jsPsych-6/plugins/jspsych-survey-textnum2.js"></script>
+        <!-- Plugin custom numeracy -->
+        <script src="jsPsych-6/plugins/jspsych-survey-textnum1.js"></script>
+        <!-- Plugin para desplegar elementos tipo instrucciones -->
+        <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+        <!-- Plugin custom multi choice 2 -->
+        <script src="jsPsych-6/plugins/jspsych-survey-multi-choice2.js"></script>
+        <script src="jsPsych-6/plugins/jsPsych-fullscreen.js"></script>
+
+>>>>>>> alejandro:numeracy/index.html
+
+        <!-- Libreria para alertas customizadas + CSS respectivo -->
+        <script src="dist/sweetalert.min.js"></script>
+
+<<<<<<< HEAD:Modulos/crtnum/index.html
+
+        <!-- FIN llamadas de JS, JQuery y CSS -->
+=======
+>>>>>>> alejandro:numeracy/index.html
+
+    <script src='experiment.js'></script>
+
+    <script>
+    $( document ).ready(function() {
+
+        jsPsych.init({
+<<<<<<< HEAD:Modulos/crtnum/index.html
+                 timeline: crtNum_experiment,
+=======
+                 timeline: numeracy_experiment,
+>>>>>>> alejandro:numeracy/index.html
+                 fullscreen: true,
+
+                 on_finish: function(data){
+
+                     // Serialize the data
+                     var promise = new Promise(function(resolve, reject) {
+                         var data = jsPsych.data.get().json();
+                         resolve(data);
+                     })
+
+                     promise.then(function(data) {
+
+
+                         $.ajax({
+                             type: "POST",
+                             url: '/save',
+                             data: { "data": data },
+                             success: function(){ document.location = "/next" },
+                             dataType: "application/json",
+
+                             // Endpoint not running, local save
+                             error: function(err) {
+
+                                 if (err.status == 200){
+                                     document.location = "/next";
+                                 } else {
+                                     // If error, assue local save
+<<<<<<< HEAD:Modulos/crtnum/index.html
+                                     jsPsych.data.get().localSave( 'csv' , 'crtNum_results.csv');
+=======
+                                     jsPsych.data.get().localSave('csv' , 'modulo_numeracy.csv' );
+>>>>>>> alejandro:numeracy/index.html
+                                 }
+                             }
+                         });
+                     })
+                 }
+
+          });
+    });
+    </script>
+  </body>
+</html>
