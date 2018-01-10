@@ -22,7 +22,7 @@
         -->
         
         <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Libreria principal JsPsych -->
         <script src="jspsych-5.0.3/jspsych.js"></script>
         
