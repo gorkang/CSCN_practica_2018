@@ -1,0 +1,3 @@
+____ people receive a positive test result that correctly indicates the presence of the anomaly, 
+and ____ people that receive a positive test result that incorrectly indicates the presence of the anomaly. 
+Therefore, given that the test indicates the signs of an anomaly, the probability that a woman actually has an anomaly is ____ out of ____.
