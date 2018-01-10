@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Bayes modular",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "bayes",
+    "name": "Bayes",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
