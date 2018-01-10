@@ -131,6 +131,8 @@ jsPsych.plugins['survey-textID'] = (function() {
         "responses": JSON.stringify(question_data)
       };
 
+      trial.input = val;
+
       display_element.innerHTML = '';
 
       // next trial

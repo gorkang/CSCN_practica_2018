@@ -17,7 +17,11 @@ var mainexplanation={
 
 var idCsv={
     type:"survey-textID",
-    questions: [{prompt: "Ingrese su ID:"}]
+    questions: [{prompt: "Ingrese su ID:"}],
+    on_finish: function(data){
+        var id = this.input;
+        console.log(id);
+    }
 };
 
 
