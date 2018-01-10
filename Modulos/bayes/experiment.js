@@ -1,4 +1,6 @@
 
+var questions = [];
+
 
 var mainexplanation={
     type: "instructions",
@@ -12,7 +14,11 @@ var mainexplanation={
     allow_keys: false,
     show_clickable_nav: true,
     timing_post_trial: 50,
-    data:{trialid: "Welcome_Screen"}
+    data:{trialid: "Welcome_Screen"},
+    on_finish: function(data){
+        console.log(questions[0]);
+
+    }
 };
 
 var idCsv={
@@ -21,6 +27,20 @@ var idCsv={
     on_finish: function(data){
         var id = this.input;
         console.log(id);
+
+
+
+        d3.csv("ITEMS/Bloque1_A_FINAL_V2.csv", function(error, data) {
+            if (error) throw error;
+            console.log(typeof data[0]); // [{"Hello": "world"}, …]
+            for (i = 0; i < data.length; i++) {
+                if (data[i].Participante == id){
+                    questions.push(data[i]);
+                }
+            }
+            console.log(questions[0]);
+        });
+
     }
 };
 
@@ -29,3 +49,4 @@ var bayes_experiment = [];
 
 bayes_experiment.push(mainexplanation);
 bayes_experiment.push(idCsv);
+bayes_experiment.push(mainexplanation);
