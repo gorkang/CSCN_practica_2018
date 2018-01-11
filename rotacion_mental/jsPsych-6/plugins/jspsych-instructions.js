@@ -98,11 +98,7 @@ jsPsych.plugins.instructions = (function() {
         if (current_page != 0 && trial.allow_backward) {
           nav_html += "<button id='jspsych-instructions-back' class='jspsych-btn' style='margin-right: 5px;'>&lt; "+trial.button_label_previous+"</button>";
         }
-<<<<<<< HEAD
         nav_html += "<button id='jspsych-instructions-next' class='jspsych-btn' ;'>"+trial.button_label_next+" &gt;</button></div>"
-=======
-        nav_html += "<button id='jspsych-instructions-next' class='jspsych-btn' style='margin-left: 5px;'>"+trial.button_label_next+" &gt;</button></div>"
->>>>>>> nicolas
 
         display_element.innerHTML += nav_html;
 
