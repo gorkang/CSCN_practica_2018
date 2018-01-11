@@ -41,67 +41,67 @@ var math03 = {
 
 var math04 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas me parecen interesantes.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Las matem&aacute;ticas me parecen interesantes.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_04"}
 };
 
 var math05 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas son una de mis materias favoritas<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Las matem&aacute;ticas son una de mis materias favoritas<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_05"}
 };
 
 var math06 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Siempre tengo/tuve miedo de los ex&aacute;menes de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Siempre tengo/tuve miedo de los ex&aacute;menes de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_06"}
 };
 
 var math07 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Resolver problemas de matem&aacute;ticas siempre es agradable para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Resolver problemas de matem&aacute;ticas siempre es agradable para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_07"}
 };
 
 var math08 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Me siento/sent&iacute;a nervioso cuando estoy/estaba a punto de hacer la tarea de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Me siento/sent&iacute;a nervioso cuando estoy/estaba a punto de hacer la tarea de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_08"}
 };
 
 var math09 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Me siento/sent&iacute;a feliz y emocionado en una clase de matem&aacute;ticas en comparaci&oacute;n con cualquier otra clase.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Me siento/sent&iacute;a feliz y emocionado en una clase de matem&aacute;ticas en comparaci&oacute;n con cualquier otra clase.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_09"}
 };
 
 var math10 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Preferir&iacute;a/prefer&iacute;a que matem&aacute;ticas fuera una de mis materias en los estudios superiores.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Preferir&iacute;a/prefer&iacute;a que matem&aacute;ticas fuera una de mis materias en los estudios superiores.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_10"}
 };
 
 var math11 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas son un dolor de cabeza para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Las matem&aacute;ticas son un dolor de cabeza para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_11"}
 };
 
 var math12 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Tengo/ten&iacute;a miedo de hacer preguntas en clase de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Tengo/ten&iacute;a miedo de hacer preguntas en clase de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_12"}
 };
 
 var math13 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Las matem&aacute;ticas no me asustan en absoluto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Las matem&aacute;ticas no me asustan en absoluto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_13"}
 };
 
 var math14 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><hr /><br />Mi mente se queda/quedaba en blanco cuando el profesor hace/hac&iacute;a preguntas de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Mi mente se queda/quedaba en blanco cuando el profesor hace/hac&iacute;a preguntas de matem&aacute;ticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "Math_14"}
 };
 
@@ -111,6 +111,9 @@ ansiedad_matematica_experiment = [];
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
   ansiedad_matematica_experiment.push({
     type: 'fullscreen',
+    message: '<p>El experimento entrara en modo pantalla completa</p>',
+    button_label: "Pantalla Completa",
+    delay_after: 0,
     fullscreen_mode: true
   });
 }

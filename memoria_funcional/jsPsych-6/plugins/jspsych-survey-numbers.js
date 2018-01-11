@@ -1,5 +1,5 @@
 /**
- * jspsych-survey-text
+ * jspsych-survey-numbers
  * a jspsych plugin for free response survey questions
  *
  * Josh de Leeuw
@@ -9,12 +9,12 @@
  */
 
 
-jsPsych.plugins['survey-text'] = (function() {
+jsPsych.plugins['survey-numbers'] = (function() {
 
   var plugin = {};
 
   plugin.info = {
-    name: 'survey-text',
+    name: 'survey-numbers',
     description: '',
     parameters: {
       questions: {
@@ -96,48 +96,64 @@ jsPsych.plugins['survey-text'] = (function() {
 
     // show preamble text
     if(trial.preamble !== null){
-      html += '<div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
+      html += '<div id="jspsych-survey-numbers-preamble" class="jspsych-survey-numbers-preamble">'+trial.preamble+'</div>';
     }
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
-      html += '<div id="jspsych-survey-text-"'+i+'" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
-      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
+      html += '<div id="jspsych-survey-numbers-"'+i+'" class="jspsych-survey-numbers-question" style="margin: 2em 0em;">';
+      html += '<p class="jspsych-survey-numbers">' + trial.questions[i].prompt + '</p>';
       if(trial.questions[i].rows == 1){
-        //type changed to number and added onfocus
-        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'" onfocus="advance(event)"></input>';
+        //type changed to number, added class and required
+        html += '<input type="number" required="true" class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value + '"></input>';
       } else {
-        //type changed to number and added onfocus
-        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '">'+trial.questions[i].value+'" onfocus="advance(event)">< /input type="number">';
+        //type changed to number, added class and required
+        html += '<input type="number" required="true" class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '">'+trial.questions[i].value+'></input>';
       }
       html += '</div>';
     }
 
-    //***************************************************************modificacion*********************************************************
-    html += '<p>';
-    //***************************************************************modificacion*********************************************************
-
-    // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
-
-    //***************************************************************modificacion*********************************************************
-    html += '<br /><p><br />';
-    //***************************************************************modificacion*********************************************************
+    html += "<table style='margin: auto'><tbody>" +
+      "<tr><td><button class='jspsych-btn'>7</button></td><td><button class='jspsych-btn'>8</button></td><td><button class='jspsych-btn'>9</button></td></tr>" +
+      "<tr><td><button class='jspsych-btn'>4</button></td><td><button class='jspsych-btn'>5</button></td><td><button class='jspsych-btn'>6</button></td></tr>" +
+      "<tr><td><button class='jspsych-btn'>1</button></td><td><button class='jspsych-btn'>2</button></td><td><button class='jspsych-btn'>3</button></td></tr>" +
+      "<tr><td colspan='2'><button class='jspsych-btn' style='width:100%'>0</button></td><td><button class='jspsych-btn jspsych-survey-numbers-next'><img src='jsPsych-6/plugins/tick.svg' width='8' height='8  '></img></button></td></tr>" +
+    "</tbody></table>";
+    html +='<div class="fail-message"></div>'
 
     display_element.innerHTML = html;
 
     //modificacion
-    var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
+    var firstTextBox = display_element.querySelector("input.jspsych-survey-numbers-response-0");
     firstTextBox.focus();
+    firstTextBox.onkeydown = function(event){
+      if(event.keyCode == 13){
+        display_element.querySelector("button.jspsych-btn.jspsych-survey-numbers-next").click();
+      };
+    };
+    var buttons = display_element.querySelectorAll('button.jspsych-btn');
+    buttons.forEach(function(button){
+      button.onclick = function(){
+        if(!this.className.includes("jspsych-survey-numbers-next")){
+          firstTextBox.value += this.innerText;
+        }
+      };
+    });
     //fin modificacion
 
-    display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
+    display_element.querySelector("button.jspsych-btn.jspsych-survey-numbers-next").addEventListener('click', function() {
+      //modificacion
+      if(!firstTextBox.checkValidity()){
+        display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Debes ingresar los numeros que escuchaste de acuerdo a las instrucciones.</span>';
+        return;
+      }
+      //fin modificacion
       // measure response time
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
 
       // create object to hold responses
       var question_data = {};
-      var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
+      var matches = display_element.querySelectorAll('div.jspsych-survey-numbers-question');
       for(var index=0; index<matches.length; index++){
         var id = "Q" + index;
         var val = matches[index].querySelector('number, input').value;

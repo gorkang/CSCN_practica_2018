@@ -196,22 +196,20 @@
             };
 
             var crt7 = {
-                type: "survey-multi-choice",
-                timeline:[
-                    {
-                        questions: [{prompt:"<div class = centerbox>"+
-                       "<p class = justified>"+
-                       "Sim&oacute;n decide invertir $8.000.000 en el mercado de acciones un d&iacute;a a inicios de 2008. Seis<br />"+
-                       "meses despu&eacute;s de haber invertido, el 17 de julio, las acciones que hab&iacute;a comprado bajaron un"+
-                       "50%. Afortunadamente para Sim&oacute;n, desde el 17 de julio hasta el 17 de octubre, las acciones que"+
-                       "hab&iacute;a comprado subieron un 75%. En este momento, Sim&oacute;n ha:"+
-                       "</p><br /><br /></div>",
-                       options: ["1. No ha ganado ni perdido dinero","2. Ha ganado dinero","3. Ha perdido dinero"]}],
-                        data: {trialid: "crt_experiment_07"},
-                        horizontal: true
-                        },
-                ],
-                required: 'true'
+            type: "survey-multi-choice",
+            questions: [{
+              prompt:"<div class = centerbox>"+
+                "<p class = justified>"+
+                "Sim&oacute;n decide invertir $8.000.000 en el mercado de acciones un d&iacute;a a inicios de 2008. Seis<br />"+
+                "meses despu&eacute;s de haber invertido, el 17 de julio, las acciones que hab&iacute;a comprado bajaron un"+
+                "50%. Afortunadamente para Sim&oacute;n, desde el 17 de julio hasta el 17 de octubre, las acciones que"+
+                "hab&iacute;a comprado subieron un 75%. En este momento, Sim&oacute;n ha:"+
+                "</p><br /><br /></div>",
+              options: ["1. No ha ganado ni perdido dinero","2. Ha ganado dinero","3. Ha perdido dinero"],
+              horizontal: true,
+              required: 'true'
+            }]
+            data: {trialid: "crt_experiment_07"}
             };
 
             // -----------------------------------------------------------------------------------------
@@ -306,6 +304,9 @@
             if(window.innerWidth != screen.width || window.innerHeight != screen.height){
               crt_experiment.push({
                 type: 'fullscreen',
+                message: '<p>El experimento entrara en modo pantalla completa</p>',
+                button_label: "Pantalla Completa",
+                delay_after: 0,
                 fullscreen_mode: true
               });
             }

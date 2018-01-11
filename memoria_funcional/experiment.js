@@ -52,10 +52,10 @@ function block_enter(event){
 }
 
 function advance(event){
-    document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event){
+    document.getElementsByName("#jspsych-survey-numbers-response-0")[0].onkeypress = function(event){
         if (event.keyCode == 13) {
             console.log("User pressed enter. Clicking continue button");
-            var btn = document.getElementById("jspsych-survey-text-next");
+            var btn = document.getElementById("jspsych-survey-numbers-next");
             btn.click();
             //event.preventDefault();
         }
@@ -130,7 +130,7 @@ var wmexplanation3={
 };
 
 var answeraudio = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     data: {trialid: "WM_"+audioindex}
 };
@@ -138,7 +138,7 @@ var answeraudio = {
 /****************************** INICIO ELEMENTOS WM DIRECTO ******************************/
 
 var answeraudio_00 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_00"},
@@ -169,7 +169,7 @@ var answeraudio_00 = {
 };
 
 var answeraudio_01 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_01"},
@@ -201,7 +201,7 @@ var answeraudio_01 = {
 };
 
 var answeraudio_02 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_02"},
@@ -232,7 +232,7 @@ var answeraudio_02 = {
 };
 
 var answeraudio_03 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_03"},
@@ -264,7 +264,7 @@ var answeraudio_03 = {
 };
 
 var answeraudio_04 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_04"},
@@ -295,7 +295,7 @@ var answeraudio_04 = {
 };
 
 var answeraudio_05 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_05"},
@@ -327,7 +327,7 @@ var answeraudio_05 = {
 };
 
 var answeraudio_06 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_06"},
@@ -358,7 +358,7 @@ var answeraudio_06 = {
 };
 
 var answeraudio_07 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_07"},
@@ -390,7 +390,7 @@ var answeraudio_07 = {
 };
 
 var answeraudio_08 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_08"},
@@ -421,7 +421,7 @@ var answeraudio_08 = {
 };
 
 var answeraudio_09 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_09"},
@@ -453,7 +453,7 @@ var answeraudio_09 = {
 };
 
 var answeraudio_10 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_10"},
@@ -484,7 +484,7 @@ var answeraudio_10 = {
 };
 
 var answeraudio_11 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_11"},
@@ -516,7 +516,7 @@ var answeraudio_11 = {
 };
 
 var answeraudio_12 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_12"},
@@ -547,7 +547,7 @@ var answeraudio_12 = {
 };
 
 var answeraudio_13 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_13"},
@@ -579,7 +579,7 @@ var answeraudio_13 = {
 };
 
 var answeraudio_14 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_14"},
@@ -610,7 +610,7 @@ var answeraudio_14 = {
 };
 
 var answeraudio_15 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMD_15"},
@@ -679,7 +679,7 @@ var wm_practice02={
 //Numeros: 6-3
 
 var wmi_practiceanswer01 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_01"},
@@ -701,7 +701,7 @@ var wmi_practiceanswer01 = {
 };
 
 var wmi_practiceanswer02 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_02"},
@@ -793,7 +793,7 @@ var wmi_conditional12 = {
 //16 y 17 se reemplazan por ser pruebas
 
 var answeraudio_16 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_03"},
@@ -824,7 +824,7 @@ var answeraudio_16 = {
 };
 
 var answeraudio_17 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_04"},
@@ -857,7 +857,7 @@ var answeraudio_17 = {
 // Aqui continua la lista desde el 03
 
 var answeraudio_18 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_03"},
@@ -888,7 +888,7 @@ var answeraudio_18 = {
 };
 
 var answeraudio_19 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_04"},
@@ -920,7 +920,7 @@ var answeraudio_19 = {
 };
 
 var answeraudio_20 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_05"},
@@ -951,7 +951,7 @@ var answeraudio_20 = {
 };
 
 var answeraudio_21 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_06"},
@@ -983,7 +983,7 @@ var answeraudio_21 = {
 };
 
 var answeraudio_22 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_07"},
@@ -1014,7 +1014,7 @@ var answeraudio_22 = {
 };
 
 var answeraudio_23 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_08"},
@@ -1046,7 +1046,7 @@ var answeraudio_23 = {
 };
 
 var answeraudio_24 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_09"},
@@ -1077,7 +1077,7 @@ var answeraudio_24 = {
 };
 
 var answeraudio_25 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_10"},
@@ -1109,7 +1109,7 @@ var answeraudio_25 = {
 };
 
 var answeraudio_26 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_11"},
@@ -1140,7 +1140,7 @@ var answeraudio_26 = {
 };
 
 var answeraudio_27 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_12"},
@@ -1172,7 +1172,7 @@ var answeraudio_27 = {
 };
 
 var answeraudio_28 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_13"},
@@ -1203,7 +1203,7 @@ var answeraudio_28 = {
 };
 
 var answeraudio_29 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_14"},
@@ -1235,7 +1235,7 @@ var answeraudio_29 = {
 };
 
 var answeraudio_30 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_15"},
@@ -1266,7 +1266,7 @@ var answeraudio_30 = {
 };
 
 var answeraudio_31 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_16"},
@@ -1298,7 +1298,7 @@ var answeraudio_31 = {
 };
 
 var answeraudio_32 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_17"},
@@ -1329,7 +1329,7 @@ var answeraudio_32 = {
 };
 
 var answeraudio_33 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMI_18"},
@@ -1398,7 +1398,7 @@ var wm_practice02={
 //Numeros: 6-3
 
 var wms_practiceanswer01 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_01"},
@@ -1420,7 +1420,7 @@ var wms_practiceanswer01 = {
 };
 
 var wm_practiceanswer02 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_02"},
@@ -1513,7 +1513,7 @@ var wm_conditional12 = {
 // 03 y 04 se omiten por ser pruebas
 
 var answeraudio_34 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_03"},
@@ -1543,7 +1543,7 @@ var answeraudio_34 = {
 };
 
 var answeraudio_35 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_04"},
@@ -1576,7 +1576,7 @@ var answeraudio_35 = {
 // Aqui empiezan los 03 y 04 reales
 
 var answeraudio_36 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_03"},
@@ -1607,7 +1607,7 @@ var answeraudio_36 = {
 };
 
 var answeraudio_37 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_04"},
@@ -1639,7 +1639,7 @@ var answeraudio_37 = {
 };
 
 var answeraudio_38 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_05"},
@@ -1670,7 +1670,7 @@ var answeraudio_38 = {
 };
 
 var answeraudio_39 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_06"},
@@ -1702,7 +1702,7 @@ var answeraudio_39 = {
 };
 
 var answeraudio_40 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_07"},
@@ -1733,7 +1733,7 @@ var answeraudio_40 = {
 };
 
 var answeraudio_41 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_08"},
@@ -1765,7 +1765,7 @@ var answeraudio_41 = {
 };
 
 var answeraudio_42 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_09"},
@@ -1796,7 +1796,7 @@ var answeraudio_42 = {
 };
 
 var answeraudio_43 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_10"},
@@ -1828,7 +1828,7 @@ var answeraudio_43 = {
 };
 
 var answeraudio_44 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_11"},
@@ -1859,7 +1859,7 @@ var answeraudio_44 = {
 };
 
 var answeraudio_45 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_12"},
@@ -1891,7 +1891,7 @@ var answeraudio_45 = {
 };
 
 var answeraudio_46 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_13"},
@@ -1922,7 +1922,7 @@ var answeraudio_46 = {
 };
 
 var answeraudio_47 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_14"},
@@ -1954,7 +1954,7 @@ var answeraudio_47 = {
 };
 
 var answeraudio_48 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_15"},
@@ -1985,7 +1985,7 @@ var answeraudio_48 = {
 };
 
 var answeraudio_49 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_16"},
@@ -2013,7 +2013,7 @@ var answeraudio_49 = {
 };
 
 var answeraudio_50 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_17"},
@@ -2040,7 +2040,7 @@ var answeraudio_50 = {
 };
 
 var answeraudio_51 = {
-    type: 'survey-text',
+    type: 'survey-numbers',
     questions:[{prompt:["<p>Escribe a continuacion, los numeros que escuchaste </p>"]}],
     timing_post_trial: 100,
     data: {trialid: "WMS_18"},
@@ -3134,6 +3134,9 @@ memoria_funcional_experiment = [];
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
   memoria_funcional_experiment.push({
     type: 'fullscreen',
+    message: '<p>El experimento entrara en modo pantalla completa</p>',
+    button_label: "Pantalla Completa",
+    delay_after: 0,
     fullscreen_mode: true
   });
 }

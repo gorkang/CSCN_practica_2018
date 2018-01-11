@@ -127,6 +127,9 @@
             if(window.innerWidth != screen.width || window.innerHeight != screen.height){
               crtNum_experiment.push({
                 type: 'fullscreen',
+                message: '<p>El experimento entrara en modo pantalla completa</p>',
+                button_label: "Pantalla Completa",
+                delay_after: 0,
                 fullscreen_mode: true
               });
             }
