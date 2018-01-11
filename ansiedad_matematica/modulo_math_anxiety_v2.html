@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Experimento Math Anxiety V2</title>
+        <!-- INICIO llamadas de JS, JQuery y CSS -->
+        
+        <!--
+        Notas:
+        * Este template asume que el archivo HTML a ejecutar, se encuentra en el mismo directorio que las
+        carpetas de JsPsych, de imagenes y otros recursos a utilizar. Si se desea emplear otra estructura para
+        ordenar las carpetas, se deben realizar los cambios respectivos en las llamadas a dichos recursos.
+        * Si bien se listan todos los plugins empleados en la bateria completa, cuando se quiere ejecutar un modulo
+        en particular, no es necesario que esten todas, para lo cual basta con dejar las que se requieren y borrar
+        el resto.
+        * Dado que la distribucion de elementos e imagenes en pantallas esta fijada para resoluciones de 1920x1080,
+        hay elementos que se veran de forma erronea en otras resoluciones. Para corregir esto, se deben editar los
+        valores respectivos en el archivo style.css
+        * Para cumplir los requerimientos de cada prueba, los archivos javascript de varios plugin fueron
+        modificados de distinta forma, por lo tanto, se recomienda emplear la carpeta que contiene los plugins
+        modificados. En caso contrario, los experimentos pueden no comportarse de la forma esperada, o
+        bien, simplemente no funcionar.
+        -->
+        
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Libreria principal JsPsych -->
+        <script src="jspsych-5.0.3/jspsych.js"></script>
+    
+        <!-- Plugin para desplegar elementos tipo instrucciones -->
+        <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+        <!-- Plugin custom multi choice 2 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-multi-choice1.js"></script>
+        
+        <!-- Documento CSS principal -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <!-- Libreria para alertas customizadas + CSS respectivo -->
+        <script src="dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+        
+        <!-- FIN llamadas de JS, JQuery y CSS -->
+    </head>
+    <body>
+        <script>
+            
+            // Funciones de apoyo
+            function block_fkeys(event){
+                var x = event.which || event.keyCode;
+                if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
+                    console.log("Blocked key");
+                    event.preventDefault();
+                    return false;
+                }else{
+                    return;
+                }
+            }
+                
+            // Inicio prueba
+            var mathexplanation={
+                type: "instructions",
+                pages: ["<div class = centerbox>"+
+                       "<p class = center-block-text>"+
+                       "A continuaci&oacute;n debes calificar una serie de enunciados se&ntilde;alando si est&aacute;s<br />"+
+                       "muy en desacuerdo, en desacuerdo, indeciso, de acuerdo, o muy de acuerdo.<br /><br />"+
+                       "Debes leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita."+
+                       "</p></div>"],
+                allow_keys: false,
+                show_clickable_nav: true,
+                timing_post_trial: 50,
+                data:{trialid: "Instructions_Math"}
+            };
+            
+            var cuchufli_01 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><br />fdgdfg fgdf gdfg dfg dfg dfg dfg .<br /></div>"]
+               ],
+              data: {trialid: "cuchufli_01"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math02 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><br />Las matem&aacute;ticas son la materia que m&aacute;s temo.<br /></div>"]
+               ],
+              data: {trialid: "Math_02"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math03 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><br />Me siento/sent&iacute;a preocupado antes de entrar a la clase de matem&aacute;ticas.<br /></div>"]
+               ],
+              data: {trialid: "Math_03"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math04 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Las matem&aacute;ticas me parecen interesantes.<br /></div>"]
+               ],
+              data: {trialid: "Math_04"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math05 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Las matem&aacute;ticas son una de mis materias favoritas<br /></div>"]
+               ],
+              data: {trialid: "Math_05"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math06 = {
+              type: "survey-multi-choice1",
+              questions: [               
+                ["<div class='justified'><hr /><br />Siempre tengo/tuve miedo de los ex&aacute;menes de matem&aacute;ticas.<br /></div>"]
+               ],
+              data: {trialid: "Math_06"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math07 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Resolver problemas de matem&aacute;ticas siempre es agradable para m&iacute;.<br /></div>"]
+               ],
+              data: {trialid: "Math_07"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math08 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Me siento/sent&iacute;a nervioso cuando estoy/estaba a punto de hacer la tarea de matem&aacute;ticas.<br /></div>"]
+               ],
+              data: {trialid: "Math_08"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math09 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Me siento/sent&iacute;a feliz y emocionado en una clase de matem&aacute;ticas en comparaci&oacute;n con cualquier otra clase.<br /></div>"]
+               ],
+              data: {trialid: "Math_09"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math10 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Preferir&iacute;a/prefer&iacute;a que matem&aacute;ticas fuera una de mis materias en los estudios superiores.<br /></div>"]
+               ],
+              data: {trialid: "Math_10"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math11 = {
+              type: "survey-multi-choice1",
+              questions: [
+                
+                ["<div class='justified'><hr /><br />Las matem&aacute;ticas son un dolor de cabeza para m&iacute;.<br /></div>"]
+               ],
+              data: {trialid: "Math_11"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math12 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Tengo/ten&iacute;a miedo de hacer preguntas en clase de matem&aacute;ticas.<br /></div>"]
+               ],
+              data: {trialid: "Math_12"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math13 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Las matem&aacute;ticas no me asustan en absoluto.<br /></div>"]
+               ],
+              data: {trialid: "Math_13"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            var math14 = {
+              type: "survey-multi-choice1",
+              questions: [
+                ["<div class='justified'><hr /><br />Mi mente se queda/quedaba en blanco cuando el profesor hace/hac&iacute;a preguntas de matem&aacute;ticas.<br /></div>"]
+               ],
+              data: {trialid: "Math_14"},             
+
+              options: [
+                        ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"]
+                        ],
+     
+                horizontal: true,
+                required: 'true',
+            };
+            
+            // Creacion de timeline e inclusion de trials
+            experimento_math_anxiety = [];
+            experimento_math_anxiety.push(mathexplanation);
+            experimento_math_anxiety.push(cuchufli_01);
+            experimento_math_anxiety.push(math02);
+            experimento_math_anxiety.push(math03);
+            experimento_math_anxiety.push(math04);
+            experimento_math_anxiety.push(math05);
+            experimento_math_anxiety.push(math06);
+            experimento_math_anxiety.push(math07);
+            experimento_math_anxiety.push(math08);
+            experimento_math_anxiety.push(math09);
+            experimento_math_anxiety.push(math10);
+            experimento_math_anxiety.push(math11);
+            experimento_math_anxiety.push(math12);
+            experimento_math_anxiety.push(math13);
+            experimento_math_anxiety.push(math14);
+            
+            // Inicializacion
+            jsPsych.init({
+                timeline: experimento_math_anxiety,
+                fullscreen: true,
+                on_trial_start: function(){
+                    document.onkeypress = block_fkeys;                   
+                },
+                on_finish: function(){
+                jsPsych.data.localSave('modulo_math_anxiety.csv', 'csv');
+                },
+                default_iti: 0
+            });
+            
+        </script>
+    </body>
+</html>

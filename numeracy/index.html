@@ -16,15 +16,19 @@
 
         <!-- Plugin para recibir texto estilo survey -->
         <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
-        <script src="jsPsych-6/plugins/jspsych-survey-textnum2.js"></script>
-        <!-- Plugin custom numeracy -->
-        <script src="jsPsych-6/plugins/jspsych-survey-textnum1.js"></script>
-        <!-- Plugin para desplegar elementos tipo instrucciones -->
+
         <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
         <!-- Plugin custom multi choice 2 -->
         <script src="jsPsych-6/plugins/jspsych-survey-multi-choice2.js"></script>
-        <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
 
+        <!-- Documento CSS principal -->
+
+
+        <!-- Libreria para alertas customizadas + CSS respectivo -->
+        <script src="dist/sweetalert.min.js"></script>
+
+
+        <!-- FIN llamadas de JS, JQuery y CSS -->
 
     <script src='experiment.js'></script>
 
@@ -32,7 +36,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: numeracy_experiment,
+          timeline: numeracy_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -60,7 +64,11 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
+<<<<<<< HEAD:Modulos/crtnum/index.html
+                                     jsPsych.data.get().localSave( 'csv' , 'crtNum_results.csv');
+=======
                                      jsPsych.data.get().localSave('csv' , 'modulo_numeracy.csv' );
+>>>>>>> alejandro:numeracy/index.html
                                  }
                              }
                          });

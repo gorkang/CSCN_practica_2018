@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Demo for displaying get parameters",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "demo",
+    "name": "Parameters Demo",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 1
+}

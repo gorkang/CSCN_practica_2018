@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class=''>
+  <head>
+      <meta charset='UTF-8'>
+      <meta name="robots" content="noindex">
+      <title>Demo</title>
+  </head>
+
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jsPsych-6/jspsych.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+    <script src="getParameters.js"></script>
+    <script src='experiment.js'></script>
+
+    <script>
+    $( document ).ready(function() {
+
+        jsPsych.init({
+                 timeline: demo_experiment,
+                 fullscreen: true,
+
+                 on_finish: function(data){
+
+                     // Serialize the data
+                     var promise = new Promise(function(resolve, reject) {
+                         var data = jsPsych.data.get().json();
+                         resolve(data);
+                     })
+
+                     promise.then(function(data) {
+
+
+                         $.ajax({
+                             type: "POST",
+                             url: '/save',
+                             data: { "data": data },
+                             success: function(){ document.location = "/next" },
+                             dataType: "application/json",
+
+                             // Endpoint not running, local save
+                             error: function(err) {
+
+                                 if (err.status == 200){
+                                     document.location = "/next";
+                                 } else {
+                                     // If error, assue local save
+                                     jsPsych.data.get().localSave( 'csv', 'demo_results.csv');
+                                 }
+                             }
+                         });
+                     })
+                 }
+
+          });
+    });
+    </script>
+  </body>
+</html>

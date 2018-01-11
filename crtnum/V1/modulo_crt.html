@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Experimento CRT</title>
+        <!-- INICIO llamadas de JS, JQuery y CSS -->
+        
+        <!--
+        Notas:
+        * Este template asume que el archivo HTML a ejecutar, se encuentra en el mismo directorio que las
+        carpetas de JsPsych, de imagenes y otros recursos a utilizar. Si se desea emplear otra estructura para
+        ordenar las carpetas, se deben realizar los cambios respectivos en las llamadas a dichos recursos.
+        * Si bien se listan todos los plugins empleados en la bateria completa, cuando se quiere ejecutar un modulo
+        en particular, no es necesario que esten todas, para lo cual basta con dejar las que se requieren y borrar
+        el resto.
+        * Dado que la distribucion de elementos e imagenes en pantallas esta fijada para resoluciones de 1920x1080,
+        hay elementos que se veran de forma erronea en otras resoluciones. Para corregir esto, se deben editar los
+        valores respectivos en el archivo style.css
+        * Para cumplir los requerimientos de cada prueba, los archivos javascript de varios plugin fueron
+        modificados de distinta forma, por lo tanto, se recomienda emplear la carpeta que contiene los plugins
+        modificados. En caso contrario, los experimentos pueden no comportarse de la forma esperada, o
+        bien, simplemente no funcionar.
+        -->
+        
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Libreria principal JsPsych -->
+        <script src="jspsych-5.0.3/jspsych.js"></script>
+        
+        <!-- Plugin custom crt 1 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt1.js"></script>
+        <!-- Plugin custom crt 2 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt2.js"></script>
+        <!-- Plugin custom crt 3 -->
+        <script src="jspsych-5.0.3/plugins/jspsych-survey-textcrt3.js"></script>
+        <!-- Plugin para desplegar elementos tipo instrucciones -->
+        <script src="jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+        
+        <!-- Documento CSS principal -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <!-- Libreria para alertas customizadas + CSS respectivo -->
+        <script src="dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+        
+        <!-- FIN llamadas de JS, JQuery y CSS -->
+    </head>
+    <body>
+        <script>
+            
+            // Funciones de apoyo
+            function block_fkeys(event){
+                var x = event.which || event.keyCode;
+                if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
+                    console.log("Blocked key");
+                    event.preventDefault();
+                    return false;
+                }else{
+                    return;
+                }
+            }
+                
+            // Inicio prueba
+            var crtexplanation={
+                type: "instructions",
+                pages: ["<div class = centerbox>"+
+                       "<p class = center-block-text>"+
+                       "Ahora te haremos 3 breves preguntas, en las cuales tendr&aacute;s que realizar un c&aacute;lculo muy sencillo.<br /><br />"+
+                       "Debes leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita."+
+                       "</p></div>"],
+                allow_keys: false,
+                show_clickable_nav: true,
+                timing_post_trial: 50,
+                data:{trialid: "Instructions_CRT"}
+            };
+            
+            var crt1 = {
+                type: "survey-textcrt1",
+                preamble: "<div class='crt_text'>1. Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota.<br /><br /></div>",
+                questions: ["&iquest;Cu&aacute;nto cuesta la pelota?<br /><br />"],
+                data: {trialid: "CRT_01"}
+                };
+            var crt2 = {
+                type: "survey-textcrt2",
+                preamble: "<div class='crt_text'>2. Si 5 m&aacute;quinas tardan 5 minutos para hacer 5 aparatos.<br /><br /></div>",
+                questions: ["&iquest;Cu&aacute;nto tardar&iacute;an 100 m&aacute;quinas para hacer 100 aparatos?<br /><br />"],
+                data: {trialid: "CRT_02"}
+                };
+            var crt3 = {
+                type: "survey-textcrt3",
+                preamble: "<div class='crt_text'>3. En un lago, hay un manto de lirios. Cada d&iacute;a el manto duplica su tama&ntilde;o. <br />Si a los lirios les toma 48 d&iacute;as en cubrir todo el lago,<br /><br /></div>",
+                questions: ["&iquest;cu&aacute;nto le tomar&iacute;a al manto de lirios cubrir la mitad del lago?<br /><br />"],
+                data: {trialid: "CRT_03"}
+                };
+            
+            // Creacion de timeline e inclusion de trials
+            experimento_crt = [];
+            experimento_crt.push(crtexplanation);
+            experimento_crt.push(crt1);
+            experimento_crt.push(crt2);
+            experimento_crt.push(crt3);
+            
+            // Inicializacion
+            jsPsych.init({
+                timeline: experimento_crt,
+                fullscreen: true,
+                on_trial_start: function(){
+                    document.onkeypress = block_fkeys;                   
+                },
+                on_finish: function(){
+                jsPsych.data.localSave('modulo_crt.csv', 'csv');
+                },
+                default_iti: 0
+            });
+            
+        </script>
+    </body>
+</html>
