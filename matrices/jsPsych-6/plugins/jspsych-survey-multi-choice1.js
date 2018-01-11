@@ -62,17 +62,6 @@ jsPsych.plugins['survey-multi-choice1'] = (function() {
       return arr.join(separator = '-');
     }
 
-    // inject CSS for trial
-    display_element.innerHTML = '<style id="jspsych-survey-multi-choice-css"></style>';
-    var cssstr = ".jspsych-survey-multi-choice-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
-      ".jspsych-survey-multi-choice-text span.required {color: darkred;}"+
-      ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-text {  text-align: center;}"+
-      ".jspsych-survey-multi-choice-option { line-height: 2; }"+
-      ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option {  display: inline-block;  margin-left: 1em;  margin-right: 1em;  vertical-align: top;}"+
-      "label.jspsych-survey-multi-choice-text input[type='radio'] {margin-right: 1em;}"
-
-    display_element.querySelector('#jspsych-survey-multi-choice-css').innerHTML = cssstr;
-
     // form element
     var trial_form_id = _join(plugin_id_name, "form");
     display_element.innerHTML += '<form id="'+trial_form_id+'"></form>';
@@ -126,7 +115,7 @@ jsPsych.plugins['survey-multi-choice1'] = (function() {
 
       if (trial.questions[i].required) {
         // add "question required" asterisk
-        display_element.querySelector(question_selector + " p").innerHTML += "<span class='required'>*</span>";
+        //display_element.querySelector(question_selector + " p").innerHTML += "<span class='required'>*</span>";
 
         // add required property
         display_element.querySelector(question_selector + " input[type=radio]").required = true;

@@ -94,29 +94,22 @@
             /* INICIO BLOQUES DE PRACTICA */
 
             var matriz_practice_1={
-                type: "survey-multi-choice1",
-                timeline:[
-                    {
-                        questions: [{prompt:"<div class = centerbox>"+
-                       "<p class = justified>"+
-                       "Mire la siguiente figura. Usted debe escoger cu&aacute;l de las opciones que se encuentran abajo va en el "+
-                        "cuadro con un signo de interrogaci&oacute;n. La respuesta correcta es aquella que encaja yendo de "+
-                        "izquierda a derecha y yendo de arriba hacia abajo. Usted s&oacute;lo debe mirar de izquierda a derecha y "+
-                        "de arriba hacia abajo. No mire diagonalmente. &iquest;Cu&aacute;l de las opciones que se encuentran abajo va en "+
-                        "el cuadro con un signo de interrogaci&oacute;n?"+
-                       "</p><br /><br /></div>"+
-                       "<div class= centered><div class='centered'><img src ='img/1A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/1B.png' </img></div>",
-                       options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
-                        data: {trialid: "P_MP_01"},
-                        horizontal: true
-                        },
-                ],
-                horizontal: true,
-                required: 'true',
-
+                type: "html-button-response",
+                stimulus:"<div class = centerbox>"+
+                  "<p class = justified>"+
+                  "Mire la siguiente figura. Usted debe escoger cu&aacute;l de las opciones que se encuentran abajo va en el "+
+                  "cuadro con un signo de interrogaci&oacute;n. La respuesta correcta es aquella que encaja yendo de "+
+                  "izquierda a derecha y yendo de arriba hacia abajo. Usted s&oacute;lo debe mirar de izquierda a derecha y "+
+                  "de arriba hacia abajo. No mire diagonalmente. &iquest;Cu&aacute;l de las opciones que se encuentran abajo va en "+
+                  "el cuadro con un signo de interrogaci&oacute;n?"+
+                  "</p><br /><br /></div>"+
+                  "<div class= centered><div class='centered'><img src ='img/1A.png' /></div>",
+                choices: ["<img src='img/1B_1.png' style='width: 100%'/>","<img src='img/1B_2.png' style='width: 100%'/>","<img src='img/1B_3.svg' style='width: 100%'/>","<img src='img/1B_4.png' style='width: 100%'/>","<img src='img/1B_5.png' style='width: 100%' />"],
+                button_html: '<button class="jspsych-matrix-button">%choice%</button>',
+                data: {trialid: "P_MP_01"},
                 on_finish: function(data){
-                   var test = data.responses;
-                    if(test =='{"Q0":"<img src=\'img/op5.png\' />"}'){
+                   var test = data.button_pressed;
+                    if(test == 4){
                         condition1 = true;
                     } else {
                         condition1 = false;
@@ -125,27 +118,20 @@
             };
 
             var matriz_practice_2={
-                type: "survey-multi-choice1",
-                timeline:[
-                    {
-                        questions: [{prompt:"<div class = centerbox>"+
-                       "<p class = justified>"+
-                       "&Eacute;ste es otro tipo de problema. Los cuadros solo van de izquierda a derecha. La respuesta correcta "+
-                        "seguir&aacute; el mismo orden que usted ve en los cuadros. &iquest;Cu&aacute;l de las opciones que se encuentran abajo va "+
-                        "en el cuadro con un signo de interrogaci&oacute;n?"+
-                       "</p><br /><br /></div>"+
-                       "<div class= centered><div class='centered'><img src ='img/2A.png' /></div><br /><br /><div class='centered'><img src ='img/2B.png' </img></div>",
-                       options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
-                        data: {trialid: "P_MP_02"},
-                        horizontal: true
-                        },
-                ],
-                horizontal: true,
-                required: 'true',
-
+                type: "html-button-response",
+                stimulus:"<div class = centerbox>"+
+                  "<p class = justified>"+
+                  "&Eacute;ste es otro tipo de problema. Los cuadros solo van de izquierda a derecha. La respuesta correcta "+
+                  "seguir&aacute; el mismo orden que usted ve en los cuadros. &iquest;Cu&aacute;l de las opciones que se encuentran abajo va "+
+                  "en el cuadro con un signo de interrogaci&oacute;n?"+
+                  "</p><br /><br /></div>"+
+                  "<div class= centered><div class='centered'><img src ='img/2A.png' /></div>",
+                choices: ["<img src='img/2B_1.png' />","<img src='img/2B_2.png' />","<img src='img/2B_3.png' />","<img src='img/2B_4.png' />","<img src='img/2B_5.png' />"],
+                button_html: '<button class="jspsych-matrix-button">%choice%</button>',
+                data: {trialid: "P_MP_02"},
                 on_finish: function(data){
-                   var test = data.responses;
-                    if(test =='{"Q0":"<img src=\'img/op4.png\' />"}'){
+                   var test = data.button_pressed;
+                    if(test == 3){
                         condition2 = true;
                     } else {
                         condition2 = false;
@@ -253,15 +239,14 @@
             /* FIN BLOQUES DE PRACTICA */
 
             var matriz01 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/3A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/3B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/3A.png' /></div>",
+                choices: ["<img src='img/3B_1.png' />","<img src='img/3B_2.png' />","<img src='img/3B_3.png' />","<img src='img/3B_4.png' />","<img src='img/3B_5.png' />"],
+                button_html: '<button class="jspsych-matrix-button">%choice%</button>',
                 data: {trialid: "MP_03"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op3.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 2){
                         matrixflag01 = 0;
                         matrixflag02 +=1;
                         matrixflag03 +=1;
@@ -274,15 +259,13 @@
                 };
 
             var matriz02 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/4A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/4B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/4A.png' /></div>",
+                choices:["<img src='img/4B_1.png' />","<img src='img/4B_2.png' />","<img src='img/4B_3.png' />","<img src='img/4B_4.png' />","<img src='img/4B_5.png' />"],
                 data: {trialid: "MP_04"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op2.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 1){
                         matrixflag01 = 0;
                         matrixflag02 +=1;
                         matrixflag03 +=1;
@@ -295,15 +278,13 @@
                 };
 
             var matriz03 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/5A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/5B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/5A.png' /></div>",
+                choices:["<img src='img/5B_1.png' />","<img src='img/5B_2.png' />","<img src='img/5B_3.png' />","<img src='img/5B_4.png' />","<img src='img/5B_5.png' />"],
                 data: {trialid: "MP_05"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op1.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 0){
                         matrixflag01 = 0;
                         matrixflag02 +=1;
                         matrixflag03 +=1;
@@ -316,15 +297,13 @@
                 };
 /*************************************************************************************************************************************/
             var matriz04 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/6A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/6B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/6A.png' /></div>",
+                choices:["<img src='img/6B_1.png' />","<img src='img/6B_2.png' />","<img src='img/6B_3.png' />","<img src='img6/B_4.png' />","<img src='img/6B_5.png' />"],
                 data: {trialid: "MP_06"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op5.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 4){
                         matrixflag01 = 0;
                         matrixflag02 =3;
                         matrixflag03 +=1;
@@ -337,15 +316,13 @@
                 };
 
             var matriz05 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/7A.png' /></div><br /><br /><div class='centered'><img src ='img/7B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/7A.png' /></div><img src ='img/7B.png' </img></div>",
+                choices:["<img src='img/7B_1.png' />","<img src='img/7B_2.png' />","<img src='img/7B_3.png' />","<img src='img/7B_4.png' />","<img src='img/7B_5.png' />"],
                 data: {trialid: "MP_07"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op3.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 2){
                         matrixflag01 = 0;
                         matrixflag02 =3;
                         matrixflag03 =3;
@@ -361,14 +338,12 @@
 /*************************************************************************************************************************************/
 
             var matriz06 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/8A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/8B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/8A.png' /></div>",
+                choices:["<img src='img/8B_1.png' />","<img src='img/8B_2.png' />","<img src='img/8B_3.png' />","<img src='img/8B_4.png' />","<img src='img/8B_5.png' />"],
                 data: {trialid: "MP_08"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
+                    var matrix_response = data.button_pressed;
                     if(matrix_response =='{{"Q0":"<img src=\'img/op4.png\' />"}'){
                         matrixflag01 = 0;
                     }else{
@@ -378,15 +353,13 @@
                 };
 
             var matriz07 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/9A.png' /></div><br /><br /><div class='centered'><img src ='img/9B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/9A.png' /></div><img src ='img/9B.png' </img></div>",
+                choices:["<img src='img/9B_1.png' />","<img src='img/9B_2.png' />","<img src='img/9B_3.png' />","<img src='img/9B_4.png' />","<img src='img/9B_5.png' />"],
                 data: {trialid: "MP_09"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op4.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 3){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -395,15 +368,13 @@
                 };
 
             var matriz08 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/10A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/10B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/10A.png' /></div>",
+                choices:["<img src='img/10B_1.png' />","<img src='img/10B_2.png' />","<img src='img/10B_3.png' />","<img src='img/10B_4.png' />","<img src='img/10B_5.png' />"],
                 data: {trialid: "MP_10"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op5.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 4){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -412,15 +383,13 @@
                 };
 
             var matriz09 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/11A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/11B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/11A.png' /></div>",
+                choices:["<img src='img/11B_1.png' />","<img src='img/11B_2.png' />","<img src='img/11B_3.png' />","<img src='img/11B_4.png' />","<img src='img/11B_5.png' />"],
                 data: {trialid: "MP_11"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op1.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 0){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -429,15 +398,13 @@
                 };
 
             var matriz10 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/12A.png' /></div><br /><br /><div class='centered'><img src ='img/12B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/12A.png' /></div>",
+                choices:["<img src='img/12B_1.png' />","<img src='img/12B_2.png' />","<img src='img/12B_3.png' />","<img src='img/12B_4.png' />","<img src='img/12B_5.png' />"],
                 data: {trialid: "MP_12"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op1.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 0){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -446,15 +413,13 @@
                 };
 
             var matriz11 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/13A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/13B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/13A.png' /></div>",
+                choices:["<img src='img/13B_1.png' />","<img src='img/13B_2.png' />","<img src='img/13B_3.png' />","<img src='img/13B_4.png' />","<img src='img/13B_5.png' />"],
                 data: {trialid: "MP_13"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op2.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 1){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -463,15 +428,13 @@
                 };
 
             var matriz12 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/14A.png' /></div><br /><br /><div class='centered'><img src ='img/14B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/14A.png' /></div>",
+                choices:["<img src='img/14B_1.png' />","<img src='img/14B_2.png' />","<img src='img/14B_3.png' />","<img src='img/14B_4.png' />","<img src='img/14B_5.png' />"],
                 data: {trialid: "MP_14"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op5.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 4){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -480,15 +443,13 @@
                 };
 
             var matriz13 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/15A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/15B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/15A.png' /></div>",
+                choices:["<img src='img/15B_1.png' />","<img src='img/15B_2.png' />","<img src='img/15B_3.png' />","<img src='img/15B_4.png' />","<img src='img/15B_5.png' />"],
                 data: {trialid: "MP_15"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op5.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 4){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -497,15 +458,13 @@
                 };
 
             var matriz14 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/16A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/16B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/16A.png' /></div>",
+                choices:["<img src='img/16B_1.png' />","<img src='img/16B_2.png' />","<img src='img/16B_3.png' />","<img src='img/16B_4.png' />","<img src='img/16B_5.png' />"],
                 data: {trialid: "MP_16"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op3.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 2){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -514,15 +473,13 @@
                 };
 
             var matriz15 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/17A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/17B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/17A.png' /></div>",
+                choices:["<img src='img/17B_1.png' />","<img src='img/17B_2.png' />","<img src='img/17B_3.png' />","<img src='img/17B_4.png' />","<img src='img/17B_5.png' />"],
                 data: {trialid: "MP_17"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op2.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 1){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -531,16 +488,14 @@
                 };
 
             var matriz16 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/18A.png' /></div><br /><br /><div class='centered'><img src ='img/18B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/18A.png' /></div>",
+                choices:["<img src='img/18B_1.png' />","<img src='img/18B_2.png' />","<img src='img/18B_3.png' />","<img src='img/18B_4.png' />","<img src='img/18B_5.png' />"],
                 data: {trialid: "MP_18"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op1.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 0){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -549,16 +504,14 @@
                 };
 
             var matriz17 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/19A.png' /></div><br /><br /><div class='centered'><img src ='img/19B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/19A.png' /></div>",
+                choices:["<img src='img/19B_1.png' />","<img src='img/19B_2.png' />","<img src='img/19B_3.png' />","<img src='img/19B_4.png' />","<img src='img/19B_5.png' />"],
                 data: {trialid: "MP_19"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op4.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 3){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -567,16 +520,14 @@
                 };
 
             var matriz18 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/20A.png' /></div><br /><br /><div class='centered'><img src ='img/20B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/20A.png' /></div>",
+                choices:["<img src='img/20B_1.png' />","<img src='img/20B_2.png' />","<img src='img/20B_3.png' />","<img src='img/20B_4.png' />","<img src='img/20B_5.png' />"],
                 data: {trialid: "MP_20"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op5.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 4){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -585,16 +536,14 @@
                 };
 
             var matriz19 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/21A.png' /></div><br /><br /><div class='centered'><img src ='img/21B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/21A.png' /></div>",
+                choices:["<img src='img/21B_1.png' />","<img src='img/21B_2.png' />","<img src='img/21B_3.png' />","<img src='img/21B_4.png' />","<img src='img/21B_5.png' />"],
                 data: {trialid: "MP_21"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op2.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 1){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -603,16 +552,14 @@
                 };
 
             var matriz20 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/22A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/22B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/22A.png' /></div>",
+                choices:["<img src='img/22B_1.png' />","<img src='img/22B_2.png' />","<img src='img/22B_3.png' />","<img src='img/22B_4.png' />","<img src='img/22B_5.png' />"],
                 data: {trialid: "MP_22"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op3.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 2){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -621,16 +568,14 @@
                 };
 
             var matriz21 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/23A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/23B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/23A.png' /></div>",
+                choices:["<img src='img/23B_1.png' />","<img src='img/23B_2.png' />","<img src='img/23B_3.png' />","<img src='img/23B_4.png' />","<img src='img/23B_5.png' />"],
                 data: {trialid: "MP_23"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op1.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 0){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -639,16 +584,14 @@
                 };
 
             var matriz22 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/24A.png' /></div><br /><br /><div class='centered'><img src ='img/24B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/24A.png' /></div>",
+                choices:["<img src='img/24B_1.png' />","<img src='img/24B_2.png' />","<img src='img/24B_3.png' />","<img src='img/24B_4.png' />","<img src='img/24B_5.png' />"],
                 data: {trialid: "MP_24"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op1.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 0){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -657,16 +600,14 @@
                 };
 
             var matriz23 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/25A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/25B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/25A.png' /></div>",
+                choices:["<img src='img/25B_1.png' />","<img src='img/25B_2.png' />","<img src='img/25B_3.png' />","<img src='img/25B_4.png' />","<img src='img/25B_5.png' />"],
                 data: {trialid: "MP_25"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op4.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 3){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -675,16 +616,14 @@
                 };
 
             var matriz24 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/26A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/26B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/26A.png' /></div>",
+                choices:["<img src='img/26B_1.png' />","<img src='img/26B_2.png' />","<img src='img/26B_3.png' />","<img src='img/26B_4.png' />","<img src='img/26B_5.png' />"],
                 data: {trialid: "MP_26"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op2.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 1){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -693,16 +632,14 @@
                 };
 
             var matriz25 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/27A.png' /></div><br /><br /><div class='centered'><img class='matrizimage' src ='img/27B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/27A.png' /></div>",
+                choices:["<img src='img/27B_1.png' />","<img src='img/27B_2.png' />","<img src='img/27B_3.png' />","<img src='img/27B_4.png' />","<img src='img/27B_5.png' />"],
                 data: {trialid: "MP_27"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op3.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 2){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -711,16 +648,14 @@
                 };
 
             var matriz26 = {
-                type: "survey-multi-choice1",
-                questions: [{prompt:"<div class='centered'><img src ='img/28A.png' /></div><br /><br /><div class='centered'><img src ='img/28B.png' </img></div>",
-                options: ["<img src='img/op1.png' />","<img src='img/op2.png' />","<img src='img/op3.png' />","<img src='img/op4.png' />","<img src='img/op5.png' />"]}],
+                type: "html-button-response",
+                stimulus:"<div class='centered'><img src ='img/28A.png' /></div>",
+                choices:["<img src='img/28B_1.png' />","<img src='img/28B_2.png' />","<img src='img/28B_3.png' />","<img src='img/28B_4.png' />","<img src='img/28B_5.png' />"],
                 data: {trialid: "MP_28"},
-                horizontal: true,
-                required: 'true',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
-                    var matrix_response = data.responses;
-                    if(matrix_response =='{"Q0":"<img src=\'img/op4.png\' />"}'){
+                    var matrix_response = data.button_pressed;
+                    if(matrix_response == 3){
                         matrixflag01 = 0;
                     }else{
                         matrixflag01 = matrixflag01+1;
@@ -1081,6 +1016,9 @@
             if(window.innerWidth != screen.width || window.innerHeight != screen.height){
               matrices_experiment.push({
                 type: 'fullscreen',
+                message: '<p>El experimento entrara en modo pantalla completa</p>',
+                button_label: "Pantalla Completa",
+                delay_after: 0,
                 fullscreen_mode: true
               });
             }
