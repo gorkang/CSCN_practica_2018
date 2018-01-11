@@ -78,10 +78,11 @@ var idCsv = {
 
             createPrompt();
             alert(":)");
+            createTrial();
 
         });
         //readTextFile("ITEMS/Bloque1_A_FINAL_V2.csv", csvData);
-
+        bayes_experiment.push(mainexplanation);
     }
 };
 
@@ -245,6 +246,54 @@ function createPrompt(){
     console.log(questions);
     console.log(questions.length);
     console.log(prompts[0]);
+};
+
+function createTrial(){//accordig to response
+
+    console.log("EJJEJEJEJ");
+    console.log(csvData.length);
+
+    for (i=0 ; i<csvData.length ; i++){
+
+        console.log(i);
+
+        if (csvData[i].IV4 == "QL"){//gi
+
+            var typeTrial = {
+                type: "instructions",
+                pages: [prompts[i]],
+                allow_keys: false,
+                show_clickable_nav: true,
+                timing_post_trial: 50,
+                on_finish: function(data) {
+                    console.log("QL");
+
+                }
+            }
+        }
+        else{//sg
+
+            var typeTrial = {
+                type: "instructions",
+                pages: [prompts[i]],
+                allow_keys: false,
+                show_clickable_nav: true,
+                timing_post_trial: 50,
+                on_finish: function(data) {
+                    console.log("SG");
+
+                }
+            }
+        }
+
+        var new_timeline = {
+            timeline:[typeTrial]
+        }
+
+        jsPsych.pauseExperiment();
+        jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment)
+
+    }
 };
 
 
