@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder problemas bayesianos",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "bayes",
+    "name": "bayes",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

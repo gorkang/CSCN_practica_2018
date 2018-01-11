@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class=''>
+  <head>
+      <meta charset='UTF-8'>
+      <meta name="robots" content="noindex">
+      <title>Bayes</title>
+  </head>
+
+  <body>
+      <!-- JQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- Libreria principal JsPsych -->
+      <script src="jsPsych-6/jspsych.js"></script>
+      <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+      <script src="jsPsych-6/plugins/jspsych-survey-textID.js"></script>
+      <script src="jsPsych-6/plugins/jspsych-call-function.js"></script>
+
+      <!-- parseo de csv -->
+
+      <script src="https://d3js.org/d3.v4.js"></script>
+      <script src="PapaParse-4.3.2/papaparse.min.js"></script>
+
+      <!-- Documento CSS principal -->
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+      <!-- Libreria para alertas customizadas + CSS respectivo -->
+      <script src="dist/sweetalert.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+
+
+    <script src='experiment.js'></script>
+
+    <script>
+    $( document ).ready(function() {
+
+        jsPsych.init({
+                 timeline: bayes_experiment,
+                 fullscreen: true,
+
+                 on_finish: function(data){
+
+                     // Serialize the data
+                     var promise = new Promise(function(resolve, reject) {
+                         var data = jsPsych.data.get().json();
+                         resolve(data);
+                     })
+
+                     promise.then(function(data) {
+
+
+                         $.ajax({
+                             type: "POST",
+                             url: '/save',
+                             data: { "data": data },
+                             success: function(){ document.location = "/next" },
+                             dataType: "application/json",
+
+                             // Endpoint not running, local save
+                             error: function(err) {
+
+                                 if (err.status == 200){
+                                     document.location = "/next";
+                                 } else {
+                                     // If error, assue local save
+                                     jsPsych.data.get().localSave('csv', 'bayes.csv');
+                                 }
+                             }
+                         });
+                     })
+                 }
+
+          });
+    });
+    </script>
+  </body>
+</html>
