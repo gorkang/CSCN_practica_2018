@@ -4,6 +4,24 @@ var contexts = [];
 var responses = [];
 var numbers = [];
 
+function readTextFile(file, lista)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                lista.push(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
 var mainexplanation = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
@@ -45,16 +63,18 @@ var idCsv = {
                     csvData.push(data[i]);
                 }
             }
-            console.log(csvData.length);
-            obtainFormat();
-            console.log(formats);
-            obtainContext();
-            console.log(contexts);
-            obtainResponse();
-            console.log(responses);
+
             obtainNumbers();
-            console.log(numbers);
+
+            obtainFormat();
+
+            obtainContext();
+
+            obtainResponse();
+            createQuestion();
+
         });
+        readTextFile("ITEMS/Bloque1_A_FINAL_V2.csv", csvData);
 
     }
 };
@@ -81,12 +101,15 @@ function obtainFormat(){
             path += "/pr_";
         }
         path += kind + ".txt";
+        readTextFile(path, formats);
 
+/*
         d3.text(path, function(error, data) {
             if (error) throw error;
             formats.push(data);
 
         });
+        */
     }
 };
 
@@ -102,12 +125,14 @@ function obtainContext(){
             path += "/pr";
         }
         path += "_context.txt";
-
+        readTextFile(path, contexts);
+        /*
         d3.text(path, function(error, data) {
             if (error) throw error;
             contexts.push(data);
 
         });
+        */
     }
 };
 
@@ -123,12 +148,14 @@ function obtainResponse(){
             path += "/sg";
         }
         path += ".txt";
-
+        readTextFile(path, responses);
+        /*
         d3.text(path, function(error, data) {
             if (error) throw error;
             responses.push(data);
 
         });
+        */
     }
 
 };
@@ -150,10 +177,44 @@ function obtainNumbers(){
     });
 };
 
-function prepareText(){
-    
-}
+function createQuestion(){
 
+    console.log(csvData.length);
+    //console.log(numbers);
+    console.log(numbers.length);
+    console.log(formats);
+    console.log(formats.length);
+    //console.log(contexts);
+    console.log(contexts.length);
+    //console.log(responses);
+    console.log(responses.length);
+
+    var qFormat;
+    var qResponse;
+    var qNumbers;
+
+    var phrase;
+    var reg;
+
+    for (i=0 ; i<csvData.length ; i++){
+        phrase = contexts[i];
+
+        qNumbers = numbers[i];
+        qFormat = formats[i];
+        qResponse = responses[i];
+
+        for (key in qNumbers){
+            /*if (key != "format" && key != "prob"){
+            } */
+            reg = "\\b" + key; // \bword\b
+            qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
+            formats[i] = qFormat;
+        }
+
+    }
+    console.log(formats);
+
+};
 
 var bayes_experiment = [];
 
