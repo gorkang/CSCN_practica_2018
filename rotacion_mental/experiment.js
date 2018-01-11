@@ -837,10 +837,12 @@ var mr_trial4_f_condicional = {
 
 rotacion_mental_experiment = [];
 
-rotacion_mental_experiment.push({
-  type: 'fullscreen',
-  fullscreen_mode: true
-});
+if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+  rotacion_mental_experiment.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+}
 
 rotacion_mental_experiment.push(mr_instruct);
 rotacion_mental_experiment.push(mr_trialstarter);

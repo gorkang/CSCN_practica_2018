@@ -107,10 +107,14 @@ var math14 = {
 
 // Creacion de timeline e inclusion de trials
 ansiedad_matematica_experiment = [];
-ansiedad_matematica_experiment.push({
-  type: 'fullscreen',
-  fullscreen_mode: true
-});
+
+if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+  ansiedad_matematica_experiment.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+}
+
 ansiedad_matematica_experiment.push(mathexplanation);
 ansiedad_matematica_experiment.push(math02);
 ansiedad_matematica_experiment.push(math03);

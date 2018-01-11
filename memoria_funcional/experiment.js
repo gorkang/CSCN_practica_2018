@@ -3131,10 +3131,12 @@ var wms_condicional15 = {
 /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
 
 memoria_funcional_experiment = [];
-memoria_funcional_experiment.push({
-  type: 'fullscreen',
-  fullscreen_mode: true
-});
+if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+  memoria_funcional_experiment.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+}
 // Working Memory
 memoria_funcional_experiment.push(screen_memoria_funcional_experiment);
 memoria_funcional_experiment.push(wmexplanation1);

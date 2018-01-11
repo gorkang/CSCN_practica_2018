@@ -124,10 +124,12 @@
 
             // Creacion de timeline e inclusion de trials
             crtNum_experiment = [];
-            crtNum_experiment.push({
-              type: 'fullscreen',
-              fullscreen_mode: true
-            });
+            if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+              crtNum_experiment.push({
+                type: 'fullscreen',
+                fullscreen_mode: true
+              });
+            }
             crtNum_experiment.push(crtNumintro);
 
             crtNum_experiment.push(crtNumexplanation);

@@ -193,10 +193,12 @@ var cl_20 = {
 
 // Creacion de timeline e inclusion de trials
 comprension_lectora_experiment = [];
-comprension_lectora_experiment.push({
-  type: 'fullscreen',
-  fullscreen_mode: true
-});
+if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+  comprension_lectora_experiment.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+}
 comprension_lectora_experiment.push(clexplanation);
 comprension_lectora_experiment.push(cl_texto1);
 comprension_lectora_experiment.push(cl_1);

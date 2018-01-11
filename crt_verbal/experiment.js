@@ -303,10 +303,12 @@
             /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
 
             crt_experiment = [];
-            crt_experiment.push({
-              type: 'fullscreen',
-              fullscreen_mode: true
-            });
+            if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+              crt_experiment.push({
+                type: 'fullscreen',
+                fullscreen_mode: true
+              });
+            }
             randomize_verbalcrt();
             randomize_crt_experiment();
 

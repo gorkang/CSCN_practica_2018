@@ -1078,10 +1078,12 @@
             /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
 
             matrices_experiment = [];
-            matrices_experiment.push({
-              type: 'fullscreen',
-              fullscreen_mode: true
-            });
+            if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+              matrices_experiment.push({
+                type: 'fullscreen',
+                fullscreen_mode: true
+              });
+            }
             // matrices_experiment
             matrices_experiment.push(screen_matrices_experiment);
             matrices_experiment.push(matrizexplanation);

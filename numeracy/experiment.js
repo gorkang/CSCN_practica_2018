@@ -100,10 +100,12 @@
 
             // Creacion de timeline e inclusion de trials
             numeracy_experiment = [];
-            numeracy_experiment.push({
-              type: 'fullscreen',
-              fullscreen_mode: true
-            });
+            if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+              numeracy_experiment.push({
+                type: 'fullscreen',
+                fullscreen_mode: true
+              });
+            }
             numeracy_experiment.push(numeracyexplanation);
             numeracy_experiment.push(numeracy1);
             numeracy_experiment.push(numeracy1_a);

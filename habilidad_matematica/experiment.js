@@ -484,10 +484,12 @@ function advance(event){
 
 // Creacion de timeline e inclusion de trials
 habilidad_matematica_experiment = [];
-habilidad_matematica_experiment.push({
-  type: 'fullscreen',
-  fullscreen_mode: true
-});
+if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+  habilidad_matematica_experiment.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+}
 
 /* Trial de Prueba */
 habilidad_matematica_experiment.push(ha_explanation01);

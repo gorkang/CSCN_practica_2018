@@ -157,10 +157,12 @@
 
             // Creacion de timeline e inclusion de trials
             graph_literacy_experiment = [];
-            graph_literacy_experiment.push({
-              type: 'fullscreen',
-              fullscreen_mode: true
-            });
+            if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+              graph_literacy_experiment.push({
+                type: 'fullscreen',
+                fullscreen_mode: true
+              });
+            }
             graph_literacy_experiment.push(graphexplanation);
             graph_literacy_experiment.push(graph_literacy1_a);
             graph_literacy_experiment.push(graph_literacy1_b);
