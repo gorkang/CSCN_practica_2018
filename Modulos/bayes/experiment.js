@@ -3,6 +3,7 @@ var formats = [];
 var contexts = [];
 var responses = [];
 var numbers = [];
+var prompts = [];
 
 function readTextFile(file, lista)
 {
@@ -55,7 +56,7 @@ var idCsv = {
 
 
 
-        d3.csv("ITEMS/Bloque1_A_FINAL_V2.csv", function(error, data) {
+        d3.csv("exceltesteo.csv", function(error, data) {
             if (error) throw error;
             console.log(typeof data[0]); // [{"Hello": "world"}, …]
             for (var i = 0; i < data.length; i++) {
@@ -72,9 +73,10 @@ var idCsv = {
 
             obtainResponse();
             createQuestion();
+            alert(":)");
 
         });
-        readTextFile("ITEMS/Bloque1_A_FINAL_V2.csv", csvData);
+        //readTextFile("ITEMS/Bloque1_A_FINAL_V2.csv", csvData);
 
     }
 };
@@ -141,7 +143,7 @@ function obtainResponse(){
     for (var i = 0; i < csvData.length; i++){
         path ="bayes_materiales/response_type" ;
 
-        if (csvData[i].IV1 == "QL"){
+        if (csvData[i].IV4 == "QL"){
             path += "/gi";
         }
         else /*if (csvData[i].IV1 == "VIH")*/ {
@@ -179,16 +181,6 @@ function obtainNumbers(){
 
 function createQuestion(){
 
-    console.log(csvData.length);
-    //console.log(numbers);
-    console.log(numbers.length);
-    console.log(formats);
-    console.log(formats.length);
-    //console.log(contexts);
-    console.log(contexts.length);
-    //console.log(responses);
-    console.log(responses.length);
-
     var qFormat;
     var qResponse;
     var qNumbers;
@@ -208,11 +200,23 @@ function createQuestion(){
             } */
             reg = "\\b" + key; // \bword\b
             qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
-            formats[i] = qFormat;
+
         }
+        formats[i] = qFormat;
+        phrase += qFormat;
+        prompts.push(phrase);
 
     }
+    console.log(csvData.length);
+    console.log(numbers);
+    console.log(numbers.length);
     console.log(formats);
+    console.log(formats.length);
+    console.log(contexts);
+    console.log(contexts.length);
+    console.log(responses);
+    console.log(responses.length);
+    console.log(prompts[0]);
 
 };
 
