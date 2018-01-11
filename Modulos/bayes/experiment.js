@@ -3,6 +3,7 @@ var formats = [];
 var contexts = [];
 var responses = [];
 var numbers = [];
+var questions = [];
 var prompts = [];
 
 function readTextFile(file, lista)
@@ -21,7 +22,7 @@ function readTextFile(file, lista)
         }
     }
     rawFile.send(null);
-}
+};
 
 var mainexplanation = {
     type: "instructions",
@@ -72,7 +73,10 @@ var idCsv = {
             obtainContext();
 
             obtainResponse();
-            createQuestion();
+
+            obtainQuestion();
+
+            createPrompt();
             alert(":)");
 
         });
@@ -138,6 +142,25 @@ function obtainContext(){
     }
 };
 
+
+function obtainQuestion(){
+
+    var path;
+    for (var i = 0; i < csvData.length; i++){
+        path ="bayes_materiales/ppv_question/input" ;
+
+        if (csvData[i].IV1 == "Cancer"){
+            path += "/ca";
+        }
+        else /*if (csvData[i].IV1 == "QT")*/ {
+            path += "/pr";
+        }
+
+        path += "_question.txt";
+        readTextFile(path, questions);
+    }
+};
+
 function obtainResponse(){
     var path;
     for (var i = 0; i < csvData.length; i++){
@@ -179,11 +202,13 @@ function obtainNumbers(){
     });
 };
 
-function createQuestion(){
+
+function createPrompt(){
 
     var qFormat;
     var qResponse;
     var qNumbers;
+    var qQuestion;
 
     var phrase;
     var reg;
@@ -194,6 +219,7 @@ function createQuestion(){
         qNumbers = numbers[i];
         qFormat = formats[i];
         qResponse = responses[i];
+        qQuestion = questions[i];
 
         for (key in qNumbers){
             /*if (key != "format" && key != "prob"){
@@ -203,7 +229,7 @@ function createQuestion(){
 
         }
         formats[i] = qFormat;
-        phrase += qFormat;
+        phrase += qFormat + qQuestion;
         prompts.push(phrase);
 
     }
@@ -216,9 +242,11 @@ function createQuestion(){
     console.log(contexts.length);
     console.log(responses);
     console.log(responses.length);
+    console.log(questions);
+    console.log(questions.length);
     console.log(prompts[0]);
-
 };
+
 
 var bayes_experiment = [];
 
