@@ -131,3 +131,18 @@ input[type="text"] {
 #jspsych-data-display {
   text-align: left;
 }
+
+
+/* CSS Propio*/
+
+.multi-choices {
+    text-align: center;
+}
+
+div#jspsych-html-button-response-btngroup {
+    white-space: nowrap;
+}
+
+button.jspsych-matrix-button {
+    background: white;
+}
