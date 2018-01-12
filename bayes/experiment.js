@@ -252,7 +252,7 @@ function createTrial(){//accordig to response
 
     console.log("EJJEJEJEJ");
     console.log(csvData.length);
-
+    var temp = "";
 
 
     for (i=0 ; i<csvData.length ; i++){
@@ -260,11 +260,17 @@ function createTrial(){//accordig to response
         console.log(i);
 
         if (csvData[i].IV4 == "QL"){//gi
-
-            console.log(responses[i]);
+            if (temp == ""){
+                var temp = responses[i].split(/\s\s+/);
+                for (j=0; j<(temp.length/2)-1 ; j++){
+                    temp[j] += "<br>"+temp[j+Math.floor(temp.length/2)]
+                }
+                temp = temp.splice(0,(temp.length/2));
+            }
+            console.log(temp);
             var typeTrial = {
                 type : "survey-multi-choice",
-                questions: [{prompt: prompts[i], options:responses}],
+                questions: [{prompt: prompts[i], options:temp, required:true}],
                 on_finish: function(data) {
                     console.log("QL");
                 }
