@@ -68,17 +68,7 @@ var idCsv = {
 
             obtainNumbers();
 
-            obtainFormat();
 
-            obtainContext();
-
-            obtainResponse();
-
-            obtainQuestion();
-
-            createPrompt();
-            alert(":)");
-            createTrial();
 
         });
         //readTextFile("ITEMS/Bloque1_A_FINAL_V2.csv", csvData);
@@ -199,6 +189,17 @@ function obtainNumbers(){
             }
 
         }
+        obtainFormat();
+
+        obtainContext();
+
+        obtainResponse();
+
+        obtainQuestion();
+
+        createPrompt();
+        //alert(":)");
+        createTrial();
 
     });
 };
@@ -229,6 +230,7 @@ function createPrompt(){
             qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
 
         }
+        console.log(qFormat);
         formats[i] = qFormat;
         phrase += qFormat + qQuestion;
         prompts.push(phrase);
