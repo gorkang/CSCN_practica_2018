@@ -280,15 +280,10 @@ function createTrial(){//accordig to response
         else{//sg
 
             var typeTrial = {
-                type: "instructions",
-                pages: [prompts[i]],
-                allow_keys: false,
-                show_clickable_nav: true,
-                timing_post_trial: 50,
-                on_finish: function(data) {
-                    console.log("SG");
-
-                }
+                type: "fill-in-blanks",
+                preamble: prompts[i],
+                fill_in_type:"number",
+                fill_in_text:responses[i]
             }
         }
 
