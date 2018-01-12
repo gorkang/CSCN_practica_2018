@@ -5,8 +5,8 @@ ID,IV1,IV2,IV3,IV4,Participante
 30,Cancer,Baja,Text,QL,1
 9,Botellas,Alta,Text,QT,2
 15,VIH,Baja,Text,QT,2
-4,Spam,Alta,Pict,QT,2
-6,Cancer,Baja,Pict,QT,2
+4,Spam,Alta,Pict,QL,2
+6,Cancer,Baja,Pict,QL,2
 20,Spam,Alta,Pict,QL,3
 21,Botellas,Baja,Pict,QL,3
 27,VIH,Alta,Text,QL,3
