@@ -274,7 +274,7 @@ function createTrial(){//accordig to response
             console.log(temp);
             var typeTrial = {
                 type : "survey-multi-choice",
-                questions: [{prompt: prompts[i], options:temp, required:true}],
+                questions: [{prompt: prompts[i], options:temp, required:true, horizontal:true}],
                 on_finish: function(data) {
                     console.log("QL");
                 }
