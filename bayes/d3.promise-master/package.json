@@ -1,0 +1,37 @@
+{
+  "name": "d3.promise",
+  "version": "2.0.0",
+  "description": "d3.csv & friends that return promises instead of accepting callbacks",
+  "main": "dist/d3.promise.min.js",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kristw/d3.promise"
+  },
+  "homepage": "https://github.com/kristw/d3.promise",
+  "keywords": [
+    "d3.promise",
+    "d3"
+  ],
+  "dependencies": {
+    "d3-request": "^1.0.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babelrc-rollup": "^3.0.0",
+    "pkgfiles": "^2.3.0",
+    "rollup": "^0.34.7",
+    "rollup-plugin-babel": "^2.6.1",
+    "uglifyjs": "^2.4.10"
+  },
+  "scripts": {
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push ; git push --tags; pkgfiles",
+    "prepublish": "pkgfiles",
+    "rollup": "rollup -c",
+    "build": "npm run rollup && uglifyjs dist/d3.promise.js -m -c > dist/d3.promise.min.js"
+  }
+}
