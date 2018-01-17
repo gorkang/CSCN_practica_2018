@@ -1,14 +1,14 @@
 var csvData = [];
-var formats = [];
-var contexts = [];
-var responses = [];
-var numbers = [];
-var questions = [];
+var formats = {};
+var contexts = {};
+var responses = {};
+var numbers = {};
+var questions = {};
 var prompts = [];
 var threads = [];
 var number_of_calls = 0;
 var done = false;
-function readTextFile(file, lista)
+function readTextFile(file, lista, index)
 {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, true);
@@ -19,7 +19,7 @@ function readTextFile(file, lista)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                lista.push(allText);
+                lista[index] = allText;
                 window.postMessage("done",'*');
             }
         }
@@ -94,7 +94,7 @@ function obtainFormat(){
         path ="bayes_materiales/presentation_format/" + csvData[i].presentation_format
                 + "/input/" + csvData[i].problem_context + "_" + csvData[i].presentation_format + ".txt";
 
-        threads.push(readTextFile(path, formats));
+        threads.push(readTextFile(path, formats, i));
 
 /*
         d3.text(path, function(error, data) {
@@ -111,7 +111,7 @@ function obtainContext(){
     for (var i = 0; i < csvData.length; i++){
         path ="bayes_materiales/problem_context/input/" + csvData[i].problem_context + "_context.txt";
 
-        threads.push(readTextFile(path, contexts));
+        threads.push(readTextFile(path, contexts, i));
         /*
         d3.text(path, function(error, data) {
             if (error) throw error;
@@ -129,7 +129,7 @@ function obtainQuestion(){
     for (var i = 0; i < csvData.length; i++){
         path ="bayes_materiales/ppv_question/input/" + csvData[i].problem_context + "_question.txt"  ;
 
-        threads.push(readTextFile(path, questions));
+        threads.push(readTextFile(path, questions, i));
     }
 };
 
@@ -138,7 +138,7 @@ function obtainResponse(){
     for (var i = 0; i < csvData.length; i++){
         path ="bayes_materiales/response_type/" + csvData[i].response_type + ".txt" ;
 
-        threads.push(readTextFile(path, responses));
+        threads.push(readTextFile(path, responses, i));
         /*
         d3.text(path, function(error, data) {
             if (error) throw error;
@@ -157,7 +157,8 @@ function obtainNumbers(){
         for (i = 0; i < csvData.length; i++){
             for (j=0 ; j < data.length; j++){
                 if( data[j].format == csvData[i].presentation_format && data[j].prob == csvData[i].prob ){
-                    numbers.push(data[j]);
+                    
+                    numbers[i] = data[j];
                 }
 
             }
@@ -197,7 +198,6 @@ function createPrompt(){
             qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
 
         }
-        console.log(qFormat);
         formats[i] = qFormat;
         phrase += qFormat + qQuestion;
         prompts.push(phrase);
@@ -219,14 +219,10 @@ function createPrompt(){
 
 function createTrial(){//accordig to response
 
-    console.log("EJJEJEJEJ");
-    console.log(csvData.length);
     var temp = "";
 
 
     for (i=0 ; i<csvData.length ; i++){
-
-        console.log(i);
 
         if (csvData[i].response_type == "gi"){//gi
             if (temp == ""){
@@ -236,7 +232,7 @@ function createTrial(){//accordig to response
                 }
                 temp = temp.splice(0,(temp.length/2));
             }
-            console.log(temp);
+
             var typeTrial = {
                 type : "survey-multi-choice",
                 questions: [{prompt: prompts[i], options:temp, required:true, horizontal:true}],
