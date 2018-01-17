@@ -57,10 +57,10 @@ var idCsv = {
 };
 
 function generate_questions(id) {
-  d3.csv("Bloque1_A_FINAL_V2.csv", function(error, data) {
+  d3.csv("items_bayes.csv", function(error, data) {
     if (error) throw error;
     for (var i = 0; i < data.length; i++) {
-        if (data[i].Participante == id) {
+        if (data[i].id == id) {
             csvData.push(data[i]);
         }
     }
@@ -91,23 +91,9 @@ function obtainFormat(){
     var kind;
 
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/presentation_format/" ;
+        path ="bayes_materiales/presentation_format/" + csvData[i].presentation_format
+                + "/input/" + csvData[i].problem_context + "_" + csvData[i].presentation_format + ".txt";
 
-        if (csvData[i].IV4 == "Text"){
-            kind = "nfab";
-        }
-        else /*if (csvData[i].IV1 == "QT")*/ {
-            kind = "prre";
-        }
-        path += kind + "/input" ;
-
-        if (csvData[i].IV1 == "Cancer"){
-            path += "/ca_";
-        }
-        else /*if (csvData[i].IV1 == "VIH")*/ {
-            path += "/pr_";
-        }
-        path += kind + ".txt";
         threads.push(readTextFile(path, formats));
 
 /*
@@ -123,15 +109,8 @@ function obtainFormat(){
 function obtainContext(){
     var path;
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/problem_context/input" ;
+        path ="bayes_materiales/problem_context/input/" + csvData[i].problem_context + "_context.txt";
 
-        if (csvData[i].IV1 == "Cancer"){
-            path += "/ca";
-        }
-        else /*if (csvData[i].IV1 == "VIH")*/ {
-            path += "/pr";
-        }
-        path += "_context.txt";
         threads.push(readTextFile(path, contexts));
         /*
         d3.text(path, function(error, data) {
@@ -148,16 +127,8 @@ function obtainQuestion(){
 
     var path;
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/ppv_question/input" ;
+        path ="bayes_materiales/ppv_question/input/" + csvData[i].problem_context + "_question.txt"  ;
 
-        if (csvData[i].IV1 == "Cancer"){
-            path += "/ca";
-        }
-        else /*if (csvData[i].IV1 == "QT")*/ {
-            path += "/pr";
-        }
-
-        path += "_question.txt";
         threads.push(readTextFile(path, questions));
     }
 };
@@ -165,15 +136,8 @@ function obtainQuestion(){
 function obtainResponse(){
     var path;
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/response_type" ;
+        path ="bayes_materiales/response_type/" + csvData[i].response_type + ".txt" ;
 
-        if (csvData[i].IV4 == "QL"){
-            path += "/gi";
-        }
-        else /*if (csvData[i].IV1 == "VIH")*/ {
-            path += "/sg";
-        }
-        path += ".txt";
         threads.push(readTextFile(path, responses));
         /*
         d3.text(path, function(error, data) {
@@ -192,7 +156,7 @@ function obtainNumbers(){
 
         for (i = 0; i < csvData.length; i++){
             for (j=0 ; j < data.length; j++){
-                if( data[j].format == csvData[i].IV3 && data[j].prob == csvData[i].IV2 ){
+                if( data[j].format == csvData[i].presentation_format && data[j].prob == csvData[i].prob ){
                     numbers.push(data[j]);
                 }
 
@@ -264,7 +228,7 @@ function createTrial(){//accordig to response
 
         console.log(i);
 
-        if (csvData[i].IV4 == "QL"){//gi
+        if (csvData[i].response_type == "gi"){//gi
             if (temp == ""){
                 var temp = responses[i].split(/\s\s+/);
                 for (j=0; j<(temp.length/2)-1 ; j++){
