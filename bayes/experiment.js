@@ -1,14 +1,14 @@
 var csvData = [];
-var formats = [];
-var contexts = [];
-var responses = [];
-var numbers = [];
-var questions = [];
+var formats = {};
+var contexts = {};
+var responses = {};
+var numbers = {};
+var questions = {};
 var prompts = [];
 var threads = [];
 var number_of_calls = 0;
 var done = false;
-function readTextFile(file, lista)
+function readTextFile(file, lista, index)
 {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, true);
@@ -19,7 +19,7 @@ function readTextFile(file, lista)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                lista.push(allText);
+                lista[index] = allText;
                 window.postMessage("done",'*');
             }
         }
@@ -57,10 +57,10 @@ var idCsv = {
 };
 
 function generate_questions(id) {
-  d3.csv("Bloque1_A_FINAL_V2.csv", function(error, data) {
+  d3.csv("items_bayes.csv", function(error, data) {
     if (error) throw error;
     for (var i = 0; i < data.length; i++) {
-        if (data[i].Participante == id) {
+        if (data[i].id == id) {
             csvData.push(data[i]);
         }
     }
@@ -91,24 +91,18 @@ function obtainFormat(){
     var kind;
 
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/presentation_format/" ;
+        path ="bayes_materiales/presentation_format/" + csvData[i].presentation_format;
 
-        if (csvData[i].IV4 == "Text"){
-            kind = "nfab";
-        }
-        else /*if (csvData[i].IV1 == "QT")*/ {
-            kind = "prre";
-        }
-        path += kind + "/input" ;
 
-        if (csvData[i].IV1 == "Cancer"){
-            path += "/ca_";
+        if(csvData[i].presentation_format == "pifb"){
+            path += "/final/fb_" + csvData[i].problem_context + "_" + csvData[i].prob + ".png";
+            formats[i] = path;
+        }else{
+            path += "/input/" + csvData[i].problem_context + "_" + csvData[i].presentation_format + ".txt";
+            threads.push(readTextFile(path, formats, i));
         }
-        else /*if (csvData[i].IV1 == "VIH")*/ {
-            path += "/pr_";
-        }
-        path += kind + ".txt";
-        threads.push(readTextFile(path, formats));
+
+
 
 /*
         d3.text(path, function(error, data) {
@@ -123,16 +117,9 @@ function obtainFormat(){
 function obtainContext(){
     var path;
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/problem_context/input" ;
+        path ="bayes_materiales/problem_context/input/" + csvData[i].problem_context + "_context.txt";
 
-        if (csvData[i].IV1 == "Cancer"){
-            path += "/ca";
-        }
-        else /*if (csvData[i].IV1 == "VIH")*/ {
-            path += "/pr";
-        }
-        path += "_context.txt";
-        threads.push(readTextFile(path, contexts));
+        threads.push(readTextFile(path, contexts, i));
         /*
         d3.text(path, function(error, data) {
             if (error) throw error;
@@ -148,33 +135,18 @@ function obtainQuestion(){
 
     var path;
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/ppv_question/input" ;
+        path ="bayes_materiales/ppv_question/input/" + csvData[i].problem_context + "_question.txt"  ;
 
-        if (csvData[i].IV1 == "Cancer"){
-            path += "/ca";
-        }
-        else /*if (csvData[i].IV1 == "QT")*/ {
-            path += "/pr";
-        }
-
-        path += "_question.txt";
-        threads.push(readTextFile(path, questions));
+        threads.push(readTextFile(path, questions, i));
     }
 };
 
 function obtainResponse(){
     var path;
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/response_type" ;
+        path ="bayes_materiales/response_type/" + csvData[i].response_type + ".txt" ;
 
-        if (csvData[i].IV4 == "QL"){
-            path += "/gi";
-        }
-        else /*if (csvData[i].IV1 == "VIH")*/ {
-            path += "/sg";
-        }
-        path += ".txt";
-        threads.push(readTextFile(path, responses));
+        threads.push(readTextFile(path, responses, i));
         /*
         d3.text(path, function(error, data) {
             if (error) throw error;
@@ -192,8 +164,9 @@ function obtainNumbers(){
 
         for (i = 0; i < csvData.length; i++){
             for (j=0 ; j < data.length; j++){
-                if( data[j].format == csvData[i].IV3 && data[j].prob == csvData[i].IV2 ){
-                    numbers.push(data[j]);
+                if( data[j].format == csvData[i].presentation_format && data[j].prob == csvData[i].prob ){
+
+                    numbers[i] = data[j];
                 }
 
             }
@@ -226,16 +199,22 @@ function createPrompt(){
         qResponse = responses[i];
         qQuestion = questions[i];
 
-        for (key in qNumbers){
-            /*if (key != "format" && key if(number_of_calls == 0)!= "prob"){
-            } */
-            reg = "\\b" + key; // \bword\b
-            qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
 
+        if(csvData[i].presentation_format == "pifb"){
+            phrase += "<img src='"+qFormat+"'/>" + qQuestion;
+        }else{
+            for (key in qNumbers){
+                /*if (key != "format" && key if(number_of_calls == 0)!= "prob"){
+                } */
+                reg = "\\b" + key; // \bword\b
+                qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
+
+            }
+            formats[i] = qFormat;
+            phrase += qFormat + qQuestion;
         }
-        console.log(qFormat);
-        formats[i] = qFormat;
-        phrase += qFormat + qQuestion;
+
+
         prompts.push(phrase);
 
     }
@@ -250,21 +229,17 @@ function createPrompt(){
     console.log(responses.length);
     console.log(questions);
     console.log(questions.length);
-    console.log(prompts[0]);
+    console.log(prompts);
 };
 
 function createTrial(){//accordig to response
 
-    console.log("EJJEJEJEJ");
-    console.log(csvData.length);
     var temp = "";
 
 
     for (i=0 ; i<csvData.length ; i++){
 
-        console.log(i);
-
-        if (csvData[i].IV4 == "QL"){//gi
+        if (csvData[i].response_type == "gi"){//gi
             if (temp == ""){
                 var temp = responses[i].split(/\s\s+/);
                 for (j=0; j<(temp.length/2)-1 ; j++){
@@ -272,7 +247,7 @@ function createTrial(){//accordig to response
                 }
                 temp = temp.splice(0,(temp.length/2));
             }
-            console.log(temp);
+
             var typeTrial = {
                 type : "survey-multi-choice",
                 questions: [{prompt: prompts[i], options:temp, required:true, horizontal:true}],
