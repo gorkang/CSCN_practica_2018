@@ -1,4 +1,4 @@
-/**
+  /**
  * jspsych-survey-multi-choice
  * a jspsych plugin for multiple choice survey questions
  *
@@ -89,21 +89,19 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
         if (trial.questions[i].horizontal) {
           question_classes.push(_join(plugin_id_name, 'horizontal'));
         }
-
         trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
-
         var question_selector = _join(plugin_id_selector, i);
 
         // add question text
         display_element.querySelector(question_selector).innerHTML += '<p class="' + plugin_id_name + '-text survey-multi-choice">' + trial.questions[i].prompt + '</p>';
-
+        display_element.querySelector(question_selector).innerHTML += "<div class='multi-choices'></div>";
       // create option radio buttons
       for (var j = 0; j < trial.questions[i].options.length; j++) {
         var option_id_name = _join(plugin_id_name, "option", i, j),
         option_id_selector = '#' + option_id_name;
 
         // add radio button container
-        display_element.querySelector(question_selector).innerHTML += '<div id="'+option_id_name+'" class="'+_join(plugin_id_name, 'option')+'"></div>';
+        display_element.querySelector(".multi-choices").innerHTML += '<div id="'+option_id_name+'" class="'+_join(plugin_id_name, 'option')+'"></div>';
 
         // add label and question text
         var form = document.getElementById(option_id_name)

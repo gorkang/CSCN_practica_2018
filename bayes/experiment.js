@@ -5,11 +5,13 @@ var responses = [];
 var numbers = [];
 var questions = [];
 var prompts = [];
-
+var threads = [];
+var number_of_calls = 0;
+var done = false;
 function readTextFile(file, lista)
 {
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
+    rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function ()
     {
         if(rawFile.readyState === 4)
@@ -18,10 +20,11 @@ function readTextFile(file, lista)
             {
                 var allText = rawFile.responseText;
                 lista.push(allText);
+                window.postMessage("done",'*');
             }
         }
     }
-    rawFile.send(null);
+    return rawFile;
 };
 
 var mainexplanation = {
@@ -50,32 +53,39 @@ var idCsv = {
     type: "survey-textID",
     questions: [{
         prompt: "Ingrese su ID:"
-    }],
-    on_finish: function(data) {
-        var id = this.input;
-        console.log(id);
-
-
-
-        d3.csv("Bloque1_A_FINAL_V2.csv", function(error, data) {
-            if (error) throw error;
-            console.log(typeof data[0]); // [{"Hello": "world"}, …]
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].Participante == id) {
-                    csvData.push(data[i]);
-                }
-            }
-
-            obtainNumbers();
-
-
-
-        });
-        //readTextFile("ITEMS/Bloque1_A_FINAL_V2.csv", csvData);
-        bayes_experiment.push(mainexplanation);
-    }
+    }]
 };
 
+function generate_questions(id) {
+  d3.csv("Bloque1_A_FINAL_V2.csv", function(error, data) {
+    if (error) throw error;
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].Participante == id) {
+            csvData.push(data[i]);
+        }
+    }
+    obtainNumbers();
+    window.addEventListener("message",function(event){
+      if(event.data == "done"){
+        number_of_calls -= 1;
+        if(number_of_calls == 0){
+
+          createPrompt();
+          createTrial();
+          jsPsych.finishTrial();
+        }
+      }
+    });
+    window.addEventListener("message",function(event){
+      if(event.data == "numbers_got"){
+        number_of_calls = threads.length;
+        threads.forEach(function(thread){
+          thread.send();
+        })
+      }
+    });
+  });
+}
 function obtainFormat(){
     var path;
     var kind;
@@ -98,7 +108,7 @@ function obtainFormat(){
             path += "/pr_";
         }
         path += kind + ".txt";
-        readTextFile(path, formats);
+        threads.push(readTextFile(path, formats));
 
 /*
         d3.text(path, function(error, data) {
@@ -122,7 +132,7 @@ function obtainContext(){
             path += "/pr";
         }
         path += "_context.txt";
-        readTextFile(path, contexts);
+        threads.push(readTextFile(path, contexts));
         /*
         d3.text(path, function(error, data) {
             if (error) throw error;
@@ -148,7 +158,7 @@ function obtainQuestion(){
         }
 
         path += "_question.txt";
-        readTextFile(path, questions);
+        threads.push(readTextFile(path, questions));
     }
 };
 
@@ -164,7 +174,7 @@ function obtainResponse(){
             path += "/sg";
         }
         path += ".txt";
-        readTextFile(path, responses);
+        threads.push(readTextFile(path, responses));
         /*
         d3.text(path, function(error, data) {
             if (error) throw error;
@@ -190,17 +200,10 @@ function obtainNumbers(){
 
         }
         obtainFormat();
-
         obtainContext();
-
         obtainResponse();
-
         obtainQuestion();
-
-        createPrompt();
-        //alert(":)");
-        createTrial();
-
+        window.postMessage("numbers_got",'*');
     });
 };
 
@@ -224,7 +227,7 @@ function createPrompt(){
         qQuestion = questions[i];
 
         for (key in qNumbers){
-            /*if (key != "format" && key != "prob"){
+            /*if (key != "format" && key if(number_of_calls == 0)!= "prob"){
             } */
             reg = "\\b" + key; // \bword\b
             qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
@@ -272,7 +275,7 @@ function createTrial(){//accordig to response
             console.log(temp);
             var typeTrial = {
                 type : "survey-multi-choice",
-                questions: [{prompt: prompts[i], options:temp, required:true}],
+                questions: [{prompt: prompts[i], options:temp, required:true, horizontal:true}],
                 on_finish: function(data) {
                     console.log("QL");
                 }
