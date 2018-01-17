@@ -233,6 +233,7 @@ function createPrompt(){
             qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
 
         }
+        console.log(qFormat);
         formats[i] = qFormat;
         phrase += qFormat + qQuestion;
         prompts.push(phrase);
