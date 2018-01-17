@@ -131,3 +131,37 @@ input[type="text"] {
 #jspsych-data-display {
   text-align: left;
 }
+
+
+/* CSS Propio*/
+
+.jspsych-content-wrapper {
+    margin-left: 25%;
+    width: auto;
+    margin-right: 25%;
+}
+
+div#jspsych-content {
+    margin-left: 0;
+    text-align: left;
+}
+
+p.jspsych-survey-multi-choice-text.survey-multi-choice{
+  text-align: left;
+}
+
+.jspsych-content {
+    max-width: 100%;
+}
+
+.multi-choices {
+    text-align: center;
+}
+
+div#jspsych-html-button-response-btngroup {
+    white-space: nowrap;
+}
+
+button.jspsych-matrix-button {
+    background: white;
+}

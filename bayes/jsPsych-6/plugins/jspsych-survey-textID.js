@@ -117,26 +117,9 @@ jsPsych.plugins['survey-textID'] = (function() {
 
       // create object to hold responses
       var question_data = {};
-      var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
-      for(var index=0; index<matches.length; index++){
-        var id = "Q" + index;
-        var val = matches[index].querySelector('textarea, input').value;
-        var obje = {};
-        obje[id] = val;
-        Object.assign(question_data, obje);
-      }
-      // save data
-      var trialdata = {
-        "rt": response_time,
-        "responses": JSON.stringify(question_data)
-      };
-
-      trial.input = val;
-
-      display_element.innerHTML = '';
-
-      // next trial
-      jsPsych.finishTrial(trialdata);
+      var match = display_element.querySelector('div.jspsych-survey-text-question');
+      var id = match.querySelector('textarea, input').value;
+      generate_questions(id);
     });
 
     var startTime = (new Date()).getTime();

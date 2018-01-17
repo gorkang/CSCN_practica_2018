@@ -208,7 +208,7 @@
               options: ["1. No ha ganado ni perdido dinero","2. Ha ganado dinero","3. Ha perdido dinero"],
               horizontal: true,
               required: 'true'
-            }]
+            }],
             data: {trialid: "crt_experiment_07"}
             };
 
