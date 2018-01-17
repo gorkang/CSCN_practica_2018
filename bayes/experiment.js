@@ -91,10 +91,18 @@ function obtainFormat(){
     var kind;
 
     for (var i = 0; i < csvData.length; i++){
-        path ="bayes_materiales/presentation_format/" + csvData[i].presentation_format
-                + "/input/" + csvData[i].problem_context + "_" + csvData[i].presentation_format + ".txt";
+        path ="bayes_materiales/presentation_format/" + csvData[i].presentation_format;
 
-        threads.push(readTextFile(path, formats, i));
+
+        if(csvData[i].presentation_format == "pifb"){
+            path += "/final/fb_" + csvData[i].problem_context + "_" + csvData[i].prob + ".png";
+            formats[i] = path;
+        }else{
+            path += "/input/" + csvData[i].problem_context + "_" + csvData[i].presentation_format + ".txt";
+            threads.push(readTextFile(path, formats, i));
+        }
+
+
 
 /*
         d3.text(path, function(error, data) {
@@ -157,7 +165,7 @@ function obtainNumbers(){
         for (i = 0; i < csvData.length; i++){
             for (j=0 ; j < data.length; j++){
                 if( data[j].format == csvData[i].presentation_format && data[j].prob == csvData[i].prob ){
-                    
+
                     numbers[i] = data[j];
                 }
 
@@ -191,15 +199,22 @@ function createPrompt(){
         qResponse = responses[i];
         qQuestion = questions[i];
 
-        for (key in qNumbers){
-            /*if (key != "format" && key if(number_of_calls == 0)!= "prob"){
-            } */
-            reg = "\\b" + key; // \bword\b
-            qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
 
+        if(csvData[i].presentation_format == "pifb"){
+            phrase += "<img src='"+qFormat+"'/>" + qQuestion;
+        }else{
+            for (key in qNumbers){
+                /*if (key != "format" && key if(number_of_calls == 0)!= "prob"){
+                } */
+                reg = "\\b" + key; // \bword\b
+                qFormat = qFormat.replace(new RegExp(reg, 'g'), qNumbers[key]);
+
+            }
+            formats[i] = qFormat;
+            phrase += qFormat + qQuestion;
         }
-        formats[i] = qFormat;
-        phrase += qFormat + qQuestion;
+
+
         prompts.push(phrase);
 
     }
@@ -214,7 +229,7 @@ function createPrompt(){
     console.log(responses.length);
     console.log(questions);
     console.log(questions.length);
-    console.log(prompts[0]);
+    console.log(prompts);
 };
 
 function createTrial(){//accordig to response
