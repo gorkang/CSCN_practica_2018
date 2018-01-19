@@ -17,11 +17,27 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+
 try:
     import argparse
     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
 except ImportError:
     flags = None
+
+if(not os.path.isfile("~/.local/bin/geckodriver")):
+     subprocess.call(["wget", "https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux32.tar.gz"])
+     subprocess.call(["tar", "-xvzf", "geckodriver-v0.19.1-linux32.tar.gz"])
+     subprocess.call(["rm", "geckodriver-v0.19.1-linux32.tar.gz"])
+     subprocess.call(["mv", "geckodriver", "~/.local/bin/"])
+
+SCOPES = 'https://www.googleapis.com/auth/drive.file'
+CLIENT_SECRET_FILE = 'client_secret.json'
+APPLICATION_NAME = 'Drive API Python Quickstart'
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -74,7 +90,7 @@ if(not os.path.isfile("experiment.cfg")):
             config_file.close()
             usingGDrive = True
             break
-elif(open("experiment.cfg","r").readline() == "usingGDrive: false\n"):
+elif(open("experiment.cfg","r").readline() == "usingGDrive: false"):
     usingGDrive = False
 elif(open("experiment.cfg","r").readline() == "usingGDrive: true\n"):
     credentials = get_credentials()
@@ -94,7 +110,7 @@ def stop_handler(signumber, frame):
     token_list = subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--list"]).split()
     if((token + "[finished]") in token_list):
         #backup data
-        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", "experiments")
+        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", "experiments"])
         print("The experiment finished successfully.")
     elif((token + "[active]") in token_list):
         subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/", "experiments"])
@@ -114,7 +130,7 @@ if(not os.path.isfile(imagename)):
         os.remove("startscript.sh")
     subprocess.call(("docker run -v " + os.getcwd() + ":/data vanessa/expfactory-builder build /data/ansiedad_matematica /data/comprension_lectora /data/habilidad_matematica /data/memoria_funcional /data/rotacion_mental /data/crtnum /data/crt_verbal /data/graph_literacy /data/matrices /data/numeracy /data/bayes").split())
     print("Building...")
-    pre_image = subprocess.check_output("docker build --quiet --squash .".split())[7:-1]
+    pre_image = subprocess.check_output("docker build --quiet .".split())[7:-1]
     container = subprocess.check_output(["docker", "run", "-d", pre_image, "start"])[:-1]
     file = open(filename,'w')
     file.write(subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--new", str(input("Input number of runs:"))]))
@@ -175,7 +191,6 @@ rows = []
 i = 0
 for row in tsv:
     if(i == user_id):
-        print(row[1])
         if(row[1][-8:-1] == "revoked"):
             while(True):
                 option = raw_input("Token is already taken, overwrite?:(y,N)")
@@ -188,11 +203,10 @@ for row in tsv:
                             backup_number += 1
                         else:
                             subprocess.call(["mkdir","backup"])
-                            subprocess.call(["mv","expfactory/" + row[1][:-9],"backup/" + row[1][:-9] + "backup" + str(backup_number)])
+                            subprocess.call(["mv","expfactory/" + row[1][:-9],"backup/" + row[1][:-9] + "backup/" + str(backup_number)])
                             break
                     break
         token = row[1][:-9]
-        print(token)
         token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional"
         rows.append([row[0], token + "[revoked]"])
     else:
@@ -224,6 +238,16 @@ else:
     time.sleep(10)
     subprocess.call(["docker", "exec", container, "mkdir", "/scif/data/expfactory/" + token])
     print("Experiment started, wait until browser is open and paste token, press Control+C once the experiment ends.")
-    webbrowser.open_new("http://localhost")
+    driver = webdriver.Firefox()
+    driver.get("http://localhost/")
+    wait = WebDriverWait(driver, 10)
+    element = wait.until(EC.element_to_be_clickable((By.ID, 'token')))
+    tokenField = driver.find_element_by_id("token")
+    tokenField.send_keys(token)
+    print("write ready")
+    driver.fullscreen_window()
+    buttonNext = driver.find_element_by_xpath("//button[1]")
+    buttonNext.click()
+    print("button pressed")
     while(True):
         time.sleep(1000)
