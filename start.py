@@ -1,28 +1,76 @@
 from __future__ import print_function
 import subprocess
 import webbrowser
-import httplib2
 import signal
+import pandas
+import numpy
+import json
 import time
 import gtk
 import csv
+import sys
 import os
 import io
 
-from apiclient import errors
-from apiclient import discovery
-from apiclient.http import MediaFileUpload
-from apiclient.http import MediaIoBaseDownload
-from oauth2client import client
-from oauth2client import tools
-from oauth2client.file import Storage
-from google.oauth2 import service_account
+try:
+    import pip
+except ImportError:
+    subprocess.call("sudo apt-get install python-pip".split())
+    import pip
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
+try:
+    import httplib2
+except ImportError:
+	pip.main(['install','httplib2'])
+	import httplib2
+
+try:
+    from apiclient import errors
+    from apiclient import discovery
+    from apiclient.http import MediaFileUpload
+    from apiclient.http import MediaIoBaseDownload
+    from oauth2client import client
+    from oauth2client import tools
+    from oauth2client.file import Storage
+except ImportError:
+	pip.main(['install','--upgrade','google-api-python-client'])
+	from apiclient import errors
+	from apiclient import discovery
+	from apiclient.http import MediaFileUpload
+	from apiclient.http import MediaIoBaseDownload
+	from oauth2client import client
+	from oauth2client import tools
+	from oauth2client.file import Storage
+
+try:
+	from google.oauth2 import service_account
+except ImportError:
+	pip.main(['install','google-auth-httplib2'])
+	pip.main(['install','google-auth'])
+	from google.oauth2 import service_account
+
+try:
+	from selenium import webdriver
+	from selenium.webdriver.common.by import By
+	from selenium.webdriver.support.ui import WebDriverWait
+	from selenium.webdriver.support import expected_conditions as EC
+	from selenium.webdriver.common.keys import Keys
+except ImportError:
+	pip.main(['install','-U','selenium'])
+	from selenium import webdriver
+	from selenium.webdriver.common.by import By
+	from selenium.webdriver.support.ui import WebDriverWait
+	from selenium.webdriver.support import expected_conditions as EC
+	from selenium.webdriver.common.keys import Keys
+
+try:
+	subprocess.call("docker --version".split())
+except OSError:
+	subprocess.call("sudo apt-get install docker.io".split())
+	subprocess.call("sudo addgroup docker".split())
+	user = subprocess.check_output(['who']).split()[0]
+	subprocess.call(["sudo","usermod","-aG","docker", user])
+	subprocess.call(["su", user])
 
 try:
     import argparse
@@ -33,15 +81,17 @@ except ImportError:
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
 
-if(not os.path.isfile(os.path.join(os.path.expanduser('~/.local/bin'), 'geckodriver'))):
+#Download geckodriver for Firefox
+if(not os.path.isfile('/bin/geckodriver')):
      subprocess.call(["wget", "https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux32.tar.gz"])
      subprocess.call(["tar", "-xvzf", "geckodriver-v0.19.1-linux32.tar.gz"])
      subprocess.call(["rm", "geckodriver-v0.19.1-linux32.tar.gz"])
-     subprocess.call(["mv", "geckodriver", os.path.expanduser('~/.local/bin/')])
+     subprocess.call(["sudo", "mv", "geckodriver", os.path.expanduser('/bin')])
 
 filename = "tokens.tsv"
 imagename =  "experiments.tar"
 
+#Check for different status of the experiment.cfg file
 if(not os.path.isfile("experiment.cfg")):
     while(True):
         option = raw_input("Use google drive?(Y,n) ")
@@ -52,6 +102,7 @@ if(not os.path.isfile("experiment.cfg")):
             config_file.close()
             break
         elif(option in ["","y","Y","yes","Yes"]):
+            #Create google service account for storine tokens.tsv
             credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
             drive_service = discovery.build('drive', 'v3',credentials=credentials)
             #Create folder for tokens.tsv
@@ -78,6 +129,8 @@ else:
 
 #Control+C handler
 def stop_handler(signumber, frame):
+    #Restore default keymap to default
+    subprocess.call(["xmodmap","-pke"],stdout=open("default","w"))
     #get tokens status from container
     token_list = subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--list"]).split()
     if((token + "[finished]") in token_list):
@@ -85,16 +138,25 @@ def stop_handler(signumber, frame):
         subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", "experiments"])
         print("The experiment finished successfully.")
     elif((token + "[active]") in token_list):
+		subprocess.call(["mkdir", "experiments/" + token])
         subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, "experiments"])
         print("The experiment was NOT finished.")
     else:
         print("Error: unknown token.")
+    for json_file in os.listdir('experiments/' + token + "_finished"):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + "_finished" + json_file[:-5] + ".tsv", sep="\t")
+    for json_file in os.listdir('experiments/' + token):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + json_file[:-5] + ".tsv", sep="\t")
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])
     subprocess.call(["docker", "rmi", image, "--force"])
     exit()
 
-#Set up experiment
+#Set up experiment if tar is not found
 if(not os.path.isfile(imagename)):
     if(os.path.isfile("Dockerfile")):
         os.remove("Dockerfile")
@@ -149,6 +211,7 @@ while(True):
 #Get token for new experiment
 if(usingGDrive):
     tokens_id = open("experiment.cfg","r").readlines()[2][11:]
+    #Download tokens.tsv from google drive
     request = drive_service.files().get_media(fileId=tokens_id)
     fh = io.FileIO(filename, 'wb')
     downloader = MediaIoBaseDownload(fh, request)
@@ -160,6 +223,7 @@ tsv = csv.reader(open(filename,'r'),delimiter="\t")
 token = ""
 rows = []
 i = 0
+#Find token chossen in token.tsv and check usability
 for row in tsv:
     if(i == user_id):
         if(row[1][-8:-1] == "revoked"):
@@ -168,6 +232,7 @@ for row in tsv:
                 if(option in ["","n","N","no","No"]):
                     exit()
                 elif(option in ["y","Y","yes","Yes"]):
+                    #Create backup and reuse token
                     backup_number = 1
                     while(True):
                         if(os.path.isfile("backup/" + row[1][:-9] + "backup" + str(backup_number))):
@@ -199,6 +264,10 @@ if(token == ""):
 
 #Start container, upload used token and copy data to container
 else:
+    #Store defuatl keymap to default
+    subprocess.call(["xmodmap","-pke"],stdout=open("default","w"))
+    #Block keys with file block_keys
+    subprocess.call(["xmodmap", "block_keys"])
     clipboard = gtk.clipboard_get()
     clipboard.set_text(token)
     clipboard.store()
