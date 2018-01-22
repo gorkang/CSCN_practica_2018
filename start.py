@@ -16,6 +16,7 @@ from apiclient.http import MediaIoBaseDownload
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
+from google.oauth2 import service_account
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -29,35 +30,14 @@ try:
 except ImportError:
     flags = None
 
-SCOPES = 'https://www.googleapis.com/auth/drive.file'
-CLIENT_SECRET_FILE = 'client_secret.json'
-APPLICATION_NAME = 'Drive API Python Quickstart'
+SCOPES = ['https://www.googleapis.com/auth/drive.file']
+SERVICE_ACCOUNT_FILE = 'service_secret.json'
 
-def get_credentials():
-    """Gets valid user credentials from storage.
-
-    If nothing has been stored, or if the stored credentials are invalid,
-    the OAuth2 flow is completed to obtain the new credentials.
-
-    Returns:
-        Credentials, the obtained credential.
-    """
-    home_dir = os.path.expanduser('~')
-    credential_dir = os.path.join(home_dir, '.credentials')
-    if not os.path.exists(credential_dir):
-        os.makedirs(credential_dir)
-    credential_path = os.path.join(credential_dir,'bayes_experiment.json')
-    store = Storage(credential_path)
-    credentials = store.get()
-    if not credentials or credentials.invalid:
-        flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
-        flow.user_agent = APPLICATION_NAME
-        if flags:
-            credentials = tools.run_flow(flow, store, flags)
-        else: # Needed only for compatibility with Python 2.6
-            credentials = tools.run(flow, store)
-        print('Storing credentials to ' + credential_path)
-    return credentials
+if(not os.path.isfile(os.path.join(os.path.expanduser('~/.local/bin'), 'geckodriver'))):
+     subprocess.call(["wget", "https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux32.tar.gz"])
+     subprocess.call(["tar", "-xvzf", "geckodriver-v0.19.1-linux32.tar.gz"])
+     subprocess.call(["rm", "geckodriver-v0.19.1-linux32.tar.gz"])
+     subprocess.call(["mv", "geckodriver", os.path.expanduser('~/.local/bin/')])
 
 filename = "tokens.tsv"
 imagename =  "experiments.tar"
@@ -72,9 +52,8 @@ if(not os.path.isfile("experiment.cfg")):
             config_file.close()
             break
         elif(option in ["","y","Y","yes","Yes"]):
-            credentials = get_credentials()
-            http = credentials.authorize(httplib2.Http())
-            drive_service = discovery.build('drive', 'v3', http=http)
+            credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+            drive_service = discovery.build('drive', 'v3',credentials=credentials)
             #Create folder for tokens.tsv
             folder_id = drive_service.files().create(body={'name': 'Bayes_experiment', 'mimeType': 'application/vnd.google-apps.folder'}, fields='id').execute().get('id')
             #Save drive choice and file id
@@ -84,12 +63,11 @@ if(not os.path.isfile("experiment.cfg")):
             config_file.close()
             usingGDrive = True
             break
-elif(open("experiment.cfg","r").readline() == "usingGDrive: false\n"):
+elif(open("experiment.cfg","r").readline() == "usingGDrive: false"):
     usingGDrive = False
 elif(open("experiment.cfg","r").readline() == "usingGDrive: true\n"):
-    credentials = get_credentials()
-    http = credentials.authorize(httplib2.Http())
-    drive_service = discovery.build('drive', 'v3', http=http)
+    credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+    drive_service = discovery.build('drive', 'v3',credentials=credentials)
     #load folder id
     folder_id = open("experiment.cfg","r").readlines()[1][10:-1]
     tokens_id = open("experiment.cfg","r").readlines()[2][11]
@@ -107,7 +85,7 @@ def stop_handler(signumber, frame):
         subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", "experiments"])
         print("The experiment finished successfully.")
     elif((token + "[active]") in token_list):
-        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/", "experiments"])
+        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, "experiments"])
         print("The experiment was NOT finished.")
     else:
         print("Error: unknown token.")
@@ -131,7 +109,6 @@ if(not os.path.isfile(imagename)):
     file.close()
     print("Tsv generated.")
     #subprocess.call(randomizer)
-    subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/", os.getcwd()])
     subprocess.call(["docker", "cp", filename, container + ":/scif/apps/bayes"])
     #commit breaks things image = subprocess.check_output(["docker", "commit", container])[7:-1]
     subprocess.call(["docker", "stop", container])
@@ -185,7 +162,6 @@ rows = []
 i = 0
 for row in tsv:
     if(i == user_id):
-        print(row[1])
         if(row[1][-8:-1] == "revoked"):
             while(True):
                 option = raw_input("Token is already taken, overwrite?:(y,N)")
@@ -202,7 +178,6 @@ for row in tsv:
                             break
                     break
         token = row[1][:-9]
-        print(token)
         token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional"
         rows.append([row[0], token + "[revoked]"])
     else:
@@ -234,7 +209,7 @@ else:
     time.sleep(10)
     subprocess.call(["docker", "exec", container, "mkdir", "/scif/data/expfactory/" + token])
     print("Experiment started, wait until browser is open and paste token, press Control+C once the experiment ends.")
-    driver = webdriver.Firefox(executable_path=r'/home/practica_cscn_04/Desktop/CSCN_practica_2018/geckodriver')
+    driver = webdriver.Firefox()
     driver.get("http://localhost/")
     wait = WebDriverWait(driver, 10)
     element = wait.until(EC.element_to_be_clickable((By.ID, 'token')))
@@ -245,5 +220,13 @@ else:
     buttonNext = driver.find_element_by_xpath("//button[1]")
     buttonNext.click()
     print("button pressed")
+    urlAddress = driver.current_url
+    print(urlAddress)
+    while (not driver.current_url == "http://localhost/finish"):
+        time.sleep(10)
+        if not urlAddress == driver.current_url:
+            urlAddress = driver.current_url
+            print(urlAddress)
+    driver.close()
     while(True):
         time.sleep(1000)
