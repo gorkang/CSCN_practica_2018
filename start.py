@@ -50,18 +50,20 @@ except ImportError:
 	from google.oauth2 import service_account
 
 try:
-	from selenium import webdriver
-	from selenium.webdriver.common.by import By
-	from selenium.webdriver.support.ui import WebDriverWait
-	from selenium.webdriver.support import expected_conditions as EC
-	from selenium.webdriver.common.keys import Keys
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.chrome.options import Options
 except ImportError:
-	pip.main(['install','-U','selenium'])
-	from selenium import webdriver
-	from selenium.webdriver.common.by import By
-	from selenium.webdriver.support.ui import WebDriverWait
-	from selenium.webdriver.support import expected_conditions as EC
-	from selenium.webdriver.common.keys import Keys
+    pip.main(['install','-U','selenium'])
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.chrome.options import Options
 
 try:
 	subprocess.call("docker --version".split())
@@ -81,12 +83,12 @@ except ImportError:
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
 
-#Download geckodriver for Firefox
-if(not os.path.isfile('/bin/geckodriver')):
-     subprocess.call(["wget", "https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux32.tar.gz"])
-     subprocess.call(["tar", "-xvzf", "geckodriver-v0.19.1-linux32.tar.gz"])
-     subprocess.call(["rm", "geckodriver-v0.19.1-linux32.tar.gz"])
-     subprocess.call(["sudo", "mv", "geckodriver", os.path.expanduser('/bin')])
+#Download chromedriver
+if(not os.path.isfile('/bin/chromedriver')):
+     subprocess.call(["wget", "https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip"])
+     subprocess.call(["unzip", "chromedriver_linux64.zip"])
+     subprocess.call(["rm", "chromedriver_linux64.zip"])
+     subprocess.call(["sudo", "mv", "chromedriver", os.path.expanduser('/bin')])
 
 filename = "tokens.tsv"
 imagename =  "experiments.tar"
@@ -125,35 +127,6 @@ elif(open("experiment.cfg","r").readline() == "usingGDrive: true\n"):
     usingGDrive = True
 else:
     print("Redownload experiment to configure correctly")
-    exit()
-
-#Control+C handler
-def stop_handler(signumber, frame):
-    #Restore default keymap to default
-    subprocess.call(["xmodmap","-pke"],stdout=open("default","w"))
-    #get tokens status from container
-    token_list = subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--list"]).split()
-    if((token + "[finished]") in token_list):
-        #backup data
-        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", "experiments"])
-        print("The experiment finished successfully.")
-    elif((token + "[active]") in token_list):
-		subprocess.call(["mkdir", "experiments/" + token])
-        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, "experiments"])
-        print("The experiment was NOT finished.")
-    else:
-        print("Error: unknown token.")
-    for json_file in os.listdir('experiments/' + token + "_finished"):
-        content = json.load(open(json_file, 'r'))
-        results = json.loads(content['data'])
-        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + "_finished" + json_file[:-5] + ".tsv", sep="\t")
-    for json_file in os.listdir('experiments/' + token):
-        content = json.load(open(json_file, 'r'))
-        results = json.loads(content['data'])
-        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + json_file[:-5] + ".tsv", sep="\t")
-    subprocess.call(["docker", "stop", container])
-    subprocess.call(["docker", "rm", container])
-    subprocess.call(["docker", "rmi", image, "--force"])
     exit()
 
 #Set up experiment if tar is not found
@@ -266,19 +239,18 @@ if(token == ""):
 else:
     #Store defuatl keymap to default
     subprocess.call(["xmodmap","-pke"],stdout=open("default","w"))
-    #Block keys with file block_keys
-    subprocess.call(["xmodmap", "block_keys"])
     clipboard = gtk.clipboard_get()
     clipboard.set_text(token)
     clipboard.store()
     print("Token copied to clipboard.")
-
     print("Starting experiment.")
     container = subprocess.check_output(["docker", "run", "--tmpfs", "/scfi/data/expfactory/" , "-d", "-p", "80:80", image,"--headless", "--no-randomize", "--experiments",token_experiments, "start"])[:-1]
     time.sleep(10)
     subprocess.call(["docker", "exec", container, "mkdir", "/scif/data/expfactory/" + token])
     print("Experiment started, wait until browser is open and paste token, press Control+C once the experiment ends.")
-    driver = webdriver.Firefox()
+    chrome_options = Options()
+    chrome_options.add_argument("--kiosk")
+    driver = webdriver.Chrome(chrome_options=chrome_options)
     driver.get("http://localhost/")
     wait = WebDriverWait(driver, 10)
     element = wait.until(EC.element_to_be_clickable((By.ID, 'token')))
@@ -286,6 +258,8 @@ else:
     tokenField.send_keys(token)
     print("write ready")
     driver.fullscreen_window()
+    #Block keys with file block_keys
+    subprocess.call(["xmodmap", "block_keys"])
     buttonNext = driver.find_element_by_xpath("//button[1]")
     buttonNext.click()
     print("button pressed")
@@ -296,5 +270,33 @@ else:
         if not urlAddress == driver.current_url:
             urlAddress = driver.current_url
             print(urlAddress)
+
     driver.close()
-    stop_handler()
+    #Restore default keymap to default twice?
+    subprocess.call(["xmodmap","default"])
+    subprocess.call(["xmodmap","default"])
+    subprocess.call(["rm", "default"])
+    #get tokens status from container
+    token_list = subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--list"]).split()
+    if((token + "[finished]") in token_list):
+        #backup data
+        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", "experiments"])
+        print("The experiment finished successfully.")
+    elif((token + "[active]") in token_list):
+        subprocess.call(["mkdir", "experiments/" + token])
+        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, "experiments"])
+        print("The experiment was NOT finished.")
+    else:
+        print("Error: unknown token.")
+    for json_file in os.listdir('experiments/' + token + "_finished"):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + "_finished" + json_file[:-5] + ".tsv", sep="\t")
+    for json_file in os.listdir('experiments/' + token):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + json_file[:-5] + ".tsv", sep="\t")
+    subprocess.call(["docker", "stop", container])
+    subprocess.call(["docker", "rm", container])
+    subprocess.call(["docker", "rmi", image, "--force"])
+    exit()

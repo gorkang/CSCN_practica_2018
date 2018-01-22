@@ -1,3 +1,14 @@
+onkeydown = function block_fkeys(event){
+    var x = event.which || event.keyCode;
+    if(x == 111 || x == 116){
+        console.log("Blocked key");
+        event.preventDefault();
+        return false;
+    }else{
+        return;
+    }
+}
+
 var csvData = [];
 var formats = {};
 var contexts = {};
