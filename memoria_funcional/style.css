@@ -165,3 +165,16 @@ div#jspsych-html-button-response-btngroup {
 button.jspsych-matrix-button {
     background: white;
 }
+
+#jspsych-survey-multi-choice1-0 {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}

@@ -118,7 +118,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
       "<tr><td><button class='jspsych-btn'>1</button></td><td><button class='jspsych-btn'>2</button></td><td><button class='jspsych-btn'>3</button></td></tr>" +
       "<tr><td colspan='2'><button class='jspsych-btn' style='width:100%'>0</button></td><td><button class='jspsych-btn jspsych-survey-numbers-next'><img src='jsPsych-6/plugins/tick.svg' width='8' height='8  '></img></button></td></tr>" +
     "</tbody></table>";
-    html +='<div class="fail-message"></div>'
+    html +='<div class="fail-message"></div>';
 
     display_element.innerHTML = html;
 

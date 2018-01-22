@@ -111,7 +111,7 @@ jsPsych.plugins['survey-text'] = (function() {
     display_element.innerHTML = html;
     var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
     firstTextBox.focus();
-
+    html +='<div class="fail-message"></div>'
     display_element.innerHTML = html;
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
@@ -147,7 +147,7 @@ jsPsych.plugins['survey-text'] = (function() {
             jsPsych.finishTrial(trialdata);
         }else{
             firstTextBox.blur();
-            alert("Por favor ingresa un número válido");
+            display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido</span>';
             console.log("mal",validation);
             event.stopPropagation();
            if (event.stopPropagation) {

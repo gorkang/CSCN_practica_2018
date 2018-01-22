@@ -35,16 +35,16 @@
             };
 
              // Bloqueo de teclas
-            function block_fkeys(event){
-                var x = event.which || event.keyCode;
-                if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
-                    console.log("Blocked key");
-                    event.preventDefault();
-                    return false;
-                }else{
-                    return;
-                }
-            }
+             onkeydown = function block_fkeys(event){
+                 var x = event.which || event.keyCode;
+                 if(x == 111 || x == 116){
+                     console.log("Blocked key");
+                     event.preventDefault();
+                     return false;
+                 }else{
+                     return;
+                 }
+             }
 
             // Bloqueo de Enter
             function block_enter(event){

@@ -5,9 +5,9 @@ function getDisplayElement() {
   return $('<div class = display_stage></div>').appendTo('body')
 }
 
-function block_fkeys(event){
+onkeydown = function block_fkeys(event){
     var x = event.which || event.keyCode;
-    if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
+    if(x == 111 || x == 116){
         console.log("Blocked key");
         event.preventDefault();
         return false;

@@ -9,7 +9,6 @@
   </head>
 
   <body>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="jsPsych-6/jspsych.js"></script>
     <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
@@ -24,7 +23,6 @@
 
         jsPsych.init({
                  timeline: rotacion_mental_experiment,
-                 on_start: document.onkeydown = block_fkeys,
                  on_finish: function(data){
 
                      // Serialize the data
