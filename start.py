@@ -203,7 +203,7 @@ else:
     clipboard.set_text(token)
     clipboard.store()
     print("Token copied to clipboard.")
-    signal.signal(signal.SIGINT, stop_handler)
+
     print("Starting experiment.")
     container = subprocess.check_output(["docker", "run", "--tmpfs", "/scfi/data/expfactory/" , "-d", "-p", "80:80", image,"--headless", "--no-randomize", "--experiments",token_experiments, "start"])[:-1]
     time.sleep(10)
@@ -228,5 +228,4 @@ else:
             urlAddress = driver.current_url
             print(urlAddress)
     driver.close()
-    while(True):
-        time.sleep(1000)
+    stop_handler()
