@@ -105,11 +105,11 @@
                            " Seis meses despu&eacute;s de haber invertido, el 17 de julio, las acciones que hab&iacute;a comprado bajaron un 50%."+
                            "Afortunadamente para Sim&oacute;n, desde el 17 de julio hasta el 17 de octubre, las acciones que hab&iacute;a comprado subieron un 75%."+
                            " En este momento, Sim&oacute;n ha:",
+                           required: true,
                             options: ["a) No ha ganado ni perdido dinero",
                             "b) Ha ganado dinero",
                             "c) Ha perdido dinero"]}]}
-                           ],
-                required: true,
+                           ]
 
             };
 

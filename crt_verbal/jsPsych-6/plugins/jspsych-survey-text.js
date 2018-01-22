@@ -112,6 +112,7 @@ jsPsych.plugins['survey-text'] = (function() {
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
       // measure response time
+      var validation;
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
 
@@ -124,6 +125,7 @@ jsPsych.plugins['survey-text'] = (function() {
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
+        validation = val;
       }
       // save data
       var trialdata = {
@@ -131,10 +133,21 @@ jsPsych.plugins['survey-text'] = (function() {
         "responses": JSON.stringify(question_data)
       };
 
-      display_element.innerHTML = '';
 
-      // next trial
-      jsPsych.finishTrial(trialdata);
+      if (validation.length >= 3) {
+            console.log("bien",validation);
+            display_element.innerHTML = '';
+            jsPsych.finishTrial(trialdata);
+        }else{
+            sweetAlert({title: "Por favor ingresa un n\&uacute;mero v\&aacute;lido", html: true});
+            console.log("mal",validation);
+            event.stopPropagation();
+           if (event.stopPropagation) {
+            event.stopPropagation();
+            } else{
+              event.cancelBubble = true;
+            }
+        }
     });
 
     var startTime = (new Date()).getTime();
