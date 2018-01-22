@@ -2,9 +2,13 @@ from __future__ import print_function
 import subprocess
 import webbrowser
 import signal
+import pandas
+import numpy
+import json
 import time
 import gtk
 import csv
+import sys
 import os
 import io
 
@@ -21,13 +25,13 @@ except ImportError:
 	import httplib2
 
 try:
-  from apiclient import errors
-  from apiclient import discovery
-  from apiclient.http import MediaFileUpload
-  from apiclient.http import MediaIoBaseDownload
-  from oauth2client import client
-  from oauth2client import tools
-  from oauth2client.file import Storage
+    from apiclient import errors
+    from apiclient import discovery
+    from apiclient.http import MediaFileUpload
+    from apiclient.http import MediaIoBaseDownload
+    from oauth2client import client
+    from oauth2client import tools
+    from oauth2client.file import Storage
 except ImportError:
 	pip.main(['install','--upgrade','google-api-python-client'])
 	from apiclient import errors
@@ -139,6 +143,10 @@ def stop_handler(signumber, frame):
         print("The experiment was NOT finished.")
     else:
         print("Error: unknown token.")
+    for json_file in os.listdir('experiments/' + token + "_finished"):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + "_finished" + json_file[:-5] + ".tsv", sep="\t")
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])
     subprocess.call(["docker", "rmi", image, "--force"])
