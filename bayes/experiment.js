@@ -203,6 +203,7 @@ function createPrompt(){
         if(csvData[i].presentation_format == "pifb"){
             phrase += "<img src='"+qFormat+"'/>" + qQuestion;
         }else{
+            qFormat = "<br><br>" + qFormat + "<br><br>";
             for (key in qNumbers){
                 /*if (key != "format" && key if(number_of_calls == 0)!= "prob"){
                 } */
