@@ -147,6 +147,10 @@ def stop_handler(signumber, frame):
         content = json.load(open(json_file, 'r'))
         results = json.loads(content['data'])
         pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + "_finished" + json_file[:-5] + ".tsv", sep="\t")
+    for json_file in os.listdir('experiments/' + token):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + json_file[:-5] + ".tsv", sep="\t")
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])
     subprocess.call(["docker", "rmi", image, "--force"])
