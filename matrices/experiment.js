@@ -107,7 +107,6 @@
                 choices: ["<img src='img/1B_1.png' style='width: 100%'/>","<img src='img/1B_2.png' style='width: 100%'/>","<img src='img/1B_3.svg' style='width: 100%'/>","<img src='img/1B_4.png' style='width: 100%'/>","<img src='img/1B_5.png' style='width: 100%' />"],
                 button_html: '<button class="jspsych-matrix-button">%choice%</button>',
                 data: {trialid: "P_MP_01"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                    var test = data.button_pressed;
                     if(test == 4){
@@ -130,7 +129,6 @@
                 choices: ["<img src='img/2B_1.png' />","<img src='img/2B_2.png' />","<img src='img/2B_3.png' />","<img src='img/2B_4.png' />","<img src='img/2B_5.png' />"],
                 button_html: '<button class="jspsych-matrix-button">%choice%</button>',
                 data: {trialid: "P_MP_02"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                    var test = data.button_pressed;
                     if(test == 3){
@@ -246,7 +244,6 @@
                 choices: ["<img src='img/3B_1.png' />","<img src='img/3B_2.png' />","<img src='img/3B_3.png' />","<img src='img/3B_4.png' />","<img src='img/3B_5.png' />"],
                 button_html: '<button class="jspsych-matrix-button">%choice%</button>',
                 data: {trialid: "MP_03"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 2){
@@ -266,7 +263,6 @@
                 stimulus:"<div class='centered'><img src ='img/4A.png' /></div>",
                 choices:["<img src='img/4B_1.png' />","<img src='img/4B_2.png' />","<img src='img/4B_3.png' />","<img src='img/4B_4.png' />","<img src='img/4B_5.png' />"],
                 data: {trialid: "MP_04"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 1){
@@ -286,7 +282,6 @@
                 stimulus:"<div class='centered'><img src ='img/5A.png' /></div>",
                 choices:["<img src='img/5B_1.png' />","<img src='img/5B_2.png' />","<img src='img/5B_3.png' />","<img src='img/5B_4.png' />","<img src='img/5B_5.png' />"],
                 data: {trialid: "MP_05"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 0){
@@ -306,7 +301,6 @@
                 stimulus:"<div class='centered'><img src ='img/6A.png' /></div>",
                 choices:["<img src='img/6B_1.png' />","<img src='img/6B_2.png' />","<img src='img/6B_3.png' />","<img src='img6/B_4.png' />","<img src='img/6B_5.png' />"],
                 data: {trialid: "MP_06"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 4){
@@ -326,7 +320,6 @@
                 stimulus:"<div class='centered'><img src ='img/7A.png' /></div><img src ='img/7B.png' </img></div>",
                 choices:["<img src='img/7B_1.png' />","<img src='img/7B_2.png' />","<img src='img/7B_3.png' />","<img src='img/7B_4.png' />","<img src='img/7B_5.png' />"],
                 data: {trialid: "MP_07"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 2){
@@ -349,7 +342,6 @@
                 stimulus:"<div class='centered'><img src ='img/8A.png' /></div>",
                 choices:["<img src='img/8B_1.png' />","<img src='img/8B_2.png' />","<img src='img/8B_3.png' />","<img src='img/8B_4.png' />","<img src='img/8B_5.png' />"],
                 data: {trialid: "MP_08"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response =='{{"Q0":"<img src=\'img/op4.png\' />"}'){
@@ -365,7 +357,6 @@
                 stimulus:"<div class='centered'><img src ='img/9A.png' /></div><img src ='img/9B.png' </img></div>",
                 choices:["<img src='img/9B_1.png' />","<img src='img/9B_2.png' />","<img src='img/9B_3.png' />","<img src='img/9B_4.png' />","<img src='img/9B_5.png' />"],
                 data: {trialid: "MP_09"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 3){
@@ -381,7 +372,6 @@
                 stimulus:"<div class='centered'><img src ='img/10A.png' /></div>",
                 choices:["<img src='img/10B_1.png' />","<img src='img/10B_2.png' />","<img src='img/10B_3.png' />","<img src='img/10B_4.png' />","<img src='img/10B_5.png' />"],
                 data: {trialid: "MP_10"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 4){
@@ -397,7 +387,6 @@
                 stimulus:"<div class='centered'><img src ='img/11A.png' /></div>",
                 choices:["<img src='img/11B_1.png' />","<img src='img/11B_2.png' />","<img src='img/11B_3.png' />","<img src='img/11B_4.png' />","<img src='img/11B_5.png' />"],
                 data: {trialid: "MP_11"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 0){
@@ -413,7 +402,6 @@
                 stimulus:"<div class='centered'><img src ='img/12A.png' /></div>",
                 choices:["<img src='img/12B_1.png' />","<img src='img/12B_2.png' />","<img src='img/12B_3.png' />","<img src='img/12B_4.png' />","<img src='img/12B_5.png' />"],
                 data: {trialid: "MP_12"},
-                margin_horizontal: '1%',
                 on_finish: function(data){;
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 0){
@@ -429,7 +417,6 @@
                 stimulus:"<div class='centered'><img src ='img/13A.png' /></div>",
                 choices:["<img src='img/13B_1.png' />","<img src='img/13B_2.png' />","<img src='img/13B_3.png' />","<img src='img/13B_4.png' />","<img src='img/13B_5.png' />"],
                 data: {trialid: "MP_13"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 1){
@@ -445,7 +432,6 @@
                 stimulus:"<div class='centered'><img src ='img/14A.png' /></div>",
                 choices:["<img src='img/14B_1.png' />","<img src='img/14B_2.png' />","<img src='img/14B_3.png' />","<img src='img/14B_4.png' />","<img src='img/14B_5.png' />"],
                 data: {trialid: "MP_14"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 4){
@@ -461,7 +447,6 @@
                 stimulus:"<div class='centered'><img src ='img/15A.png' /></div>",
                 choices:["<img src='img/15B_1.png' />","<img src='img/15B_2.png' />","<img src='img/15B_3.png' />","<img src='img/15B_4.png' />","<img src='img/15B_5.png' />"],
                 data: {trialid: "MP_15"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 4){
@@ -477,7 +462,6 @@
                 stimulus:"<div class='centered'><img src ='img/16A.png' /></div>",
                 choices:["<img src='img/16B_1.png' />","<img src='img/16B_2.png' />","<img src='img/16B_3.png' />","<img src='img/16B_4.png' />","<img src='img/16B_5.png' />"],
                 data: {trialid: "MP_16"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 2){
@@ -493,7 +477,6 @@
                 stimulus:"<div class='centered'><img src ='img/17A.png' /></div>",
                 choices:["<img src='img/17B_1.png' />","<img src='img/17B_2.png' />","<img src='img/17B_3.png' />","<img src='img/17B_4.png' />","<img src='img/17B_5.png' />"],
                 data: {trialid: "MP_17"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     var matrix_response = data.button_pressed;
                     if(matrix_response == 1){
@@ -509,7 +492,6 @@
                 stimulus:"<div class='centered'><img src ='img/18A.png' /></div>",
                 choices:["<img src='img/18B_1.png' />","<img src='img/18B_2.png' />","<img src='img/18B_3.png' />","<img src='img/18B_4.png' />","<img src='img/18B_5.png' />"],
                 data: {trialid: "MP_18"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -526,7 +508,6 @@
                 stimulus:"<div class='centered'><img src ='img/19A.png' /></div>",
                 choices:["<img src='img/19B_1.png' />","<img src='img/19B_2.png' />","<img src='img/19B_3.png' />","<img src='img/19B_4.png' />","<img src='img/19B_5.png' />"],
                 data: {trialid: "MP_19"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -543,7 +524,6 @@
                 stimulus:"<div class='centered'><img src ='img/20A.png' /></div>",
                 choices:["<img src='img/20B_1.png' />","<img src='img/20B_2.png' />","<img src='img/20B_3.png' />","<img src='img/20B_4.png' />","<img src='img/20B_5.png' />"],
                 data: {trialid: "MP_20"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -560,7 +540,6 @@
                 stimulus:"<div class='centered'><img src ='img/21A.png' /></div>",
                 choices:["<img src='img/21B_1.png' />","<img src='img/21B_2.png' />","<img src='img/21B_3.png' />","<img src='img/21B_4.png' />","<img src='img/21B_5.png' />"],
                 data: {trialid: "MP_21"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -577,7 +556,6 @@
                 stimulus:"<div class='centered'><img src ='img/22A.png' /></div>",
                 choices:["<img src='img/22B_1.png' />","<img src='img/22B_2.png' />","<img src='img/22B_3.png' />","<img src='img/22B_4.png' />","<img src='img/22B_5.png' />"],
                 data: {trialid: "MP_22"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -594,7 +572,6 @@
                 stimulus:"<div class='centered'><img src ='img/23A.png' /></div>",
                 choices:["<img src='img/23B_1.png' />","<img src='img/23B_2.png' />","<img src='img/23B_3.png' />","<img src='img/23B_4.png' />","<img src='img/23B_5.png' />"],
                 data: {trialid: "MP_23"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -611,7 +588,6 @@
                 stimulus:"<div class='centered'><img src ='img/24A.png' /></div>",
                 choices:["<img src='img/24B_1.png' />","<img src='img/24B_2.png' />","<img src='img/24B_3.png' />","<img src='img/24B_4.png' />","<img src='img/24B_5.png' />"],
                 data: {trialid: "MP_24"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -628,7 +604,6 @@
                 stimulus:"<div class='centered'><img src ='img/25A.png' /></div>",
                 choices:["<img src='img/25B_1.png' />","<img src='img/25B_2.png' />","<img src='img/25B_3.png' />","<img src='img/25B_4.png' />","<img src='img/25B_5.png' />"],
                 data: {trialid: "MP_25"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -645,7 +620,6 @@
                 stimulus:"<div class='centered'><img src ='img/26A.png' /></div>",
                 choices:["<img src='img/26B_1.png' />","<img src='img/26B_2.png' />","<img src='img/26B_3.png' />","<img src='img/26B_4.png' />","<img src='img/26B_5.png' />"],
                 data: {trialid: "MP_26"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -662,7 +636,6 @@
                 stimulus:"<div class='centered'><img src ='img/27A.png' /></div>",
                 choices:["<img src='img/27B_1.png' />","<img src='img/27B_2.png' />","<img src='img/27B_3.png' />","<img src='img/27B_4.png' />","<img src='img/27B_5.png' />"],
                 data: {trialid: "MP_27"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;
@@ -679,7 +652,6 @@
                 stimulus:"<div class='centered'><img src ='img/28A.png' /></div>",
                 choices:["<img src='img/28B_1.png' />","<img src='img/28B_2.png' />","<img src='img/28B_3.png' />","<img src='img/28B_4.png' />","<img src='img/28B_5.png' />"],
                 data: {trialid: "MP_28"},
-                margin_horizontal: '1%',
                 on_finish: function(data){
                     //data.RUT_Participante = refined_id;
                     var matrix_response = data.button_pressed;

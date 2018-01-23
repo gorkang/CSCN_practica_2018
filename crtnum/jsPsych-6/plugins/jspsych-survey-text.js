@@ -147,6 +147,7 @@ jsPsych.plugins['survey-text'] = (function() {
         }else{
             firstTextBox.blur();
             display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
+            alert("");
             console.log("mal",validation);
             event.stopPropagation();
            if (event.stopPropagation) {

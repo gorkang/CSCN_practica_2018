@@ -74,6 +74,12 @@ except OSError:
 	subprocess.call(["sudo","usermod","-aG","docker", user])
 	subprocess.call(["su", user])
 
+try:
+    import argparse
+    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+except ImportError:
+    flags = None
+
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
 
@@ -89,17 +95,6 @@ imagename =  "experiments.tar"
 
 #Check for different status of the experiment.cfg file
 if(not os.path.isfile("experiment.cfg")):
-    if(len(sys.argv) != 2):
-        print("Arguments for first run are [output_path]\n\n Always start with ~/ for home folder.")
-        exit(1)
-    output_path = sys.argv[1]
-    print(output_path)
-    if(output_path.split("/")[1] != "home"):
-        print("Arguments for first run are [output_path]\n\n Always start with ~/ for home folder.")
-        exit(1)
-    output_path = "/".join(output_path.split("/")[3:])
-    if(not os.path.isdir(output_path)):
-        subprocess.call(["mkdir","-p", os.path.expanduser('~/') + output_path])
     while(True):
         option = raw_input("Use google drive?(Y,n) ")
         if(option in ["n","N","no","No"]):
@@ -109,7 +104,7 @@ if(not os.path.isfile("experiment.cfg")):
             config_file.close()
             break
         elif(option in ["","y","Y","yes","Yes"]):
-            #Create google service account for storing tokens.tsv
+            #Create google service account for storine tokens.tsv
             credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
             drive_service = discovery.build('drive', 'v3',credentials=credentials)
             #Create folder for tokens.tsv
@@ -121,24 +116,15 @@ if(not os.path.isfile("experiment.cfg")):
             config_file.close()
             usingGDrive = True
             break
-    config_file = open("experiment.cfg","a")
-    config_file.write("\noutput_path: " + output_path)
-    config_file.close()
-elif(open("experiment.cfg","r").readline() == "usingGDrive: false\n"):
+elif(open("experiment.cfg","r").readline() == "usingGDrive: false"):
     usingGDrive = False
-    output_path = open("experiment.cfg","r").readlines()[1][13:]
-    if(not os.path.isdir(output_path)):
-        subprocess.call(["mkdir","-p", os.path.expanduser('~/') + output_path])
 elif(open("experiment.cfg","r").readline() == "usingGDrive: true\n"):
     credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
     drive_service = discovery.build('drive', 'v3',credentials=credentials)
     #load folder id
     folder_id = open("experiment.cfg","r").readlines()[1][10:-1]
-    tokens_id = open("experiment.cfg","r").readlines()[2][11:-1]
-    output_path = open("experiment.cfg","r").readlines()[3][13:]
+    tokens_id = open("experiment.cfg","r").readlines()[2][11]
     usingGDrive = True
-    if(not os.path.isdir(output_path)):
-        subprocess.call(["mkdir","-p", os.path.expanduser('~/') + output_path])
 else:
     print("Redownload experiment to configure correctly")
     exit()
@@ -222,20 +208,12 @@ for row in tsv:
                     #Create backup and reuse token
                     backup_number = 1
                     while(True):
-                        if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup" + str(backup_number))):
+                        if(os.path.isfile("backup/" + row[1][:-9] + "backup" + str(backup_number))):
                             backup_number += 1
-                        elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] )):
-                            subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                            subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9],os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+                        else:
+                            subprocess.call(["mkdir","backup"])
+                            subprocess.call(["mv","expfactory/" + row[1][:-9],"backup/" + row[1][:-9] + "backup/" + str(backup_number)])
                             break
-                        elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished")):
-                            option = raw_input("Token was already finished, overwrite?:(y,N)")
-                            if(option in ["","n","N","no","No"]):
-                                exit()
-                            elif(option in ["y","Y","yes","Yes"]):
-                                subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished"),os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
-                                break
                     break
         token = row[1][:-9]
         token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional"
@@ -269,10 +247,9 @@ else:
     container = subprocess.check_output(["docker", "run", "--tmpfs", "/scfi/data/expfactory/" , "-d", "-p", "80:80", image,"--headless", "--no-randomize", "--experiments",token_experiments, "start"])[:-1]
     time.sleep(10)
     subprocess.call(["docker", "exec", container, "mkdir", "/scif/data/expfactory/" + token])
-    print("Experiment started.")
+    print("Experiment started, wait until browser is open and paste token, press Control+C once the experiment ends.")
     chrome_options = Options()
-    #chrome_options.add_argument("--kiosk")
-    chrome_options.add_argument("--disable-infobars")
+    chrome_options.add_argument("--kiosk")
     driver = webdriver.Chrome(chrome_options=chrome_options)
     driver.get("http://localhost/")
     wait = WebDriverWait(driver, 10)
@@ -282,19 +259,19 @@ else:
     print("write ready")
     driver.fullscreen_window()
     #Block keys with file block_keys
-    #subprocess.call(["xmodmap", "block_keys"])
+    subprocess.call(["xmodmap", "block_keys"])
     buttonNext = driver.find_element_by_xpath("//button[1]")
     buttonNext.click()
     print("button pressed")
     urlAddress = driver.current_url
     print(urlAddress)
     while (not driver.current_url == "http://localhost/finish"):
-        time.sleep(1)
+        time.sleep(10)
         if not urlAddress == driver.current_url:
-            if(urlAddress != "http://localhost/finish"):
-                subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, os.path.expanduser('~/') + output_path + "/experiments"])
             urlAddress = driver.current_url
             print(urlAddress)
+
+    driver.close()
     #Restore default keymap to default twice?
     subprocess.call(["xmodmap","default"])
     subprocess.call(["xmodmap","default"])
@@ -303,26 +280,23 @@ else:
     token_list = subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--list"]).split()
     if((token + "[finished]") in token_list):
         #backup data
-        subprocess.call(["rm", "-r", os.path.expanduser('~/') + output_path + "/experiments/" + token])
-        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", os.path.expanduser('~/') + output_path + "/experiments"])
+        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished", "experiments"])
         print("The experiment finished successfully.")
     elif((token + "[active]") in token_list):
+        subprocess.call(["mkdir", "experiments/" + token])
+        subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, "experiments"])
         print("The experiment was NOT finished.")
     else:
         print("Error: unknown token.")
-    if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished")):
-        for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished"):
-            content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/"  + token + "_finished/" + json_file, 'r'))
-            results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file[:-5] + ".tsv", sep="\t")
-    if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + token)):
-        for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token):
-            content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file, 'r'))
-            results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file[:-5] + ".tsv", sep="\t")
-
+    for json_file in os.listdir('experiments/' + token + "_finished"):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + "_finished" + json_file[:-5] + ".tsv", sep="\t")
+    for json_file in os.listdir('experiments/' + token):
+        content = json.load(open(json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv('experiments/' + token + json_file[:-5] + ".tsv", sep="\t")
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])
     subprocess.call(["docker", "rmi", image, "--force"])
-    driver.close()
     exit()
