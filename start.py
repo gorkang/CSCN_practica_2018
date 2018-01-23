@@ -234,7 +234,7 @@ for row in tsv:
                                 exit()
                             elif(option in ["y","Y","yes","Yes"]):
                                 subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished"),os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
                                 break
                     break
         token = row[1][:-9]
