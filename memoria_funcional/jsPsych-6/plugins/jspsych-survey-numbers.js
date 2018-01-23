@@ -103,11 +103,8 @@ jsPsych.plugins['survey-numbers'] = (function() {
       html += '<div id="jspsych-survey-numbers-"'+i+'" class="jspsych-survey-numbers-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-numbers">' + trial.questions[i].prompt + '</p>';
       if(trial.questions[i].rows == 1){
-        //type changed to number, added class and required
-        html += '<input type="number" required="true" class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value + '"></input>';
-      } else {
-        //type changed to number, added class and required
-        html += '<input type="number" required="true" class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '">'+trial.questions[i].value+'></input>';
+        //type changed to div, added class
+        html += '<div class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '"></div>';
       }
       html += '</div>';
     }
@@ -123,7 +120,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
     display_element.innerHTML = html;
 
     //modificacion
-    var firstTextBox = display_element.querySelector("input.jspsych-survey-numbers-response-0");
+    var firstTextBox = display_element.querySelector("div.jspsych-survey-numbers-response-0");
     firstTextBox.focus();
     firstTextBox.onkeydown = function(event){
       if(event.keyCode == 13){
@@ -134,7 +131,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
     buttons.forEach(function(button){
       button.onclick = function(){
         if(!this.className.includes("jspsych-survey-numbers-next")){
-          firstTextBox.value += this.innerText;
+          firstTextBox.innerHTML += this.innerText;
         }
       };
     });
