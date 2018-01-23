@@ -46,7 +46,7 @@ try:
 	from google.oauth2 import service_account
 except ImportError:
 	pip.main(['install','google-auth-httplib2'])
-	pip.main(['install','google-auth'])
+	pip.main(['install','google-oauth'])
 	from google.oauth2 import service_account
 
 try:
@@ -122,7 +122,7 @@ if(not os.path.isfile("experiment.cfg")):
             usingGDrive = True
             break
     config_file = open("experiment.cfg","a")
-    config_file.write("output_path: " + output_path)
+    config_file.write("output_path: " + output_path + "\n")
     config_file.close()
 elif(open("experiment.cfg","r").readline() == "usingGDrive: false\n"):
     usingGDrive = False
@@ -174,7 +174,7 @@ if(not os.path.isfile(imagename)):
         media = MediaFileUpload('tokens.tsv', mimetype='text/tsv', resumable=False)
         tokens_id = drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute().get("id")
         config_file = open("experiment.cfg","a")
-        config_file.write("tokens_id: " + tokens_id)
+        config_file.write("tokens_id: " + tokens_id + "\n")
         config_file.close()
     while(True):
         option = raw_input("Start experiment?(Y/n) ")
@@ -197,7 +197,7 @@ while(True):
 
 #Get token for new experiment
 if(usingGDrive):
-    tokens_id = open("experiment.cfg","r").readlines()[2][11:]
+    tokens_id = open("experiment.cfg","r").readlines()[3][11:-1]
     #Download tokens.tsv from google drive
     request = drive_service.files().get_media(fileId=tokens_id)
     fh = io.FileIO(filename, 'wb')
