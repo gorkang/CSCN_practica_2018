@@ -2,68 +2,80 @@ from __future__ import print_function
 import subprocess
 import webbrowser
 import signal
-import pandas
-import numpy
 import json
 import time
-import gtk
 import csv
 import sys
 import os
 import io
 
-try:
-    import pip
-except ImportError:
-    subprocess.call("sudo apt-get install python-pip".split())
-    import pip
 
 try:
-    import httplib2
+	import pip
 except ImportError:
-	pip.main(['install','httplib2'])
-	import httplib2
+	subprocess.call("sudo apt-get install python-pip".split())
 
-try:
-    from apiclient import errors
-    from apiclient import discovery
-    from apiclient.http import MediaFileUpload
-    from apiclient.http import MediaIoBaseDownload
-    from oauth2client import client
-    from oauth2client import tools
-    from oauth2client.file import Storage
-except ImportError:
-	pip.main(['install','--upgrade','google-api-python-client'])
-	from apiclient import errors
-	from apiclient import discovery
-	from apiclient.http import MediaFileUpload
-	from apiclient.http import MediaIoBaseDownload
-	from oauth2client import client
-	from oauth2client import tools
-	from oauth2client.file import Storage
+while(True):
+	try:
+		import pandas
+		break
+	except ImportError:
+		subprocess.call("sudo python -m pip install pandas".split())
 
-try:
-	from google.oauth2 import service_account
-except ImportError:
-	pip.main(['install','google-auth-httplib2'])
-	pip.main(['install','google-oauth'])
-	from google.oauth2 import service_account
+while(True):
+	try:
+		import numpy
+		break
+	except ImportError:
+		pip.main(['install','numpy'])
 
-try:
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.webdriver.common.keys import Keys
-    from selenium.webdriver.chrome.options import Options
-except ImportError:
-    pip.main(['install','-U','selenium'])
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.webdriver.common.keys import Keys
-    from selenium.webdriver.chrome.options import Options
+while(True):
+	try:
+		import gtk
+		break
+	except ImportError:
+		subprocess.call("sudo apt-get install python-gtk2-dev".split())
+
+while(True):
+	try:
+		import httplib2
+		break
+	except ImportError:
+		subprocess.call("sudo python -m pip install httplib2".split())
+
+while(True):
+	try:
+		from apiclient import errors
+		from apiclient import discovery
+		from apiclient.http import MediaFileUpload
+		from apiclient.http import MediaIoBaseDownload
+		from oauth2client import client
+		from oauth2client import tools
+		from oauth2client.file import Storage
+		break
+	except ImportError:
+		subprocess.call("sudo python -m pip install google-api-python-client".split())
+
+while(True):
+	try:
+		from google.oauth2 import service_account
+		break
+	except ImportError:
+		subprocess.call("sudo python -m pip install google-auth-httplib2".split())
+		subprocess.call("sudo python -m pip install google-oauth".split())
+
+while(True):
+	try:
+		from selenium import webdriver
+		from selenium.webdriver.common.by import By
+		from selenium.webdriver.support.ui import WebDriverWait
+		from selenium.webdriver.support import expected_conditions as EC
+		from selenium.webdriver.common.keys import Keys
+		from selenium.webdriver.chrome.options import Options
+		break
+	except ImportError:
+		subprocess.call("sudo python -m pip install -U selenium".split())
+
 
 try:
 	subprocess.call("docker --version".split())
@@ -72,7 +84,7 @@ except OSError:
 	subprocess.call("sudo addgroup docker".split())
 	user = subprocess.check_output(['who']).split()[0]
 	subprocess.call(["sudo","usermod","-aG","docker", user])
-	subprocess.call(["su", user])
+	subprocess.call(["su", user, "-c", "exit"])
 
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
