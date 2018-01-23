@@ -14,15 +14,6 @@
             var nineth_verbalcrt = 0;
             var tenth_verbalcrt = 0;
 
-            var crt_experiment_ids = [1,2,3,4,5,6,7];
-            var first_crt_experiment = 0;
-            var second_crt_experiment = 0;
-            var third_crt_experiment = 0;
-            var fourth_crt_experiment = 0;
-            var fifth_crt_experiment = 0;
-            var sixth_crt_experiment = 0;
-            var seventh_crt_experiment = 0;
-
             var bloquear_enter = 0; // 0 = permitir, 1 = bloquear
 
             /* ********************************* FUNCIONES DE APOYO ********************************* */
@@ -35,16 +26,16 @@
             };
 
              // Bloqueo de teclas
-            function block_fkeys(event){
-                var x = event.which || event.keyCode;
-                if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
-                    console.log("Blocked key");
-                    event.preventDefault();
-                    return false;
-                }else{
-                    return;
-                }
-            }
+             onkeydown = function block_fkeys(event){
+                 var x = event.which || event.keyCode;
+                 if(x == 111 || x == 116){
+                     console.log("Blocked key");
+                     event.preventDefault();
+                     return false;
+                 }else{
+                     return;
+                 }
+             }
 
             // Bloqueo de Enter
             function block_enter(event){
@@ -87,29 +78,6 @@
                if (index2 == 10){ crt_experiment.push(verbal_crt10); }
             }
 
-            function randomize_crt_experiment() {
-                sorted_crt_experiment_ids = [];
-                sorted_crt_experiment_ids = shuffle(crt_experiment_ids);
-                console.log(sorted_crt_experiment_ids);
-                first_crt_experiment = sorted_crt_experiment_ids.next().value;
-                second_crt_experiment = sorted_crt_experiment_ids.next().value;
-                third_crt_experiment = sorted_crt_experiment_ids.next().value;
-                fourth_crt_experiment = sorted_crt_experiment_ids.next().value;
-                fifth_crt_experiment = sorted_crt_experiment_ids.next().value;
-                sixth_crt_experiment = sorted_crt_experiment_ids.next().value;
-                seventh_crt_experiment = sorted_crt_experiment_ids.next().value;
-            }
-
-            function set_crt_experiment(index3){
-               if (index3 == 1){ crt_experiment.push(crt1); }
-               if (index3 == 2){ crt_experiment.push(crt2); }
-               if (index3 == 3){ crt_experiment.push(crt3); }
-               if (index3 == 4){ crt_experiment.push(crt4); }
-               if (index3 == 5){ crt_experiment.push(crt5); }
-               if (index3 == 6){ crt_experiment.push(crt6); }
-               if (index3 == 7){ crt_experiment.push(crt7); }
-            }
-
             /* ********************************* PANTALLAS DE INICIO Y DESPEDIDA ********************************* */
 
             var screen_crt_experiment = {
@@ -123,95 +91,7 @@
                 }
             };
 
-            var screen_goodbye = {
-                type: 'instructions',
-                pages: ['<p><center>Hemos terminado, excelente trabajo.<br /><br />Muchas gracias por su colaboraci&oacute;n.<br /><br />Por favor, llame al examinador.'],
-                cont_key: [13],
-                show_clickable_nav: true,
-                data:{trialid: "Screen_goodbye"},
-                on_trial_start: function(){
-                    bloquear_enter = 0;
-                }
-            }
-
             /* ********************************* INICIO PRUEBAS ********************************* */
-
-            // -----------------------------------------------------------------------------------------
-            // ----------------------------------- crt_experiment -------------------------------------------------
-            // -----------------------------------------------------------------------------------------
-
-            var crtexplanation={
-                type: "instructions",
-                pages: ["<div class = centerbox>"+
-                       "<p class = center-block-text>"+
-                       "En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad.<br /><br />"+
-                       "Responde todos los que puedas."+
-                       "</p></div>"],
-                allow_keys: false,
-                show_clickable_nav: true,
-                timing_post_trial: 50,
-                data:{trialid: "Instructions_crt_experiment"}
-            };
-
-            var crt1 = {
-                type: "survey-textcrt1",
-                preamble: "<div class='crt_experiment_text'>Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota.<br /><br /></div>",
-                questions: [{prompt:"&iquest;Cu&aacute;nto cuesta la pelota?<br /><br />"}],
-                data: {trialid: "crt_experiment_01"}
-            };
-
-            var crt2 = {
-                type: "survey-textcrt2",
-                preamble: "<div class='crt_experiment_text'>Si 5 m&aacute;quinas demoran 5 minutos en hacer 5 aparatos.<br /><br /></div>",
-                questions: [{prompt:"&iquest;Cu&aacute;nto tiempo se demorar&iacute;an 100 m&aacute;quinas en hacer 100 aparatos?<br /><br />"}],
-                data: {trialid: "crt_experiment_02"}
-            };
-
-            var crt3 = {
-                type: "survey-textcrt3",
-                preamble: "<div class='crt_experiment_text'>En un lago hay un manto de hojas de lirios. Cada d&iacute;a el manto dobla su tama&ntilde;o. <br />Si el manto de lirios se demora 48 d&iacute;as en cubrir el lago completo,<br /><br /></div>",
-                questions: [{prompt:"&iquest;cu&aacute;nto se demorar&iacute;a el manto de lirios en cubrir la mitad del lago?<br /><br />"}],
-                data: {trialid: "crt_experiment_03"}
-            };
-
-            var crt4 = {
-                type: "survey-textcrt3",
-                preamble: "<div class='crt_experiment_text'>Si Jos&eacute; puede beber un barril de agua en 6 d&iacute;as y Mar&iacute;a puede beber un barril de agua en 12 d&iacute;as<br /><br /></div>",
-                questions: [{prompt:"&iquest;Cu&aacute;nto se demorar&iacute;an en tomar un barril de agua juntos?<br /><br />"}],
-                data: {trialid: "crt_experiment_04"}
-            };
-
-            var crt5 = {
-                type: "survey-textcrt4",
-                preamble: "<div class='crt_experiment_text'>Pedro recibi&oacute; tanto la quinceava nota m&aacute;s alta como la quinceava nota m&aacute;s baja en su clase<br /><br /></div>",
-                questions: [{prompt:"&iquest;Cu&aacute;ntos estudiantes hay en la clase?<br /><br />"}],
-                data: {trialid: "crt_experiment_05"}
-            };
-
-            var crt6 = {
-                type: "survey-textcrt1",
-                preamble: "<div class='crt_experiment_text'>Un hombre compra un cerdo a $60.000, lo vende a $70.000, lo vuelve a comprar por $80.000 <br />y finalmente lo vende por $90.000<br /><br /></div>",
-                questions: [{prompt:"&iquest;cu&aacute;nto ha ganado?<br /><br />"}],
-                data: {trialid: "crt_experiment_06"}
-            };
-
-            var crt7 = {
-            type: "survey-multi-choice",
-            questions: [{
-              prompt:"<div class = centerbox>"+
-                "<p class = justified>"+
-                "Sim&oacute;n decide invertir $8.000.000 en el mercado de acciones un d&iacute;a a inicios de 2008. Seis<br />"+
-                "meses despu&eacute;s de haber invertido, el 17 de julio, las acciones que hab&iacute;a comprado bajaron un"+
-                "50%. Afortunadamente para Sim&oacute;n, desde el 17 de julio hasta el 17 de octubre, las acciones que"+
-                "hab&iacute;a comprado subieron un 75%. En este momento, Sim&oacute;n ha:"+
-                "</p><br /><br /></div>",
-              options: ["1. No ha ganado ni perdido dinero","2. Ha ganado dinero","3. Ha perdido dinero"],
-              horizontal: true,
-              required: 'true'
-            }],
-            data: {trialid: "crt_experiment_07"}
-            };
-
             // -----------------------------------------------------------------------------------------
             // ----------------------------------- Verbal crt_experiment ------------------------------------------
             // -----------------------------------------------------------------------------------------
@@ -311,7 +191,6 @@
               });
             }
             randomize_verbalcrt();
-            randomize_crt_experiment();
 
             // crt_experiment
 
@@ -339,5 +218,3 @@
             //set_crt_experiment(fifth_crt_experiment);
             //set_crt_experiment(sixth_crt_experiment);
             //set_crt_experiment(seventh_crt_experiment);
-
-            crt_experiment.push(screen_goodbye);

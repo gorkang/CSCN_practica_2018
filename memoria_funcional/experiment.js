@@ -28,16 +28,16 @@ var bloquear_enter = 0; // 0 = permitir, 1 = bloquear
 /* ********************************* FUNCIONES DE APOYO ********************************* */
 
  // Bloqueo de teclas
-function block_fkeys(event){
-    var x = event.which || event.keyCode;
-    if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
-        console.log("Blocked key");
-        event.preventDefault();
-        return false;
-    }else{
-        return;
-    }
-}
+ onkeydown = function block_fkeys(event){
+     var x = event.which || event.keyCode;
+     if(x == 111 || x == 116){
+         console.log("Blocked key");
+         event.preventDefault();
+         return false;
+     }else{
+         return;
+     }
+ }
 
 // Bloqueo de Enter
 function block_enter(event){
@@ -150,19 +150,15 @@ var answeraudio_00 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"97"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -181,20 +177,16 @@ var answeraudio_01 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"63"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -213,19 +205,15 @@ var answeraudio_02 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"582"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -244,20 +232,16 @@ var answeraudio_03 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"694"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -276,19 +260,15 @@ var answeraudio_04 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"7286"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -307,20 +287,16 @@ var answeraudio_05 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"6439"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -339,19 +315,15 @@ var answeraudio_06 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"42731"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -370,20 +342,16 @@ var answeraudio_07 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"75836"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -402,19 +370,15 @@ var answeraudio_08 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"392487"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -433,20 +397,16 @@ var answeraudio_09 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"619473"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -465,19 +425,15 @@ var answeraudio_10 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"4179386"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -496,20 +452,16 @@ var answeraudio_11 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"6917428"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -528,19 +480,15 @@ var answeraudio_12 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"38296174"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -559,20 +507,16 @@ var answeraudio_13 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"58132647"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -591,19 +535,15 @@ var answeraudio_14 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"275863194"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 0;
+                        wm_secondwarning = 0;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -622,20 +562,16 @@ var answeraudio_15 = {
         console.log("First flag BEFORE", wm_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"713942568"}'){
-            //alert("correcto");
-            wm_firstwarning = 0;
+                        wm_firstwarning = 0;
             wm_secondwarning = 1;
             console.log("First flag AFTER", wm_firstwarning);
         } else {
-            //alert("incorrecto");
-            wm_secondwarning = 1;
+                        wm_secondwarning = 1;
             if (wm_firstwarning == 0){
                 wm_firstwarning = 1;
                 console.log("First flag AFTER", wm_firstwarning);
             }else if(wm_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmd_status = 1;
+            wmd_status = 1;
             }
         };
     }
@@ -691,11 +627,9 @@ var wmi_practiceanswer01 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"17"}'){
-            //alert("correcto");
-            wmi_correcto = true;
+                        wmi_correcto = true;
         } else {
-            //alert("incorrecto");
-            wmi_correcto = false;
+                        wmi_correcto = false;
         };
     }
 };
@@ -713,11 +647,9 @@ var wmi_practiceanswer02 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"43"}'){
-            //alert("correcto");
-            wmi_correcto2 = true;
+                        wmi_correcto2 = true;
         } else {
-            //alert("incorrecto");
-            wmi_correcto2 = false;
+                        wmi_correcto2 = false;
         };
     }
 };
@@ -806,19 +738,15 @@ var answeraudio_16 = {
         var wm_response = data.responses;
         console.log("response value",wm_response);
         if(wm_response =='{"Q0":"17"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-            }
+                                            }
         };
     }
 };
@@ -836,20 +764,16 @@ var answeraudio_17 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"43"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-            }
+                                            }
         };
     }
 };
@@ -869,19 +793,15 @@ var answeraudio_18 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"13"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -900,20 +820,16 @@ var answeraudio_19 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"42"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -932,19 +848,15 @@ var answeraudio_20 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"64"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -963,20 +875,16 @@ var answeraudio_21 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"75"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -995,19 +903,15 @@ var answeraudio_22 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"926"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1026,20 +930,16 @@ var answeraudio_23 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"574"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1058,19 +958,15 @@ var answeraudio_24 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"9728"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1089,20 +985,16 @@ var answeraudio_25 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"8694"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1121,19 +1013,15 @@ var answeraudio_26 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"34856"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1152,20 +1040,16 @@ var answeraudio_27 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"68451"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1184,19 +1068,15 @@ var answeraudio_28 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"814735"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1215,20 +1095,16 @@ var answeraudio_29 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"658427"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1247,19 +1123,15 @@ var answeraudio_30 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"2639418"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1278,20 +1150,16 @@ var answeraudio_31 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"8269374"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1310,19 +1178,15 @@ var answeraudio_32 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"81267349"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 0;
+                        wmi_secondwarning = 0;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1341,20 +1205,16 @@ var answeraudio_33 = {
         console.log("First flag BEFORE", wmi_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"34651827"}'){
-            //alert("correcto");
-            wmi_firstwarning = 0;
+                        wmi_firstwarning = 0;
             wmi_secondwarning = 1;
             console.log("First flag AFTER", wmi_firstwarning);
         } else {
-            //alert("incorrecto");
-            wmi_secondwarning = 1;
+                        wmi_secondwarning = 1;
             if (wmi_firstwarning == 0){
                 wmi_firstwarning = 1;
                 console.log("First flag AFTER", wmi_firstwarning);
             }else if(wmi_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wmi_status = 1;
+                                                wmi_status = 1;
             }
         };
     }
@@ -1410,11 +1270,9 @@ var wms_practiceanswer01 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"123"}'){
-            //alert("correcto");
-            wms_correcto = true;
+                        wms_correcto = true;
         } else {
-            //alert("incorrecto");
-            wms_correcto = false;
+                        wms_correcto = false;
         };
     }
 };
@@ -1432,11 +1290,9 @@ var wm_practiceanswer02 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"225"}'){
-            //alert("correcto");
-            wms_correcto2 = true;
+                        wms_correcto2 = true;
         } else {
-            //alert("incorrecto");
-            wms_correcto2 = false;
+                        wms_correcto2 = false;
         };
     }
 };
@@ -1525,19 +1381,15 @@ var answeraudio_34 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"123"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-            }
+                                            }
         };
     }
 };
@@ -1555,20 +1407,16 @@ var answeraudio_35 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"225"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-            }
+                                            }
         };
     }
 };
@@ -1588,19 +1436,15 @@ var answeraudio_36 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"12"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1619,20 +1463,16 @@ var answeraudio_37 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"24"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1651,19 +1491,15 @@ var answeraudio_38 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"136}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1682,20 +1518,16 @@ var answeraudio_39 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"049"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1714,19 +1546,15 @@ var answeraudio_40 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"2789"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1745,20 +1573,16 @@ var answeraudio_41 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"1478"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1777,19 +1601,15 @@ var answeraudio_42 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"12679"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1808,20 +1628,16 @@ var answeraudio_43 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"33588"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1840,19 +1656,15 @@ var answeraudio_44 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"123467"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1871,20 +1683,16 @@ var answeraudio_45 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"223456"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1903,19 +1711,15 @@ var answeraudio_46 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"2566778"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1934,20 +1738,16 @@ var answeraudio_47 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"2344558"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -1966,19 +1766,15 @@ var answeraudio_48 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"24555778"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 0;
+                        wms_secondwarning = 0;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }
@@ -2052,20 +1848,16 @@ var answeraudio_51 = {
         console.log("First flag BEFORE", wms_firstwarning);
         var wm_response = data.responses;
         if(wm_response =='{"Q0":"271484296"}'){
-            //alert("correcto");
-            wms_firstwarning = 0;
+                        wms_firstwarning = 0;
             wms_secondwarning = 1;
             console.log("First flag AFTER", wms_firstwarning);
         } else {
-            //alert("incorrecto");
-            wms_secondwarning = 1;
+                        wms_secondwarning = 1;
             if (wms_firstwarning == 0){
                 wms_firstwarning = 1;
                 console.log("First flag AFTER", wms_firstwarning);
             }else if(wms_secondwarning == 1){
-                //alert("Termina Experimento");
-                //jsPsych.endCurrentTimeline();
-                wms_status = 1;
+                                                wms_status = 1;
             }
         };
     }

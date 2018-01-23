@@ -113,15 +113,20 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
       display_element.querySelector(question_selector).innerHTML += '<p id="survey-question" class="' + plugin_id_name + '-text survey-multi-selectmr">' + trial.questions[i].prompt + '</p>';
 
       // create option check boxes
+      //inicio modificacion
+      check_boxes = document.createElement('div');
+      check_boxes.setAttribute('class','check_boxes');
+      display_element.querySelector(question_selector).appendChild(check_boxes);
+      //fin modificacion
       for (var j = 0; j < trial.questions[i].options.length; j++) {
         var option_id_name = _join(plugin_id_name, "option", i, j),
           option_id_selector = '#' + option_id_name;
 
         // add check box container
-        display_element.querySelector(question_selector).innerHTML += '<div id="'+option_id_name+'" class="'+_join(plugin_id_name, 'option')+'"></div>';
+        check_boxes.innerHTML += '<div id="'+option_id_name+'" class="'+_join(plugin_id_name, 'option')+'"></div>';
 
         // add label and question text
-        var form = document.getElementById(option_id_name)
+        var form = document.getElementById(option_id_name);
         var input_name = _join(plugin_id_name, 'response', i);
         var input_id = _join(plugin_id_name, 'response', i, j);
         var label = document.createElement('label');
@@ -137,6 +142,12 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
         input.setAttribute('value', trial.questions[i].options[j])
         form.appendChild(label)
         form.insertBefore(input, label)
+
+        //inicio modificacion
+        br = document.createElement('br')
+        form.appendChild(br)
+        form.insertBefore(br,label);
+        //fin modificacion
       }
     }
     // add submit button

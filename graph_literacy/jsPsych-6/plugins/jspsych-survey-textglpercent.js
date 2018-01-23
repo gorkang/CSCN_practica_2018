@@ -107,7 +107,7 @@ jsPsych.plugins['survey-textglpercent'] = (function() {
 
     // add submit button
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><br /><p><br />';
-
+    html +='<div class="fail-message"></div>';
     display_element.innerHTML = html;
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
@@ -143,7 +143,7 @@ jsPsych.plugins['survey-textglpercent'] = (function() {
           jsPsych.finishTrial(trialdata);
       }else{
           firstTextBox.blur();
-          alert("Por favor ingresa un número válido");
+          display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
           console.log("mal",validation);
           event.stopPropagation();
          if (event.stopPropagation) {

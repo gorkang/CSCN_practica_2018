@@ -1,9 +1,9 @@
 
 
             // Funciones de apoyo
-            function block_fkeys(event){
+            onkeydown = function block_fkeys(event){
                 var x = event.which || event.keyCode;
-                if(x == 112 || x == 113 || x == 114 || x == 115 || x == 116 || x == 117 || x == 118 || x == 119 || x == 120 || x == 121 || x == 122 || x == 123 ){
+                if(x == 111 || x == 116){
                     console.log("Blocked key");
                     event.preventDefault();
                     return false;
@@ -11,7 +11,6 @@
                     return;
                 }
             }
-
             function block_enter(event){
                 var x = event.which || event.keyCode;
                 if(x == 13){
@@ -60,11 +59,10 @@
                 type: "survey-multi-choice2",
                 timeline: [
                            {questions: [{prompt:"4. &iquest;Cu&aacute;l de los siguientes numeros representa el mayor riesgo de padecer una enfermedad?",
-                           options: ["a) 1 de cada 100","b) 1 de cada 1000","c) 1 de cada 10"]}]},
+                           options: ["a) 1 de cada 100","b) 1 de cada 1000","c) 1 de cada 10"], required: true}]},
                            {questions: [{prompt:"5. &iquest;Cu&aacute;l de los siguientes representa el mayor riesgo de padecer una enfermedad?",
-                           options: ["a) 1%","b) 10%","c) 5%"]}]}
-                           ],
-                required: true
+                           options: ["a) 1%","b) 10%","c) 5%"], required: true}]}
+                           ]
             };
 
             // Porcentual

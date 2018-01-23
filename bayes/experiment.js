@@ -1,3 +1,14 @@
+onkeydown = function block_fkeys(event){
+    var x = event.which || event.keyCode;
+    if(x == 111 || x == 116){
+        console.log("Blocked key");
+        event.preventDefault();
+        return false;
+    }else{
+        return;
+    }
+}
+
 var csvData = [];
 var formats = {};
 var contexts = {};
@@ -280,6 +291,16 @@ function createTrial(){//accordig to response
 
 
 var bayes_experiment = [];
+
+if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+  bayes_experiment.push({
+    type: 'fullscreen',
+    message: '<p>El experimento entrara en modo pantalla completa</p>',
+    button_label: "Pantalla Completa",
+    delay_after: 0,
+    fullscreen_mode: true
+  });
+}
 
 bayes_experiment.push(mainexplanation);
 bayes_experiment.push(idCsv);

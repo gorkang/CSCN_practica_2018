@@ -1,3 +1,14 @@
+onkeydown = function block_fkeys(event){
+    var x = event.which || event.keyCode;
+    if(x == 111 || x == 116){
+        console.log("Blocked key");
+        event.preventDefault();
+        return false;
+    }else{
+        return;
+    }
+}
+
 var time_left1 = 8000;
 var time_left2 = 8000;
 var time_left3 = 8000;
