@@ -236,6 +236,9 @@ for row in tsv:
                                 subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
                                 subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
                                 break
+                        else:
+                            print("no info about token available")
+                            break
                     break
         token = row[1][:-9]
         token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional"

@@ -126,7 +126,7 @@ jsPsych.plugins['survey-multi-choice3'] = (function() {
 
       if (trial.questions[i].required) {
         // add "question required" asterisk
-        display_element.querySelector(question_selector + " p").innerHTML += "<span class='required'>*</span>";
+        //display_element.querySelector(question_selector + " p").innerHTML += "<span class='required'>*</span>";
 
         // add required property
         display_element.querySelector(question_selector + " input[type=radio]").required = true;
