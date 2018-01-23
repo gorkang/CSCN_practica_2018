@@ -105,7 +105,7 @@ if(not os.path.isfile("experiment.cfg")):
         if(option in ["n","N","no","No"]):
             usingGDrive = False
             config_file = open("experiment.cfg","w")
-            config_file.write("usingGDrive: false")
+            config_file.write("usingGDrive: false\n")
             config_file.close()
             break
         elif(option in ["","y","Y","yes","Yes"]):
@@ -122,7 +122,7 @@ if(not os.path.isfile("experiment.cfg")):
             usingGDrive = True
             break
     config_file = open("experiment.cfg","a")
-    config_file.write("\noutput_path: " + output_path)
+    config_file.write("output_path: " + output_path)
     config_file.close()
 elif(open("experiment.cfg","r").readline() == "usingGDrive: false\n"):
     usingGDrive = False
