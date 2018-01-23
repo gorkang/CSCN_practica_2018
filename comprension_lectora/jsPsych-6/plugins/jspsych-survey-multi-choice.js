@@ -122,12 +122,6 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
         input.setAttribute('value', trial.questions[i].options[j]);
         form.appendChild(label);
         form.insertBefore(input, label);
-
-        //inicio modificacion
-        br = document.createElement('br')
-        form.appendChild(br)
-        form.insertBefore(br,label);
-        //fin modificacion
       }
 
       if (trial.questions[i].required) {
