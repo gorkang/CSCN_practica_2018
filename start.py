@@ -84,7 +84,8 @@ except OSError:
 	subprocess.call("sudo addgroup docker".split())
 	user = subprocess.check_output(['who']).split()[0]
 	subprocess.call(["sudo","usermod","-aG","docker", user])
-	subprocess.call(["su", user, "-c", "exit"])
+	print("Please log out and in.")
+	exit(0)
 
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
