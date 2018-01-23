@@ -301,7 +301,6 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
     fullscreen_mode: true
   });
 }
-randomize_verbalcrt();
 
 bayes_experiment.push(mainexplanation);
 bayes_experiment.push(idCsv);
