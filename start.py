@@ -192,37 +192,37 @@ i = 0
 for row in tsv:
     if(i == user_id):
         if(row[1][-8:-1] == "revoked"):
-			if(not os.path.isdir(os.path.expanduser('~/') + output_path + "/" + row[1][:-8]):
+			if(not os.path.isdir(os.path.expanduser('~/') + output_path + "/" + row[1][:-8])):
 				subprocess.call(["mkdir", os.path.expanduser('~/') + output_path + "/" + row[1][:-8]])
-            while(True):
-                option = raw_input("Token is already taken, overwrite?:(y,N)")
-                if(option in ["","n","N","no","No"]):
-                    exit()
-                elif(option in ["y","Y","yes","Yes"]):
-                    if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-8] + "backup1")):
-                        #Create backup and reuse token
-                        backup_number = 1
-                        while(True):
-                            if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-8] + "backup" + str(backup_number))):
-                                backup_number += 1
-                            elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] )):
-                                subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9],os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
-                                break
-                            elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] + "_finished")):
-                                while(True):
-                                    option = raw_input("Token was already finished, overwrite?:(y,N)")
-                                    if(option in ["","n","N","no","No"]):
-                                        exit()
-                                    elif(option in ["y","Y","yes","Yes"]):
-                                        subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                                        subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
-                                        break
-                                break
-                            else:
-                                break
-                    else:
-                        break
+			while(True):
+			    option = raw_input("Token is already taken, overwrite?:(y,N)")
+			    if(option in ["","n","N","no","No"]):
+			        exit()
+			    elif(option in ["y","Y","yes","Yes"]):
+			        if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-8] + "backup1")):
+			            #Create backup and reuse token
+			            backup_number = 1
+			            while(True):
+			                if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-8] + "backup" + str(backup_number))):
+			                    backup_number += 1
+			                elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] )):
+			                    subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
+			                    subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9],os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+			                    break
+			                elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] + "_finished")):
+			                    while(True):
+			                        option = raw_input("Token was already finished, overwrite?:(y,N)")
+			                        if(option in ["","n","N","no","No"]):
+			                            exit()
+			                        elif(option in ["y","Y","yes","Yes"]):
+			                            subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
+			                            subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+			                            break
+			                    break
+			                else:
+			                    break
+			        else:
+			            break
         token = row[1][:-8]
         token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional,rotacion_mental"
         rows.append([row[0], token + "[revoked]"])
