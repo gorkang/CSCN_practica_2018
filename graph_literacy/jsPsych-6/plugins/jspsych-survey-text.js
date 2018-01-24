@@ -136,9 +136,22 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
 
-
-      // next trial
-      jsPsych.finishTrial(trialdata);
+      if ($.isNumeric(validation)) {
+          console.log("bien",validation);
+          display_element.innerHTML = '';
+          jsPsych.pluginAPI.clearAllTimeouts();
+          jsPsych.finishTrial(trialdata);
+      }else{
+          firstTextBox.blur();
+          display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
+          console.log("mal",validation);
+          event.stopPropagation();
+         if (event.stopPropagation) {
+          event.stopPropagation();
+          } else{
+            event.cancelBubble = true;
+          }
+      }
     });
 
     var startTime = (new Date()).getTime();
