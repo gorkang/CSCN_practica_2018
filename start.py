@@ -10,7 +10,7 @@ import io
 
 try:
 	subprocess.call("pip --version".split())
-except ImportError:
+except OSError:
     subprocess.call("sudo apt-get install python-pip".split())
     reload(site)
 
