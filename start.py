@@ -112,8 +112,8 @@ elif(open("experiment.cfg","r").readline() == "usingGDrive: true\n"):
     drive_service = discovery.build('drive', 'v3',credentials=credentials)
     #load folder id
     folder_id = open("experiment.cfg","r").readlines()[1][10:-1]
-    tokens_id = open("experiment.cfg","r").readlines()[2][11:-1]
-    output_path = open("experiment.cfg","r").readlines()[3][13:]
+    output_path = open("experiment.cfg","r").readlines()[2][13:-1]
+    tokens_id = open("experiment.cfg","r").readlines()[3][11:-1]
     usingGDrive = True
     if(not os.path.isdir(output_path)):
         subprocess.call(["mkdir","-p", os.path.expanduser('~/') + output_path])
@@ -191,9 +191,9 @@ i = 0
 #Find token chossen in token.tsv and check usability
 for row in tsv:
     if(i == user_id):
-        if(row[1][-8:-1] == "revoked"):
-			if(not os.path.isdir(os.path.expanduser('~/') + output_path + "/" + row[1][:-8])):
-				subprocess.call(["mkdir", os.path.expanduser('~/') + output_path + "/" + row[1][:-8]])
+		if(not os.path.isdir(os.path.expanduser('~/') + output_path + "/" + row[1][:-8])):
+			subprocess.call(["mkdir", os.path.expanduser('~/') + output_path + "/" + row[1][:-8]])
+		if(row[1][-8:-1] == "revoked"):
 			while(True):
 			    option = raw_input("Token is already taken, overwrite?:(y,N)")
 			    if(option in ["","n","N","no","No"]):
@@ -216,16 +216,16 @@ for row in tsv:
 			                            exit()
 			                        elif(option in ["y","Y","yes","Yes"]):
 			                            subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-			                            subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+			                            subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-8] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-8] + "backup/" + str(backup_number)])
 			                            break
 			                    break
 			                else:
 			                    break
 			        else:
 			            break
-        token = row[1][:-8]
-        token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional,rotacion_mental"
-        rows.append([row[0], token + "[revoked]"])
+		token = row[1][:-8]
+		token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional,rotacion_mental"
+		rows.append([row[0], token + "[revoked]"])
     else:
         rows.append(row)
     i += 1
@@ -279,7 +279,7 @@ else:
             time.sleep(1)
             if not urlAddress == driver.current_url:
                 if(urlAddress != "http://localhost/finish"):
-                    subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token + "/", os.path.expanduser('~/') + output_path + "/experiments"])
+                    subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token + "/", os.path.expanduser('~/') + output_path + "/experiments" + token])
                     urlAddress = driver.current_url
                     print(urlAddress)
                 end_condition = driver.current_url == "http://localhost/finish"
