@@ -8,82 +8,60 @@ import sys
 import os
 import io
 
+
 try:
-	subprocess.call("pip --version".split())
-except OSError:
-    subprocess.call("sudo apt-get install python-pip".split())
-    reload(site)
+	import pandas
+except ImportError:
+	print("Pandas python plugin not installed")
+	exit(1)
 
-while(True):
-	try:
-		import pandas
-		break
-	except ImportError:
-		subprocess.call("sudo -H python -m pip install pandas".split())
-        reload(site)
+try:
+	import gtk
+except ImportError:
+	print("Gtk python plugin not installed")
+	exit(1)
 
-while(True):
-	try:
-		import gtk
-		break
-	except ImportError:
-		subprocess.call("sudo -H apt-get install python-gtk2-dev".split())
-        reload(site)
+try:
+    from apiclient import discovery
+    from apiclient.http import MediaFileUpload
+    from apiclient.http import MediaIoBaseDownload
+except ImportError:
+	print("Google python api not installed")
+	exit(1)
 
-while(True):
-    try:
-        from apiclient import discovery
-        from apiclient.http import MediaFileUpload
-        from apiclient.http import MediaIoBaseDownload
-        break
-    except ImportError:
-        subprocess.call("sudo -H python -m pip install google-api-python-client".split())
-        reload(site)
-
-while(True):
-	try:
-		from google.oauth2 import service_account
-		break
-	except ImportError:
-		subprocess.call("sudo -H python -m pip install google-auth-httplib2".split())
-		subprocess.call("sudo -H python -m pip install google-oauth".split())
-        reload(site)
-
-while(True):
-	try:
-		from selenium import webdriver
-		from selenium.webdriver.common.by import By
-		from selenium.webdriver.support.ui import WebDriverWait
-		from selenium.webdriver.support import expected_conditions as EC
-		from selenium.webdriver.chrome.options import Options
-		break
-	except ImportError:
-		subprocess.call("sudo -H python -m pip install -U selenium".split())
-        reload(site)
+try:
+	from google.oauth2 import service_account
+except ImportError:
+	print("Google python oath2 plugin not installed")
+	exit(1)
 
 
 try:
-	subprocess.call("docker --version".split())
+	from selenium import webdriver
+	from selenium.webdriver.common.by import By
+	from selenium.webdriver.support.ui import WebDriverWait
+	from selenium.webdriver.support import expected_conditions as EC
+	from selenium.webdriver.chrome.options import Options
+except ImportError:
+	print("Seleniumm python plugin not installed")
+	exit(1)
+
+filename = "tokens.tsv"
+imagename =  "experiments.tar"
+
+try:
+	subprocess.call("docker ps".split())
 except OSError:
-	subprocess.call("sudo apt-get install docker.io".split())
-	subprocess.call("sudo addgroup docker".split())
-	user = subprocess.check_output(['who']).split()[0]
-	subprocess.call(["sudo","usermod","-aG","docker", user])
-	print("Please log out and in.")
-	exit(0)
+	print("Docker not ready")
+	exit(1)
 
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
 
-#Download chromedriver
+#Check for chromedriver
 if(not os.path.isfile('/bin/chromedriver')):
-     subprocess.call(["wget", "https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip"])
-     subprocess.call(["unzip", "chromedriver_linux64.zip"])
-     subprocess.call(["rm", "chromedriver_linux64.zip"])
-     subprocess.call(["sudo", "mv", "chromedriver", os.path.expanduser('/bin')])
-
-filename = "tokens.tsv"
-imagename =  "experiments.tar"
+     print("Chromedriver not found.")
+	 exit(1)
 
 #Check for different status of the experiment.cfg file
 if(not os.path.isfile(imagename)):

@@ -153,7 +153,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
       var matches = display_element.querySelectorAll('div.jspsych-survey-numbers-question');
       for(var index=0; index<matches.length; index++){
         var id = "Q" + index;
-        var val = matches[index].querySelector('number, input').value;
+        var val = firstTextBox.innerHTML;
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
