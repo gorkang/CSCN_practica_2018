@@ -20,7 +20,7 @@ while(True):
 		import pandas
 		break
 	except ImportError:
-		subprocess.call("sudo python -m pip -H install pandas".split())
+		subprocess.call("sudo -H python -m pip install pandas".split())
         reload(site)
 
 while(True):
@@ -28,7 +28,7 @@ while(True):
 		import gtk
 		break
 	except ImportError:
-		subprocess.call("sudo apt-get install -H python-gtk2-dev".split())
+		subprocess.call("sudo -H apt-get install python-gtk2-dev".split())
         reload(site)
 
 while(True):
@@ -38,7 +38,7 @@ while(True):
         from apiclient.http import MediaIoBaseDownload
         break
     except ImportError:
-        subprocess.call("sudo python -m pip install -H google-api-python-client".split())
+        subprocess.call("sudo -H python -m pip install google-api-python-client".split())
         reload(site)
 
 while(True):
@@ -46,8 +46,8 @@ while(True):
 		from google.oauth2 import service_account
 		break
 	except ImportError:
-		subprocess.call("sudo python -m pip install -H google-auth-httplib2".split())
-		subprocess.call("sudo python -m pip install -H google-oauth".split())
+		subprocess.call("sudo -H python -m pip install google-auth-httplib2".split())
+		subprocess.call("sudo -H python -m pip install google-oauth".split())
         reload(site)
 
 while(True):
@@ -59,7 +59,7 @@ while(True):
 		from selenium.webdriver.chrome.options import Options
 		break
 	except ImportError:
-		subprocess.call("sudo python -m pip install -U -H selenium".split())
+		subprocess.call("sudo -H python -m pip install -U selenium".split())
         reload(site)
 
 
