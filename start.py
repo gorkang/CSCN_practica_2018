@@ -1,7 +1,5 @@
 from __future__ import print_function
 import subprocess
-import webbrowser
-import signal
 import json
 import time
 import csv
@@ -24,37 +22,19 @@ while(True):
 
 while(True):
 	try:
-		import numpy
-		break
-	except ImportError:
-		pip.main(['install','numpy'])
-
-while(True):
-	try:
 		import gtk
 		break
 	except ImportError:
 		subprocess.call("sudo apt-get install python-gtk2-dev".split())
 
 while(True):
-	try:
-		import httplib2
-		break
-	except ImportError:
-		subprocess.call("sudo python -m pip install httplib2".split())
-
-while(True):
-	try:
-		from apiclient import errors
-		from apiclient import discovery
-		from apiclient.http import MediaFileUpload
-		from apiclient.http import MediaIoBaseDownload
-		from oauth2client import client
-		from oauth2client import tools
-		from oauth2client.file import Storage
-		break
-	except ImportError:
-		subprocess.call("sudo python -m pip install google-api-python-client".split())
+    try:
+        from apiclient import discovery
+        from apiclient.http import MediaFileUpload
+        from apiclient.http import MediaIoBaseDownload
+        break
+    except ImportError:
+        subprocess.call("sudo python -m pip install google-api-python-client".split())
 
 while(True):
 	try:
@@ -70,7 +50,6 @@ while(True):
 		from selenium.webdriver.common.by import By
 		from selenium.webdriver.support.ui import WebDriverWait
 		from selenium.webdriver.support import expected_conditions as EC
-		from selenium.webdriver.common.keys import Keys
 		from selenium.webdriver.chrome.options import Options
 		break
 	except ImportError:
@@ -101,6 +80,8 @@ filename = "tokens.tsv"
 imagename =  "experiments.tar"
 
 #Check for different status of the experiment.cfg file
+if(not os.path.isfile(imagename)):
+	subprocess.call(["rm", "experiment.cfg"])
 if(not os.path.isfile("experiment.cfg")):
     if(len(sys.argv) != 2):
         print("Arguments for first run are [output_path]\n\n Always start with ~/ for home folder.")
@@ -232,31 +213,36 @@ for row in tsv:
                 if(option in ["","n","N","no","No"]):
                     exit()
                 elif(option in ["y","Y","yes","Yes"]):
-                    #Create backup and reuse token
-                    backup_number = 1
-                    while(True):
-                        if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup" + str(backup_number))):
-                            backup_number += 1
-                        elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] )):
-                            subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                            subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9],os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
-                            break
-                        elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished")):
-                            option = raw_input("Token was already finished, overwrite?:(y,N)")
-                            if(option in ["","n","N","no","No"]):
-                                exit()
-                            elif(option in ["y","Y","yes","Yes"]):
+                    if(os.path.isfile(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup1")):
+                        #Create backup and reuse token
+                        backup_number = 1
+                        while(True):
+                            if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup" + str(backup_number))):
+                                backup_number += 1
+                            elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] )):
                                 subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9],os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
                                 break
-                    break
+                            elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished")):
+                                while(True):
+                                    option = raw_input("Token was already finished, overwrite?:(y,N)")
+                                    if(option in ["","n","N","no","No"]):
+                                        exit()
+                                    elif(option in ["y","Y","yes","Yes"]):
+                                        subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
+                                        subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+                                        break
+                                break
+                            else:
+                                break
+                    else:
+                        break
         token = row[1][:-9]
         token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional"
         rows.append([row[0], token + "[revoked]"])
     else:
         rows.append(row)
     i += 1
-
 file = open("tokens.tsv","wb")
 tsv = csv.writer(file,delimiter="\t")
 tsv.writerows(rows)
@@ -279,7 +265,7 @@ else:
     clipboard.store()
     print("Token copied to clipboard.")
     print("Starting experiment.")
-    container = subprocess.check_output(["docker", "run", "--tmpfs", "/scfi/data/expfactory/" , "-d", "-p", "80:80", image,"--headless", "--no-randomize", "--experiments",token_experiments, "start"])[:-1]
+    container = subprocess.check_output(["docker", "run", "-d", "-p", "80:80", image,"--headless", "--no-randomize", "--experiments",token_experiments, "start"])[:-1]
     time.sleep(10)
     subprocess.call(["docker", "exec", container, "mkdir", "/scif/data/expfactory/" + token])
     print("Experiment started.")
@@ -301,13 +287,19 @@ else:
     print("button pressed")
     urlAddress = driver.current_url
     print(urlAddress)
-    while (not driver.current_url == "http://localhost/finish"):
-        time.sleep(1)
-        if not urlAddress == driver.current_url:
-            if(urlAddress != "http://localhost/finish"):
-                subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, os.path.expanduser('~/') + output_path + "/experiments"])
-            urlAddress = driver.current_url
-            print(urlAddress)
+    end_condition = False
+    while (not end_condition):
+        try:
+            time.sleep(1)
+            if not urlAddress == driver.current_url:
+                if(urlAddress != "http://localhost/finish"):
+                    subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token + "/", os.path.expanduser('~/') + output_path + "/experiments"])
+                    urlAddress = driver.current_url
+                    print(urlAddress)
+                end_condition = driver.current_url == "http://localhost/finish"
+        except:
+            driver = webdriver.Chrome(chrome_options=chrome_options)
+            driver.get("http://localhost/")
     #Restore default keymap to default twice?
     subprocess.call(["xmodmap","default"])
     subprocess.call(["xmodmap","default"])
@@ -333,7 +325,6 @@ else:
             content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file, 'r'))
             results = json.loads(content['data'])
             pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file[:-5] + ".tsv", sep="\t")
-
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])
     subprocess.call(["docker", "rmi", image, "--force"])
