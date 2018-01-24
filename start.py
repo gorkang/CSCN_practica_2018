@@ -8,9 +8,8 @@ import sys
 import os
 import io
 
-
 try:
-	import pip
+	subprocess.call("pip --version".split())
 except ImportError:
     subprocess.call("sudo apt-get install python-pip".split())
     reload(site)

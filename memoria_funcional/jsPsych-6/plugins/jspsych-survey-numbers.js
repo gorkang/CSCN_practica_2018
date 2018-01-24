@@ -139,7 +139,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
 
     display_element.querySelector("button.jspsych-btn.jspsych-survey-numbers-next").addEventListener('click', function() {
       //modificacion
-      if(!firstTextBox.checkValidity()){
+      if(!firstTextBox.innerHTML != ""){
         display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Debes ingresar los numeros que escuchaste de acuerdo a las instrucciones.</span>';
         return;
       }
