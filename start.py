@@ -210,6 +210,8 @@ for row in tsv:
                                 subprocess.call(["mv", os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36] + "_finished", os.path.expanduser('~/') + output_path + "/backup/" + row[1][:36] + "_backup" + str(backup_number)])
                                 break
                         break
+                    else:
+                        break
         if(not os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36])):
             subprocess.call(["mkdir", "-p", os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36]])
         if(not os.path.isdir(os.getcwd() + "/temp")):
