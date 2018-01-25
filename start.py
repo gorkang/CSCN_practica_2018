@@ -153,12 +153,6 @@ if(not os.path.isfile(imagename)):
         config_file = open("experiment.cfg","a")
         config_file.write("tokens_id: " + tokens_id + "\n")
         config_file.close()
-    while(True):
-        option = raw_input("Start experiment?(Y/n) ")
-        if(option in ["n","N","no","No"]):
-            exit()
-        elif(option in ["","y","Y","yes","Yes"]):
-            break
 
 
 #Load image from file
@@ -233,6 +227,24 @@ if(usingGDrive):
     media = MediaFileUpload('tokens.tsv', mimetype='text/tsv', resumable=False)
     drive_service.files().update(fileId=tokens_id, body=file_metadata,media_body=media).execute()
 
+#continue experiment?
+while(True):
+    option = raw_input("Start experiment?(y/n) ")
+    if(option in ["n","N","no","No"]):
+        subprocess.call(["docker", "rmi", image, "--force"])
+        rows[user_id] = [row[0], token + "[active]"]
+        file = open("tokens.tsv","wb")
+        tsv = csv.writer(file,delimiter="\t")
+        tsv.writerows(rows)
+        file.close()
+        if(usingGDrive):
+            file_metadata = {'name': 'tokens.tsv'}
+            media = MediaFileUpload('tokens.tsv', mimetype='text/tsv', resumable=False)
+            drive_service.files().update(fileId=tokens_id, body=file_metadata,media_body=media).execute()
+        exit()
+    elif(option in ["y","Y","yes","Yes"]):
+        break
+
 #Check if an active token was found
 if(token == ""):
     print("Study ended or id not found")
@@ -281,6 +293,13 @@ else:
         except:
             driver = webdriver.Chrome(chrome_options=chrome_options)
             driver.get("http://localhost/")
+
+    subprocess.call(["xmodmap","-e","keycode 23 = Tab ISO_Left_Tab Tab ISO_Left_Tab"])
+    subprocess.call(["xmodmap","-e","keycode 64 = Alt_L Meta_L Alt_L Meta_L"])
+    end_condition = False
+    while(not end_condition):
+        flag = raw_input("Ingrese y\n")
+        end_condition = flag == "y"
     #Restore default keymap to default twice?
     subprocess.call(["xmodmap","default"])
     subprocess.call(["xmodmap","default"])
