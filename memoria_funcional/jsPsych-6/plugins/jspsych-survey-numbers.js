@@ -103,11 +103,8 @@ jsPsych.plugins['survey-numbers'] = (function() {
       html += '<div id="jspsych-survey-numbers-"'+i+'" class="jspsych-survey-numbers-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-numbers">' + trial.questions[i].prompt + '</p>';
       if(trial.questions[i].rows == 1){
-        //type changed to number, added class and required
-        html += '<input type="number" required="true" class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value + '"></input>';
-      } else {
-        //type changed to number, added class and required
-        html += '<input type="number" required="true" class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '">'+trial.questions[i].value+'></input>';
+        //type changed to div, added class
+        html += '<div class="jspsych-survey-numbers-response-' + i + '"name="#jspsych-survey-numbers-response-' + i + '"></div>';
       }
       html += '</div>';
     }
@@ -123,7 +120,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
     display_element.innerHTML = html;
 
     //modificacion
-    var firstTextBox = display_element.querySelector("input.jspsych-survey-numbers-response-0");
+    var firstTextBox = display_element.querySelector("div.jspsych-survey-numbers-response-0");
     firstTextBox.focus();
     firstTextBox.onkeydown = function(event){
       if(event.keyCode == 13){
@@ -134,7 +131,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
     buttons.forEach(function(button){
       button.onclick = function(){
         if(!this.className.includes("jspsych-survey-numbers-next")){
-          firstTextBox.value += this.innerText;
+          firstTextBox.innerHTML += this.innerText;
         }
       };
     });
@@ -142,7 +139,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
 
     display_element.querySelector("button.jspsych-btn.jspsych-survey-numbers-next").addEventListener('click', function() {
       //modificacion
-      if(!firstTextBox.checkValidity()){
+      if(!firstTextBox.innerHTML != ""){
         display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Debes ingresar los numeros que escuchaste de acuerdo a las instrucciones.</span>';
         return;
       }
@@ -156,7 +153,7 @@ jsPsych.plugins['survey-numbers'] = (function() {
       var matches = display_element.querySelectorAll('div.jspsych-survey-numbers-question');
       for(var index=0; index<matches.length; index++){
         var id = "Q" + index;
-        var val = matches[index].querySelector('number, input').value;
+        var val = firstTextBox.innerHTML;
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);

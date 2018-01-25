@@ -1,93 +1,70 @@
 from __future__ import print_function
 import subprocess
-import webbrowser
-import signal
-import pandas
-import numpy
 import json
 import time
-import gtk
 import csv
 import sys
 import os
 import io
 
-try:
-    import pip
-except ImportError:
-    subprocess.call("sudo apt-get install python-pip".split())
-    import pip
 
 try:
-    import httplib2
+	import pandas
 except ImportError:
-	pip.main(['install','httplib2'])
-	import httplib2
+	print("Pandas python plugin not installed")
+	exit(1)
 
 try:
-    from apiclient import errors
+	import gtk
+except ImportError:
+	print("Gtk python plugin not installed")
+	exit(1)
+
+try:
     from apiclient import discovery
     from apiclient.http import MediaFileUpload
     from apiclient.http import MediaIoBaseDownload
-    from oauth2client import client
-    from oauth2client import tools
-    from oauth2client.file import Storage
 except ImportError:
-	pip.main(['install','--upgrade','google-api-python-client'])
-	from apiclient import errors
-	from apiclient import discovery
-	from apiclient.http import MediaFileUpload
-	from apiclient.http import MediaIoBaseDownload
-	from oauth2client import client
-	from oauth2client import tools
-	from oauth2client.file import Storage
+	print("Google python api not installed")
+	exit(1)
 
 try:
 	from google.oauth2 import service_account
 except ImportError:
-	pip.main(['install','google-auth-httplib2'])
-	pip.main(['install','google-oauth'])
-	from google.oauth2 import service_account
+	print("Google python oath2 plugin not installed")
+	exit(1)
+
 
 try:
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.webdriver.common.keys import Keys
-    from selenium.webdriver.chrome.options import Options
+	from selenium import webdriver
+	from selenium.webdriver.common.by import By
+	from selenium.webdriver.support.ui import WebDriverWait
+	from selenium.webdriver.support import expected_conditions as EC
+	from selenium.webdriver.chrome.options import Options
 except ImportError:
-    pip.main(['install','-U','selenium'])
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.webdriver.common.keys import Keys
-    from selenium.webdriver.chrome.options import Options
-
-try:
-	subprocess.call("docker --version".split())
-except OSError:
-	subprocess.call("sudo apt-get install docker.io".split())
-	subprocess.call("sudo addgroup docker".split())
-	user = subprocess.check_output(['who']).split()[0]
-	subprocess.call(["sudo","usermod","-aG","docker", user])
-	subprocess.call(["su", user])
-
-SCOPES = ['https://www.googleapis.com/auth/drive.file']
-SERVICE_ACCOUNT_FILE = 'service_secret.json'
-
-#Download chromedriver
-if(not os.path.isfile('/bin/chromedriver')):
-     subprocess.call(["wget", "https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip"])
-     subprocess.call(["unzip", "chromedriver_linux64.zip"])
-     subprocess.call(["rm", "chromedriver_linux64.zip"])
-     subprocess.call(["sudo", "mv", "chromedriver", os.path.expanduser('/bin')])
+	print("Seleniumm python plugin not installed")
+	exit(1)
 
 filename = "tokens.tsv"
 imagename =  "experiments.tar"
 
+try:
+	subprocess.call("docker ps".split())
+except OSError:
+	print("Docker not ready")
+	exit(1)
+
+SCOPES = ['https://www.googleapis.com/auth/drive.file']
+SERVICE_ACCOUNT_FILE = 'service_secret.json'
+
+#Check for chromedriver
+if(not os.path.isfile('/bin/chromedriver')):
+	print("Chromedriver not found.")
+	exit(1)
+
 #Check for different status of the experiment.cfg file
+if(not os.path.isfile(imagename)):
+	subprocess.call(["rm", "experiment.cfg"])
 if(not os.path.isfile("experiment.cfg")):
     if(len(sys.argv) != 2):
         print("Arguments for first run are [output_path]\n\n Always start with ~/ for home folder.")
@@ -134,8 +111,8 @@ elif(open("experiment.cfg","r").readline() == "usingGDrive: true\n"):
     drive_service = discovery.build('drive', 'v3',credentials=credentials)
     #load folder id
     folder_id = open("experiment.cfg","r").readlines()[1][10:-1]
-    tokens_id = open("experiment.cfg","r").readlines()[2][11:-1]
-    output_path = open("experiment.cfg","r").readlines()[3][13:]
+    output_path = open("experiment.cfg","r").readlines()[2][13:-1]
+    tokens_id = open("experiment.cfg","r").readlines()[3][11:-1]
     usingGDrive = True
     if(not os.path.isdir(output_path)):
         subprocess.call(["mkdir","-p", os.path.expanduser('~/') + output_path])
@@ -219,34 +196,34 @@ for row in tsv:
                 if(option in ["","n","N","no","No"]):
                     exit()
                 elif(option in ["y","Y","yes","Yes"]):
-                    #Create backup and reuse token
                     backup_number = 1
-                    while(True):
-                        if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup" + str(backup_number))):
+                    if(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:36] + "_backup1")):
+                        #Create backup and reuse token
+                        while(os.path.isdir(os.path.expanduser('~/') + output_path + "/backup/" + row[1][:36] + "_backup" + str(backup_number))):
                             backup_number += 1
-                        elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] )):
-                            subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                            subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9],os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
-                            break
-                        elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished")):
+                    if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36])):
+                        subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
+                        subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9],os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "_backup" + str(backup_number)])
+                        break
+                    elif(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36] + "_finished")):
+                        while(True):
                             option = raw_input("Token was already finished, overwrite?:(y,N)")
                             if(option in ["","n","N","no","No"]):
                                 exit()
                             elif(option in ["y","Y","yes","Yes"]):
                                 subprocess.call(["mkdir","-p",os.path.expanduser('~/') + output_path + "/backup/"])
-                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:-9] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:-9] + "backup/" + str(backup_number)])
+                                subprocess.call(["mv",os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36] + "_finished",os.path.expanduser('~/') + output_path + "/backup/" + row[1][:36] + "_backup" + str(backup_number)])
                                 break
-                        else:
-                            print("no info about token available")
-                            break
-                    break
-        token = row[1][:-9]
-        token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional"
+                        break
+        if(not os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36])):
+            subprocess.call(["mkdir", "-p", os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36]])
+        token = row[1][:36]
+        print(token)
+        token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional,rotacion_mental"
         rows.append([row[0], token + "[revoked]"])
     else:
         rows.append(row)
     i += 1
-
 file = open("tokens.tsv","wb")
 tsv = csv.writer(file,delimiter="\t")
 tsv.writerows(rows)
@@ -269,7 +246,7 @@ else:
     clipboard.store()
     print("Token copied to clipboard.")
     print("Starting experiment.")
-    container = subprocess.check_output(["docker", "run", "--tmpfs", "/scfi/data/expfactory/" , "-d", "-p", "80:80", image,"--headless", "--no-randomize", "--experiments",token_experiments, "start"])[:-1]
+    container = subprocess.check_output(["docker", "run", "-d", "-p", "80:80", image,"--headless", "--no-randomize", "--experiments",token_experiments, "start"])[:-1]
     time.sleep(10)
     subprocess.call(["docker", "exec", container, "mkdir", "/scif/data/expfactory/" + token])
     print("Experiment started.")
@@ -291,13 +268,19 @@ else:
     print("button pressed")
     urlAddress = driver.current_url
     print(urlAddress)
-    while (not driver.current_url == "http://localhost/finish"):
-        time.sleep(1)
-        if not urlAddress == driver.current_url:
-            if(urlAddress != "http://localhost/finish"):
-                subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token, os.path.expanduser('~/') + output_path + "/experiments"])
-            urlAddress = driver.current_url
-            print(urlAddress)
+    end_condition = False
+    while (not end_condition):
+        try:
+            time.sleep(1)
+            if not urlAddress == driver.current_url:
+                if(urlAddress != "http://localhost/finish"):
+                    subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/"  + token + "/", os.path.expanduser('~/') + output_path + "/experiments/" + token])
+                    urlAddress = driver.current_url
+                    print(urlAddress)
+                end_condition = driver.current_url == "http://localhost/finish"
+        except:
+            driver = webdriver.Chrome(chrome_options=chrome_options)
+            driver.get("http://localhost/")
     #Restore default keymap to default twice?
     subprocess.call(["xmodmap","default"])
     subprocess.call(["xmodmap","default"])
@@ -323,7 +306,6 @@ else:
             content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file, 'r'))
             results = json.loads(content['data'])
             pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file[:-5] + ".tsv", sep="\t")
-
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])
     subprocess.call(["docker", "rmi", image, "--force"])
