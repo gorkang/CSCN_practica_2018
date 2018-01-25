@@ -281,6 +281,13 @@ else:
         except:
             driver = webdriver.Chrome(chrome_options=chrome_options)
             driver.get("http://localhost/")
+
+    subprocess.call(["xmodmap","-e","keycode 23 = Tab ISO_Left_Tab Tab ISO_Left_Tab"])
+    subprocess.call(["xmodmap","-e","keycode 64 = Alt_L Meta_L Alt_L Meta_L"])
+    end_condition = False	
+    while(not end_condition):
+        flag = raw_input("Ingrese y\n")
+        end_condition = flag == "y"
     #Restore default keymap to default twice?
     subprocess.call(["xmodmap","default"])
     subprocess.call(["xmodmap","default"])
