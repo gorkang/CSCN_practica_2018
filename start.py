@@ -293,10 +293,10 @@ else:
         try:
             time.sleep(1)
             if not urlAddress == driver.current_url:
+                subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "/", os.getcwd() + "/temp"])
                 if(urlAddress != "http://localhost/finish"):
-                    subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "/", os.getcwd() + "/temp"])
-                    urlAddress = driver.current_url
-                    print(urlAddress)
+                     urlAddress = driver.current_url
+                     print(urlAddress)
                 end_condition = driver.current_url == "http://localhost/finish"
         except:
             driver = webdriver.Chrome(chrome_options=chrome_options)
@@ -325,24 +325,18 @@ else:
         print("Error: unknown token.")
     token_folder = drive_service.files().create(body={'name': token, 'parents': [folder_id], 'mimeType': 'application/vnd.google-apps.folder'}, fields='id').execute().get('id')
     batch_upload = drive_service.new_batch_http_request()
+    for json_file in os.listdir(os.getcwd() + "/temp/" + token + "_finished/"):
+        content = json.load(open(os.getcwd() + "/temp/" + token + "_finished/" + json_file, 'r'))
+        results = json.loads(content['data'])
+        pandas.DataFrame.from_dict(results).to_csv(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", sep="\t")
+        batch_upload.add(drive_service.files().create(body={'name': json_file, 'parents': [token_folder]}, media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file, mimetype='text/json', resumable=False), fields='id').execute())
+        batch_upload.add(drive_service.files().create(body={'name':  json_file[:-5] + ".tsv", 'parents': [token_folder]}, media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", mimetype='text/tsv', resumable=False), fields='id').execute())
     if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished")):
-        for json_file in os.listdir(os.getcwd() + "/temp/" + token + "_finished/"):
-            content = json.load(open(os.getcwd() + "/temp/" + token + "_finished/" + json_file, 'r'))
-            results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", sep="\t")
-            batch_upload.add(drive_service.files().create(body={'name': json_file, 'parents': [token_folder]}, media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file, mimetype='text/json', resumable=False), fields='id').execute())
-            batch_upload.add(drive_service.files().create(body={'name':  json_file[:-5] + ".tsv", 'parents': [token_folder]}, media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", mimetype='text/tsv', resumable=False), fields='id').execute())
         for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished"):
             content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file, 'r'))
             results = json.loads(content['data'])
             pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file[:-5] + ".tsv", sep="\t")
     if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + token)):
-        for json_file in os.listdir(os.getcwd() + "/temp/" + token):
-            content = json.load(open(os.getcwd() + "/temp/" + token + json_file, 'r'))
-            results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.getcwd() + "/temp/" + token + json_file[:-5] + ".tsv", sep="\t")
-            batch_upload.add(drive_service.files().create(body={'name': json_file, 'parents': [token_folder]}, media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + json_file, mimetype='text/json', resumable=False), fields='id').execute())
-            batch_upload.add(drive_service.files().create(body={'name':  json_file[:-5] + ".tsv", 'parents': [token_folder]}, media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + json_file[:-5] + ".tsv", mimetype='text/tsv', resumable=False), fields='id').execute())
         for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token):
             content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file, 'r'))
             results = json.loads(content['data'])
