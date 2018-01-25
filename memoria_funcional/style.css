@@ -178,3 +178,20 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
+
+div#jspsych-content {
+    width: 100%;
+}
+
+.jspsych-survey-numbers-response-0 {
+    text-align: center;
+    height: 20px;
+}
+
+.fail-message {
+    height: 20px;
+}
+
+img {
+  margin-left: 46%;
+}

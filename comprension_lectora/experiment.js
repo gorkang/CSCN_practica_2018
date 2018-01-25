@@ -7,7 +7,7 @@ function getDisplayElement() {
 
 onkeydown = function block_fkeys(event){
     var x = event.which || event.keyCode;
-    if(x == 111 || x == 116){
+    if(x == 112 || x == 116){
         console.log("Blocked key");
         event.preventDefault();
         return false;
