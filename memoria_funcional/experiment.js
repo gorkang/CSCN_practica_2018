@@ -66,9 +66,9 @@ function advance(event){
 
 var screen_memoria_funcional_experiment = {
     type: 'instructions',
-    pages: ['<p><center>Working Memory<br /><br />Presiona la tecla ENTER para continuar.</center></p>'],
-    key_forward: 'enter',
+    pages: ['<p><left>Working Memory<br /></p>'],
     data:{trialid: "Screen_WM"},
+    show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }

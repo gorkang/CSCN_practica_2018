@@ -12,6 +12,16 @@
                 }
             }
 
+            var screen_graph_literacy_experiment = {
+                type: 'instructions',
+                pages: ['<p><left>graph literacy<br /></p>'],
+                data:{trialid: "Screen_WM"},
+                show_clickable_nav: true,
+                on_trial_start: function(){
+                    bloquear_enter = 0;
+                }
+            };
+
             // Inicio prueba
             var graphexplanation={
                 type: "instructions",
@@ -166,6 +176,7 @@
                 fullscreen_mode: true
               });
             }
+            graph_literacy_experiment.push(screen_graph_literacy_experiment);
             graph_literacy_experiment.push(graphexplanation);
             graph_literacy_experiment.push(graph_literacy1_a);
             graph_literacy_experiment.push(graph_literacy1_b);
