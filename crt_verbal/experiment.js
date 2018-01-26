@@ -82,7 +82,7 @@
 
             var screen_crt_experiment = {
                 type: 'instructions',
-                pages: ['<p><center>crt_experiment<br /><br />Presiona la tecla ENTER para continuar.</center></p>'],
+                pages: ['<p><left>crt_experiment<br /></p>'],
                 cont_key: [13],
                 show_clickable_nav: true,
                 data:{trialid: "Screen_crt_experiment"},
@@ -125,7 +125,7 @@
 
             var verbal_crt3 = {
                 type: "survey-text",
-                preamble: "<div class='crt_experiment_text'>Es una noche de tormenta y un avi&oacute;n despega desde el aeropuerto JFK en Nueva York. La<br />tormenta empeora y el avi&oacute;n se estrella. La mitad cae en los Estados Unidos y la otra mitad en<br />Canad&aacute;<br /><br /></div>",
+                preamble: "<div class='crt_experiment_text'>Es una noche de tormenta y un avi&oacute;n despega desde el aeropuerto JFK en Nueva York. La tormenta empeora y el avi&oacute;n se estrella. La mitad cae en los Estados Unidos y la otra mitad en Canad&aacute;<br /><br /></div>",
                 questions: [{prompt:"&iquest;En qu&eacute; pa&iacute;s enterrar&iacute;as a los sobrevivientes?<br /><br />"}],
                 data: {trialid: "VCRT_03"}
             };
@@ -139,7 +139,7 @@
 
             var verbal_crt5 = {
                 type: "survey-text",
-                preamble: "<div class='crt_experiment_text'> En una casa de un piso color rosa, hab&iacute;a una persona rosa, un gato rosa, un pez rosa, un<br />computador rosa, una silla rosa, una tabla rosa, un tel&eacute;fono rosa, una ducha rosa<br />&iexcl;Todo era de color rosa!<br /><br /></div>",
+                preamble: "<div class='crt_experiment_text'> En una casa de un piso color rosa, hab&iacute;a una persona rosa, un gato rosa, un pez rosa, un computador rosa, una silla rosa, una tabla rosa, un tel&eacute;fono rosa, una ducha rosa<br />&iexcl;Todo era de color rosa!<br /><br /></div>",
                 questions: [{prompt:"&iquest;De qu&eacute; color son probablemente las escaleras?<br /><br />"}],
                 data: {trialid: "VCRT_05"}
             };
@@ -147,6 +147,7 @@
             var verbal_crt6 = {
                 type: "survey-text",
                 questions: [{prompt:"&iquest;Cuantos de cada animal puso Mois&eacute;s en el arca?<br /><br />"}],
+                minSize:1,
                 data: {trialid: "VCRT_06"}
             };
 

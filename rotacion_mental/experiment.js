@@ -30,6 +30,18 @@ onkeydown = function block_fkeys(event){
 
 
     /* ********************************************************  INICIO INSTRUCCIONES ******************************************************** */
+    var screen_mental_rotation_experiment = {
+        type: 'instructions',
+        pages: ['<p><center>Mental Rotation<br /></p>'],
+        key_forward: 'enter',
+        show_clickable_nav: true,
+        data:{trialid: "Screen_WM"},
+        on_trial_start: function(){
+            bloquear_enter = 0;
+        }
+    };
+
+
 
     var mr_instruct={
         type: "instructions",
@@ -833,6 +845,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
   });
 }
 
+rotacion_mental_experiment.push(screen_mental_rotation_experiment);
 rotacion_mental_experiment.push(mr_instruct);
 rotacion_mental_experiment.push(mr_prueba1);
 rotacion_mental_experiment.push(mr_prueba2_a);
