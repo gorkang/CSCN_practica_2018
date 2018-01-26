@@ -87,14 +87,16 @@ onkeydown = function block_fkeys(event){
 
     var screen_pre = {
         type: 'instructions',
-        text: '<p>Haga click para seguir con el proximo bloque de preguntas</p>',
-        key_forward: 'enter'
+        pages: ['<p>Haga click para seguir con el proximo bloque de preguntas.</p>'],
+        key_forward: 'enter',
+        show_clickable_nav: true
     };
 
     var screen_end = {
         type: 'instructions',
-        text: '<p>Tarea terminada. Presiona el siguiente botón para continuar.</p>',
-        key_forward: 'enter'
+        pages: ['<p>Tarea terminada. Presiona el siguiente botón para continuar.</p>'],
+        key_forward: 'enter',
+        show_clickable_nav: true
     };
     /* ********************************************************  FIN PANTALLAS EXTRA ******************************************************** */
 

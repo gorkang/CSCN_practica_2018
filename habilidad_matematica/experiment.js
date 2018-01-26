@@ -496,10 +496,13 @@ var ha_intercolumna4 = {
 
 function advance(event){
   document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event){
-      if (event.keyCode == 13) {
+      if(event.keyCode == 13) {
           var btn = document.getElementById("jspsych-survey-text-next");
           btn.click();
           //event.preventDefault();
+      }
+      else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57){
+          event.preventDefault();
       }
   };
 }

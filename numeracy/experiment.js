@@ -1,6 +1,23 @@
 
 
             // Funciones de apoyo
+            function advance(event){
+              document.querySelectorAll("input").forEach(function(input){
+                if(input.type == "number"){
+                  input.onkeydown = function(event){
+                    if(event.keyCode == 13) {
+                        var btn = document.getElementById("jspsych-survey-text-next");
+                        btn.click();
+                        //event.preventDefault();
+                    }
+                    else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57){
+                        event.preventDefault();
+                    }
+                  }
+              };
+            });
+          }
+
             onkeydown = function block_fkeys(event){
                 var x = event.which || event.keyCode;
                 if(x == 112 || x == 116){
