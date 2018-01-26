@@ -412,6 +412,17 @@ var pruebas = {
   ]
 }
 
+var screen_habilidad_matematica_experiment = {
+    type: 'instructions',
+    pages: ['<p><left>Arithmetic ability<br /></p>'],
+    data:{trialid: "Screen_WM"},
+    show_clickable_nav: true,
+    on_trial_start: function(){
+        bloquear_enter = 0;
+    }
+};
+
+
 var ha_explanation02 = {
   type: "instructions",
   pages: ["<div class = centerbox>"+
@@ -506,6 +517,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 /* Trial de Prueba */
+habilidad_matematica_experiment.push(screen_habilidad_matematica_experiment);
 habilidad_matematica_experiment.push(ha_explanation01);
 habilidad_matematica_experiment.push(pruebas);
 /* Columna 1 */

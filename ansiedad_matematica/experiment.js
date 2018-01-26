@@ -10,6 +10,16 @@ onkeydown = function block_fkeys(event){
     }
 }
 
+var screen_ansiedad_matematica_experiment = {
+    type: 'instructions',
+    pages: ['<p><left>Math Anxiety<br /></p>'],
+    data:{trialid: "Screen_WM"},
+    show_clickable_nav: true,
+    on_trial_start: function(){
+        bloquear_enter = 0;
+    }
+};
+
 // Inicio prueba
 var mathexplanation={
     type: "instructions",
@@ -118,6 +128,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
   });
 }
 
+ansiedad_matematica_experiment.push(screen_ansiedad_matematica_experiment);
 ansiedad_matematica_experiment.push(mathexplanation);
 ansiedad_matematica_experiment.push(math02);
 ansiedad_matematica_experiment.push(math03);

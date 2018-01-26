@@ -49,7 +49,7 @@
 
             var screen_matrices_experiment = {
                 type: "instructions",
-                pages: ['<p><center>matrices_experiment<br /><br />Presiona la tecla ENTER para continuar.</center></p>'],
+                pages: ['<p><left>matrices_experiment<br /></p>'],
                 cont_key: [13],
                 show_clickable_nav: true,
                 data:{trialid: "Screen_matrices_experiment"},
