@@ -110,11 +110,10 @@ jsPsych.plugins['survey-text'] = (function() {
 
     // add submit button
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><br /><p><br />';
+    html +='<div class="fail-message"></div>';
     display_element.innerHTML = html;
     var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
     firstTextBox.focus();
-    html +='<div class="fail-message"></div>'
-    display_element.innerHTML = html;
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
       // measure response time

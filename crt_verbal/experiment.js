@@ -139,7 +139,7 @@
 
             var verbal_crt5 = {
                 type: "survey-text",
-                preamble: "<div class='crt_experiment_text'> En una casa de un piso color rosa, hab&iacute;a una persona rosa, un gato rosa, un pez rosa, un<br />computador rosa, una silla rosa, una tabla rosa, un tel&eacute;fono rosa, una ducha rosa<br />&iexcl;Todo era de color rosa!<br /><br /></div>",
+                preamble: "<div class='crt_experiment_text'> En una casa de un piso color rosa, hab&iacute;a una persona rosa, un gato rosa, un pez rosa, un computador rosa, una silla rosa, una tabla rosa, un tel&eacute;fono rosa, una ducha rosa<br />&iexcl;Todo era de color rosa!<br /><br /></div>",
                 questions: [{prompt:"&iquest;De qu&eacute; color son probablemente las escaleras?<br /><br />"}],
                 data: {trialid: "VCRT_05"}
             };
