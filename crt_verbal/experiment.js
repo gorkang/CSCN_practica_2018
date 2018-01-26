@@ -125,7 +125,7 @@
 
             var verbal_crt3 = {
                 type: "survey-text",
-                preamble: "<div class='crt_experiment_text'>Es una noche de tormenta y un avi&oacute;n despega desde el aeropuerto JFK en Nueva York. La<br />tormenta empeora y el avi&oacute;n se estrella. La mitad cae en los Estados Unidos y la otra mitad en<br />Canad&aacute;<br /><br /></div>",
+                preamble: "<div class='crt_experiment_text'>Es una noche de tormenta y un avi&oacute;n despega desde el aeropuerto JFK en Nueva York. La tormenta empeora y el avi&oacute;n se estrella. La mitad cae en los Estados Unidos y la otra mitad en Canad&aacute;<br /><br /></div>",
                 questions: [{prompt:"&iquest;En qu&eacute; pa&iacute;s enterrar&iacute;as a los sobrevivientes?<br /><br />"}],
                 data: {trialid: "VCRT_03"}
             };
