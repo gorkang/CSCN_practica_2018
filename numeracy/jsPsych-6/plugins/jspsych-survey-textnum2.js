@@ -112,7 +112,6 @@ jsPsych.plugins['survey-textnum2'] = (function() {
     var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
     firstTextBox.focus();
 
-    display_element.innerHTML = html;
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
         var validation;
