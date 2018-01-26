@@ -9,11 +9,11 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var time_left1 = 8000;
-var time_left2 = 8000;
-var time_left3 = 8000;
-var time_left4 = 8000;
-var time_left5 = 8000;
+var time_left1 = 60000;
+var time_left2 = 60000;
+var time_left3 = 60000;
+var time_left4 = 60000;
+var time_left5 = 60000;
 
 var ha_timeout_status1 = 0;
 var ha_timeout_status2 = 0;
@@ -496,10 +496,13 @@ var ha_intercolumna4 = {
 
 function advance(event){
   document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event){
-      if (event.keyCode == 13) {
+      if(event.keyCode == 13) {
           var btn = document.getElementById("jspsych-survey-text-next");
           btn.click();
           //event.preventDefault();
+      }
+      else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57){
+          event.preventDefault();
       }
   };
 }
