@@ -9,6 +9,17 @@
  *
  */
 
+ function block_fkeys(event){
+     var x = event.which || event.keyCode;
+     if(x != 8 && x != 0 && x < 48 || x > 57){
+         console.log("Blocked key");
+         event.preventDefault();
+         return false;
+     }else{
+         return;
+     }
+ }
+
 
 jsPsych.plugins['fill-in-blanks'] = (function() {
 
@@ -62,7 +73,7 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
         while(fill_in_html.includes('%number%')){
           left_side = fill_in_html.substring(0, fill_in_html.search('%number%'));
           rigth_side = fill_in_html.substring(fill_in_html.search('%number%') + 8);
-          fill_in_html = left_side + '<input type="number">' + rigth_side;
+          fill_in_html = left_side + '<input type="number" onkeypress="block_fkeys(event)">' + rigth_side;
         }
         while(fill_in_html.includes('%text%')){
           left_side = fill_in_html.substring(0, fill_in_html.search('%text%'));
@@ -92,7 +103,7 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
         while(fill_in_html.includes('____')){
           left_side = fill_in_html.substring(0, fill_in_html.search('____'));
           rigth_side = fill_in_html.substring(fill_in_html.search('____') + 4);
-          fill_in_html = left_side + '<input type="number">' + rigth_side;
+          fill_in_html = left_side + '<input type="number" onkeypress="block_fkeys(event)">' + rigth_side;
         }
       }
       else if(trial.fill_in_type == "text"){
@@ -125,6 +136,9 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
       }
     }
     html += '<div id="jspsych-fill-in-blanks-questions" class="jspsych-fill-in-blanks-questions">' + fill_in_html + '</div>';
+
+
+
 
     // add submit button
     html += '<button id="jspsych-fill-in-blanks-next" class="jspsych-btn jspsych-fill-in-blanks">'+trial.button_label+'</button>';
@@ -169,6 +183,7 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
       display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Debes rellenar todos los campos.</span>';
     }
     });
+
 
     var startTime = (new Date()).getTime();
   };
