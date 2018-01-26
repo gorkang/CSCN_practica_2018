@@ -1,10 +1,9 @@
 // Variables globales
 
-mr_timeleft_1 = 10000;
-mr_timeleft_2 = 5000;
-mr_timeleft_3 = 5000;
-mr_timeleft_4 = 5000;
-mr_timeleft_5 = 5000;
+mr_timeleft_1 = 180000;
+mr_timeleft_2 = 180000;
+mr_timeleft_3 = 180000;
+mr_timeleft_4 = 180000;
 
 var mr_timeout_status1 = 0;
 var mr_timeout_status2 = 0;
@@ -74,30 +73,17 @@ onkeydown = function block_fkeys(event){
 
     /* ********************************************************  INICIO PANTALLAS EXTRA ******************************************************** */
 
-    var screen_pre1 = {
+    var screen_pre = {
         type: 'instructions',
-        text: '<p>screen pre 1</p>',
+        text: '<p>Haga click para seguir con el proximo bloque de preguntas</p>',
         key_forward: 'enter'
     };
 
-    var screen_post1 = {
+    var screen_end = {
         type: 'instructions',
-        text: '<p>screen post 1</p>',
+        text: '<p>Tarea terminada. Presiona el siguiente botón para continuar.</p>',
         key_forward: 'enter'
     };
-
-    var screen_pre2 = {
-        type: 'instructions',
-        text: '<p>screen pre 2</p>',
-        key_forward: 'enter'
-    };
-
-    var screen_post2 = {
-        type: 'instructions',
-        text: '<p>screen post 2</p>',
-        key_forward: 'enter'
-    };
-
     /* ********************************************************  FIN PANTALLAS EXTRA ******************************************************** */
 
     /* ********************************************************  INICIO ENSAYO ******************************************************** */
@@ -848,13 +834,13 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 rotacion_mental_experiment.push(mr_instruct);
-rotacion_mental_experiment.push(mr_trialstarter);
 rotacion_mental_experiment.push(mr_prueba1);
 rotacion_mental_experiment.push(mr_prueba2_a);
 rotacion_mental_experiment.push(mr_prueba2_b);
 rotacion_mental_experiment.push(mr_prueba2_c);
 
 // Pagina 1
+rotacion_mental_experiment.push(mr_trialstarter);
 rotacion_mental_experiment.push(mr_trial1_a_condicional);
 rotacion_mental_experiment.push(mr_trial1_b_condicional);
 rotacion_mental_experiment.push(mr_trial1_c_condicional);
@@ -862,6 +848,7 @@ rotacion_mental_experiment.push(mr_trial1_d_condicional);
 rotacion_mental_experiment.push(mr_trial1_e_condicional);
 rotacion_mental_experiment.push(mr_trial1_f_condicional);
 // Pagina 2
+rotacion_mental_experiment.push(screen_pre);
 rotacion_mental_experiment.push(mr_trial2_a_condicional);
 rotacion_mental_experiment.push(mr_trial2_b_condicional);
 rotacion_mental_experiment.push(mr_trial2_c_condicional);
@@ -869,6 +856,7 @@ rotacion_mental_experiment.push(mr_trial2_d_condicional);
 rotacion_mental_experiment.push(mr_trial2_e_condicional);
 rotacion_mental_experiment.push(mr_trial2_f_condicional);
 // Pagina 3
+rotacion_mental_experiment.push(screen_pre);
 rotacion_mental_experiment.push(mr_trial3_a_condicional);
 rotacion_mental_experiment.push(mr_trial3_b_condicional);
 rotacion_mental_experiment.push(mr_trial3_c_condicional);
@@ -876,9 +864,11 @@ rotacion_mental_experiment.push(mr_trial3_d_condicional);
 rotacion_mental_experiment.push(mr_trial3_e_condicional);
 rotacion_mental_experiment.push(mr_trial3_f_condicional);
 // Pagina 4
+rotacion_mental_experiment.push(screen_pre);
 rotacion_mental_experiment.push(mr_trial4_a_condicional);
 rotacion_mental_experiment.push(mr_trial4_b_condicional);
 rotacion_mental_experiment.push(mr_trial4_c_condicional);
 rotacion_mental_experiment.push(mr_trial4_d_condicional);
 rotacion_mental_experiment.push(mr_trial4_e_condicional);
 rotacion_mental_experiment.push(mr_trial4_f_condicional);
+rotacion_mental_experiment.push(screen_end);

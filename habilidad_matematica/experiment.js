@@ -9,11 +9,11 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var time_left1 = 8000;
-var time_left2 = 8000;
-var time_left3 = 8000;
-var time_left4 = 8000;
-var time_left5 = 8000;
+var time_left1 = 60000;
+var time_left2 = 60000;
+var time_left3 = 60000;
+var time_left4 = 60000;
+var time_left5 = 60000;
 
 var ha_timeout_status1 = 0;
 var ha_timeout_status2 = 0;
