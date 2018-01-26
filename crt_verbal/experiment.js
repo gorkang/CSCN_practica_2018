@@ -82,7 +82,7 @@
 
             var screen_crt_experiment = {
                 type: 'instructions',
-                pages: ['<p><center>crt_experiment<br /><br />Presiona la tecla ENTER para continuar.</center></p>'],
+                pages: ['<p><left>crt_experiment<br /><br />Presiona la tecla ENTER para continuar.</center></p>'],
                 cont_key: [13],
                 show_clickable_nav: true,
                 data:{trialid: "Screen_crt_experiment"},
