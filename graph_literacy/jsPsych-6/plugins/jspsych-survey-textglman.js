@@ -144,7 +144,7 @@ jsPsych.plugins['survey-textglman'] = (function() {
             display_element.innerHTML = '';
             jsPsych.finishTrial(trialdata);
         }else{
-            display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
+            display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido (menor o igual a 100).</span>';
             console.log("mal",validation);
             event.stopPropagation();
            if (event.stopPropagation) {
