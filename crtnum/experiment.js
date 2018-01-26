@@ -29,7 +29,6 @@
                        //"<p class = center-block-text>"+
                        "<p>"+
                        "CRT-V.<br /><br />"+
-                       "Presiona ENTER para continuar<br /><br />"+
                        "</p></div>"],
                 allow_keys: true,
                 show_clickable_nav: true,

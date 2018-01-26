@@ -17,6 +17,9 @@ jsPsych.plugins['survey-text'] = (function() {
     name: 'survey-text',
     description: '',
     parameters: {
+      minSize:{
+          default:3
+      },
       questions: {
         type: jsPsych.plugins.parameterType.COMPLEX,
         array: true,
@@ -107,8 +110,10 @@ jsPsych.plugins['survey-text'] = (function() {
 
     // add submit button
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><br /><p><br />';
-    html +='<div class="fail-message"></div>'
+    html +='<div class="fail-message"></div>';
     display_element.innerHTML = html;
+    var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
+    firstTextBox.focus();
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
       // measure response time
@@ -134,12 +139,13 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
 
-      if (validation.length >= 3) {
+      if (validation.length >= trial.minSize) {
             console.log("bien",validation);
             display_element.innerHTML = '';
             jsPsych.finishTrial(trialdata);
         }else{
-            sweetAlert({title: "Por favor ingresa un n\&uacute;mero v\&aacute;lido", html: true});
+            firstTextBox.blur();
+            display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa una respuesta mas larga</span>';
             console.log("mal",validation);
             event.stopPropagation();
            if (event.stopPropagation) {

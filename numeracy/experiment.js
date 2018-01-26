@@ -22,6 +22,17 @@
                 }
             }
 
+            var screen_numeracy_experiment = {
+                type: "instructions",
+                pages: ['<p><center>Numeracy<br /></p>'],
+                cont_key: [13],
+                show_clickable_nav: true,
+                data:{trialid: "Screen_matrices_experiment"},
+                on_trial_start: function(){
+                    bloquear_enter = 0;
+                }
+            };
+
             // Inicio prueba
             var numeracyexplanation={
                 type: "instructions",
@@ -107,6 +118,7 @@
                 fullscreen_mode: true
               });
             }
+            numeracy_experiment.push(screen_numeracy_experiment);
             numeracy_experiment.push(numeracyexplanation);
             numeracy_experiment.push(numeracy1);
             numeracy_experiment.push(numeracy1_a);

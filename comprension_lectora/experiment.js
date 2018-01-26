@@ -16,6 +16,16 @@ onkeydown = function block_fkeys(event){
     }
 }
 
+var screen_comprension_lectora_experiment = {
+    type: 'instructions',
+    pages: ['<p><left>Reading comprehension<br /></p>'],
+    data:{trialid: "Screen_WM"},
+    show_clickable_nav: true,
+    on_trial_start: function(){
+        bloquear_enter = 0;
+    }
+};
+
 // Inicio prueba
 var clexplanation={
     type: "instructions",
@@ -202,6 +212,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
     fullscreen_mode: true
   });
 }
+comprension_lectora_experiment.push(screen_comprension_lectora_experiment);
 comprension_lectora_experiment.push(clexplanation);
 comprension_lectora_experiment.push(cl_texto1);
 comprension_lectora_experiment.push(cl_1);

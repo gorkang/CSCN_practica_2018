@@ -251,6 +251,12 @@ function createTrial(){//accordig to response
 
     for (i=0 ; i<csvData.length ; i++){
 
+        var introToTrial = {
+            type: 'instructions',
+            pages: ['Pregunta ' + (i+1)],
+            show_clickable_nav: true
+        }
+
         if (csvData[i].response_type == "gi"){//gi
             if (temp == ""){
                 var temp = responses[i].split(/\s\s+/);
@@ -280,7 +286,7 @@ function createTrial(){//accordig to response
         }
 
         var new_timeline = {
-            timeline:[typeTrial]
+            timeline:[introToTrial, typeTrial]
         }
 
         jsPsych.pauseExperiment();
