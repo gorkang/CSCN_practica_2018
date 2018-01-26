@@ -17,6 +17,9 @@ jsPsych.plugins['survey-text'] = (function() {
     name: 'survey-text',
     description: '',
     parameters: {
+      minSize:{
+          default:3
+      },
       questions: {
         type: jsPsych.plugins.parameterType.COMPLEX,
         array: true,
@@ -112,7 +115,7 @@ jsPsych.plugins['survey-text'] = (function() {
     firstTextBox.focus();
     html +='<div class="fail-message"></div>'
     display_element.innerHTML = html;
-    
+
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
       // measure response time
       var validation;
@@ -137,7 +140,7 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
 
-      if (validation.length >= 3) {
+      if (validation.length >= trial.minSize) {
             console.log("bien",validation);
             display_element.innerHTML = '';
             jsPsych.finishTrial(trialdata);

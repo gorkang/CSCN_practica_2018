@@ -147,6 +147,7 @@
             var verbal_crt6 = {
                 type: "survey-text",
                 questions: [{prompt:"&iquest;Cuantos de cada animal puso Mois&eacute;s en el arca?<br /><br />"}],
+                minSize:1,
                 data: {trialid: "VCRT_06"}
             };
 
