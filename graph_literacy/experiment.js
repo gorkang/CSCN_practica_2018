@@ -3,7 +3,7 @@
             // Funciones de apoyo
             onkeydown = function block_fkeys(event){
                 var x = event.which || event.keyCode;
-                if(x == 112 || x == 116){
+                if(x != 8 && x != 0 && x < 48 || x > 57){
                     console.log("Blocked key");
                     event.preventDefault();
                     return false;
