@@ -120,7 +120,7 @@ jsPsych.plugins['survey-textha'] = (function() {
       html += '</div>';
     }
 
-    // add submit button
+    // add submit button with error message
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
     html +='<div class="fail-message"></div>';
     display_element.innerHTML = html;
@@ -151,8 +151,8 @@ jsPsych.plugins['survey-textha'] = (function() {
         "responses": JSON.stringify(question_data)
       };
 
+      //validate if the input is a number
       if ($.isNumeric(validation) === true) {
-      //if ((validation >= 12 && validation <= 14) || (validation >= 21 && validation <= 24) || (validation >= 31 && validation <= 34) || (validation >= 41 && validation <= 43) &&  validation != 22 && validation != 33 ) {
             console.log("bien",validation);
             display_element.innerHTML = '';
             jsPsych.pluginAPI.clearAllTimeouts();
