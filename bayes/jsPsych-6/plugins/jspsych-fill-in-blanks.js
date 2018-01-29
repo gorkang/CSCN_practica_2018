@@ -9,6 +9,13 @@
  *
  */
 
+ /**
+ Blocks any key that isn't a number
+ @name block_fkeys
+ @function
+ @param {event}  event
+
+ */
  function block_fkeys(event){
      var x = event.which || event.keyCode;
      if(x != 8 && x != 0 && x < 48 || x > 57){
@@ -69,6 +76,7 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
       var fill_in_html = trial.fill_in_text;
       var left_side;
       var rigth_side;
+      //input type according to the especified type in the text (%number% or %text%)
       if(trial.fill_in_type == "auto"){
         while(fill_in_html.includes('%number%')){
           left_side = fill_in_html.substring(0, fill_in_html.search('%number%'));
