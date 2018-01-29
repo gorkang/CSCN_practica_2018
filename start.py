@@ -1,5 +1,5 @@
 ##
-# A sript for running jsPsych experiments trough experimental factory.
+# A script for running jsPsych experiments trough experimental factory.
 # To add experiments go to line starting with subprocess.call(("docker run -v " + os.getcwd() + ":/data vanessa/expfactory-builder build
 # and add after build: /data/name_of_your_experiment
 # A randomizer function (not implemented yet) assigns diferent parameters for diferents experiments for the subject
@@ -8,9 +8,9 @@
 ##
 
 
-##
+
 # Here start all imports of modules and programs needed.
-##
+
 
 
 #Brings python3 print function from the future
@@ -30,6 +30,12 @@ import os
 #Deals with files for google drive
 import io
 
+#For tsv manipulation
+try:
+    import numpy
+except ImportError:
+    print("Numpy python plugin not installed")  
+    exit(1)
 #For tsv manipulation
 try:
     import pandas
@@ -82,7 +88,7 @@ except:
     print("Docker not ready")
     exit(1)
 
-#Scopes in a google concept for limiting wath a srcipt can do
+#Scopes is a google concept for limiting wath a srcipt can do
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 #A service account allows acces to functionalities of google as a normal users without having to create an actual account and password
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
@@ -93,9 +99,9 @@ if(not os.path.isfile('/bin/chromedriver')):
     exit(1)
 
 
-##
+
 # Here starts the part that the experimenter should run trough divided in configuration and docker creation
-##
+
 
 
 # Check for different status of the experiment.cfg file
@@ -206,9 +212,9 @@ else:
     exit()
 
 
-##
+
 # Here starts the docker creation and tokens creation
-##
+
 
 
 # Set up experiment if tar is not found
@@ -219,7 +225,13 @@ if(not os.path.isfile(imagename)):
     if(os.path.isfile("startscript.sh")):
         os.remove("startscript.sh")
     #Uses vanessa/expfactory-builder to create a recipe for docker file
-    subprocess.call(("docker run -v " + os.getcwd() + ":/data vanessa/expfactory-builder build /data/ansiedad_matematica /data/comprension_lectora /data/habilidad_matematica /data/memoria_funcional /data/rotacion_mental /data/crtnum /data/crt_verbal /data/graph_literacy /data/matrices /data/numeracy /data/bayes").split())
+    experiments_list = []
+    experiments = ''
+    for element in os.listdir(os.getcwd()):
+        if(os.path.isdir(element) and element != '.git'):
+            experiments_list.append(element)
+            experiments += ' /data/' + element
+    subprocess.call(("docker run -v " + os.getcwd() + ":/data vanessa/expfactory-builder build" + experiments).split())
     print("Building...")
     #Now uses the recipe to build the image
     image = subprocess.check_output("docker build --quiet .".split())[7:-1]
@@ -227,10 +239,58 @@ if(not os.path.isfile(imagename)):
     container = subprocess.check_output(["docker", "run", "-d", image, "start"])[:-1]
     #Opens the token file and instruct the container to create valid tokens for the subjects
     file = open(filename, 'w')
-    file.write(subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--new", str(input("Input number of runs:"))]))
+    raw_runs = raw_input("Input number of runs or csv file:")
+    try:
+        runs = int(raw_runs)
+        file.write(subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--new", str(runs)]))
+    except ValueError:
+        runs_list = list(csv.reader(open(raw_runs, 'r'), delimiter=','))
+        if('bayesItems' in runs_list[0]):
+            runs_list  = numpy.array(runs_list)[:,:runs_list[0].index('bayesItems')]
+            bayes_list = numpy.array(runs_list)[:,runs_list[0].index('bayesItems'):]
+        else:
+            bayes_list = [None] * len(runs_list)
+        tokens_list = subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--new", str(len(runs_list))]).split('\n')[1:-1]
+        tokens_csv_list = []
+        for token,run,bayes in zip(tokens_list,runs_list,bayes_list):
+            csv_row = token.split('\t')
+            token_experiments_list = []
+            run_experiments_list = list(experiments_list)
+            for command in run:
+                if(command in run_experiments_list):
+                    token_experiments_list.append(command)
+                    run_experiments_list.remove(command)
+                elif(command == 'random'):
+                    token_experiments_list += numpy.random.shuffle(run_experiments_list)
+                elif(command[:7] == 'random(' and command[-1] == ')'):
+                    try:
+                        random_ammount = int(command[7:-1])
+                        numpy.random.shuffle(run_experiments_list)
+                        while(random_ammount > 0):
+                            if(len(run_experiments_list) == 0):
+                                print("Random out of range.")
+                                subprocess.call(["docker", "stop", container])
+                                print("Cleaning...")
+                                os.remove("Dockerfile")
+                                os.remove("startscript.sh")
+                                subprocess.call(["docker", "rmi", image, "--force"])
+                                exit(1)
+                            token_experiments_list += run_experiments_list.pop()
+                            random_ammount -= 1
+                    except:
+                        random_experiments = command[7:-1].split(',')
+                        for experiment in random_experiments:
+                            if(experiment in token_experiments_list):
+                                random_experiments.remove(experiment)
+                        token_experiments_list += numpy.random.shuffle(random_experiments)[0]
+            csv_row.append(','.join(token_experiments_list))
+            if(bayes):
+                csv_row += bayes
+            tokens_csv_list.append(csv_row)
+        tsv = csv.writer(file, delimiter="\t")
+        tsv.writerows(tokens_csv_list)
     file.close()
     print("Tsv generated.")
-    # subprocess.call(randomizer) this will add experiment order to the tokens file and bayes structure
     # commit breaks things don't use. image = subprocess.check_output(["docker", "commit", container])[7:-1]
     #Stop the conteiner and saves it as a tar
     subprocess.call(["docker", "stop", container])
@@ -261,9 +321,9 @@ if(not os.path.isfile(imagename)):
                 print("Couldn't upload tokens, retrying.")
 
 
-##
+
 # Here start the part that the subjects see.
-##
+
 
 # Load image from tar file
 print("Loading...")
@@ -356,8 +416,14 @@ for row in tsv:
         token = row[1][:36]
         print(token)
         #Tsv should be searched to choose experiments and order
-        token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional,rotacion_mental"
-        rows.append([row[0], token + "[revoked]"])
+        token_experiments = row[2]
+        bayes_rows = []
+        for item_bayes in row[2:]:
+            bayes_rows.append(item_bayes.split('_'))
+        bayes_csv = csv.writer(open("bayes.csv", "wb"), delimiter=",")
+        csv.writerows(bayes_rows)
+        bayes_csv.close()
+        rows.append([row[0], token + "[revoked]", row[1:]])
     else:
         rows.append(row)
     i += 1
