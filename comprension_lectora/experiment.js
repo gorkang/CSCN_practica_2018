@@ -1,10 +1,19 @@
-// Funciones de apoyo
+/**
+@file
+@name
+ * The experiment ansiedad matematica
+ *
+ * CSCN lab
+ *
+ */
 
-function getDisplayElement() {
-  $('<div class = display_stage_background></div>').appendTo('body')
-  return $('<div class = display_stage></div>').appendTo('body')
-}
+/**
+Blocks f1 and f5
+@name block_fkeys
+@function
+@param {event}  event
 
+*/
 onkeydown = function block_fkeys(event){
     var x = event.which || event.keyCode;
     if(x == 112 || x == 116){
@@ -202,7 +211,9 @@ var cl_20 = {
 };
 
 // Creacion de timeline e inclusion de trials
-comprension_lectora_experiment = [];
+comprension_lectora_experiment = [];    //timeline
+
+//if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
   comprension_lectora_experiment.push({
     type: 'fullscreen',
@@ -212,6 +223,8 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
     fullscreen_mode: true
   });
 }
+
+//add the trials to the timeline
 comprension_lectora_experiment.push(screen_comprension_lectora_experiment);
 comprension_lectora_experiment.push(clexplanation);
 comprension_lectora_experiment.push(cl_texto1);
