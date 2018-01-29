@@ -1,4 +1,20 @@
-// Funciones de apoyo
+/**
+@file
+@name 
+ * The experiment graph literacy
+ *
+ * CSCN lab
+ *
+ */
+
+/**
+Blocks f1 and f5
+@name block_fkeys
+@function
+@param {event}  event
+
+*/
+
 onkeydown = function block_fkeys(event){
     var x = event.which || event.keyCode;
     if(x == 112 || x == 116){
@@ -116,8 +132,9 @@ var math14 = {
 };
 
 // Creacion de timeline e inclusion de trials
-ansiedad_matematica_experiment = [];
+ansiedad_matematica_experiment = [];    //timeline
 
+//if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
   ansiedad_matematica_experiment.push({
     type: 'fullscreen',
@@ -128,6 +145,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
   });
 }
 
+//add the trials to the timeline
 ansiedad_matematica_experiment.push(screen_ansiedad_matematica_experiment);
 ansiedad_matematica_experiment.push(mathexplanation);
 ansiedad_matematica_experiment.push(math02);
