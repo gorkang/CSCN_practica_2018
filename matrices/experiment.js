@@ -38,7 +38,7 @@ onkeydown = function block_fkeys(event) {
 
 /**
 Blocks enter
-@name block_fkeys
+@name block_enter
 @function
 @param {event}  event
 
