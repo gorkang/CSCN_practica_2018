@@ -137,7 +137,7 @@ jsPsych.plugins['survey-textnum2'] = (function() {
       };
 
 
-      $.isNumeric();
+      //checks if the answer is a valid % number
       if ($.isNumeric(validation) === true && validation <= 100 && validation >= 0) {
           console.log("bien",validation);
           display_element.innerHTML = '';

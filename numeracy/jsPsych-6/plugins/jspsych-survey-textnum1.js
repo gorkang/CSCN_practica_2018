@@ -136,7 +136,7 @@ jsPsych.plugins['survey-textnum1'] = (function() {
         "responses": JSON.stringify(question_data)
       };
 
-
+      //checks if the answer is a number
       if ($.isNumeric(validation) === true) {
 
             console.log("bien",validation);
