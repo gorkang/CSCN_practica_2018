@@ -1,7 +1,7 @@
 /**
 @file
-@name 
- * The experiment graph literacy
+@name
+ * The experiment ansiedad matematica
  *
  * CSCN lab
  *
