@@ -138,7 +138,7 @@ jsPsych.plugins['survey-textglpercent'] = (function() {
 
 
 
-      // next trial
+      // next trial and check if is a valid % number
       if ($.isNumeric(validation) === true && validation <= 100 && validation >= 0) {
           console.log("bien",validation);
           display_element.innerHTML = '';
