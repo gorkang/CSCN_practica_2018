@@ -1,9 +1,18 @@
-// Variables globales
+/**
+ *
+ * A mental rotation test where two correct objects must be chossen from four objects
+ * In spanish
+ *
+ * CSCN lab
+ *
+ */
 
-mr_timeleft_1 = 180000;
-mr_timeleft_2 = 180000;
-mr_timeleft_3 = 180000;
-mr_timeleft_4 = 180000;
+ // Variables globales
+
+var mr_timeleft_1 = 180000;
+var mr_timeleft_2 = 180000;
+var mr_timeleft_3 = 180000;
+var mr_timeleft_4 = 180000;
 
 var mr_timeout_status1 = 0;
 var mr_timeout_status2 = 0;
@@ -13,6 +22,7 @@ var mr_timeout_status5 = 0;
 
 // Funciones de apoyo
 onkeydown = function block_fkeys(event){
+    //Blocks presses of f1 and f6
     var x = event.which || event.keyCode;
     if(x == 112 || x == 116){
         console.log("Blocked key");
@@ -838,6 +848,7 @@ var mr_trial4_f_condicional = {
 rotacion_mental_experiment = [];
 
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
+  //If not FULLSCREEN enable fullscreen
   rotacion_mental_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',

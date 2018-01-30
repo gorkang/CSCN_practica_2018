@@ -1,12 +1,41 @@
+##
+# A script for running jsPsych experiments trough experimental factory.
+# To add experiments go to line starting with subprocess.call(("docker run -v " + os.getcwd() + ":/data vanessa/expfactory-builder build
+# and add after build: /data/name_of_your_experiment
+# A randomizer function (not implemented yet) assigns diferent parameters for diferents experiments for the subject
+# This tsv is added to some experimetns that need them and is used to know wath the subjects whent trough
+# The script uses google drive python modules to sync results and ensure that users have unique experiments
+##
+
+
+
+# Here start all imports of modules and programs needed.
+
+
+
+#Brings python3 print function from the future
 from __future__ import print_function
+#Calls other programs installed in linux
 import subprocess
+#Parses json results
 import json
+#Used for waiting on other deatached server
 import time
+#Takes parsed json to csv or tsv, reads tokens
 import csv
+#For reading arguments from command line
 import sys
+#Deals with files and directories
 import os
+#Deals with files for google drive
 import io
 
+#For tsv manipulation
+try:
+    import numpy
+except ImportError:
+    print("Numpy python plugin not installed")  
+    exit(1)
 #For tsv manipulation
 try:
     import pandas
@@ -50,6 +79,7 @@ filename = "tokens.tsv"
 imagename = "experiments.tar"
 config_file_name = "experiment.cfg"
 
+#Check if the user has acces to docker and check if a stray container exist (if there other containers running in the enviorement this should be disabled)
 try:
     container = subprocess.check_output("docker ps --quiet --latest".split())[:-1]
     if(container != ""):
@@ -58,7 +88,9 @@ except:
     print("Docker not ready")
     exit(1)
 
+#Scopes is a google concept for limiting wath a srcipt can do
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
+#A service account allows acces to functionalities of google as a normal users without having to create an actual account and password
 SERVICE_ACCOUNT_FILE = 'service_secret.json'
 
 # Check for chromedriver
@@ -66,64 +98,86 @@ if(not os.path.isfile('/bin/chromedriver')):
     print("Chromedriver not found.")
     exit(1)
 
+
+
+# Here starts the part that the experimenter should run trough divided in configuration and docker creation
+
+
+
 # Check for different status of the experiment.cfg file
 if(not os.path.isfile(imagename) and os.path.isfile(config_file_name)):
+    #If there is not an image delete the config file
     subprocess.call(["rm", config_file_name])
 if(not os.path.isfile(config_file_name)):
-    if(len(sys.argv) != 2):
+    #if there is not config file, create one using arguments from console
+    if(len(sys.argv) == 1 or (len(sys.argv) >= 2 and '--debug' in sys.argv)):
         print("Arguments for first run are [output_path]\n\n Always start with ~/ for home folder.")
         exit(1)
+    #Takes the arguments potentialy split on multiple parts and joins it as single string
     output_path = " ".join(sys.argv[1:])
     print(output_path)
+    #Takes the string and split it in directories, check if the path starts with home and warns otherwise
     if(output_path.split("/")[1] != "home"):
         print("Arguments for first run are [output_path]\n\n Always start with ~/ for home folder.")
         exit(1)
+    #Splits the string in directories and join it as a path
     output_path = "/".join(output_path.split("/")[3:])
+    #If the directorie doesn't exist create it and its parent directories
     if(not os.path.isdir(output_path)):
         subprocess.call(["mkdir", "-p", os.path.expanduser('~/') + output_path])
+    #Locks the user until an allowed answer is given
     while(True):
         option = raw_input("Use google drive?(Y,n) ")
         if(option in ["n", "N", "no", "No"]):
+            #If the answer is a form of no disable google drive with the boolean parameter "usingDrive" writes this to the config file
             usingGDrive = False
             config_file = open(config_file_name, "w")
             config_file.write("usingGDrive: false\n")
             config_file.close()
             break
         elif(option in ["", "y", "Y", "yes", "Yes"]):
-            # Create google service account driver for storing tokens.tsv
+            # Tries to create  a google service account driver for storing tokens.tsv on fails warns and repeats
             try:
                 if(not os.path.isfile(SERVICE_ACCOUNT_FILE)):
+                    #Checks for secret file from the service account
                     print(SERVICE_ACCOUNT_FILE + " not found.")
                 else:
+                    #Credentials allow acces to services, services represent google tools or services
                     credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
                     drive_service = discovery.build('drive', 'v3', credentials=credentials)
-                    # Create folder for tokens.tsv
-                    folder_id = drive_service.files().create(body={'name': 'Bayes_experiment', 'mimeType': 'application/vnd.google-apps.folder'}, fields='id').execute().get('id')
+                    # Create folder for tokens.tsv and save the id of it
+                    folder_id = drive_service.files().create(body={'name': (raw_input("Input drive folder name:") or "Study"), 'mimeType': 'application/vnd.google-apps.folder'}, fields='id').execute().get('id')
                     # Save drive choice and file id
                     config_file = open(config_file_name, "w")
                     config_file.write("usingGDrive: true\n")
                     config_file.write("folderID: " + folder_id + "\n")
                     config_file.close()
                     usingGDrive = True
+                    #Frees the user from the while lock
                     break
             except:
                 print("Problem conecting to google drive.")
+    #Add to the config file the output path
     config_file = open(config_file_name, "a")
     config_file.write("output_path: " + output_path + "\n")
     config_file.close()
-#Check wether google drive is used or not, check if google drive connection is up if yes
+#Check wether google drive is used or not, check if google drive connection is up
 elif(open(config_file_name, "r").readline() == "usingGDrive: false\n"):
     usingGDrive = False
     output_path = open(config_file_name, "r").readlines()[1][13:]
+    #Checks again for the existance of the output path
     if(not os.path.isdir(output_path)):
         subprocess.call(["mkdir", "-p", os.path.expanduser('~/') + output_path])
 elif(open(config_file_name, "r").readline() == "usingGDrive: true\n"):
+    #Locks the user until it instructs it to stop retring
     retry = True
     while(retry):
+        #Tries to use google drive
         try:
             #Create drive service with credentials
             credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
             drive_service = discovery.build('drive', 'v3', credentials=credentials)
+            #Reads from the config file
             folder_id = open(config_file_name, "r").readlines()[1][10:-1]
             output_path = open(config_file_name, "r").readlines()[2][13:-1]
             tokens_id = open(config_file_name, "r").readlines()[3][11:-1]
@@ -144,62 +198,154 @@ elif(open(config_file_name, "r").readline() == "usingGDrive: true\n"):
                         retry = True
                         break
                     else:
+                        #Gives up on google drive and continues locally
                         usingGDrive = False
                         output_path = open(config_file_name, "r").readlines()[1][13:]
+                        #Checks again for output path
                         if(not os.path.isdir(output_path)):
                             subprocess.call(["mkdir", "-p", os.path.expanduser('~/') + output_path])
                         retry = False
                         break
-
     # load folder id
 else:
     print("Redownload experiment to configure correctly")
     exit()
 
+
+
+# Here starts the docker creation and tokens creation
+
+
+
 # Set up experiment if tar is not found
 if(not os.path.isfile(imagename)):
+    #Remove old Docker files
     if(os.path.isfile("Dockerfile")):
         os.remove("Dockerfile")
     if(os.path.isfile("startscript.sh")):
         os.remove("startscript.sh")
-    subprocess.call(("docker run -v " + os.getcwd() + ":/data vanessa/expfactory-builder build /data/ansiedad_matematica /data/comprension_lectora /data/habilidad_matematica /data/memoria_funcional /data/rotacion_mental /data/crtnum /data/crt_verbal /data/graph_literacy /data/matrices /data/numeracy /data/bayes").split())
+    #Uses vanessa/expfactory-builder to create a recipe for docker file
+    experiments_list = []
+    experiments = ''
+    for element in os.listdir(os.getcwd()):
+        if(os.path.isdir(element) and element != '.git'):
+            experiments_list.append(element)
+            experiments += ' /data/' + element
+    subprocess.call(("docker run -v " + os.getcwd() + ":/data vanessa/expfactory-builder build" + experiments).split())
     print("Building...")
-    pre_image = subprocess.check_output("docker build --quiet .".split())[7:-1]
-    container = subprocess.check_output(["docker", "run", "-d", pre_image, "start"])[:-1]
+    #Now uses the recipe to build the image
+    image = subprocess.check_output("docker build --quiet .".split())[7:-1]
+    #Runs the image in another thread
+    container = subprocess.check_output(["docker", "run", "-d", image, "start"])[:-1]
+    #Opens the token file and instruct the container to create valid tokens for the subjects
     file = open(filename, 'w')
-    file.write(subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--new", str(input("Input number of runs:"))]))
+    raw_runs = raw_input("Input number of runs or csv file:")
+    try:
+        #If a number is received create the tokens and save them.
+        runs = int(raw_runs)
+        file.write(subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--new", str(runs)]))
+    except ValueError:
+        #If a file is received read it and use it to create tokens
+        csv_list = list(csv.reader(open(raw_runs, 'r'), delimiter=','))
+        if('bayesItems' in csv_list[0]):
+            runs_list  = numpy.array(csv_list)[:,:csv_list[0].index('bayesItems')]
+            bayes_list = numpy.array(csv_list)[:,csv_list[0].index('bayesItems')+1:]
+        else:
+            runs_list  = csv_list
+            bayes_list = [None] * len(csv_list)
+        tokens_list = subprocess.check_output(["docker", "exec", container, "expfactory", "users", "--new", str(len(runs_list))]).split('\n')[1:-1]
+        tokens_csv_list = [[]]
+        #Iterate over the trhee list created and build a tokens.tsv file
+        for token,run,bayes in zip(tokens_list,runs_list,bayes_list):
+            csv_row = token.split('\t')
+            token_experiments_list = []
+            run_experiments_list = list(experiments_list)
+            #Checks the experiments to run and order of them
+            for command in run:
+                #If the command is an experiment, check its existance and add it
+                if(command in run_experiments_list):
+                    token_experiments_list.append(command)
+                    run_experiments_list.remove(command)
+                #If the command says random, take all remaining experiments and add them randomly
+                elif(command == 'random'):
+                    numpy.random.shuffle(run_experiments_list)
+                    token_experiments_list += run_experiments_list
+                #If the command says random and has a parenthesis, check if it has a list or a number
+                elif(command[:7] == 'random(' and command[-1] == ')'):
+                    try:
+                        #If it is a number, add that numver of experiments
+                        random_ammount = int(command[7:-1])
+                        numpy.random.shuffle(run_experiments_list)
+                        while(random_ammount > 0):  
+                            if(len(run_experiments_list) == 0):
+                                print("Random out of range.")
+                                subprocess.call(["docker", "stop", container])
+                                print("Cleaning...")
+                                os.remove("Dockerfile")
+                                os.remove("startscript.sh")
+                                subprocess.call(["docker", "rmi", image, "--force"])
+                                exit(1)
+                            token_experiments_list += run_experiments_list.pop()
+                            random_ammount -= 1
+                    except:
+                        #If it is a list, choose from that list a random experiment that has not been chossen previusly
+                        random_experiments = command[7:-1].split(',')
+                        for experiment in random_experiments:
+                            if(experiment in token_experiments_list):
+                                random_experiments.remove(experiment)
+                        token_experiments_list += numpy.random.shuffle(random_experiments)[0]
+            csv_row.append(','.join(token_experiments_list))
+            if(bayes is not None):
+                csv_row += list(bayes)
+            tokens_csv_list.append(csv_row)
+        tsv = csv.writer(file, delimiter="\t")
+        tsv.writerows(tokens_csv_list)
     file.close()
     print("Tsv generated.")
-    # subprocess.call(randomizer)
-    subprocess.call(["docker", "cp", filename, container + ":/scif/apps/bayes"])
-    # commit breaks things. image = subprocess.check_output(["docker", "commit", container])[7:-1]
+    # commit breaks things don't use. image = subprocess.check_output(["docker", "commit", container])[7:-1]
+    #Stop the conteiner and saves it as a tar
     subprocess.call(["docker", "stop", container])
     print("Creating experiments.tar...")
-    subprocess.call(["docker", "save", "--output", imagename, pre_image])
+    subprocess.call(["docker", "save", "--output", imagename, image])
     print("Cleaning...")
     #   subprocess.call(["docker", "rmi", image, "--force"])
+    #Removes docker recipes
     os.remove("Dockerfile")
     os.remove("startscript.sh")
-    subprocess.call(["docker", "rmi", pre_image, "--force"])
+    #Removes the image from the system to save space
+    subprocess.call(["docker", "rmi", image, "--force"])
     if(usingGDrive):
         #Try to upload tsv if using google drive, until succes.
         while(True):
             try:
+                #File metadata determines how te file will look on the drive
                 file_metadata = {'name': 'tokens.tsv', 'parents': [folder_id]}
+                #Media determines from where and wath is the file to upload
                 media = MediaFileUpload('tokens.tsv', mimetype='text/tsv', resumable=False)
                 tokens_id = drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute().get("id")
+                #The file is referenced trough an id, that is saved to the config file
                 config_file = open(config_file_name, "a")
                 config_file.write("tokens_id: " + tokens_id + "\n")
                 config_file.close()
                 break
             except:
                 print("Couldn't upload tokens, retrying.")
+    while(True):
+        option = raw_input("Study created succesfully. Set up an experiment?(yes,no):")
+        if(option in ["Y", "y", "Yes", "yes"]):
+            break
+        elif(option in ["N", "n", "no", "No"]):
+            exit(0)      
 
 
-# Load image from file
+# Here start the part that the subjects sees.
+
+
+# Load image from tar file
 print("Loading...")
 image = subprocess.check_output(["docker", "load", "--input", imagename])[-65:-53]
 while(True):
+    #Chose the number of the token to use
     option = raw_input("Input user id:")
     try:
         user_id = int(option)
@@ -212,10 +358,13 @@ if(usingGDrive):
     retry = True
     while(retry):
         try:
+            #Reads the id of the token file from the config file
             tokens_id = open(config_file_name, "r").readlines()[3][11:-1]
             # Download tokens.tsv from google drive
             request = drive_service.files().get_media(fileId=tokens_id)
+            #Creates a file with the corresponding file name for google downloader to write to
             fh = io.FileIO(filename, 'wb')
+            #Creates a google downloader for the file
             downloader = MediaIoBaseDownload(fh, request)
             done = False
             while done is False:
@@ -235,8 +384,6 @@ if(usingGDrive):
                         retry = True
                     else:
                         retry = False
-
-
 tsv = csv.reader(open(filename, 'r'), delimiter="\t")
 token = ""
 #Rows will be stored here for updating the tsv
@@ -246,6 +393,7 @@ i = 0
 for row in tsv:
     if(i == user_id):
         if(row[1][-8:-1] == "revoked"):
+            token_was_revoked = True
             while(True):
                 option = raw_input("Token is already taken, overwrite?:(y,N)")
                 if(option in ["", "n", "N", "no", "No"]):
@@ -273,6 +421,8 @@ for row in tsv:
                         break
                     else:
                         break
+        else:
+            token_was_revoked = False
         #Make necesary directories
         if(not os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36])):
             subprocess.call(["mkdir", "-p", os.path.expanduser('~/') + output_path + "/experiments/" + row[1][:36]])
@@ -285,8 +435,21 @@ for row in tsv:
         token = row[1][:36]
         print(token)
         #Tsv should be searched to choose experiments and order
-        token_experiments = "bayes,ansiedad_matematica,comprension_lectora,crtnum,crt_verbal,graph_literacy,habilidad_matematica,matrices,memoria_funcional,rotacion_mental"
-        rows.append([row[0], token + "[revoked]"])
+        if(len(row) > 2):
+            token_experiments = row[2]
+        else:
+            token_experiments = ''
+        if(len(row) > 3):
+            bayes_rows = [['problem_context', 'presentation_format', 'response_type', 'prob']]
+            for item_bayes in row[3:]:
+                bayes_rows.append(item_bayes.split('_'))
+            bayes_file = open("items_bayes.csv", "wb")
+            bayes_csv = csv.writer(bayes_file, delimiter=",")
+            bayes_csv.writerows(bayes_rows)
+            bayes_file.close()
+            rows.append([row[0], token + "[revoked]"] + row[2:])
+        else:
+            rows.append([row[0], token + "[revoked]"])
     else:
         rows.append(row)
     i += 1
@@ -323,46 +486,56 @@ else:
     # Store default keymap to default.
     subprocess.call(["xmodmap", "-pke"], stdout=open("default", "w"))
     print("Seting up experiment.")
-    container = subprocess.check_output(["docker", "run", "-d", "-p", "80:80", image, "--headless", "--no-randomize", "--experiments", token_experiments, "start"])[:-1]
+    if(token_experiments != ''):
+        container = subprocess.check_output(["docker", "run", "-d", "-p", "80:80", image, "--headless", "--no-randomize", "--experiments", token_experiments, "start"])[:-1]
+    else:
+        container = subprocess.check_output(["docker", "run", "-d", "-p", "80:80", image, "--headless", "start"])[:-1]
     time.sleep(10)
-    subprocess.call(["docker", "exec", container, "mkdir", "/scif/data/expfactory/" + token])
+    #Add the modifications to the docker container
+    subprocess.call(["docker", "exec", container, "mkdir", "-p", "/scif/data/expfactory/" + token])
     #continue experiment?
     while(True):
         option = raw_input("Start experiment?(y/n) ")
         #If no, token is released and depending if google drive is in use, update it.
         if(option in ["n","N","no","No"]):
-            subprocess.call(["docker", "rmi", image, "--force"])
-            rows[user_id] = [row[0], token + "[active]"]
-            file = open("tokens.tsv","wb")
-            tsv = csv.writer(file,delimiter="\t")
-            tsv.writerows(rows)
-            file.close()
+            if(not token_was_revoked):
+                rows[user_id] = [row[0], token + "[active]"] + row[2:]
+                file = open("tokens.tsv","wb")
+                tsv = csv.writer(file,delimiter="\t")
+                tsv.writerows(rows)
+                file.close()
+                if(usingGDrive):
+                    retry = True
+                    while(retry):
+                        try:
+                            file_metadata = {'name': 'tokens.tsv'}
+                            media = MediaFileUpload('tokens.tsv', mimetype='text/tsv', resumable=False)
+                            drive_service.files().update(fileId=tokens_id, body=file_metadata, media_body=media).execute()
+                            retry = False
+                        except:
+                            print("Problem updating google drive tokens")
+                            while(True):
+                                option = raw_input("Retry?(Y,n)")
+                                if(option in ["", "Y", "y", "Yes", "yes"]):
+                                    retry = True
+                                    break
+                                elif(option in ["N", "n", "no", "No"]):
+                                    retry = False
             subprocess.call(["docker", "stop", container])
             subprocess.call(["docker", "rm", container])
             subprocess.call(["docker", "rmi", image, "--force"])
-            if(usingGDrive):
-                retry = True
-                while(retry):
-                    try:
-                        file_metadata = {'name': 'tokens.tsv'}
-                        media = MediaFileUpload('tokens.tsv', mimetype='text/tsv', resumable=False)
-                        drive_service.files().update(fileId=tokens_id, body=file_metadata, media_body=media).execute()
-                        retry = False
-                    except:
-                        print("Problem updating google drive tokens")
-                        while(True):
-                            option = raw_input("Retry?(Y,n)")
-                            if(option in ["", "Y", "y", "Yes", "yes"]):
-                                retry = True
-                                break
-                            elif(option in ["N", "n", "no", "No"]):
-                                retry = False
             exit()
         elif(option in ["y","Y","yes","Yes"]):
             break
+    #Copy bayes settings to container
+    subprocess.call(["docker", "cp", 'items_bayes.csv', container + ":/scif/apps/bayes"])
     print("Experiment started.")
     chrome_options = Options()
-    # chrome_options.add_argument("--kiosk")
+    #Enable kiosk mode unless --debug is specified
+    if(len(sys.argv) == 1):
+        chrome_options.add_argument("--kiosk")
+    elif("--debug" not in sys.argv):
+        chrome_options.add_argument("--kiosk")
     chrome_options.add_argument("--disable-infobars")
     driver = webdriver.Chrome(chrome_options=chrome_options)
     driver.get("http://localhost/")
@@ -377,8 +550,11 @@ else:
     tokenField.send_keys(token)
     print("Token writen.")
     driver.fullscreen_window()
-    # Block keys with file block_keys
-    #subprocess.call(["xmodmap", "block_keys"])
+    # Block keys with file block_keys unless --debug is specified
+    if(len(sys.argv) == 1):
+        subprocess.call(["xmodmap", "block_keys"])
+    elif("--debug" not in sys.argv):
+        subprocess.call(["xmodmap", "block_keys"])
     buttonNext = driver.find_element_by_xpath("//button[1]")
     buttonNext.click()
     print("Experiment in fullscren and started.")
@@ -400,6 +576,13 @@ else:
             driver = webdriver.Chrome(chrome_options=chrome_options)
             driver.get("http://localhost/")
     subprocess.call(["docker", "cp", container + ":/scif/data/expfactory/" + token + "_finished/", os.getcwd() + "/temp"])
+
+
+    ##
+    # Here the experiment ends and data pre-procecing starts including backups and format modifications
+    ##
+
+
     #Free keys for alt-tab
     subprocess.call(["xmodmap","-e","keycode 23 = Tab ISO_Left_Tab Tab ISO_Left_Tab"])
     subprocess.call(["xmodmap","-e","keycode 64 = Alt_L Meta_L Alt_L Meta_L"])
@@ -430,17 +613,18 @@ else:
         retry = True
         while(retry):
             try:
+                #Convert and upload files on test folder
                 token_folder = drive_service.files().create(body={'name': token, 'parents': [folder_id], 'mimeType': 'application/vnd.google-apps.folder'}, fields='id').execute().get('id')
                 batch_upload = drive_service.new_batch_http_request()
                 for json_file in os.listdir(os.getcwd() + "/temp/" + token + "_finished/"):
                     content = json.load(open(os.getcwd() + "/temp/" + token + "_finished/" + json_file, 'r'))
                     results = json.loads(content['data'])
-                    pandas.DataFrame.from_dict(results).to_csv(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", sep="\t")
+                    pandas.DataFrame.from_dict(results).to_csv(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", sep=None)
                     body={'name': json_file, 'parents': [token_folder]}
                     media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file, mimetype='text/json', resumable=False)
                     batch_upload.add(drive_service.files().create(body=body, media_body=media_body))
                     body={'name': json_file[:-5] + ".tsv", 'parents': [token_folder]}
-                    media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", mimetype='text/tsv', resumable=False)
+                    media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", mimetype='text/csv', resumable=False)
                     batch_upload.add(drive_service.files().create(body=body, media_body=media_body))
                 retry = False
             except:
@@ -458,13 +642,13 @@ else:
         for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished"):
             content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file, 'r'))
             results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file[:-5] + ".tsv", sep="\t")
+            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file[:-5] + ".csv", sep=None)
     #if there are unfinished resutls convert
     if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + token)):
         for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token):
             content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file, 'r'))
             results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file[:-5] + ".tsv", sep="\t")
+            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file[:-5] + ".csv", sep=None)
     #Clear docker files from system after stoping container
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])

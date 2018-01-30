@@ -85,30 +85,21 @@ var mainexplanation = {
     }
 };
 
-var idCsv = {
-    type: "survey-textID",
-    questions: [{
-        prompt: "Ingrese su ID:"
-    }]
-};
+function generate_questions() {
+  d3.csv("items_bayes.csv", function(error, data) {
+    if (error) throw error;
+    for (var i = 0; i < data.length; i++) {
+      csvData.push(data[i]);
+    }
+    obtainNumbers();
+    window.addEventListener("message",function(event){
+      if(event.data == "done"){
+        number_of_calls -= 1;
+        if(number_of_calls == 0){
 
-/**
-Obtain data of trials and generates them
-@name generate_questions
-@async
-@function
-@param {Integer}  id id of participant
-*/
-function generate_questions(id) {
-
-    //reads the trials the participant
-    d3.csv("items_bayes.csv", function(error, data) {
-        if (error) throw error;
-        //adds the corresponding info to the list
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].id == id) {
-                csvData.push(data[i]);
-            }
+          createPrompt();
+          createTrial();
+          jsPsych.finishTrial();
         }
         obtainNumbers();    //obtain the number (and inside of the function,the rest of the info)
 
@@ -377,5 +368,4 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 bayes_experiment.push(mainexplanation);
-bayes_experiment.push(idCsv);
-bayes_experiment.push(mainexplanation);
+generate_questions();

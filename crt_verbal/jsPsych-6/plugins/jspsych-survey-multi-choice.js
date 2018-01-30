@@ -6,6 +6,9 @@
  *
  * documentation: docs.jspsych.org
  *
+ *
+ * This version has been modified for style.
+ *
  */
 
 
@@ -123,11 +126,11 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
         form.appendChild(label);
         form.insertBefore(input, label);
 
-        //inicio modificacion
+        //start modification
         br = document.createElement('br')
         form.appendChild(br)
         form.insertBefore(br,label);
-        //fin modificacion
+        //end modification
       }
 
       if (trial.questions[i].required) {
