@@ -51,7 +51,11 @@ To create a paradigm that can be tested in any computer, you must first run the 
 $ python start.py ~/path/to/the/folder
 ```
 After that, you will be asked if you want to use Google drive (for this option to work, you must have the file **service_secret.json**)
-and the amount of subjects you wish to utilize to test the paradigm or a csv file with as many rows as subject and the test you want them to perform as each column, additionally you can use the keyword random, _random_ alone can only be used as the last command, as it will select all unchosen test remaining, _random(10)_ with parenthesis and a number will chose that amount of test to randomize, and _random(test1,test3)_ will chose between those test randomly, making sure there are not repeated test in the paradigm.
+and the amount of subjects you wish to utilize to test the paradigm or a csv file with as many rows as subject and the test you want them to perform as each column, additionally you can use the keyword random, _random_ alone can only be used once, and it will select all unchosen test remaining and place them at that position, _random(10)_ with parenthesis and a number will chose that amount of test to randomize, and _random(test1;test3)_ will chose between those test randomly, making sure they are not repeated test in the paradigm. All these are evaluated in the following order:
+
+```
+Experiment name, random(list), random(number) and random.
+```
 
 Finally, specifically for the bayes test, after the rows of commands you can put the keyword items\_bayes and each row after that will serve as a trial for the bayes test in the format:
 

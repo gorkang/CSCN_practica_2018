@@ -257,47 +257,113 @@ if(not os.path.isfile(imagename)):
         tokens_csv_list = [[]]
         #Iterate over the trhee list created and build a tokens.tsv file
         for token,run,bayes in zip(tokens_list,runs_list,bayes_list):
-            csv_row = token.split('\t')
+            if(run.count('random') > 1):
+                print("Random can only be used once.")
+                subprocess.call(["docker", "stop", container])
+                print("Cleaning...")
+                os.remove("Dockerfile")
+                os.remove("startscript.sh")
+                subprocess.call(["docker", "rmi", image, "--force"])
+                exit(1)
+            tsv_row = token.split('\t')
             token_experiments_list = []
             run_experiments_list = list(experiments_list)
             #Checks the experiments to run and order of them
+            command_index = 0
+            #Counts command experiments, if it add to more than the ammount of experiments, fail.
             for command in run:
-                #If the command is an experiment, check its existance and add it
-                if(command in run_experiments_list):
-                    token_experiments_list.append(command)
-                    run_experiments_list.remove(command)
-                #If the command says random, take all remaining experiments and add them randomly
-                elif(command == 'random'):
-                    numpy.random.shuffle(run_experiments_list)
-                    token_experiments_list += run_experiments_list
-                #If the command says random and has a parenthesis, check if it has a list or a number
+                if(command in list(experiments_list)):
+                    command_index += 1
                 elif(command[:7] == 'random(' and command[-1] == ')'):
                     try:
-                        #If it is a number, add that numver of experiments
-                        random_ammount = int(command[7:-1])
-                        numpy.random.shuffle(run_experiments_list)
-                        while(random_ammount > 0):  
-                            if(len(run_experiments_list) == 0):
-                                print("Random out of range.")
-                                subprocess.call(["docker", "stop", container])
-                                print("Cleaning...")
-                                os.remove("Dockerfile")
-                                os.remove("startscript.sh")
-                                subprocess.call(["docker", "rmi", image, "--force"])
-                                exit(1)
-                            token_experiments_list += run_experiments_list.pop()
-                            random_ammount -= 1
+                        command_index += int(command[7:-1])
                     except:
-                        #If it is a list, choose from that list a random experiment that has not been chossen previusly
-                        random_experiments = command[7:-1].split(',')
+                        command_index += 1
+                if(command_index > len(experiments_list)):
+                    print("Experiments out of range.")
+                    subprocess.call(["docker", "stop", container])
+                    print("Cleaning...")
+                    os.remove("Dockerfile")
+                    os.remove("startscript.sh")
+                    subprocess.call(["docker", "rmi", image, "--force"])
+                    exit(1)
+            #Creates list for experiments
+            if('random' in run):
+                token_experiments_list = [''] * len(experiments_list)
+                random_index_ammount = len(experiments_list) - command_index
+            else:
+                token_experiments_list = [''] * command_index
+                random_index_ammount = 0
+            command_index = 0
+            #Checks commands that especify an experiment
+            for command in run:
+                if(command in list(experiments_list)):
+                    token_experiments_list[command_index] = command
+                    run_experiments_list.remove(command)
+                    command_index += 1
+                elif(command == 'random'):
+                    command_index += random_index_ammount
+                elif(command[:7] == 'random(' and command[-1] == ')'):
+                    try:
+                        command_index += int(command[7:-1])
+                    except:
+                        command_index += 1
+            command_index = 0
+            #Check command that specifies a list of experiments to randomize
+            for command in run:
+                if(command in list(experiments_list)):
+                    command_index += 1
+                elif(command == 'random'):
+                    command_index += random_index_ammount
+                elif(command[:7] == 'random(' and command[-1] == ')'):
+                    try:
+                        command_index += int(command[7:-1])
+                    except:
+                        random_experiments = command[7:-1].split(';')
                         for experiment in random_experiments:
                             if(experiment in token_experiments_list):
                                 random_experiments.remove(experiment)
-                        token_experiments_list += numpy.random.shuffle(random_experiments)[0]
-            csv_row.append(','.join(token_experiments_list))
+                        numpy.random.shuffle(random_experiments)
+                        token_experiments_list[command_index] = random_experiments[0]
+                        run_experiments_list.remove(token_experiments_list[command_index])
+                        command_index += len(command[7:-1].split(','))
+            command_index = 0 
+            #Check command that epecifies an ammount of random commands
+            for command in run:
+                if(command in list(experiments_list)):
+                    command_index += 1
+                elif(command == 'random'):
+                    command_index += random_index_ammount
+                elif(command[:7] == 'random(' and command[-1] == ')'):
+                    try:
+                        random_ammount = int(command[7:-1])
+                        numpy.random.shuffle(run_experiments_list)
+                        while(random_ammount > 0):
+                            token_experiments_list[command_index] = run_experiments_list.pop()
+                            random_ammount -= 1
+                            command_index += 1
+                    except:
+                        command_index += 1
+            command_index = 0
+            #Add the final remaining experiments
+            for command in run:
+                if(command in list(experiments_list)):
+                    command_index += 1
+                elif(command == 'random'):
+                    numpy.random.shuffle(run_experiments_list)
+                    while(len(run_experiments_list) > 0):
+                        token_experiments_list[command_index] = run_experiments_list.pop()
+                        command_index += 1
+                    break
+                elif(command[:7] == 'random(' and command[-1] == ')'):
+                    try:
+                        command_index += int(command[7:-1])
+                    except:
+                        command_index += 1
+            tsv_row.append(','.join(token_experiments_list))
             if(bayes is not None):
-                csv_row += list(bayes)
-            tokens_csv_list.append(csv_row)
+                tsv_row += list(bayes)
+            tokens_csv_list.append(tsv_row)
         tsv = csv.writer(file, delimiter="\t")
         tsv.writerows(tokens_csv_list)
     file.close()
