@@ -442,7 +442,7 @@ for row in tsv:
         if(len(row) > 3):
             bayes_rows = [['problem_context', 'presentation_format', 'response_type', 'prob']]
             for item_bayes in row[3:]:
-                bayes_rows.append(item_bayes.split('_'))
+                bayes_rows.append(item_bayes.split(','))
             bayes_file = open("items_bayes.csv", "wb")
             bayes_csv = csv.writer(bayes_file, delimiter=",")
             bayes_csv.writerows(bayes_rows)
