@@ -57,16 +57,16 @@ and the amount of subjects you wish to utilize to test the paradigm or a csv fil
 Experiment name, random(list), random(number) and random.
 ```
 
-Finally, specifically for the bayes test, after the rows of commands you can put the keyword items\_bayes and each row after that will serve as a trial for the bayes test in the format:
+Finally, specifically for the bayes test, after the rows of commands you can put the keyword _bayesItems_ and each row after that will serve as a trial for the bayes test in the format:
 
 ```
 problem_context,presentation_format,response_type,probability
 ```
-This will generate a **tokens.tsv** file with the experiments to be run for each subject, which will be synchronized through Google drive if enabled, and create a compressed file called **experiments.tar**. This file can be shared across different computers to test the paradigm!
+This will generate a **tokens.tsv** file with the experiments to be run for each subject, which will be synchronized through Google drive if enabled, and create a compressed file called **experiments.tar** and **experiments.cfg**. These files can be shared across different computers to test the paradigm!
 
 ### Deployment of the paradigm
 
-Once you have your machine with all the dependencies installed and a **experiments.tar**, you can run the paradigm with the same script _start.py_ used before
+Once you have your machine with all the dependencies installed and a both **experiments.tar** and **experiments.cfg**, you can run the paradigm with the same script _start.py_ used before
 
 ```
 $ python start.py

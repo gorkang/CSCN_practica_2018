@@ -257,7 +257,7 @@ if(not os.path.isfile(imagename)):
         tokens_csv_list = [[]]
         #Iterate over the trhee list created and build a tokens.tsv file
         for token,run,bayes in zip(tokens_list,runs_list,bayes_list):
-            if(run.count('random') > 1):
+            if(list(run).count('random') > 1):
                 print("Random can only be used once.")
                 subprocess.call(["docker", "stop", container])
                 print("Cleaning...")
