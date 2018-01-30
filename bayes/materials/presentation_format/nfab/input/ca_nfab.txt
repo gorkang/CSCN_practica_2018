@@ -1,7 +1,0 @@
-prev_01 in every prev_02 have breast cancer at the time of the screening.
-
-hit_rate_01 in every hit_rate_02 of those with breast cancer will receive a positive mammogram.
-
-false_positive_01 in every false_positive_02 of the remaining cases without breast cancer will still receive a positive mammogram.
-
-
