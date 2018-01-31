@@ -185,7 +185,7 @@ input#jspsych-survey-multi-choice1-next {
 }
 .jspsych-survey-multi-choice1-horizontal .jspsych-survey-multi-choice1-option {
   display: inline-block;
-  margin-left: 1em;
+  margin-left: 0.4em;
   margin-right: 1em;
   vertical-align: top;
 }
