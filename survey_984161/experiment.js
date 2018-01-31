@@ -88,6 +88,8 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
+survey_984161.push(instructions);
+
 index = 1;
 trials.forEach(function(trial) {
   survey_984161.push({
