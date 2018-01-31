@@ -1,8 +1,10 @@
 /**
- * jspsych-survey-multi-selectmr
+ * jspsych-survey-multi-select
  * a jspsych plugin for multiple choice survey questions
  *
  * documentation: docs.jspsych.org
+ *
+ *  In this modified version, two checkboxes must be selected and there are time limits
  *
  */
 
@@ -67,13 +69,13 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
       return arr.join(separator = '-');
     }
 
-    //modificacion
+    //start modification
     if (trial.trial_duration !== null) {
       jsPsych.pluginAPI.setTimeout(function() {
         end_trial();
       }, trial.trial_duration);
     }
-    //fin modificacion
+    //end modification
 
     // inject CSS for trial
     display_element.innerHTML = '<style id="jspsych-survey-multi-selectmr-css"></style>';
@@ -112,12 +114,13 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
       // add question text
       display_element.querySelector(question_selector).innerHTML += '<p id="survey-question" class="' + plugin_id_name + '-text survey-multi-selectmr">' + trial.questions[i].prompt + '</p>';
 
-      // create option check boxes
-      //inicio modificacion
+
+      //start modification. Groups all checkboxes in a div.
       check_boxes = document.createElement('div');
       check_boxes.setAttribute('class','check_boxes');
       display_element.querySelector(question_selector).appendChild(check_boxes);
-      //fin modificacion
+      //end modification
+      // create option check boxes
       for (var j = 0; j < trial.questions[i].options.length; j++) {
         var option_id_name = _join(plugin_id_name, "option", i, j),
           option_id_selector = '#' + option_id_name;
@@ -143,18 +146,18 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
         form.appendChild(label)
         form.insertBefore(input, label)
 
-        //inicio modificacion
+        //start modification
         br = document.createElement('br')
         form.appendChild(br)
         form.insertBefore(br,label);
-        //fin modificacion
+        //end modification
       }
     }
     // add submit button
     trial_form.innerHTML += '<input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label +'"': '') + '></input>';
     trial_form.innerHTML +='<div class="fail-message"></div>'
 
-    //modificacion
+    //start modification
     function end_trial() {
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
@@ -171,7 +174,7 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
      // move on to the next trial
      jsPsych.finishTrial(trialdata);
     };
-    //fin modificacion
+    //end modification
 
     trial_form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -195,7 +198,13 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
-        if(val.length != 2){ has_response.push(false); } else { has_response.push(true); }
+        //Check if exactly to options where selected
+        if(val.length != 2){
+           has_response.push(false);
+        }
+        else{
+           has_response.push(true);
+        }
       }
       // adds validation to check if at least one option is selected
       if(trial.required && has_response.includes(false)) {
