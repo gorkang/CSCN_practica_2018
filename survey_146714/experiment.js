@@ -37,11 +37,11 @@ var screen_survey_146714_experiment = {
 };
 
 // Inicio prueba
-var mathexplanation={
+var surveyexplanation={
     type: "instructions",
     pages: ["<div class = centerbox>"+
            "<p class = center-block-text>"+
-           "A continuación, usted encontrará una serie de preguntas relacionadas "+
+           "A continuaci&oacute;n, usted encontrar&aacute; una serie de preguntas relacionadas "+
            "con distintas experiencias de su vida. Seleccione la alternativa que "+
            "mejor describa la frecuencia con que usted se siente o piensa de esa "+
            "forma."+
@@ -49,39 +49,39 @@ var mathexplanation={
     allow_keys: false,
     show_clickable_nav: true,
     timing_post_trial: 50,
-    data:{trialid: "Instructions_Math"}
+    data:{trialid: "Instructions_survey"}
 };
 
 var likert_scale = ["Nunca","Pocas veces","Algunas veces","La mayoria de las veces","Siempre"];
 
-var math02 = {
+var survey02 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />En tiempos difíciles, suelo esperar lo mejor.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "Math_02"}
+  questions: [{prompt: "<div class='justified'><br />En tiempos dif&iacute;ciles, suelo esperar lo mejor.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_02"}
 };
 
-var math03 = {
+var survey03 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Si algo malo me tiene que pasar, estoy seguro de que me pasará.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "Math_03"}
+  questions: [{prompt: "<div class='justified'><br />Si algo malo me tiene que pasar, estoy seguro de que me pasar&aacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_03"}
 };
 
-var math04 = {
+var survey04 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Rara vez, espero que las cosas salgan a mi manera.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "Math_04"}
+  data: {trialid: "survey_04"}
 };
 
-var math05 = {
+var survey05 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Casi nunca espero que me sucedan cosas buenas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "Math_05"}
+  data: {trialid: "survey_05"}
 };
 
-var math06 = {
+var survey06 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />En general, espero que me ocurran más cosas buenas que malas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "Math_06"}
+  questions: [{prompt: "<div class='justified'><br />En general, espero que me ocurran m&aacute;s cosas buenas que malas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_06"}
 };
 
 
@@ -101,9 +101,9 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 survey_146714_experiment.push(screen_survey_146714_experiment);
-survey_146714_experiment.push(mathexplanation);
-survey_146714_experiment.push(math02);
-survey_146714_experiment.push(math03);
-survey_146714_experiment.push(math04);
-survey_146714_experiment.push(math05);
-survey_146714_experiment.push(math06);
+survey_146714_experiment.push(surveyexplanation);
+survey_146714_experiment.push(survey02);
+survey_146714_experiment.push(survey03);
+survey_146714_experiment.push(survey04);
+survey_146714_experiment.push(survey05);
+survey_146714_experiment.push(survey06);
