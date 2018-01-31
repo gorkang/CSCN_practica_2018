@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de encuesta",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "survey_388615",
+    "name": "survey_388615",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
