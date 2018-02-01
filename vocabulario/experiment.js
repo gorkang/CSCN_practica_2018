@@ -51,16 +51,27 @@ var surveyexplanation={
 
 var img1 = {
   type: "survey-text",
-  preamble: " Diga a qué corresponden la figura<br /><br />",
+  preamble: " Diga a qué corresponde la figura<br /><br />",
   questions: [{
-    prompt: " <img src='images/auto.jpeg' alt='Smiley face' height='42' width='42'> "
-  }],
-  data: {
-    trialid: "VCRT_05"
-  }
+    prompt: " <img src='images/auto.jpeg'> "
+  }]
 };
 
+var img2 = {
+  type: "survey-text",
+  preamble: " Diga a qué corresponde la figura<br /><br />",
+  questions: [{
+    prompt: " <img src='images/avion.jpeg'> "
+  }]
+};
 
+var img3 = {
+  type: "survey-text",
+  preamble: " Diga a qué corresponde la figura<br /><br />",
+  questions: [{
+    prompt: " <img src='images/canasto.jpeg'> "
+  }]
+};
 
 // Creacion de timeline e inclusion de trials
 vocabulario_experiment = [];    //timeline
@@ -80,3 +91,5 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 vocabulario_experiment.push(screen_vocabulario_experiment);
 vocabulario_experiment.push(surveyexplanation);
 vocabulario_experiment.push(img1);
+vocabulario_experiment.push(img2);
+vocabulario_experiment.push(img3);
