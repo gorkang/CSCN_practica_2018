@@ -11,8 +11,7 @@
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="jsPsych-6/jspsych.js"></script>
-    <script src="jsPsych-6/plugins/jspsych-survey-multi-choice1.js"></script>
-    <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-survey-multi-choice.js"></script>
     <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
     <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
 
@@ -22,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: survey_618815,
+                 timeline: survey_895386,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -48,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'survey_618815_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'survey_895386_results.csv');
                                  }
                              }
                          });
