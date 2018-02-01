@@ -65,7 +65,7 @@ var survey03 = {
 
 var survey04 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Yo siento que lo que pasa en mi vida está muy determinado por la gente que tiene poder (padres, jefes,<br> políticos).<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Yo siento que lo que pasa en mi vida está muy determinado por la gente que tiene poder (padres, jefes, políticos).<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
@@ -95,7 +95,7 @@ var survey08 = {
 
 var survey09 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />A pesar de estar bien capacitado, no conseguiré un buen empleo a menos que alguien influyente me <br>ayude.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />A pesar de estar bien capacitado, no conseguiré un buen empleo a menos que alguien influyente me ayude.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -107,7 +107,7 @@ var survey10 = {
 
 var survey11 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />He descubierto que si algo va a suceder, ello sucederá igual independientemente de lo que yo <br>haga.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />He descubierto que si algo va a suceder, ello sucederá igual independientemente de lo que yo haga.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -125,13 +125,13 @@ var survey13 = {
 
 var survey14 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />La gente como yo tiene muy poca oportunidad de defender sus intereses personales cuando esos<br> intereses entran en conflicto con los grupos poderosos (ricos, políticos).<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />La gente como yo tiene muy poca oportunidad de defender sus intereses personales cuando esos intereses entran en conflicto con los grupos poderosos (ricos, políticos).<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey15 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />No siempre es apropiado para mí planear muy por adelantado porque de todas maneras muchas cosas <br>resultan ser asunto de buena o mala suerte.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />No siempre es apropiado para mí planear muy por adelantado porque de todas maneras muchas cosas resultan ser asunto de buena o mala suerte.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -149,7 +149,7 @@ var survey17 = {
 
 var survey18 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Yo siento que la gente que tiene algún poder sobre mí (padres, familiares, jefes), trata de decidir <br>lo que sucederá en mi vida.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Yo siento que la gente que tiene algún poder sobre mí (padres, familiares, jefes), trata de decidir lo que sucederá en mi vida.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -179,7 +179,7 @@ var survey22 = {
 
 var survey23 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Cuando quiero que mis planes me salgan bien los preparo de manera que le den en el gusto a la gente <br>que tiene influencia sobre mi (padres, jefes)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando quiero que mis planes me salgan bien los preparo de manera que le den en el gusto a la gente que tiene influencia sobre mi (padres, jefes)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
