@@ -49,6 +49,35 @@ var surveyexplanation={
     data:{trialid: "Instructions_survey"}
 };
 
+var temp_timeline = [];
+var prompts = [" CAMA ",
+                " MANZANA ",
+                " TERMINAR ",
+                " GUANTE ",
+                " DESAYUNO ",
+                " ESTORBAR ",
+                " INTIMO ",
+                " IGNORANTE ",
+                " CURIOSO ",
+                " ORDINARIO ",
+                " SUPREMO ",
+                " CONSUMIR ",
+                " FORTUITO ",
+                " COMODO ",
+                " IMPROVISAR ",
+                " ESCEPTICO ",
+                " EXPEDITO ",
+                " PLAGIAR ",
+                " PERTINENTE ",
+                " AUDAZ ",
+                " OPTIMIZAR ",
+                " INSTINTO ",
+                " BILATERAL ",
+                " CANCILLERIA ",
+                " PALIAR ",
+                " EXTRADITAR ",
+                " SUBREPTICIO "];
+
 var img1 = {
   type: "survey-text",
   preamble: " Diga a qué corresponde la figura<br /><br />",
@@ -73,6 +102,36 @@ var img3 = {
   }]
 };
 
+var surveyexplanation2={
+    type: "instructions",
+    pages: ["<div class = centerbox>"+
+           "<p class = center-block-text>"+
+           "Describa y explique el significado de las siguientes palabras."+
+           "</p></div>"],
+    allow_keys: false,
+    show_clickable_nav: true,
+    timing_post_trial: 50,
+    data:{trialid: "Instructions_survey"}
+};
+
+prompts.forEach(function(operacion) {
+    temp_timeline.push({
+        timeline: [{
+            type: "survey-text",
+            preamble:" Describa y explique el significado de la palabra. ",
+            questions: [{
+                prompt: '<p>' + operacion + '</p>'
+            }]
+        }]
+    });
+});
+
+
+
+
+
+
+
 // Creacion de timeline e inclusion de trials
 vocabulario_experiment = [];    //timeline
 
@@ -93,3 +152,7 @@ vocabulario_experiment.push(surveyexplanation);
 vocabulario_experiment.push(img1);
 vocabulario_experiment.push(img2);
 vocabulario_experiment.push(img3);
+vocabulario_experiment.push(surveyexplanation2);
+vocabulario_experiment.push({
+    timeline: temp_timeline
+});

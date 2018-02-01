@@ -66,6 +66,12 @@ jsPsych.plugins['survey-text'] = (function() {
         pretty_name: 'Button label',
         default:  'Continue',
         description: 'The text that appears on the button to finish the trial.'
+      },
+      button_notKnown: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'Button label',
+        default:  "i don't know!",
+        description: 'The text that appears on the button to finish the trial.'
       }
     }
   }
@@ -109,8 +115,10 @@ jsPsych.plugins['survey-text'] = (function() {
     }
 
     // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><br /><p><br />';
+    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
+    html += '<button id="not-known-answer" class="not-known-answer" style="float: right;">'+trial.button_notKnown+'</button>';
     html +='<div class="fail-message"></div>';
+
     display_element.innerHTML = html;
     var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
     firstTextBox.focus();
@@ -154,6 +162,34 @@ jsPsych.plugins['survey-text'] = (function() {
               event.cancelBubble = true;
             }
         }
+    });
+
+    display_element.querySelector('#not-known-answer').addEventListener('click', function() {
+      // measure response time
+      var validation;
+      var endTime = (new Date()).getTime();
+      var response_time = endTime - startTime;
+
+      // create object to hold responses
+      var question_data = {};
+      var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
+      for(var index=0; index<matches.length; index++){
+        var id = "Q" + index;
+        var val = "";
+        var obje = {};
+        obje[id] = val;
+        Object.assign(question_data, obje);
+        validation = val;
+      }
+      // save data
+      var trialdata = {
+        "rt": response_time,
+        "responses": JSON.stringify(question_data)
+      };
+
+      display_element.innerHTML = '';
+      jsPsych.finishTrial(trialdata);
+      
     });
 
     var startTime = (new Date()).getTime();
