@@ -77,7 +77,7 @@ var prompts = [" CAMA ",
                 " PALIAR ",
                 " EXTRADITAR ",
                 " SUBREPTICIO "];
-condition1 = true;//if flase, skips
+condition1 = 0;//if flase, skips
 
 var img1 = {
   type: "survey-text",
@@ -122,10 +122,19 @@ prompts.forEach(function(operacion) {
             preamble:" Describa y explique el significado de la palabra. ",
             questions: [{
                 prompt: '<p>' + operacion + '</p>'
-            }]
+            }],
+            on_finish: function(data) {
+                console.log(data);
+                if (data.responses == '{\"Q0\":\"\"}'){
+                    condition1 += 1;
+                }
+                else{
+                    condition1 = 0
+                }
+            }
         }],
         conditional_function: function(data) {
-            if (condition1) {
+            if (condition1 < 3) {
                 return true;
             } else {
                 return false;
