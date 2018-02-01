@@ -53,193 +53,193 @@ var likert_scale = ["0 <br><p style='font-size:13px'>Nunca</p>","1","2","3","4",
 
 var survey02 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando  estoy  tenso(a) noto dónde se ubica la tensión en mi cuerpo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Me doy cuenta cuando me siento incómodo(a) en mi cuerpo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando estoy cómodo(a) lo noto en partes específicas de mi cuerpo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Noto cambios en mi respiración, tales como cuando se hace más lenta o más rápida.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
 var survey06 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Noto la tensión física o el malestar solamente cuando se vuelve muy severo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey07 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />No me doy cuenta de las sensaciones de malestar.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey08 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando siento dolor o malestar intento ignorarlo y continuar con lo que estaba haciendo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey09 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando siento dolor físico me enojo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey10 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Si siento algún malestar me empieza a preocupar que algo no ande bien.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey11 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Puedo sentir alguna sensación física desagradable sin preocuparme por ella.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey12 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Puedo prestar atención a mi respiración sin ser distraído (a) por lo que pasa a mi alrededor.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey13 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Puedo tener conciencia de mis sensaciones corporales internas aun cuando hay muchas cosas sucediendo a mi alrededor.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey14 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando estoy conversando con alguien puedo prestarle atención a mi postura.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey15 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Puedo volver a concentrarme en mi cuerpo si estoy distraido(a).<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey16 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Puedo redirigir mi atención desde mis pensamientos a mis sensaciones corporales.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey17 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Puedo prestar atención a todo mi cuerpo incluso cuando una parte de mi siente dolor o malestar.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey18 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Soy capaz de concentrarme conscientemente en mi cuerpo de manera global.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey19 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Noto cómo mi cuerpo cambia cuando estoy enojado(a).<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey20 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando algo anda mal en mi vida puedo sentirlo en mi cuerpo.</text><br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey21 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Noto que mi cuerpo se siente diferente después de una experiencia apacible.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey22 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Noto que puedo respirar libre y fácilmente cuando me siento cómodo(a).<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey23 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Noto cómo mi cuerpo cambia cuando me siento contento(a) / feliz.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey24 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando me siento sobrepasado(a) puedo encontrar un lugar tranquilo dentro de mí.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey25 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando dirijo la atención hacia mi cuerpo siento calma.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey26 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Puedo utilizar mi respiración para reducir la tensión.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey27 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando estoy atrapado(a) en mis pensamientos puedo cambiar mi mente concentrándome en mi cuerpo/respiración.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey28 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Estoy a la escucha de la información que envía mi cuerpo sobre mi estado emocional.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey29 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cuando estoy alterado(a), me tomo el tiempo para explorar cómo se siente mi cuerpo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey30 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Escucho a mi cuerpo para saber qué hacer.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey31 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />En mi cuerpo, estoy en casa.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey32 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Siento que mi cuerpo es un lugar seguro.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey33 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Confío en mis sensaciones corporales.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
