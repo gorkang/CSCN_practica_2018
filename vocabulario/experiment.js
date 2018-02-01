@@ -77,6 +77,7 @@ var prompts = [" CAMA ",
                 " PALIAR ",
                 " EXTRADITAR ",
                 " SUBREPTICIO "];
+condition1 = true;//if flase, skips
 
 var img1 = {
   type: "survey-text",
@@ -122,7 +123,14 @@ prompts.forEach(function(operacion) {
             questions: [{
                 prompt: '<p>' + operacion + '</p>'
             }]
-        }]
+        }],
+        conditional_function: function(data) {
+            if (condition1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     });
 });
 
