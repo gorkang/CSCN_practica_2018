@@ -65,13 +65,13 @@ var survey03 = {
 
 var survey04 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Casi nunca me tomo las cosas a pecho <br>(no me perturbo con facilidad)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Casi nunca me tomo las cosas a pecho (no me perturbo con facilidad)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mis pensamientos pueden tener gran velocidad <br>(tengo pensamientos que van muy rápido en mi mente)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Mis pensamientos pueden tener gran velocidad (tengo pensamientos que van muy rápido en mi mente)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
@@ -113,7 +113,7 @@ var survey11 = {
 
 var survey12 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Planifico para tener un trabajo <br>(me esfuerzo por asegurar que tendré dinero para pagar por mis gastos)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Planifico para tener un trabajo (me esfuerzo por asegurar que tendré dinero para pagar por mis gastos)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -131,7 +131,7 @@ var survey14 = {
 
 var survey15 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Cambio de trabajo frecuentemente <br>(no me quedo en el mismo trabajo por períodos largos de tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cambio de trabajo frecuentemente (no me quedo en el mismo trabajo por períodos largos de tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -161,13 +161,13 @@ var survey19 = {
 
 var survey20 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Soy una persona que piensa sin distraerse <br>(puedo enfocar mi mente en una sola cosa por mucho tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Soy una persona que piensa sin distraerse (puedo enfocar mi mente en una sola cosa por mucho tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey21 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Cambio de vivienda a menudo <br>(me mudo con frecuencia o no me gusta vivir en el mismo lugar por mucho tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Cambio de vivienda a menudo (me mudo con frecuencia o no me gusta vivir en el mismo lugar por mucho tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -191,7 +191,7 @@ var survey24 = {
 
 var survey25 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Resuelvo los problemas experimentando <br>(resuelvo los problemas tratando una posible solución y viendo si funciona)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Resuelvo los problemas experimentando (resuelvo los problemas tratando una posible solución y viendo si funciona)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -209,7 +209,7 @@ var survey27 = {
 
 var survey28 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Tengo pensamientos extraños cuando estoy pensando <br>(a veces tengo pensamientos irrelevantes cuando pienso)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Tengo pensamientos extraños cuando estoy pensando (a veces tengo pensamientos irrelevantes cuando pienso)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -221,13 +221,13 @@ var survey29 = {
 
 var survey30 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me siento inquieto/a en clases o charlas <br>(me siento inquieto/a si tengo que oír a alguien hablar por un largo período de tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Me siento inquieto/a en clases o charlas (me siento inquieto/a si tengo que oír a alguien hablar por un largo período de tiempo)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey31 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Planifico el futuro <br>(me interesa más el futuro que el presente)<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Planifico el futuro (me interesa más el futuro que el presente)<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
