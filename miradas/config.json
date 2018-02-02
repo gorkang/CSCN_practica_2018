@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"miradas",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "miradas",
+    "name": "miradas",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

@@ -20,11 +20,11 @@ def setup():
 	subprocess.call("sudo -H apt-get install python-gtk2-dev".split())
 
 	#The google python api is used to interact with drives
-	subprocess.call("sudo -H python -m pip install google-api-python-client".split())
+	subprocess.call("sudo -H python -m pip install --upgrade google-api-python-client".split())
 
 	#Auth-httplob2 and oauth are used to comunicate with google servers
-	subprocess.call("sudo -H python -m pip install google-auth-httplib2".split())
-	subprocess.call("sudo -H python -m pip install google-oauth".split())
+	subprocess.call("sudo -H python -m pip install --upgrade google-auth-httplib2".split())
+	subprocess.call("sudo -H python -m pip install --upgrade google-oauth".split())
 
 	#Selenium gives us controll of the web browser for pasting, starting the experiments, monitor progress and finishing the protocol
 	subprocess.call("sudo -H python -m pip install -U selenium".split())
