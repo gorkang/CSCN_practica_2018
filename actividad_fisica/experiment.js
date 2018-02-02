@@ -19,7 +19,7 @@ var instructions1_1 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_1_survey_718477"
+    trialid: "Instructions_1_actividad_fisica"
   }
 };
 
@@ -30,7 +30,7 @@ var instructions1_2 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_1_survey_718477"
+    trialid: "Instructions_1_actividad_fisica"
   }
 };
 
@@ -41,7 +41,7 @@ var instructions2 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_2_survey_718477"
+    trialid: "Instructions_2_actividad_fisica"
   }
 };
 
@@ -52,7 +52,7 @@ var instructions3 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_3_survey_718477"
+    trialid: "Instructions_3_actividad_fisica"
   }
 };
 
@@ -63,7 +63,7 @@ var instructions4 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_4_survey_718477"
+    trialid: "Instructions_4_actividad_fisica"
   }
 };
 
@@ -74,7 +74,7 @@ var instructions5 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_5_survey_718477"
+    trialid: "Instructions_5_actividad_fisica"
   }
 };
 
@@ -86,7 +86,7 @@ var working = {
     required: true
   }],
   data: {
-    trialid: "survey_718477_1"
+    trialid: "actividad_fisica_1"
   }
 }
 
@@ -207,11 +207,11 @@ var trials5 = [
 
 // Creacion de timeline e inclusion de trials
 
-survey_718477 = [];
+actividad_fisica = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  survey_718477.push({
+  actividad_fisica.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -220,13 +220,13 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-survey_718477.push(instructions1_1);
-survey_718477.push(working);
-survey_718477.push(instructions1_2);
+actividad_fisica.push(instructions1_1);
+actividad_fisica.push(working);
+actividad_fisica.push(instructions1_2);
 
 index = 2;
 trials1.forEach(function(trial) {
-  survey_718477.push({
+  actividad_fisica.push({
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -234,16 +234,16 @@ trials1.forEach(function(trial) {
     }],
     endword: trial.endword,
     data: {
-      trialid: "survey_718477_" + index
+      trialid: "actividad_fisica_" + index
     }
   })
   index += 1;
 })
 
-survey_718477.push(instructions2);
+actividad_fisica.push(instructions2);
 
 trials2.forEach(function(trial) {
-  survey_718477.push({
+  actividad_fisica.push({
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -251,16 +251,16 @@ trials2.forEach(function(trial) {
     }],
     endword: trial.endword,
     data: {
-      trialid: "survey_718477_" + index
+      trialid: "actividad_fisica_" + index
     }
   })
   index += 1;
 })
 
-survey_718477.push(instructions3);
+actividad_fisica.push(instructions3);
 
 trials3.forEach(function(trial) {
-  survey_718477.push({
+  actividad_fisica.push({
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -268,16 +268,16 @@ trials3.forEach(function(trial) {
     }],
     endword: trial.endword,
     data: {
-      trialid: "survey_718477_" + index
+      trialid: "actividad_fisica_" + index
     }
   })
   index += 1;
 })
 
-survey_718477.push(instructions4);
+actividad_fisica.push(instructions4);
 
 trials4.forEach(function(trial) {
-  survey_718477.push({
+  actividad_fisica.push({
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -285,16 +285,16 @@ trials4.forEach(function(trial) {
     }],
     endword: trial.endword,
     data: {
-      trialid: "survey_718477_" + index
+      trialid: "actividad_fisica_" + index
     }
   })
   index += 1;
 })
 
-survey_718477.push(instructions5);
+actividad_fisica.push(instructions5);
 
 trials5.forEach(function(trial) {
-  survey_718477.push({
+  actividad_fisica.push({
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -302,7 +302,7 @@ trials5.forEach(function(trial) {
     }],
     endword: trial.endword,
     data: {
-      trialid: "survey_718477_" + index
+      trialid: "actividad_fisica_" + index
     }
   })
   index += 1;

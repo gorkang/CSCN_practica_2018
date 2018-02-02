@@ -21,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: survey_858814,
+                 timeline: spriii,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -47,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'survey_858814_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'spriii_results.csv');
                                  }
                              }
                          });

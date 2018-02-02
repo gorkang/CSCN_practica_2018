@@ -19,7 +19,7 @@ var instructions = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_984161"
+    trialid: "Instructions_ghq_12"
   }
 };
 
@@ -75,11 +75,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-survey_984161 = [];
+ghq_12 = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  survey_984161.push({
+  ghq_12.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -88,11 +88,11 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-survey_984161.push(instructions);
+ghq_12.push(instructions);
 
 index = 1;
 trials.forEach(function(trial) {
-  survey_984161.push({
+  ghq_12.push({
     type: "survey-multi-choice",
     questions: [{
       prompt: "<div>Ultimamente:</div><div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -100,7 +100,7 @@ trials.forEach(function(trial) {
       required: true
     }],
     data: {
-      trialid: "survey_984161_" + index
+      trialid: "ghq_12_" + index
     }
   })
   index += 1;

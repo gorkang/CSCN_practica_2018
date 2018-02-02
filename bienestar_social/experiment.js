@@ -19,7 +19,7 @@ var instructions = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_674249"
+    trialid: "Instructions_bienestar_social"
   }
 };
 
@@ -128,11 +128,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-survey_674249 = [];
+bienestar_social = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  survey_674249.push({
+  bienestar_social.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -141,11 +141,11 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-survey_674249.push(instructions);
+bienestar_social.push(instructions);
 
 index = 1;
 trials.forEach(function(trial) {
-  survey_674249.push({
+  bienestar_social.push({
     type: "survey-multi-choice1",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -154,7 +154,7 @@ trials.forEach(function(trial) {
       horizontal: true
     }],
     data: {
-      trialid: "survey_674249_" + index
+      trialid: "bienestar_social_" + index
     }
   })
   index += 1;

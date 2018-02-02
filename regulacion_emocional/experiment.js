@@ -24,7 +24,7 @@ var instructions = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_983797"
+    trialid: "Instructions_regulacion_emocional"
   }
 };
 
@@ -74,11 +74,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-survey_983797 = [];
+regulacion_emocional = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  survey_983797.push({
+  regulacion_emocional.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -87,11 +87,11 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-survey_983797.push(instructions);
+regulacion_emocional.push(instructions);
 
 index = 1;
 trials.forEach(function(trial) {
-  survey_983797.push({
+  regulacion_emocional.push({
     type: "survey-multi-choice1",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -100,7 +100,7 @@ trials.forEach(function(trial) {
       horizontal: true
     }],
     data: {
-      trialid: "survey_983797_" + index
+      trialid: "regulacion_emocional_" + index
     }
   })
   index += 1;

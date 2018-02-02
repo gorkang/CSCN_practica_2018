@@ -1,10 +1,10 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"Descubrir rotaciones correctas",
+    "instructions":"actividad_fisica",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "survey_718477",
+    "exp_id": "actividad_fisica",
     "name": "Survey",
     "reference": [""],
     "template": "jspsych",
