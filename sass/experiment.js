@@ -33,7 +33,7 @@ var working = {
     required: true
   }],
   data: {
-    trialid: "survey_895386_1"
+    trialid: "sass_1"
   },
   on_finish: function(data) {
     if (data.responses == '{"Q0":"No"}') {
@@ -53,7 +53,7 @@ var if_not_working = {
     required: true
   }],
   data: {
-    trialid: "survey_895386_2"
+    trialid: "sass_2"
   }
 };
 
@@ -65,7 +65,7 @@ var if_working = {
     required: true
   }],
   data: {
-    trialid: "survey_895386_2"
+    trialid: "sass_2"
   }
 };
 
@@ -149,11 +149,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-survey_895386 = [];
+sass = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  survey_895386.push({
+  sass.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -162,15 +162,15 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-survey_895386.push(instructions);
-survey_895386.push(working);
-survey_895386.push({
+sass.push(instructions);
+sass.push(working);
+sass.push({
   timeline: [if_working],
   conditional_function: function() {
     return (is_working);
   }
 });
-survey_895386.push({
+sass.push({
   timeline: [if_not_working],
   conditional_function: function() {
     return (!is_working);
@@ -179,7 +179,7 @@ survey_895386.push({
 
 index = 3;
 trials.forEach(function(trial) {
-  survey_895386.push({
+  sass.push({
     type: "survey-multi-choice",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -187,7 +187,7 @@ trials.forEach(function(trial) {
       required: true
     }],
     data: {
-      trialid: "survey_895386_" + index
+      trialid: "sass_" + index
     }
   })
   index += 1;

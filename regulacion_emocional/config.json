@@ -1,10 +1,10 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"Descubrir rotaciones correctas",
+    "instructions":"regulacion_emocional",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "survey_983797",
+    "exp_id": "regulacion_emocional",
     "name": "Survey",
     "reference": [""],
     "template": "jspsych",
