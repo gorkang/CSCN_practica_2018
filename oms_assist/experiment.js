@@ -113,7 +113,7 @@ var instructions8 = {
 yes_or_no = ['Si', 'No'];
 when_year = ['Nunca', 'Durante el último mes', 'Hace más de un mes pero menos de un año', 'Hace más de un año'];
 frequency_three_months = ['Nunca', '1 o 2 veces', 'Mensualmente', 'Semanalmente', 'Diariamente o casi a diario']
-yes_or_no_three_months = ['No, nunca', 'Si, en los últimos 3 meses.', 'Se, pero no en los últimos 3 meses']
+yes_or_no_three_months = ['No, nunca', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses']
 
 var drugs = {
   Tabaco: {
