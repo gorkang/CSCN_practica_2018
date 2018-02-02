@@ -178,3 +178,7 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
+
+.jspsych-survey-multi-choice1-option{
+    width: 80px;
+}

@@ -86,7 +86,6 @@ input[type="text"] {
 
 #jspsych-survey-multi-choice1-0 {
     display: inline-block;
-    white-space: pre-line;
 }
 
 .jspsych-btn:hover {
@@ -177,4 +176,11 @@ input[type=number]::-webkit-inner-spin-button {
 
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+}
+
+.jspsych-survey-multi-choice1-question {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: left;
+    white-space: nowrap;
 }
