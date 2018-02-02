@@ -1,0 +1,7 @@
+prev_01% have breast cancer at the time of the screening.
+
+hit_rate_01% of those with breast cancer will receive a positive mammogram.
+
+false_positive_01% of the remaining cases without breast cancer will still receive a positive mammogram.
+
+

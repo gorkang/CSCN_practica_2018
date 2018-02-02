@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Descubrir rotaciones correctas",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "rotacion_mental",
+    "name": "Rotacion Mental",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

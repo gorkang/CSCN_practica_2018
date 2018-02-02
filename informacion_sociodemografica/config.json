@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"informacion_sociodemografica",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "informacion_sociodemografica",
+    "name": "informacion_sociodemografica",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
