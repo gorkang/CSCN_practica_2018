@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"aislamiento_social_y_redes_sociales",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "aislamiento_social_y_redes_sociales",
+    "name": "aislamiento_social_y_redes_sociales",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

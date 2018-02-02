@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"mini_sea",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "mini_sea",
+    "name": "mini_sea",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
