@@ -1,11 +1,11 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"Descubrir rotaciones correctas",
+    "instructions":"oms_assist",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "survey_984161",
-    "name": "Survey",
+    "exp_id": "oms_assist",
+    "name": "oms_assist",
     "reference": [""],
     "template": "jspsych",
     "time": 10

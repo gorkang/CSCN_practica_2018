@@ -22,7 +22,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: survey_718477,
+                 timeline: actividad_fisica,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -48,7 +48,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'survey_718477_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'actividad_fisica_results.csv');
                                  }
                              }
                          });

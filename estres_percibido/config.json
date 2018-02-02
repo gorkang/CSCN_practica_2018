@@ -1,11 +1,11 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"Descubrir rotaciones correctas",
+    "instructions":"estres_percibido",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "survey_858814",
-    "name": "Survey",
+    "exp_id": "estres_percibido",
+    "name": "estres_percibido",
     "reference": [""],
     "template": "jspsych",
     "time": 10

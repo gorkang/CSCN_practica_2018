@@ -21,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: survey_983797,
+                 timeline: regulacion_emocional,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -47,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'survey_983797_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'regulacion_emocional_results.csv');
                                  }
                              }
                          });
