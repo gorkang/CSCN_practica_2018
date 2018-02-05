@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_frontal_screening_experiment = {
+var screen_ineco_frontal_screening_experiment = {
     type: 'instructions',
-    pages: ['<p><left>frontal_screening<br /></p>'],
+    pages: ['<p><left>ineco_frontal_screening<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -178,11 +178,11 @@ var survey6 = {
 
 
 // Creacion de timeline e inclusion de trials
-frontal_screening_experiment = [];    //timeline
+ineco_frontal_screening_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  frontal_screening_experiment.push({
+  ineco_frontal_screening_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -192,18 +192,18 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-frontal_screening_experiment.push(screen_frontal_screening_experiment);
-frontal_screening_experiment.push(surveyexplanation0);
-frontal_screening_experiment.push(points1);
-frontal_screening_experiment.push(points2);
-frontal_screening_experiment.push(points3);
-frontal_screening_experiment.push(points4);
-frontal_screening_experiment.push(points5);
-frontal_screening_experiment.push(points6);
-frontal_screening_experiment.push(surveyexplanation);
-frontal_screening_experiment.push(survey1);
-frontal_screening_experiment.push(survey2);
-frontal_screening_experiment.push(survey3);
-frontal_screening_experiment.push(survey4);
-frontal_screening_experiment.push(survey5);
-frontal_screening_experiment.push(survey6);
+ineco_frontal_screening_experiment.push(screen_ineco_frontal_screening_experiment);
+ineco_frontal_screening_experiment.push(surveyexplanation0);
+ineco_frontal_screening_experiment.push(points1);
+ineco_frontal_screening_experiment.push(points2);
+ineco_frontal_screening_experiment.push(points3);
+ineco_frontal_screening_experiment.push(points4);
+ineco_frontal_screening_experiment.push(points5);
+ineco_frontal_screening_experiment.push(points6);
+ineco_frontal_screening_experiment.push(surveyexplanation);
+ineco_frontal_screening_experiment.push(survey1);
+ineco_frontal_screening_experiment.push(survey2);
+ineco_frontal_screening_experiment.push(survey3);
+ineco_frontal_screening_experiment.push(survey4);
+ineco_frontal_screening_experiment.push(survey5);
+ineco_frontal_screening_experiment.push(survey6);

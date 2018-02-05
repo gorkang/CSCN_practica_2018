@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>frontal_screening</title>
+      <title>ineco_frontal_screening</title>
       <!-- Documento CSS principal -->
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -26,7 +26,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: frontal_screening_experiment,
+                 timeline: ineco_frontal_screening_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -54,7 +54,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'frontal_screening_results.csv');
+                                     jsPsych.data.get().localSave( 'csv', 'ineco_frontal_screening_results.csv');
                                  }
                              }
                          });

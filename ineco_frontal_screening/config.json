@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "frontal_screening",
-    "name": "frontal_screening",
+    "exp_id": "ineco_frontal_screening",
+    "name": "ineco_frontal_screening",
     "reference": [""],
     "template": "jspsych",
     "time": 10
