@@ -49,7 +49,25 @@ var surveyexplanation={
     data:{trialid: "Instructions_survey"}
 };
 
+var survey_trial = {
+  type: 'survey-text-number',
+  questions: [{prompt: "RUT"}]
+};
 
+var survey_trial1 = {
+  type: 'survey-text-number',
+  questions: [{prompt: "EDAD:"}]
+};
+
+var survey_trial2 = {
+      type: 'survey-multi-choice1',
+      questions: [{prompt: "SEXO", options: ["HOMBRE","MUJER"], required: true, horizontal: true,}]
+};
+
+var survey_trial3 = {
+      type: 'survey-multi-choice1',
+      questions: [{prompt: "Nivel de estudios", options: ["Ninguno", "Basica", "Media", "Licenciatura", "Titulo profesional", "Magister", "Doctorado"], required: true, horizontal: true,}]
+};
 
 
 // Creacion de timeline e inclusion de trials
@@ -69,3 +87,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 //add the trials to the timeline
 informacion_sociodemografica_simple_experiment.push(screen_informacion_sociodemografica_simple_experiment);
 informacion_sociodemografica_simple_experiment.push(surveyexplanation);
+informacion_sociodemografica_simple_experiment.push(survey_trial);
+informacion_sociodemografica_simple_experiment.push(survey_trial1);
+informacion_sociodemografica_simple_experiment.push(survey_trial2);
+informacion_sociodemografica_simple_experiment.push(survey_trial3);
