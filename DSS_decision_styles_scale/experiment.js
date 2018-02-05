@@ -41,7 +41,7 @@ var surveyexplanation={
     type: "instructions",
     pages: ["<div class = centerbox>"+
            "<p class = center-block-text>"+
-           "Conteste las siguientes preguntas sobre fe religiosa seg&uacute;n la siguiente escala"+
+           "Conteste las siguientes preguntas sobre decision e intuicion seg&uacute;n la siguiente escala"+
            "</p></div>"],
     allow_keys: false,
     show_clickable_nav: true,
