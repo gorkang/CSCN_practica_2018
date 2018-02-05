@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_iri_experiment = {
+var screen_IRI_interpersonal_reactivity_index_experiment = {
     type: 'instructions',
-    pages: ['<p><left>iri<br /></p>'],
+    pages: ['<p><left>IRI_interpersonal_reactivity_index<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -222,11 +222,11 @@ var survey29 = {
 
 
 // Creacion de timeline e inclusion de trials
-iri_experiment = [];    //timeline
+IRI_interpersonal_reactivity_index_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  iri_experiment.push({
+  IRI_interpersonal_reactivity_index_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -236,33 +236,33 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-iri_experiment.push(screen_iri_experiment);
-iri_experiment.push(surveyexplanation);
-iri_experiment.push(survey02);
-iri_experiment.push(survey03);
-iri_experiment.push(survey04);
-iri_experiment.push(survey05);
-iri_experiment.push(survey06);
-iri_experiment.push(survey07);
-iri_experiment.push(survey08);
-iri_experiment.push(survey09);
-iri_experiment.push(survey10);
-iri_experiment.push(survey11);
-iri_experiment.push(survey12);
-iri_experiment.push(survey13);
-iri_experiment.push(survey14);
-iri_experiment.push(survey15);
-iri_experiment.push(survey16);
-iri_experiment.push(survey17);
-iri_experiment.push(survey18);
-iri_experiment.push(survey19);
-iri_experiment.push(survey20);
-iri_experiment.push(survey21);
-iri_experiment.push(survey22);
-iri_experiment.push(survey23);
-iri_experiment.push(survey24);
-iri_experiment.push(survey25);
-iri_experiment.push(survey26);
-iri_experiment.push(survey27);
-iri_experiment.push(survey28);
-iri_experiment.push(survey29);
+IRI_interpersonal_reactivity_index_experiment.push(screen_IRI_interpersonal_reactivity_index_experiment);
+IRI_interpersonal_reactivity_index_experiment.push(surveyexplanation);
+IRI_interpersonal_reactivity_index_experiment.push(survey02);
+IRI_interpersonal_reactivity_index_experiment.push(survey03);
+IRI_interpersonal_reactivity_index_experiment.push(survey04);
+IRI_interpersonal_reactivity_index_experiment.push(survey05);
+IRI_interpersonal_reactivity_index_experiment.push(survey06);
+IRI_interpersonal_reactivity_index_experiment.push(survey07);
+IRI_interpersonal_reactivity_index_experiment.push(survey08);
+IRI_interpersonal_reactivity_index_experiment.push(survey09);
+IRI_interpersonal_reactivity_index_experiment.push(survey10);
+IRI_interpersonal_reactivity_index_experiment.push(survey11);
+IRI_interpersonal_reactivity_index_experiment.push(survey12);
+IRI_interpersonal_reactivity_index_experiment.push(survey13);
+IRI_interpersonal_reactivity_index_experiment.push(survey14);
+IRI_interpersonal_reactivity_index_experiment.push(survey15);
+IRI_interpersonal_reactivity_index_experiment.push(survey16);
+IRI_interpersonal_reactivity_index_experiment.push(survey17);
+IRI_interpersonal_reactivity_index_experiment.push(survey18);
+IRI_interpersonal_reactivity_index_experiment.push(survey19);
+IRI_interpersonal_reactivity_index_experiment.push(survey20);
+IRI_interpersonal_reactivity_index_experiment.push(survey21);
+IRI_interpersonal_reactivity_index_experiment.push(survey22);
+IRI_interpersonal_reactivity_index_experiment.push(survey23);
+IRI_interpersonal_reactivity_index_experiment.push(survey24);
+IRI_interpersonal_reactivity_index_experiment.push(survey25);
+IRI_interpersonal_reactivity_index_experiment.push(survey26);
+IRI_interpersonal_reactivity_index_experiment.push(survey27);
+IRI_interpersonal_reactivity_index_experiment.push(survey28);
+IRI_interpersonal_reactivity_index_experiment.push(survey29);

@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>iri</title>
+      <title>IRI_interpersonal_reactivity_index</title>
       <!-- Documento CSS principal -->
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -25,7 +25,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: iri_experiment,
+                 timeline: IRI_interpersonal_reactivity_index_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -53,7 +53,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'iri_results.csv');
+                                     jsPsych.data.get().localSave( 'csv', 'IRI_interpersonal_reactivity_index_results.csv');
                                  }
                              }
                          });

@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "iri",
-    "name": "iri",
+    "exp_id": "IRI_interpersonal_reactivity_index",
+    "name": "IRI_interpersonal_reactivity_index",
     "reference": [""],
     "template": "jspsych",
     "time": 10
