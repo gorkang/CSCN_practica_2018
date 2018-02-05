@@ -89,7 +89,7 @@ function set_verbalcrt(index2) {
     crt_experiment.push(verbal_crt9);
   }
   if (index2 == 10) {
-    crt_experiment.push(verbal_crt10);
+    crt_experiment.push(complete_crt10);
   }
 }
 
@@ -225,15 +225,41 @@ var verbal_crt9 = {
 };
 
 var verbal_crt10 = {
-  type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>&iquest;Cu&aacute;l de las oraciones es correcta?:<br /><br /></div>",
+  type: "survey-multi-choice",
   questions: [{
-    prompt: "a) 'La yema del huevo son blancas' o b) 'La yema del huevo es blanca'<br /><br />"
+    prompt: "<div class='crt_experiment_text'>&iquest;Cu&aacute;l de las oraciones es correcta?:<br /><br /></div>",
+    options: ["La yema del huevo son blancas","La yema del huevo es blanca","Otra"]
   }],
   data: {
     trialid: "VCRT_10"
   }
 };
+
+var otra_crt10 = {
+    type: "survey-text",
+    questions: [{
+      prompt: "Con respecto a la yemas del huevo,&iquest;Que es correcto ?"
+    }],
+    data: {
+      trialid: "VCRT_09"
+    }
+}
+
+var if_crt10 = {
+    timeline:[otra_crt10],
+    conditional_function: function(){
+        var data = jsPsych.data.get().last(1).values()[0]["responses"];
+        if (data != '{"Q0":"Otra"}'){
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
+var complete_crt10 = {
+    timeline:[verbal_crt10, if_crt10]
+}
 
 
 /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
