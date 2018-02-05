@@ -216,6 +216,7 @@ var verbal_crt8 = {
 
 var verbal_crt9 = {
   type: "survey-text",
+  minSize:2,
   questions: [{
     prompt: "&iquest;Ser&iacute;a &eacute;tico para un hombre casarse con la hermana de su viuda?<br /><br />"
   }],
