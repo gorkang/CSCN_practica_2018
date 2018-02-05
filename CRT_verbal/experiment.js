@@ -187,6 +187,7 @@ var verbal_crt6 = {
     prompt: "&iquest;Cuantos de cada animal puso Mois&eacute;s en el arca?<br /><br />"
   }],
   minSize: 1,
+  allowNumeric:true,
   data: {
     trialid: "VCRT_06"
   }
