@@ -61,6 +61,10 @@ var survey03 = {
   type: "plugin-bart",
 };
 
+var survey04 = {
+  type: "plugin-bart",
+};
+
 
 // Creacion de timeline e inclusion de trials
 BART_balloon_analogue_risk_task_experiment = [];    //timeline
@@ -81,4 +85,6 @@ BART_balloon_analogue_risk_task_experiment.push(screen_BART_balloon_analogue_ris
 BART_balloon_analogue_risk_task_experiment.push(surveyexplanation);
 BART_balloon_analogue_risk_task_experiment.push(survey02);
 BART_balloon_analogue_risk_task_experiment.push(survey03);
-BART_balloon_analogue_risk_task_experiment.push(surveyexplanation);
+BART_balloon_analogue_risk_task_experiment.push(survey04);
+
+//BART_balloon_analogue_risk_task_experiment.push(surveyexplanation);

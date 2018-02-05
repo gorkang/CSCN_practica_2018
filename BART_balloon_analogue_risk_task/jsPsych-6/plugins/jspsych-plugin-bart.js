@@ -51,25 +51,34 @@ jsPsych.plugins["plugin-bart"] = (function() {
             });
         });
         var myend = function() {
-			var points = 0;
-            var puntos = [];
-			for(var i = 1; i <= 5; i++) { // run over all balloons
-				if(Number($('#expl' + i).attr('value')) == 0) {
-                    puntos.push(Number($('#pump' + i).attr('value')));
-                    points = points + Number($('#pump' + i).attr('value')); // get information saved to the hidden form element
-				}
-			}
-            var trial_data = {
-                totalPoints: points,
-                individualPoints: puntos
+            var response_time = (new Date()).getTime(); - startTime;
+            var points = [];
+            var timesBlow = [];
+            for (var i = 1; i <= 5; i++) { // run over all balloons
+                timesBlow.push(Number($('#pump' + i).attr('value')));
+                if (Number($('#expl' + i).attr('value')) == 0) {
+                    points.push(Number($('#pump' + i).attr('value'))); // get information saved to the hidden form element
+                } else {
+                    points.push(0);
+                }
+            }
+            var results = {
+                tPoints: points,
+                blows: timesBlow
             };
-			console.log('You achieved ' + points + ' points.');
-            console.log(trial_data.totalPoints);
-            console.log(trial_data.individualPoints);
+
+            var trial_data = {
+                rt: response_time,
+                responses: JSON.stringify(results)
+            };
+            display_element.innerHTML = '';
+            console.log("points: " + results.tpoints);
+            console.log("blows: " + results.blows);
             jsPsych.finishTrial(trial_data);
         }
         // end trial
 
+        var startTime = (new Date()).getTime();
     };
 
     return plugin;
