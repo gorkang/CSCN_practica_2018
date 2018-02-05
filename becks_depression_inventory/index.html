@@ -21,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: beck,
+                 timeline: becks_depression_inventory,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -47,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'beck_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'becks_depression_inventory_results.csv');
                                  }
                              }
                          });

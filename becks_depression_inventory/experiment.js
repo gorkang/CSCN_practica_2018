@@ -19,7 +19,7 @@ var instructions = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_beck"
+    trialid: "Instructions_becks_depression_inventory"
   }
 };
 
@@ -99,11 +99,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-beck = [];
+becks_depression_inventory = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  beck.push({
+  becks_depression_inventory.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -112,11 +112,11 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-beck.push(instructions);
+becks_depression_inventory.push(instructions);
 
 index = 1;
 trials.forEach(function(trial) {
-  beck.push({
+  becks_depression_inventory.push({
     type: "survey-multi-select",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -125,7 +125,7 @@ trials.forEach(function(trial) {
     required: true,
     required_msg: 'Debeas elegir a lo menos una opcion.',
     data: {
-      trialid: "beck_" + index
+      trialid: "becks_depression_inventory_" + index
     }
   })
   index += 1;

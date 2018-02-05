@@ -1,10 +1,10 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"beck",
+    "instructions":"becks_depression_inventory",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "beck",
+    "exp_id": "becks_depression_inventory",
     "name": "Survey",
     "reference": [""],
     "template": "jspsych",
