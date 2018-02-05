@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "crt_verbal",
-    "name": "crt_verbal",
+    "exp_id": "CRT_verbal",
+    "name": "CRT_verbal",
     "reference": [""],
     "template": "jspsych",
     "time": 10
