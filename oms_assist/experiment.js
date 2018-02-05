@@ -18,7 +18,7 @@ var instructions1_1 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -29,7 +29,7 @@ var instructions1_2 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -40,7 +40,7 @@ var instructions2 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -51,7 +51,7 @@ var instructions3 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -62,7 +62,7 @@ var instructions4 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -73,7 +73,7 @@ var instructions5 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -84,7 +84,7 @@ var instructions6 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -95,7 +95,7 @@ var instructions7 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
@@ -106,14 +106,14 @@ var instructions8 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_618815"
+    trialid: "Instructions_oms_assist"
   }
 };
 
 yes_or_no = ['Si', 'No'];
 when_year = ['Nunca', 'Durante el último mes', 'Hace más de un mes pero menos de un año', 'Hace más de un año'];
 frequency_three_months = ['Nunca', '1 o 2 veces', 'Mensualmente', 'Semanalmente', 'Diariamente o casi a diario']
-yes_or_no_three_months = ['No, nunca', 'Si, en los últimos 3 meses.', 'Se, pero no en los últimos 3 meses']
+yes_or_no_three_months = ['No, nunca', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses']
 
 var drugs = {
   Tabaco: {
@@ -148,11 +148,11 @@ var drugs = {
 
 // Creacion de timeline e inclusion de trials
 
-survey_618815 = [];
+oms_assist = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  survey_618815.push({
+  oms_assist.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -161,10 +161,10 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-survey_618815.push(instructions1_1);
+oms_assist.push(instructions1_1);
 
 for (var drug in drugs) {
-  survey_618815.push({
+  oms_assist.push({
     type: "survey-multi-choice",
     questions: [{
       prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
@@ -172,7 +172,7 @@ for (var drug in drugs) {
       required: true
     }],
     data: {
-      trialid: "survey_618815_yes_or_no",
+      trialid: "oms_assist_yes_or_no",
       drug: drug
     },
     on_finish: function(data) {
@@ -185,13 +185,13 @@ for (var drug in drugs) {
   })
 }
 
-survey_618815.push({
+oms_assist.push({
   type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + "Otros" + "<br/></div>"
   }],
   data: {
-    trialid: "survey_618815_yes_or_no_",
+    trialid: "oms_assist_yes_or_no_",
     drug: "Otro"
   },
   on_finish: function(data) {
@@ -218,7 +218,7 @@ for (var drug in drugs) {
       required: true
     }],
     data: {
-      trialid: "survey_618815_yes_or_no_school_",
+      trialid: "oms_assist_yes_or_no_school_",
       drug: drug
     },
     on_finish: function(data) {
@@ -237,7 +237,7 @@ school_timeline.push({
     prompt: "<div class='justified'><br/>" + "Otros" + "<br/></div>"
   }],
   data: {
-    trialid: "survey_618815_yes_or_no_school_" + "otros"
+    trialid: "oms_assist_yes_or_no_school_" + "otros"
   },
   on_finish: function(data) {
     if (data.responses != '{"Q0":""}' && data.responses != '{"Q0":"No"}') {
@@ -250,7 +250,7 @@ school_timeline.push({
   }
 })
 
-survey_618815.push({
+oms_assist.push({
   timeline: school_timeline,
   conditional_function: function() {
     all_drugs_no = true;
@@ -279,7 +279,7 @@ for (var drug in drugs) {
         required: true
       }],
       data: {
-        trialid: "survey_618815_when_year",
+        trialid: "oms_assist_when_year",
         drug: drug
       }
     }],
@@ -298,7 +298,7 @@ main_timeline.push({
       required: true
     }],
     data: {
-      trialid: "survey_618815_when_year",
+      trialid: "oms_assist_when_year",
       drug: "Other"
     },
     on_start: function(trial) {
@@ -332,7 +332,7 @@ for (var drug in drugs) {
         required: true
       }],
       data: {
-        trialid: "survey_618815_frequency_three_months_urge",
+        trialid: "oms_assist_frequency_three_months_urge",
         drug: drug
       },
       on_finish: function(data) {
@@ -357,7 +357,7 @@ main_timeline.push({
       required: true
     }],
     data: {
-      trialid: "survey_618815_frequency_three_months_urge",
+      trialid: "oms_assist_frequency_three_months_urge",
       drug: "Other"
     },
     on_finish: function(data) {
@@ -394,7 +394,7 @@ for (var drug in drugs) {
         required: true
       }],
       data: {
-        trialid: "survey_618815_frequency_three_months_urge",
+        trialid: "oms_assist_frequency_three_months_urge",
         drug: drug
       }
     }],
@@ -413,7 +413,7 @@ timeline_4_to_6.push({
       required: true
     }],
     data: {
-      trialid: "survey_618815_frequency_three_months_urge",
+      trialid: "oms_assist_frequency_three_months_urge",
       drug: "Other"
     },
     on_start: function(trial) {
@@ -442,7 +442,7 @@ for (var drug in drugs) {
         required: true
       }],
       data: {
-        trialid: "survey_618815_frequency_three_months",
+        trialid: "oms_assist_frequency_three_months",
         drug: drug
       },
     }],
@@ -461,7 +461,7 @@ timeline_4_to_6.push({
       required: true
     }],
     data: {
-      trialid: "survey_618815_frequency_three_months",
+      trialid: "oms_assist_frequency_three_months",
       drug: "Other"
     },
     on_start: function(trial) {
@@ -490,7 +490,7 @@ for (var drug in drugs) {
         required: true
       }],
       data: {
-        trialid: "survey_618815_frequency_three_months",
+        trialid: "oms_assist_frequency_three_months",
         drug: drug
       },
     }],
@@ -509,7 +509,7 @@ timeline_4_to_6.push({
       required: true
     }],
     data: {
-      trialid: "survey_618815_frequency_three_months",
+      trialid: "oms_assist_frequency_three_months",
       drug: "Other"
     },
     on_start: function(trial) {
@@ -545,7 +545,7 @@ for (var drug in drugs) {
         required: true
       }],
       data: {
-        trialid: "survey_618815_yes_or_no_three_months_consern",
+        trialid: "oms_assist_yes_or_no_three_months_consern",
         drug: drug
       },
     }],
@@ -564,7 +564,7 @@ main_timeline.push({
       required: true
     }],
     data: {
-      trialid: "survey_618815_yes_or_no_three_months_consern",
+      trialid: "oms_assist_yes_or_no_three_months_consern",
       drug: "Other"
     },
     on_start: function(trial) {
@@ -593,7 +593,7 @@ for (var drug in drugs) {
         required: true
       }],
       data: {
-        trialid: "survey_618815_yes_or_no_three_months_stop",
+        trialid: "oms_assist_yes_or_no_three_months_stop",
         drug: drug
       },
     }],
@@ -612,7 +612,7 @@ main_timeline.push({
       required: true
     }],
     data: {
-      trialid: "survey_618815_yes_or_no_three_months_stop",
+      trialid: "oms_assist_yes_or_no_three_months_stop",
       drug: "Other"
     },
     on_start: function(trial) {
@@ -629,7 +629,7 @@ main_timeline.push({
   }
 })
 
-survey_618815.push({
+oms_assist.push({
   timeline: main_timeline,
   conditional_function: function() {
     some_drugs_yes = false;

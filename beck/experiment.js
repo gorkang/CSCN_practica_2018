@@ -19,7 +19,7 @@ var instructions = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_survey_919492"
+    trialid: "Instructions_beck"
   }
 };
 
@@ -99,11 +99,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-survey_919492 = [];
+beck = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  survey_919492.push({
+  beck.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -112,11 +112,11 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-survey_919492.push(instructions);
+beck.push(instructions);
 
 index = 1;
 trials.forEach(function(trial) {
-  survey_919492.push({
+  beck.push({
     type: "survey-multi-select",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -125,7 +125,7 @@ trials.forEach(function(trial) {
     required: true,
     required_msg: 'Debeas elegir a lo menos una opcion.',
     data: {
-      trialid: "survey_919492_" + index
+      trialid: "beck_" + index
     }
   })
   index += 1;

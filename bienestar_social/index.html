@@ -21,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: survey_674249,
+                 timeline: bienestar_social,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -47,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'survey_674249_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'bienestar_social_results.csv');
                                  }
                              }
                          });

@@ -111,7 +111,7 @@ var stories = [{
       'solamente para ti, está en la cocina”. “Mmm,” dijo<br>' +
       'Gustavo, “Huele bien! Adoro los pasteles, excepto el de<br>' +
       'manzanas, por supuesto”.',
-    questions: ['1- ¿Alguien dijo algo que no debería decir o algo raro?', '2- ¿Quien dijo algo que no debería decir o algo raro?', '3- ¿Porqué él/ella no debería haberlo dicho o por qué estuvo fuera de lugar?', '4- ¿Porqué piensa que el / ella lo dijo?', '- ¿Cuando Gustavo sintió el aroma de la tarta, sabía que era de manzanas?', '- ¿Cómo crees que se sintió Claudia?(si dice "mal" o repite siempre la misma respuesta como "triste" preguntar: ¿qué otra emoción pudo sentir?)', '7- En la historia, que tipo de tarta hizo Claudia?', '8- ¿Cómo se conocieron Claudia y Gustavo?']
+    questions: ['1- ¿Alguien dijo algo que no debería decir o algo raro?', '2- ¿Quien dijo algo que no debería decir o algo raro?', '3- ¿Porqué él/ella no debería haberlo dicho o por qué estuvo fuera de lugar?', '4- ¿Porqué piensa que el / ella lo dijo?', '5- ¿Cuando Gustavo sintió el aroma de la tarta, sabía que era de manzanas?', '6- ¿Cómo crees que se sintió Claudia?(si dice "mal" o repite siempre la misma respuesta como "triste" preguntar: ¿qué otra emoción pudo sentir?)', '7- En la historia, que tipo de tarta hizo Claudia?', '8- ¿Cómo se conocieron Claudia y Gustavo?']
 
   },
   {
@@ -203,7 +203,7 @@ stories.forEach(function(trial) {
           on_finish: function(data) {
             if (data.responses == '{"Q0":"Si"}') {
               storie_is_unusual = true;
-            } else if (data.responses == '"Q0":"No"') {
+            } else if (data.responses == '{"Q0":"No"}') {
               storie_is_unusual = false;
             }
           }

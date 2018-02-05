@@ -22,7 +22,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: survey_618815,
+                 timeline: oms_assist,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -48,7 +48,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'survey_618815_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'oms_assist_results.csv');
                                  }
                              }
                          });
