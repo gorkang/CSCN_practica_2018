@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "numeracy",
-    "name": "numeracy",
+    "exp_id": "LIPKUS_numeracy",
+    "name": "LIPKUS_numeracy",
     "reference": [""],
     "template": "jspsych",
     "time": 10

@@ -3,7 +3,7 @@
   <head>
     <meta charset='UTF-8'>
     <meta name="robots" content="noindex">
-    <title>Numeracy</title>
+    <title>LIPKUS_numeracy</title>
     <!-- Documento CSS principal -->
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -17,7 +17,7 @@
         <!-- Plugin para recibir texto estilo survey -->
         <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
         <script src="jsPsych-6/plugins/jspsych-survey-textnum2.js"></script>
-        <!-- Plugin custom numeracy -->
+        <!-- Plugin custom LIPKUS_numeracy -->
         <script src="jsPsych-6/plugins/jspsych-survey-textnum1.js"></script>
         <!-- Plugin para desplegar elementos tipo instrucciones -->
         <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
@@ -32,7 +32,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: numeracy_experiment,
+                 timeline: LIPKUS_numeracy_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -60,7 +60,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv' , 'modulo_numeracy.csv' );
+                                     jsPsych.data.get().localSave('csv' , 'modulo_LIPKUS_numeracy.csv' );
                                  }
                              }
                          });

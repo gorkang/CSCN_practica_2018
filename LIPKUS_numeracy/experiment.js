@@ -66,9 +66,9 @@ function block_enter(event) {
     }
 }
 
-var screen_numeracy_experiment = {
+var screen_LIPKUS_numeracy_experiment = {
     type: "instructions",
-    pages: ['<p><center>Numeracy<br /></p>'],
+    pages: ['<p><center>LIPKUS_numeracy<br /></p>'],
     cont_key: [13],
     show_clickable_nav: true,
     data: {
@@ -80,7 +80,7 @@ var screen_numeracy_experiment = {
 };
 
 // Inicio prueba
-var numeracyexplanation = {
+var LIPKUS_numeracyexplanation = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
         "<p>" +
@@ -92,11 +92,11 @@ var numeracyexplanation = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Instructions_Numeracy"
+        trialid: "Instructions_LIPKUS_numeracy"
     }
 };
 
-var numeracy1 = {
+var LIPKUS_numeracy1 = {
     type: "survey-text",
     timeline: [{
             questions: [{
@@ -118,7 +118,7 @@ var numeracy1 = {
 };
 
 // Porcentual
-var numeracy1_a = {
+var LIPKUS_numeracy1_a = {
     type: "survey-textnum2",
     questions: [{
         prompt: "<p class='limitnumeracy'>3. La probabilidad de ganar un auto en el RIVERA EDICIONES es de 1 de cada 1000.<br /> &iquest;Que porcentaje de boletos de RIVERA EDICIONES ganan un auto?</p>"
@@ -128,7 +128,7 @@ var numeracy1_a = {
     }
 };
 
-var numeracy2 = {
+var LIPKUS_numeracy2 = {
     type: "survey-multi-choice2",
     timeline: [{
             questions: [{
@@ -148,7 +148,7 @@ var numeracy2 = {
 };
 
 // Porcentual
-var numeracy3 = {
+var LIPKUS_numeracy3 = {
     type: "survey-textnum2",
     questions: [{
         prompt: "<p class='limitnumeracy'>6. Si el riesgo de padecer una enfermedad en los proximos 10 a&ntilde;os para una<br /> persona (A) es de 1% y el riesgo para otra persona (B) es el doble, &iquest;cu&aacute;l es<br /> el riesgo para la persona B?</p>"
@@ -158,7 +158,7 @@ var numeracy3 = {
     }
 };
 
-var numeracy3_a = {
+var LIPKUS_numeracy3_a = {
     type: "survey-text",
     timeline: [
         {
@@ -188,14 +188,14 @@ var numeracy3_a = {
     ]
 };
 
-var numeracy4 = {
+var LIPKUS_numeracy4 = {
     type: "survey-textnum1",
     questions: [{
         prompt: "<p class='limitnumeracy'>10. Si el riesgo de padecer una enfermedad es de 20 de cada 100, esto ser&iacute;a lo <br />mismo que tener una probabilidad del</p>"
     }]
 };
 
-var numeracy5 = {
+var LIPKUS_numeracy5 = {
     type: "survey-text",
     questions: [{
         prompt: "<p class='limitnumeracy'>11. La probabilidad de contagiarse con un virus infeccioso es de 0,0005.<br /> De cada 10000 personas, &iquest;cu&aacute;ntas de ellas crees que se contagiar&aacute;n con <br />este virus?</p>"
@@ -206,11 +206,11 @@ var numeracy5 = {
 };
 
 // Creacion de timeline e inclusion de trials
-numeracy_experiment = []; //timeline
+LIPKUS_numeracy_experiment = []; //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
-    numeracy_experiment.push({
+    LIPKUS_numeracy_experiment.push({
         type: 'fullscreen',
         message: '<p>El experimento entrara en modo pantalla completa</p>',
         button_label: "Pantalla Completa",
@@ -220,12 +220,12 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 }
 
 //add the trials to the timeline
-numeracy_experiment.push(screen_numeracy_experiment);
-numeracy_experiment.push(numeracyexplanation);
-numeracy_experiment.push(numeracy1);
-numeracy_experiment.push(numeracy1_a);
-numeracy_experiment.push(numeracy2);
-numeracy_experiment.push(numeracy3);
-numeracy_experiment.push(numeracy3_a);
-numeracy_experiment.push(numeracy4);
-numeracy_experiment.push(numeracy5);
+LIPKUS_numeracy_experiment.push(screen_LIPKUS_numeracy_experiment);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracyexplanation);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracy1);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracy1_a);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracy2);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracy3);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracy3_a);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracy4);
+LIPKUS_numeracy_experiment.push(LIPKUS_numeracy5);
