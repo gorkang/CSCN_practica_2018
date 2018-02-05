@@ -86,7 +86,7 @@ input[type="text"] {
 
 #jspsych-survey-multi-choice1-0 {
     display: inline-block;
-    white-space: nowrap;
+    white-space: pre-line;
 }
 
 .jspsych-btn:hover {
