@@ -21,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: spriii,
+                 timeline: SPR_III_self_report_psychopathy_scale,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -47,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'spriii_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'SPR_III_self_report_psychopathy_scale_results.csv');
                                  }
                              }
                          });

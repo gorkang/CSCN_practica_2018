@@ -221,11 +221,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-spriii = [];
+SPR_III_self_report_psychopathy_scale = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  spriii.push({
+  SPR_III_self_report_psychopathy_scale.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -234,11 +234,11 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-spriii.push(instructions);
+SPR_III_self_report_psychopathy_scale.push(instructions);
 
 index = 1;
 trials.forEach(function(trial) {
-  spriii.push({
+  SPR_III_self_report_psychopathy_scale.push({
     type: "survey-multi-choice1",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -247,7 +247,7 @@ trials.forEach(function(trial) {
       horizontal: true
     }],
     data: {
-      trialid: "spriii_" + index
+      trialid: "SPR_III_self_report_psychopathy_scale_" + index
     }
   })
   index += 1;
