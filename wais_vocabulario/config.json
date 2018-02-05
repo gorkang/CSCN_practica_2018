@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "vocabulario",
-    "name": "vocabulario",
+    "exp_id": "wais_vocabulario",
+    "name": "wais_vocabulario",
     "reference": [""],
     "template": "jspsych",
     "time": 10

@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_vocabulario_experiment = {
+var screen_wais_vocabulario_experiment = {
     type: 'instructions',
-    pages: ['<p><left>vocabulario<br /></p>'],
+    pages: ['<p><left>wais_vocabulario<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -150,11 +150,11 @@ prompts.forEach(function(operacion) {
 
 
 // Creacion de timeline e inclusion de trials
-vocabulario_experiment = [];    //timeline
+wais_vocabulario_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  vocabulario_experiment.push({
+  wais_vocabulario_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -164,12 +164,12 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-vocabulario_experiment.push(screen_vocabulario_experiment);
-vocabulario_experiment.push(surveyexplanation);
-vocabulario_experiment.push(img1);
-vocabulario_experiment.push(img2);
-vocabulario_experiment.push(img3);
-vocabulario_experiment.push(surveyexplanation2);
-vocabulario_experiment.push({
+wais_vocabulario_experiment.push(screen_wais_vocabulario_experiment);
+wais_vocabulario_experiment.push(surveyexplanation);
+wais_vocabulario_experiment.push(img1);
+wais_vocabulario_experiment.push(img2);
+wais_vocabulario_experiment.push(img3);
+wais_vocabulario_experiment.push(surveyexplanation2);
+wais_vocabulario_experiment.push({
     timeline: temp_timeline
 });
