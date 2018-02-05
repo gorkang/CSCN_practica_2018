@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_stai_experiment = {
+var screen_STAI_state_trait_anxiety_inventory_experiment = {
     type: 'instructions',
-    pages: ['<p><left>STAI<br /></p>'],
+    pages: ['<p><left>STAI_state_trait_anxiety_inventory<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -299,11 +299,11 @@ var survey40 = {
 
 
 // Creacion de timeline e inclusion de trials
-stai_experiment = [];    //timeline
+STAI_state_trait_anxiety_inventory_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  stai_experiment.push({
+  STAI_state_trait_anxiety_inventory_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -313,46 +313,46 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-stai_experiment.push(screen_stai_experiment);
-stai_experiment.push(surveyexplanation);
-stai_experiment.push(survey02);
-stai_experiment.push(survey03);
-stai_experiment.push(survey04);
-stai_experiment.push(survey05);
-stai_experiment.push(survey06);
-stai_experiment.push(survey07);
-stai_experiment.push(survey08);
-stai_experiment.push(survey09);
-stai_experiment.push(survey10);
-stai_experiment.push(survey11);
-stai_experiment.push(survey12);
-stai_experiment.push(survey13);
-stai_experiment.push(survey14);
-stai_experiment.push(survey15);
-stai_experiment.push(survey16);
-stai_experiment.push(survey17);
-stai_experiment.push(survey18);
-stai_experiment.push(survey19);
-stai_experiment.push(survey20);
+STAI_state_trait_anxiety_inventory_experiment.push(screen_STAI_state_trait_anxiety_inventory_experiment);
+STAI_state_trait_anxiety_inventory_experiment.push(surveyexplanation);
+STAI_state_trait_anxiety_inventory_experiment.push(survey02);
+STAI_state_trait_anxiety_inventory_experiment.push(survey03);
+STAI_state_trait_anxiety_inventory_experiment.push(survey04);
+STAI_state_trait_anxiety_inventory_experiment.push(survey05);
+STAI_state_trait_anxiety_inventory_experiment.push(survey06);
+STAI_state_trait_anxiety_inventory_experiment.push(survey07);
+STAI_state_trait_anxiety_inventory_experiment.push(survey08);
+STAI_state_trait_anxiety_inventory_experiment.push(survey09);
+STAI_state_trait_anxiety_inventory_experiment.push(survey10);
+STAI_state_trait_anxiety_inventory_experiment.push(survey11);
+STAI_state_trait_anxiety_inventory_experiment.push(survey12);
+STAI_state_trait_anxiety_inventory_experiment.push(survey13);
+STAI_state_trait_anxiety_inventory_experiment.push(survey14);
+STAI_state_trait_anxiety_inventory_experiment.push(survey15);
+STAI_state_trait_anxiety_inventory_experiment.push(survey16);
+STAI_state_trait_anxiety_inventory_experiment.push(survey17);
+STAI_state_trait_anxiety_inventory_experiment.push(survey18);
+STAI_state_trait_anxiety_inventory_experiment.push(survey19);
+STAI_state_trait_anxiety_inventory_experiment.push(survey20);
 
-stai_experiment.push(surveyexplanation2);
-stai_experiment.push(survey21);
-stai_experiment.push(survey22);
-stai_experiment.push(survey23);
-stai_experiment.push(survey24);
-stai_experiment.push(survey25);
-stai_experiment.push(survey26);
-stai_experiment.push(survey27);
-stai_experiment.push(survey28);
-stai_experiment.push(survey29);
-stai_experiment.push(survey30);
-stai_experiment.push(survey31);
-stai_experiment.push(survey32);
-stai_experiment.push(survey33);
-stai_experiment.push(survey34);
-stai_experiment.push(survey35);
-stai_experiment.push(survey36);
-stai_experiment.push(survey37);
-stai_experiment.push(survey38);
-stai_experiment.push(survey39);
-stai_experiment.push(survey40);
+STAI_state_trait_anxiety_inventory_experiment.push(surveyexplanation2);
+STAI_state_trait_anxiety_inventory_experiment.push(survey21);
+STAI_state_trait_anxiety_inventory_experiment.push(survey22);
+STAI_state_trait_anxiety_inventory_experiment.push(survey23);
+STAI_state_trait_anxiety_inventory_experiment.push(survey24);
+STAI_state_trait_anxiety_inventory_experiment.push(survey25);
+STAI_state_trait_anxiety_inventory_experiment.push(survey26);
+STAI_state_trait_anxiety_inventory_experiment.push(survey27);
+STAI_state_trait_anxiety_inventory_experiment.push(survey28);
+STAI_state_trait_anxiety_inventory_experiment.push(survey29);
+STAI_state_trait_anxiety_inventory_experiment.push(survey30);
+STAI_state_trait_anxiety_inventory_experiment.push(survey31);
+STAI_state_trait_anxiety_inventory_experiment.push(survey32);
+STAI_state_trait_anxiety_inventory_experiment.push(survey33);
+STAI_state_trait_anxiety_inventory_experiment.push(survey34);
+STAI_state_trait_anxiety_inventory_experiment.push(survey35);
+STAI_state_trait_anxiety_inventory_experiment.push(survey36);
+STAI_state_trait_anxiety_inventory_experiment.push(survey37);
+STAI_state_trait_anxiety_inventory_experiment.push(survey38);
+STAI_state_trait_anxiety_inventory_experiment.push(survey39);
+STAI_state_trait_anxiety_inventory_experiment.push(survey40);

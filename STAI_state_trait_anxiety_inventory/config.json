@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "stai",
-    "name": "stai",
+    "exp_id": "STAI_state_trait_anxiety_inventory",
+    "name": "STAI_state_trait_anxiety_inventory",
     "reference": [""],
     "template": "jspsych",
     "time": 10
