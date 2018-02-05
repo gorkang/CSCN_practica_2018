@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "matrices",
-    "name": "matrices",
+    "exp_id": "wais_matrices",
+    "name": "wais_matrices",
     "reference": [""],
     "template": "jspsych",
     "time": 10

@@ -56,13 +56,13 @@ function block_enter(event) {
 
 /* ********************************* BEGININING AND END SCREENS ********************************* */
 
-var screen_matrices_experiment = {
+var screen_wais_matrices_experiment = {
     type: "instructions",
-    pages: ['<p><left>matrices_experiment<br /></p>'],
+    pages: ['<p><left>wais_matrices_experiment<br /></p>'],
     cont_key: [13],
     show_clickable_nav: true,
     data: {
-        trialid: "Screen_matrices_experiment"
+        trialid: "Screen_wais_matrices_experiment"
     },
     on_trial_start: function() {
         bloquear_enter = 0;
@@ -85,7 +85,7 @@ var screen_goodbye = {
 /* ********************************* INICIO PRUEBAS ********************************* */
 
 // ----------------------------------------------------------------------------------------------
-// ----------------------------------- matrices_experiment -------------------------------------------------
+// ----------------------------------- wais_matrices_experiment -------------------------------------------------
 // ----------------------------------------------------------------------------------------------
 
 /* Texto Inicial */
@@ -1125,10 +1125,10 @@ var matriz_condicional24 = {
 
 /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
 
-matrices_experiment = []; //timeline
+wais_matrices_experiment = []; //timeline
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
-    matrices_experiment.push({
+    wais_matrices_experiment.push({
         type: 'fullscreen',
         message: '<p>El experimento entrara en modo pantalla completa</p>',
         button_label: "Pantalla Completa",
@@ -1138,47 +1138,47 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 }
 
 //add the trials and the conditionals that activates them to the timeline
-matrices_experiment.push(screen_matrices_experiment);
-matrices_experiment.push(matrizexplanation);
-matrices_experiment.push(matriz_practice_1);
-matrices_experiment.push(m_conditional1_1);
-matrices_experiment.push(m_conditional1_2);
-matrices_experiment.push(matriz_practice_2);
-matrices_experiment.push(m_conditional2_1);
-matrices_experiment.push(m_conditional2_2);
-matrices_experiment.push(matrizstarter);
+wais_matrices_experiment.push(screen_wais_matrices_experiment);
+wais_matrices_experiment.push(matrizexplanation);
+wais_matrices_experiment.push(matriz_practice_1);
+wais_matrices_experiment.push(m_conditional1_1);
+wais_matrices_experiment.push(m_conditional1_2);
+wais_matrices_experiment.push(matriz_practice_2);
+wais_matrices_experiment.push(m_conditional2_1);
+wais_matrices_experiment.push(m_conditional2_2);
+wais_matrices_experiment.push(matrizstarter);
 
-matrices_experiment.push(matriz01);
-matrices_experiment.push(matriz_condicional00);
-matrices_experiment.push(matriz_condicional01);
-matrices_experiment.push(matriz_condicional02);
+wais_matrices_experiment.push(matriz01);
+wais_matrices_experiment.push(matriz_condicional00);
+wais_matrices_experiment.push(matriz_condicional01);
+wais_matrices_experiment.push(matriz_condicional02);
 
-matrices_experiment.push(errorIn4);
+wais_matrices_experiment.push(errorIn4);
 
-matrices_experiment.push(matriz_condicional03);
+wais_matrices_experiment.push(matriz_condicional03);
 
-matrices_experiment.push(errorIn5);
+wais_matrices_experiment.push(errorIn5);
 
-matrices_experiment.push(matriz_condicional04);
-matrices_experiment.push(matriz_condicional05);
-matrices_experiment.push(matriz_condicional06);
-matrices_experiment.push(matriz_condicional07);
-matrices_experiment.push(matriz_condicional08);
-matrices_experiment.push(matriz_condicional09);
-matrices_experiment.push(matriz_condicional10);
-matrices_experiment.push(matriz_condicional11);
-matrices_experiment.push(matriz_condicional12);
-matrices_experiment.push(matriz_condicional13);
-matrices_experiment.push(matriz_condicional14);
-matrices_experiment.push(matriz_condicional15);
-matrices_experiment.push(matriz_condicional16);
-matrices_experiment.push(matriz_condicional17);
-matrices_experiment.push(matriz_condicional18);
-matrices_experiment.push(matriz_condicional19);
-matrices_experiment.push(matriz_condicional20);
-matrices_experiment.push(matriz_condicional21);
-matrices_experiment.push(matriz_condicional22);
-matrices_experiment.push(matriz_condicional23);
-matrices_experiment.push(matriz_condicional24);
+wais_matrices_experiment.push(matriz_condicional04);
+wais_matrices_experiment.push(matriz_condicional05);
+wais_matrices_experiment.push(matriz_condicional06);
+wais_matrices_experiment.push(matriz_condicional07);
+wais_matrices_experiment.push(matriz_condicional08);
+wais_matrices_experiment.push(matriz_condicional09);
+wais_matrices_experiment.push(matriz_condicional10);
+wais_matrices_experiment.push(matriz_condicional11);
+wais_matrices_experiment.push(matriz_condicional12);
+wais_matrices_experiment.push(matriz_condicional13);
+wais_matrices_experiment.push(matriz_condicional14);
+wais_matrices_experiment.push(matriz_condicional15);
+wais_matrices_experiment.push(matriz_condicional16);
+wais_matrices_experiment.push(matriz_condicional17);
+wais_matrices_experiment.push(matriz_condicional18);
+wais_matrices_experiment.push(matriz_condicional19);
+wais_matrices_experiment.push(matriz_condicional20);
+wais_matrices_experiment.push(matriz_condicional21);
+wais_matrices_experiment.push(matriz_condicional22);
+wais_matrices_experiment.push(matriz_condicional23);
+wais_matrices_experiment.push(matriz_condicional24);
 
-matrices_experiment.push(screen_goodbye);
+wais_matrices_experiment.push(screen_goodbye);
