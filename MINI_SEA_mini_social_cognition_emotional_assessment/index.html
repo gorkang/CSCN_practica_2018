@@ -22,7 +22,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: mini_sea,
+                 timeline: MINI_SEA_mini_social_cognition_emotional_assessment,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -48,7 +48,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'mini_sea_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'MINI_SEA_mini_social_cognition_emotional_assessment_results.csv');
                                  }
                              }
                          });

@@ -19,7 +19,7 @@ var instructions_1 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_1_mini_sea"
+    trialid: "Instructions_1_MINI_SEA_mini_social_cognition_emotional_assessment"
   }
 };
 
@@ -160,17 +160,17 @@ var instructions_2 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_2_mini_sea"
+    trialid: "Instructions_2_MINI_SEA_mini_social_cognition_emotional_assessment"
   }
 };
 
 // Creacion de timeline e inclusion de trials
 
-mini_sea = [];
+MINI_SEA_mini_social_cognition_emotional_assessment = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  mini_sea.push({
+  MINI_SEA_mini_social_cognition_emotional_assessment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -179,7 +179,7 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-mini_sea.push(instructions_1);
+MINI_SEA_mini_social_cognition_emotional_assessment.push(instructions_1);
 
 index_storie = 0;
 var storie_is_unusual;
@@ -198,7 +198,7 @@ stories.forEach(function(trial) {
           }],
           preamble: trial.storie,
           data: {
-            trialid: "mini_sea_storie_" + index_storie + "_question_" + index_question
+            trialid: "MINI_SEA_mini_social_cognition_emotional_assessment_storie_" + index_storie + "_question_" + index_question
           },
           on_finish: function(data) {
             if (data.responses == '{"Q0":"Si"}') {
@@ -219,7 +219,7 @@ stories.forEach(function(trial) {
           }],
           preamble: trial.storie,
           data: {
-            trialid: "mini_sea_storie_" + index_storie + "_question_" + index_question
+            trialid: "MINI_SEA_mini_social_cognition_emotional_assessment_storie_" + index_storie + "_question_" + index_question
           }
         }],
         conditional_function: function() {
@@ -240,23 +240,23 @@ stories.forEach(function(trial) {
           }],
           preamble: trial.storie,
           data: {
-            trialid: "mini_sea_storie_" + index_storie + "_question_" + index_question
+            trialid: "MINI_SEA_mini_social_cognition_emotional_assessment_storie_" + index_storie + "_question_" + index_question
           }
         }]
       })
     }
     index_question += 1;
   })
-  mini_sea.push({
+  MINI_SEA_mini_social_cognition_emotional_assessment.push({
     timeline: storie_timeline
   });
   index_storie += 1;
 })
 
-mini_sea.push(instructions_2);
+MINI_SEA_mini_social_cognition_emotional_assessment.push(instructions_2);
 
 for (var image_index = 1; image_index < 36; image_index++) {
-  mini_sea.push({
+  MINI_SEA_mini_social_cognition_emotional_assessment.push({
     type: "survey-multi-choice1",
     questions: [{
       prompt: "<img width='40%'src='images/" + image_index + ".png' />",
@@ -265,10 +265,10 @@ for (var image_index = 1; image_index < 36; image_index++) {
       required: true
     }],
     data: {
-      trialid: "mini_sea_image_" + image_index
+      trialid: "MINI_SEA_mini_social_cognition_emotional_assessment_image_" + image_index
     }
   })
-  mini_sea.push({
+  MINI_SEA_mini_social_cognition_emotional_assessment.push({
     type: "survey-multi-choice1",
     questions: [{
       prompt: "<img width='40%'src='images/" + image_index + ".png' /><br>¿Considera que su respuesta es correcta?",
@@ -276,10 +276,10 @@ for (var image_index = 1; image_index < 36; image_index++) {
       required: true
     }],
     data: {
-      trialid: "mini_sea_image_" + image_index
+      trialid: "MINI_SEA_mini_social_cognition_emotional_assessment_image_" + image_index
     }
   })
-  mini_sea.push({
+  MINI_SEA_mini_social_cognition_emotional_assessment.push({
     type: "survey-multi-choice1",
     questions: [{
       prompt: "<img width='40%'src='images/" + image_index + ".png' /><br>¿Qué tanta confianza siente respecto de su respuesta en esta tarea?",
@@ -288,7 +288,7 @@ for (var image_index = 1; image_index < 36; image_index++) {
       required: true
     }],
     data: {
-      trialid: "mini_sea_image_" + image_index
+      trialid: "MINI_SEA_mini_social_cognition_emotional_assessment_image_" + image_index
     }
   })
 }
