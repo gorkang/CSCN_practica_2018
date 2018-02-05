@@ -52,16 +52,20 @@ jsPsych.plugins["plugin-bart"] = (function() {
         });
         var myend = function() {
 			var points = 0;
+            var puntos = [];
 			for(var i = 1; i <= 5; i++) { // run over all balloons
 				if(Number($('#expl' + i).attr('value')) == 0) {
-					points = points + Number($('#pump' + i).attr('value')) // get information saved to the hidden form element
+                    puntos.push(Number($('#pump' + i).attr('value')));
+                    points = points + Number($('#pump' + i).attr('value')); // get information saved to the hidden form element
 				}
 			}
             var trial_data = {
-                totalPoints: points
+                totalPoints: points,
+                individualPoints: puntos
             };
 			console.log('You achieved ' + points + ' points.');
             console.log(trial_data.totalPoints);
+            console.log(trial_data.individualPoints);
             jsPsych.finishTrial(trial_data);
         }
         // end trial
