@@ -443,6 +443,8 @@ if(usingGDrive):
                 option = raw_input("Retry or use local:(Retry,local)")
                 if(option in ["", "R", "r", "Retry", "retry"]):
                     retry = True
+                    credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+                    drive_service = discovery.build('drive', 'v3', credentials=credentials)
                     break
                 elif(option in ["L", "l", "local", "Local"]):
                     if(not os.path.isfile(filename)):
@@ -538,6 +540,8 @@ if(usingGDrive):
             while(True):
                 option = raw_input("Retry?(Y,n)")
                 if(option in ["", "Y", "y", "Yes", "yes"]):
+                    credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+                    drive_service = discovery.build('drive', 'v3', credentials=credentials)
                     retry = True
                     break
                 elif(option in ["N", "n", "no", "No"]):
@@ -584,6 +588,8 @@ else:
                                 option = raw_input("Retry?(Y,n)")
                                 if(option in ["", "Y", "y", "Yes", "yes"]):
                                     retry = True
+                                    credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+                                    drive_service = discovery.build('drive', 'v3', credentials=credentials)
                                     break
                                 elif(option in ["N", "n", "no", "No"]):
                                     retry = False
@@ -682,16 +688,18 @@ else:
                 #Convert and upload files on test folder
                 token_folder = drive_service.files().create(body={'name': token, 'parents': [folder_id], 'mimeType': 'application/vnd.google-apps.folder'}, fields='id').execute().get('id')
                 batch_upload = drive_service.new_batch_http_request()
-                for json_file in os.listdir(os.getcwd() + "/temp/" + token + "_finished/"):
-                    content = json.load(open(os.getcwd() + "/temp/" + token + "_finished/" + json_file, 'r'))
-                    results = json.loads(content['data'])
-                    pandas.DataFrame.from_dict(results).to_csv(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", sep=None)
-                    body={'name': json_file, 'parents': [token_folder]}
-                    media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file, mimetype='text/json', resumable=False)
-                    batch_upload.add(drive_service.files().create(body=body, media_body=media_body))
-                    body={'name': json_file[:-5] + ".tsv", 'parents': [token_folder]}
-                    media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", mimetype='text/csv', resumable=False)
-                    batch_upload.add(drive_service.files().create(body=body, media_body=media_body))
+                files = os.listdir(os.getcwd() + "/temp/" + token + "_finished/")
+                for json_file in files:
+                    if('.json' in json_file):
+                        content = json.load(open(os.getcwd() + "/temp/" + token + "_finished/" + json_file, 'r'))
+                        results = json.loads(content['data'])
+                        pandas.DataFrame.from_dict(results).to_csv(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", sep=',')
+                        body={'name': json_file, 'parents': [token_folder]}
+                        media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file, mimetype='text/json', resumable=False)
+                        batch_upload.add(drive_service.files().create(body=body, media_body=media_body))
+                        body={'name': json_file[:-5] + ".tsv", 'parents': [token_folder]}
+                        media_body=MediaFileUpload(os.getcwd() + "/temp/" + token + "_finished/" + json_file[:-5] + ".tsv", mimetype='text/csv', resumable=False)
+                        batch_upload.add(drive_service.files().create(body=body, media_body=media_body))
                 retry = False
             except:
                 print("Problem creating results folder in google drive for token.")
@@ -699,22 +707,28 @@ else:
                     option = raw_input("Retry?(Y,n)")
                     if(option in ["", "Y", "y", "Yes", "yes"]):
                         retry = True
+                        credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+                        drive_service = discovery.build('drive', 'v3', credentials=credentials)
                         break
                     elif(option in ["N", "n", "no", "No"]):
                         retry = False
                         break
     #If experiment was finished, convert finished results
+    files = os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished")
     if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished")):
-        for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished"):
-            content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file, 'r'))
-            results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file[:-5] + ".csv", sep=None)
+        for json_file in files:
+            if('.json' in json_file):
+                content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file, 'r'))
+                results = json.loads(content['data'])
+                pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "_finished/" + json_file[:-5] + ".csv", sep=',')
     #if there are unfinished resutls convert
+    files = os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token)
     if(os.path.isdir(os.path.expanduser('~/') + output_path + "/experiments/" + token)):
-        for json_file in os.listdir(os.path.expanduser('~/') + output_path + "/experiments/" + token):
-            content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file, 'r'))
-            results = json.loads(content['data'])
-            pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file[:-5] + ".csv", sep=None)
+        for json_file in files:
+            if('.json' in json_file):
+                content = json.load(open(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file, 'r'))
+                results = json.loads(content['data'])
+                pandas.DataFrame.from_dict(results).to_csv(os.path.expanduser('~/') + output_path + "/experiments/" + token + "/" + json_file[:-5] + ".csv", sep=',')
     #Clear docker files from system after stoping container
     subprocess.call(["docker", "stop", container])
     subprocess.call(["docker", "rm", container])
@@ -732,6 +746,8 @@ else:
                     option = raw_input("Retry?(Y,n)")
                     if(option in ["", "Y", "y", "Yes", "yes"]):
                         retry = True
+                        credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+                        drive_service = discovery.build('drive', 'v3', credentials=credentials)
                         break
                     elif(option in ["N", "n", "no", "No"]):
                         retry = False
