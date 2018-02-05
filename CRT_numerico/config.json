@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "CRT_numerico",
+    "name": "CRT_numerico",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

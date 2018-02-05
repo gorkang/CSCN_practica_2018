@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"SPR_III_self_report_psychopathy_scale",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "SPR_III_self_report_psychopathy_scale",
+    "name": "Survey",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

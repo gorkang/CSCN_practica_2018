@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"GHQ_general_health_questionnaire",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "GHQ_general_health_questionnaire",
+    "name": "Survey",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
