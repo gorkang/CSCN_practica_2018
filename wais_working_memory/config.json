@@ -4,7 +4,7 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "memoria_funcional",
+    "exp_id": "wais_working_memory",
     "name": "Memoria Funcional",
     "reference": [""],
     "template": "jspsych",

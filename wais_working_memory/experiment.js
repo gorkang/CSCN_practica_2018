@@ -87,7 +87,7 @@ function advance(event) {
 
 /* ********************************* PANTALLAS DE INICIO Y DESPEDIDA ********************************* */
 
-var screen_memoria_funcional_experiment = {
+var screen_wais_working_memory_experiment = {
     type: 'instructions',
     pages: ['<p><left>Working Memory<br /></p>'],
     data: {
@@ -125,7 +125,7 @@ var wmexplanation1 = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Instructions_memoria_funcional_experiment1"
+        trialid: "Instructions_wais_working_memory_experiment1"
     },
     on_trial_start: function() {
         bloquear_enter = 1;
@@ -144,7 +144,7 @@ var wmexplanation2 = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Instructions_memoria_funcional_experiment2"
+        trialid: "Instructions_wais_working_memory_experiment2"
     }
 };
 
@@ -161,7 +161,7 @@ var wmexplanation3 = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Instructions_memoria_funcional_experiment3"
+        trialid: "Instructions_wais_working_memory_experiment3"
     }
 };
 
@@ -705,7 +705,7 @@ var wmipractice_exp = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Instructions_memoria_funcional_experiment1"
+        trialid: "Instructions_wais_working_memory_experiment1"
     }
 };
 
@@ -1437,7 +1437,7 @@ var wmspractice_exp = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Instructions_memoria_funcional_experiment2"
+        trialid: "Instructions_wais_working_memory_experiment2"
     }
 };
 
@@ -3214,11 +3214,11 @@ var wms_condicional15 = {
 
 /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
 
-memoria_funcional_experiment = [];  //timeline
+wais_working_memory_experiment = [];  //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
-    memoria_funcional_experiment.push({
+    wais_working_memory_experiment.push({
         type: 'fullscreen',
         message: '<p>El experimento entrara en modo pantalla completa</p>',
         button_label: "Pantalla Completa",
@@ -3229,88 +3229,88 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 // Working Memory
-memoria_funcional_experiment.push(screen_memoria_funcional_experiment);
-memoria_funcional_experiment.push(wmexplanation1);
+wais_working_memory_experiment.push(screen_wais_working_memory_experiment);
+wais_working_memory_experiment.push(wmexplanation1);
 //WM Directo
-memoria_funcional_experiment.push(p1_a1);
-memoria_funcional_experiment.push(answeraudio_00);
+wais_working_memory_experiment.push(p1_a1);
+wais_working_memory_experiment.push(answeraudio_00);
 
-memoria_funcional_experiment.push(wm_condicional00);
-memoria_funcional_experiment.push(wm_condicional01);
-memoria_funcional_experiment.push(wm_condicional02);
-memoria_funcional_experiment.push(wm_condicional03);
-memoria_funcional_experiment.push(wm_condicional04);
-memoria_funcional_experiment.push(wm_condicional05);
-memoria_funcional_experiment.push(wm_condicional06);
-memoria_funcional_experiment.push(wm_condicional07);
-memoria_funcional_experiment.push(wm_condicional08);
-memoria_funcional_experiment.push(wm_condicional09);
-memoria_funcional_experiment.push(wm_condicional10);
-memoria_funcional_experiment.push(wm_condicional11);
-memoria_funcional_experiment.push(wm_condicional12);
-memoria_funcional_experiment.push(wm_condicional13);
-memoria_funcional_experiment.push(wm_condicional14);
+wais_working_memory_experiment.push(wm_condicional00);
+wais_working_memory_experiment.push(wm_condicional01);
+wais_working_memory_experiment.push(wm_condicional02);
+wais_working_memory_experiment.push(wm_condicional03);
+wais_working_memory_experiment.push(wm_condicional04);
+wais_working_memory_experiment.push(wm_condicional05);
+wais_working_memory_experiment.push(wm_condicional06);
+wais_working_memory_experiment.push(wm_condicional07);
+wais_working_memory_experiment.push(wm_condicional08);
+wais_working_memory_experiment.push(wm_condicional09);
+wais_working_memory_experiment.push(wm_condicional10);
+wais_working_memory_experiment.push(wm_condicional11);
+wais_working_memory_experiment.push(wm_condicional12);
+wais_working_memory_experiment.push(wm_condicional13);
+wais_working_memory_experiment.push(wm_condicional14);
 
-memoria_funcional_experiment.push(wmexplanation2);
+wais_working_memory_experiment.push(wmexplanation2);
 
 //WM Inverso
-memoria_funcional_experiment.push(p2_a1);
-memoria_funcional_experiment.push(wmi_practiceanswer01);
-memoria_funcional_experiment.push(wmi_conditional01);
-memoria_funcional_experiment.push(wmi_conditional02);
-//memoria_funcional_experiment.push(answeraudio_16);
+wais_working_memory_experiment.push(p2_a1);
+wais_working_memory_experiment.push(wmi_practiceanswer01);
+wais_working_memory_experiment.push(wmi_conditional01);
+wais_working_memory_experiment.push(wmi_conditional02);
+//wais_working_memory_experiment.push(answeraudio_16);
 
-memoria_funcional_experiment.push(p2_a2);
-memoria_funcional_experiment.push(wmi_practiceanswer02);
-memoria_funcional_experiment.push(wmi_conditional11);
-memoria_funcional_experiment.push(wmi_conditional12);
-//memoria_funcional_experiment.push(answeraudio_17);
+wais_working_memory_experiment.push(p2_a2);
+wais_working_memory_experiment.push(wmi_practiceanswer02);
+wais_working_memory_experiment.push(wmi_conditional11);
+wais_working_memory_experiment.push(wmi_conditional12);
+//wais_working_memory_experiment.push(answeraudio_17);
 
-memoria_funcional_experiment.push(wmi_condicional00);
-memoria_funcional_experiment.push(wmi_condicional01);
-memoria_funcional_experiment.push(wmi_condicional02);
-memoria_funcional_experiment.push(wmi_condicional03);
-memoria_funcional_experiment.push(wmi_condicional04);
-memoria_funcional_experiment.push(wmi_condicional05);
-memoria_funcional_experiment.push(wmi_condicional06);
-memoria_funcional_experiment.push(wmi_condicional07);
-memoria_funcional_experiment.push(wmi_condicional08);
-memoria_funcional_experiment.push(wmi_condicional09);
-memoria_funcional_experiment.push(wmi_condicional10);
-memoria_funcional_experiment.push(wmi_condicional11);
-memoria_funcional_experiment.push(wmi_condicional12);
-memoria_funcional_experiment.push(wmi_condicional13);
-memoria_funcional_experiment.push(wmi_condicional14);
-memoria_funcional_experiment.push(wmi_condicional15);
+wais_working_memory_experiment.push(wmi_condicional00);
+wais_working_memory_experiment.push(wmi_condicional01);
+wais_working_memory_experiment.push(wmi_condicional02);
+wais_working_memory_experiment.push(wmi_condicional03);
+wais_working_memory_experiment.push(wmi_condicional04);
+wais_working_memory_experiment.push(wmi_condicional05);
+wais_working_memory_experiment.push(wmi_condicional06);
+wais_working_memory_experiment.push(wmi_condicional07);
+wais_working_memory_experiment.push(wmi_condicional08);
+wais_working_memory_experiment.push(wmi_condicional09);
+wais_working_memory_experiment.push(wmi_condicional10);
+wais_working_memory_experiment.push(wmi_condicional11);
+wais_working_memory_experiment.push(wmi_condicional12);
+wais_working_memory_experiment.push(wmi_condicional13);
+wais_working_memory_experiment.push(wmi_condicional14);
+wais_working_memory_experiment.push(wmi_condicional15);
 
-memoria_funcional_experiment.push(wmexplanation3);
+wais_working_memory_experiment.push(wmexplanation3);
 
 //WM Secuencial
-memoria_funcional_experiment.push(p3_a1);
-//memoria_funcional_experiment.push(answeraudio_34);
-memoria_funcional_experiment.push(wms_practiceanswer01);
-memoria_funcional_experiment.push(wms_conditional01);
-memoria_funcional_experiment.push(wms_conditional02);
+wais_working_memory_experiment.push(p3_a1);
+//wais_working_memory_experiment.push(answeraudio_34);
+wais_working_memory_experiment.push(wms_practiceanswer01);
+wais_working_memory_experiment.push(wms_conditional01);
+wais_working_memory_experiment.push(wms_conditional02);
 
-memoria_funcional_experiment.push(p3_a2);
-//memoria_funcional_experiment.push(answeraudio_35);
-memoria_funcional_experiment.push(wm_practiceanswer02);
-memoria_funcional_experiment.push(wm_conditional11);
-memoria_funcional_experiment.push(wm_conditional12);
+wais_working_memory_experiment.push(p3_a2);
+//wais_working_memory_experiment.push(answeraudio_35);
+wais_working_memory_experiment.push(wm_practiceanswer02);
+wais_working_memory_experiment.push(wm_conditional11);
+wais_working_memory_experiment.push(wm_conditional12);
 
-memoria_funcional_experiment.push(wms_condicional00);
-memoria_funcional_experiment.push(wms_condicional01);
-memoria_funcional_experiment.push(wms_condicional02);
-memoria_funcional_experiment.push(wms_condicional03);
-memoria_funcional_experiment.push(wms_condicional04);
-memoria_funcional_experiment.push(wms_condicional05);
-memoria_funcional_experiment.push(wms_condicional06);
-memoria_funcional_experiment.push(wms_condicional07);
-memoria_funcional_experiment.push(wms_condicional08);
-memoria_funcional_experiment.push(wms_condicional09);
-memoria_funcional_experiment.push(wms_condicional10);
-memoria_funcional_experiment.push(wms_condicional11);
-memoria_funcional_experiment.push(wms_condicional12);
-memoria_funcional_experiment.push(wms_condicional13);
-memoria_funcional_experiment.push(wms_condicional14);
-memoria_funcional_experiment.push(wms_condicional15);
+wais_working_memory_experiment.push(wms_condicional00);
+wais_working_memory_experiment.push(wms_condicional01);
+wais_working_memory_experiment.push(wms_condicional02);
+wais_working_memory_experiment.push(wms_condicional03);
+wais_working_memory_experiment.push(wms_condicional04);
+wais_working_memory_experiment.push(wms_condicional05);
+wais_working_memory_experiment.push(wms_condicional06);
+wais_working_memory_experiment.push(wms_condicional07);
+wais_working_memory_experiment.push(wms_condicional08);
+wais_working_memory_experiment.push(wms_condicional09);
+wais_working_memory_experiment.push(wms_condicional10);
+wais_working_memory_experiment.push(wms_condicional11);
+wais_working_memory_experiment.push(wms_condicional12);
+wais_working_memory_experiment.push(wms_condicional13);
+wais_working_memory_experiment.push(wms_condicional14);
+wais_working_memory_experiment.push(wms_condicional15);

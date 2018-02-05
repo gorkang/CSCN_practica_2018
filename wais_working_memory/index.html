@@ -22,7 +22,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: memoria_funcional_experiment,
+                 timeline: wais_working_memory_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -50,7 +50,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'memoria_funcional_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'wais_working_memory_results.csv');
                                  }
                              }
                          });
