@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_bis_experiment = {
+var screen_BIS_barratt_impulsiveness_scale_experiment = {
     type: 'instructions',
-    pages: ['<p><left>bis<br /></p>'],
+    pages: ['<p><left>BIS_barratt_impulsiveness_scale<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -234,11 +234,11 @@ var survey31 = {
 
 
 // Creacion de timeline e inclusion de trials
-bis_experiment = [];    //timeline
+BIS_barratt_impulsiveness_scale_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  bis_experiment.push({
+  BIS_barratt_impulsiveness_scale_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -248,35 +248,35 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-bis_experiment.push(screen_bis_experiment);
-bis_experiment.push(surveyexplanation);
-bis_experiment.push(survey02);
-bis_experiment.push(survey03);
-bis_experiment.push(survey04);
-bis_experiment.push(survey05);
-bis_experiment.push(survey06);
-bis_experiment.push(survey07);
-bis_experiment.push(survey08);
-bis_experiment.push(survey09);
-bis_experiment.push(survey10);
-bis_experiment.push(survey11);
-bis_experiment.push(survey12);
-bis_experiment.push(survey13);
-bis_experiment.push(survey14);
-bis_experiment.push(survey15);
-bis_experiment.push(survey16);
-bis_experiment.push(survey17);
-bis_experiment.push(survey18);
-bis_experiment.push(survey19);
-bis_experiment.push(survey20);
-bis_experiment.push(survey21);
-bis_experiment.push(survey22);
-bis_experiment.push(survey23);
-bis_experiment.push(survey24);
-bis_experiment.push(survey25);
-bis_experiment.push(survey26);
-bis_experiment.push(survey27);
-bis_experiment.push(survey28);
-bis_experiment.push(survey29);
-bis_experiment.push(survey30);
-bis_experiment.push(survey31);
+BIS_barratt_impulsiveness_scale_experiment.push(screen_BIS_barratt_impulsiveness_scale_experiment);
+BIS_barratt_impulsiveness_scale_experiment.push(surveyexplanation);
+BIS_barratt_impulsiveness_scale_experiment.push(survey02);
+BIS_barratt_impulsiveness_scale_experiment.push(survey03);
+BIS_barratt_impulsiveness_scale_experiment.push(survey04);
+BIS_barratt_impulsiveness_scale_experiment.push(survey05);
+BIS_barratt_impulsiveness_scale_experiment.push(survey06);
+BIS_barratt_impulsiveness_scale_experiment.push(survey07);
+BIS_barratt_impulsiveness_scale_experiment.push(survey08);
+BIS_barratt_impulsiveness_scale_experiment.push(survey09);
+BIS_barratt_impulsiveness_scale_experiment.push(survey10);
+BIS_barratt_impulsiveness_scale_experiment.push(survey11);
+BIS_barratt_impulsiveness_scale_experiment.push(survey12);
+BIS_barratt_impulsiveness_scale_experiment.push(survey13);
+BIS_barratt_impulsiveness_scale_experiment.push(survey14);
+BIS_barratt_impulsiveness_scale_experiment.push(survey15);
+BIS_barratt_impulsiveness_scale_experiment.push(survey16);
+BIS_barratt_impulsiveness_scale_experiment.push(survey17);
+BIS_barratt_impulsiveness_scale_experiment.push(survey18);
+BIS_barratt_impulsiveness_scale_experiment.push(survey19);
+BIS_barratt_impulsiveness_scale_experiment.push(survey20);
+BIS_barratt_impulsiveness_scale_experiment.push(survey21);
+BIS_barratt_impulsiveness_scale_experiment.push(survey22);
+BIS_barratt_impulsiveness_scale_experiment.push(survey23);
+BIS_barratt_impulsiveness_scale_experiment.push(survey24);
+BIS_barratt_impulsiveness_scale_experiment.push(survey25);
+BIS_barratt_impulsiveness_scale_experiment.push(survey26);
+BIS_barratt_impulsiveness_scale_experiment.push(survey27);
+BIS_barratt_impulsiveness_scale_experiment.push(survey28);
+BIS_barratt_impulsiveness_scale_experiment.push(survey29);
+BIS_barratt_impulsiveness_scale_experiment.push(survey30);
+BIS_barratt_impulsiveness_scale_experiment.push(survey31);

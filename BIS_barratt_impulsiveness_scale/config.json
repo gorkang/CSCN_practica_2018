@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "bis",
-    "name": "bis",
+    "exp_id": "BIS_barratt_impulsiveness_scale",
+    "name": "BIS_barratt_impulsiveness_scale",
     "reference": [""],
     "template": "jspsych",
     "time": 10
