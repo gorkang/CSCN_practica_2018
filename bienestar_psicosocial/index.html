@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>bienestar_ps</title>
+      <title>bienestar_psicosocial</title>
       <!-- Documento CSS principal -->
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -25,7 +25,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: bienestar_ps_experiment,
+                 timeline: bienestar_psicosocial_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -53,7 +53,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'bienestar_ps_results.csv');
+                                     jsPsych.data.get().localSave( 'csv', 'bienestar_psicosocial_results.csv');
                                  }
                              }
                          });

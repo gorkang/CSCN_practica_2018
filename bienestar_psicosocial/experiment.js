@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_bienestar_ps_experiment = {
+var screen_bienestar_psicosocial_experiment = {
     type: 'instructions',
-    pages: ['<p><left>bienestar_ps<br /></p>'],
+    pages: ['<p><left>bienestar_psicosocial<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -288,11 +288,11 @@ var survey40 = {
 
 
 // Creacion de timeline e inclusion de trials
-bienestar_ps_experiment = [];    //timeline
+bienestar_psicosocial_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  bienestar_ps_experiment.push({
+  bienestar_psicosocial_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -302,44 +302,44 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-bienestar_ps_experiment.push(screen_bienestar_ps_experiment);
-bienestar_ps_experiment.push(surveyexplanation);
-bienestar_ps_experiment.push(survey02);
-bienestar_ps_experiment.push(survey03);
-bienestar_ps_experiment.push(survey04);
-bienestar_ps_experiment.push(survey05);
-bienestar_ps_experiment.push(survey06);
-bienestar_ps_experiment.push(survey07);
-bienestar_ps_experiment.push(survey08);
-bienestar_ps_experiment.push(survey09);
-bienestar_ps_experiment.push(survey10);
-bienestar_ps_experiment.push(survey11);
-bienestar_ps_experiment.push(survey12);
-bienestar_ps_experiment.push(survey13);
-bienestar_ps_experiment.push(survey14);
-bienestar_ps_experiment.push(survey15);
-bienestar_ps_experiment.push(survey16);
-bienestar_ps_experiment.push(survey17);
-bienestar_ps_experiment.push(survey18);
-bienestar_ps_experiment.push(survey19);
-bienestar_ps_experiment.push(survey20);
-bienestar_ps_experiment.push(survey21);
-bienestar_ps_experiment.push(survey22);
-bienestar_ps_experiment.push(survey23);
-bienestar_ps_experiment.push(survey24);
-bienestar_ps_experiment.push(survey25);
-bienestar_ps_experiment.push(survey26);
-bienestar_ps_experiment.push(survey27);
-bienestar_ps_experiment.push(survey28);
-bienestar_ps_experiment.push(survey29);
-bienestar_ps_experiment.push(survey30);
-bienestar_ps_experiment.push(survey31);
-bienestar_ps_experiment.push(survey32);
-bienestar_ps_experiment.push(survey33);
-bienestar_ps_experiment.push(survey34);
-bienestar_ps_experiment.push(survey35);
-bienestar_ps_experiment.push(survey36);
-bienestar_ps_experiment.push(survey37);
-bienestar_ps_experiment.push(survey38);
-bienestar_ps_experiment.push(survey39);
-bienestar_ps_experiment.push(survey40);
+bienestar_psicosocial_experiment.push(screen_bienestar_psicosocial_experiment);
+bienestar_psicosocial_experiment.push(surveyexplanation);
+bienestar_psicosocial_experiment.push(survey02);
+bienestar_psicosocial_experiment.push(survey03);
+bienestar_psicosocial_experiment.push(survey04);
+bienestar_psicosocial_experiment.push(survey05);
+bienestar_psicosocial_experiment.push(survey06);
+bienestar_psicosocial_experiment.push(survey07);
+bienestar_psicosocial_experiment.push(survey08);
+bienestar_psicosocial_experiment.push(survey09);
+bienestar_psicosocial_experiment.push(survey10);
+bienestar_psicosocial_experiment.push(survey11);
+bienestar_psicosocial_experiment.push(survey12);
+bienestar_psicosocial_experiment.push(survey13);
+bienestar_psicosocial_experiment.push(survey14);
+bienestar_psicosocial_experiment.push(survey15);
+bienestar_psicosocial_experiment.push(survey16);
+bienestar_psicosocial_experiment.push(survey17);
+bienestar_psicosocial_experiment.push(survey18);
+bienestar_psicosocial_experiment.push(survey19);
+bienestar_psicosocial_experiment.push(survey20);
+bienestar_psicosocial_experiment.push(survey21);
+bienestar_psicosocial_experiment.push(survey22);
+bienestar_psicosocial_experiment.push(survey23);
+bienestar_psicosocial_experiment.push(survey24);
+bienestar_psicosocial_experiment.push(survey25);
+bienestar_psicosocial_experiment.push(survey26);
+bienestar_psicosocial_experiment.push(survey27);
+bienestar_psicosocial_experiment.push(survey28);
+bienestar_psicosocial_experiment.push(survey29);
+bienestar_psicosocial_experiment.push(survey30);
+bienestar_psicosocial_experiment.push(survey31);
+bienestar_psicosocial_experiment.push(survey32);
+bienestar_psicosocial_experiment.push(survey33);
+bienestar_psicosocial_experiment.push(survey34);
+bienestar_psicosocial_experiment.push(survey35);
+bienestar_psicosocial_experiment.push(survey36);
+bienestar_psicosocial_experiment.push(survey37);
+bienestar_psicosocial_experiment.push(survey38);
+bienestar_psicosocial_experiment.push(survey39);
+bienestar_psicosocial_experiment.push(survey40);

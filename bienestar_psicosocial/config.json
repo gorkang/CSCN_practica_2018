@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "bienestar_ps",
-    "name": "bienestar_ps",
+    "exp_id": "bienestar_psicosocial",
+    "name": "bienestar_psicosocial",
     "reference": [""],
     "template": "jspsych",
     "time": 10
