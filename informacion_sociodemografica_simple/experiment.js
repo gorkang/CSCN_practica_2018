@@ -51,7 +51,7 @@ var surveyexplanation={
 
 var survey_trial = {
   type: 'survey-text-number',
-  questions: [{prompt: "RUT"}]
+  questions: [{prompt: "RUT (sin puntos, guión ni dígito verificador. Ejemplo si el rut es 17.736.727-1 escribir 17736727):"}]
 };
 
 var survey_trial1 = {
@@ -61,12 +61,12 @@ var survey_trial1 = {
 
 var survey_trial2 = {
       type: 'survey-multi-choice1',
-      questions: [{prompt: "SEXO", options: ["HOMBRE","MUJER"], required: true, horizontal: true,}]
+      questions: [{prompt: "SEXO", options: ["HOMBRE","MUJER"], required: true,}]
 };
 
 var survey_trial3 = {
       type: 'survey-multi-choice1',
-      questions: [{prompt: "Nivel de estudios", options: ["Ninguno", "Basica", "Media", "Licenciatura", "Titulo profesional", "Magister", "Doctorado"], required: true, horizontal: true,}]
+      questions: [{prompt: "Nivel de estudios", options: ['1. Educación básica incompleta o inferior.', '2. Básica completa.', '3. Media incompleta.', '4. Media completa / Técnica incompleta.', '5. Universitaria incompleta / Técnica completa', '6. Universitaria completa.', '7. Post Grado (Master, Doctor o equivalente).'], required: true}]
 };
 
 
