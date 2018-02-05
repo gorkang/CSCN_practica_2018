@@ -21,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: sass,
+                 timeline: SASS_social_adaptation_self_evaluation_scale,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -47,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'sass_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'SASS_social_adaptation_self_evaluation_scale_results.csv');
                                  }
                              }
                          });

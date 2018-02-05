@@ -33,7 +33,7 @@ var working = {
     required: true
   }],
   data: {
-    trialid: "sass_1"
+    trialid: "SASS_social_adaptation_self_evaluation_scale_1"
   },
   on_finish: function(data) {
     if (data.responses == '{"Q0":"No"}') {
@@ -53,7 +53,7 @@ var if_not_working = {
     required: true
   }],
   data: {
-    trialid: "sass_2"
+    trialid: "SASS_social_adaptation_self_evaluation_scale_2"
   }
 };
 
@@ -65,7 +65,7 @@ var if_working = {
     required: true
   }],
   data: {
-    trialid: "sass_2"
+    trialid: "SASS_social_adaptation_self_evaluation_scale_2"
   }
 };
 
@@ -149,11 +149,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-sass = [];
+SASS_social_adaptation_self_evaluation_scale = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  sass.push({
+  SASS_social_adaptation_self_evaluation_scale.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -162,15 +162,15 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-sass.push(instructions);
-sass.push(working);
-sass.push({
+SASS_social_adaptation_self_evaluation_scale.push(instructions);
+SASS_social_adaptation_self_evaluation_scale.push(working);
+SASS_social_adaptation_self_evaluation_scale.push({
   timeline: [if_working],
   conditional_function: function() {
     return (is_working);
   }
 });
-sass.push({
+SASS_social_adaptation_self_evaluation_scale.push({
   timeline: [if_not_working],
   conditional_function: function() {
     return (!is_working);
@@ -179,7 +179,7 @@ sass.push({
 
 index = 3;
 trials.forEach(function(trial) {
-  sass.push({
+  SASS_social_adaptation_self_evaluation_scale.push({
     type: "survey-multi-choice",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -187,7 +187,7 @@ trials.forEach(function(trial) {
       required: true
     }],
     data: {
-      trialid: "sass_" + index
+      trialid: "SASS_social_adaptation_self_evaluation_scale_" + index
     }
   })
   index += 1;
