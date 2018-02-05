@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>personalidad</title>
+      <title>EPI_eysenck_personality_inventory</title>
       <!-- Documento CSS principal -->
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -25,7 +25,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: personalidad_experiment,
+                 timeline: EPI_eysenck_personality_inventory_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -53,7 +53,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'personalidad_results.csv');
+                                     jsPsych.data.get().localSave( 'csv', 'EPI_eysenck_personality_inventory_results.csv');
                                  }
                              }
                          });

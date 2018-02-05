@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_personalidad_experiment = {
+var screen_EPI_eysenck_personality_inventory_experiment = {
     type: 'instructions',
-    pages: ['<p><left>personalidad<br /></p>'],
+    pages: ['<p><left>EPI_eysenck_personality_inventory<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -227,11 +227,11 @@ var survey30 = {
 
 
 // Creacion de timeline e inclusion de trials
-personalidad_experiment = [];    //timeline
+EPI_eysenck_personality_inventory_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  personalidad_experiment.push({
+  EPI_eysenck_personality_inventory_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -241,34 +241,34 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-personalidad_experiment.push(screen_personalidad_experiment);
-personalidad_experiment.push(surveyexplanation);
-personalidad_experiment.push(survey02);
-personalidad_experiment.push(survey03);
-personalidad_experiment.push(survey04);
-personalidad_experiment.push(survey05);
-personalidad_experiment.push(survey06);
-personalidad_experiment.push(survey07);
-personalidad_experiment.push(survey08);
-personalidad_experiment.push(survey09);
-personalidad_experiment.push(survey10);
-personalidad_experiment.push(survey11);
-personalidad_experiment.push(survey12);
-personalidad_experiment.push(survey13);
-personalidad_experiment.push(survey14);
-personalidad_experiment.push(survey15);
-personalidad_experiment.push(survey16);
-personalidad_experiment.push(survey17);
-personalidad_experiment.push(survey18);
-personalidad_experiment.push(survey19);
-personalidad_experiment.push(survey20);
-personalidad_experiment.push(survey21);
-personalidad_experiment.push(survey22);
-personalidad_experiment.push(survey23);
-personalidad_experiment.push(survey24);
-personalidad_experiment.push(survey25);
-personalidad_experiment.push(survey26);
-personalidad_experiment.push(survey27);
-personalidad_experiment.push(survey28);
-personalidad_experiment.push(survey29);
-personalidad_experiment.push(survey30);
+EPI_eysenck_personality_inventory_experiment.push(screen_EPI_eysenck_personality_inventory_experiment);
+EPI_eysenck_personality_inventory_experiment.push(surveyexplanation);
+EPI_eysenck_personality_inventory_experiment.push(survey02);
+EPI_eysenck_personality_inventory_experiment.push(survey03);
+EPI_eysenck_personality_inventory_experiment.push(survey04);
+EPI_eysenck_personality_inventory_experiment.push(survey05);
+EPI_eysenck_personality_inventory_experiment.push(survey06);
+EPI_eysenck_personality_inventory_experiment.push(survey07);
+EPI_eysenck_personality_inventory_experiment.push(survey08);
+EPI_eysenck_personality_inventory_experiment.push(survey09);
+EPI_eysenck_personality_inventory_experiment.push(survey10);
+EPI_eysenck_personality_inventory_experiment.push(survey11);
+EPI_eysenck_personality_inventory_experiment.push(survey12);
+EPI_eysenck_personality_inventory_experiment.push(survey13);
+EPI_eysenck_personality_inventory_experiment.push(survey14);
+EPI_eysenck_personality_inventory_experiment.push(survey15);
+EPI_eysenck_personality_inventory_experiment.push(survey16);
+EPI_eysenck_personality_inventory_experiment.push(survey17);
+EPI_eysenck_personality_inventory_experiment.push(survey18);
+EPI_eysenck_personality_inventory_experiment.push(survey19);
+EPI_eysenck_personality_inventory_experiment.push(survey20);
+EPI_eysenck_personality_inventory_experiment.push(survey21);
+EPI_eysenck_personality_inventory_experiment.push(survey22);
+EPI_eysenck_personality_inventory_experiment.push(survey23);
+EPI_eysenck_personality_inventory_experiment.push(survey24);
+EPI_eysenck_personality_inventory_experiment.push(survey25);
+EPI_eysenck_personality_inventory_experiment.push(survey26);
+EPI_eysenck_personality_inventory_experiment.push(survey27);
+EPI_eysenck_personality_inventory_experiment.push(survey28);
+EPI_eysenck_personality_inventory_experiment.push(survey29);
+EPI_eysenck_personality_inventory_experiment.push(survey30);

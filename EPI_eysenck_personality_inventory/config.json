@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "personalidad",
-    "name": "personalidad",
+    "exp_id": "EPI_eysenck_personality_inventory",
+    "name": "EPI_eysenck_personality_inventory",
     "reference": [""],
     "template": "jspsych",
     "time": 10
