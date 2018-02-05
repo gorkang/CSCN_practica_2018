@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>escala_exp_disociativas</title>
+      <title>escala_experiencias_disociativas</title>
       <!-- Documento CSS principal -->
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -25,7 +25,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: escala_exp_disociativas_experiment,
+                 timeline: escala_experiencias_disociativas_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -53,7 +53,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'escala_exp_disociativas_results.csv');
+                                     jsPsych.data.get().localSave( 'csv', 'escala_experiencias_disociativas_results.csv');
                                  }
                              }
                          });

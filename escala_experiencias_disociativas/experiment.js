@@ -26,9 +26,9 @@ onkeydown = function block_fkeys(event){
     }
 }
 
-var screen_escala_exp_disociativas_experiment = {
+var screen_escala_experiencias_disociativas_experiment = {
     type: 'instructions',
-    pages: ['<p><left>escala_exp_disociativas<br /></p>'],
+    pages: ['<p><left>escala_experiencias_disociativas<br /></p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -314,11 +314,11 @@ var survey29 = {
 
 
 // Creacion de timeline e inclusion de trials
-escala_exp_disociativas_experiment = [];    //timeline
+escala_experiencias_disociativas_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  escala_exp_disociativas_experiment.push({
+  escala_experiencias_disociativas_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -328,33 +328,33 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-escala_exp_disociativas_experiment.push(screen_escala_exp_disociativas_experiment);
-escala_exp_disociativas_experiment.push(surveyexplanation);
-escala_exp_disociativas_experiment.push(survey02);
-escala_exp_disociativas_experiment.push(survey03);
-escala_exp_disociativas_experiment.push(survey04);
-escala_exp_disociativas_experiment.push(survey05);
-escala_exp_disociativas_experiment.push(survey06);
-escala_exp_disociativas_experiment.push(survey07);
-escala_exp_disociativas_experiment.push(survey08);
-escala_exp_disociativas_experiment.push(survey09);
-escala_exp_disociativas_experiment.push(survey10);
-escala_exp_disociativas_experiment.push(survey11);
-escala_exp_disociativas_experiment.push(survey12);
-escala_exp_disociativas_experiment.push(survey13);
-escala_exp_disociativas_experiment.push(survey14);
-escala_exp_disociativas_experiment.push(survey15);
-escala_exp_disociativas_experiment.push(survey16);
-escala_exp_disociativas_experiment.push(survey17);
-escala_exp_disociativas_experiment.push(survey18);
-escala_exp_disociativas_experiment.push(survey19);
-escala_exp_disociativas_experiment.push(survey20);
-escala_exp_disociativas_experiment.push(survey21);
-escala_exp_disociativas_experiment.push(survey22);
-escala_exp_disociativas_experiment.push(survey23);
-escala_exp_disociativas_experiment.push(survey24);
-escala_exp_disociativas_experiment.push(survey25);
-escala_exp_disociativas_experiment.push(survey26);
-escala_exp_disociativas_experiment.push(survey27);
-escala_exp_disociativas_experiment.push(survey28);
-escala_exp_disociativas_experiment.push(survey29);
+escala_experiencias_disociativas_experiment.push(screen_escala_experiencias_disociativas_experiment);
+escala_experiencias_disociativas_experiment.push(surveyexplanation);
+escala_experiencias_disociativas_experiment.push(survey02);
+escala_experiencias_disociativas_experiment.push(survey03);
+escala_experiencias_disociativas_experiment.push(survey04);
+escala_experiencias_disociativas_experiment.push(survey05);
+escala_experiencias_disociativas_experiment.push(survey06);
+escala_experiencias_disociativas_experiment.push(survey07);
+escala_experiencias_disociativas_experiment.push(survey08);
+escala_experiencias_disociativas_experiment.push(survey09);
+escala_experiencias_disociativas_experiment.push(survey10);
+escala_experiencias_disociativas_experiment.push(survey11);
+escala_experiencias_disociativas_experiment.push(survey12);
+escala_experiencias_disociativas_experiment.push(survey13);
+escala_experiencias_disociativas_experiment.push(survey14);
+escala_experiencias_disociativas_experiment.push(survey15);
+escala_experiencias_disociativas_experiment.push(survey16);
+escala_experiencias_disociativas_experiment.push(survey17);
+escala_experiencias_disociativas_experiment.push(survey18);
+escala_experiencias_disociativas_experiment.push(survey19);
+escala_experiencias_disociativas_experiment.push(survey20);
+escala_experiencias_disociativas_experiment.push(survey21);
+escala_experiencias_disociativas_experiment.push(survey22);
+escala_experiencias_disociativas_experiment.push(survey23);
+escala_experiencias_disociativas_experiment.push(survey24);
+escala_experiencias_disociativas_experiment.push(survey25);
+escala_experiencias_disociativas_experiment.push(survey26);
+escala_experiencias_disociativas_experiment.push(survey27);
+escala_experiencias_disociativas_experiment.push(survey28);
+escala_experiencias_disociativas_experiment.push(survey29);

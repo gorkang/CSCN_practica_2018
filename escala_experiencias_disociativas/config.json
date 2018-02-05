@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "escala_exp_disociativas",
-    "name": "escala_exp_disociativas",
+    "exp_id": "escala_experiencias_disociativas",
+    "name": "escala_experiencias_disociativas",
     "reference": [""],
     "template": "jspsych",
     "time": 10
