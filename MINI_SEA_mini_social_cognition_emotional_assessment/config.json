@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"MINI_SEA_mini_social_cognition_emotional_assessment",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "MINI_SEA_mini_social_cognition_emotional_assessment",
+    "name": "MINI_SEA_mini_social_cognition_emotional_assessment",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

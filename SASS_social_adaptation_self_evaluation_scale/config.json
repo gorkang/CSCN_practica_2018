@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"SASS_social_adaptation_self_evaluation_scale",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "SASS_social_adaptation_self_evaluation_scale",
+    "name": "Survey",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

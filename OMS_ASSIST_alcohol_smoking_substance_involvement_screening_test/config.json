@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test",
+    "name": "OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
