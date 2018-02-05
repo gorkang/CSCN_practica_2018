@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "crtnum",
-    "name": "crtnum",
+    "exp_id": "CRT_numerico",
+    "name": "CRT_numerico",
     "reference": [""],
     "template": "jspsych",
     "time": 10

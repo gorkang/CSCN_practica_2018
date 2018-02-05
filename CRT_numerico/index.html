@@ -31,7 +31,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: crtNum_experiment,
+                 timeline: CRT_numerico_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -59,7 +59,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv' , 'crtNum_results.csv');
+                                     jsPsych.data.get().localSave( 'csv' , 'CRT_numerico_results.csv');
                                  }
                              }
                          });

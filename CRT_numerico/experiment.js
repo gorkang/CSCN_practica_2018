@@ -22,7 +22,7 @@ onkeydown = function block_fkeys(event) {
 }
 
 /***Instructions and questions to be asked***/
-var crtNumintro = {
+var CRT_numericointro = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
         "<p>" +
@@ -33,11 +33,11 @@ var crtNumintro = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Intro_crtNum"
+        trialid: "Intro_CRT_numerico"
     }
 };
 
-var crtNumexplanation = {
+var CRT_numericoexplanation = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
         "<p>" +
@@ -49,11 +49,11 @@ var crtNumexplanation = {
     show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
-        trialid: "Instructions_crtNum"
+        trialid: "Instructions_CRT_numerico"
     }
 };
 
-var crtNum1 = {
+var CRT_numerico1 = {
     type: "survey-text",
     endword: "pesos",
     timeline: [{
@@ -66,7 +66,7 @@ var crtNum1 = {
     }, ],
 
 };
-var crtNum2 = {
+var CRT_numerico2 = {
     type: "survey-text",
     endword: "dias",
     timeline: [{
@@ -78,7 +78,7 @@ var crtNum2 = {
         }
     }, ],
 };
-var crtNum3 = {
+var CRT_numerico3 = {
     type: "survey-text",
     endword: "minutos",
     timeline: [{
@@ -91,7 +91,7 @@ var crtNum3 = {
     }, ],
 
 };
-var crtNum4 = {
+var CRT_numerico4 = {
     type: "survey-text",
     endword: "estudiantes",
     timeline: [{
@@ -103,7 +103,7 @@ var crtNum4 = {
         }
     }, ]
 };
-var crtNum5 = {
+var CRT_numerico5 = {
     type: "survey-text",
     endword: "pesos",
     timeline: [{
@@ -119,7 +119,7 @@ var crtNum5 = {
 
 
 
-var crtNum6 = {
+var CRT_numerico6 = {
     type: "survey-multi-choice2",
     timeline: [{
         questions: [{
@@ -138,7 +138,7 @@ var crtNum6 = {
 };
 
 
-var crtNum3_a = {
+var CRT_numerico3_a = {
     type: "survey-text",
     endword: "dias",
     timeline: [
@@ -158,7 +158,7 @@ var crtNum3_a = {
 
 
 
-crtNum_experiment = []; // definitive Timeline
+CRT_numerico_experiment = []; // definitive Timeline
 tempArray = []; // temporary  Timeline to shuffle the trials
 
 /**
@@ -178,7 +178,7 @@ function shuffleArray(array) {
 and if it isn't, add the trial to make it fullscreen
 */
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
-    crtNum_experiment.push({
+    CRT_numerico_experiment.push({
         type: 'fullscreen',
         message: '<p>El experimento entrara en modo pantalla completa</p>',
         button_label: "Pantalla Completa",
@@ -188,20 +188,20 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 }
 
 //push instructions to the definitive Timeline
-crtNum_experiment.push(crtNumintro);
-crtNum_experiment.push(crtNumexplanation);
+CRT_numerico_experiment.push(CRT_numericointro);
+CRT_numerico_experiment.push(CRT_numericoexplanation);
 
 //push trials to the temporary timeline
-tempArray.push(crtNum1);
-tempArray.push(crtNum2);
-tempArray.push(crtNum3);
-tempArray.push(crtNum4);
-tempArray.push(crtNum5);
-tempArray.push(crtNum6);
-tempArray.push(crtNum3_a);
+tempArray.push(CRT_numerico1);
+tempArray.push(CRT_numerico2);
+tempArray.push(CRT_numerico3);
+tempArray.push(CRT_numerico4);
+tempArray.push(CRT_numerico5);
+tempArray.push(CRT_numerico6);
+tempArray.push(CRT_numerico3_a);
 
 //shuffle the temporary timeline and add it to the definitive timeline
 shuffleArray(tempArray);
 for (i in tempArray) {
-    crtNum_experiment.push(tempArray[i]);
+    CRT_numerico_experiment.push(tempArray[i]);
 }
