@@ -49,59 +49,68 @@ var surveyexplanation={
     data:{trialid: "Instructions_survey"}
 };
 
-var likert_scale = ["Fuertemente en desacuerdo","En desacuerdo","De acuerdo","Fuertemente de acuerdo"];
+var likert_scale = ["1 <br><p style='font-size:13px'> strongly disagree</p>","2","3","4", "5 <br> <p style='font-size:13px'> strongly agree</p>"];
 
 var survey02 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi fe religiosa es extremadamente importante para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />I prefer to gather all the necessary information before committing to a decision.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Rezo a diario.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />I thoroughly evaluate decision alternatives before making a final choice.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Consireo que mi fe le otorga significado y prop&oacute;sito a mi vida.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />In decision making, I take time to contemplate the pros/cons or risks/benefits of a situation.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me considero activo en mi fe o iglesia.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Investigating the facts is an important part of my decision making process.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
 var survey06 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi fe es parte importante de qui&eacute;n soy como persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'> I weigh a number of different factors when making decisions.<br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
+//previos was desicion style
+//intuitivcomes now
+
 var survey07 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi relaci&oacute;n con Dios es extremadamente importante para m&iacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />When making decisions, I rely mainly on my gut feelings.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey08 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Disfruto estando al rededor de otras personas que comparten mi fe.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />My initial hunch about decisions is generally what I follow.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey09 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Veo mi fe como una fuente de comodidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />I make decisions based on intuition.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey10 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi fe influye en muchas de mis decisiones.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />I rely on my first impressions when making decisions.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_06"}
+};
+
+var survey11 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />I weigh feelings more than analysis in making decisions.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
@@ -133,3 +142,4 @@ DSS_decision_styles_scale_experiment.push(survey07);
 DSS_decision_styles_scale_experiment.push(survey08);
 DSS_decision_styles_scale_experiment.push(survey09);
 DSS_decision_styles_scale_experiment.push(survey10);
+DSS_decision_styles_scale_experiment.push(survey11);
