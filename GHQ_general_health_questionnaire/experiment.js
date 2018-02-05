@@ -19,7 +19,7 @@ var instructions = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_ghq_12"
+    trialid: "Instructions_GHQ_general_health_questionnaire"
   }
 };
 
@@ -75,11 +75,11 @@ var trials = [{
 
 // Creacion de timeline e inclusion de trials
 
-ghq_12 = [];
+GHQ_general_health_questionnaire = [];
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   //If not FULLSCREEN enable fullscreen
-  ghq_12.push({
+  GHQ_general_health_questionnaire.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -88,11 +88,11 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
-ghq_12.push(instructions);
+GHQ_general_health_questionnaire.push(instructions);
 
 index = 1;
 trials.forEach(function(trial) {
-  ghq_12.push({
+  GHQ_general_health_questionnaire.push({
     type: "survey-multi-choice",
     questions: [{
       prompt: "<div>Ultimamente:</div><div class='justified'><br/>" + trial.question + "<br/></div>",
@@ -100,7 +100,7 @@ trials.forEach(function(trial) {
       required: true
     }],
     data: {
-      trialid: "ghq_12_" + index
+      trialid: "GHQ_general_health_questionnaire_" + index
     }
   })
   index += 1;

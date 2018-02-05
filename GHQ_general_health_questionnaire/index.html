@@ -21,7 +21,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: ghq_12,
+                 timeline: GHQ_general_health_questionnaire,
                  on_finish: function(data){
 
                      // Serialize the data
@@ -47,7 +47,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave('csv', 'ghq_12_results.csv');
+                                     jsPsych.data.get().localSave('csv', 'GHQ_general_health_questionnaire_results.csv');
                                  }
                              }
                          });
