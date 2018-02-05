@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de encuesta",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "GDMS_estilo_toma_decisiones",
+    "name": "GDMS_estilo_toma_decisiones",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
