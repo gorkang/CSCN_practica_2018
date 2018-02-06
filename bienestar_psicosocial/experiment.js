@@ -28,25 +28,14 @@ onkeydown = function block_fkeys(event){
 
 var screen_bienestar_psicosocial_experiment = {
     type: 'instructions',
-    pages: ['<p><left>bienestar_psicosocial<br /></p>'],
+    pages: ['<p><left><b><big>Bienestar psicosocial</big></b><br />'+
+    "A continuación, usted encontrará una serie de preguntas relacionadas con distintas experiencias de su vida personal, por favor seleccione la alternativa que más lo represente."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuación, usted encontrará una serie de preguntas relacionadas con distintas experiencias de su vida personal, por favor seleccione la alternativa que más lo represente."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
 };
 
 var likert_scale = ["Completamente<br> en desacuerdo","Moderadamente<br> en desacuerdo","Ligeramente<br> en desacuerdo","Ligeramente<br> de acuerdo","Moderadamente<br> de acuerdo","Completamente<br> de acuerdo"];
@@ -303,7 +292,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 bienestar_psicosocial_experiment.push(screen_bienestar_psicosocial_experiment);
-bienestar_psicosocial_experiment.push(surveyexplanation);
+
 bienestar_psicosocial_experiment.push(survey02);
 bienestar_psicosocial_experiment.push(survey03);
 bienestar_psicosocial_experiment.push(survey04);
