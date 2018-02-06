@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_STAI_state_trait_anxiety_inventory_experiment = {
     type: 'instructions',
-    pages: ['<p><left>STAI_state_trait_anxiety_inventory<br /></p>'],
+    pages: ['<p><left><b><big>STAI</big></b><br />'+
+    "Apareceran algunas expresiones que la gente usa para describirse a si misma. Lea cada frase y marque el casillero que indique como se siente ahora mismo o sea EN ESTE MOMENTO. No hay respuestas buenas o malas. No utilice mucho tiempo en cada frase, pero trate de dar la respuesta que mejor describa SUS SENTIMIENTOS AHORA ."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -36,18 +38,7 @@ var screen_STAI_state_trait_anxiety_inventory_experiment = {
     }
 };
 
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Apareceran algunas expresiones que la gente usa para describirse a si misma. Lea cada frase y marque el casillero que indique como se siente ahora mismo o sea EN ESTE MOMENTO. No hay respuestas buenas o malas. No utilice mucho tiempo en cada frase, pero trate de dar la respuesta que mejor describa SUS SENTIMIENTOS AHORA ."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
+
 
 var likert_scale = ["Nada","Un poco","Bastante","Mucho"];
 
@@ -314,7 +305,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 STAI_state_trait_anxiety_inventory_experiment.push(screen_STAI_state_trait_anxiety_inventory_experiment);
-STAI_state_trait_anxiety_inventory_experiment.push(surveyexplanation);
+
 STAI_state_trait_anxiety_inventory_experiment.push(survey02);
 STAI_state_trait_anxiety_inventory_experiment.push(survey03);
 STAI_state_trait_anxiety_inventory_experiment.push(survey04);
