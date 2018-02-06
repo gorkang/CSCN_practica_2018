@@ -27,34 +27,23 @@ onkeydown = function block_fkeys(event){
 
 var screen_comprension_lectora_experiment = {
     type: 'instructions',
-    pages: ['<p><left>Reading comprehension<br /></p>'],
+    pages: ['<p><left><b><big>Comprension lectora</big></b><br />'+
+    "A continuaci&oacute;n realizar&aacute;s un test de comprensi&oacute;n, es decir, una prueba para valorar la comprensi&oacute;n<br />"+
+    "cuando leen los textos. El test consiste en leer dos textos de una p&aacute;gina cada uno, y despu&eacute;s<br />"+
+    "constestar unas preguntas. Para contestar, debes elegir una alternativa entre cuatro<br />"+
+    "respuestas posibles teniendo en cuenta que solamente una de ellas es correcta. Marcar&aacute;s la<br />"+
+    "alternativa correcta.<br /><br />"+
+    "     En resumen, para hacer el test debes hacer lo siguiente:<br />"+
+    "     1) Lee el primer texto<br />"+
+    "     2) Constesta las preguntas marcando la respuesta correcta.<br />"+
+    "     3) Cuando termines el primer texto haz lo mismo con el segundo<br /><br /><br />"+
+    "Haz click en el siguiente bot&oacute;n para continuar"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var clexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuaci&oacute;n realizar&aacute;s un test de comprensi&oacute;n, es decir, una prueba para valorar la comprensi&oacute;n<br />"+
-           "cuando leen los textos. El test consiste en leer dos textos de una p&aacute;gina cada uno, y despu&eacute;<br />"+
-           "constestar unas preguntas. Para contestar, debes elegir una alternativa entre cuatro<br />"+
-           "respuestas posibles teniendo en cuenta que solamente una de ellas es correcta. Marcar&aacute;s la<br />"+
-           "alternativa correcta.<br /><br />"+
-           "     En resumen, para hacer el test debes hacer lo siguiente:<br />"+
-           "     1) Lee el primer texto<br />"+
-           "     2) Constesta las preguntas marcando la respuesta correcta.<br />"+
-           "     3) Cuando termines el primer texto haz lo mismo con el segundo<br /><br /><br />"+
-           "Haz click en el siguiente bot&oacute;n para continuar"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_Reading"}
 };
 
 var cl_texto1 = {
@@ -226,7 +215,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 comprension_lectora_experiment.push(screen_comprension_lectora_experiment);
-comprension_lectora_experiment.push(clexplanation);
+
 comprension_lectora_experiment.push(cl_texto1);
 comprension_lectora_experiment.push(cl_1);
 comprension_lectora_experiment.push(cl_2);
