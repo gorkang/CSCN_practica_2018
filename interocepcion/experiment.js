@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_interocepcion_experiment = {
     type: 'instructions',
-    pages: ['<p><left>interocepcion<br /></p>'],
+    pages: ['<p><left><b><big>Interocepcion</big></b><br />'+
+    "A continuación se encuentra una lista de enunciados. Por favor indique cuán a menudo dichos enunciados se aplican a usted en su vida cotidiana."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -37,17 +39,6 @@ var screen_interocepcion_experiment = {
 };
 
 // Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuación se encuentra una lista de enunciados. Por favor indique cuán a menudo dichos enunciados se aplican a usted en su vida cotidiana."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["0 <br><p style='font-size:13px'>Nunca</p>","1","2","3","4","5 <br> <p style='font-size:13px'>Siempre</p>"];
 
@@ -261,7 +252,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 interocepcion_experiment.push(screen_interocepcion_experiment);
-interocepcion_experiment.push(surveyexplanation);
+
 interocepcion_experiment.push(survey02);
 interocepcion_experiment.push(survey03);
 interocepcion_experiment.push(survey04);
