@@ -1,69 +1,81 @@
 <!DOCTYPE html>
 <html class=''>
-  <head>
-      <meta charset='UTF-8'>
-      <meta name="robots" content="noindex">
-      <title>Miradas</title>
-      <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
 
-  <body>
+<head>
+  <meta charset='UTF-8'>
+  <meta name="robots" content="noindex">
+  <title>Miradas</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-
-        <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- Libreria principal JsPsych -->
-        <script src="jsPsych-6/jspsych.js"></script>
-        <script src="jsPsych-6/plugins/jspsych-survey-multi-choice.js"></script>
-        <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
-        <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
-
-        <!-- Documento CSS principal -->
+<body>
 
 
-    <script src='experiment.js'></script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Libreria principal JsPsych -->
+  <script src="jsPsych-6/jspsych.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
 
-    <script>
-    $( document ).ready(function() {
-
-        jsPsych.init({
-                 timeline: miradas,
-                 fullscreen: true,
-
-                 on_finish: function(data){
-
-                     // Serialize the data
-                     var promise = new Promise(function(resolve, reject) {
-                         var data = jsPsych.data.get().json();
-                         resolve(data);
-                     })
-
-                     promise.then(function(data) {
+  <!-- Documento CSS principal -->
 
 
-                         $.ajax({
-                             type: "POST",
-                             url: '/save',
-                             data: { "data": data },
-                             success: function(){ document.location = "/next" },
-                             dataType: "application/json",
+  <script src='experiment.js'></script>
 
-                             // Endpoint not running, local save
-                             error: function(err) {
+  <script>
+    $(document).ready(function() {
 
-                                 if (err.status == 200){
-                                     document.location = "/next";
-                                 } else {
-                                     // If error, assue local save
-                                     jsPsych.data.get().localSave('csv' , 'miradas_results.csv' );
-                                 }
-                             }
-                         });
-                     })
-                 }
+          jsPsych.init({
+              timeline: miradas,
+              fullscreen: true,
 
+              on_finish: function(data) {
+
+                // Serialize the data
+                var promise = new Promise(function(resolve, reject) {
+                  var data = jsPsych.data.get().json();
+                  resolve(data);
+                })
+
+                promise.then(function(data) {
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: '/save',
+                        data: {
+                          "data": data
+                        },
+                        success: function() {
+                          document.location = "/next"
+                        },
+                        dataType: "application/json",
+
+                        // Endpoint not running, local save
+                        error: function(err) {
+
+                          if (err.status == 200) {
+                            document.location = "/next";
+                          } else {
+                            // If error, assue local save
+                            if (window.self !== window.top) {
+                              parent.postMessage({
+                                csv: jsPsych.data.get().csv(),
+                                name: 'miradas_results'
+                              }, '*');
+                            } else {
+                              jsPsych.data.get().localSave('csv', 'miradas_results.csv');
+                            }
+                          }
+                        });
+                    })
+                }
+
+              });
           });
-    });
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html class=''>
-  <head>
-      <meta charset='UTF-8'>
-      <meta name="robots" content="noindex">
-      <title>metacognicion</title>
-      <!-- Documento CSS principal -->
-      <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
 
-  <body>
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Libreria principal JsPsych -->
-    <script src="jsPsych-6/jspsych.js"></script>
-    <!-- Plugin para desplegar elementos tipo instrucciones -->
-    <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
-    <!-- Plugin custom multi choice 2 -->
-    <script src="jsPsych-6/plugins/jspsych-survey-multi-choice1.js"></script>
-    <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
+<head>
+  <meta charset='UTF-8'>
+  <meta name="robots" content="noindex">
+  <title>metacognicion</title>
+  <!-- Documento CSS principal -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-    <script src='experiment.js'></script>
+<body>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Libreria principal JsPsych -->
+  <script src="jsPsych-6/jspsych.js"></script>
+  <!-- Plugin para desplegar elementos tipo instrucciones -->
+  <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+  <!-- Plugin custom multi choice 2 -->
+  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice1.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
 
-    <script>
-    $( document ).ready(function() {
+  <script src='experiment.js'></script>
 
-        jsPsych.init({
-                 timeline: metacognicion_experiment,
-                 fullscreen: true,
+  <script>
+    $(document).ready(function() {
 
-                 on_finish: function(data){
+          jsPsych.init({
+              timeline: metacognicion_experiment,
+              fullscreen: true,
 
-                     // Serialize the data
-                     var promise = new Promise(function(resolve, reject) {
-                         var data = jsPsych.data.get().json();
-                         resolve(data);
-                     })
+              on_finish: function(data) {
 
-                     promise.then(function(data) {
+                // Serialize the data
+                var promise = new Promise(function(resolve, reject) {
+                  var data = jsPsych.data.get().json();
+                  resolve(data);
+                })
+
+                promise.then(function(data) {
 
 
-                         $.ajax({
-                             type: "POST",
-                             url: '/save',
-                             data: { "data": data },
-                             success: function(){ document.location = "/next" },
-                             dataType: "application/json",
+                    $.ajax({
+                        type: "POST",
+                        url: '/save',
+                        data: {
+                          "data": data
+                        },
+                        success: function() {
+                          document.location = "/next"
+                        },
+                        dataType: "application/json",
 
-                             // Endpoint not running, local save
-                             error: function(err) {
+                        // Endpoint not running, local save
+                        error: function(err) {
 
-                                 if (err.status == 200){
-                                     document.location = "/next";
-                                 } else {
-                                     // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'metacognicion_results.csv');
-                                 }
-                             }
-                         });
-                     })
-                 }
+                          if (err.status == 200) {
+                            document.location = "/next";
+                          } else {
+                            // If error, assue local save
+                            if (window.self !== window.top) {
+                              parent.postMessage({
+                                csv: jsPsych.data.get().csv(),
+                                name: 'metacognicion_results'
+                              }, '*');
+                            } else {
+                              jsPsych.data.get().localSave('csv', 'metacognicion_results.csv');
+                            }
+                          }
+                        });
+                    })
+                }
 
+              });
           });
-    });
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

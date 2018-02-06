@@ -4,15 +4,14 @@
 <head>
   <meta charset='UTF-8'>
   <meta name="robots" content="noindex">
-  <title>Survey</title>
-  <!-- Documento CSS principal -->
+  <title>Memoria Funcional</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="jsPsych-6/jspsych.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-bret.js"></script>
   <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
   <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
 
@@ -22,7 +21,9 @@
     $(document).ready(function() {
 
           jsPsych.init({
-              timeline: GHQ_general_health_questionnaire,
+              timeline: bret,
+              fullscreen: true,
+
               on_finish: function(data) {
 
                 // Serialize the data
@@ -47,7 +48,6 @@
 
                         // Endpoint not running, local save
                         error: function(err) {
-
                           if (err.status == 200) {
                             document.location = "/next";
                           } else {
@@ -55,10 +55,17 @@
                             if (window.self !== window.top) {
                               parent.postMessage({
                                 csv: jsPsych.data.get().csv(),
-                                name: 'GHQ_general_health_questionnaire_results'
+                                name: 'bret_results'
                               }, '*');
                             } else {
-                              jsPsych.data.get().localSave('csv', 'GHQ_general_health_questionnaire_results.csv');
+                              if (window.self !== window.top) {
+                                parent.postMessage({
+                                  csv: jsPsych.data.get().csv(),
+                                  name: 'bret_results'
+                                }, '*');
+                              } else {
+                                jsPsych.data.get().localSave('csv', 'bret_results.csv');
+                              }
                             }
                           }
                         });
