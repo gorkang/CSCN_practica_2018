@@ -29,7 +29,7 @@ onkeydown = function block_fkeys(event){
 var screen_informacion_sociodemografica_simple_experiment = {
     type: 'instructions',
     pages: ['<p><left><b><big>Informacion sociodemografica simple</big></b><br />'+
-    "Conteste las siguientes preguntas sobre fe religiosa seg&uacute;n la siguiente escala"+
+    "A continuación se le solicitan algunos datos demográficos para ser empleados como información estadística. Por favor marque las alternativas correspondientes a su situación y complete toda la información, la cual es privada."+
     '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
