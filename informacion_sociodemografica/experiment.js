@@ -15,7 +15,8 @@ var offspring_ammount;
 
 var instructions = {
   type: "instructions",
-  pages: ['A continuación se le solicitan algunos datos demográficos para ser empleados como información estadística. Por favor marque las alternativas correspondientes a su situación y complete toda la información, la cual es privada.'],
+  pages: ['<p><left><b><big>informacion sociodemografica</big></b><br />'+
+  'A continuación se le solicitan algunos datos demográficos para ser empleados como información estadística. Por favor marque las alternativas correspondientes a su situación y complete toda la información, la cual es privada.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,
