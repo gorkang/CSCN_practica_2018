@@ -13,9 +13,13 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 type: jsPsych.plugins.parameterType.INT, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
                 default: 5
             },
-            parameter_name: {
+            probability: {
+                type: jsPsych.plugins.parameterType.INT,
+                default: 10
+            },
+            color: {
                 type: jsPsych.plugins.parameterType.STRING,
-                default: "undefined"
+                default: "green"
             }
         }
     }
@@ -43,9 +47,9 @@ jsPsych.plugins["plugin-bart"] = (function() {
             $("#bart").bart({
                 b: trial.amount, // create 5 balloons
                 o: {
-                    color: 'green', // color of balloons
+                    color: trial.color, // color of balloons
                     earnings: 1, // points earned for each pump
-                    popprob: 10, // probability of popping; defined as 1 out of popprop
+                    popprob: trial.probability, // probability of popping; defined as 1 out of popprop
                     //onexplode: myexplode // user-defined function invoked after an explosion
                 },
                 s: {

@@ -63,6 +63,7 @@ var survey03 = {
 
 var survey04 = {
   type: "plugin-bart",
+  color: "red"
 };
 
 
