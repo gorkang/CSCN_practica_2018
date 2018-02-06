@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_BIS_barratt_impulsiveness_scale_experiment = {
     type: 'instructions',
-    pages: ['<p><left>BIS_barratt_impulsiveness_scale<br /></p>'],
+    pages: ['<p><left><b><big>BIS</big></b><br />'+
+    "Las personas son diferentes en cuanto a la forma en que se comportan y piensan en distintas situaciones. Ésta es una prueba para medir algunas de las formas en que usted actúa o piensa. No se detenga demasiado en ninguna de las oraciones. Responda rápida y hontestamente."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -36,18 +38,6 @@ var screen_BIS_barratt_impulsiveness_scale_experiment = {
     }
 };
 
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Las personas son diferentes en cuanto a la forma en que se comportan y piensan en distintas situaciones. Ésta es una prueba para medir algunas de las formas en que usted actúa o piensa. No se detenga demasiado en ninguna de las oraciones. Responda rápida y hontestamente."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["Raramente <br> o nunca","Ocasionalmente","A menudo","Siempre o <br> casi siempre"];
 
@@ -249,7 +239,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 BIS_barratt_impulsiveness_scale_experiment.push(screen_BIS_barratt_impulsiveness_scale_experiment);
-BIS_barratt_impulsiveness_scale_experiment.push(surveyexplanation);
+
 BIS_barratt_impulsiveness_scale_experiment.push(survey02);
 BIS_barratt_impulsiveness_scale_experiment.push(survey03);
 BIS_barratt_impulsiveness_scale_experiment.push(survey04);
