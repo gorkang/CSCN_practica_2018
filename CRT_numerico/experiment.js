@@ -24,11 +24,10 @@ onkeydown = function block_fkeys(event) {
 /***Instructions and questions to be asked***/
 var CRT_numericointro = {
     type: "instructions",
-    pages: ["<div class = centerbox>" +
-        "<p>" +
-        "CRT-V.<br /><br />" +
-        "</p></div>"
-    ],
+    pages: ['<p><left><b><big>Cognitive reflexive test -Numerico</big></b><br />'+
+    "En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad.<br /><br />" +
+    "Responde todos los que puedas<br /><br />" +
+    '</p>'],
     allow_keys: true,
     show_clickable_nav: true,
     timing_post_trial: 50,
@@ -37,21 +36,6 @@ var CRT_numericointro = {
     }
 };
 
-var CRT_numericoexplanation = {
-    type: "instructions",
-    pages: ["<div class = centerbox>" +
-        "<p>" +
-        "En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad.<br /><br />" +
-        "Responde todos los que puedas<br /><br />" +
-        "</p></div>"
-    ],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data: {
-        trialid: "Instructions_CRT_numerico"
-    }
-};
 
 var CRT_numerico1 = {
     type: "survey-text",
@@ -189,7 +173,6 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //push instructions to the definitive Timeline
 CRT_numerico_experiment.push(CRT_numericointro);
-CRT_numerico_experiment.push(CRT_numericoexplanation);
 
 //push trials to the temporary timeline
 tempArray.push(CRT_numerico1);
