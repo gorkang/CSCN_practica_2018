@@ -89,7 +89,7 @@ function set_verbalcrt(index2) {
     crt_experiment.push(verbal_crt9);
   }
   if (index2 == 10) {
-    crt_experiment.push(verbal_crt10);
+    crt_experiment.push(complete_crt10);
   }
 }
 
@@ -97,7 +97,10 @@ function set_verbalcrt(index2) {
 
 var screen_crt_experiment = {
   type: 'instructions',
-  pages: ['<p><left>crt_experiment<br /></p>'],
+  pages: ['<p><left><b><big>Cognitive reflexive test -Verbal</big></b><br />'+
+  "(Verbal) En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad.<br /><br />" +
+  "Responde todos los que puedas." +
+  '</p>'],
   cont_key: [13],
   show_clickable_nav: true,
   data: {
@@ -110,25 +113,10 @@ var screen_crt_experiment = {
 // ----------------------------------- Verbal crt_experiment ------------------------------------------
 // -----------------------------------------------------------------------------------------
 
-var verbal_crtexplanation = {
-  type: "instructions",
-  pages: ["<div class = centerbox>" +
-    "<p class = center-block-text>" +
-    "(Verbal) En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad.<br /><br />" +
-    "Responde todos los que puedas." +
-    "</p></div>"
-  ],
-  allow_keys: false,
-  show_clickable_nav: true,
-  timing_post_trial: 50,
-  data: {
-    trialid: "Instructions_VCRT"
-  }
-};
 
 var verbal_crt1 = {
   type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>El pap&aacute; de Mar&iacute;a tiene 5 hijas y ning&uacute;n hijo: Nana, Nene, Nini, Nono<br /><br /></div>",
+  preamble: "<div class='crt_experiment_text'>El pap&aacute; de Mar&iacute;a tiene 5 hijas y ning&uacute;n hijo: Nana, Nene, Nini, Nono</div>",
   questions: [{
     prompt: "&iquest;Cu&aacute;l es probablemente el nombre de la quinta hija ?<br /><br />"
   }],
@@ -139,7 +127,7 @@ var verbal_crt1 = {
 
 var verbal_crt2 = {
   type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>Si estuvieras corriendo una carrera y pasaras a la persona que va en segundo lugar<br /><br /></div>",
+  preamble: "<div class='crt_experiment_text'>Si estuvieras corriendo una carrera y pasaras a la persona que va en segundo lugar</div>",
   questions: [{
     prompt: "&iquest;En qu&eacute; lugar estar&iacute;as ahora?<br /><br />"
   }],
@@ -150,7 +138,7 @@ var verbal_crt2 = {
 
 var verbal_crt3 = {
   type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>Es una noche de tormenta y un avi&oacute;n despega desde el aeropuerto JFK en Nueva York. La tormenta empeora y el avi&oacute;n se estrella. La mitad cae en los Estados Unidos y la otra mitad en Canad&aacute;<br /><br /></div>",
+  preamble: "<div class='crt_experiment_text'>Es una noche de tormenta y un avi&oacute;n despega desde el aeropuerto JFK en Nueva York. La tormenta empeora y el avi&oacute;n se estrella. La mitad cae en los Estados Unidos y la otra mitad en Canad&aacute;</div>",
   questions: [{
     prompt: "&iquest;En qu&eacute; pa&iacute;s enterrar&iacute;as a los sobrevivientes?<br /><br />"
   }],
@@ -161,7 +149,7 @@ var verbal_crt3 = {
 
 var verbal_crt4 = {
   type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>Un mono, una ardilla, y un p&aacute;jaro est&aacute;n haciendo una carrera a la punta de una palmera de cocos.<br /><br /></div>",
+  preamble: "<div class='crt_experiment_text'>Un mono, una ardilla, y un p&aacute;jaro est&aacute;n haciendo una carrera a la punta de una palmera de cocos.</div>",
   questions: [{
     prompt: "&iquest;Qui&eacute;n conseguir&aacute; el pl&aacute;tano primero? &iquest;El mono, la ardilla o el p&aacute;jaro?<br /><br />"
   }],
@@ -172,7 +160,7 @@ var verbal_crt4 = {
 
 var verbal_crt5 = {
   type: "survey-text",
-  preamble: "<div class='crt_experiment_text'> En una casa de un piso color rosa, hab&iacute;a una persona rosa, un gato rosa, un pez rosa, un computador rosa, una silla rosa, una tabla rosa, un tel&eacute;fono rosa, una ducha rosa<br />&iexcl;Todo era de color rosa!<br /><br /></div>",
+  preamble: "<div class='crt_experiment_text'> En una casa de un piso color rosa, hab&iacute;a una persona rosa, un gato rosa, un pez rosa, un computador rosa, una silla rosa, una tabla rosa, un tel&eacute;fono rosa, una ducha rosa<br />&iexcl;Todo era de color rosa!</div>",
   questions: [{
     prompt: "&iquest;De qu&eacute; color son probablemente las escaleras?<br /><br />"
   }],
@@ -184,9 +172,10 @@ var verbal_crt5 = {
 var verbal_crt6 = {
   type: "survey-text",
   questions: [{
-    prompt: "&iquest;Cuantos de cada animal puso Mois&eacute;s en el arca?<br /><br />"
+    prompt: "&iquest;Cuantos de cada animal puso Mois&eacute;s en el arca?"
   }],
   minSize: 1,
+  allowNumeric:true,
   data: {
     trialid: "VCRT_06"
   }
@@ -194,7 +183,7 @@ var verbal_crt6 = {
 
 var verbal_crt7 = {
   type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>El viento sopla en direcci&oacute;n oeste. Un tren el&eacute;ctrico viaja hacia el este<br /><br /></div>",
+  preamble: "<div class='crt_experiment_text'>El viento sopla en direcci&oacute;n oeste. Un tren el&eacute;ctrico viaja hacia el este</div>",
   questions: [{
     prompt: "&iquest;En qu&eacute; direcci&oacute;n cardinal viaja el humo de la locomotora?<br /><br />"
   }],
@@ -205,7 +194,7 @@ var verbal_crt7 = {
 
 var verbal_crt8 = {
   type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>Si tienes solo un f&oacute;sforo y caminas dentro de una habitaci&oacute;n oscura donde hay aceite de lampara, un peri&oacute;dico y madera<br /><br /></div>",
+  preamble: "<div class='crt_experiment_text'>Si tienes solo un f&oacute;sforo y caminas dentro de una habitaci&oacute;n oscura donde hay aceite de lampara, un peri&oacute;dico y madera</div>",
   questions: [{
     prompt: "&iquest;Qu&eacute; cosa prender&iacute;as primero?<br /><br />"
   }],
@@ -216,8 +205,9 @@ var verbal_crt8 = {
 
 var verbal_crt9 = {
   type: "survey-text",
+  minSize:2,
   questions: [{
-    prompt: "&iquest;Ser&iacute;a &eacute;tico para un hombre casarse con la hermana de su viuda?<br /><br />"
+    prompt: "&iquest;Ser&iacute;a &eacute;tico para un hombre casarse con la hermana de su viuda?"
   }],
   data: {
     trialid: "VCRT_09"
@@ -225,15 +215,41 @@ var verbal_crt9 = {
 };
 
 var verbal_crt10 = {
-  type: "survey-text",
-  preamble: "<div class='crt_experiment_text'>&iquest;Cu&aacute;l de las oraciones es correcta?:<br /><br /></div>",
+  type: "survey-multi-choice",
   questions: [{
-    prompt: "a) 'La yema del huevo son blancas' o b) 'La yema del huevo es blanca'<br /><br />"
+    prompt: "<div class='crt_experiment_text'>&iquest;Cu&aacute;l de las oraciones es correcta?:<br /><br /></div>",
+    options: ["La yema del huevo son blancas","La yema del huevo es blanca","Otra"]
   }],
   data: {
     trialid: "VCRT_10"
   }
 };
+
+var otra_crt10 = {
+    type: "survey-text",
+    questions: [{
+      prompt: "Con respecto a la yemas del huevo,&iquest;Que es correcto ?"
+    }],
+    data: {
+      trialid: "VCRT_09"
+    }
+}
+
+var if_crt10 = {
+    timeline:[otra_crt10],
+    conditional_function: function(){
+        var data = jsPsych.data.get().last(1).values()[0]["responses"];
+        if (data != '{"Q0":"Otra"}'){
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
+var complete_crt10 = {
+    timeline:[verbal_crt10, if_crt10]
+}
 
 
 /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
@@ -255,7 +271,6 @@ randomize_verbalcrt();
 
 crt_experiment.push(screen_crt_experiment);
 
-crt_experiment.push(verbal_crtexplanation);
 
 set_verbalcrt(first_verbalcrt);
 set_verbalcrt(second_verbalcrt);

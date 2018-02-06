@@ -28,25 +28,14 @@ onkeydown = function block_fkeys(event){
 
 var screen_IRI_interpersonal_reactivity_index_experiment = {
     type: 'instructions',
-    pages: ['<p><left>IRI_interpersonal_reactivity_index<br /></p>'],
+    pages: ['<p><left><b><big>IRI</big></b><br />'+
+    "Las siguientes declaraciones indagan sobre sus pensamientos y sentimientos en una variedad de situaciones. Para cada ítem, indique cuán bien la declaración lo/a describe."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Las siguientes declaraciones indagan sobre sus pensamientos y sentimientos en una variedad de situaciones. Para cada ítem, indique cuán bien la declaración lo/a describe."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
 };
 
 var likert_scale = ["A <br> <p style='font-size:10px'>No me <br>describe bien</p> ","B","C","D","E <br> <p style='font-size:10px'>Me describe <br> muy bien</p>"];
@@ -237,7 +226,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 IRI_interpersonal_reactivity_index_experiment.push(screen_IRI_interpersonal_reactivity_index_experiment);
-IRI_interpersonal_reactivity_index_experiment.push(surveyexplanation);
+
 IRI_interpersonal_reactivity_index_experiment.push(survey02);
 IRI_interpersonal_reactivity_index_experiment.push(survey03);
 IRI_interpersonal_reactivity_index_experiment.push(survey04);

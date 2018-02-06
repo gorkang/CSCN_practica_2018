@@ -28,7 +28,10 @@ onkeydown = function block_fkeys(event){
 
 var screen_metacognicion_experiment = {
     type: 'instructions',
-    pages: ['<p><left>metacognicion<br /></p>'],
+    pages: ['<p><left><b><big>Metacognicion</big></b><br />'+
+    "A continuaci&oacute;n ver&aacute; preguntas relacionadas a sus pensamientos "+
+    "sobre usted mismo."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -36,19 +39,6 @@ var screen_metacognicion_experiment = {
     }
 };
 
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuaci&oacute;n ver&aacute; preguntas relacionadas a sus pensamientos "+
-           "sobre usted mismo."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["Totalmente de acuerdo","Un poco de acuerdo","Un poco en desacuerdo","Totalmente en desacuerdo"];
 
@@ -267,7 +257,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 metacognicion_experiment.push(screen_metacognicion_experiment);
-metacognicion_experiment.push(surveyexplanation);
+
 metacognicion_experiment.push(survey02);
 metacognicion_experiment.push(survey03);
 metacognicion_experiment.push(survey04);

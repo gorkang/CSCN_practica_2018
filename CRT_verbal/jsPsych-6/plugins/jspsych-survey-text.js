@@ -61,6 +61,10 @@ jsPsych.plugins['survey-text'] = (function() {
         default: null,
         description: 'HTML formatted string to display at the top of the page above all the questions.'
       },
+      allowNumeric: {
+        default: false,
+        description: 'allows numeric in answer.'
+      },
       button_label: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button label',
@@ -130,7 +134,10 @@ jsPsych.plugins['survey-text'] = (function() {
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
-        validation = val;
+        validation = val.replace(/\s/g, "");
+        if (!trial.allowNumeric){
+            validation = validation.replace(/[0-9]/g, '');
+        }
       }
       // save data
       var trialdata = {
@@ -145,7 +152,7 @@ jsPsych.plugins['survey-text'] = (function() {
             jsPsych.finishTrial(trialdata);
         }else{
             firstTextBox.blur();
-            display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa una respuesta mas larga</span>';
+            display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa una respuesta mas larga y valida para la pregunta</span>';
             console.log("mal",validation);
             event.stopPropagation();
            if (event.stopPropagation) {

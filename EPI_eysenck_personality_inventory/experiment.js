@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_EPI_eysenck_personality_inventory_experiment = {
     type: 'instructions',
-    pages: ['<p><left>EPI_eysenck_personality_inventory<br /></p>'],
+    pages: ['<p><left><b><big>EPI</big></b><br />'+
+    "Trabaje rápidamente y no piense demasiado en el significado exacto de las preguntas"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -37,17 +39,6 @@ var screen_EPI_eysenck_personality_inventory_experiment = {
 };
 
 // Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Trabaje rápidamente y no piense demasiado en el significado exacto de las preguntas"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["Casi nunca","Poco","Más o menos","Seguido","Casi siempre"];
 
@@ -242,7 +233,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 EPI_eysenck_personality_inventory_experiment.push(screen_EPI_eysenck_personality_inventory_experiment);
-EPI_eysenck_personality_inventory_experiment.push(surveyexplanation);
+
 EPI_eysenck_personality_inventory_experiment.push(survey02);
 EPI_eysenck_personality_inventory_experiment.push(survey03);
 EPI_eysenck_personality_inventory_experiment.push(survey04);

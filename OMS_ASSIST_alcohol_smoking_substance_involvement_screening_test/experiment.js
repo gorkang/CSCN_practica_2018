@@ -10,6 +10,20 @@ onkeydown = function block_fkeys(event) {
   }
 }
 
+var instructions0 = {
+  type: "instructions",
+  pages: ['<p><left><b><big>OMS ASSIST</big></b><br />'+
+  "Responda las siguientes preguntas"+
+  '</p>'],
+  allow_keys: false,
+  show_clickable_nav: true,
+  timing_post_trial: 50,
+  data: {
+    trialid: "Instructions_OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test"
+  }
+};
+
+
 // Inicio prueba
 var instructions1_1 = {
   type: "instructions",
@@ -161,6 +175,7 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
   });
 }
 
+OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test.push(instructions0);
 OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test.push(instructions1_1);
 
 for (var drug in drugs) {

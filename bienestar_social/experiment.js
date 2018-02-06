@@ -14,7 +14,8 @@ onkeydown = function block_fkeys(event) {
 // Inicio prueba
 var instructions = {
   type: "instructions",
-  pages: ['A continuación encontrará una lista de afirmaciones en torno a los sentimientos o pensamientos que tiene sobre su vida en sociedad.<br>Marque la respuesta que más lo identifica.'],
+  pages: ['<p><left><b><big>bienestar social</big></b><br />'+
+  'A continuación encontrará una lista de afirmaciones en torno a los sentimientos o pensamientos que tiene sobre su vida en sociedad.<br>Marque la respuesta que más lo identifica.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,

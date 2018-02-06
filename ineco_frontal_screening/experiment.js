@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_ineco_frontal_screening_experiment = {
     type: 'instructions',
-    pages: ['<p><left>ineco_frontal_screening<br /></p>'],
+    pages: ['<p><left><b><big>INECO Frontal screening</big></b><br />'+
+    "Lee atentamente las siguientes instrucciones"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){

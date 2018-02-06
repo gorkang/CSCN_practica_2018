@@ -12,7 +12,8 @@ onkeydown = function block_fkeys(event) {
 
 var instructions = {
   type: 'instructions',
-  pages: ['A continuación verá expresiones en los ojos de distintas personas. Por favor marque la alternativa que más representa la emoción de los ojos.'],
+  pages: ['<p><left><b><big>Miradas</big></b><br />'+
+      'A continuación verá expresiones en los ojos de distintas personas. Por favor marque la alternativa que más representa la emoción de los ojos.'],
   data: {
     trialid: "instructions_miradas"
   },

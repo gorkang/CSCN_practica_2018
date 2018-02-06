@@ -28,25 +28,14 @@ onkeydown = function block_fkeys(event){
 
 var screen_religiosidad_experiment = {
     type: 'instructions',
-    pages: ['<p><left>religiosidad<br /></p>'],
+    pages: ['<p><left><b><big>Religiosidad</big></b><br />'+
+    "Conteste las siguientes preguntas sobre fe religiosa seg&uacute;n la siguiente escala"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Conteste las siguientes preguntas sobre fe religiosa seg&uacute;n la siguiente escala"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
 };
 
 var likert_scale = ["Fuertemente en desacuerdo","En desacuerdo","De acuerdo","Fuertemente de acuerdo"];
@@ -123,7 +112,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 religiosidad_experiment.push(screen_religiosidad_experiment);
-religiosidad_experiment.push(surveyexplanation);
+
 religiosidad_experiment.push(survey02);
 religiosidad_experiment.push(survey03);
 religiosidad_experiment.push(survey04);

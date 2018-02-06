@@ -6,9 +6,6 @@
  *
  * documentation: docs.jspsych.org
  *
- *
- * This version has been modified for style.
- *
  */
 
 
@@ -125,24 +122,18 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
         input.setAttribute('value', trial.questions[i].options[j]);
         form.appendChild(label);
         form.insertBefore(input, label);
-
-        //start modification
-        br = document.createElement('br')
-        form.appendChild(br)
-        form.insertBefore(br,label);
-        //end modification
       }
 
       if (trial.questions[i].required) {
         // add "question required" asterisk
-        display_element.querySelector(question_selector + " p").innerHTML += "<span class='required'>*</span>";
+        //modified display_element.querySelector(question_selector + " p").innerHTML += "<span class='required'>*</span>";
 
         // add required property
         display_element.querySelector(question_selector + " input[type=radio]").required = true;
       }
     }
     // add submit button
-    trial_form.innerHTML += '<p><input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label + '"': '') + '></input><p>';
+    trial_form.innerHTML += '<input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label + '"': '') + '></input>';
     trial_form.addEventListener('submit', function(event) {
       event.preventDefault();
       var matches = display_element.querySelectorAll("div." + plugin_id_name + "-question");

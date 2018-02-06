@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_escala_apego_experiment = {
     type: 'instructions',
-    pages: ['<p><left>escala_apego<br /></p>'],
+    pages: ['<p><left><b><big>Escala apego</big></b><br />'+
+    "Lee atentamente las siguientes instrucciones"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
