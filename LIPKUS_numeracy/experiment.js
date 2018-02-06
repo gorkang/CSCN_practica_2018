@@ -68,7 +68,10 @@ function block_enter(event) {
 
 var screen_LIPKUS_numeracy_experiment = {
     type: "instructions",
-    pages: ['<p><center>LIPKUS_numeracy<br /></p>'],
+    pages: ['<p><left><b><big>LIPKUS Numeracy</big></b><br />'+
+    "A continuaci&oacute;n debe responder 11 preguntas que servir&aacute;n para evaluar sus habilidades de c&aacute;lculo.<br /><br />" +
+    "Debe leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita.<br /><br />" +
+    '</p>'],
     cont_key: [13],
     show_clickable_nav: true,
     data: {
@@ -79,22 +82,6 @@ var screen_LIPKUS_numeracy_experiment = {
     }
 };
 
-// Inicio prueba
-var LIPKUS_numeracyexplanation = {
-    type: "instructions",
-    pages: ["<div class = centerbox>" +
-        "<p>" +
-        "A continuaci&oacute;n debe responder 11 preguntas que servir&aacute;n para evaluar sus habilidades de c&aacute;lculo.<br /><br />" +
-        "Debe leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita.<br /><br />" +
-        "</p></div>"
-    ],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data: {
-        trialid: "Instructions_LIPKUS_numeracy"
-    }
-};
 
 var LIPKUS_numeracy1 = {
     type: "survey-text",
@@ -221,7 +208,7 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 LIPKUS_numeracy_experiment.push(screen_LIPKUS_numeracy_experiment);
-LIPKUS_numeracy_experiment.push(LIPKUS_numeracyexplanation);
+
 LIPKUS_numeracy_experiment.push(LIPKUS_numeracy1);
 LIPKUS_numeracy_experiment.push(LIPKUS_numeracy1_a);
 LIPKUS_numeracy_experiment.push(LIPKUS_numeracy2);
