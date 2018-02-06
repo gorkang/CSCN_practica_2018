@@ -28,7 +28,11 @@ onkeydown = function block_fkeys(event){
 
 var screen_escala_rosenberg_experiment = {
     type: 'instructions',
-    pages: ['<p><left>escala rosenberg<br /></p>'],
+    pages: ['<p><left><b><big>Escala rosenberg</big></b><br />'+
+    "A continuaci&oacute;n encontrar&aacute; una lista de afirmaciones en torno a los "+
+     "sentimientos o pensamientos que tiene sobre usted mismo/a. Marque "+
+     "la respuesta que m&aacute;s lo identifica."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -36,20 +40,6 @@ var screen_escala_rosenberg_experiment = {
     }
 };
 
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuaci&oacute;n encontrar&aacute; una lista de afirmaciones en torno a los "+
-            "sentimientos o pensamientos que tiene sobre usted mismo/a. Marque "+
-            "la respuesta que m&aacute;s lo identifica."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["Muy de acuerdo","De acuerdo","En desacuerdo","Muy en desacuerdo"];
 
@@ -131,7 +121,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 escala_rosenberg_experiment.push(screen_escala_rosenberg_experiment);
-escala_rosenberg_experiment.push(surveyexplanation);
+
 escala_rosenberg_experiment.push(survey02);
 escala_rosenberg_experiment.push(survey03);
 escala_rosenberg_experiment.push(survey04);
