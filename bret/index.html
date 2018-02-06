@@ -50,22 +50,14 @@
               error: function(err) {
                 if (err.status == 200) {
                   document.location = "/next";
-                } else {
-                  // If error, assue local save
+                } else{
                   if (window.self !== window.top) {
                     parent.postMessage({
                       csv: jsPsych.data.get().csv(),
                       name: 'bret_results'
                     }, '*');
                   } else {
-                    if (window.self !== window.top) {
-                      parent.postMessage({
-                        csv: jsPsych.data.get().csv(),
-                        name: 'bret_results'
-                      }, '*');
-                    } else {
-                      jsPsych.data.get().localSave('csv', 'bret_results.csv');
-                    }
+                    jsPsych.data.get().localSave('csv', 'bret_results.csv');
                   }
                 }
               }
