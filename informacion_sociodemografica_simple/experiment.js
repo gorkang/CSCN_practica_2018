@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_informacion_sociodemografica_simple_experiment = {
     type: 'instructions',
-    pages: ['<p><left>informacion_sociodemografica_simple<br /></p>'],
+    pages: ['<p><left><b><big>Informacion sociodemografica simple</big></b><br />'+
+    "Conteste las siguientes preguntas sobre fe religiosa seg&uacute;n la siguiente escala"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -37,17 +39,6 @@ var screen_informacion_sociodemografica_simple_experiment = {
 };
 
 // Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Conteste las siguientes preguntas sobre fe religiosa seg&uacute;n la siguiente escala"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var survey_trial = {
   type: 'survey-text-number',
@@ -86,7 +77,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 informacion_sociodemografica_simple_experiment.push(screen_informacion_sociodemografica_simple_experiment);
-informacion_sociodemografica_simple_experiment.push(surveyexplanation);
+
 informacion_sociodemografica_simple_experiment.push(survey_trial);
 informacion_sociodemografica_simple_experiment.push(survey_trial1);
 informacion_sociodemografica_simple_experiment.push(survey_trial2);
