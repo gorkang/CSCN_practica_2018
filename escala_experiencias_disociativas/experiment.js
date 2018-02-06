@@ -28,7 +28,17 @@ onkeydown = function block_fkeys(event){
 
 var screen_escala_experiencias_disociativas_experiment = {
     type: 'instructions',
-    pages: ['<p><left>escala_experiencias_disociativas<br /></p>'],
+    pages: ['<p><left><b><big>Escala experiencias disociativas</big></b><br />'+
+    "Este cuestionario consiste de 28 preguntas sobre experiencias que UD. "+
+     "puede tener en su vida diaria: Nos interesa cuan a menudo UD. tiene "+
+     "estas experiencias. <br>"+
+     "Es importante, sin embargo, que sus respuestas muestren con qué "+
+     "frecuencia estas experiencias le suceden cuando UD. no está bajo la "+
+     "influencia del alcohol o drogas. <br>"+
+     "Para responder las preguntas, por favor determine en qué grado la "+
+     "experiencia descrita en la pregunta se aplica a UD. y circule el número "+
+     "que muestre qué porcentaje del tiempo UD tiene la experiencia.<br>"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -36,26 +46,6 @@ var screen_escala_experiencias_disociativas_experiment = {
     }
 };
 
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Este cuestionario consiste de 28 preguntas sobre experiencias que UD. "+
-            "puede tener en su vida diaria: Nos interesa cuan a menudo UD. tiene "+
-            "estas experiencias. <br>"+
-            "Es importante, sin embargo, que sus respuestas muestren con qué "+
-            "frecuencia estas experiencias le suceden cuando UD. no está bajo la "+
-            "influencia del alcohol o drogas. <br>"+
-            "Para responder las preguntas, por favor determine en qué grado la "+
-            "experiencia descrita en la pregunta se aplica a UD. y circule el número "+
-            "que muestre qué porcentaje del tiempo UD tiene la experiencia.<br>"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"];
 
@@ -329,7 +319,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 escala_experiencias_disociativas_experiment.push(screen_escala_experiencias_disociativas_experiment);
-escala_experiencias_disociativas_experiment.push(surveyexplanation);
+
 escala_experiencias_disociativas_experiment.push(survey02);
 escala_experiencias_disociativas_experiment.push(survey03);
 escala_experiencias_disociativas_experiment.push(survey04);
