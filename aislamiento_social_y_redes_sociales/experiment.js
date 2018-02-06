@@ -10,6 +10,20 @@ onkeydown = function block_fkeys(event) {
   }
 }
 
+var screen_aislamiento_social_experiment = {
+    type: 'instructions',
+    pages: ['<p><left><b><big>Aislamiento social y redes sociales</big></b><br />'+
+    "Responda las siguientes preguntas"+
+    '</p>'],
+    key_forward: 'enter',
+    show_clickable_nav: true,
+    data:{trialid: "Screen_WM"},
+    on_trial_start: function(){
+        bloquear_enter = 0;
+    }
+};
+
+
 // Inicio prueba
 var father = {
   type: "survey-multi-choice1",
@@ -385,6 +399,7 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
     fullscreen_mode: true
   });
 }
+aislamiento_social_y_redes_sociales.push(screen_aislamiento_social_experiment)
 
 aislamiento_social_y_redes_sociales.push(father);
 aislamiento_social_y_redes_sociales.push(mother);
