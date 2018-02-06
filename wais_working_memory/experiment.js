@@ -89,7 +89,7 @@ function advance(event) {
 
 var screen_wais_working_memory_experiment = {
     type: 'instructions',
-    pages: ['<p><left><b><big>Working Memory</big></b><br />Lee atentamente las siguientes instrucciones</p>'],
+    pages: ['<p><left><b><big>Retencion de digitos</big></b><br />Lee atentamente las siguientes instrucciones</p>'],
     data: {
         trialid: "Screen_WM"
     },

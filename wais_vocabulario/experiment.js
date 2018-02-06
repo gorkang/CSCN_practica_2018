@@ -28,7 +28,7 @@ onkeydown = function block_fkeys(event){
 
 var screen_wais_vocabulario_experiment = {
     type: 'instructions',
-    pages: ['<p><left><b><big>Wais Vocabulary</big></b><br />Lee atentamente las siguientes instrucciones</p>'],
+    pages: ['<p><left><b><big>Wais Vocabulario</big></b><br />Lee atentamente las siguientes instrucciones</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){

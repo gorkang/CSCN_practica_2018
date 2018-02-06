@@ -42,7 +42,7 @@ onkeydown = function block_fkeys(event){
     /* ********************************************************  INICIO INSTRUCCIONES ******************************************************** */
     var screen_mental_rotation_experiment = {
         type: 'instructions',
-        pages: ['<p><left><b><big>Mental rotation</big></b><br />'+
+        pages: ['<p><left><b><big>Rotacion mental</big></b><br />'+
         "Lee atentamente las siguientes instrucciones"+
         '</p>'],
         key_forward: 'enter',
