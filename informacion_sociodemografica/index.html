@@ -23,52 +23,53 @@
   <script>
     $(document).ready(function() {
 
-          jsPsych.init({
-              timeline: informacion_sociodemografica,
-              on_finish: function(data) {
+      jsPsych.init({
+          timeline: informacion_sociodemografica,
+          on_finish: function(data) {
 
-                // Serialize the data
-                var promise = new Promise(function(resolve, reject) {
-                  var data = jsPsych.data.get().json();
-                  resolve(data);
+            // Serialize the data
+            var promise = new Promise(function(resolve, reject) {
+              var data = jsPsych.data.get().json();
+              resolve(data);
+            })
+
+            promise.then(function(data) {
+
+
+                $.ajax({
+                    type: "POST",
+                    url: '/save',
+                    data: {
+                      "data": data
+                    },
+                    success: function() {
+                      document.location = "/next"
+                    },
+                    dataType: "application/json",
+
+                    // Endpoint not running, local save
+                    error: function(err) {
+
+                      if (err.status == 200) {
+                        document.location = "/next";
+                      } else {
+                        // If error, assue local save
+                        if (window.self !== window.top) {
+                          parent.postMessage({
+                            csv: jsPsych.data.get().csv(),
+                            name: 'informacion_sociodemografica_results'
+                          }, '*');
+                        } else {
+                          jsPsych.data.get().localSave('csv', 'bret_results.csv');
+                        }
+                      }
+                    }
+                  }
                 })
-
-                promise.then(function(data) {
-
-
-                    $.ajax({
-                        type: "POST",
-                        url: '/save',
-                        data: {
-                          "data": data
-                        },
-                        success: function() {
-                          document.location = "/next"
-                        },
-                        dataType: "application/json",
-
-                        // Endpoint not running, local save
-                        error: function(err) {
-
-                          if (err.status == 200) {
-                            document.location = "/next";
-                          } else {
-                            // If error, assue local save
-                            if (window.self !== window.top) {
-                              parent.postMessage({
-                                csv: jsPsych.data.get().csv(),
-                                name: 'informacion_sociodemografica_results'
-                              }, '*');
-                            } else {
-                              jsPsych.data.get().localSave('csv', 'informacion_sociodemografica_results.csv');
-                            }
-                          }
-                        });
-                    })
-                }
-
-              });
-          });
+            })
+        }
+      })
+    })
   </script>
 </body>
 
