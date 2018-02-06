@@ -14,7 +14,7 @@ onkeydown = function block_fkeys(event) {
 // Inicio prueba
 var instructions = {
   type: "instructions",
-  pages: ['Nos gustaría saber si tiene algún problema médico y cómo ha estado de salud en general, durante las últimas semanas. Recuerde que sólo debe responder sobre los problemas recientes y los que tiene ahora, NO sobre las que tuvo en el pasado.'],
+  pages: ['<p><left><b><big>GHQ</big></b><br />'+'Nos gustaría saber si tiene algún problema médico y cómo ha estado de salud en general, durante las últimas semanas. Recuerde que sólo debe responder sobre los problemas recientes y los que tiene ahora, NO sobre las que tuvo en el pasado.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,
