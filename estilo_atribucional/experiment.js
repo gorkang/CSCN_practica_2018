@@ -28,25 +28,14 @@ onkeydown = function block_fkeys(event){
 
 var screen_estilo_atribucional_experiment = {
     type: 'instructions',
-    pages: ['<p><left>estilo_atribucional<br /></p>'],
+    pages: ['<p><left><b><big>Estilo atribucional</big></b><br />'+
+    "A continuación, usted encontrará una serie de preguntas relacionadas con distintas experiencias de su vida, por favor seleccione la alternativa que más lo represente."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuación, usted encontrará una serie de preguntas relacionadas con distintas experiencias de su vida, por favor seleccione la alternativa que más lo represente."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
 };
 
 var likert_scale = ["Completamente <br> en desacuerdo","Moderadamente <br> en desacuerdo","Ligeramente <br> de acuerdo","Moderadamente <br> de acuerdo", "Completamente <br> de acuerdo"];
@@ -212,7 +201,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 estilo_atribucional_experiment.push(screen_estilo_atribucional_experiment);
-estilo_atribucional_experiment.push(surveyexplanation);
+
 estilo_atribucional_experiment.push(survey02);
 estilo_atribucional_experiment.push(survey03);
 estilo_atribucional_experiment.push(survey04);
