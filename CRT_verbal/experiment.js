@@ -97,7 +97,10 @@ function set_verbalcrt(index2) {
 
 var screen_crt_experiment = {
   type: 'instructions',
-  pages: ['<p><left>crt_experiment<br /></p>'],
+  pages: ['<p><left><b><big>Cognitive reflexive test -Verbal</big></b><br />'+
+  "(Verbal) En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad.<br /><br />" +
+  "Responde todos los que puedas." +
+  '</p>'],
   cont_key: [13],
   show_clickable_nav: true,
   data: {
@@ -110,21 +113,6 @@ var screen_crt_experiment = {
 // ----------------------------------- Verbal crt_experiment ------------------------------------------
 // -----------------------------------------------------------------------------------------
 
-var verbal_crtexplanation = {
-  type: "instructions",
-  pages: ["<div class = centerbox>" +
-    "<p class = center-block-text>" +
-    "(Verbal) En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad.<br /><br />" +
-    "Responde todos los que puedas." +
-    "</p></div>"
-  ],
-  allow_keys: false,
-  show_clickable_nav: true,
-  timing_post_trial: 50,
-  data: {
-    trialid: "Instructions_VCRT"
-  }
-};
 
 var verbal_crt1 = {
   type: "survey-text",
@@ -283,7 +271,6 @@ randomize_verbalcrt();
 
 crt_experiment.push(screen_crt_experiment);
 
-crt_experiment.push(verbal_crtexplanation);
 
 set_verbalcrt(first_verbalcrt);
 set_verbalcrt(second_verbalcrt);

@@ -67,6 +67,7 @@ var mainexplanation = {
   type: "instructions",
   pages: ["<div class = centerbox>" +
     "<p class = center-block-text>" +
+    '<p><left><b><big>BAYES</big></b><br />'+
     "Gracias por participar en este estudio.<br /><br />" +
     "A continuaci&oacute;n te presentaremos una serie de preguntas, mediante textos, im&aacute;genes o audio.<br /><br />" +
     "Cada bloque de preguntas tiene sus propias instrucciones, que ver&aacute;s al inicio de cada uno.<br /><br />" +

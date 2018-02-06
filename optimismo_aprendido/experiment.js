@@ -28,7 +28,12 @@ onkeydown = function block_fkeys(event){
 
 var screen_optimismo_aprendido_experiment = {
     type: 'instructions',
-    pages: ['<p><left>optimismo_aprendido<br /></p>'],
+    pages: ['<p><left><b><big>Optimismo aprendido</big></b><br />'+
+    "A continuaci&oacute;n, usted encontrar&aacute; una serie de preguntas relacionadas "+
+    "con distintas experiencias de su vida. Seleccione la alternativa que "+
+    "mejor describa la frecuencia con que usted se siente o piensa de esa "+
+    "forma."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -36,21 +41,6 @@ var screen_optimismo_aprendido_experiment = {
     }
 };
 
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuaci&oacute;n, usted encontrar&aacute; una serie de preguntas relacionadas "+
-           "con distintas experiencias de su vida. Seleccione la alternativa que "+
-           "mejor describa la frecuencia con que usted se siente o piensa de esa "+
-           "forma."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["Nunca","Pocas veces","Algunas veces","La mayoria de las veces","Siempre"];
 
@@ -101,7 +91,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 optimismo_aprendido_experiment.push(screen_optimismo_aprendido_experiment);
-optimismo_aprendido_experiment.push(surveyexplanation);
+
 optimismo_aprendido_experiment.push(survey02);
 optimismo_aprendido_experiment.push(survey03);
 optimismo_aprendido_experiment.push(survey04);

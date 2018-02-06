@@ -28,7 +28,9 @@ onkeydown = function block_fkeys(event){
 
 var screen_sMARS_short_mathematics_anxiety_rating_scale_experiment = {
     type: 'instructions',
-    pages: ['<p><left>sMARS_short_mathematics_anxiety_rating_scale<br /></p>'],
+    pages: ['<p><left><b><big>sMars</big></b><br />'+
+    "Los items de este cuestionario se refieren a experiencias que pueden causar tension o aprension. Para cada item señala cuan ansioso/a te pondria cada una de ellas. Responde forma rapida, pero asegurate de pensar bien la respuesta"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
@@ -36,18 +38,6 @@ var screen_sMARS_short_mathematics_anxiety_rating_scale_experiment = {
     }
 };
 
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Los items de este cuestionario se refieren a experiencias que pueden causar tension o aprension. Para cada item señala cuan ansioso/a te pondria cada una de ellas. Responde forma rapida, pero asegurate de pensar bien la respuesta"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
-};
 
 var likert_scale = ["Nada","Muy poco","Algo","Bastante", "Mucho"];
 
@@ -219,7 +209,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(screen_sMARS_short_mathematics_anxiety_rating_scale_experiment);
-sMARS_short_mathematics_anxiety_rating_scale_experiment.push(surveyexplanation);
+
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey02);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey03);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey04);

@@ -14,7 +14,7 @@ onkeydown = function block_fkeys(event) {
 // Inicio prueba
 var instructions = {
   type: "instructions",
-  pages: ['Las preguntas en esta escala hacen referencia a sus sentimientos y pensamientos durante el último mes. En cada caso, por favor indique cómo usted se ha sentido o ha pensado en cada situación.'],
+  pages: ['<p><left><b><big>Estres percibido</big></b><br />'+'Las preguntas en esta escala hacen referencia a sus sentimientos y pensamientos durante el último mes. En cada caso, por favor indique cómo usted se ha sentido o ha pensado en cada situación.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,

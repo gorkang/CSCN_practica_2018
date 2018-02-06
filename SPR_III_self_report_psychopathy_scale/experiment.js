@@ -14,7 +14,9 @@ onkeydown = function block_fkeys(event) {
 // Inicio prueba
 var instructions = {
   type: "instructions",
-  pages: ['A continuación va a responder una serie de enunciados teniendo en cuenta el grado de acuerdo o desacuerdo.'],
+  pages: ['<p><left><b><big>SPR III</big></b><br />'+
+  "A continuación va a responder una serie de enunciados teniendo en cuenta el grado de acuerdo o desacuerdo."+
+  '</p>'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,

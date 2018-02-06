@@ -58,7 +58,7 @@ function block_enter(event) {
 
 var screen_wais_matrices_experiment = {
     type: "instructions",
-    pages: ['<p><left>wais_matrices_experiment<br /></p>'],
+    pages: ['<p><left><b><big>Wais Matrices</big></b><br />Lee atentamente las siguientes instrucciones</p>'],
     cont_key: [13],
     show_clickable_nav: true,
     data: {

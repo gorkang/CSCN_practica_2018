@@ -28,27 +28,16 @@ onkeydown = function block_fkeys(event){
 
 var screen_ansiedad_matematica_experiment = {
     type: 'instructions',
-    pages: ['<p><left>Math Anxiety<br /></p>'],
+    pages: ['<p><left><b><big>Ansiedad matematica</big></b><br />'+
+    "A continuaci&oacute;n debes calificar una serie de enunciados se&ntilde;alando si est&aacute;s<br />"+
+    "muy en desacuerdo, en desacuerdo, indeciso, de acuerdo, o muy de acuerdo.<br /><br />"+
+    "Debes leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita."+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var mathexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "A continuaci&oacute;n debes calificar una serie de enunciados se&ntilde;alando si est&aacute;s<br />"+
-           "muy en desacuerdo, en desacuerdo, indeciso, de acuerdo, o muy de acuerdo.<br /><br />"+
-           "Debes leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita."+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_Math"}
 };
 
 var likert_scale = ["Muy en Desacuerdo","En Desacuerdo","Indeciso","De Acuerdo","Muy de Acuerdo"];
@@ -147,7 +136,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 ansiedad_matematica_experiment.push(screen_ansiedad_matematica_experiment);
-ansiedad_matematica_experiment.push(mathexplanation);
+
 ansiedad_matematica_experiment.push(math02);
 ansiedad_matematica_experiment.push(math03);
 ansiedad_matematica_experiment.push(math04);

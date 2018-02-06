@@ -14,7 +14,7 @@ onkeydown = function block_fkeys(event) {
 // Inicio prueba
 var instructions = {
   type: "instructions",
-  pages: ['En este cuestionario aparecen varios grupos de afirmaciones. Por favor, lea con atención cada una. A continuación, señale cuál de las afirmaciones de cada grupo describe mejor cómo se ha sentido durante esta última semana, incluido en el día de hoy. Si dentro de un mismo grupo, hay más de una afirmación que considere aplicable a su caso, márquela también.'],
+  pages: ['<p><left><b><big>BECKS</big></b><br />'+'En este cuestionario aparecen varios grupos de afirmaciones. Por favor, lea con atención cada una. A continuación, señale cuál de las afirmaciones de cada grupo describe mejor cómo se ha sentido durante esta última semana, incluido en el día de hoy. Si dentro de un mismo grupo, hay más de una afirmación que considere aplicable a su caso, márquela también.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,

@@ -28,25 +28,14 @@ onkeydown = function block_fkeys(event){
 
 var screen_BART_balloon_analogue_risk_task_experiment = {
     type: 'instructions',
-    pages: ['<p><left>BART_balloon_analogue_risk_task<br /></p>'],
+    pages: ['<p><left><b><big>BART</big></b><br />'+
+    "Infle los siguientes globos la cantidad que estime conveniente. Estos pueden explotar despues de una cantidad aleatoria de aire. Entre mas consiga inflar los globos, mas ganancias tendra al final"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Conteste las siguientes preguntas sobre fe religiosa seg&uacute;n la siguiente escala"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
 };
 
 
@@ -71,7 +60,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 BART_balloon_analogue_risk_task_experiment.push(screen_BART_balloon_analogue_risk_task_experiment);
-BART_balloon_analogue_risk_task_experiment.push(surveyexplanation);
+
 BART_balloon_analogue_risk_task_experiment.push(survey03);
 
 //BART_balloon_analogue_risk_task_experiment.push(surveyexplanation);

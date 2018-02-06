@@ -7,6 +7,7 @@
  */
 
 
+
 //time to answer of each block
 var time_left1 = 60000;
 var time_left2 = 60000;
@@ -458,7 +459,9 @@ var pruebas = {
 
 var screen_habilidad_matematica_experiment = {
     type: 'instructions',
-    pages: ['<p><left>Arithmetic ability<br /></p>'],
+    pages: ['<p><left><b><big>Habilidad matematica</big></b><br />'+
+    "Lee atentamente las siguientes instrucciones"+
+    '</p>'],
     data: {
         trialid: "Screen_WM"
     },

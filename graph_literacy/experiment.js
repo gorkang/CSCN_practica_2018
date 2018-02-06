@@ -27,7 +27,10 @@ onkeydown = function block_fkeys(event) {
 
 var screen_graph_literacy_experiment = {
     type: 'instructions',
-    pages: ['<p><left>graph literacy<br /></p>'],
+    pages: ['<p><left><b><big>Graph literacy</big></b><br />'+
+    "A continuaci&oacute;n deber&aacute;s responder 13 preguntas sobre una serie de gr&aacute;ficos que ser&aacute;n presentados.<br /><br />" +
+    "Debes leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita de cada gr&aacute;fico.<br /><br />" +
+    '</p>'],
     data: {
         trialid: "Screen_WM"
     },
@@ -37,22 +40,6 @@ var screen_graph_literacy_experiment = {
     }
 };
 
-// Inicio prueba
-var graphexplanation = {
-    type: "instructions",
-    pages: ["<div class = centerbox>" +
-        "<p class = center-block-text>" +
-        "A continuaci&oacute;n deber&aacute;s responder 13 preguntas sobre una serie de gr&aacute;ficos que ser&aacute;n presentados.<br /><br />" +
-        "Debes leer atentamente cada pregunta y responder la informaci&oacute;n que se solicita de cada gr&aacute;fico.<br /><br />" +
-        "</p></div>"
-    ],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data: {
-        trialid: "Instructions_GraphLiteracy"
-    }
-};
 
 var graph_literacy1_a = {
     type: "survey-textglpercent",
@@ -280,7 +267,7 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add trials
 graph_literacy_experiment.push(screen_graph_literacy_experiment);
-graph_literacy_experiment.push(graphexplanation);
+
 graph_literacy_experiment.push(graph_literacy1_a);
 graph_literacy_experiment.push(graph_literacy1_b);
 graph_literacy_experiment.push(graph_literacy2_a);
