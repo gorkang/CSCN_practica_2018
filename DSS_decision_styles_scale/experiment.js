@@ -28,25 +28,14 @@ onkeydown = function block_fkeys(event){
 
 var screen_DSS_decision_styles_scale_experiment = {
     type: 'instructions',
-    pages: ['<p><left>DSS_decision_styles_scale<br /></p>'],
+    pages: ['<p><left><b><big>DSS</big></b><br />'+
+    "Conteste las siguientes preguntas sobre decision e intuicion seg&uacute;n la escala"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     on_trial_start: function(){
         bloquear_enter = 0;
     }
-};
-
-// Inicio prueba
-var surveyexplanation={
-    type: "instructions",
-    pages: ["<div class = centerbox>"+
-           "<p class = center-block-text>"+
-           "Conteste las siguientes preguntas sobre decision e intuicion seg&uacute;n la siguiente escala"+
-           "</p></div>"],
-    allow_keys: false,
-    show_clickable_nav: true,
-    timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
 };
 
 var likert_scale = ["1 <br><p style='font-size:13px'> strongly disagree</p>","2","3","4", "5 <br> <p style='font-size:13px'> strongly agree</p>"];
@@ -132,7 +121,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 DSS_decision_styles_scale_experiment.push(screen_DSS_decision_styles_scale_experiment);
-DSS_decision_styles_scale_experiment.push(surveyexplanation);
+
 DSS_decision_styles_scale_experiment.push(survey02);
 DSS_decision_styles_scale_experiment.push(survey03);
 DSS_decision_styles_scale_experiment.push(survey04);
