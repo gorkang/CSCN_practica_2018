@@ -14,7 +14,8 @@ onkeydown = function block_fkeys(event) {
 // Inicio prueba
 var instructions = {
   type: "instructions",
-  pages: ['Nos gustaría hacerle algunas preguntas sobre su vida emocional, en particular, cómo usted controla (es decir, regula y maneja) sus emociones.' +
+  pages: ["<p><left><b><big>Regulacion emocional</big></b><br />"+
+    'Nos gustaría hacerle algunas preguntas sobre su vida emocional, en particular, cómo usted controla (es decir, regula y maneja) sus emociones.' +
     '<br><br>' +
     'Las siguientes preguntas involucran dos aspectos distintos de su vida emocional. Una es su experiencia emocional, o lo que sientes dentro. El otro es su expresión emocional, o cómo usted demuestra sus emociones en la manera que usted habla, gesto, o se comporta.' +
     '<br><br>' +
