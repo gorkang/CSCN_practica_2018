@@ -11,6 +11,19 @@ onkeydown = function block_fkeys(event) {
   }
 }
 
+var screen_fisica_experiment = {
+    type: 'instructions',
+    pages: ['<p><left><b><big>Actividad fisica</big></b><br />'+
+    "Lee atentamente las siguientes instrucciones"+
+    '</p>'],
+    key_forward: 'enter',
+    show_clickable_nav: true,
+    data:{trialid: "Screen_WM"},
+    on_trial_start: function(){
+        bloquear_enter = 0;
+    }
+};
+
 // Inicio prueba
 var instructions1_1 = {
   type: "instructions",
@@ -219,7 +232,7 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
     fullscreen_mode: true
   });
 }
-
+actividad_fisica.push(screen_fisica_experiment);
 actividad_fisica.push(instructions1_1);
 actividad_fisica.push(working);
 actividad_fisica.push(instructions1_2);
