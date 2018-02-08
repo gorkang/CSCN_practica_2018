@@ -26,6 +26,17 @@ onkeydown = function block_fkeys(event){
     }
 }
 
+onkeydown = function advance(event) {
+
+        if (event.keyCode == 13) { //if the key pressed is enter, advance
+            var btn = document.getElementById("jspsych-instructions-next");
+            btn.click();
+        } else{
+            event.preventDefault();
+        }
+
+}
+
 var screen_pause_trial_experiment = {
     type: 'instructions',
     pages: ['<p><left><b><big>Pausa</big></b><br />'+
