@@ -20,6 +20,14 @@ jsPsych.plugins["plugin-bart"] = (function() {
             color: {
                 type: jsPsych.plugins.parameterType.STRING,
                 default: "green"
+            },
+            eachEarn: {
+                type: jsPsych.plugins.parameterType.INT,
+                default: 1
+            },
+            initialEarn: {
+                type: jsPsych.plugins.parameterType.INT,
+                default: 0
             }
         }
     }
@@ -48,15 +56,16 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 b: trial.amount, // create 5 balloons
                 o: {
                     color: trial.color, // color of balloons
-                    earnings: 1, // points earned for each pump
+                    earnings: trial.eachEarn, // points earned for each pump
                     popprob: trial.probability, // probability of popping; defined as 1 out of popprop
                     //onexplode: myexplode // user-defined function invoked after an explosion
                 },
                 s: {
-                    frmids_pumps: idPump, // IDs for hidden form elements used to save the number of pumps for a given balloon
-                    frmids_exploded: idExp, // IDs for hidden form elements used to save whether a balloon exploded
                     //onload: myload, // user-defined function invoked after starting the BART
-                    onend: myend // user-defined function invoked after finishing the BART
+                    onend: myend, // user-defined function invoked after finishing the BART
+                    sounds: true,       // use sounds
+					sndpath: '../../BART/sounds/', // path to sound files
+                    earned:trial.initialEarn
                 }
             });
         });
@@ -65,9 +74,9 @@ jsPsych.plugins["plugin-bart"] = (function() {
             var points = [];
             var timesBlow = [];
             for (var i = 1; i <=trial.amount; i++) { // run over all balloons
-                timesBlow.push(Number($('#pump' + i).attr('value')));
-                if (Number($('#expl' + i).attr('value')) == 0) {
-                    points.push(Number($('#pump' + i).attr('value'))); // get information saved to the hidden form element
+                timesBlow.push(Number($('#BARTpumps' + i).attr('value')));
+                if (Number($('#BARTexploded' + i).attr('value')) == 0) {
+                    points.push(Number($('#BARTpumps' + i).attr('value'))); // get information saved to the hidden form element
                 } else {
                     points.push(0);
                 }

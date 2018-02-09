@@ -14,12 +14,12 @@
 
 
 (function($) {
-    
+
     /**
      * Creates a Ballon Analogue Risk Task (BART). For more information see:
-     *  Lejuez, C. W., Read, J. P., Kahler, C. W., Richards, J. B., Ramsey, S. E., & Stuart, G. L. (2002). 
-     *      Evaluation of a behavioral measure of risk taking: The Balloon Analogue Risk Task (BART). 
-     *      Journal of Experimental Psychology, 8, 75–84.
+     *  Lejuez, C. W., Read, J. P., Kahler, C. W., Richards, J. B., Ramsey, S. E., & Stuart, G. L. (2002).
+     *      Evaluation of a behavioral measure of risk taking: The Balloon Analogue Risk Task (BART).
+     *      Journal of Experimental Psychology, 8, 75ï¿½84.
      *
      * NOTE: There is no warranty at all that this online test does indeed and can measure
      *       the same construct as the orignial test. If you use this script do it on your own risk!
@@ -35,7 +35,7 @@
      * @example  $('#bart').bart(5);
      * @desc     Creates the BART with the default settings containing 5 balloons
      * @example  $('#bart').bart( {s: settings, b: 5} );
-     * @desc     Creates the BART with your global settings as defined in the variable 'settings' 
+     * @desc     Creates the BART with your global settings as defined in the variable 'settings'
      *           containing 5 balloons
      * @example  $('#bart').bart( {b: 10, o: opts} );
      * @desc     Creates the BART with 10 balloons and your balloon settings as defined in the variable 'opts'
@@ -50,10 +50,10 @@
      * @param    Object          s           An object defining the appearance of the BART;
      *                                       NOTE: all settings are optional
      * @option   Object          balloon             Default settings for a ballon (see param o for more details)
-     * @option   String          bgcol               Background color of complete board 
+     * @option   String          bgcol               Background color of complete board
      * @option   Number          w                   Width of complete board (in pixel)
      * @option   Number          h                   Height of complete board (in pixel)
-     * @option   Boolean         showpumpcount       Display number of pumps for current balloon on board 
+     * @option   Boolean         showpumpcount       Display number of pumps for current balloon on board
      * @option   Boolean         showballooncount    Display number of bullonons on board
      * @option   Boolean         showcurrentearned   Display potential earnings for current balloon on board
      * @option   Boolean         showtotalearned     Display total earnings for all balloons on board
@@ -65,15 +65,15 @@
      * @option   Array<String>   frmids_pumps        Array with unique IDs for the newly created form elements saving
      *                                               the number of pumps for a given balloon
      *                                               If left blank, the IDs are created automatically as:
-     *                                               'BARTpump' + number of balloon 
+     *                                               'BARTpump' + number of balloon
      * @option   Array<String>   frmids_exploded     Array with unique IDs for the newly created form elements saving
      *                                               the explosion status: 1 = balloon exploded, 0 = no explosion
      *                                               If left blank, the IDs are created automatically as:
-     *                                               'BARTexploded' + number of balloon 
+     *                                               'BARTexploded' + number of balloon
      * @option   Array<String>   frmids_time         Array with unique IDs for the newly created form elements saving
      *                                               the mean latency between pumps for each balloon (excluding time before first pump)
      *                                               If left blank, the IDs are created automatically as:
-     *                                               'BARTtime' + number of balloon 
+     *                                               'BARTtime' + number of balloon
      * @option   Function        onload              A hook to run a specific function before loading the BART
      * @option   String          txt_cashin          Text to display on the 'Cash in' button
      * @option   String          txt_inflate         Text to display on the 'Inflate' button
@@ -110,7 +110,7 @@
      * @author   Timo Gnambs <timo@gnambs.at>
      */
     $.fn.bart = function( method ) {
-            
+
         // default options
         var opts = {
             balloon: {                       // default settings for a balloon
@@ -146,11 +146,11 @@
             randomize:       true,           // randomize order of balloons
             frmid:           'bartdat',      // hidden form element to save all data to
             separator:       [':', ';'],     // value separators in hidden form field (0: within in balloon, 1: between ballons)
-            frmids_pumps:    [],  // optional ids of hidden form elements to save 
+            frmids_pumps:    [],  // optional ids of hidden form elements to save
                                              //    number of pumps for each balloon
-            frmids_exploded: [],  // optional ids of hidden form elements to save 
+            frmids_exploded: [],  // optional ids of hidden form elements to save
                                              //    number of explosions for each balloon
-            frmids_time:     [],             // optional ids of hidden form elements to save 
+            frmids_time:     [],             // optional ids of hidden form elements to save
                                              //    mean latency between pumps (excluding time before first pump)
             txt_cashin: '$$ Cash in $$',     // text on 'Cash in' button
             txt_inflate: 'Inflate balloon',  // text on 'Inflate' button
@@ -161,26 +161,26 @@
             txt_total_earned: 'Total earned: ',              // text for total earnings
             txt_prob_explosion: 'Probability of explosion:', // text for probability of explosion
             txt_pumps_used: 'Max. available pumps used:',    // text for percentage of used pumps
-            onload:    function() {},        // function to run before loading the script 
-            onend:    function() {}          // function to run after finishing the last balloon 
+            onload:    function() {},        // function to run before loading the script
+            onend:    function() {}          // function to run after finishing the last balloon
         };
-        
+
         var canvas = null, snds = {}, r = [];
 
-        
+
         /****************************/
         // set user defined options //
         /****************************/
-        
+
         var args = arguments[0] || {};
-            
+
         // global settings
         opts = $.extend(true, opts, args.s || {});
 
         // create balloon definitions
         var bs = [];           // result set with balloons
         if($.type(args) == 'number' | $.type(args) == 'array') args = {b: args};
-        if($.type(args.b) == 'number') {                            // number given 
+        if($.type(args.b) == 'number') {                            // number given
             var bopts = $.extend(true, opts.balloon, args.o || {}); // default balloon settings
             for(var i = 1; i <= args.b; i++) {
                 bs[i-1] = $.extend(true, {}, bopts);
@@ -188,7 +188,7 @@
             }
         } else if($.type(args.b) == 'array') {                     // array of different balloon settings
             var bopts, cnt = 0;
-            for(var i = 0; i < args.b.length; i++) { 
+            for(var i = 0; i < args.b.length; i++) {
                 if($.type(args.b[i]) == 'number') args.b[i] = {b: args.b[i]};
                 if($.type(args.b[i].b) == 'number') {
                     bopts = $.extend(true, opts.balloon, args.b[i].o || {});
@@ -204,23 +204,23 @@
             return this;
         }
         if(opts.randomize) bs.sort(randOrder);
-   
-        
+
+
         /****************************/
         // set up form ids          //
         /****************************/
-        
+
         for(var i = 0; i < bs.length; i++) {
             if(opts.frmids_pumps[i] === undefined) opts.frmids_pumps[i] = 'BARTpumps'+(i+1);
             if(opts.frmids_exploded[i] === undefined) opts.frmids_exploded[i] = 'BARTexploded'+(i+1);
             if(opts.frmids_time[i] === undefined) opts.frmids_time[i] = 'BARTtime'+(i+1);
         }
-        
-        
+
+
         /****************************/
         // buffer sounds            //
         /****************************/
-        
+
         if(opts.sounds == true) {
             if((new Audio()).canPlayType('audio/mpeg') != "") {   // mp3 for IE
                 snds.inflate = (new Audio(opts.sndpath + 'inflate.mp3'));
@@ -232,15 +232,15 @@
                 snds.cashin = (new Audio(opts.sndpath + 'collect.wav'));
             }
         }
- 
-        
+
+
         /**
          * Create a new Balloon
          *
          * @param   Object  settings for balloon
          */
         balloon = function(s) {
-            
+
             s = $.extend(true, opts.balloon, s || {});
             s.pumps = -1;
             s.exploded = false;
@@ -249,33 +249,33 @@
             s.time = [];
             for (var i=1; i <= s.popprob; i++) s.popseq.push(i);
             s.popseq.sort(randOrder);               // randomized
-                
+
             // apply settings to object
             var me = this;
             $.each(s, function(k,v) { me[[k]] = v; });
-            
+
             // on balloon hook
             this.onstart();
-            
+
         }
-        
-        
+
+
         /**
-         * Inflate the balloon 
+         * Inflate the balloon
          *
          * @param   Object      jQuery canvas object to draw on
          * @author              Logan Franken & Timo Gnambs
          * @source              adapted from http://www.loganfranken.com/blog/64/html5-canvas-balloon/
          */
         balloon.prototype.inflate = function(canvas) {
-            
+
             // center of canvas
             var centerX = (canvas.width() - 200) / 2;
             var centerY = canvas.height() / 2 - (this.radius+this.radius * this.height_factor)/4;
-            
+
             // degree of curving
             var handleLength = (4 * (Math.sqrt(2) - 1))/3 * this.radius;
-            
+
             // bottom Y of balloon
             var balloonBottomY = centerY + this.radius + (this.radius * this.height_factor);
 
@@ -283,31 +283,31 @@
             canvas.removeLayerGroup('balloon').drawLayers();
 
             // draw tie as triangle
-            canvas.drawPolygon({ strokeStyle: this.stroke_style, 
-                                 strokeWidth: this.stroke_width, 
+            canvas.drawPolygon({ strokeStyle: this.stroke_style,
+                                 strokeWidth: this.stroke_width,
                                  fillStyle: this.color,
                                  x: centerX,
-                                 y: balloonBottomY + (this.tie_width / 2), 
-                                 radius: this.tie_width, 
+                                 y: balloonBottomY + (this.tie_width / 2),
+                                 radius: this.tie_width,
                                  sides: 3,
                                  layer: true,
                                  name: 'tie',
                                  groups: ['balloon'] });
-                                 
+
             // create color gradient for balloon
-            var grad = canvas.createGradient({ x1: centerX + (this.radius/this.gradient_radius), 
+            var grad = canvas.createGradient({ x1: centerX + (this.radius/this.gradient_radius),
                                                y1: centerY - (this.radius/this.gradient_radius),
-                                               r1: this.gradient_radius, 
-                                               r2: this.radius + (this.radius * this.height_factor), 
-                                               x2: centerX, 
+                                               r1: this.gradient_radius,
+                                               r2: this.radius + (this.radius * this.height_factor),
+                                               x2: centerX,
                                                y2: centerY,
                                                c1: this.gradient_color,
-                                               c2: this.color, 
+                                               c2: this.color,
                                                s2: this.gradient_factor });
 
             // draw balloon
-            canvas.drawBezier({ strokeStyle: this.stroke_style, 
-                                strokeWidth: this.stroke_width, 
+            canvas.drawBezier({ strokeStyle: this.stroke_style,
+                                strokeWidth: this.stroke_width,
                                 fillStyle: grad,
                                 x1:  centerX - this.radius,  // start of top left curve
                                 y1:  centerY,
@@ -319,35 +319,35 @@
                                 y2:  centerY - this.radius,
                                 cx3: centerX + handleLength + (this.radius * this.width_factor), // top right curving
                                 cy3: centerY - this.radius,
-                                cx4: centerX + this.radius, 
+                                cx4: centerX + this.radius,
                                 cy4: centerY - handleLength,
                                 x3:  centerX + this.radius,  // end of top right curve
                                 y3:  centerY,
                                 cx5: centerX + this.radius,  // bottom right curving
                                 cy5: centerY + handleLength,
-                                cx6: centerX + handleLength, 
+                                cx6: centerX + handleLength,
                                 cy6: balloonBottomY,
                                 x4:  centerX,                // end of bottom right curve
                                 y4:  balloonBottomY,
                                 cx7: centerX - handleLength, // bottom left curving
                                 cy7: balloonBottomY,
-                                cx8: centerX - this.radius, 
+                                cx8: centerX - this.radius,
                                 cy8: centerY + handleLength,
                                 x5:  centerX - this.radius,  // end of bottom left curve
                                 y5:  centerY,
                                 layer: true,
-                                name: 'bubble', 
+                                name: 'bubble',
                                 groups: ['balloon'] });
-            
+
             // increase number of pumps
             this.pumps = this.pumps + 1;
-        
+
             // calculate current earnings
             this.earned = (new Number(this.pumps * this.earnings)).toFixed(2);
-            
+
             // add time stamp of pump
             this.time.push($.now());
-                                
+
             // sound
             if(opts.sounds == true & this.pumps > 0) {
                 if((new Audio()).canPlayType("audio/mpeg") != "") {   // mp3 for IE
@@ -356,69 +356,69 @@
                     (new Audio(opts.sndpath + 'inflate.wav')).play();
                 }
             }
-            
+
             // on inflate hook
             this.oninflate();
-            
+
         }
-        
-        
+
+
         /**
          * Explode the balloon
          *
          * @param   Object      jQuery canvas object to draw on
          */
         balloon.prototype.explode = function(canvas) {
-            
+
             // remove balloon
             canvas.removeLayerGroup('balloon').drawLayers();
-            
+
             // sound
             if(opts.sounds == true) {
                 snds.explode.play();
             }
-            
+
             // set explosion state
             this.exploded = true;
-            
+
             // increase number of pumps
             this.pumps = this.pumps + 1;
-            
+
             // current earnings
             this.earned = 0;
 
             // add time stamp of pump
             this.time.push($.now());
-            
+
             // save results
             this.save();
-            
+
             // on explode hook
             this.onexplode();
-            
+
         }
-                
+
         /**
          * Save results
          */
         balloon.prototype.save = function() {
-            
+
             // individual result string
             $('#' + opts.frmids_pumps[this.id-1]).attr( { value: this.pumps } );
             $('#' + opts.frmids_exploded[this.id-1]).attr( { value: (this.exploded)*1 } );
             for(var i = 1, t = 0; i < this.time.length; i ++)  t += this.time[i] - this.time[i-1];
             if(this.pumps > 1) t = Math.round(t / (this.pumps-1));
-            else t = -9;            
+            else t = -9;
             $('#' + opts.frmids_time[this.id-1]).attr( { value: t });
-            
+
             // complete result string
             var r = $('#' + opts.frmid).val();
             r = r + ([this.id, this.pumps, (this.exploded)*1, t]).join(opts.separator[0]);
             r = r +  opts.separator[1];
             $('#' + opts.frmid).val(r);
         }
-        
-        
+
+
         /**
          * Return a random number to sort an array randomly
          *
@@ -427,76 +427,76 @@
         function randOrder () {
             return (Math.round(Math.random())-0.5);
         }
-        
-        
+
+
         return this.first().each(function() {
-                
+
             // on load hook
             opts.onload();
-                
-            // set up html structure 
+
+            // set up html structure
             $(this)
                 .css({                       // wrapper
-                    width:              opts.w + 'px',                         
+                    width:              opts.w + 'px',
                     height:             opts.h + 'px',
                     'background-color': opts.bgcol,
                     overflow:           'hidden'
                 });
             canvas = $('<canvas>')
                 .attr({   // canvas
-                    width:  opts.w + 'px',       
+                    width:  opts.w + 'px',
                     height: opts.h - 100 + 'px',
-                    margin: 0 
+                    margin: 0
                 })
-                .css({ 
-                    'background-color': opts.bgcol 
+                .css({
+                    'background-color': opts.bgcol
                 })
                 .appendTo(this);
             var divBottom = $('<div>').addClass('BARTbottom');  // footer
             divBottom
-                .css({ 
-                    width:  opts.w + 'px', 
+                .css({
+                    width:  opts.w + 'px',
                     height: '100px' })
                 .appendTo(this);
-            
+
             // create hidden form fields for all response data
             $('<input>').attr({ type: 'hidden',
                                 value: '',
                                 id:    opts.frmid,
-                                name:  opts.frmid 
+                                name:  opts.frmid
                         })
                         .insertAfter(canvas);
-            
+
             // create hidden form fields for number of pumps (one for each balloon)
             $.each(opts.frmids_pumps, function(i,j) {
                 $('<input>').attr({ type: 'hidden',
                                     value: '0',
                                     id:    j,
-                                    name:  j 
+                                    name:  j
                             })
                             .insertAfter(canvas);
             });
-            
+
             // create hidden form fields for number of explosions (one for each balloon)
             $.each(opts.frmids_exploded, function(i,j) {
                 $('<input>').attr({ type: 'hidden',
                                     value: '0',
                                     id:    j,
-                                    name:  j 
+                                    name:  j
                             })
                             .insertAfter(canvas);
             });
-            
+
             // create hidden form fields for reaction time (one for each balloon)
             $.each(opts.frmids_time, function(i,j) {
                 $('<input>').attr({ type: 'hidden',
                                     value: '0',
                                     id:    j,
-                                    name:  j 
+                                    name:  j
                             })
                             .insertAfter(canvas);
             });
-        
+
             // number of balloons
             if(opts.showballooncount == true) {
                 canvas.drawText({
@@ -509,7 +509,7 @@
                     text:      opts.txt_balloon_number + ' 1 / ' + bs.length
                 });
             }
-                
+
             // total earnings
             var bottomY = opts.h - 200;
             if(opts.showtotalearned == true) {
@@ -524,7 +524,7 @@
                 });
                 bottomY -= 50;
             }
-                
+
             // number of pumps
             if(opts.showpumpcount == true) {
                 canvas.drawText({
@@ -538,7 +538,7 @@
                 });
                 bottomY -= 50;
             }
-                
+
             // current earnings
             if(opts.showcurrentearned == true) {
                 canvas.drawText({
@@ -561,11 +561,11 @@
                     name:      'popprob',
                     fillStyle: '#000',
                     font:      '14pt Verdana, sans-serif',
-                    text:      opts.txt_prob_explosion + "\n\n" + 
+                    text:      opts.txt_prob_explosion + "\n\n" +
                                (new Number(Math.round(10000/bs[0].popprob)/100)).toFixed(2) + '%'
                 });
             }
-            
+
             // available pumps used
             if(opts.showpumpsused == true) {
                 canvas.drawText({
@@ -578,88 +578,88 @@
                     text:      opts.txt_pumps_used + "\n\n" + '0%'
                 });
             }
-               
+
             // inflate balloon button
             var butInflate = $('<input>')
                 .addClass('BARTinflate')
                 .appendTo(divBottom)
                 .attr({
-                    value: opts.txt_inflate, 
+                    value: opts.txt_inflate,
                     type: 'button'
                 })
-                .css({ 
+                .css({
                     width:  '200px',
                     height: '90px',
-                    margin: '0 20px' 
+                    margin: '0 20px'
                 })
                 .on('click.bart', function(e) {
-                        
+
                     // check for explosion
                     bal.popseq.sort(randOrder);
                     if(bal.popseq.shift() == 1) {
-                    
+
                         // explode balloon
                         bal.explode(canvas);
-                            
+
                         // show/hide buttons
                         butInflate.hide();
                         butCashin.hide();
                         if(balcnt+1 < bs.length) butNext.show();
                         else opts.onend();
-                            
-                        
+
+
                     } else {
-                        
+
                         // inflate balloon
                         bal.radius = bal.radius * (1 + bal.increment);
                         bal.tie_width = bal.tie_width * (1 + bal.increment);
-                        bal.inflate(canvas);    
-                            
+                        bal.inflate(canvas);
+
                     }
-                        
+
                     // update counts
                     if(opts.showpumpcount) {
                         canvas.setLayer('pumpnum', { text: opts.txt_number_of_pumps + bal.pumps });
                     }
                     if(opts.showcurrentearned) {
-                        canvas.setLayer('curearn', { text: opts.txt_current_earned + 
+                        canvas.setLayer('curearn', { text: opts.txt_current_earned +
                                                             (new Number(bal.earned)).toFixed(2) });
                     }
                     if(opts.showpopprob) {
-                        canvas.setLayer('popprob', { text: opts.txt_prob_explosion + "\n\n" + 
+                        canvas.setLayer('popprob', { text: opts.txt_prob_explosion + "\n\n" +
                                                           (new Number(Math.round(10000/bal.popseq.length)/100)).toFixed(2) + '%' });
                     }
                     if(opts.showpumpsused) {
-                        canvas.setLayer('pumuse', { text: opts.txt_pumps_used + "\n\n" + 
+                        canvas.setLayer('pumuse', { text: opts.txt_pumps_used + "\n\n" +
                                                           (Math.round((bal.popprob-bal.popseq.length)/bal.popprob*100)) + '%' });
                     }
                     if(opts.showpumpcount | opts.showcurrentearned | opts.showpopprob | opts.showpumpsused) {
                         canvas.drawLayers();
                     }
-                
+
                 });
-                
+
             // next in button
             var butNext = $('<input>')
                 .addClass('BARTnext')
                 .appendTo(divBottom)
-                .attr({ 
-                    value:   opts.txt_next, 
+                .attr({
+                    value:   opts.txt_next,
                     type:    'button'
                 })
-                .css({ 
+                .css({
                     width:  '200px',
                     height: '90px',
-                    margin: '0 20px' 
+                    margin: '0 20px'
                 })
                 .hide()
                 .on('click.bart', function(e) {
-                        
+
                 // next ballon
                 balcnt++;
                 bal = new balloon( bs[balcnt] );
                 bal.inflate(canvas);
-                        
+
                 // update counts
                 if(opts.showpumpcount) {
                     canvas.setLayer('pumpnum', { text: opts.txt_number_of_pumps + '0' });
@@ -668,11 +668,11 @@
                     canvas.setLayer('curearn', { text: opts.txt_current_earned + '0.00' });
                 }
                 if(opts.showballooncount) {
-                    canvas.setLayer('balnum', { text: opts.txt_balloon_number + 
+                    canvas.setLayer('balnum', { text: opts.txt_balloon_number +
                                                         (balcnt+1) + ' / ' + bs.length });
                 }
                 if(opts.showpopprob) {
-                    canvas.setLayer('popprob', { text: opts.txt_prob_explosion + "\n\n" + 
+                    canvas.setLayer('popprob', { text: opts.txt_prob_explosion + "\n\n" +
                                                        (new Number(Math.round(10000/bs[balcnt].popprob)/100)).toFixed(2) + '%' });
                 }
                 if(opts.showpumpsused) {
@@ -681,58 +681,57 @@
                 if(opts.showpumpcount | opts.showcurrentearned | opts.showballooncount | opts.showpopprob | opts.showpumpsused) {
                     canvas.drawLayers();
                 }
-                            
+
                 // show/hide buttons
                 butInflate.show();
                 butCashin.show();
                 butNext.hide();
-                
+
             });
-                                                  
+
             // cash in button
             var butCashin = $('<input>')
                 .addClass('BARTcashin')
                 .appendTo(divBottom)
-                .attr({ 
-                    value: opts.txt_cashin, 
+                .attr({
+                    value: opts.txt_cashin,
                     type:  'button'
                 })
                 .css({
                     width:  '200px',
                     height: '90px',
-                    margin: '0 20px' 
+                    margin: '0 20px'
                 })
                 .on('click.bart', function(e) {
-                       
+
                     // update counts
                     opts.earned = (opts.earned*1 + bal.earned*1).toFixed(2);
                     if(opts.showtotalearned) {
                         canvas.setLayer('totearn', { text: opts.txt_total_earned + opts.earned }).drawLayers();
                     }
-                        
+
                     // show/hide buttons
                     butInflate.hide();
                     butCashin.hide();
                     bal.save();
                     if(balcnt+1 < bs.length) butNext.show();
                     else opts.onend();
-                        
+
                     // sound
                     if(opts.sounds == true) {
                         snds.cashin.play();
                     }
-                        
+
                 });
-                
-                
+
+
                 // draw first ballon
                 var balcnt = 0;
                 bal = new balloon( bs[0] );
                 bal.inflate(canvas);
-                    
-            });   
-            
-        };
-    
-})(jQuery);
 
+            });
+
+        };
+
+})(jQuery);
