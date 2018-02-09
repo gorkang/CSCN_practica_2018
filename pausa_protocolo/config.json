@@ -4,8 +4,8 @@
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "pause_trial",
-    "name": "pause_trial",
+    "exp_id": "pausa_protocolo",
+    "name": "pausa_protocolo",
     "reference": [""],
     "template": "jspsych",
     "time": 10

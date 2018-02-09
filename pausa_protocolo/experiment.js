@@ -58,7 +58,7 @@ function readTextFile(file, ide)
 
 
 
-var screen_pause_trial_experiment = {
+var screen_pausa_protocolo_experiment = {
     type: 'instructions',
     pages: ['<p><left><b><big>Pausa</big></b><br />'+
     "<div id='pausa'></div>"+
@@ -87,11 +87,11 @@ var screen_continue_experiment = {
 
 
 // Creacion de timeline e inclusion de trials
-pause_trial_experiment = [];    //timeline
+pausa_protocolo_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  pause_trial_experiment.push({
+  pausa_protocolo_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -101,5 +101,5 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-pause_trial_experiment.push(screen_pause_trial_experiment);
-pause_trial_experiment.push(screen_continue_experiment);
+pausa_protocolo_experiment.push(screen_pausa_protocolo_experiment);
+pausa_protocolo_experiment.push(screen_continue_experiment);

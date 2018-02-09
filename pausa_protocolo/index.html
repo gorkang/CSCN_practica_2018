@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>pause_trial</title>
+      <title>pausa_protocolo</title>
       <!-- Documento CSS principal -->
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -24,7 +24,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: pause_trial_experiment,
+                 timeline: pausa_protocolo_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -52,7 +52,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'pause_trial_results.csv');
+                                     jsPsych.data.get().localSave( 'csv', 'pausa_protocolo_results.csv');
                                  }
                              }
                          });
