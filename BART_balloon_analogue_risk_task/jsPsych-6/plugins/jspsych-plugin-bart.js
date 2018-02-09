@@ -13,21 +13,14 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 type: jsPsych.plugins.parameterType.INT, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
                 default: 5
             },
-            probability: {
-                type: jsPsych.plugins.parameterType.INT,
-                default: 10
+            probabilities: {
+                default: [10]
             },
-            color: {
-                type: jsPsych.plugins.parameterType.STRING,
-                default: "green"
+            colors: {
+                default: ["green"]
             },
-            eachEarn: {
-                type: jsPsych.plugins.parameterType.INT,
-                default: 1
-            },
-            initialEarn: {
-                type: jsPsych.plugins.parameterType.INT,
-                default: 0
+            eachEarns: {
+                default: [1]
             }
         }
     }
@@ -43,24 +36,26 @@ jsPsych.plugins["plugin-bart"] = (function() {
         };
         display_element.innerHTML = html;
 
-        var idPump = [];
-        var idExp = [];
-        for (var j=0; j < trial.amount; j++){
-            idPump.push("pump"+ (j+1));
-            idExp.push("expl"+ (j+1));
+        var lista = [];
+        for (var i=0; i<trial.amount; i++){
+            var chosen = trial.colors[Math.floor(Math.random() * trial.colors.length)];
+            var ind = Math.floor(Math.random() * trial.probabilities.length);
+            lista.push({
+                    b:1,
+                    o:{
+                        color: chosen,
+                        earnings: trial.eachEarns[ind],
+                        popprob: trial.probabilities[ind]
+                    }
+                });
         }
 
         $(document).ready(function() { // initialize the BART after the page has loaded
             // create a BART with 5 balloons
             $("#bart").bart({
-                b: trial.amount, // create 5 balloons
-                o: {
-                    color: trial.color, // color of balloons
-                    earnings: trial.eachEarn, // points earned for each pump
-                    popprob: trial.probability, // probability of popping; defined as 1 out of popprop
-                    //onexplode: myexplode // user-defined function invoked after an explosion
-                },
+                b: lista,
                 s: {
+                    //showpopprob: true,
                     //onload: myload, // user-defined function invoked after starting the BART
                     onend: myend, // user-defined function invoked after finishing the BART
                     sounds: true,       // use sounds
