@@ -56,7 +56,9 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     frmids_pumps: idPump, // IDs for hidden form elements used to save the number of pumps for a given balloon
                     frmids_exploded: idExp, // IDs for hidden form elements used to save whether a balloon exploded
                     //onload: myload, // user-defined function invoked after starting the BART
-                    onend: myend // user-defined function invoked after finishing the BART
+                    onend: myend, // user-defined function invoked after finishing the BART
+                    sounds: true,       // use sounds
+					sndpath: '../../BART/sounds/', // path to sound files
                 }
             });
         });
