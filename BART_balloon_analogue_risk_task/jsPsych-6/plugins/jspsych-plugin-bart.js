@@ -61,8 +61,6 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     //onexplode: myexplode // user-defined function invoked after an explosion
                 },
                 s: {
-                    frmids_pumps: idPump, // IDs for hidden form elements used to save the number of pumps for a given balloon
-                    frmids_exploded: idExp, // IDs for hidden form elements used to save whether a balloon exploded
                     //onload: myload, // user-defined function invoked after starting the BART
                     onend: myend, // user-defined function invoked after finishing the BART
                     sounds: true,       // use sounds
@@ -76,9 +74,9 @@ jsPsych.plugins["plugin-bart"] = (function() {
             var points = [];
             var timesBlow = [];
             for (var i = 1; i <=trial.amount; i++) { // run over all balloons
-                timesBlow.push(Number($('#pump' + i).attr('value')));
-                if (Number($('#expl' + i).attr('value')) == 0) {
-                    points.push(Number($('#pump' + i).attr('value'))); // get information saved to the hidden form element
+                timesBlow.push(Number($('#BARTpumps' + i).attr('value')));
+                if (Number($('#BARTexploded' + i).attr('value')) == 0) {
+                    points.push(Number($('#BARTpumps' + i).attr('value'))); // get information saved to the hidden form element
                 } else {
                     points.push(0);
                 }
