@@ -50,6 +50,16 @@ var screen_pause_trial_experiment = {
     }
 };
 
+var screen_continue_experiment = {
+    type: 'instructions',
+    pages: ['<p>CONTINUE</p>'],
+    data:{trialid: "Screen_WM"},
+    show_clickable_nav: true,
+    on_trial_start: function(){
+        bloquear_enter = 0;
+    }
+};
+
 
 // Creacion de timeline e inclusion de trials
 pause_trial_experiment = [];    //timeline
@@ -67,3 +77,4 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 
 //add the trials to the timeline
 pause_trial_experiment.push(screen_pause_trial_experiment);
+pause_trial_experiment.push(screen_continue_experiment);
