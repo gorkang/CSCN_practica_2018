@@ -21,6 +21,9 @@ jsPsych.plugins["plugin-bart"] = (function() {
             },
             eachEarns: {
                 default: [1]
+            },
+            manual: {
+                default: false
             }
         }
     }
@@ -36,6 +39,14 @@ jsPsych.plugins["plugin-bart"] = (function() {
         };
         display_element.innerHTML = html;
 
+
+        var myflate = function() {
+            console.log("quepaso");
+            if (trial.manual){
+                console.log("piola");
+            }
+        }
+
         var lista = [];
         for (var i=0; i<trial.amount; i++){
             var chosen = trial.colors[Math.floor(Math.random() * trial.colors.length)];
@@ -45,7 +56,8 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     o:{
                         color: chosen,
                         earnings: trial.eachEarns[ind],
-                        popprob: trial.probabilities[ind]
+                        popprob: trial.probabilities[ind],
+                        oninflate: myflate
                     }
                 });
         }
@@ -64,6 +76,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 }
             });
         });
+
         var myend = function() {
             var response_time = (new Date()).getTime(); - startTime;
             var points = [];

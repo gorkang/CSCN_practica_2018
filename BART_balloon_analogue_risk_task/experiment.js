@@ -47,8 +47,14 @@ var survey03 = {
   amount: 10
 };
 
+
 var survey04 = {
   type: "plugin-bart",
+  colors:["black"],
+  eachEarns:[1],
+  probabilities: [0],
+  amount:6,
+  manual: true
 };
 
 
@@ -70,6 +76,6 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 BART_balloon_analogue_risk_task_experiment.push(screen_BART_balloon_analogue_risk_task_experiment);
 
 BART_balloon_analogue_risk_task_experiment.push(survey03);
-//BART_balloon_analogue_risk_task_experiment.push(survey04);
+BART_balloon_analogue_risk_task_experiment.push(survey04);
 
 //BART_balloon_analogue_risk_task_experiment.push(surveyexplanation);
