@@ -37,26 +37,51 @@ onkeydown = function advance(event) {
 
 }
 
+function readTextFile(file, ide)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                console.log("el texto es: "+allText);
+                document.getElementById(ide).innerHTML = allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+
+
 var screen_pause_trial_experiment = {
     type: 'instructions',
     pages: ['<p><left><b><big>Pausa</big></b><br />'+
-    "Tomese un descanso"+
+    "<div id='pausa'></div>"+
     '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     wait_time:3000,
-    on_trial_start: function(){
+    on_start: function(){
         bloquear_enter = 0;
+        console.log("vamos aca");
+        readTextFile("inicio_pausa.txt","pausa");
     }
 };
 
 var screen_continue_experiment = {
     type: 'instructions',
-    pages: ['<p>CONTINUE</p>'],
+    pages: ["<div id='continuar'></div>"+
+    '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
-    on_trial_start: function(){
+    on_start: function(){
         bloquear_enter = 0;
+        readTextFile("fin_pausa.txt","continuar");
     }
 };
 
