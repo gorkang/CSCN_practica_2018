@@ -168,8 +168,8 @@ jsPsych.plugins['bret'] = (function() {
       trial.data.lastPickedBox += 1;
       if (trial.data.lastPickedBox < trial.dimensions.x * trial.dimensions.y) {
         document.getElementById(trial.data.lastPickedBox).disabled = false;
+        setTimeout(function(){document.getElementById(trial.data.lastPickedBox).click()},100)
         timeout = setTimeout(advance_trial, trial.auto_advance_time * 1000);
-        document.getElementById(trial.data.lastPickedBox).click();
       }
     }
 

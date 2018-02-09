@@ -1,32 +1,34 @@
 onkeydown = function block_fkeys(event) {
-    var x = event.which || event.keyCode;
-    if (x == 112 || x == 116) {
-        console.log("Blocked key");
-        event.preventDefault();
-        return false;
-    } else {
-        return;
-    }
+  var x = event.which || event.keyCode;
+  if (x == 112 || x == 116) {
+    console.log("Blocked key");
+    event.preventDefault();
+    return false;
+  } else {
+    return;
+  }
 }
+
+repetitions = 2;
 
 /* ********************************* PANTALLAS DE INICIO Y DESPEDIDA ********************************* */
 
 var welcome = {
-    type: 'instructions',
-    pages: ['<p><left>BRET<br /></p>'],
-    data: {
-        trialid: "Screen_BRET"
-    },
-    show_clickable_nav: true
+  type: 'instructions',
+  pages: ['<p><left>BRET<br /></p>'],
+  data: {
+    trialid: "Screen_BRET"
+  },
+  show_clickable_nav: true
 };
 
 var instructions_test = {
-    type: 'instructions',
-    pages: ['Instrucciones para test'],
-    data: {
-        trialid: "Screen_BRET"
-    },
-    show_clickable_nav: true
+  type: 'instructions',
+  pages: ['Instrucciones para test'],
+  data: {
+    trialid: "Screen_BRET"
+  },
+  show_clickable_nav: true
 };
 
 var bret_trial_0 = {
@@ -40,12 +42,12 @@ var bret_trial_0 = {
 }
 
 var instructions_after_test = {
-    type: 'instructions',
-    pages: ['Instrucciones para experimento'],
-    data: {
-        trialid: "Screen_BRET"
-    },
-    show_clickable_nav: true
+  type: 'instructions',
+  pages: ['Instrucciones para experimento'],
+  data: {
+    trialid: "Screen_BRET"
+  },
+  show_clickable_nav: true
 };
 
 var bret_trial_1 = {
@@ -58,31 +60,27 @@ var bret_trial_1 = {
   auto_advance_time: 1
 }
 
-var bret_trial_2 = {
-  type: 'bret',
+var goodbye = {
+  type: 'instructions',
+  pages: ['<p><left>Ha completad BRET<br /></p>'],
   data: {
-    trialId: "bret_2"
+    trialid: "goodbye"
   },
-  reveal_bombs: "at_click",
-  allow_clicking: false,
-  auto_advance_time: 1,
-  on_start: function(trial){
-    trial.starting_credit = jsPsych.data.getLastTrialData(1).values()[0].score;
-  }
-}
+  show_clickable_nav: true
+};
 /* ********************************* INICIALIZACION DE EXPERIMENTO ********************************* */
 
-bret = [];  //timeline
+bret = []; //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
-    bret.push({
-        type: 'fullscreen',
-        message: '<p>El experimento entrara en modo pantalla completa</p>',
-        button_label: "Pantalla Completa",
-        delay_after: 0,
-        fullscreen_mode: true
-    });
+  bret.push({
+    type: 'fullscreen',
+    message: '<p>El experimento entrara en modo pantalla completa</p>',
+    button_label: "Pantalla Completa",
+    delay_after: 0,
+    fullscreen_mode: true
+  });
 }
 
 bret.push(welcome);
@@ -90,4 +88,22 @@ bret.push(instructions_test);
 bret.push(bret_trial_0);
 bret.push(instructions_after_test);
 bret.push(bret_trial_1);
-bret.push(bret_trial_2);
+index = 2;
+while (repetitions > 0) {
+  repetitions -= 1;
+  bret.push({
+    type: 'bret',
+    data: {
+      trialId: "bret_" + index
+    },
+    reveal_bombs: "at_click",
+    allow_clicking: false,
+    auto_advance_time: 1,
+    on_start: function(trial) {
+      trial.starting_credit = jsPsych.data.getLastTrialData(1).values()[0].score;
+    }
+  });
+  index += 1;
+}
+
+bret.push(goodbye);
