@@ -37,26 +37,50 @@ onkeydown = function advance(event) {
 
 }
 
-var screen_pause_trial_experiment = {
+function readTextFile(file, ide)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                console.log("el texto es: "+allText);
+                document.getElementById(ide).innerHTML = allText;
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+
+
+var screen_inicio_protocolo_experiment = {
     type: 'instructions',
-    pages: ['<p><left><b><big>Pausa</big></b><br />'+
-    "Tomese un descanso"+
+    pages: ['<p><left><b><big>Inicio</big></b><br />'+
+    "<div id='inicio'></div>"+
     '</p>'],
     data:{trialid: "Screen_WM"},
     show_clickable_nav: true,
     wait_time:3000,
-    on_trial_start: function(){
+    on_start: function(){
         bloquear_enter = 0;
+        console.log("vamos aca");
+        readTextFile("inicio_protocolo.txt","inicio");
     }
 };
 
 
+
 // Creacion de timeline e inclusion de trials
-pause_trial_experiment = [];    //timeline
+inicio_protocolo_experiment = [];    //timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if(window.innerWidth != screen.width || window.innerHeight != screen.height){
-  pause_trial_experiment.push({
+  inicio_protocolo_experiment.push({
     type: 'fullscreen',
     message: '<p>El experimento entrara en modo pantalla completa</p>',
     button_label: "Pantalla Completa",
@@ -66,4 +90,4 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 }
 
 //add the trials to the timeline
-pause_trial_experiment.push(screen_pause_trial_experiment);
+inicio_protocolo_experiment.push(screen_inicio_protocolo_experiment);
