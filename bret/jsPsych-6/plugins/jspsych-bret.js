@@ -92,7 +92,7 @@ jsPsych.plugins['bret'] = (function() {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Reveal bombs',
         default: 'at_end',
-        description: 'When to reveal that a bomb has been clicked, it can be either at_end or at_click.'
+        description: 'When to reveal that a bomb has been clicked, it can be either at_end, at_click or never to disable bombs.'
       },
       credit_name: {
         type: jsPsych.plugins.parameterType.STRING,
@@ -123,12 +123,6 @@ jsPsych.plugins['bret'] = (function() {
         pretty_name: 'Button finish',
         default: 'Finish',
         description: 'The text in the button to end the trial'
-      },
-      button_solve: {
-        type: jsPsych.plugins.parameterType.STRING,
-        pretty_name: 'Button solve',
-        default: 'Solve',
-        description: 'The text in the button to solve the trial'
       }
     }
   }
@@ -145,7 +139,9 @@ jsPsych.plugins['bret'] = (function() {
     function lose() {
       var trial = jsPsych.currentTrial();
       trial.data.score = 0;
-      clearTimeout(timeout);
+      if(trial.auto_advance_time != 0){
+        document.getElementById("stop").click();
+      }
     }
 
     function win() {
@@ -155,7 +151,6 @@ jsPsych.plugins['bret'] = (function() {
 
     function open_box(event) {
       var trial = jsPsych.currentTrial();
-      var is_bomb = false;
       trial.bombs_position.forEach(function(bomb) {
         if ((trial.dimensions.x * bomb.y + bomb.x) == parseInt(event.target.id) && trial.reveal_bombs == "at_click") {
           event.target.outerHTML = "<input type='image' class='jspsych-btn' id=" + event.target.id + " src='jsPsych-6/plugins/images/bomb.svg' width='32' height='32' style='border: 1px solid black; background-color: salmon' disabled>";
@@ -172,8 +167,9 @@ jsPsych.plugins['bret'] = (function() {
       var trial = jsPsych.currentTrial();
       trial.data.lastPickedBox += 1;
       if (trial.data.lastPickedBox < trial.dimensions.x * trial.dimensions.y) {
-        document.getElementById(trial.data.lastPickedBox).click();
+        document.getElementById(trial.data.lastPickedBox).disabled = false;
         timeout = setTimeout(advance_trial, trial.auto_advance_time * 1000);
+        document.getElementById(trial.data.lastPickedBox).click();
       }
     }
 
@@ -181,20 +177,13 @@ jsPsych.plugins['bret'] = (function() {
       event.target.disabled = true;
       var trial = jsPsych.currentTrial();
       trial.data.lastPickedBox = -1;
-      timeout = setTimeout(advance_trial, trial.auto_advance_time * 1000)
-
-    }
-
-    function end_timer(event) {
-      event.target.disabled = true;
-      clearTimeout(timeout);
+      timeout = setTimeout(advance_trial, trial.auto_advance_time * 1000);
     }
 
     function finish_trial(event) {
       event.target.disabled = true;
       document.getElementById("end").hidden = false;
       var trial = jsPsych.currentTrial();
-      var is_bomb = false;
       trial.bombs_position.forEach(function(bomb) {
         bomb_input = document.getElementById(trial.dimensions.x * bomb.y + bomb.x);
         if (bomb_input.disabled && trial.reveal_bombs == "at_end") {
@@ -203,6 +192,12 @@ jsPsych.plugins['bret'] = (function() {
         }
         update_score();
       })
+    }
+
+    function end_timer(event) {
+      event.target.disabled = true;
+      clearTimeout(timeout);
+      finish_trial(event);
     }
 
     trial.data.score = trial.starting_credit;
@@ -224,25 +219,25 @@ jsPsych.plugins['bret'] = (function() {
         }
       }
     }
+    if (trial.auto_advance_time != 0) {
+      html += "<tr>";
+      html += "<td colspan=" + Math.floor(trial.dimensions.x*0.4) + "><button style='background-color:green;width:100%;height:32px;' id='start'>" + trial.button_start + "</button></td>";
+      html += "<td colspan=" + Math.ceil(trial.dimensions.x*0.6) + "><button style='background-color:red;width:100%;height:32px;' id='stop'>" + trial.button_stop + "</button></td>";
+      html += "</tr>";
+    }
     html += "</tbody></table></td>"
     html += "<td><table style='margin: auto'><tbody>"
     html += "<tr><td style='white-space:nowrap'>" + trial.credit_name + ":</td><td id='trial_score' style='text-align: right;'>" + trial.starting_credit + "</td></tr>";
     html += "<tr><td style='white-space:nowrap'>Picked " + trial.box_name + ":</td><td id='trial_picked' style='text-align: right;'>0</td></tr>";
     html += "<tr><td style='white-space:nowrap'>Remaining " + trial.box_name + ":</td><td id='trial_remaining' style='text-align: right;'>" + trial.dimensions.x * trial.dimensions.y + "</td></tr>"
-    if (trial.auto_advance_time != 0) {
-      html += "<tr><td><button style='background-color:green' id='start'>" + trial.button_start + "</button></td></tr>"
-      html += "<tr><td><button style='background-color:red' id='stop'>" + trial.button_stop + "</button></td></tr>"
-    }
-    html += "<tr><td><button style='background-color:blue' id='finish'>" + trial.button_solve + "</button></td></tr>"
-    html += "<tr><td><button id='end' style='background-color:white' hidden>" + trial.button_finish + "</button></td></tr>";
+
+    html += "<tr><td><button id='end' style='background-color:white;width:100%;height:32px;' hidden>" + trial.button_finish + "</button></td></tr>";
     html += "</tbody></table></td></tbody></table>";
 
     display_element.innerHTML = html;
 
     document.getElementById("start").addEventListener('click', start_timer);
     document.getElementById("stop").addEventListener('click', end_timer);
-    document.getElementById("finish").addEventListener('click', end_timer);
-    document.getElementById("finish").addEventListener('click', finish_trial);
     document.getElementById("end").addEventListener('click', endtrial);
     for (var i = 0; i < trial.dimensions.y; i++) {
       for (var j = 0; j < trial.dimensions.x; j++) {
