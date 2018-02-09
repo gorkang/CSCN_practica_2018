@@ -20,6 +20,14 @@ jsPsych.plugins["plugin-bart"] = (function() {
             color: {
                 type: jsPsych.plugins.parameterType.STRING,
                 default: "green"
+            },
+            eachEarn: {
+                type: jsPsych.plugins.parameterType.INT,
+                default: 1
+            },
+            initialEarn: {
+                type: jsPsych.plugins.parameterType.INT,
+                default: 0
             }
         }
     }
@@ -48,7 +56,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 b: trial.amount, // create 5 balloons
                 o: {
                     color: trial.color, // color of balloons
-                    earnings: 1, // points earned for each pump
+                    earnings: trial.eachEarn, // points earned for each pump
                     popprob: trial.probability, // probability of popping; defined as 1 out of popprop
                     //onexplode: myexplode // user-defined function invoked after an explosion
                 },
@@ -59,6 +67,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     onend: myend, // user-defined function invoked after finishing the BART
                     sounds: true,       // use sounds
 					sndpath: '../../BART/sounds/', // path to sound files
+                    earned:trial.initialEarn
                 }
             });
         });
