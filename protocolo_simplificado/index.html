@@ -28,20 +28,19 @@
     }
 
     function shuffle(list) {
-	  if(list.length != 0){
-		return partial_shuffle(list, 0, list.length - 1);
-	  }
-	  else{
-		return list;
-	  }
+      if (list.length != 0) {
+        return partial_shuffle(list, 0, list.length - 1);
+      } else {
+        return list;
+      }
     }
     var experiments_random = shuffle([]);
-    var experiments = 'informacion_sociodemografica_simple,pause_trial,bayes';
+    var experiments = '';
     experiments = experiments.split(',');
     experiments.reverse();
 
-	var subject_number = 0;
-	var currentExperiment = "";
+    var subject_number = 0;
+    var currentExperiment = "";
     loaded_once = false;
 
     function go_fullscreen(event) {
@@ -101,35 +100,33 @@
     function next(event) {
       if (!loaded_once && experiments.length > 0) {
         loaded_once = true;
-		if(localStorage.experiments_completed){
-			currentExperiment = experiments.pop();
-			completedExperiments = localStorage.experiments_completed.split(',');
-			while(currentExperiment in completedExperiments){
-				currentExperiment = experiments.pop();
-			}
-		}
+        currentExperiment = experiments.pop();
+        if (localStorage.experiments_completed) {
+          completedExperiments = localStorage.experiments_completed.split(',');
+          while (completedExperiments.includes(currentExperiment)) {
+            currentExperiment = experiments.pop();
+          }
+        }
         window.addEventListener('message', function(message) {
-          if (experiments.length > 0)  {
-			localStorage.setItem(currentExperiment, message.data.csv);
-			localStorage.setItem(currentExperiment + "_filename", message.data.name);
-			if(localStorage.experiments_completed){
-				localStorage.setItem("experiments_completed", localStorage.experiments_completed + "," + currentExperiment);
-			}
-			else{
-				localStorage.setItem("experiments_completed", currentExperiment);
-			}
-			currentExperiment = experiments.pop();
+          if (experiments.length > 0) {
+            localStorage.setItem(currentExperiment, message.data.csv);
+            localStorage.setItem(currentExperiment + "_filename", message.data.name);
+            if (localStorage.experiments_completed) {
+              localStorage.setItem("experiments_completed", localStorage.experiments_completed + "," + currentExperiment);
+            } else {
+              localStorage.setItem("experiments_completed", currentExperiment);
+            }
+            currentExperiment = experiments.pop();
             document.getElementById('iframe').src = "./" + currentExperiment + "/index.html";
-          } else{
-			local_save(message.data.csv,subject_number + "_" + currentExperiment + "_" + Date().split(' ').join('_'));
-			completedExperiments = localStorage.experiments_completed.split(',');
-			for(var experiment_index in completedExperiments){
-				local_save(localStorage[completedExperiments[experiment_index]], subject_number + "_" + completedExperiments[experiment_index] + "_" + Date().split(' ').join('_'));
-			}
-			localStorage.clear();
-		  }
+          } else {
+            local_save(message.data.csv, subject_number + "_" + currentExperiment + "_" + Date().split(' ').join('_'));
+            completedExperiments = localStorage.experiments_completed.split(',');
+            for (var experiment_index in completedExperiments) {
+              local_save(localStorage[completedExperiments[experiment_index]], subject_number + "_" + completedExperiments[experiment_index] + "_" + Date().split(' ').join('_'));
+            }
+            localStorage.clear();
+          }
         });
-		currentExperiment = experiments.pop();
         document.getElementById('iframe').src = "./" + currentExperiment + "/index.html";
       }
     }
