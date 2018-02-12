@@ -16,10 +16,10 @@
         var randomIndex;
         while (currentIndex !== index_start) {
           randomIndex = Math.floor(Math.random() * currentIndex) + index_start;
-          currentIndex -= 1;
           temporaryValue = list[currentIndex];
           list[currentIndex] = list[randomIndex];
           list[randomIndex] = temporaryValue;
+          currentIndex -= 1;
         }
       } else {
         throw "Index out of range."
@@ -28,17 +28,20 @@
     }
 
     function shuffle(list) {
-      return partial_shuffle(list, 0, list.length - 1);
+	  if(list.length != 0){
+		return partial_shuffle(list, 0, list.length - 1);
+	  }
+	  else{
+		return list;
+	  }
     }
-    var experiments_random = [];
-    var experiments = ["informacion_sociodemografica_simple", "bret", "wais_working_memory"];
+    var experiments_random = shuffle([]);
+    var experiments = 'informacion_sociodemografica_simple,pause_trial,bayes';
     experiments = experiments.split(',');
     experiments.reverse();
 
-    var timePassed = true;
-    var results = [];
-    var gato;
-
+	var subject_number = 0;
+	var currentExperiment = "";
     loaded_once = false;
 
     function go_fullscreen(event) {
@@ -90,22 +93,44 @@
       }
       var link = document.createElement('a');
       link.href = blobURL;
-      link.setAttribute('download', name);
+      link.setAttribute('download', name + ".csv");
       document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
     }
 
     function next(event) {
-      if (!loaded_once) {
+      if (!loaded_once && experiments.length > 0) {
         loaded_once = true;
+		if(localStorage.experiments_completed){
+			currentExperiment = experiments.pop();
+			completedExperiments = localStorage.experiments_completed.split(',');
+			while(currentExperiment in completedExperiments){
+				currentExperiment = experiments.pop();
+			}
+		}
         window.addEventListener('message', function(message) {
-          local_save(message.data.csv, message.data.name + ".csv");
           if (experiments.length > 0)  {
-            document.getElementById('iframe').src = "./" + experiments.pop() + "/index.html";
-          }
+			localStorage.setItem(currentExperiment, message.data.csv);
+			localStorage.setItem(currentExperiment + "_filename", message.data.name);
+			if(localStorage.experiments_completed){
+				localStorage.setItem("experiments_completed", localStorage.experiments_completed + "," + currentExperiment);
+			}
+			else{
+				localStorage.setItem("experiments_completed", currentExperiment);
+			}
+			currentExperiment = experiments.pop();
+            document.getElementById('iframe').src = "./" + currentExperiment + "/index.html";
+          } else{
+			local_save(message.data.csv,subject_number + "_" + currentExperiment + "_" + Date().split(' ').join('_'));
+			completedExperiments = localStorage.experiments_completed.split(',');
+			for(var experiment_index in completedExperiments){
+				local_save(localStorage[completedExperiments[experiment_index]], subject_number + "_" + completedExperiments[experiment_index] + "_" + Date().split(' ').join('_'));
+			}
+			localStorage.clear();
+		  }
         });
-        document.getElementById('iframe').src = "./" + experiments.pop() + "/index.html";
+		currentExperiment = experiments.pop();
+        document.getElementById('iframe').src = "./" + currentExperiment + "/index.html";
       }
     }
   </script>
