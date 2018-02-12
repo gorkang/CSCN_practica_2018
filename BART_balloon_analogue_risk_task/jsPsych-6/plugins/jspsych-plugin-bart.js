@@ -23,7 +23,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 default: [1]
             },
             manual: {
-                default: false
+                default: []
             }
         }
     }
@@ -72,7 +72,8 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     onend: myend, // user-defined function invoked after finishing the BART
                     sounds: true,       // use sounds
 					sndpath: '../../BART/sounds/', // path to sound files
-                    earned:trial.initialEarn
+                    earned:trial.initialEarn,
+                    manProb: trial.manual
                 }
             });
         });

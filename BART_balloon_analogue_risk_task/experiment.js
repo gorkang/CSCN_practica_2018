@@ -52,9 +52,9 @@ var survey04 = {
   type: "plugin-bart",
   colors:["black"],
   eachEarns:[1],
-  probabilities: [0],
-  amount:6,
-  manual: true
+  probabilities: [8],
+  amount:1,
+  manual: [0,0,0,0,0,0,1]
 };
 
 
