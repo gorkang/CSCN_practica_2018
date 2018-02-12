@@ -30,8 +30,9 @@
     function shuffle(list) {
       return partial_shuffle(list, 0, list.length - 1);
     }
-    
+    var experiments_random = [];
     var experiments = ["informacion_sociodemografica_simple", "bret", "wais_working_memory"];
+    experiments = experiments.split(',');
     experiments.reverse();
 
     var timePassed = true;
@@ -99,12 +100,8 @@
       if (!loaded_once) {
         loaded_once = true;
         window.addEventListener('message', function(message) {
-          results.push(message.data)
-          if (experiments.length == 0) {
-            results.forEach(function(result) {
-              local_save(result.csv, result.name + ".csv");
-            })
-          } else {
+          local_save(message.data.csv, message.data.name + ".csv");
+          if (experiments.length > 0)  {
             document.getElementById('iframe').src = "./" + experiments.pop() + "/index.html";
           }
         });
