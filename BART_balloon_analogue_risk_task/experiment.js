@@ -41,11 +41,20 @@ var screen_BART_balloon_analogue_risk_task_experiment = {
 
 var survey03 = {
   type: "plugin-bart",
+  colors: ["red", "green", "blue"],
+  probabilities:[8, 32, 128],
+  eachEarns:[0.25, 0.05, 0.01],
+  amount: 10
 };
+
 
 var survey04 = {
   type: "plugin-bart",
-  color: "red"
+  colors:["black"],
+  eachEarns:[1],
+  probabilities: [8],
+  amount:1,
+  manual: [0,0,0,0,0,0,1]
 };
 
 

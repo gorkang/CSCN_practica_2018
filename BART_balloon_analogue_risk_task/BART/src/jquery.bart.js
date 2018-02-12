@@ -254,6 +254,7 @@
             var me = this;
             $.each(s, function(k,v) { me[[k]] = v; });
 
+
             // on balloon hook
             this.onstart();
 
@@ -595,7 +596,19 @@
                 .on('click.bart', function(e) {
 
                     // check for explosion
-                    bal.popseq.sort(randOrder);
+
+
+                    if (opts.manProb.length != 0){
+                        bal.popseq = opts.manProb;
+                    }else{
+                        bal.popseq.sort(randOrder);
+                    }
+
+                    console.log("se viene el bal");
+                    console.log(bal.popseq);
+                    console.log("se viene el manual")
+                    console.log(opts.manProb);
+
                     if(bal.popseq.shift() == 1) {
 
                         // explode balloon
