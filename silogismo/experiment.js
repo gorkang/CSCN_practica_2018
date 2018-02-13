@@ -8,9 +8,18 @@ d3.csv("silogismos/items/materials_experiment.csv", function(error, data) {
 });
 */
 
-var ide = 1;
+var ide = 2;
+var verdadero = 80;
+var falso = 81;
 var training;
 var exercises;
+
+if (ide%2 == 0){
+    var temp = verdadero;
+    verdadero = falso;
+    falso = temp;
+}
+console.log("el codigo de verdadero es: "+ verdadero +" y el de falso es: "+ falso);
 
 var mainexplanation = {
     type: "instructions",
@@ -28,19 +37,29 @@ var mainexplanation = {
         trialid: "Welcome_Screen"
     },
     on_start: function(trial) {
+        jsPsych.pauseExperiment();
         d3.csv("silogismos/items/materials_training.csv", function(error, data) {
             training = data;
-        });
 
-        d3.csv("silogismos/items/materials_experiment.csv", function(error, data) {
+            var categorization_trial = {
+                type: 'categorize-html',
+                stimulus: '<p>B</p>',
+                key_answer: verdadero,
+                text_answer: 'letter',
+                choices: [verdadero, falso],
+                correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
+                incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
+                prompt: "<p>Press P for letter. Press Q for number.</p>"
+            };
 
-            for (var i=0 ; i< data.length ; i++){
-                if (data[i].ID == ide){
-                    exercises = data[i];
-                    //break;
-                }
+            var new_timeline = {
+              timeline: [categorization_trial]
             }
+            jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment);
+
         });
+
+
     }
 
 };
@@ -63,22 +82,18 @@ var explanation2 = {
         trialid: "Welcome_Screen"
     },
     on_start: function(trial) {
-        console.log(training);
-        console.log(exercises);
+        d3.csv("silogismos/items/materials_experiment.csv", function(error, data) {
+
+            for (var i=0 ; i< data.length ; i++){
+                if (data[i].ID == ide){
+                    exercises = data[i];
+                    //break;
+                }
+            }
+        });
     }
 };
 
-
-var categorization_trial = {
-    type: 'categorize-html',
-    stimulus: '<p>B</p>',
-    key_answer: 80,
-    text_answer: 'letter',
-    choices: [80, 81],
-    correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
-    incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
-    prompt: "<p>Press P for letter. Press Q for number.</p>"
-};
 
 var silogismo_experiment = []; //definitive timeline
 
@@ -96,4 +111,3 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 //add the trials to the timeline
 silogismo_experiment.push(mainexplanation);
 silogismo_experiment.push(explanation2);
-silogismo_experiment.push(categorization_trial);
