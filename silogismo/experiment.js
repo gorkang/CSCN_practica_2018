@@ -1,13 +1,17 @@
-
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
-var train_random = true;//if the test must be randomized
+var train_random = false; //if the test must be randomized
 var test_random = true;
 
 
+var percentageWrong = 0.5;
+var wrongs = 0;
 var training;
 var exercises;
+var train_timeline = [];
+var loopTime = [];
+var trainlen;
 
 if (ide % 2 == 0) {
     var temp = verdadero;
@@ -25,17 +29,24 @@ function shuffleArray(array) {
     }
 }
 
-function advance(event) {
-    document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
-        if (event.keyCode == 13) { //if the key pressed is enter, advance
-            var btn = document.getElementById("jspsych-instructions-next");
-            btn.click();
-        } else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {//accept only numbers
-            event.preventDefault();
-        }
-    };
-}
-
+var try_again = {
+    type: "instructions",
+    pages: ["<div class = centerbox>" +
+        "<p class = center-block-text>" +
+        "Vamos a revisar de nuevo los items de práctica para que quede claro." +
+        "</p></div>"
+    ],
+    allow_keys: true,
+    key_forward: 32,
+    //show_clickable_nav: true,
+    timing_post_trial: 50,
+    data: {
+        trialid: "Welcome_Screen"
+    },
+    on_start: function(trial) {
+        wrongs = 0;
+    }
+};
 
 
 var mainexplanation = {
@@ -58,7 +69,8 @@ var mainexplanation = {
         jsPsych.pauseExperiment();
         d3.csv("silogismos/items/materials_training.csv", function(error, data) {
 
-            var train_timeline = [];
+            trainlen = data.length;
+            loopTime.push(try_again);
 
             data.forEach(function(statement) {
 
@@ -78,16 +90,48 @@ var mainexplanation = {
                     correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
                     incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
                     prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
-                    trial_duration: 60000 //60 seconds
+                    trial_duration: 60000, //60 seconds
+                    on_finish: function(data) {
+                        if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
+                            wrongs += 1;
+                        }
+                        console.log(wrongs);
+                    }
                 };
 
                 train_timeline.push(categorization_trial);
+                loopTime.push(categorization_trial);
             });
 
-            if(train_random){
+            if (train_random) {
                 shuffleArray(train_timeline);
+                shuffleArray(loopTime);
             }
 
+            var loop_node = {
+                timeline: loopTime,
+                loop_function: function(data) {
+                    console.log("cantidad de malos"+wrongs);
+                    if (wrongs >= Math.floor(percentageWrong * trainlen)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            var if_node = {
+                timeline: [loop_node],
+                conditional_function: function() {
+
+                    if (wrongs < Math.floor(percentageWrong * trainlen)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }
+
+            train_timeline.push(if_node);
             train_timeline.push(explanation3);
 
             var new_timeline = {
@@ -106,7 +150,7 @@ var explanation3 = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
-        "Ahora empezara la verdadera prueba"+
+        "Ahora empezara la verdadera prueba" +
         "</p></div>"
     ],
     allow_keys: true,
@@ -170,7 +214,7 @@ var explanation2 = {
                 }
             });
 
-            if(test_random){
+            if (test_random) {
                 shuffleArray(test_timeline);
             }
 
