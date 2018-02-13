@@ -9,8 +9,8 @@ d3.csv("silogismos/items/materials_experiment.csv", function(error, data) {
 */
 
 var ide = 2;
-var verdadero = 80;
-var falso = 81;
+var verdadero = 'q';
+var falso = 'p';
 var training;
 var exercises;
 
@@ -39,21 +39,34 @@ var mainexplanation = {
     on_start: function(trial) {
         jsPsych.pauseExperiment();
         d3.csv("silogismos/items/materials_training.csv", function(error, data) {
-            training = data;
 
-            var categorization_trial = {
-                type: 'categorize-html',
-                stimulus: '<p>B</p>',
-                key_answer: verdadero,
-                text_answer: 'letter',
-                choices: [verdadero, falso],
-                correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
-                incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
-                prompt: "<p>Press P for letter. Press Q for number.</p>"
-            };
+            var train_timeline = [];
+
+            data.forEach(function(statement){
+
+                var respuesta = verdadero;
+                if (statement.valido == 'F'){
+                    respuesta = falso;
+                }
+
+                console.log(respuesta.charCodeAt(0) - 32);
+
+                var categorization_trial = {
+                    type: 'categorize-html',
+                    stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + statement.conclusion,
+                    key_answer: respuesta.charCodeAt(0) - 32,
+                    text_answer: respuesta,
+                    choices: [verdadero, falso],
+                    correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
+                    incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
+                    prompt: "<p>Press "+verdadero+" for verdadero. Press "+falso+" for falso.</p>"
+                };
+
+                train_timeline.push(categorization_trial);
+            });
 
             var new_timeline = {
-              timeline: [categorization_trial]
+              timeline: train_timeline
             }
             jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment);
 
