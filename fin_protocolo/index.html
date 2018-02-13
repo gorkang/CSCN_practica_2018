@@ -3,7 +3,7 @@
   <head>
       <meta charset='UTF-8'>
       <meta name="robots" content="noindex">
-      <title>pause_trial</title>
+      <title>fin_protocolo</title>
       <!-- Documento CSS principal -->
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -16,7 +16,6 @@
     <!-- Plugin para desplegar elementos tipo instrucciones -->
     <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
     <!-- Plugin custom multi choice 2 -->
-    <script src="jsPsych-6/plugins/jspsych-survey-multi-choice1.js"></script>
     <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
 
     <script src='experiment.js'></script>
@@ -25,7 +24,7 @@
     $( document ).ready(function() {
 
         jsPsych.init({
-                 timeline: pause_trial_experiment,
+                 timeline: fin_protocolo_experiment,
                  fullscreen: true,
 
                  on_finish: function(data){
@@ -53,7 +52,7 @@
                                      document.location = "/next";
                                  } else {
                                      // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'pause_trial_results.csv');
+                                     jsPsych.data.get().localSave( 'csv', 'fin_protocolo_results.csv');
                                  }
                              }
                          });

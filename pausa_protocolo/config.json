@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de encuesta",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "pausa_protocolo",
+    "name": "pausa_protocolo",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
