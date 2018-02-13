@@ -96,7 +96,13 @@ jsPsych.plugins['categorize-html'] = (function() {
       feedback_duration: {
         type: jsPsych.plugins.parameterType.INT,
         pretty_name: 'Feedback duration',
-        default: 2000,
+        default: 100000,
+        description: 'How long to show feedback.'
+      },
+      feedback_duration: {
+        type: jsPsych.plugins.parameterType.BOOL,
+        pretty_name: 'Feedback enabled',
+        default: 100000,
         description: 'How long to show feedback.'
       }
     }
@@ -187,7 +193,7 @@ jsPsych.plugins['categorize-html'] = (function() {
         display_element.innerHTML += atext;
       }
       // check if force correct button press is set
-      if (trial.force_correct_button_press && correct === false && ((timeout && trial.show_feedback_on_timeout) || !timeout)) {
+      if (trial.force_correct_button_press && ((timeout && trial.show_feedback_on_timeout) || !timeout)) {
 
         var after_forced_response = function(info) {
           endTrial();

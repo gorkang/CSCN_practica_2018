@@ -1,10 +1,11 @@
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
-var train_random = false; //if the test must be randomized
+var train_random = true; //if the test must be randomized
 var test_random = true;
-var percentageWrong = 0.5;
-
+var percentageWrong = 0.5;//percentage of wrong in training to repeat it
+var complex = true;//if the feedback must be complex
+var seguridad = false;//if you want to ask how sure is the subject of his answer
 
 var wrongs = 0;
 var training;
@@ -12,6 +13,7 @@ var exercises;
 var train_timeline = [];
 var loopTime = [];
 var trainlen;
+var image = "";
 
 if (ide % 2 == 0) {
     var temp = verdadero;
@@ -48,6 +50,11 @@ var try_again = {
     }
 };
 
+var survey_trial = {
+  type: 'survey-text',
+  questions: [{prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"}],
+};
+
 
 var mainexplanation = {
     type: "instructions",
@@ -72,6 +79,10 @@ var mainexplanation = {
             trainlen = data.length;
             loopTime.push(try_again);
 
+            if (train_random) {
+                shuffleArray(data);
+            }
+
             data.forEach(function(statement) {
 
                 var respuesta = verdadero;
@@ -81,16 +92,21 @@ var mainexplanation = {
 
                 console.log(respuesta.charCodeAt(0) - 32);
 
+                if (complex){
+                    image = "<img src='silogismos/feedback/"+statement.ID+".png' style='width: 100%' />";
+
+                }
+
                 var categorization_trial = {
                     type: 'categorize-html',
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + statement.conclusion,
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
                     choices: [verdadero, falso],
-                    correct_text: "<p class='prompt' style='color:green'>Correcto</p>",
-                    incorrect_text: "<p class='prompt' style='color:red'>Incorrecto</p>",
+                    correct_text: "<p class='prompt' style='color:green'>Correcto. Presione la barra espaciadora para continuar</p>" + image,
+                    incorrect_text: "<p class='prompt' style='color:red'>Incorrecto</p> Presione la barra espaciadora para continuar" + image,
                     prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
-                    //force_correct_button_press:true,
+                    force_correct_button_press: !seguridad,
                     trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
                         if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
@@ -102,12 +118,15 @@ var mainexplanation = {
 
                 train_timeline.push(categorization_trial);
                 loopTime.push(categorization_trial);
+
+                if (seguridad){
+                    train_timeline.push(survey_trial);
+                    loopTime.push(survey_trial);
+
+                }
+
             });
 
-            if (train_random) {
-                shuffleArray(train_timeline);
-                shuffleArray(loopTime);
-            }
 
             var loop_node = {
                 timeline: loopTime,
@@ -190,6 +209,12 @@ var explanation2 = {
             var test_timeline = [];
 
 
+            if (test_random) {
+                shuffleArray(data);
+            }
+
+
+
             data.forEach(function(statement) {
 
                 if (statement.ID == ide) {
@@ -213,12 +238,13 @@ var explanation2 = {
                     };
 
                     test_timeline.push(categorization_trial);
+                    if (seguridad){
+                        test_timeline.push(survey_trial);
+
+                    }
+
                 }
             });
-
-            if (test_random) {
-                shuffleArray(test_timeline);
-            }
 
             var new_timeline = {
                 timeline: test_timeline
