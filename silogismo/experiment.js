@@ -117,13 +117,10 @@ var explanation2 = {
                         type: 'categorize-html',
                         stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + statement.conclusion,
                         key_answer: respuesta.charCodeAt(0) - 32,
-                        text_answer: respuesta,
                         choices: [verdadero, falso],
-                        correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
-                        incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
                         prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
-                        show_stim_with_feedback: false,
-                        trial_duration: 60000 //60 seconds
+                        trial_duration: 60000, //60 seconds
+                        feedback_duration: 0
                     };
 
                     test_timeline.push(categorization_trial);
