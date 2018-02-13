@@ -6,6 +6,7 @@ var test_random = true;
 var percentageWrong = 0.5;//percentage of wrong in training to repeat it
 var complex = true;//if the feedback must be complex
 var seguridad = false;//if you want to ask how sure is the subject of his answer
+var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
 var training;
@@ -107,6 +108,7 @@ var mainexplanation = {
                     incorrect_text: "<p class='prompt' style='color:red'>Incorrecto</p> Presione la barra espaciadora para continuar" + image,
                     prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
                     force_correct_button_press: !seguridad,
+                    show_timer: tempo,
                     trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
                         if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
@@ -234,6 +236,7 @@ var explanation2 = {
                         prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
                         //force_correct_button_press:true,
                         trial_duration: 60000, //60 seconds
+                        show_timer: tempo,
                         feedback_duration: 0 //no feedback
                     };
 
