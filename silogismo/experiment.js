@@ -59,7 +59,9 @@ var mainexplanation = {
                     choices: [verdadero, falso],
                     correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
                     incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
-                    prompt: "<p>Press "+verdadero+" for verdadero. Press "+falso+" for falso.</p>"
+                    prompt: "<p>Press "+verdadero+" for verdadero. Press "+falso+" for falso.</p>",
+                    show_stim_with_feedback: false,
+                    trial_duration: 60000 //60 seconds
                 };
 
                 train_timeline.push(categorization_trial);
