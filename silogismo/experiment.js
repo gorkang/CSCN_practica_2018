@@ -3,9 +3,9 @@ var verdadero = 'q';
 var falso = 'p';
 var train_random = false; //if the test must be randomized
 var test_random = true;
-
-
 var percentageWrong = 0.5;
+
+
 var wrongs = 0;
 var training;
 var exercises;
@@ -87,9 +87,10 @@ var mainexplanation = {
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
                     choices: [verdadero, falso],
-                    correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
-                    incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
+                    correct_text: "<p class='prompt' style='color:green'>Correcto</p>",
+                    incorrect_text: "<p class='prompt' style='color:red'>Incorrecto</p>",
                     prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
+                    //force_correct_button_press:true,
                     trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
                         if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
@@ -206,6 +207,7 @@ var explanation2 = {
                         key_answer: respuesta.charCodeAt(0) - 32,
                         choices: [verdadero, falso],
                         prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
+                        //force_correct_button_press:true,
                         trial_duration: 60000, //60 seconds
                         feedback_duration: 0 //no feedback
                     };
