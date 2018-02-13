@@ -100,13 +100,13 @@ var mainexplanation = {
 
                 var categorization_trial = {
                     type: 'categorize-html',
-                    stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + statement.conclusion,
+                    stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" +"<b>"+ statement.conclusion+"</b>",
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
                     choices: [verdadero, falso],
                     correct_text: "<p class='prompt' style='color:green'>Correcto. Presione la barra espaciadora para continuar</p>" + image,
                     incorrect_text: "<p class='prompt' style='color:red'>Incorrecto</p> Presione la barra espaciadora para continuar" + image,
-                    prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
+                    prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     trial_duration: 60000, //60 seconds
@@ -230,10 +230,10 @@ var explanation2 = {
 
                     var categorization_trial = {
                         type: 'categorize-html',
-                        stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + statement.conclusion,
+                        stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" +"<b>"+ statement.conclusion+"</b>",
                         key_answer: respuesta.charCodeAt(0) - 32,
                         choices: [verdadero, falso],
-                        prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
+                        prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
                         //force_correct_button_press:true,
                         trial_duration: 60000, //60 seconds
                         show_timer: tempo,
