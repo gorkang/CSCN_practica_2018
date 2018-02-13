@@ -1,16 +1,11 @@
-/*
-d3.csv("silogismos/items/materials_training.csv", function(error, data) {
-    console.log(data);
-});
-
-d3.csv("silogismos/items/materials_experiment.csv", function(error, data) {
-    console.log(data);
-});
-*/
 
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
+var train_random = true;
+var test_random = true;
+
+
 var training;
 var exercises;
 
@@ -20,6 +15,17 @@ if (ide % 2 == 0) {
     falso = temp;
 }
 console.log("el codigo de verdadero es: " + verdadero + " y el de falso es: " + falso);
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+
 
 var mainexplanation = {
     type: "instructions",
@@ -60,12 +66,17 @@ var mainexplanation = {
                     correct_text: "<p class='prompt'>Correct, this is a %ANS%.</p>",
                     incorrect_text: "<p class='prompt'>Incorrect, this is a %ANS%.</p>",
                     prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
-                    show_stim_with_feedback: false,
                     trial_duration: 60000 //60 seconds
                 };
 
                 train_timeline.push(categorization_trial);
             });
+
+            if(train_random){
+                shuffleArray(train_timeline);
+            }
+
+            train_timeline.push(explanation3);
 
             var new_timeline = {
                 timeline: train_timeline
@@ -78,6 +89,23 @@ var mainexplanation = {
     }
 
 };
+
+var explanation3 = {
+    type: "instructions",
+    pages: ["<div class = centerbox>" +
+        "<p class = center-block-text>" +
+        "Ahora empezara la verdadera prueba"+
+        "</p></div>"
+    ],
+    allow_keys: false,
+    show_clickable_nav: true,
+    timing_post_trial: 50,
+    data: {
+        trialid: "Welcome_Screen"
+    }
+};
+
+
 
 var explanation2 = {
     type: "instructions",
@@ -102,6 +130,7 @@ var explanation2 = {
 
             var test_timeline = [];
 
+
             data.forEach(function(statement) {
 
                 if (statement.ID == ide) {
@@ -120,12 +149,16 @@ var explanation2 = {
                         choices: [verdadero, falso],
                         prompt: "<p>Press " + verdadero + " for verdadero. Press " + falso + " for falso.</p>",
                         trial_duration: 60000, //60 seconds
-                        feedback_duration: 0
+                        feedback_duration: 0 //no feedback
                     };
 
                     test_timeline.push(categorization_trial);
                 }
             });
+
+            if(test_random){
+                shuffleArray(test_timeline);
+            }
 
             var new_timeline = {
                 timeline: test_timeline
