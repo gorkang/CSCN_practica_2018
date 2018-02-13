@@ -102,7 +102,7 @@ jsPsych.plugins['categorize-html'] = (function() {
       feedback_duration: {
         type: jsPsych.plugins.parameterType.BOOL,
         pretty_name: 'Feedback enabled',
-        default: 100000,
+        default: 0,
         description: 'How long to show feedback.'
       }
     }
