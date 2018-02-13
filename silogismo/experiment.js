@@ -2,7 +2,7 @@
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
-var train_random = true;
+var train_random = true;//if the test must be randomized
 var test_random = true;
 
 
@@ -25,6 +25,17 @@ function shuffleArray(array) {
     }
 }
 
+function advance(event) {
+    document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
+        if (event.keyCode == 13) { //if the key pressed is enter, advance
+            var btn = document.getElementById("jspsych-instructions-next");
+            btn.click();
+        } else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {//accept only numbers
+            event.preventDefault();
+        }
+    };
+}
+
 
 
 var mainexplanation = {
@@ -36,8 +47,9 @@ var mainexplanation = {
         "Es importante que le prestes atencion y que intetes hacerlo lo mejor posible." +
         "</p></div>"
     ],
-    allow_keys: false,
-    show_clickable_nav: true,
+    allow_keys: true,
+    key_forward: 32,
+    //show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
         trialid: "Welcome_Screen"
@@ -97,8 +109,9 @@ var explanation3 = {
         "Ahora empezara la verdadera prueba"+
         "</p></div>"
     ],
-    allow_keys: false,
-    show_clickable_nav: true,
+    allow_keys: true,
+    key_forward: 32,
+    //show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
         trialid: "Welcome_Screen"
@@ -118,8 +131,9 @@ var explanation2 = {
         "las dos primeras frases, y FALSA si la conclusion es SIEMPRE FALSA a partir de lo que dicen las 2 primeras frases." +
         "</p></div>"
     ],
-    allow_keys: false,
-    show_clickable_nav: true,
+    allow_keys: true,
+    key_forward: 32,
+    //show_clickable_nav: true,
     timing_post_trial: 50,
     data: {
         trialid: "Welcome_Screen"
