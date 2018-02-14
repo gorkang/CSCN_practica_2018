@@ -136,7 +136,7 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
 
-      if ($.isNumeric(validation) && validation < 100 && validation >0) {
+      if ($.isNumeric(validation) && validation <= 100 && validation >=0) {
           console.log("bien",validation);
           display_element.innerHTML = '';
           jsPsych.pluginAPI.clearAllTimeouts();

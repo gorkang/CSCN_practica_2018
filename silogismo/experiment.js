@@ -5,7 +5,7 @@ var train_random = false; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
-var seguridad = false; //if you want to ask how sure is the subject of his answer
+var seguridad = true; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
@@ -31,6 +31,19 @@ function shuffleArray(array) {
         array[i] = array[j];
         array[j] = temp;
     }
+}
+
+function advance(event) {
+    document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
+        console.log("el keycode del input es "+event.keyCode);
+        if (event.keyCode == 32 || event.which == 32) { //if the key pressed is enter, advance
+            event.preventDefault();
+            var btn = document.getElementById("jspsych-survey-text-next");
+            btn.click();
+        } else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {//accept only numbers
+            event.preventDefault();
+        }
+    };
 }
 
 var try_again = {
