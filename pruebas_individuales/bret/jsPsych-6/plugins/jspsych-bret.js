@@ -139,7 +139,7 @@ jsPsych.plugins['bret'] = (function() {
     function lose() {
       var trial = jsPsych.currentTrial();
       trial.data.score = 0;
-      if(trial.auto_advance_time != 0){
+      if (trial.auto_advance_time != 0) {
         document.getElementById("stop").click();
       }
     }
@@ -168,7 +168,9 @@ jsPsych.plugins['bret'] = (function() {
       trial.data.lastPickedBox += 1;
       if (trial.data.lastPickedBox < trial.dimensions.x * trial.dimensions.y) {
         document.getElementById(trial.data.lastPickedBox).disabled = false;
-        setTimeout(function(){document.getElementById(trial.data.lastPickedBox).click()},100)
+        setTimeout(function() {
+          document.getElementById(trial.data.lastPickedBox).click()
+        }, 100)
         timeout = setTimeout(advance_trial, trial.auto_advance_time * 1000);
       }
     }
@@ -190,7 +192,7 @@ jsPsych.plugins['bret'] = (function() {
           bomb_input.outerHTML = "<input type='image' class='jspsych-btn' src='jsPsych-6/plugins/images/bomb.svg' width='32' height='32' style='border: 1px solid black; background-color: salmon' disabled>";
           lose();
         }
-        update_score();
+        document.getElementById('trial_score').innerHTML = trial.data.score.toFixed(2);
       })
     }
 
@@ -221,8 +223,8 @@ jsPsych.plugins['bret'] = (function() {
     }
     if (trial.auto_advance_time != 0) {
       html += "<tr>";
-      html += "<td colspan=" + Math.floor(trial.dimensions.x*0.4) + "><button style='background-color:green;width:100%;height:32px;' id='start'>" + trial.button_start + "</button></td>";
-      html += "<td colspan=" + Math.ceil(trial.dimensions.x*0.6) + "><button style='background-color:red;width:100%;height:32px;' id='stop'>" + trial.button_stop + "</button></td>";
+      html += "<td colspan=" + Math.floor(trial.dimensions.x * 0.4) + "><button style='background-color:green;width:100%;height:32px;' id='start'>" + trial.button_start + "</button></td>";
+      html += "<td colspan=" + Math.ceil(trial.dimensions.x * 0.6) + "><button style='background-color:red;width:100%;height:32px;' id='stop'>" + trial.button_stop + "</button></td>";
       html += "</tr>";
     }
     html += "</tbody></table></td>"
