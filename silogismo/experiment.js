@@ -118,6 +118,10 @@ var mainexplanation = {
 
                 var categorization_trial = {
                     type: 'categorize-html',
+                    data: {
+                        trialid: data.ID,
+                        tipo: "training"
+                    },
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
@@ -297,6 +301,10 @@ var explanation2 = {
 
                 var categorization_trial = {
                     type: 'categorize-html',
+                    data: {
+                        trialid: data.ID,
+                        tipo: "experiment"
+                    },
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
                     key_answer: respuesta.charCodeAt(0) - 32,
                     choices: [verdadero, falso],
