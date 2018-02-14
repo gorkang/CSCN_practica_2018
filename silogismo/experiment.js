@@ -51,6 +51,7 @@ var try_again = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Vamos a revisar de nuevo los items de práctica para que quede claro." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -80,6 +81,7 @@ var mainexplanation = {
         '<p><left><b><big>Silogismo</big></b><br />' +
         "Esta prueba NO es una prueba de inteligencia. Se trata solamente de razonar y llegar a conclusiones a partir de frases " +
         "Es importante que le prestes atencion y que intetes hacerlo lo mejor posible." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -236,6 +238,7 @@ var explanation3 = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Ahora empezara la verdadera prueba" +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -258,6 +261,7 @@ var explanation2 = {
         "Tu tarea es decir si la tercera frase es siempre verdadera o siempre false a partir de lo que dicen las 2 primeras frases " +
         "Tienes que marcar la opcion VERDADERA si la conclusion es SIEMPRE CIERTA a partir de lo que dicen " +
         "las dos primeras frases, y FALSA si la conclusion es SIEMPRE FALSA a partir de lo que dicen las 2 primeras frases." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
