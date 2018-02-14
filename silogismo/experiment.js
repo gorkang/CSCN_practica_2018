@@ -5,7 +5,7 @@ var train_random = false; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
-var seguridad = false; //if you want to ask how sure is the subject of his answer
+var seguridad = true; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
