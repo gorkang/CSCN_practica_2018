@@ -1,0 +1,5 @@
+ID,premisa1,premisa2,conclusion,valido
+22,El ladron está dentro de la casa.,El dormitorio está dentro de la casa.,El ladrón está dentro del dormitorio.,F
+24,El atleta está detrás del banco.,La mancuerna está detrás del banco.,El atleta está detrás de la mancuerna.,F
+25,Las golondrinas son más ruidosas que los murciélagos rey.,Las golondrinas son más silenciosas que las garzas azules.,Las garzas azules son más ruidosas que los murciélagos rey.,T
+26,El laboratorio está más concurrido que el auditorio.,El despacho está menos concurrido que el auditorio.,El despacho está menos concurrido que el laboratorio.,T
