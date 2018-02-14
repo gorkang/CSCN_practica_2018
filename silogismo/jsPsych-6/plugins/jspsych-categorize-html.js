@@ -96,13 +96,13 @@ jsPsych.plugins['categorize-html'] = (function() {
             feedback_duration: {
                 type: jsPsych.plugins.parameterType.INT,
                 pretty_name: 'Feedback duration',
-                default: 100000,
+                default: 0,
                 description: 'How long to show feedback.'
             },
-            feedback_duration: {
+            feedback_show: {
                 type: jsPsych.plugins.parameterType.BOOL,
                 pretty_name: 'Feedback enabled',
-                default: 0,
+                default: true,
                 description: 'How long to show feedback.'
             },
             show_timer: {
@@ -116,6 +116,12 @@ jsPsych.plugins['categorize-html'] = (function() {
     }
 
     plugin.trial = function(display_element, trial) {
+
+        if (!trial.feedback_show){
+            trial.feedback_duration = 0;
+            trial.correct_text = "";
+            trial.incorrect_text = "";
+        }
 
         display_element.innerHTML = '<div id="jspsych-categorize-html-stimulus" class="jspsych-categorize-html-stimulus">' + trial.stimulus + '</div>';
 

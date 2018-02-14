@@ -1,11 +1,11 @@
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
-var train_random = true; //if the test must be randomized
+var train_random = false; //if the test must be randomized
 var test_random = true;
-var percentageWrong = 0.5;//percentage of wrong in training to repeat it
-var complex = true;//if the feedback must be complex
-var seguridad = false;//if you want to ask how sure is the subject of his answer
+var percentageWrong = 0.5; //percentage of wrong in training to repeat it
+var complex = true; //if the feedback must be complex
+var seguridad = false; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
@@ -14,6 +14,7 @@ var exercises;
 var train_timeline = [];
 var loopTime = [];
 var trainlen;
+var showSneed = false;
 var image = "";
 
 if (ide % 2 == 0) {
@@ -52,8 +53,10 @@ var try_again = {
 };
 
 var survey_trial = {
-  type: 'survey-text',
-  questions: [{prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"}],
+    type: 'survey-text',
+    questions: [{
+        prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"
+    }],
 };
 
 
@@ -93,14 +96,14 @@ var mainexplanation = {
 
                 console.log(respuesta.charCodeAt(0) - 32);
 
-                if (complex){
-                    image = "<img src='silogismos/feedback/"+statement.ID+".png' style='width: 100%' />";
+                if (complex) {
+                    image = "<img src='silogismos/feedback/" + statement.ID + ".png' style='width: 100%' />";
 
                 }
 
                 var categorization_trial = {
                     type: 'categorize-html',
-                    stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" +"<b>"+ statement.conclusion+"</b>",
+                    stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
                     choices: [verdadero, falso],
@@ -109,10 +112,12 @@ var mainexplanation = {
                     prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
+                    feedback_show: !seguridad,
                     trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
                         if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
                             wrongs += 1;
+                            showSneed = true;
                         }
                         console.log(wrongs);
                     }
@@ -121,10 +126,55 @@ var mainexplanation = {
                 train_timeline.push(categorization_trial);
                 loopTime.push(categorization_trial);
 
-                if (seguridad){
+                if (seguridad) {
                     train_timeline.push(survey_trial);
                     loopTime.push(survey_trial);
 
+                    var trialCorrect = {
+                        type: 'instructions',
+                        key_forward: 32,
+                        pages: ["<p class='prompt' style='color:green'>Correcto. Presione la barra espaciadora para continuar</p>" + image],
+                        show_clickable_nav: false
+                    }
+
+                    var trialWrong = {
+                        type: 'instructions',
+                        key_forward: 32,
+                        pages: ["<p class='prompt' style='color:red'>Incorrecto</p> Presione la barra espaciadora para continuar" + image],
+                        show_clickable_nav: false
+                    }
+
+                    var if_correct = {
+                        timeline: [trialCorrect],
+                        conditional_function: function() {
+
+                            if (!showSneed) {
+                                showSneed = false;
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+
+                    var if_wrong = {
+                        timeline: [trialWrong],
+                        conditional_function: function() {
+
+                            if (showSneed) {
+                                showSneed = false;
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+
+                    train_timeline.push(if_correct);
+                    loopTime.push(if_correct);
+
+                    train_timeline.push(if_wrong);
+                    loopTime.push(if_wrong);
                 }
 
             });
@@ -133,7 +183,7 @@ var mainexplanation = {
             var loop_node = {
                 timeline: loopTime,
                 loop_function: function(data) {
-                    console.log("cantidad de malos"+wrongs);
+                    console.log("cantidad de malos" + wrongs);
                     if (wrongs >= Math.floor(percentageWrong * trainlen)) {
                         return true;
                     } else {
@@ -230,7 +280,7 @@ var explanation2 = {
 
                     var categorization_trial = {
                         type: 'categorize-html',
-                        stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" +"<b>"+ statement.conclusion+"</b>",
+                        stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
                         key_answer: respuesta.charCodeAt(0) - 32,
                         choices: [verdadero, falso],
                         prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
@@ -241,7 +291,7 @@ var explanation2 = {
                     };
 
                     test_timeline.push(categorization_trial);
-                    if (seguridad){
+                    if (seguridad) {
                         test_timeline.push(survey_trial);
 
                     }
