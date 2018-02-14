@@ -61,7 +61,7 @@ jsPsych.plugins['survey-text'] = (function() {
       button_label: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button label',
-        default:  'Continue',
+        default:  'Continuar',
         description: 'The text that appears on the button to finish the trial.'
       }
     }
@@ -105,8 +105,10 @@ jsPsych.plugins['survey-text'] = (function() {
       html += '</div>';
     }
 
+
+    html += '<br>Presione espacio para continuar';
     // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
+    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text" style="display: none;">'+trial.button_label+'</button>';
     html +='<div class="fail-message"></div>';
     display_element.innerHTML = html;
     var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
