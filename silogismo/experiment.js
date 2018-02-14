@@ -35,12 +35,12 @@ function shuffleArray(array) {
 
 function advance(event) {
     document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
-        console.log("el keycode del input es "+event.keyCode);
+        console.log("el keycode del input es " + event.keyCode);
         if (event.keyCode == 32 || event.which == 32) { //if the key pressed is enter, advance
             event.preventDefault();
             var btn = document.getElementById("jspsych-survey-text-next");
             btn.click();
-        } else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {//accept only numbers
+        } else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) { //accept only numbers
             event.preventDefault();
         }
     };
@@ -282,34 +282,34 @@ var explanation2 = {
 
             data.forEach(function(statement) {
 
-                if (statement.ID == ide) {
 
-                    var respuesta = verdadero;
-                    if (statement.valido == 'F') {
-                        respuesta = falso;
-                    }
 
-                    console.log(respuesta.charCodeAt(0) - 32);
+                var respuesta = verdadero;
+                if (statement.valido == 'F') {
+                    respuesta = falso;
+                }
 
-                    var categorization_trial = {
-                        type: 'categorize-html',
-                        stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
-                        key_answer: respuesta.charCodeAt(0) - 32,
-                        choices: [verdadero, falso],
-                        prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
-                        //force_correct_button_press:true,
-                        trial_duration: 60000, //60 seconds
-                        show_timer: tempo,
-                        feedback_duration: 0 //no feedback
-                    };
+                console.log(respuesta.charCodeAt(0) - 32);
 
-                    test_timeline.push(categorization_trial);
-                    if (seguridad) {
-                        test_timeline.push(survey_trial);
+                var categorization_trial = {
+                    type: 'categorize-html',
+                    stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
+                    key_answer: respuesta.charCodeAt(0) - 32,
+                    choices: [verdadero, falso],
+                    prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
+                    //force_correct_button_press:true,
+                    trial_duration: 60000, //60 seconds
+                    show_timer: tempo,
+                    feedback_duration: 0 //no feedback
+                };
 
-                    }
+                test_timeline.push(categorization_trial);
+                if (seguridad) {
+                    test_timeline.push(survey_trial);
 
                 }
+
+
             });
 
             var new_timeline = {
