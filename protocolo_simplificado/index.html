@@ -39,7 +39,10 @@
     var user_id = 0;
     var loaded_once = false;
 
-    function start(event) {
+    function start_experiment(event) {
+      if(currentExperiment == ''){
+        currentExperiment = experiments.pop();
+      }
       if (document.getElementById('user_id').reportValidity() && !loaded_once) {
         user_id = document.getElementById('user_id').value;
         loaded_once = true;
@@ -49,6 +52,19 @@
       } else if (loaded_once) {
         go_fullscreen(event);
       }
+    }
+
+    function start_and_skip_last_experiment(event){
+      skip_to_last();
+      if(experiments.length > 0){
+        currentExperiment = experiments.pop();
+      }
+      start_experiment(event)
+    }
+
+    function start_and_skip_to_last_experiment(event){
+      skip_to_last();
+      start_experiment(event)
     }
 
     function go_fullscreen(event) {
@@ -112,7 +128,9 @@
         user_data[experiment] = csv;
         localStorage[user_id] = JSON.stringify(user_data);
       } else {
-        user_data = {completed_experiments: experiment}
+        user_data = {
+          completed_experiments: experiment
+        }
         user_data[experiment] = csv;
         localStorage.setItem(user_id, JSON.stringify(user_data));
       }
@@ -133,10 +151,27 @@
       }
     }
 
-    function show_experiments(event) {
+    function skip_to_last() {
       while (check_local_storage(currentExperiment)) {
         currentExperiment = experiments.pop();
       }
+    }
+
+    function check_id_status(event){
+      user_id_to_check = event.target.value;
+      if(localStorage[user_id_to_check]){
+        document.getElementById("start").hidden = true;
+        document.getElementById("start_and_skip_to_last").hidden = false;
+        document.getElementById("start_and_skip_last").hidden = false;
+      }
+      else{
+        document.getElementById("start").hidden = false;
+        document.getElementById("start_and_skip_to_last").hidden = true;
+        document.getElementById("start_and_skip_last").hidden = true;
+      }
+    }
+
+    function show_experiments(event) {
       window.addEventListener('message', function(message) {
         local_storage_save(message.data.csv, currentExperiment);
         if (experiments.length > 0) {
@@ -145,12 +180,13 @@
         }
       });
       document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
-
     }
   </script>
   <form>
-    <input type="number" required id="user_id" min="0" step="1" style="margin-top:25%;"></input>
-    <input type="button" onclick="start(event)" style="margin-top:25%;" value="Comenzar"></input>
+    <input type="number" oninput="check_id_status(event)" required id="user_id" min="0" step="1" style="margin-top:25%;"></input>
+    <input id="start" type="button" onclick="start_experiment(event)" style="margin-top:25%;" value="Comenzar"></input>
+    <input id="start_and_skip_to_last" type="button" onclick="start_and_skip_to_last_experiment(event)" style="margin-top:25%;" value="Comenzar a partir del ultimo experimento completado" hidden></input>
+    <input id="start_and_skip_last" type="button" onclick="start_and_skip_last_experiment(event)" style="margin-top:25%;" value="Comenzar despues del ultimo experimento completado" hidden></input>
   </form>
   <iframe id="iframe" allowfullscreen=true src="" style="border:none;background:white;" width="100%" height="100%" sandbox="allow-scripts allow-same-origin allow-forms">
   </body>

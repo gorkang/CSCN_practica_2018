@@ -36,7 +36,7 @@ else:
             else:
                 exp_list += ",' + experiments_random.slice(" + str(shuffle_number) + ","
             shuffle = True
-            
+
         else:
             print("Experimento desconocido en linea " + str(exp_number) + ".")
             exit(1)
@@ -50,6 +50,6 @@ for line in html_list:
         html_list[html_list.index(line)] = exp_list
     elif("var experiments_random =" in line):
         html_list[html_list.index(line)] = random_exp_list
-index_file = open("index_2.html",'wb')
+index_file = open("index.html",'wb')
 index_file.writelines(html_list)
 index_file.close()
