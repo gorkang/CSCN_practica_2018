@@ -68,6 +68,9 @@ var try_again = {
 
 var survey_trial = {
     type: 'survey-text',
+    data: {
+        trialid: "survey_sure"
+    },
     questions: [{
         prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"
     }],
