@@ -143,8 +143,9 @@ jsPsych.plugins['survey-text'] = (function() {
           jsPsych.finishTrial(trialdata);
       }else{
           firstTextBox.blur();
-          display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
+          display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor, introduce un porcentaje (0-100)</span>';
           console.log("mal",validation);
+          document.getElementsByName("#jspsych-survey-text-response-0")[0].focus();
           event.stopPropagation();
          if (event.stopPropagation) {
           event.stopPropagation();
