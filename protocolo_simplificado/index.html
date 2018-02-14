@@ -69,15 +69,15 @@
     }
 
     function redo_experiment(event) {
-      if (confirm("¿Esta seguro de que quiere volver a usar este id?")) {
+      if (confirm("¿Esta seguro de que quiere volver a usar este id desde cero?")) {
         user_backup_id = document.getElementById('user_id').value
         backup = localStorage[user_backup_id];
         delete(localStorage[user_backup_id]);
         backup_index = 2;
-        while(localStorage[user_backup_id +  "_" backup_index]){
+        while(localStorage[user_backup_id +  "_"  + backup_index]){
           backup_index += 1;
         }
-        localStorage.setItem(user_backup_id +  "_" backup_index, backup);
+        localStorage.setItem(user_backup_id +  "_"  + backup_index, backup);
         start_experiment(event);
       }
     }
@@ -203,7 +203,7 @@
     <input id="start" type="button" onclick="start_experiment(event)" style="margin-top:25%;" value="Comenzar"></input>
     <input id="start_and_skip_to_last" type="button" onclick="start_and_skip_to_last_experiment(event)" style="margin-top:25%;" value="Comenzar a partir del ultimo experimento completado" hidden></input>
     <input id="start_and_skip_last" type="button" onclick="start_and_skip_last_experiment(event)" style="margin-top:25%;" value="Comenzar despues del ultimo experimento completado" hidden></input>
-    <input id="redo" type="button" onclick="redo_experiment(event)" style="margin-top:25%;" value="Borrar datos y comenzar" hidden></input>
+    <input id="redo" type="button" onclick="redo_experiment(event)" style="margin-top:25%;" value="Reiniciar experimento" hidden></input>
   </form>
   <iframe id="iframe" allowfullscreen=true src="" style="border:none;background:white;" width="100%" height="100%" sandbox="allow-scripts allow-same-origin allow-forms">
   </body>

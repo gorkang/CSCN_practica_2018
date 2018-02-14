@@ -21,7 +21,7 @@
       participants_select = document.getElementById('users');
       participants_select.hidden = false;
       for (var participant in localStorage) {
-        if (parseInt(participant)) {
+        if (parseInt(participant) || (parseInt(participant.split('_')[0]) && participant.split('_')[1])) {
           var option = document.createElement("option");
           option.setAttribute("value", participant);
           option.setAttribute("id", participant);
