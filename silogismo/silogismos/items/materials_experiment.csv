@@ -1,21 +1,21 @@
 ID,premisa1,premisa2,conclusion,valido
-1,El sedimento es m·s arenoso que la lava.,La roca nitro no es tan arenosa como la lava.,La roca nitro es m·s arenosa que el sedimento.,F
-2,MarÌa es mejor dentista que Julia.,MarÌa no es tan buena dentista como Sebasti·n.,Sebasti·n no es tan buen dentista como Julia.,F
-6,La taza es m·s oscura que el plato.,La mesa es m·s oscura que la taza.,El plato es m·s ocuro que la mesa.,F
-8,El gimnasta est· sobre la caja.,La caja est· sobre el suelo.,El gimnasta est· bajo el suelo.,F
-11,Las uvas est·n fuera de la cesta.,Los higos est·n dentro de la cesta.,Los higos est·n con las uvas.,F
-13,Bartolo es m·s considerado que Tino.,Bartolo es m·s considerado que Suso.,Tino no es tan considerado como Suso.,F
-18,Las naranjas son m·s ligeras que las cestas.,Las peras son m·s ligeras que las cestas.,Las peras son m·s ligeras que las naranjas.,F
-19,La goma est· sobre el libro.,La bolsa est· bajo la goma.,El libro est· bajo la bolsa.,F
-22,El ladron est· dentro de la casa.,El dormitorio est· dentro de la casa.,El ladrÛn est· dentro del dormitorio.,F
-24,El atleta est· detr·s del banco.,La mancuerna est· detr·s del banco.,El atleta est· detr·s de la mancuerna.,F
-25,Las golondrinas son m·s ruidosas que los murciÈlagos rey.,Las golondrinas son m·s silenciosas que las garzas azules.,Las garzas azules son m·s ruidosas que los murciÈlagos rey.,T
-26,El laboratorio est· m·s concurrido que el auditorio.,El despacho est· menos concurrido que el auditorio.,El despacho est· menos concurrido que el laboratorio.,T
-33,Los adolescentes son m·s sensatos que los niÒos.,Los adultos son m·s sensatos que los adolescentes.,Los adultos son m·s sensatos que los niÒos.,T
-35,Los perros son m·s enÈrgicos que los caballos.,Los hamsters son m·s enÈrgicos que los perros.,Los hamsters son m·s enÈrgicos que los caballos.,T
-36,Julia es m·s guapa que Carlos.,Sara es m·s guapa que Julia.,Sara es m·s guapa que Carlos.,T
-37,Los platos est·n sobre las sartenes.,Las ollas est·n sobre los platos.,Las sartenes est·n debajo de las ollas.,T
-39,Los platos est·n sobre las servilletas.,Las copas est·n sobre los platos.,Las servilletas est·n debajo de las copas.,T
-40,El libro est· sobre el estante.,El libro est· bajo el bolÌgrafo.,El bolÌgrafo est· sobre el estante.,T
-47,El profesor est· delante del pupitre.,El pupitre est· delante de la silla.,El profesor est· delante de la silla.,T
-48,La grapadora est· dentro del cajÛn.,La grapa est· dentro de la grapadora.,La grapa est· dentro del cajÛn.,T
+1,El sedimento es m√°s arenoso que la lava.,La roca nitro no es tan arenosa como la lava.,La roca nitro es m√°s arenosa que el sedimento.,F
+2,Mar√≠a es mejor dentista que Julia.,Mar√≠a no es tan buena dentista como Sebasti√°n.,Sebasti√°n no es tan buen dentista como Julia.,F
+6,La taza es m√°s oscura que el plato.,La mesa es m√°s oscura que la taza.,El plato es m√°s ocuro que la mesa.,F
+8,El gimnasta est√° sobre la caja.,La caja est√° sobre el suelo.,El gimnasta est√° bajo el suelo.,F
+11,Las uvas est√°n fuera de la cesta.,Los higos est√°n dentro de la cesta.,Los higos est√°n con las uvas.,F
+13,Bartolo es m√°s considerado que Tino.,Bartolo es m√°s considerado que Suso.,Tino no es tan considerado como Suso.,F
+18,Las naranjas son m√°s ligeras que las cestas.,Las peras son m√°s ligeras que las cestas.,Las peras son m√°s ligeras que las naranjas.,F
+19,La goma est√° sobre el libro.,La bolsa est√° bajo la goma.,El libro est√° bajo la bolsa.,F
+22,El ladron est√° dentro de la casa.,El dormitorio est√° dentro de la casa.,El ladr√≥n est√° dentro del dormitorio.,F
+24,El atleta est√° detr√°s del banco.,La mancuerna est√° detr√°s del banco.,El atleta est√° detr√°s de la mancuerna.,F
+25,Las golondrinas son m√°s ruidosas que los murci√©lagos rey.,Las golondrinas son m√°s silenciosas que las garzas azules.,Las garzas azules son m√°s ruidosas que los murci√©lagos rey.,T
+26,El laboratorio est√° m√°s concurrido que el auditorio.,El despacho est√° menos concurrido que el auditorio.,El despacho est√° menos concurrido que el laboratorio.,T
+33,Los adolescentes son m√°s sensatos que los ni√±os.,Los adultos son m√°s sensatos que los adolescentes.,Los adultos son m√°s sensatos que los ni√±os.,T
+35,Los perros son m√°s en√©rgicos que los caballos.,Los hamsters son m√°s en√©rgicos que los perros.,Los hamsters son m√°s en√©rgicos que los caballos.,T
+36,Julia es m√°s guapa que Carlos.,Sara es m√°s guapa que Julia.,Sara es m√°s guapa que Carlos.,T
+37,Los platos est√°n sobre las sartenes.,Las ollas est√°n sobre los platos.,Las sartenes est√°n debajo de las ollas.,T
+39,Los platos est√°n sobre las servilletas.,Las copas est√°n sobre los platos.,Las servilletas est√°n debajo de las copas.,T
+40,El libro est√° sobre el estante.,El libro est√° bajo el bol√≠grafo.,El bol√≠grafo est√° sobre el estante.,T
+47,El profesor est√° delante del pupitre.,El pupitre est√° delante de la silla.,El profesor est√° delante de la silla.,T
+48,La grapadora est√° dentro del caj√≥n.,La grapa est√° dentro de la grapadora.,La grapa est√° dentro del caj√≥n.,T

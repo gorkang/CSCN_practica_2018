@@ -5,7 +5,7 @@ var train_random = false; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
-var seguridad = true; //if you want to ask how sure is the subject of his answer
+var seguridad = false; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
@@ -35,12 +35,12 @@ function shuffleArray(array) {
 
 function advance(event) {
     document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
-        console.log("el keycode del input es "+event.keyCode);
+        console.log("el keycode del input es " + event.keyCode);
         if (event.keyCode == 32 || event.which == 32) { //if the key pressed is enter, advance
             event.preventDefault();
             var btn = document.getElementById("jspsych-survey-text-next");
             btn.click();
-        } else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {//accept only numbers
+        } else if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) { //accept only numbers
             event.preventDefault();
         }
     };
@@ -51,6 +51,7 @@ var try_again = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Vamos a revisar de nuevo los items de práctica para que quede claro." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -80,6 +81,7 @@ var mainexplanation = {
         '<p><left><b><big>Silogismo</big></b><br />' +
         "Esta prueba NO es una prueba de inteligencia. Se trata solamente de razonar y llegar a conclusiones a partir de frases " +
         "Es importante que le prestes atencion y que intetes hacerlo lo mejor posible." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -116,13 +118,17 @@ var mainexplanation = {
 
                 var categorization_trial = {
                     type: 'categorize-html',
+                    data: {
+                        trialid: data.ID,
+                        tipo: "training"
+                    },
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
                     choices: [verdadero, falso],
-                    correct_text: "<p class='prompt' style='color:green'>Correcto. Presione la barra espaciadora para continuar</p>" + image,
-                    incorrect_text: "<p class='prompt' style='color:red'>Incorrecto</p> Presione la barra espaciadora para continuar" + image,
-                    prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
+                    correct_text: "<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>"+image+"<br><center> Presione la barra espaciadora para continuar</center>",
+                    incorrect_text: "<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>"+ image +" <br><center> Presione la barra espaciadora para continuar</center>" ,
+                    prompt: "<p>VERDADERO FALSO.</p>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
@@ -146,14 +152,14 @@ var mainexplanation = {
                     var trialCorrect = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<p class='prompt' style='color:green'>Correcto. Presione la barra espaciadora para continuar</p>" + image],
+                        pages: ["<p class='prompt' style='color:green; font-weight:bold; text-align:center;>Correcto.</p>"+image+"<br><center> Presione la barra espaciadora para continuar</center>"],
                         show_clickable_nav: false
                     }
 
                     var trialWrong = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<p class='prompt' style='color:red'>Incorrecto</p> Presione la barra espaciadora para continuar" + image],
+                        pages: ["<p class='prompt' style='color:red; font-weight:bold; text-align:center;>Incorrecto</p>"+ image +" <br><center> Presione la barra espaciadora para continuar</center>"],
                         show_clickable_nav: false
                     }
 
@@ -236,6 +242,7 @@ var explanation3 = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Ahora empezara la verdadera prueba" +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -258,6 +265,7 @@ var explanation2 = {
         "Tu tarea es decir si la tercera frase es siempre verdadera o siempre false a partir de lo que dicen las 2 primeras frases " +
         "Tienes que marcar la opcion VERDADERA si la conclusion es SIEMPRE CIERTA a partir de lo que dicen " +
         "las dos primeras frases, y FALSA si la conclusion es SIEMPRE FALSA a partir de lo que dicen las 2 primeras frases." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -282,34 +290,38 @@ var explanation2 = {
 
             data.forEach(function(statement) {
 
-                if (statement.ID == ide) {
 
-                    var respuesta = verdadero;
-                    if (statement.valido == 'F') {
-                        respuesta = falso;
-                    }
 
-                    console.log(respuesta.charCodeAt(0) - 32);
+                var respuesta = verdadero;
+                if (statement.valido == 'F') {
+                    respuesta = falso;
+                }
 
-                    var categorization_trial = {
-                        type: 'categorize-html',
-                        stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
-                        key_answer: respuesta.charCodeAt(0) - 32,
-                        choices: [verdadero, falso],
-                        prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
-                        //force_correct_button_press:true,
-                        trial_duration: 60000, //60 seconds
-                        show_timer: tempo,
-                        feedback_duration: 0 //no feedback
-                    };
+                console.log(respuesta.charCodeAt(0) - 32);
 
-                    test_timeline.push(categorization_trial);
-                    if (seguridad) {
-                        test_timeline.push(survey_trial);
+                var categorization_trial = {
+                    type: 'categorize-html',
+                    data: {
+                        trialid: data.ID,
+                        tipo: "experiment"
+                    },
+                    stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
+                    key_answer: respuesta.charCodeAt(0) - 32,
+                    choices: [verdadero, falso],
+                    prompt: "<p>VERDADERO FALSO</p>",
+                    //force_correct_button_press:true,
+                    trial_duration: 60000, //60 seconds
+                    show_timer: tempo,
+                    feedback_duration: 0 //no feedback
+                };
 
-                    }
+                test_timeline.push(categorization_trial);
+                if (seguridad) {
+                    test_timeline.push(survey_trial);
 
                 }
+
+
             });
 
             var new_timeline = {
