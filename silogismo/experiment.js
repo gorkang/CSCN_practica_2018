@@ -5,7 +5,7 @@ var train_random = false; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
-var seguridad = false; //if you want to ask how sure is the subject of his answer
+var seguridad = true; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
@@ -152,14 +152,14 @@ var mainexplanation = {
                     var trialCorrect = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<p class='prompt' style='color:green; font-weight:bold; text-align:center;>Correcto.</p>"+image+"<br><center> Presione la barra espaciadora para continuar</center>"],
+                        pages: ["<p class='prompt' style='color:green; font-weight:bold; text-align:center'>Correcto.</p>"+image+"<br><center> Presione la barra espaciadora para continuar</center>"],
                         show_clickable_nav: false
                     }
 
                     var trialWrong = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<p class='prompt' style='color:red; font-weight:bold; text-align:center;>Incorrecto</p>"+ image +" <br><center> Presione la barra espaciadora para continuar</center>"],
+                        pages: ["<p class='prompt' style='color:red; font-weight:bold; text-align:center'>Incorrecto</p>"+ image +" <br><center> Presione la barra espaciadora para continuar</center>"],
                         show_clickable_nav: false
                     }
 
