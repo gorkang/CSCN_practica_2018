@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html style="height:90%;">
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name="robots" content="noindex">
+  <title>Experimentos CSCN</title>
+</head>
+
+<body style="height:100%;text-align:center;">
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    function list_participants(event) {
+      event.target.hidden = true;
+      participants_select = document.getElementById('users');
+      participants_select.hidden = false;
+      for (var participant in localStorage) {
+        if (parseInt(participant)) {
+          var option = document.createElement("option");
+          option.setAttribute("value", participant)
+          option.innerHTML = participant;
+          participants_select.appendChild(option);
+        }
+      }
+    }
+
+    function chosse_participant(event) {
+      participant = event.target.value;
+      experiments_select = document.getElementById('user_experiments');
+      experiments_select.innerHTML = "";
+      experiments_select.hidden = false;
+      for (var experiment in JSON.parse(localStorage[participant])) {
+        if (experiment != "completed_experiments") {
+          var option = document.createElement("option");
+          option.setAttribute("value", experiment)
+          option.innerHTML = experiment;
+          experiments_select.appendChild(option);
+        }
+      }
+    }
+
+    function chosse_experiment(event) {
+      participant = document.getElementById('users').value;
+      experiment = event.target.value
+      rows = JSON.parse(localStorage[participant])[experiment].split('\n');
+      table = document.getElementById('csv_table');
+      table.innerHTML = '';
+      rows.forEach(function(row_string) {
+        if(row_string != ''){
+          row = document.createElement('tr');
+          row_string.split('","').forEach(function(cell_string) {
+            cell = document.createElement('td');
+            cell.innerHTML = cell_string.replace(/\"/g, "");
+            row.appendChild(cell);
+          })
+          table.appendChild(row);
+        }
+      })
+      table.hidden = false;
+    }
+
+    function unselect(event){
+      event.target.selectedIndex = -1;
+    }
+
+    document.onload = list_participants;
+  </script>
+  <input id="load_button" type="button" style="margin:auto;" value="Cargar" onclick="list_participants(event)"></input>
+  <select id="users" style="margin:auto;" onchange="chosse_participant(event)" onfocus="unselect(event)" hidden></select>
+  <select id="user_experiments" style="margin:auto;" onchange="chosse_experiment(event)" onfocus="unselect(event)" hidden></select>
+  <table id="csv_table" style='margin:auto;' hidden></table>
+</body>
+
+</html>
