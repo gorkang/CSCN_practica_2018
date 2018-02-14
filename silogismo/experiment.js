@@ -5,7 +5,7 @@ var train_random = false; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
-var seguridad = true; //if you want to ask how sure is the subject of his answer
+var seguridad = false; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
@@ -122,7 +122,7 @@ var mainexplanation = {
                     choices: [verdadero, falso],
                     correct_text: "<p class='prompt' style='color:green'>Correcto. Presione la barra espaciadora para continuar</p>" + image,
                     incorrect_text: "<p class='prompt' style='color:red'>Incorrecto</p> Presione la barra espaciadora para continuar" + image,
-                    prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
+                    prompt: "<p>VERDADERO FALSO.</p>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
@@ -296,7 +296,7 @@ var explanation2 = {
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
                     key_answer: respuesta.charCodeAt(0) - 32,
                     choices: [verdadero, falso],
-                    prompt: "<p>Apretar " + verdadero + " para verdadero. Apretar " + falso + " para falso.</p>",
+                    prompt: "<p>VERDADERO FALSO</p>",
                     //force_correct_button_press:true,
                     trial_duration: 60000, //60 seconds
                     show_timer: tempo,
