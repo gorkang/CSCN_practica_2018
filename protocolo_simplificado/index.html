@@ -74,10 +74,10 @@
         backup = localStorage[user_backup_id];
         delete(localStorage[user_backup_id]);
         backup_index = 2;
-        while(localStorage[user_backup_id +  "_"  + backup_index]){
+        while (localStorage[user_backup_id + "_" + backup_index]) {
           backup_index += 1;
         }
-        localStorage.setItem(user_backup_id +  "_"  + backup_index, backup);
+        localStorage.setItem(user_backup_id + "_" + backup_index, backup);
         start_experiment(event);
       }
     }
@@ -136,11 +136,31 @@
       document.body.removeChild(link);
     }
 
+    function add_to_csv(csv, items_names_list, items_list) {
+      new_csv = '';
+      rows = csv.split('\n');
+      items_names_list.forEach(function(item_name) {
+        new_csv += '"' + item_name + '",';
+      })
+      new_csv += rows[0] + '\n';
+      rows = rows.slice(1);
+      rows.forEach(function(row_string) {
+        if (row_string != '') {
+          items_list.forEach(function(cell_string) {
+            new_csv += '"' + cell_string + '",';
+          })
+          new_csv += row_string + '\n';
+        }
+      })
+      return new_csv;
+    }
+
     function local_storage_save(csv, experiment) {
       if (localStorage[user_id]) {
         user_data = JSON.parse(localStorage[user_id])
         user_data.completed_experiments += "," + experiment;
         user_data[experiment] = csv;
+        user_data[experiment + '_date'] = Date;
         localStorage[user_id] = JSON.stringify(user_data);
       } else {
         user_data = {
@@ -189,10 +209,17 @@
 
     function show_experiments(event) {
       window.addEventListener('message', function(message) {
-        local_storage_save(message.data.csv, currentExperiment);
+        local_storage_save(add_to_csv(message.data.csv, ['Id', 'Fecha'], [user_id, Date()]), currentExperiment);
         if (experiments.length > 0) {
           currentExperiment = experiments.pop();
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
+        } else {
+          var participan_json = JSON.parse(localStorage[user_id]);
+          for (var experiment in participan_json) {
+            if (experiment != "completed_experiments") {
+              local_save(participan_json[experiment], user_id + "_" + experiment  + "_" participan_json[experiment + "_date"].split(' ').join('_'));
+            }
+          }
         }
       });
       document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;

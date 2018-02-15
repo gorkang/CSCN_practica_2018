@@ -95,7 +95,7 @@
         var participan_json = JSON.parse(localStorage[participant]);
         for (var experiment in participan_json) {
           if (experiment != "completed_experiments") {
-            local_save(participan_json[experiment], experiment);
+            local_save(participan_json[experiment], participant + "_" + experiment + "_" participan_json[experiment + "_date"].split(' ').join('_'));
           }
         }
       }
