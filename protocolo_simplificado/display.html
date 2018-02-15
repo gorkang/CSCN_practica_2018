@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html style="height:90%;">
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name="robots" content="noindex">
+  <title>Experimentos CSCN</title>
+</head>
+
+<body style="height:100%;text-align:center;">
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    function list_participants(event) {
+      event.target.onclick = chosse_experiment;
+      participants_select = document.getElementById('users');
+      participants_select.hidden = false;
+      for (var participant in localStorage) {
+        if (parseInt(participant)) {
+          var option = document.createElement("option");
+          option.setAttribute("value", participant);
+          option.setAttribute("id", participant);
+          option.innerHTML = participant;
+          participants_select.appendChild(option);
+        }
+      }
+    }
+
+    function chosse_participant(event) {
+      participant = document.getElementById('users').value;
+      experiments_select = document.getElementById('user_experiments');
+      experiments_select.innerHTML = "";
+      experiments_select.hidden = false;
+      for (var experiment in JSON.parse(localStorage[participant])) {
+        if (experiment != "completed_experiments") {
+          var option = document.createElement("option");
+          option.setAttribute("value", experiment);
+          option.setAttribute("id", experiment);
+          option.innerHTML = experiment;
+          experiments_select.appendChild(option);
+        }
+      }
+    }
+
+    function chosse_experiment(event) {
+      participant = document.getElementById('users').value;
+      experiment = document.getElementById('user_experiments').value;
+      rows = JSON.parse(localStorage[participant])[experiment].split('\n');
+      table = document.getElementById('csv_table');
+      table.innerHTML = '';
+      rows.forEach(function(row_string) {
+        if (row_string != '') {
+          row = document.createElement('tr');
+          row_string.split('","').forEach(function(cell_string) {
+            cell = document.createElement('td');
+            cell.innerHTML = cell_string.replace(/\"/g, "");
+            row.appendChild(cell);
+          })
+          table.appendChild(row);
+        }
+      })
+      table.hidden = false;
+      document.getElementById('delete_experiment').hidden = false;
+    }
+
+    function unselect(event) {
+      event.target.selectedIndex = -1;
+    }
+
+    function local_save(csv, name) {
+      var blobToSave = new Blob([csv], {
+        type: 'text/plain'
+      });
+      var blobURL = "";
+      if (typeof window.webkitURL !== 'undefined') {
+        blobURL = window.webkitURL.createObjectURL(blobToSave);
+      } else {
+        blobURL = window.URL.createObjectURL(blobToSave);
+      }
+      var link = document.createElement('a');
+      link.href = blobURL;
+      link.setAttribute('download', name + ".csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function download_all() {
+      for (var participant in localStorage) {
+        var participan_json = JSON.parse(localStorage[participant]);
+        for (var experiment in participan_json) {
+          if (experiment != "completed_experiments") {
+            local_save(participan_json[experiment], experiment);
+          }
+        }
+      }
+    }
+
+    function delete_all() {
+      if (confirm("¿Esta seguro de que quiere eliminar todo el almacenamiento local?")) {
+        localStorage.clear();
+      }
+    }
+
+    function delete_experiment() {
+      participant = document.getElementById('users').value;
+      experiment = document.getElementById('user_experiments').value;
+      user_data = JSON.parse(localStorage[participant]);
+      if (confirm("Eliminar datos de experimento " + experiment + " de participante " + participant + ".")) {
+        delete(user_data[experiment]);
+        localStorage[participant] = JSON.stringify(user_data);
+        document.getElementById("user_experiments").removeChild(document.getElementById(experiment))
+        if (document.getElementById("user_experiments").options.length == 0) {
+          document.getElementById('users').removeChild(document.getElementById(participant));
+        }
+      }
+    }
+  </script>
+  <input id="download_all" type="button" style="margin:auto;" value="Descargar todos los datos" onclick="download_all(event)"></input>
+  <input id="delete_all" type="button" style="margin:auto;" value="Borrar todos los datos" onclick="delete_all(event)"></input>
+  <input id="delete_experiment" hidden type="button" style="margin:auto;" value="Borrar experimento" onclick="delete_experiment(event)"></input>
+  <input id="load_button" type="button" style="margin:auto;" value="Cargar" onclick="list_participants(event)"></input>
+  <select id="users" style="margin:auto;" onchange="chosse_participant(event)" onfocus="unselect(event)" hidden></select>
+  <select id="user_experiments" style="margin:auto;" onchange="chosse_experiment(event)" onfocus="unselect(event)" hidden></select>
+  <table id="csv_table" style='margin:auto;' hidden></table>
+</body>
+
+</html>
