@@ -47,6 +47,21 @@ function advance(event) {
     };
 }
 
+var loadImage = function (filename) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', filename);
+    xhr.responseType = 'arraybuffer';
+    xhr.onload = function(e) {
+        var tiff = new Tiff({
+            buffer: xhr.response
+        });
+        var canvas = tiff.toCanvas();
+        var canvasData = canvas.toDataURL();
+        document.getElementById("fet").innerHTML ='<img src="' + canvasData + '">';
+    };
+    xhr.send();
+  };
+
 var try_again = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
@@ -95,18 +110,7 @@ var mainexplanation = {
     on_start: function(trial) {
 
         $('document').ready(function() {
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'arraybuffer';
-            xhr.open('GET', "experimento/73.tif");
-            xhr.onload = function(e) {
-                var tiff = new Tiff({
-                    buffer: xhr.response
-                });
-                var canvas = tiff.toCanvas();
-                var canvasData = canvas.toDataURL();
-                document.getElementById("fet").innerHTML ='<img src="' + canvasData + '">';
-            };
-            xhr.send();
+            loadImage("experimento/73.tif");
 
         });
 
