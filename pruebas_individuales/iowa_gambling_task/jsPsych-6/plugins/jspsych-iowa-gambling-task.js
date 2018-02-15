@@ -78,8 +78,16 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
           selected_deck.push(deck.name);
           total_penalty += deck.cards[deck.clicks % deck.cards.length];
           net_gain += deck.win_by_card + deck.cards[deck.clicks % deck.cards.length];
-          document.getElementById('total_penalty').innerHTML = "Penalty acumulado: " + total_penalty;
-          document.getElementById('net_gain').innerHTML = "Ganancia neta: " + net_gain;
+          document.getElementById('won').innerHTML = "Tu ganaste: " + deck.win_by_card;
+          document.getElementById('lost').innerHTML = "Tu perdiste: " + deck.cards[deck.clicks % deck.cards.length];
+          document.getElementById('total_penalty').innerHTML = "Ganancia/Perdida neta: " + (deck.win_by_card + deck.cards[deck.clicks % deck.cards.length]);
+          document.getElementById('total').innerHTML = "Total: " + (trial.starting_cash + net_gain);
+          if((deck.win_by_card + deck.cards[deck.clicks % deck.cards.length]) >= 0){
+            document.getElementById('text').style.color = "blue";
+          }
+          else{
+            document.getElementById('text').style.color = "red";
+          }
           document.getElementById('progress').value = trial.starting_cash + net_gain;
           deck.clicks += 1;
           total_clicks += 1;
@@ -95,10 +103,13 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
         jsPsych.finishTrial(trial_data);
       }
     }
-
-    html += '<progress id="progress" max="' + trial.max_cash + '" value="' + trial.starting_cash + '"></progress>'
-    html += '<div id="total_penalty" >Penalty acumulado: 0</div>';
-    html += '<div id="net_gain" >Ganancia neta: 0</div>';
+    html += '<progress id="progress" max="' + trial.max_cash + '" value="' + trial.starting_cash + '" style="width:95%;"></progress>'
+    html += '<div id="text">'
+    html += '<p id="won" >Tu ganaste: 0</p>';
+    html += '<p id="lost" >Tu perdiste neta: 0</p>';
+    html += '<p id="total_penalty" >Ganancia Neta: 0</p>';
+    html += '<p id="total" >Total: 0</p>';
+    html += '</div>'
     display_element.innerHTML = html;
 
     trial.decks.forEach(function(deck){
