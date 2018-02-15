@@ -209,7 +209,7 @@
 
     function show_experiments(event) {
       window.addEventListener('message', function(message) {
-        local_storage_save(add_to_csv(message.data.csv, ['Id', 'Fecha'], [user_id, Date()]), currentExperiment);
+        local_storage_save(add_to_csv(message.data.csv, ['Id', 'Fecha', 'Experimento'], [user_id, Date(), currentExperiment]), currentExperiment);
         if (experiments.length > 0) {
           currentExperiment = experiments.pop();
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
@@ -217,7 +217,7 @@
           var participan_json = JSON.parse(localStorage[user_id]);
           for (var experiment in participan_json) {
             if (experiment != "completed_experiments") {
-              local_save(participan_json[experiment], user_id + "_" + experiment  + "_" participan_json[experiment + "_date"].split(' ').join('_'));
+              local_save(participan_json[experiment], user_id + "_" + experiment  + "_" + participan_json[experiment + "_date"].split(' ').join('_'));
             }
           }
         }
