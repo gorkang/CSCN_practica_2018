@@ -71,7 +71,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     //onload: myload, // user-defined function invoked after starting the BART
                     onend: myend, // user-defined function invoked after finishing the BART
                     sounds: true,       // use sounds
-					sndpath: '../../BART/sounds/', // path to sound files
+					sndpath: 'BART/sounds/', // path to sound files
                     earned:trial.initialEarn,
                     manProb: trial.manual
                 }
