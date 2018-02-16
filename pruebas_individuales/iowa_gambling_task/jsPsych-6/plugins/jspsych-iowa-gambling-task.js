@@ -52,6 +52,18 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
         array: false,
         pretty_name: 'Maximum of clicks',
         default: 100
+      },
+      previusly_won: {
+        type: jsPsych.plugins.parameterType.INT,
+        array: false,
+        pretty_name: 'Ammount won on previus trial',
+        default: 0
+      },
+      previusly_lost: {
+        type: jsPsych.plugins.parameterType.INT,
+        array: false,
+        pretty_name: 'Ammount loss on previus trial',
+        default: 0
       }
     }
   }
@@ -67,7 +79,9 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
     html += '<div id="jspsych-html-button-response-btngroup" style="width:80%;">';
     trial.decks.forEach(function(deck){
       html += '<input type="image" id="' + deck.name + '" class="jspsych-btn" name="' + deck.name + '" src="blue-back.png" style="width:25%;border:none;"></input>'
-      deck.clicks = 0;
+      if(deck.clicks == undefined){
+        deck.clicks = 0;
+      };
     })
     html += '</div>';
 
@@ -93,28 +107,52 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
           total_clicks += 1;
         }
       })
-      if(total_clicks > trial.max_clicks){
-        // data saving
-        var trial_data = {
-          selected_deck: selected_deck,
-          final_cash: trial.starting_cash + net_gain
-        };
-        // next trial
-        jsPsych.finishTrial(trial_data);
+
+      if(total_clicks >= trial.max_clicks){
+        endtrial();
       }
     }
     html += '<progress id="progress" max="' + trial.max_cash + '" value="' + trial.starting_cash + '" style="width:95%;"></progress>'
     html += '<div id="text">'
-    html += '<p id="won" >Tu ganaste: 0</p>';
-    html += '<p id="lost" >Tu perdiste neta: 0</p>';
-    html += '<p id="total_penalty" >Ganancia Neta: 0</p>';
-    html += '<p id="total" >Total: 0</p>';
+    html += '<p id="won" >Tu ganaste: ' + trial.previusly_won + '</p>';
+    html += '<p id="lost" >Tu perdiste : ' + trial.previusly_lost + '</p>';
+    html += '<p id="total_penalty" >Ganancia Neta: ' + (trial.previusly_won + trial.previusly_lost) + '</p>';
+    html += '<p id="total" >Total: ' + trial.starting_cash + '</p>';
     html += '</div>'
     display_element.innerHTML = html;
+
+    if(trial.previusly_won + trial.previusly_lost > 0){
+      document.getElementById('text').style.color = "blue";
+    }
+    else if(trial.previusly_won + trial.previusly_lost < 0){
+      document.getElementById('text').style.color = "red";
+    }
 
     trial.decks.forEach(function(deck){
       document.getElementById(deck.name).addEventListener('click', click_deck);
     })
+
+    function endtrial() {
+      // measure response time
+      var endTime = (new Date()).getTime();
+      var response_time = endTime - startTime;
+
+      // save data
+      var trialdata = {
+        selected_deck: selected_deck,
+        final_cash: trial.starting_cash + net_gain,
+        won: net_gain - total_penalty,
+        lost: total_penalty,
+        rt: response_time,
+      };
+
+      display_element.innerHTML = '';
+
+      // next trial
+      jsPsych.finishTrial(trialdata);
+    };
+
+    var startTime = (new Date()).getTime();
   };
 
   return plugin;

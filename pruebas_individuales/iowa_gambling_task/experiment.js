@@ -8,6 +8,34 @@ onkeydown = function block_fkeys(event) {
     return;
   }
 }
+var game_decks = [{
+    name: 'deckA',
+    clicks: 0,
+    win_by_card: 100,
+    cards: [0, 0, -150, 0, -300, 0, -200, 0, -250, -350, 0, -350, 0, -250, -200, 0, -300, -150, 0, 0, 0, -300, 0, -350, 0, -200, -250, -150, 0, 0, -350, -200, -250, 0, 0, 0, -150, -300, 0, 0]
+  },
+  {
+    name: 'deckB',
+    clicks: 0,
+    win_by_card: 100,
+    cards: [0, 0, 0, 0, 0, 0, 0, 0, -1250, 0, 0, 0, 0, -1250, 0, 0, 0, 0, 0, 0, -1250, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1250, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    name: 'deckC',
+    clicks: 0,
+    win_by_card: 50,
+    cards: [0, 0, -50, 0, -50, 0, -50, 0, -50, -50, 0, -25, -75, 0, 0, 0, -25, -75, 0, -50, 0, 0, 0, -50, -25, -50, 0, 0, -75, -50, 0, 0, 0, -25, -25, 0, -75, 0, -50, -75]
+  },
+  {
+    name: 'deckD',
+    clicks: 0,
+    win_by_card: 50,
+    cards: [0, 0, 0, 0, 0, 0, 0, 0, 0, -250, 0, 0, 0, 0, 0, 0, 0, 0, 0, -250, 0, 0, 0, 0, 0, 0, 0, 0, -250, 0, 0, 0, 0, 0, -250, 0, 0, 0, 0, 0]
+  }
+]
+var current_cash = 2000;
+var won = 0;
+var lost = 0;
 
 var welcome = {
   type: 'instructions',
@@ -42,13 +70,6 @@ var instructions = {
   show_clickable_nav: true
 }
 
-var iowa_trial = {
-  type: 'iowa-gambling-task',
-  data: {
-    trialid: "iowa-gambling-task"
-  }
-}
-
 var goodbye = {
   type: 'instructions',
   pages: ['Fin prueba Iowa Gambling task'],
@@ -62,5 +83,28 @@ var iowa_experiment = [];
 
 iowa_experiment.push(welcome);
 iowa_experiment.push(instructions);
-iowa_experiment.push(iowa_trial)
+var clicks = 0;
+while (clicks < 100) {
+  clicks += 1;
+  iowa_experiment.push({
+    type: 'iowa-gambling-task',
+    decks: game_decks,
+    max_clicks: 1,
+    starting_cash: 2000,
+    data: {
+      trialid: "iowa-gambling-task_click_" + clicks
+    },
+    on_start: function(trial) {
+      trial.decks = game_decks;
+      trial.starting_cash = current_cash;
+      trial.previusly_won = won;
+      trial.previusly_lost = lost;
+    },
+    on_finish: function(data) {
+      current_cash = data.final_cash;
+      won = data.won;
+      lost = data.lost;
+    }
+  });
+}
 iowa_experiment.push(goodbye);
