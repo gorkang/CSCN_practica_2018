@@ -17,6 +17,7 @@ var trainlen;
 var showSneed = false;
 var image = "";
 var entrenamientos = [];
+var experimentos = [];
 
 if (ide % 2 == 0) {
     var temp = verdadero;
@@ -48,7 +49,7 @@ function advance(event) {
     };
 }
 
-var loadImage = function(filename) {
+var loadImage = function(filename, lista) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', filename);
     xhr.responseType = 'arraybuffer';
@@ -58,12 +59,22 @@ var loadImage = function(filename) {
         });
         var canvas = tiff.toCanvas();
         var canvasData = canvas.toDataURL();
-        document.getElementById("fet").innerHTML = '<img src="' + canvasData + '">';
+        //document.getElementById("fet").innerHTML = '<img src="' + canvasData + '">';
+        lista.push('<img src="' + canvasData + '">');
     };
     xhr.send();
 };
 
-function doesFileExist(urlToFile, lista) {
+function doesFileExist(ide, lista, tipo) {
+
+    if (tipo == "train") {
+        var urlToFile = "entrenamiento/Example" + ide + ".bmp";
+    } else if (tipo == "experiment") {
+        var urlToFile = "experimento/experimento_" + ide + ".tif";
+    }
+
+
+
     var xhr = new XMLHttpRequest();
     xhr.open('HEAD', urlToFile, false);
     try {
@@ -73,7 +84,11 @@ function doesFileExist(urlToFile, lista) {
             return false;
         } else {
             console.log("File exists");
-            lista.push(urlToFile);
+            if (tipo == "experiment") {
+                loadImage(urlToFile, lista);
+            } else {
+                lista.push(ide);
+            }
             return true;
         }
 
@@ -136,25 +151,143 @@ var mainexplanation = {
     on_start: function(trial) {
         var continuar = true;
         var ide = 1;
-        var urel = "entrenamiento/Example0" + ide + ".bmp";
-        var porsia = 1;
+        var urel = "0" + ide;
 
-        while (doesFileExist(urel, entrenamientos)) {
-            porsia += 1;
+        while (doesFileExist(urel, experimentos, "train")) {
 
             ide += 1;
-
-            urel = "entrenamiento/Example" + ide + ".bmp";
-
+            urel = ide;
             if (ide < 10) {
-                urel = "entrenamiento/Example0" + ide + ".bmp";
+                urel = "0" + ide;
             }
 
-            if (ide > 20 || porsia > 20) {
-                break;
-            }
         }
-        console.log(entrenamientos);
+        console.log(experimentos);
+
+
+        jsPsych.pauseExperiment();
+
+        loopTime.push(try_again);
+
+        if (train_random) {
+            shuffleArray(experimentos);
+        }
+
+        experimentos.forEach(function(statement) {
+
+            var categorization_trial = {
+                type: 'categorize-html',
+                data: {
+                    trialid: statement,
+                    tipo: "training"
+                },
+                stimulus: "<img src='entrenamiento/Example" + statement + ".bmp'></img>",
+                key_answer: verdadero.charCodeAt(0) - 32,
+                text_answer: verdadero,
+                choices: [verdadero, falso],
+                correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
+                incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
+                prompt: "<p>VERDADERO FALSO.</p>",
+                force_correct_button_press: !seguridad,
+                show_timer: tempo,
+                feedback_show: !seguridad,
+                trial_duration: 60000, //60 seconds
+                on_finish: function(data) {
+                    if (data.key_press != verdadero.charCodeAt(0) - 32) { // 70 is the numeric code for f
+                        wrongs += 1;
+                        showSneed = true;
+                    }
+                    console.log(wrongs);
+                }
+            };
+
+            train_timeline.push(categorization_trial);
+            loopTime.push(categorization_trial);
+
+            if (seguridad) {
+                train_timeline.push(survey_trial);
+                loopTime.push(survey_trial);
+
+                var trialCorrect = {
+                    type: 'instructions',
+                    key_forward: 32,
+                    pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"],
+                    show_clickable_nav: false
+                }
+
+                var trialWrong = {
+                    type: 'instructions',
+                    key_forward: 32,
+                    pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"],
+                    show_clickable_nav: false
+                }
+
+                var if_correct = {
+                    timeline: [trialCorrect],
+                    conditional_function: function() {
+
+                        if (!showSneed) {
+                            showSneed = false;
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+
+                var if_wrong = {
+                    timeline: [trialWrong],
+                    conditional_function: function() {
+
+                        if (showSneed) {
+                            showSneed = false;
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+
+                train_timeline.push(if_correct);
+                loopTime.push(if_correct);
+
+                train_timeline.push(if_wrong);
+                loopTime.push(if_wrong);
+            }
+
+        })
+
+        /*
+                var loop_node = {
+                    timeline: loopTime,
+                    loop_function: function(data) {
+                        console.log("cantidad de malos" + wrongs);
+                        if (wrongs >= Math.floor(percentageWrong * trainlen)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+                var if_node = {
+                    timeline: [loop_node],
+                    conditional_function: function() {
+
+                        if (wrongs < Math.floor(percentageWrong * trainlen)) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                }
+
+                train_timeline.push(if_node);
+        */
+        train_timeline.push(explanation3);
+        var new_timeline = {
+            timeline: train_timeline
+        }
+        jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment);
 
     }
 
@@ -197,15 +330,58 @@ var explanation2 = {
         trialid: "Welcome_Screen"
     },
     on_start: function(trial) {
+        var continuar = true;
+        var ide = 1;
+        var urel = "0" + ide;
+        var test_timeline = [];
 
-        $.get(image_url)
-            .done(function() {
-                // Do something now you know the image exists.
+        while (doesFileExist(urel, experimentos, "experiment")) {
 
-            }).fail(function() {
-                // Image doesn't exist - do something else.
+            ide += 1;
+            urel = ide;
+            if (ide < 10) {
+                urel = "0" + ide;
+            }
 
-            })
+        }
+        console.log(experimentos);
+
+        if (test_random) {
+            shuffleArray(experimentos);
+        }
+
+        jsPsych.pauseExperiment();
+        entrenamientos.forEach(function(statement) {
+
+            var categorization_trial = {
+                type: 'categorize-html',
+                data: {
+                    trialid: 1,
+                    tipo: "experiment"
+                },
+                stimulus: statement,
+                key_answer: verdadero.charCodeAt(0) - 32,
+                text_answer: verdadero,
+                choices: [verdadero, falso],
+                prompt: "<p>VERDADERO FALSO.</p>",
+                //force_correct_button_press: !seguridad,
+                trial_duration: 60000, //60 seconds
+                show_timer: tempo,
+                feedback_duration: 0 //no feedback
+            };
+
+            test_timeline.push(categorization_trial);
+            if (seguridad) {
+                test_timeline.push(survey_trial);
+            }
+
+        })
+
+        var new_timeline = {
+            timeline: test_timeline
+        }
+        jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment);
+
     }
 };
 
