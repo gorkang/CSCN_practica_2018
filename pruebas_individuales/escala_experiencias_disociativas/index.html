@@ -11,7 +11,7 @@
 
 <body>
   <!-- JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="jquery.min.js"></script>
   <!-- Libreria principal JsPsych -->
   <script src="jsPsych-6/jspsych.js"></script>
   <!-- Plugin para desplegar elementos tipo instrucciones -->
@@ -64,7 +64,7 @@
                       name: 'escala_experiencias_disociativas_results'
                     }, '*');
                   } else {
-                    jsPsych.data.get().localSave('csv', 'bret_results.csv');
+                    jsPsych.data.get().localSave('csv', 'escala_experiencias_disociativas_results.csv');
                   }
                 }
               }

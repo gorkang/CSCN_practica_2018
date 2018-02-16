@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="jquery.min.js"></script>
   <script src="jsPsych-6/jspsych.js"></script>
   <script src="jsPsych-6/plugins/jspsych-survey-numbers.js"></script>
   <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
@@ -61,7 +61,7 @@
                       name: 'wais_working_memory_results'
                     }, '*');
                   } else {
-                    jsPsych.data.get().localSave('csv', 'bret_results.csv');
+                    jsPsych.data.get().localSave('csv', 'wais_working_memory_results.csv');
                   }
                 }
               }
