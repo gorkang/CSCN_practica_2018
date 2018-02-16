@@ -65,7 +65,7 @@ jsPsych.plugins['categorize-html'] = (function() {
             },
             show_stim_with_feedback: {
                 type: jsPsych.plugins.parameterType.BOOL,
-                default: true,
+                default: false,
                 no_function: false,
                 description: ''
             },
@@ -177,7 +177,6 @@ jsPsych.plugins['categorize-html'] = (function() {
             trial_data = {
                 "rt": info.rt,
                 "correct": correct,
-                "stimulus": trial.stimulus,
                 "key_press": info.key
             };
 

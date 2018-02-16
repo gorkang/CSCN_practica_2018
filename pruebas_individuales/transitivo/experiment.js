@@ -5,7 +5,7 @@ var train_random = false; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
-var seguridad = true; //if you want to ask how sure is the subject of his answer
+var seguridad = false; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
@@ -18,6 +18,7 @@ var showSneed = false;
 var image = "";
 var entrenamientos = [];
 var experimentos = [];
+var experimentos_src = [];
 
 if (ide % 2 == 0) {
     var temp = verdadero;
@@ -73,7 +74,7 @@ function doesFileExist(ide, lista, tipo) {
         var urlToFile = "experimento/experimento_" + ide + ".tif";
     }
 
-
+    //console.log("la url es: " +  urlToFile);
 
     var xhr = new XMLHttpRequest();
     xhr.open('HEAD', urlToFile, false);
@@ -85,6 +86,7 @@ function doesFileExist(ide, lista, tipo) {
         } else {
             console.log("File exists");
             if (tipo == "experiment") {
+                experimentos_src.push(urlToFile);
                 loadImage(urlToFile, lista);
             } else {
                 lista.push(ide);
@@ -153,7 +155,7 @@ var mainexplanation = {
         var ide = 1;
         var urel = "0" + ide;
 
-        while (doesFileExist(urel, experimentos, "train")) {
+        while (doesFileExist(urel, entrenamientos, "train")) {
 
             ide += 1;
             urel = ide;
@@ -162,7 +164,7 @@ var mainexplanation = {
             }
 
         }
-        console.log(experimentos);
+        console.log(entrenamientos);
 
 
         jsPsych.pauseExperiment();
@@ -170,10 +172,10 @@ var mainexplanation = {
         loopTime.push(try_again);
 
         if (train_random) {
-            shuffleArray(experimentos);
+            shuffleArray(entrenamientos);
         }
 
-        experimentos.forEach(function(statement) {
+        entrenamientos.forEach(function(statement) {
 
             var categorization_trial = {
                 type: 'categorize-html',
@@ -334,7 +336,7 @@ var explanation2 = {
         var ide = 1;
         var urel = "0" + ide;
         var test_timeline = [];
-
+        jsPsych.pauseExperiment();
         while (doesFileExist(urel, experimentos, "experiment")) {
 
             ide += 1;
@@ -350,13 +352,14 @@ var explanation2 = {
             shuffleArray(experimentos);
         }
 
-        jsPsych.pauseExperiment();
-        entrenamientos.forEach(function(statement) {
+        var i=0;
+        experimentos.forEach(function(statement) {
 
             var categorization_trial = {
                 type: 'categorize-html',
                 data: {
                     trialid: 1,
+                    stimulus: experimentos_src[i],
                     tipo: "experiment"
                 },
                 stimulus: statement,
@@ -374,6 +377,7 @@ var explanation2 = {
             if (seguridad) {
                 test_timeline.push(survey_trial);
             }
+            i += 1;
 
         })
 
