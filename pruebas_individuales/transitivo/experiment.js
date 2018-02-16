@@ -16,6 +16,7 @@ var loopTime = [];
 var trainlen;
 var showSneed = false;
 var image = "";
+var entrenamientos = [];
 
 if (ide % 2 == 0) {
     var temp = verdadero;
@@ -47,7 +48,7 @@ function advance(event) {
     };
 }
 
-var loadImage = function (filename) {
+var loadImage = function(filename) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', filename);
     xhr.responseType = 'arraybuffer';
@@ -57,10 +58,35 @@ var loadImage = function (filename) {
         });
         var canvas = tiff.toCanvas();
         var canvasData = canvas.toDataURL();
-        document.getElementById("fet").innerHTML ='<img src="' + canvasData + '">';
+        document.getElementById("fet").innerHTML = '<img src="' + canvasData + '">';
     };
     xhr.send();
-  };
+};
+
+function doesFileExist(urlToFile, lista) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', urlToFile, false);
+    try {
+        xhr.send();
+        if (xhr.status == "404") {
+            console.log("File doesn't exist");
+            return false;
+        } else {
+            console.log("File exists");
+            lista.push(urlToFile);
+            return true;
+        }
+
+    } catch (exception) {
+        if (exception.name == 'NetworkError') {
+            console.log('There was a network error.');
+
+            console.log("File doesn't exist");
+            return false;
+        }
+    }
+}
+
 
 var try_again = {
     type: "instructions",
@@ -108,11 +134,27 @@ var mainexplanation = {
         trialid: "Welcome_Screen"
     },
     on_start: function(trial) {
+        var continuar = true;
+        var ide = 1;
+        var urel = "entrenamiento/Example0" + ide + ".bmp";
+        var porsia = 1;
 
-        $('document').ready(function() {
-            loadImage("experimento/73.tif");
+        while (doesFileExist(urel, entrenamientos)) {
+            porsia += 1;
 
-        });
+            ide += 1;
+
+            urel = "entrenamiento/Example" + ide + ".bmp";
+
+            if (ide < 10) {
+                urel = "entrenamiento/Example0" + ide + ".bmp";
+            }
+
+            if (ide > 20 || porsia > 20) {
+                break;
+            }
+        }
+        console.log(entrenamientos);
 
     }
 
@@ -156,6 +198,14 @@ var explanation2 = {
     },
     on_start: function(trial) {
 
+        $.get(image_url)
+            .done(function() {
+                // Do something now you know the image exists.
+
+            }).fail(function() {
+                // Image doesn't exist - do something else.
+
+            })
     }
 };
 
