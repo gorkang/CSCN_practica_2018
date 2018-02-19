@@ -19,7 +19,7 @@ var pruebas = 10;//total of tests in random
 var colores = ["green", "red", "blue"];//possible colors in random
 var prizes = [.25, .05, .01];//possible prizes in random
 var probabilidades = [8, 32, 128];//possible probabilities in random
-var with_probabilities = false;//random: true  manual:false
+var with_probabilities = true;//random: true  manual:false
 var list_manual= [//list of probabilites in manual
     [0, 0, 0, 0, 0, 0, 1],
     [0, 0, 0, 0, 1]

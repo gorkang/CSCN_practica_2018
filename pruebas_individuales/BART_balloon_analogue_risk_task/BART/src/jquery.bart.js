@@ -661,8 +661,7 @@
                         // show/hide buttons
                         butInflate.hide();
                         butCashin.hide();
-                        if (balcnt + 1 < bs.length) butNext.show();
-                        else opts.onend();
+                        butNext.show();
 
 
                     } else {
@@ -720,6 +719,8 @@
                 .hide()
                 .on('click.bart', function(e) {
 
+                    if (balcnt + 1 < bs.length){
+
                     // next ballon
                     balcnt++;
                     bal = new balloon(bs[balcnt]);
@@ -761,6 +762,9 @@
                     butInflate.show();
                     butCashin.show();
                     butNext.hide();
+                }else{
+                    opts.onend();
+                }
 
                 });
 
