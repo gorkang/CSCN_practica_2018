@@ -15,15 +15,27 @@ Blocks f1 and f5
 
 */
 
-var pruebas = 5;
-var acumulado = 0;
-var with_probabilities = false;
-var list_manual= [
+var pruebas = 10;//total of tests in random
+var colores = ["green", "red", "blue"];//possible colors in random
+var prizes = [.25, .05, .01];//possible prizes in random
+var probabilidades = [8, 32, 128];//possible probabilities in random
+var with_probabilities = false;//random: true  manual:false
+var list_manual= [//list of probabilites in manual
     [0, 0, 0, 0, 0, 0, 1],
     [0, 0, 0, 0, 1]
 ];
+var colors_manual= [//list of colors in manual
+    "green",
+    "red"
+];
+var prize_manual= [//list of prizes in manual
+    1,
+    2
+];
 
 var prueba_i = 1;
+var acumulado = 0;
+var random_index = Math.floor(Math.random() * prizes.length);
 
 onkeydown = function block_fkeys(event) {
     var x = event.which || event.keyCode;
@@ -53,23 +65,30 @@ var screen_BART_balloon_analogue_risk_task_experiment = {
 
 var survey03 = {
     type: "plugin-bart",
-    colors: "red",
-    probabilities: 8,
-    eachEarns: 0.25,
+    colors: colores[Math.floor(Math.random() * colores.length)],
+    eachEarns: prizes[random_index],
+    probabilities: probabilidades[random_index],
     amount: 1,
     total: pruebas,
     idOfBallon: prueba_i,
     initialEarn: acumulado,
     on_finish: function(data) {
         if (prueba_i < pruebas) {
+
+
             prueba_i += 1;
             console.log(data);
             acumulado += data.cashEarned;
             console.log("el acumulado es " + acumulado);
             jsPsych.pauseExperiment();
 
+            random_index = Math.floor(Math.random() * prizes.length);
+
             survey03.initialEarn = acumulado;
             survey03.idOfBallon = prueba_i;
+            survey03.colors = colores[Math.floor(Math.random() * colores.length)];
+            survey03.eachEarns = prizes[random_index];
+            survey03.probabilities= probabilidades[random_index];
 
             var new_timeline = {
                 timeline: [survey03]
@@ -85,8 +104,8 @@ var survey03 = {
 
 var survey04 = {
     type: "plugin-bart",
-    colors: "black",
-    eachEarns: 1,
+    colors: colors_manual[prueba_i-1],
+    eachEarns: prize_manual[prueba_i-1],
     probabilities: 8,
     amount: 1,
     manual: list_manual[prueba_i-1],
@@ -104,6 +123,8 @@ var survey04 = {
             survey04.initialEarn = acumulado;
             survey04.idOfBallon = prueba_i;
             survey04.manual= list_manual[prueba_i-1];
+            survey04.colors= colors_manual[prueba_i-1];
+            survey04.eachEarns= prize_manual[prueba_i-1];
 
             var new_timeline = {
                 timeline: [survey04]
