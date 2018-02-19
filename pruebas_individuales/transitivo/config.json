@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"transitivo modular",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "transitivo",
+    "name": "transitivo",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
