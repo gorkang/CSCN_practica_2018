@@ -3,7 +3,7 @@ var verdadero = 'q';
 var falso = 'p';
 var train_random = false; //if the test must be randomized
 var test_random = false;
-var percentageWrong = 0.5; //percentage of wrong in training to repeat it
+var percentageWrong = 0.7; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
 var seguridad = false; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
@@ -131,6 +131,7 @@ var try_again = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Vamos a revisar de nuevo los items de práctica para que quede claro." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -157,11 +158,10 @@ var mainexplanation = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
-        '<p><left><b><big>transitivo</big></b><br />' +
-        //"<img src='experimento/73.tif'></img>" +
-        '<p id="fet" ></p> ' +
+        '<p><left><b><big>Silogismo</big></b><br />' +
         "Esta prueba NO es una prueba de inteligencia. Se trata solamente de razonar y llegar a conclusiones a partir de frases " +
         "Es importante que le prestes atencion y que intetes hacerlo lo mejor posible." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -220,7 +220,7 @@ var mainexplanation = {
                     choices: [verdadero, falso],
                     correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
                     incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
-                    prompt: "<p>VERDADERO FALSO.</p>",
+                    prompt: "<p center>VERDADERO FALSO.</p>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
@@ -433,11 +433,11 @@ var explanation2 = {
 };
 
 
-var transitivo_experiment = []; //definitive timeline
+var razonamiento_transitivo_experiment = []; //definitive timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
-    transitivo_experiment.push({
+    razonamiento_transitivo_experiment.push({
         type: 'fullscreen',
         message: '<p>El experimento entrara en modo pantalla completa</p>',
         button_label: "Pantalla Completa",
@@ -447,5 +447,5 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 }
 
 //add the trials to the timeline
-transitivo_experiment.push(mainexplanation);
-transitivo_experiment.push(explanation2);
+razonamiento_transitivo_experiment.push(mainexplanation);
+razonamiento_transitivo_experiment.push(explanation2);
