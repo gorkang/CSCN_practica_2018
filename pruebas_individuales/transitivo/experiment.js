@@ -1,7 +1,7 @@
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
-var train_random = false; //if the test must be randomized
+var train_random = true; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
@@ -39,6 +39,22 @@ function shuffleArray(array) {
         array[i] = array[j];
         array[j] = temp;
     }
+}
+
+function shuffle(obj1, obj2) { //2 arrays
+  var index = obj1.length;
+  var rnd, tmp1, tmp2;
+
+  while (index) {
+    rnd = Math.floor(Math.random() * index);
+    index -= 1;
+    tmp1 = obj1[index];
+    tmp2 = obj2[index];
+    obj1[index] = obj1[rnd];
+    obj2[index] = obj2[rnd];
+    obj1[rnd] = tmp1;
+    obj2[rnd] = tmp2;
+  }
 }
 
 
@@ -173,7 +189,6 @@ var mainexplanation = {
                 }
 
             }
-            console.log(entrenamientos);
 
 
 
@@ -184,6 +199,8 @@ var mainexplanation = {
                 shuffleArray(entrenamientos);
             }
             trainlen = entrenamientos.length;
+            console.log(entrenamientos);
+
 
             entrenamientos.forEach(function(statement) {
                 console.log("HOLA");
@@ -211,7 +228,7 @@ var mainexplanation = {
                     feedback_show: !seguridad,
                     trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
-                        if (data.key_press != verdadero.charCodeAt(0) - 32) { // 70 is the numeric code for f
+                        if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
                             wrongs += 1;
                             showSneed = true;
                         }
@@ -349,7 +366,7 @@ var explanation3 = {
         console.log(experimentos_src);
 
         if (test_random) {
-            shuffleArray(experimentos);
+            shuffle(experimentos, experimentos_src);
         }
 
         var i = 0;
