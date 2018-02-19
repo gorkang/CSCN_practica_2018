@@ -661,7 +661,10 @@
                         // show/hide buttons
                         butInflate.hide();
                         butCashin.hide();
-                        butNext.show();
+                        setTimeout(function() {
+                            butNext.show();
+                        }, 2000);
+
 
 
                     } else {
@@ -719,52 +722,52 @@
                 .hide()
                 .on('click.bart', function(e) {
 
-                    if (balcnt + 1 < bs.length){
+                    if (balcnt + 1 < bs.length) {
 
-                    // next ballon
-                    balcnt++;
-                    bal = new balloon(bs[balcnt]);
-                    bal.inflate(canvas);
+                        // next ballon
+                        balcnt++;
+                        bal = new balloon(bs[balcnt]);
+                        bal.inflate(canvas);
 
-                    // update counts
-                    if (opts.showpumpcount) {
-                        canvas.setLayer('pumpnum', {
-                            text: opts.txt_number_of_pumps + '0'
-                        });
-                    }
-                    if (opts.showcurrentearned) {
-                        canvas.setLayer('curearn', {
-                            text: opts.txt_current_earned + '0.00'
-                        });
-                    }
-                    if (opts.showballooncount) {
-                        canvas.setLayer('balnum', {
-                            text: opts.txt_balloon_number +
-                                (balcnt + 1) + ' / ' + bs.length
-                        });
-                    }
-                    if (opts.showpopprob) {
-                        canvas.setLayer('popprob', {
-                            text: opts.txt_prob_explosion + "\n\n" +
-                                (new Number(Math.round(10000 / bs[balcnt].popprob) / 100)).toFixed(2) + '%'
-                        });
-                    }
-                    if (opts.showpumpsused) {
-                        canvas.setLayer('pumpuse', {
-                            text: opts.txt_pumps_used + "\n\n" + '0%'
-                        });
-                    }
-                    if (opts.showpumpcount | opts.showcurrentearned | opts.showballooncount | opts.showpopprob | opts.showpumpsused) {
-                        canvas.drawLayers();
-                    }
+                        // update counts
+                        if (opts.showpumpcount) {
+                            canvas.setLayer('pumpnum', {
+                                text: opts.txt_number_of_pumps + '0'
+                            });
+                        }
+                        if (opts.showcurrentearned) {
+                            canvas.setLayer('curearn', {
+                                text: opts.txt_current_earned + '0.00'
+                            });
+                        }
+                        if (opts.showballooncount) {
+                            canvas.setLayer('balnum', {
+                                text: opts.txt_balloon_number +
+                                    (balcnt + 1) + ' / ' + bs.length
+                            });
+                        }
+                        if (opts.showpopprob) {
+                            canvas.setLayer('popprob', {
+                                text: opts.txt_prob_explosion + "\n\n" +
+                                    (new Number(Math.round(10000 / bs[balcnt].popprob) / 100)).toFixed(2) + '%'
+                            });
+                        }
+                        if (opts.showpumpsused) {
+                            canvas.setLayer('pumpuse', {
+                                text: opts.txt_pumps_used + "\n\n" + '0%'
+                            });
+                        }
+                        if (opts.showpumpcount | opts.showcurrentearned | opts.showballooncount | opts.showpopprob | opts.showpumpsused) {
+                            canvas.drawLayers();
+                        }
 
-                    // show/hide buttons
-                    butInflate.show();
-                    butCashin.show();
-                    butNext.hide();
-                }else{
-                    opts.onend();
-                }
+                        // show/hide buttons
+                        butInflate.show();
+                        butCashin.show();
+                        butNext.hide();
+                    } else {
+                        opts.onend();
+                    }
 
                 });
 
