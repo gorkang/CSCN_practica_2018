@@ -1,11 +1,11 @@
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
-var train_random = true; //if the test must be randomized
-var test_random = true;
+var train_random = false; //if the test must be randomized
+var test_random = false;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
-var seguridad = true; //if you want to ask how sure is the subject of his answer
+var seguridad = false; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
 var wrongs = 0;
@@ -191,8 +191,6 @@ var mainexplanation = {
             }
 
 
-
-
             loopTime.push(try_again);
 
             if (train_random) {
@@ -363,6 +361,8 @@ var explanation3 = {
             }
 
         }
+        doesFileExist("01", entrenamientos, "experiment")//need time to process all previous images :c
+
         console.log(experimentos_src);
 
         if (test_random) {
