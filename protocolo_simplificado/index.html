@@ -7,7 +7,7 @@
   <title>Experimentos CSCN</title>
 </head>
 
-<body style="height:100%;text-align:center;">
+<body style="height:100%;text-align:center;"  onload="check_id_status()">
   <script>
     function partial_shuffle(list, index_start, index_end) {
       if (index_end < list.length && index_start >= 0 && index_end > index_start) {
@@ -94,6 +94,11 @@
         go_fullscreen(event);
         show_experiments(event);
         document.getElementById('user_id').disabled = true;
+        document.getElementById("fullscreen").hidden = false;
+        document.getElementById("start").hidden = true;
+        document.getElementById("start_and_skip_to_last").hidden = true;
+        document.getElementById("start_and_skip_last").hidden = true;
+        document.getElementById("redo").hidden = true;
       } else if (loaded_once) {
         go_fullscreen(event);
       }
@@ -238,17 +243,19 @@
     }
 
     function check_id_status(event) {
-      user_id_to_check = event.target.value;
-      if (localStorage[user_id_to_check]) {
-        document.getElementById("start").hidden = true;
-        document.getElementById("start_and_skip_to_last").hidden = false;
-        document.getElementById("start_and_skip_last").hidden = false;
-        document.getElementById("redo").hidden = false;
-      } else {
-        document.getElementById("start").hidden = false;
-        document.getElementById("start_and_skip_to_last").hidden = true;
-        document.getElementById("start_and_skip_last").hidden = true;
-        document.getElementById("redo").hidden = true;
+      user_id_to_check = document.getElementById("user_id").value;
+      if (user_id_to_check != "") {
+        if (localStorage[user_id_to_check]) {
+          document.getElementById("start").hidden = true;
+          document.getElementById("start_and_skip_to_last").hidden = false;
+          document.getElementById("start_and_skip_last").hidden = false;
+          document.getElementById("redo").hidden = false;
+        } else {
+          document.getElementById("start").hidden = false;
+          document.getElementById("start_and_skip_to_last").hidden = true;
+          document.getElementById("start_and_skip_last").hidden = true;
+          document.getElementById("redo").hidden = true;
+        }
       }
     }
 
@@ -272,6 +279,7 @@
   </script>
   <div>
     <input type="number" oninput="check_id_status(event)" required id="user_id" min="0" step="1" style="margin-top:25%;"></input>
+    <input id="fullscreen" type="button" onclick="go_fullscreen(event)" style="margin-top:25%;" value="Volver a pantalla completa" hidden></input>
     <input id="start" type="button" onclick="start_experiment(event)" style="margin-top:25%;" value="Comenzar"></input>
     <input id="start_and_skip_to_last" type="button" onclick="start_and_skip_to_last_experiment(event)" style="margin-top:25%;" value="Comenzar a partir del ultimo experimento completado" hidden></input>
     <input id="start_and_skip_last" type="button" onclick="start_and_skip_last_experiment(event)" style="margin-top:25%;" value="Comenzar despues del ultimo experimento completado" hidden></input>

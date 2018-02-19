@@ -40,7 +40,9 @@ else:
         else:
             print("Experimento desconocido en linea " + str(exp_number) + ".")
             exit(1)
-    if(exp_list[-1] != "]"):
+    if(exp_list[-1] == ","):
+        exp_list += str(shuffle_number) + ");\n"
+    elif(exp_list[-1] != "]"):
                 exp_list += "';\n"
 random_exp_list = "    var experiments_random = shuffle(" + str(experiments) + ");\n"
 

@@ -1,5 +1,5 @@
 /**
- * jspsych-survey-text
+ * jspsych-survey-text-age
  * a jspsych plugin for free response survey questions
  *
  * Josh de Leeuw
@@ -9,12 +9,12 @@
  */
 
 
-jsPsych.plugins['survey-text'] = (function() {
+jsPsych.plugins['survey-text-age'] = (function() {
 
   var plugin = {};
 
   plugin.info = {
-    name: 'survey-text',
+    name: 'survey-text-age',
     description: '',
     parameters: {
       questions: {
@@ -97,33 +97,28 @@ jsPsych.plugins['survey-text'] = (function() {
     var html = '';
     // show preamble text
     if (trial.preamble !== null) {
-      html += '<br /><p><br /><div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">' + trial.preamble + '</div>';
+      html += '<br /><p><br /><div id="jspsych-survey-text-age-preamble" class="jspsych-survey-text-age-preamble">' + trial.preamble + '</div>';
     }
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
-      html += '<div id="jspsych-survey-text-"' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
-      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
+      html += '<div id="jspsych-survey-text-age-"' + i + '" class="jspsych-survey-text-age-question" style="margin: 2em 0em;">';
+      html += '<p class="jspsych-survey-text-age">' + trial.questions[i].prompt + '</p>';
       if (trial.questions[i].rows == 1) {
-          html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
-        if(endword == "dias"){
-          html += '<input type="number" min="-1" max="7" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
-        }else if(endword == "horas"){
-          html += '<input type="number" min="-1" max="24" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
-        }
+        html += '<input type="number" min="0" max="120" name="#jspsych-survey-text-age-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus></input> ' + trial.endword;
       } else {
-        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus ></input> ' + trial.endword;
+        html += '<input type="number" min="0" max="120" name="#jspsych-survey-text-age-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus></input> ' + trial.endword;
       }
       html += '</div>';
     }
 
     // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">' + trial.button_label + '</button>';
+    html += '<button id="jspsych-survey-text-age-next" class="jspsych-btn jspsych-survey-text-age">' + trial.button_label + '</button>';
     html += '<div class="fail-message"></div>';
     display_element.innerHTML = html;
-    var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
+    var firstTextBox = document.getElementsByName("#jspsych-survey-text-age-response-0")[0];
     firstTextBox.focus();
 
-    display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
+    display_element.querySelector('#jspsych-survey-text-age-next').addEventListener('click', function() {
       var validation;
       // measure response time
       var endTime = (new Date()).getTime();
@@ -131,7 +126,7 @@ jsPsych.plugins['survey-text'] = (function() {
 
       // create object to hold responses
       var question_data = {};
-      var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
+      var matches = display_element.querySelectorAll('div.jspsych-survey-text-age-question');
       for (var index = 0; index < matches.length; index++) {
         var id = "Q" + index;
         var val = matches[index].querySelector('input, input').value;
@@ -149,7 +144,7 @@ jsPsych.plugins['survey-text'] = (function() {
 
 
       // next trial
-      if ($.isNumeric(validation) === true) {
+      if ($.isNumeric(validation) === true && validation > 0 && validation <= 120) {
         //if ((validation >= 12 && validation <= 14) || (validation >= 21 && validation <= 24) || (validation >= 31 && validation <= 34) || (validation >= 41 && validation <= 43) &&  validation != 22 && validation != 33 ) {
         console.log("bien", validation);
         display_element.innerHTML = '';
