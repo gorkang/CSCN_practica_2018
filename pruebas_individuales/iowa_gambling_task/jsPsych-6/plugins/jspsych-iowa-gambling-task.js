@@ -112,7 +112,7 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
         endtrial();
       }
     }
-    html += '<progress id="progress" max="' + trial.max_cash + '" value="' + trial.starting_cash + '" style="width:95%;"></progress>'
+    html += '<progress id="progress" max="' + trial.max_cash + '" value="' + trial.starting_cash + '"></progress>'
     html += '<div id="text">'
     html += '<p id="won" >Tu ganaste: ' + trial.previusly_won + '</p>';
     html += '<p id="lost" >Tu perdiste : ' + trial.previusly_lost + '</p>';
@@ -120,6 +120,11 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
     html += '<p id="total" >Total: ' + trial.starting_cash + '</p>';
     html += '</div>'
     display_element.innerHTML = html;
+
+    document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
+    window.onresize = function(){
+      document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
+    }
 
     if(trial.previusly_won + trial.previusly_lost > 0){
       document.getElementById('text').style.color = "blue";
