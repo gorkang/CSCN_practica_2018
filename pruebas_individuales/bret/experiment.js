@@ -34,6 +34,7 @@ var instructions_test = {
 
 var bret_trial_0 = {
   type: 'bret',
+  title: 'Trial de practica',
   data: {
     trialId: "bret_test"
   },
@@ -53,6 +54,7 @@ var instructions_after_test = {
 
 var bret_trial_1 = {
   type: 'bret',
+  title: 'Trial 1',
   data: {
     trialId: "bret_1"
   },
@@ -110,6 +112,7 @@ while (repetitions > 0) {
   repetitions -= 1;
   bret.push({
     type: 'bret',
+    title: 'Trial ' + index,
     data: {
       trialId: "bret_" + index
     },
