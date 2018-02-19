@@ -28,11 +28,11 @@ jsPsych.plugins["plugin-bart"] = (function() {
             initialEarn: {
                 default: 0
             },
-            idOfBallon:{
-                default:1
+            idOfBallon: {
+                default: 1
             },
-            total:{
-                default:1
+            total: {
+                default: 1
             }
         }
     }
@@ -67,7 +67,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     popprob: trial.probabilities, // probability of popping; defined as 1 out of popprop
                 },
                 s: {
-                    showpopprob: true,
+                    //showpopprob: true,
                     //onload: myload, // user-defined function invoked after starting the BART
                     onend: myend, // user-defined function invoked after finishing the BART
                     sounds: true, // use sounds
@@ -94,10 +94,13 @@ jsPsych.plugins["plugin-bart"] = (function() {
             }
 
             var trial_data = {
+                trialid: trial.idOfBallon,
+                each_earns: trial.eachEarns,
+                should_explode_on: trial.manual.length,
                 probability: trial.probabilities,
                 rt: response_time,
                 color: trial.colors,
-                cashEarned: points * trial.eachEarns,// + trial.initialEarn,
+                cashEarned: points * trial.eachEarns, // + trial.initialEarn,
                 cashTotal: trial.initialEarn + points * trial.eachEarns,
                 blows: timesBlow,
             };
