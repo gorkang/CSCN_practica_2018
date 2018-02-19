@@ -54,9 +54,6 @@ var screen_BART_balloon_analogue_risk_task_experiment = {
         "Infle los siguientes globos la cantidad que estime conveniente. Estos pueden explotar despues de una cantidad aleatoria de aire. Entre mas consiga inflar los globos, mas ganancias tendra al final" +
         '</p>'
     ],
-    data: {
-        trialid: "Screen_WM"
-    },
     show_clickable_nav: true,
     on_trial_start: function() {
         bloquear_enter = 0;
