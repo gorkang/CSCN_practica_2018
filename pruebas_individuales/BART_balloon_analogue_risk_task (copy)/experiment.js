@@ -17,7 +17,11 @@ Blocks f1 and f5
 
 var pruebas = 5;
 var acumulado = 0;
-var with_probabilities = true;
+var with_probabilities = false;
+var list_manual= [
+    [0, 0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 1]
+];
 
 var prueba_i = 1;
 
@@ -54,14 +58,14 @@ var survey03 = {
     eachEarns: 0.25,
     amount: 1,
     total: pruebas,
-    idOfBallon : prueba_i,
-    initialEarn:acumulado,
+    idOfBallon: prueba_i,
+    initialEarn: acumulado,
     on_finish: function(data) {
-        if (prueba_i < pruebas){
+        if (prueba_i < pruebas) {
             prueba_i += 1;
             console.log(data);
             acumulado += data.cashEarned;
-            console.log("el acumulado es "+acumulado);
+            console.log("el acumulado es " + acumulado);
             jsPsych.pauseExperiment();
 
             survey03.initialEarn = acumulado;
@@ -79,17 +83,42 @@ var survey03 = {
 
 };
 
-
-
-
 var survey04 = {
     type: "plugin-bart",
     colors: "black",
     eachEarns: 1,
     probabilities: 8,
     amount: 1,
-    manual: [0, 0, 0, 0, 0, 0, 1]
+    manual: list_manual[prueba_i-1],
+    total: list_manual.length,
+    idOfBallon: prueba_i,
+    initialEarn: acumulado,
+    on_finish: function(data) {
+        if (prueba_i < list_manual.length) {
+            prueba_i += 1;
+            console.log(data);
+            acumulado += data.cashEarned;
+            console.log("el acumulado es " + acumulado);
+            jsPsych.pauseExperiment();
+
+            survey04.initialEarn = acumulado;
+            survey04.idOfBallon = prueba_i;
+            survey04.manual= list_manual[prueba_i-1];
+
+            var new_timeline = {
+                timeline: [survey04]
+            }
+            jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment);
+
+
+
+        }
+    }
+
 };
+
+
+
 
 
 // Creacion de timeline e inclusion de trials
@@ -108,9 +137,9 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 BART_balloon_analogue_risk_task_experiment.push(screen_BART_balloon_analogue_risk_task_experiment);
-if(with_probabilities){
+if (with_probabilities) {
     BART_balloon_analogue_risk_task_experiment.push(survey03);
-}else{
+} else {
     BART_balloon_analogue_risk_task_experiment.push(survey04);
 }
 
