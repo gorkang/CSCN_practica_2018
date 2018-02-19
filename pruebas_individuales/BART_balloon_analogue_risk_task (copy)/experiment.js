@@ -15,8 +15,9 @@ Blocks f1 and f5
 
 */
 
-var pruebas = 3;
+var pruebas = 5;
 var acumulado = 0;
+var with_probabilities = true;
 
 var prueba_i = 1;
 
@@ -52,10 +53,19 @@ var survey03 = {
     probabilities: 8,
     eachEarns: 0.25,
     amount: 1,
+    total: pruebas,
+    idOfBallon : prueba_i,
+    initialEarn:acumulado,
     on_finish: function(data) {
         if (prueba_i < pruebas){
             prueba_i += 1;
+            console.log(data);
+            acumulado += data.cashEarned;
+            console.log("el acumulado es "+acumulado);
             jsPsych.pauseExperiment();
+
+            survey03.initialEarn = acumulado;
+            survey03.idOfBallon = prueba_i;
 
             var new_timeline = {
                 timeline: [survey03]
@@ -98,8 +108,12 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 BART_balloon_analogue_risk_task_experiment.push(screen_BART_balloon_analogue_risk_task_experiment);
+if(with_probabilities){
+    BART_balloon_analogue_risk_task_experiment.push(survey03);
+}else{
+    BART_balloon_analogue_risk_task_experiment.push(survey04);
+}
 
-BART_balloon_analogue_risk_task_experiment.push(survey03);
-BART_balloon_analogue_risk_task_experiment.push(survey04);
+
 
 //BART_balloon_analogue_risk_task_experiment.push(surveyexplanation);

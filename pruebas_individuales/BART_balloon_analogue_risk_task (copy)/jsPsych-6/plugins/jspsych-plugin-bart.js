@@ -27,6 +27,12 @@ jsPsych.plugins["plugin-bart"] = (function() {
             },
             initialEarn: {
                 default: 0
+            },
+            idOfBallon:{
+                default:1
+            },
+            total:{
+                default:1
             }
         }
     }
@@ -67,7 +73,9 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     sounds: true, // use sounds
                     sndpath: 'BART/sounds/', // path to sound files
                     earned: trial.initialEarn,
-                    manProb: trial.manual
+                    manProb: trial.manual,
+                    number_of_ballon: trial.idOfBallon,
+                    total_of_ballons: trial.total,
                 }
             });
         });

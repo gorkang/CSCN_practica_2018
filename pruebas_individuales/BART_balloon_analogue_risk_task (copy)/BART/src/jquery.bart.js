@@ -140,6 +140,8 @@
             showtotalearned: true, // show total earnings on board
             showpopprob: false, // show probability of explosion
             showpumpsused: false, // show percentage of pumps used
+            number_of_ballon: 0,
+            total_of_ballons: 0,
             sounds: true, // play sounds
             earned: 0, // initial earnings
             sndpath: 'sounds/', // path to sound files
@@ -549,7 +551,7 @@
                     name: 'balnum',
                     fillStyle: '#000',
                     font: '14pt Verdana, sans-serif',
-                    text: opts.txt_balloon_number + ' 1 / ' + bs.length
+                    text: opts.txt_balloon_number + opts.number_of_ballon + ' / ' + opts.total_of_ballons
                 });
             }
 
