@@ -262,7 +262,7 @@
                 me[[k]] = v;
             });
 
-
+            console.log("el seraned es " + s.earned);
             // on balloon hook
             this.onstart();
 
@@ -563,7 +563,7 @@
                     name: 'totearn',
                     fillStyle: '#000',
                     font: '14pt Verdana, sans-serif',
-                    text: opts.txt_total_earned + '0.00'
+                    text: opts.txt_total_earned + opts.earned
                 });
                 bottomY -= 50;
             }

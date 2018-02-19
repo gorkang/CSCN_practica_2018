@@ -66,7 +66,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
                     onend: myend, // user-defined function invoked after finishing the BART
                     sounds: true, // use sounds
                     sndpath: 'BART/sounds/', // path to sound files
-                    prevCash: trial.initialEarn,
+                    earned: trial.initialEarn,
                     manProb: trial.manual
                 }
             });
@@ -89,7 +89,8 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 probability: trial.probabilities,
                 rt: response_time,
                 color: trial.colors,
-                cash: points * trial.eachEarns,
+                cashEarned: points * trial.eachEarns,// + trial.initialEarn,
+                cashTotal: trial.initialEarn + points * trial.eachEarns,
                 blows: timesBlow,
             };
             display_element.innerHTML = '';
