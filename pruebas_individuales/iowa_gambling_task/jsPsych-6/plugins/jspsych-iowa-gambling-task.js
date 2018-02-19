@@ -77,18 +77,18 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
     var html = '';
 
     html += '<div id="jspsych-html-button-response-btngroup" style="width:80%;">';
-    trial.decks.forEach(function(deck){
+    trial.decks.forEach(function(deck) {
       html += '<input type="image" id="' + deck.name + '" class="jspsych-btn" name="' + deck.name + '" src="blue-back.png" style="width:25%;border:none;"></input>'
-      if(deck.clicks == undefined){
+      if (deck.clicks == undefined) {
         deck.clicks = 0;
       };
     })
     html += '</div>';
 
-    function click_deck(event){
+    function click_deck(event) {
       deck_name = event.target.name;
-      trial.decks.forEach(function(deck){
-        if(deck.name == deck_name){
+      trial.decks.forEach(function(deck) {
+        if (deck.name == deck_name) {
           selected_deck.push(deck.name);
           total_penalty += deck.cards[deck.clicks % deck.cards.length];
           net_gain += deck.win_by_card + deck.cards[deck.clicks % deck.cards.length];
@@ -96,10 +96,9 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
           document.getElementById('lost').innerHTML = "Tu perdiste: " + deck.cards[deck.clicks % deck.cards.length];
           document.getElementById('total_penalty').innerHTML = "Ganancia/Perdida neta: " + (deck.win_by_card + deck.cards[deck.clicks % deck.cards.length]);
           document.getElementById('total').innerHTML = "Total: " + (trial.starting_cash + net_gain);
-          if((deck.win_by_card + deck.cards[deck.clicks % deck.cards.length]) >= 0){
+          if ((deck.win_by_card + deck.cards[deck.clicks % deck.cards.length]) >= 0) {
             document.getElementById('text').style.color = "blue";
-          }
-          else{
+          } else {
             document.getElementById('text').style.color = "red";
           }
           document.getElementById('progress').value = trial.starting_cash + net_gain;
@@ -108,7 +107,7 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
         }
       })
 
-      if(total_clicks >= trial.max_clicks){
+      if (total_clicks >= trial.max_clicks) {
         endtrial();
       }
     }
@@ -121,19 +120,27 @@ jsPsych.plugins["iowa-gambling-task"] = (function() {
     html += '</div>'
     display_element.innerHTML = html;
 
-    document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
-    window.onresize = function(){
+document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
+    window.setTimeout(function() {
+      document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
+    }, 10);
+    window.setTimeout(function() {
+      document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
+    }, 100);
+    window.setTimeout(function() {
+      document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
+    }, 1000);
+    window.onresize = function() {
       document.getElementById('progress').style.width = document.getElementById(trial.decks[0].name).offsetWidth * trial.decks.length + "px";
     }
 
-    if(trial.previusly_won + trial.previusly_lost > 0){
+    if (trial.previusly_won + trial.previusly_lost > 0) {
       document.getElementById('text').style.color = "blue";
-    }
-    else if(trial.previusly_won + trial.previusly_lost < 0){
+    } else if (trial.previusly_won + trial.previusly_lost < 0) {
       document.getElementById('text').style.color = "red";
     }
 
-    trial.decks.forEach(function(deck){
+    trial.decks.forEach(function(deck) {
       document.getElementById(deck.name).addEventListener('click', click_deck);
     })
 
