@@ -9,6 +9,7 @@ onkeydown = function block_fkeys(event) {
   }
 }
 
+var score_total;
 repetitions = 2;
 
 /* ********************************* PANTALLAS DE INICIO Y DESPEDIDA ********************************* */
@@ -17,7 +18,7 @@ var welcome = {
   type: 'instructions',
   pages: ['<p><left>BRET<br /></p>'],
   data: {
-    trialid: "Screen_BRET"
+    trialId: "Screen_BRET"
   },
   show_clickable_nav: true
 };
@@ -26,7 +27,7 @@ var instructions_test = {
   type: 'instructions',
   pages: ['Instrucciones para test'],
   data: {
-    trialid: "Screen_BRET"
+    trialId: "Screen_BRET"
   },
   show_clickable_nav: true
 };
@@ -45,7 +46,7 @@ var instructions_after_test = {
   type: 'instructions',
   pages: ['Instrucciones para experimento'],
   data: {
-    trialid: "Screen_BRET"
+    trialId: "Screen_BRET"
   },
   show_clickable_nav: true
 };
@@ -57,14 +58,29 @@ var bret_trial_1 = {
   },
   reveal_bombs: "at_click",
   allow_clicking: false,
-  auto_advance_time: 1
+  auto_advance_time: 1,
+  on_finish: function(data) {
+    score_total = data.score;
+  }
+}
+
+var bret_total_score_1= {
+  type: 'instructions',
+  pages: [],
+  data: {
+    trialId: "score_total_1"
+  },
+  show_clickable_nav: true,
+  on_start: function(trial) {
+    trial.pages = ["Total acumulado: " + score_total.toFixed(2)];
+  }
 }
 
 var goodbye = {
   type: 'instructions',
-  pages: ['<p><left>Ha completad BRET<br /></p>'],
+  pages: ['<p><left>Ha completado BRET<br /></p>'],
   data: {
-    trialid: "goodbye"
+    trialId: "goodbye"
   },
   show_clickable_nav: true
 };
@@ -88,6 +104,7 @@ bret.push(instructions_test);
 bret.push(bret_trial_0);
 bret.push(instructions_after_test);
 bret.push(bret_trial_1);
+bret.push(bret_total_score_1);
 index = 2;
 while (repetitions > 0) {
   repetitions -= 1;
@@ -99,10 +116,22 @@ while (repetitions > 0) {
     reveal_bombs: "at_click",
     allow_clicking: false,
     auto_advance_time: 1,
-    on_start: function(trial) {
-      trial.starting_credit = jsPsych.data.getLastTrialData(1).values()[0].score;
+    on_finish: function(data) {
+      score_total += data.score;
     }
   });
+
+  bret.push({
+    type: 'instructions',
+    pages: [],
+    data: {
+      trialId: "score_total_" + index
+    },
+    show_clickable_nav: true,
+    on_start: function(trial) {
+      trial.pages = ["Total acumulado: " + score_total.toFixed(2)];
+    }
+  })
   index += 1;
 }
 

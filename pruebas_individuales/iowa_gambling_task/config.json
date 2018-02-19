@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Ganar o perder dinero",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "iowa_gambling_task",
+    "name": "iowa_gambling_task",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

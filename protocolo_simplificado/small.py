@@ -5,7 +5,7 @@ import sys
 #Deals with files and directories
 import os
 
-csv_list = list(csv.reader(open('small_exp.csv', 'r'), delimiter=','))
+csv_list = list(csv.reader(open('orden_pruebas.csv', 'r'), delimiter=','))
 experiments = []
 for file_name in os.listdir(os.getcwd()):
     if(os.path.isdir(file_name)):
@@ -53,3 +53,4 @@ for line in html_list:
 index_file = open("index.html",'wb')
 index_file.writelines(html_list)
 index_file.close()
+print("Se ha creado el archivo index.html con las pruebas de orden_pruebas.csv exitosamente.")

@@ -10,7 +10,7 @@
 
   <body>
       <!-- JQuery -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="jquery.min.js"></script>
       <!-- Libreria principal JsPsych -->
       <script src="jsPsych-6/jspsych.js"></script>
       <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
@@ -55,8 +55,14 @@
                                  if (err.status == 200){
                                      document.location = "/next";
                                  } else {
-                                     // If error, assue local save
-                                     jsPsych.data.get().localSave( 'csv', 'silogismo_results.csv');
+                                   // If error, assue local save
+                                   if (window.self !== window.top) {
+                                     parent.postMessage({
+                                       csv: jsPsych.data.get().csv(),
+                                       name: 'silogismo_results'
+                                     }, '*');
+                                   } else {
+                                     jsPsych.data.get().localSave('csv', 'silogismo_results.csv');
                                  }
                              }
                          });
