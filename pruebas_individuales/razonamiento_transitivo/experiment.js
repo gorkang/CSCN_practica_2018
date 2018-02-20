@@ -1,4 +1,4 @@
-var ide = 2;
+var ide = 1;
 var verdadero = 'q';
 var falso = 'p';
 var leftString = "VERDADERO";
