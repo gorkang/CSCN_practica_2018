@@ -224,7 +224,6 @@ var mainexplanation = {
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
-                    trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
                         if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
                             wrongs += 1;
@@ -335,6 +334,7 @@ var explanation3 = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Ahora empezara la verdadera prueba" +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
     ],
     allow_keys: true,
@@ -383,7 +383,7 @@ var explanation3 = {
                 key_answer: verdadero.charCodeAt(0) - 32,
                 text_answer: verdadero,
                 choices: [verdadero, falso],
-                prompt: "<p>VERDADERO FALSO.</p>",
+                prompt: "<p center>VERDADERO FALSO.</p center>",
                 //force_correct_button_press: !seguridad,
                 trial_duration: 60000, //60 seconds
                 show_timer: tempo,
@@ -411,26 +411,6 @@ var explanation3 = {
 
 
 
-var explanation2 = {
-    type: "instructions",
-    pages: ["<div class = centerbox>" +
-        "<p class = center-block-text>" +
-        "Vas a leer grupos de tres frases. Las dos primeras te dicen algo que es cierto (imagina que se trata de un mundo de fantasia). " +
-        "Tienes que leerlas con mucha atencion. " +
-        "Tu tarea es decir si la tercera frase es siempre verdadera o siempre false a partir de lo que dicen las 2 primeras frases " +
-        "Tienes que marcar la opcion VERDADERA si la conclusion es SIEMPRE CIERTA a partir de lo que dicen " +
-        "las dos primeras frases, y FALSA si la conclusion es SIEMPRE FALSA a partir de lo que dicen las 2 primeras frases." +
-        "</p></div>"
-    ],
-    allow_keys: true,
-    key_forward: 32,
-    //show_clickable_nav: true,
-    timing_post_trial: 50,
-    data: {
-        trialid: "Welcome_Screen"
-    }
-
-};
 
 
 var razonamiento_transitivo_experiment = []; //definitive timeline
@@ -448,4 +428,4 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 razonamiento_transitivo_experiment.push(mainexplanation);
-razonamiento_transitivo_experiment.push(explanation2);
+//razonamiento_transitivo_experiment.push(explanation2);
