@@ -42,6 +42,7 @@
     ];
     var experiments_random = [];
     var experiments = "";
+    var enable_JSZip = true;
     experiments = experiments.split(',');
     experiments.reverse();
 
@@ -264,20 +265,26 @@
           currentExperiment = experiments.pop();
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
         } else {
-          var participan_json = JSON.parse(localStorage[user_id]);
-          var zip = new JSZip();
-          var folder = zip.folder("participant_" + user_id);
-          for (var experiment in participan_json) {
-            if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
-              folder.file(user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv", participan_json[experiment]);
+          if (enable_JSZip) {
+            var participan_json = JSON.parse(localStorage[user_id]);
+            var zip = new JSZip();
+            var folder = zip.folder("participant_" + user_id);
+            for (var experiment in participan_json) {
+              if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
+                folder.file(user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv", participan_json[experiment]);
+              }
             }
+            folder.generateAsync({
+                type: "blob"
+              })
+              .then(function(blob) {
+                local_save(blob, "participant_" + user_id + ".zip");
+              });
+          } else {
+            local_save(new Blob([participan_json[experiment]], {
+              type: 'text/plain'
+            }), user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv")
           }
-          folder.generateAsync({
-              type: "blob"
-            })
-            .then(function(blob) {
-              local_save(blob, "participant_" + user_id + ".zip");
-            });
         }
       });
       document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
