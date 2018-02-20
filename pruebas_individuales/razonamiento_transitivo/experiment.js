@@ -164,8 +164,8 @@ var mainexplanation = {
     type: "instructions",
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
-        '<p><left><b><big>Silogismo</big></b><br />' +
-        "Esta prueba NO es una prueba de inteligencia. Se trata solamente de razonar y llegar a conclusiones a partir de frases " +
+        '<p><left><b><big>Razonamineto transitivo</big></b><br />' +
+        "Esta prueba NO es una prueba de inteligencia. Se trata solamente de razonar y llegar a conclusiones a partir de frases. " +
         "Es importante que le prestes atencion y que intetes hacerlo lo mejor posible." +
         "<br> <center>Presione la barra espaciadora para continuar</center>"+
         "</p></div>"
