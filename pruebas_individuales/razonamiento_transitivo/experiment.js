@@ -226,7 +226,7 @@ var mainexplanation = {
                     choices: [verdadero, falso],
                     correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
                     incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
-                    prompt: "<p center>"+ leftString + "   " + rightString +".</p>",
+                    prompt: "<div class='left_prompt'>"+ leftString + "</div><div class='right_prompt'>" + rightString +"</div>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
@@ -389,7 +389,7 @@ var explanation3 = {
                 key_answer: verdadero.charCodeAt(0) - 32,
                 text_answer: verdadero,
                 choices: [verdadero, falso],
-                prompt: "<p center>"+ leftString + "   " + rightString +".</p>",
+                prompt: "<div class='left_prompt'>"+ leftString + "</div><div class='right_prompt'>" + rightString +"</div>",
                 //force_correct_button_press: !seguridad,
                 trial_duration: 60000, //60 seconds
                 show_timer: tempo,

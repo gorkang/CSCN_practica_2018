@@ -182,3 +182,14 @@ input[type=number]::-webkit-outer-spin-button {
 img {
     width: 100%;
 }
+
+.left_prompt {
+    text-align: left;
+}
+.right_prompt {
+    text-align: right;
+}
+.left_prompt, .right_prompt {
+    display: inline-block;
+    width: 50%;
+}
