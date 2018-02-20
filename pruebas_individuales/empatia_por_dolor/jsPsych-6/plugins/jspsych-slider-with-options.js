@@ -49,6 +49,12 @@ jsPsych.plugins["slider-with-options"] = (function() {
         array: false,
         pretty_name: 'Selected level',
         default: 0
+      },
+      show_for: {
+        type: jsPsych.plugins.parameterType.INT,
+        array: false,
+        pretty_name: 'Show for',
+        default: 200
       }
     }
   }
@@ -60,7 +66,7 @@ jsPsych.plugins["slider-with-options"] = (function() {
     html += "<div id='slider-container' style='position:absolute;width:40%;'>";
 
     html += "<strong style='width:19%;text-align:right;display:inline-block'>" + trial.left_option + "</strong>";
-    html += "<input type='range' id='slider' min='" + trial.scale_start + "' max='" + trial.scale_end + "' style='width:60%;'></input>"
+    html += "<input type='range' id='slider' min='" + trial.scale_start + "' max='" + trial.scale_end + "' style='width:58%;'></input>"
     html += "<strong style='width:19%;text-align:left;display:inline-block'>" + trial.rigth_option + "</strong>";
 
     html += "</div>";
@@ -68,16 +74,28 @@ jsPsych.plugins["slider-with-options"] = (function() {
     display_element.innerHTML = html;
 
     var slider = document.getElementById('slider');
-    document.onkeydown = function(event){
+
+    document.onkeydown = function(event) {
       var key = event.keyCode;
-      if(key == 37){
+      if (key == 37) {
         slider.stepDown();
-      }else if(key == 39){
+      } else if (key == 39) {
         slider.stepUp();
-      }else if(key == 40){
-        endtrial();
       }
     }
+
+    setTimeout(function() {
+      document.onkeydown = function(event) {
+        var key = event.keyCode;
+        if (key == 37) {
+          slider.stepDown();
+        } else if (key == 39) {
+          slider.stepUp();
+        } else if (key == 40) {
+          endtrial();
+        }
+      }
+    },trial.show_for)
 
     function endtrial() {
       // measure response time
@@ -86,12 +104,12 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
       // save data
       var trialdata = {
-        response: document.getElementById('slider').value,
+        response: slider.value,
         rt: response_time
       };
 
       display_element.innerHTML = '';
-
+      document.onkeydown = undefined;
       // next trial
       jsPsych.finishTrial(trialdata);
     };

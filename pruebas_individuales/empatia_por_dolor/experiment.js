@@ -32,6 +32,11 @@ var instructions_1 = {
   show_clickable_nav: true,
   data: {
     trialId: "instructions_1"
+  },
+  key_forward: "downarrow",
+  on_start: function(trial){
+    getFrames();
+    getQuestions();
   }
 }
 
@@ -41,7 +46,8 @@ var instructions_2 = {
   show_clickable_nav: true,
   data: {
     trialId: "instructions_2"
-  }
+  },
+  key_forward: "downarrow"
 }
 
 var instructions_3 = {
@@ -61,7 +67,8 @@ var instructions_4 = {
   show_clickable_nav: true,
   data: {
     trialId: "instructions_4"
-  }
+  },
+  key_forward: "downarrow"
 }
 
 var instructions_5 = {
@@ -70,7 +77,8 @@ var instructions_5 = {
   show_clickable_nav: true,
   data: {
     trialId: "instructions_5"
-  }
+  },
+  key_forward: "downarrow"
 }
 
 var practice_1 = {
@@ -97,6 +105,15 @@ var practice_2 = {
 }
 
 var practice_3 = {
+  type: 'image-keyboard-response',
+  stimulus: 'practica/p_i2_umbrella_frame003.bmp',
+  choices: ["downarrow"],
+  data: {
+    trialId: "instructions_practice_frame_3"
+  }
+}
+
+var practice_4 = {
   type: 'slider-with-options',
   prompt: '<img src="practica/p_i2_umbrella_frame003.bmp" style="width:100%;"></img>',
   scale_question: "¿Qué tan triste se siente por la persona lastimada?",
@@ -113,7 +130,8 @@ var instructions_6 = {
   show_clickable_nav: true,
   data: {
     trialId: "instructions_6"
-  }
+  },
+  key_forward: "downarrow"
 }
 
 var goodbye = {
@@ -122,7 +140,8 @@ var goodbye = {
   show_clickable_nav: true,
   data: {
     trialId: "goodbye"
-  }
+  },
+  key_forward: "downarrow"
 }
 
 var empatia_por_dolor = [];
@@ -135,6 +154,7 @@ empatia_por_dolor.push(instructions_5);
 empatia_por_dolor.push(practice_1);
 empatia_por_dolor.push(practice_2);
 empatia_por_dolor.push(practice_3);
+empatia_por_dolor.push(practice_4);
 empatia_por_dolor.push(instructions_6);
 
 
@@ -168,6 +188,14 @@ function create_trials() {
         rt: 200
       }
     })
+    trials.push({
+      type: 'image-keyboard-response',
+      stimulus: 'experimento/' + frame[2],
+      choices: ["downarrow"],
+      data: {
+        trialId: "stimulus_frame_2_id_" + index
+      }
+    })
     questions.forEach(function(question) {
       trials.push({
         type: 'slider-with-options',
@@ -199,42 +227,45 @@ window.addEventListener('message', function(event) {
   }
 })
 
-var frames_csv = new XMLHttpRequest();
-frames_csv.open('GET', 'listado_items.csv');
-frames_csv.responseType = "text";
-frames_csv.onreadystatechange = function() {
-  if (frames_csv.readyState === 4) {
-    if (frames_csv.status === 200 || frames_csv.status == 0) {
-      frames_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
-        if (row_text != '') {
-          frames.push(row_text.split(',').slice(1));
-        }
-      })
-      window.postMessage("frames_done", "*");
+function getFrames() {
+  var frames_csv = new XMLHttpRequest();
+  frames_csv.open('GET', 'listado_items.csv');
+  frames_csv.responseType = "text";
+  frames_csv.onreadystatechange = function() {
+    if (frames_csv.readyState === 4) {
+      if (frames_csv.status === 200 || frames_csv.status == 0) {
+        frames_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
+          if (row_text != '') {
+            frames.push(row_text.split(',').slice(1));
+          }
+        })
+        window.postMessage("frames_done", "*");
+      }
     }
   }
+  frames_csv.send();
 }
 
-var questions_csv = new XMLHttpRequest();
-questions_csv.open('GET', 'preguntas.csv');
-questions_csv.responseType = "text";
-questions_csv.onreadystatechange = function() {
-  if (questions_csv.readyState === 4) {
-    if (questions_csv.status === 200 || questions_csv.status == 0) {
-      questions_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
-        if (row_text != '') {
-          row = row_text.split(',');
-          questions.push({
-            low: row[0],
-            high: row[1],
-            question: row[2]
-          });
-        }
-      })
-      window.postMessage("questions_done", "*");
+function getQuestions() {
+  var questions_csv = new XMLHttpRequest();
+  questions_csv.open('GET', 'preguntas.csv');
+  questions_csv.responseType = "text";
+  questions_csv.onreadystatechange = function() {
+    if (questions_csv.readyState === 4) {
+      if (questions_csv.status === 200 || questions_csv.status == 0) {
+        questions_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
+          if (row_text != '') {
+            row = row_text.split(',');
+            questions.push({
+              low: row[0],
+              high: row[1],
+              question: row[2]
+            });
+          }
+        })
+        window.postMessage("questions_done", "*");
+      }
     }
   }
+  questions_csv.send();
 }
-
-questions_csv.send();
-frames_csv.send();

@@ -32,7 +32,7 @@
       return partial_shuffle(list, 0, list.length - 1);
     }
 
-    var known_experiments = ['BART_balloon_analogue_risk_task', 'informacion_sociodemografica_simple', 'estres_percibido', 'silogismo', 'metacognicion', 'interocepcion', 'religiosidad', 'pausa_protocolo',
+    var known_experiments = ['empatia_por_dolor','BART_balloon_analogue_risk_task', 'informacion_sociodemografica_simple', 'estres_percibido', 'silogismo', 'metacognicion', 'interocepcion', 'religiosidad', 'pausa_protocolo',
       'SASS_social_adaptation_self_evaluation_scale', 'ansiedad_matematica', 'bienestar_psicosocial', 'escala_rosenberg', 'sMARS_short_mathematics_anxiety_rating_scale', 'wais_matrices', 'wais_vocabulario', 'graph_literacy',
       'DSS_decision_styles_scale', 'aislamiento_social_y_redes_sociales', 'LIPKUS_numeracy', 'rotacion_mental', 'escala_experiencias_disociativas', 'OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test',
       'EPI_eysenck_personality_inventory', 'pause_trial', 'iowa_gambling_task', 'SPR_III_self_report_psychopathy_scale', 'bienestar_social', 'estilo_atribucional', 'fin_protocolo', 'informacion_sociodemografica', 'actividad_fisica',
@@ -47,15 +47,11 @@
     experiments.reverse();
 
     if (experiments.length == 0 || experiments == '') {
-      window.onload = function() {
-        document.getElementById("user_id").disabled = true;
-        document.getElementById("start").disabled = true;
-      }
       experiments = [];
       var threads = known_experiments.length;
       known_experiments.forEach(function(experiment) {
         var http = new XMLHttpRequest();
-        http.open('HEAD', "./" + experiment + "/index.html", true);
+        http.open('HEAD', "./" + experiment + "/index.html");
         http.onreadystatechange = function() {
           if (http.readyState == 4) {
             if (http.status == 200) {
@@ -274,7 +270,7 @@
                 folder.file(user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv", participan_json[experiment]);
               }
             }
-            folder.generateAsync({
+            zip.generateAsync({
                 type: "blob"
               })
               .then(function(blob) {
