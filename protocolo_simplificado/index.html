@@ -7,7 +7,8 @@
   <title>Experimentos CSCN</title>
 </head>
 
-<body style="height:100%;text-align:center;"  onload="check_id_status()">
+<body style="height:100%;text-align:center;" onload="check_id_status()">
+  <script src="jszip.min.js"></script>
   <script>
     function partial_shuffle(list, index_start, index_end) {
       if (index_end < list.length && index_start >= 0 && index_end > index_start) {
@@ -167,19 +168,16 @@
       }
     }
 
-    function local_save(csv, name) {
-      var blobToSave = new Blob([csv], {
-        type: 'text/plain'
-      });
-      var blobURL = "";
+    function local_save(file, name) {
+      var fileURL = "";
       if (typeof window.webkitURL !== 'undefined') {
-        blobURL = window.webkitURL.createObjectURL(blobToSave);
+        fileURL = window.webkitURL.createObjectURL(file);
       } else {
-        blobURL = window.URL.createObjectURL(blobToSave);
+        fileURL = window.URL.createObjectURL(file);
       }
       var link = document.createElement('a');
-      link.href = blobURL;
-      link.setAttribute('download', name + ".csv");
+      link.href = fileURL;
+      link.setAttribute('download', name);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -267,11 +265,19 @@
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
         } else {
           var participan_json = JSON.parse(localStorage[user_id]);
+          var zip = new JSZip();
+          var folder = zip.folder("participant_" + user_id);
           for (var experiment in participan_json) {
             if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
-              local_save(participan_json[experiment], user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_'));
+              folder.file(user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv", participan_json[experiment]);
             }
           }
+          folder.generateAsync({
+              type: "blob"
+            })
+            .then(function(blob) {
+              local_save(blob, "participant_" + user_id + ".zip");
+            });
         }
       });
       document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;

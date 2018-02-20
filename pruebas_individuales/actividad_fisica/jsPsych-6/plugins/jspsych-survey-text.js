@@ -104,11 +104,12 @@ jsPsych.plugins['survey-text'] = (function() {
       html += '<div id="jspsych-survey-text-"' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
       if (trial.questions[i].rows == 1) {
-          html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
-        if(endword == "dias"){
+        if (trial.endword == "dias") {
           html += '<input type="number" min="-1" max="7" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
-        }else if(endword == "horas"){
+        } else if (trial.endword == "horas") {
           html += '<input type="number" min="-1" max="24" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
+        } else {
+          html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus ></input> ' + trial.endword;
         }
       } else {
         html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus ></input> ' + trial.endword;
