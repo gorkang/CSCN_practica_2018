@@ -35,6 +35,9 @@ var prompts = []; // strings with the prompt of each question
 var threads = []; // proccess reading a text file
 var number_of_calls = 0; // number of process reading a textfile
 var done = false; //indicates if all the proccess ended
+var askSure = true; //indicates if should ask if user how sure of his answer
+var askDifficulty = true; //indicates if should ask the difficulty of questions
+
 
 /**
 Reads the text in a file
@@ -63,6 +66,16 @@ function readTextFile(file, lista, index) {
   return rawFile;
 };
 
+function advance(event) {
+    document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
+        console.log("el keycode del input es " + event.keyCode);
+        if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) { //accept only numbers
+            event.preventDefault();
+        }
+    };
+}
+
+
 var mainexplanation = {
   type: "instructions",
   pages: ["<div class = centerbox>" +
@@ -85,6 +98,22 @@ var mainexplanation = {
 
   }
 };
+
+var survey_sure = {
+    type: 'survey-textSure',
+    questions: [{
+        prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"
+    }],
+};
+
+var survey_difficult = {
+    type: 'survey-textSure',
+    endWord:"",
+    questions: [{
+        prompt: "¿Cual es la dificultad del problema que acabas de resolver?<br> Muy baja [0-100] Muy alta"
+    }],
+};
+
 
 function generate_questions() {
   d3.csv("items_bayes.csv", function(error, data) {
@@ -341,11 +370,18 @@ function createTrial() { //accordig to response
         fill_in_text: responses[i]
       }
     }
+    var temp_time = [introToTrial, typeTrial];
 
+    if(askSure){
+        temp_time.push(survey_sure);
+    }
+    if(askDifficulty){
+        temp_time.push(survey_difficult);
+    }
     //create a temporal timeline with the intro trial and the question trials
     //and append the temporal timeline to the definitive timeline
     var new_timeline = {
-      timeline: [introToTrial, typeTrial]
+      timeline: temp_time
     }
 
     jsPsych.pauseExperiment();
@@ -370,4 +406,5 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 bayes_experiment.push(mainexplanation);
+
 generate_questions();
