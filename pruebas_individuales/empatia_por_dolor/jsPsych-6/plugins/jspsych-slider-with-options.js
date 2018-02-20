@@ -55,12 +55,13 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
   plugin.trial = function(display_element, trial) {
 
-    html = trial.prompt;
+    html = "<p>" + trial.prompt + "</p>";
 
-    html += "<br>";
-    html += "<div id='slider-container'>";
+    html += "<div id='slider-container' style='position:absolute;width:40%;'>";
 
-    html += "<input type='range' id='slider' min='" + trial.scale_start + "' max='" + trial.scale_end + "' style=''></input>"
+    html += "<strong style='width:19%;text-align:right;display:inline-block'>" + trial.left_option + "</strong>";
+    html += "<input type='range' id='slider' min='" + trial.scale_start + "' max='" + trial.scale_end + "' style='width:60%;'></input>"
+    html += "<strong style='width:19%;text-align:left;display:inline-block'>" + trial.rigth_option + "</strong>";
 
     html += "</div>";
 

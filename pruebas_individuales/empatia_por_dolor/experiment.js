@@ -76,23 +76,35 @@ var instructions_5 = {
 var practice_1 = {
   type: 'image-keyboard-response',
   stimulus: 'practica/p_i2_umbrella_frame001.bmp',
+  prompt: '<img src="practica/p_i2_umbrella_frame002.bmp" hidden><img src="practica/p_i2_umbrella_frame003.bmp" hidden>',
   choices: jsPsych.NO_KEYS,
-  trial_duration: 500
+  trial_duration: 500,
+  data: {
+    rt: 500,
+    trialId: "instructions_practice_frame_1"
+  }
 }
 
 var practice_2 = {
   type: 'image-keyboard-response',
   stimulus: 'practica/p_i2_umbrella_frame002.bmp',
   choices: jsPsych.NO_KEYS,
-  trial_duration: 200
+  trial_duration: 200,
+  data: {
+    rt: 200,
+    trialId: "instructions_practice_frame_2"
+  }
 }
 
 var practice_3 = {
   type: 'slider-with-options',
-  prompt: '<img src="practica/p_i2_umbrella_frame003.bmp"></img>',
+  prompt: '<img src="practica/p_i2_umbrella_frame003.bmp" style="width:100%;"></img>',
   scale_question: "¿Qué tan triste se siente por la persona lastimada?",
   left_option: "Nada triste",
-  rigth_option: "Muy triste"
+  rigth_option: "Muy triste",
+  data: {
+    trialId: "instructions_practice_frame_3"
+  }
 }
 
 var instructions_6 = {
@@ -132,31 +144,47 @@ var frames_done = false;
 var questions_done = false;
 
 function create_trials() {
+  var trials = [];
+  var index = 1;
   frames.forEach(function(frame) {
-    empatia_por_dolor.push({
+    trials.push({
       type: 'image-keyboard-response',
       stimulus: 'experimento/' + frame[0],
       choices: jsPsych.NO_KEYS,
-      prompt: "<img src='" + frame[1] + "' hidden></img><img src='" + frame[2] + "' hidden></img>",
-      trial_duration: 500
+      prompt: "<img src='experimento/" + frame[1] + "' hidden></img><img src='experimento/" + frame[2] + "' hidden></img>",
+      trial_duration: 500,
+      data: {
+        trialId: "stimulus_frame_1_id_" + index,
+        rt: 500
+      }
     })
-    empatia_por_dolor.push({
+    trials.push({
       type: 'image-keyboard-response',
       stimulus: 'experimento/' + frame[1],
       choices: jsPsych.NO_KEYS,
-      trial_duration: 200
+      trial_duration: 200,
+      data: {
+        trialId: "stimulus_frame_2_id_" + index,
+        rt: 200
+      }
     })
     questions.forEach(function(question) {
-      empatia_por_dolor.push({
+      trials.push({
         type: 'slider-with-options',
         prompt: '<img src="experimento/' + frame[2] + '"></img>',
         scale_question: question.question,
         left_option: question.low,
-        rigth_option: question.high
+        rigth_option: question.high,
+        data: {
+          trialId: "stimulus_frame_3_id_" + index,
+          stimulus: frame[2]
+        }
       })
     })
   })
-  empatia_por_dolor.push(goodbye);
+  jsPsych.addNodeToEndOfTimeline({
+    timeline: trials
+  })
 }
 
 window.addEventListener('message', function(event) {
@@ -178,7 +206,9 @@ frames_csv.onreadystatechange = function() {
   if (frames_csv.readyState === 4) {
     if (frames_csv.status === 200 || frames_csv.status == 0) {
       frames_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
-        frames.push(row_text.split(',').slice(1));
+        if (row_text != '') {
+          frames.push(row_text.split(',').slice(1));
+        }
       })
       window.postMessage("frames_done", "*");
     }
@@ -192,12 +222,14 @@ questions_csv.onreadystatechange = function() {
   if (questions_csv.readyState === 4) {
     if (questions_csv.status === 200 || questions_csv.status == 0) {
       questions_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
-        row = row_text.split(',');
-        questions.push({
-          low: row[0],
-          high: row[1],
-          question: row[2]
-        });
+        if (row_text != '') {
+          row = row_text.split(',');
+          questions.push({
+            low: row[0],
+            high: row[1],
+            question: row[2]
+          });
+        }
       })
       window.postMessage("questions_done", "*");
     }
