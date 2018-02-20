@@ -1,11 +1,11 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"transitivo modular",
+    "instructions":"razonamiento_transitivo modular",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "transitivo",
-    "name": "transitivo",
+    "exp_id": "razonamiento_transitivo",
+    "name": "razonamiento_transitivo",
     "reference": [""],
     "template": "jspsych",
     "time": 10
