@@ -152,6 +152,27 @@ var try_again = {
     }
 };
 
+var explanation2 = {
+    type: "instructions",
+    pages: ["<div class = centerbox>" +
+        "<p class = center-block-text>" +
+        "Ahora te vamos a presentar varios items de práctica, para que puedas entender como funciona la tarea." +
+        "<br> <center>Presione la barra espaciadora para continuar</center>"+
+        "</p></div>"
+    ],
+    allow_keys: true,
+    key_forward: 32,
+    //show_clickable_nav: true,
+    timing_post_trial: 50,
+    data: {
+        trialid: "Welcome_Screen"
+    },
+    on_start: function(trial) {
+        wrongs = 0;
+    }
+};
+
+
 var survey_trial = {
     type: 'survey-text',
     questions: [{
@@ -224,8 +245,8 @@ var mainexplanation = {
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
                     choices: [verdadero, falso],
-                    correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
-                    incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
+                    correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>",
+                    incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>",
                     prompt: "<div class='left_prompt'>"+ leftString + "</div><div class='right_prompt'>" + rightString +"</div>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
@@ -249,14 +270,14 @@ var mainexplanation = {
                     var trialCorrect = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"],
+                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>"],
                         show_clickable_nav: false
                     }
 
                     var trialWrong = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"],
+                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>"],
                         show_clickable_nav: false
                     }
 
@@ -434,4 +455,4 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 
 //add the trials to the timeline
 razonamiento_transitivo_experiment.push(mainexplanation);
-//razonamiento_transitivo_experiment.push(explanation2);
+razonamiento_transitivo_experiment.push(explanation2);
