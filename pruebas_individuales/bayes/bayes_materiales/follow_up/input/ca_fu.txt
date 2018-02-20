@@ -1,0 +1,6 @@
+Imagine you are participating in a routine mammogram screening and you receive a positive result.
+
+The doctor offers you a follow-up test that consists of a biopsy, necessary to confirm the diagnosis. The follow-up test has a risk_percentage% procedure-related risk of complications that can result in the necessity of a mastectomy.
+
+Would you take the follow-up test?
+
