@@ -252,7 +252,9 @@ var mainexplanation = {
                     show_timer: tempo,
                     feedback_show: !seguridad,
                     on_finish: function(data) {
-                        if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
+                        console.log(data.key_press);
+                        console.log(respuesta);
+                        if (data.key_press != respuesta) { // 70 is the numeric code for f
                             wrongs += 1;
                             showSneed = true;
                         }

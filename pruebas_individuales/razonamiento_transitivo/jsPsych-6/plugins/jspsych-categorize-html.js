@@ -177,7 +177,7 @@ jsPsych.plugins['categorize-html'] = (function() {
             trial_data = {
                 "rt": info.rt,
                 "correct": correct,
-                "key_press": info.key
+                "key_press": String.fromCharCode(info.key).toLowerCase()
             };
 
             display_element.innerHTML = '';
