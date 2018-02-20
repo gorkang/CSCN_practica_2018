@@ -58,6 +58,12 @@ jsPsych.plugins['bret'] = (function() {
           }
         }
       },
+      title: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'Title',
+        default: '',
+        description: 'Title for the trial.'
+      },
       starting_credit: {
         type: jsPsych.plugins.parameterType.INTEGER,
         pretty_name: 'Starting credit',
@@ -176,6 +182,7 @@ jsPsych.plugins['bret'] = (function() {
     }
 
     function start_timer(event) {
+      document.getElementById('stop').disabled = false;
       event.target.disabled = true;
       var trial = jsPsych.currentTrial();
       trial.data.lastPickedBox = -1;
@@ -210,6 +217,9 @@ jsPsych.plugins['bret'] = (function() {
       }]
     }
     var html = '';
+    if(trial.title != ''){
+      html+= "<h1>" + trial.title + "</h1>"
+    }
     html += "<table style='margin: auto'><tbody><td><table style='margin: auto'><tbody>";
     for (var i = 0; i < trial.dimensions.y; i++) {
       html += "<tr>";
@@ -224,7 +234,7 @@ jsPsych.plugins['bret'] = (function() {
     if (trial.auto_advance_time != 0) {
       html += "<tr>";
       html += "<td colspan=" + Math.floor(trial.dimensions.x * 0.4) + "><button style='background-color:green;width:100%;height:32px;' id='start'>" + trial.button_start + "</button></td>";
-      html += "<td colspan=" + Math.ceil(trial.dimensions.x * 0.6) + "><button style='background-color:red;width:100%;height:32px;' id='stop'>" + trial.button_stop + "</button></td>";
+      html += "<td colspan=" + Math.ceil(trial.dimensions.x * 0.6) + "><button style='background-color:red;width:100%;height:32px;' id='stop' disabled>" + trial.button_stop + "</button></td>";
       html += "</tr>";
     }
     html += "</tbody></table></td>"
