@@ -1,6 +1,8 @@
 var ide = 2;
 var verdadero = 'q';
 var falso = 'p';
+var leftString = "VERDADERO";
+var rightString = "FALSO";
 var train_random = false; //if the test must be randomized
 var test_random = false;
 var percentageWrong = 0.7; //percentage of wrong in training to repeat it
@@ -25,6 +27,10 @@ if (ide % 2 == 0) {
     var temp = verdadero;
     verdadero = falso;
     falso = temp;
+
+    temp = rightString;
+    rightString = leftString;
+    leftString = temp;
 }
 
 
@@ -220,7 +226,7 @@ var mainexplanation = {
                     choices: [verdadero, falso],
                     correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
                     incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>",
-                    prompt: "<p center>VERDADERO FALSO.</p>",
+                    prompt: "<p center>"+ leftString + "   " + rightString +".</p>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
@@ -383,7 +389,7 @@ var explanation3 = {
                 key_answer: verdadero.charCodeAt(0) - 32,
                 text_answer: verdadero,
                 choices: [verdadero, falso],
-                prompt: "<p center>VERDADERO FALSO.</p center>",
+                prompt: "<p center>"+ leftString + "   " + rightString +".</p>",
                 //force_correct_button_press: !seguridad,
                 trial_duration: 60000, //60 seconds
                 show_timer: tempo,
