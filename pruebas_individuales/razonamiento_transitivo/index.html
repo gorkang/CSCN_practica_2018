@@ -4,7 +4,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name="robots" content="noindex">
-    <title>transitivo</title>
+    <title>razonamiento_transitivo</title>
     <!-- Documento CSS principal -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -30,7 +30,7 @@
         $(document).ready(function() {
 
             jsPsych.init({
-                timeline: transitivo_experiment,
+                timeline: razonamiento_transitivo_experiment,
                 fullscreen: true,
                 on_finish: function(data) {
 
@@ -61,7 +61,7 @@
                                     document.location = "/next";
                                 } else {
                                     // If error, assue local save
-                                    jsPsych.data.get().localSave('csv', 'transitivo_results.csv');
+                                    jsPsych.data.get().localSave('csv', 'razonamiento_transitivo_results.csv');
                                 }
                             }
                         });
