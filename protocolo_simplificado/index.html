@@ -22,8 +22,6 @@
           list[currentIndex] = list[randomIndex];
           list[randomIndex] = temporaryValue;
         }
-      } else {
-        throw "Index out of range."
       }
       return (list);
     }
@@ -32,7 +30,7 @@
       return partial_shuffle(list, 0, list.length - 1);
     }
 
-    var known_experiments = ['empatia_por_dolor','BART_balloon_analogue_risk_task', 'informacion_sociodemografica_simple', 'estres_percibido', 'silogismo', 'metacognicion', 'interocepcion', 'religiosidad', 'pausa_protocolo',
+    var known_experiments = ['empatia_por_dolor', 'BART_balloon_analogue_risk_task', 'informacion_sociodemografica_simple', 'estres_percibido', 'silogismo', 'metacognicion', 'interocepcion', 'religiosidad', 'pausa_protocolo',
       'SASS_social_adaptation_self_evaluation_scale', 'ansiedad_matematica', 'bienestar_psicosocial', 'escala_rosenberg', 'sMARS_short_mathematics_anxiety_rating_scale', 'wais_matrices', 'wais_vocabulario', 'graph_literacy',
       'DSS_decision_styles_scale', 'aislamiento_social_y_redes_sociales', 'LIPKUS_numeracy', 'rotacion_mental', 'escala_experiencias_disociativas', 'OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test',
       'EPI_eysenck_personality_inventory', 'pause_trial', 'iowa_gambling_task', 'SPR_III_self_report_psychopathy_scale', 'bienestar_social', 'estilo_atribucional', 'fin_protocolo', 'informacion_sociodemografica', 'actividad_fisica',
@@ -40,10 +38,12 @@
       'habilidad_matematica', 'GDMS_estilo_toma_decisiones', 'escala_tacticas', 'MINI_SEA_mini_social_cognition_emotional_assessment', 'bret', 'bayes', 'ineco_frontal_screening', 'CRT_verbal', 'escala_apego', 'CRT_numerico',
       'BIS_barratt_impulsiveness_scale', 'becks_depression_inventory'
     ];
-    var experiments_random = [];
-    var experiments = "";
+    var experiments_random = shuffle(['empatia_por_dolor']);
+    var experiments = experiments_random.slice(0,1);
     var enable_JSZip = true;
-    experiments = experiments.split(',');
+    if (typeof(experiment) == "string") {
+      experiments = experiments.split(',');
+    }
     experiments.reverse();
 
     if (experiments.length == 0 || experiments == '') {
