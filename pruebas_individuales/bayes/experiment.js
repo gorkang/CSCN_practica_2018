@@ -126,7 +126,7 @@ function generate_questions() {
     d3.csv("items_bayes.csv", function(error, data) {
         if (error) throw error;
         for (var i = 0; i < data.length; i++) {
-            if (data[i].ID == ide || data[i].ID == null){
+            if (data[i].Participante == ide || data[i].Particpante == null){
                 csvData.push(data[i]);
             }
         }
