@@ -102,18 +102,17 @@ var mainexplanation = {
 };
 
 var survey_sure = {
-    type: 'survey-textSure',
-    questions: [{
-        prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"
-    }],
+    type: 'html-slider-response',
+    stimulus: '¿Que tan seguro te sientes con tu respuesta (en porcentaje)?',
+    labels: ['0%', '100%'],
+    //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
 
 var survey_difficult = {
-    type: 'survey-textSure',
-    endWord: "",
-    questions: [{
-        prompt: "¿Cual es la dificultad del problema que acabas de resolver?<br> Muy baja [0-100] Muy alta"
-    }],
+    type: 'html-slider-response',
+    stimulus: '¿Cual es la dificultad del problema que acabas de resolver?',
+    labels: ['Muy baja', 'Muy alta'],
+    //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
 
 
