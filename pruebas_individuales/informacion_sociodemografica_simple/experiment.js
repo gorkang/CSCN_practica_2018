@@ -46,7 +46,7 @@ var survey_trial = {
 };
 
 var survey_trial1 = {
-  type: 'survey-text-number',
+  type: 'survey-text-age',
   questions: [{prompt: "EDAD:"}]
 };
 

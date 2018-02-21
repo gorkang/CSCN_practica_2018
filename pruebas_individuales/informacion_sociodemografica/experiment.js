@@ -359,7 +359,7 @@ var income_working_place = {
 var restricted_living = {
   type: "survey-multi-choice1",
   questions: [{
-    prompt: "<div class='justified'><br/>" + '26. ¿Usted ha vivido en algún lugar restringido/supervisado en los últimos 30 días? Como por ejemplo; tratamiento hospitalario, cárcel, etc...' + "<br/></div>",
+    prompt: "<div class='justified'><br/>" + '26. ¿Usted ha vivido en algún lugar restringido/supervisado en los últimos 30 días? Como por ejemplo; tratamiento hospitalario, cárcel, etc.' + "<br/></div>",
     options: ['No', 'Detenido o preso en la cárcel', 'Comunidad terapéutica o unidad de internación hospitalaria para tratamiento de Alcohol o drogas', 'Hospital general o clínica privada', 'Hospital o clínica Psiquiátrica', 'Otro'],
     required: true
   }],

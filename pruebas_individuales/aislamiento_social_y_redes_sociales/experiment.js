@@ -204,7 +204,7 @@ var trials11 = [{
 
 var instructions12 = {
   type: "instructions",
-  pages: ['12. FAMILIARES: Teniendo en cuenta a las personas con las que tú estás relacionado ya sea por nacimiento, casamiento, adopción, etc...'],
+  pages: ['12. FAMILIARES: Teniendo en cuenta a las personas con las que tú estás relacionado ya sea por nacimiento, casamiento, adopción, etc.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,
@@ -299,7 +299,7 @@ var parents_6 = {
 
 var instructions13 = {
   type: "instructions",
-  pages: ['13. AMISTADES: Teniendo en cuenta a todos tus amigos, inclusive a aquellos que viven en tu vecindario, establecimiento educacional, trabajo, etc...'],
+  pages: ['13. AMISTADES: Teniendo en cuenta a todos tus amigos, inclusive a aquellos que viven en tu vecindario, establecimiento educacional, trabajo, etc.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,
