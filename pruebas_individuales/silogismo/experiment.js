@@ -1,4 +1,4 @@
-var ide = 2;
+var ide = 1;
 var verdadero = 'q';
 var falso = 'p';
 var train_random = false; //if the test must be randomized
@@ -17,11 +17,35 @@ var trainlen;
 var showSneed = false;
 var image = "";
 
+var parameters = {};
+var parameter_name;
+var parameter_value;
+if (document.URL.includes("\?")) {
+    var parameters_string = document.URL.substring(document.URL.search("\\?") + 1);
+    while (parameters_string.length > 0) {
+        parameter_name = parameters_string.substring(0, parameters_string.search("="));
+        if (parameters_string.includes("&")) {
+            parameter_value = parameters_string.substring(parameters_string.search("=") + 1, parameters_string.search("&"));
+            parameters_string = parameters_string.substring(parameters_string.search("&") + 1);
+        } else {
+            parameter_value = parameters_string.substring(parameters_string.search("=") + 1);
+            parameters_string = "";
+        };
+        parameters[parameter_name] = parameter_value;
+    };
+    ide = parameters.user_id;
+};
+
 if (ide % 2 == 0) {
     var temp = verdadero;
     verdadero = falso;
     falso = temp;
+
+    temp = rightString;
+    rightString = leftString;
+    leftString = temp;
 }
+
 console.log("el codigo de verdadero es: " + verdadero + " y el de falso es: " + falso);
 
 function shuffleArray(array) {
