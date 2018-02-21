@@ -7,23 +7,29 @@
  *
  */
 
-/**
-Blocks f1 and f5
-@name block_fkeys
-@function
-@param {event}  event
 
-*/
-onkeydown = function block_fkeys(event) {
-    var x = event.which || event.keyCode;
-    if (x == 112 || x == 116) {
-        console.log("Blocked key");
-        event.preventDefault();
-        return false;
-    } else {
-        return;
-    }
-}
+var ide = 1;
+
+
+var parameters = {};
+var parameter_name;
+var parameter_value;
+if (document.URL.includes("\?")) {
+    var parameters_string = document.URL.substring(document.URL.search("\\?") + 1);
+    while (parameters_string.length > 0) {
+        parameter_name = parameters_string.substring(0, parameters_string.search("="));
+        if (parameters_string.includes("&")) {
+            parameter_value = parameters_string.substring(parameters_string.search("=") + 1, parameters_string.search("&"));
+            parameters_string = parameters_string.substring(parameters_string.search("&") + 1);
+        } else {
+            parameter_value = parameters_string.substring(parameters_string.search("=") + 1);
+            parameters_string = "";
+        };
+        parameters[parameter_name] = parameter_value;
+    };
+    ide = parameters.user_id;
+};
+
 
 var csvData = []; // objects representing trial related data
 var follows = [];
@@ -120,7 +126,9 @@ function generate_questions() {
     d3.csv("items_bayes.csv", function(error, data) {
         if (error) throw error;
         for (var i = 0; i < data.length; i++) {
-            csvData.push(data[i]);
+            if (data[i].ID == ide || data[i].ID == null){
+                csvData.push(data[i]);
+            }
         }
         obtainNumbers();
         window.addEventListener("message", function(event) {
@@ -414,7 +422,7 @@ function createTrial() { //accordig to response
             survey_difficult.data= {
                 trialid: "dificultad_" + i
             };
-            
+
             temp_time.push(survey_difficult);
         }
         if(csvData[i].pregunta_follow_up == "si" || (csvData[i].pregunta_follow_up == null && askFollowUp)){
