@@ -376,6 +376,9 @@ function createTrial() { //accordig to response
 
             var typeTrial = {
                 type: "survey-multi-choice",
+                data: {
+                    trialid: i
+                },
                 questions: [{
                     prompt: prompts[i],
                     options: temp,
@@ -392,6 +395,9 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: "fill-in-blanks",
                 preamble: prompts[i],
+                data: {
+                    trialid: i
+                },
                 fill_in_type: "number",
                 fill_in_text: responses[i]
             }
@@ -399,9 +405,16 @@ function createTrial() { //accordig to response
         var temp_time = [introToTrial, typeTrial];
 
         if(csvData[i].pregunta_seguridad == "si" || (csvData[i].pregunta_seguridad == null && askSure)){
+            survey_sure.data= {
+                trialid: "seguridad_" + i
+            };
             temp_time.push(survey_sure);
         }
         if(csvData[i].pregunta_dificultad == "si" || (csvData[i].pregunta_dificultad == null && askDifficulty)){
+            survey_difficult.data= {
+                trialid: "dificultad_" + i
+            };
+            
             temp_time.push(survey_difficult);
         }
         if(csvData[i].pregunta_follow_up == "si" || (csvData[i].pregunta_follow_up == null && askFollowUp)){
@@ -409,6 +422,9 @@ function createTrial() { //accordig to response
 
             var survey_follow = {
                 type: 'survey-multi-choice',
+                data: {
+                    trialid: "follow_"+i
+                },
                 questions: [{
                     prompt: follows[i],
                     options: page_1_options,
