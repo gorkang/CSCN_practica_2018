@@ -235,9 +235,11 @@ function obtainResponse() {
 function obtainFollowUp() {
     var path;
     for (var i = 0; i < csvData.length; i++) {
-        path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu.txt";
-        //adds the process of reading the text to the list of process
-        threads.push(readTextFile(path, follows, i));
+        if(csvData[i].pregunta_follow_up == "si"){
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, follows, i));
+        }
     }
 };
 
@@ -298,7 +300,7 @@ function createPrompt() {
         qResponse = responses[i];
         qQuestion = questions[i];
 
-        if (askFollowUp) {
+        if(csvData[i].pregunta_follow_up == "si"){
             qFollow = follows[i];
             for (key in qNumbers) {
                 //replace the keywords with its corresponding numeric value using regular expressions
@@ -396,13 +398,13 @@ function createTrial() { //accordig to response
         }
         var temp_time = [introToTrial, typeTrial];
 
-        if (askSure) {
+        if(csvData[i].pregunta_seguridad == "si"){
             temp_time.push(survey_sure);
         }
-        if (askDifficulty) {
+        if(csvData[i].pregunta_dificultad == "si"){
             temp_time.push(survey_difficult);
         }
-        if (askFollowUp) {
+        if(csvData[i].pregunta_follow_up == "si"){
             var page_1_options = ["YES", "NO"];
 
             var survey_follow = {
