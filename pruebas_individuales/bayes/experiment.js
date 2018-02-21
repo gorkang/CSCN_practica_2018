@@ -124,7 +124,7 @@ var survey_difficult = {
 
 function generate_questions() {
     d3.csv("items_bayes.csv", function(error, data) {
-        if (error) throw error;
+        //if (error) throw error;
         for (var i = 0; i < data.length; i++) {
             if (data[i].Participante == ide || data[i].Participante == null){
                 csvData.push(data[i]);
@@ -137,7 +137,7 @@ function generate_questions() {
                 if (number_of_calls == 0) {
                     createPrompt();
                     createTrial();
-                    jsPsych.finishTrial();
+                    //jsPsych.finishTrial();
                 }
             }
         })
@@ -151,7 +151,7 @@ function generate_questions() {
 
                     createPrompt();
                     createTrial();
-                    jsPsych.finishTrial();
+                    //jsPsych.finishTrial();
                 }
             }
         });
