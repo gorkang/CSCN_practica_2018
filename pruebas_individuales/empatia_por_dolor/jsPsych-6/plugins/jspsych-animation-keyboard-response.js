@@ -68,11 +68,13 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
     new_html = '';
 
     image_index = 0;
+    new_html += "<p style='position:absolute;top:20%;left:20%;width: 60%;'>"
     trial.stimulus.forEach(function(image) {
       jsPsych
-      new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;top:20%;left:20%;width: 60%;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
+      new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
       image_index += 1;
     })
+    new_html += "</p>"
 
     // add prompt
     if (trial.prompt !== null) {

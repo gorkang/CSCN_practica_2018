@@ -54,16 +54,16 @@ jsPsych.plugins["slider-with-options"] = (function() {
         type: jsPsych.plugins.parameterType.INT,
         array: false,
         pretty_name: 'Show for',
-        default: 200
+        default: 1000
       }
     }
   }
 
   plugin.trial = function(display_element, trial) {
 
-    html = "<p>" + trial.prompt + "</p>";
+    html = "<p id='prompt-container'<p style='position:absolute;top:20%;left:20%;width: 60%;'>" + trial.prompt + "</p>";
 
-    html += "<div id='slider-container' style='position:absolute;width:40%;text-align:center;white-space: nowrap;'>";
+    html += "<div id='slider-container' style='position:absolute;width:40%;text-align:center;white-space: nowrap;top:20%;left:20%;'>";
 
     html += "<strong>" + trial.scale_question + "</strong><br>";
     html += "<strong style='text-align:right;display:inline-block'>" + trial.left_option + "</strong>";
@@ -75,6 +75,9 @@ jsPsych.plugins["slider-with-options"] = (function() {
     display_element.innerHTML = html;
 
     var slider = document.getElementById('slider');
+
+    var offset = (document.getElementById("prompt-container").offsetHeight + 6);
+    document.getElementById("slider-container").style.top = "calc(20% + " + offset + "px)";
 
     document.onkeydown = function(event) {
       var key = event.keyCode;
