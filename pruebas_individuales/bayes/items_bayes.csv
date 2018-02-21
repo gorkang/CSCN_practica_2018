@@ -1,4 +1,4 @@
-problem_context,presentation_format,response_type,prob,pregunta_seguridad,pregunta_dificultad,pregunta_follow_up,ID
+problem_context,presentation_format,response_type,prob,pregunta_seguridad,pregunta_dificultad,pregunta_follow_up,Participante
 ca,prre,gi,low,no,si,no,1
 ca,prre,gi,low,si,si,si,2
 ca,prre,gi,low,si,si,si,1
