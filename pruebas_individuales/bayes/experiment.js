@@ -304,6 +304,7 @@ function createPrompt() {
                 //replace the keywords with its corresponding numeric value using regular expressions
                 reg = "\\b" + key; // \bword\b
                 qFollow = qFollow.replace(new RegExp(reg, 'g'), qNumbers[key]);
+                qFollow = qFollow.replace(/\n/g, "<br />");
                 follows[i] = qFollow;
             }
         }
