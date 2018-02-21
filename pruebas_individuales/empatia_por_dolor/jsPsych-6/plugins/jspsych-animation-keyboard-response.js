@@ -1,29 +1,32 @@
 /**
- * jspsych-image-keyboard-response
+ * jspsych-animation-keyboard-response
  * Josh de Leeuw
  *
  * plugin for displaying a stimulus and getting a keyboard response
  *
  * documentation: docs.jspsych.org
  *
+ *  Modified to display animations.
+ *
  **/
 
 
-jsPsych.plugins["image-keyboard-response"] = (function() {
+jsPsych.plugins["animation-keyboard-response"] = (function() {
 
   var plugin = {};
 
-  jsPsych.pluginAPI.registerPreload('image-keyboard-response', 'stimulus', 'image');
+  jsPsych.pluginAPI.registerPreload('animation-keyboard-response', 'stimulus', 'image');
 
   plugin.info = {
-    name: 'image-keyboard-response',
+    name: 'animation-keyboard-response',
     description: '',
     parameters: {
       stimulus: {
         type: jsPsych.plugins.parameterType.IMAGE,
         pretty_name: 'Stimulus',
+        array: true,
         default: undefined,
-        description: 'The image to be displayed'
+        description: 'The images to be displayed'
       },
       choices: {
         type: jsPsych.plugins.parameterType.KEYCODE,
@@ -41,6 +44,7 @@ jsPsych.plugins["image-keyboard-response"] = (function() {
       stimulus_duration: {
         type: jsPsych.plugins.parameterType.INT,
         pretty_name: 'Stimulus duration',
+        array: true,
         default: null,
         description: 'How long to hide the stimulus.'
       },
@@ -61,15 +65,24 @@ jsPsych.plugins["image-keyboard-response"] = (function() {
 
   plugin.trial = function(display_element, trial) {
 
-    var new_html = '<img src="'+trial.stimulus+'" id="jspsych-image-keyboard-response-stimulus"></img>';
+    new_html = '';
+
+    image_index = 0;
+    trial.stimulus.forEach(function(image) {
+      jsPsych
+      new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;top:20%;left:20%;width: 60%;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
+      image_index += 1;
+    })
 
     // add prompt
-    if (trial.prompt !== null){
+    if (trial.prompt !== null) {
       new_html += trial.prompt;
     }
 
     // draw
     display_element.innerHTML = new_html;
+
+    document.getElementById("jspsych-animation-keyboard-response-stimulus-0").hidden = false;
 
     // store response
     var response = {
@@ -105,10 +118,6 @@ jsPsych.plugins["image-keyboard-response"] = (function() {
     // function to handle responses by the subject
     var after_response = function(info) {
 
-      // after a valid response, the stimulus will have the CSS class 'responded'
-      // which can be used to provide visual feedback that a response was recorded
-      display_element.querySelector('#jspsych-image-keyboard-response-stimulus').className += ' responded';
-
       // only record the first response
       if (response.key == null) {
         response = info;
@@ -120,22 +129,36 @@ jsPsych.plugins["image-keyboard-response"] = (function() {
     };
 
     // start the response listener
-    if (trial.choices != jsPsych.NO_KEYS) {
-      var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
-        callback_function: after_response,
-        valid_responses: trial.choices,
-        rt_method: 'date',
-        persist: false,
-        allow_held_key: false
-      });
+    var start_response_listener = function() {
+      if (trial.choices != jsPsych.NO_KEYS) {
+        var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
+          callback_function: after_response,
+          valid_responses: trial.choices,
+          rt_method: 'date',
+          persist: false,
+          allow_held_key: false
+        });
+      }
     }
 
-    // hide stimulus if stimulus_duration is set
-    if (trial.stimulus_duration !== null) {
-      jsPsych.pluginAPI.setTimeout(function() {
-        display_element.querySelector('#jspsych-image-keyboard-response-stimulus').style.visibility = 'hidden';
-      }, trial.stimulus_duration);
-    }
+
+    var current_image = 0;
+    jsPsych.pluginAPI.preloadImages(trial.stimulus, function() {
+      // hide stimulus if stimulus_duration is set
+      if (trial.stimulus_duration !== null) {
+        var acumulated_duration = 0;
+        trial.stimulus_duration.forEach(function(duration) {
+          jsPsych.pluginAPI.setTimeout(function() {
+            document.getElementById("jspsych-animation-keyboard-response-stimulus-" + current_image).hidden = true;
+            if (current_image + 1 == trial.stimulus_duration.length) {
+              start_response_listener();
+            }
+            current_image += 1;
+          }, duration + acumulated_duration);
+          acumulated_duration = duration;
+        })
+      }
+    })
 
     // end trial if trial_duration is set
     if (trial.trial_duration !== null) {

@@ -34,7 +34,7 @@ var instructions_1 = {
     trialId: "instructions_1"
   },
   key_forward: "downarrow",
-  on_start: function(trial){
+  on_start: function(trial) {
     getFrames();
     getQuestions();
   }
@@ -81,46 +81,26 @@ var instructions_5 = {
   key_forward: "downarrow"
 }
 
-var practice_1 = {
-  type: 'image-keyboard-response',
-  stimulus: 'practica/p_i2_umbrella_frame001.bmp',
-  prompt: '<img src="practica/p_i2_umbrella_frame002.bmp" hidden><img src="practica/p_i2_umbrella_frame003.bmp" hidden>',
+var practice_animation = {
+  type: 'animation-keyboard-response',
+  stimulus: ['practica/p_i2_umbrella_frame001.bmp', 'practica/p_i2_umbrella_frame002.bmp', 'practica/p_i2_umbrella_frame003.bmp'],
   choices: jsPsych.NO_KEYS,
-  trial_duration: 500,
+  stimulus_duration: [500, 200],
   data: {
     rt: 500,
-    trialId: "instructions_practice_frame_1"
-  }
+    trialId: "instructions_practice"
+  },
+  choices: ["downarrow"]
 }
 
-var practice_2 = {
-  type: 'image-keyboard-response',
-  stimulus: 'practica/p_i2_umbrella_frame002.bmp',
-  choices: jsPsych.NO_KEYS,
-  trial_duration: 200,
-  data: {
-    rt: 200,
-    trialId: "instructions_practice_frame_2"
-  }
-}
-
-var practice_3 = {
-  type: 'image-keyboard-response',
-  stimulus: 'practica/p_i2_umbrella_frame003.bmp',
-  choices: ["downarrow"],
-  data: {
-    trialId: "instructions_practice_frame_3"
-  }
-}
-
-var practice_4 = {
+var practice_response = {
   type: 'slider-with-options',
   prompt: '<img src="practica/p_i2_umbrella_frame003.bmp" style="width:100%;"></img>',
   scale_question: "¿Qué tan triste se siente por la persona lastimada?",
   left_option: "Nada triste",
   rigth_option: "Muy triste",
   data: {
-    trialId: "instructions_practice_frame_3"
+    trialId: "instructions_practice_response"
   }
 }
 
@@ -146,15 +126,24 @@ var goodbye = {
 
 var empatia_por_dolor = [];
 
+//if the experiment isn't in fullscreen, add trial to make it fullscreen
+if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
+  empatia_por_dolor.push({
+    type: 'fullscreen',
+    message: '<p>El experimento entrara en modo pantalla completa</p>',
+    button_label: "Pantalla Completa",
+    delay_after: 0,
+    fullscreen_mode: true
+  });
+}
+
 empatia_por_dolor.push(instructions_1);
 empatia_por_dolor.push(instructions_2);
 empatia_por_dolor.push(instructions_3);
 empatia_por_dolor.push(instructions_4);
 empatia_por_dolor.push(instructions_5);
-empatia_por_dolor.push(practice_1);
-empatia_por_dolor.push(practice_2);
-empatia_por_dolor.push(practice_3);
-empatia_por_dolor.push(practice_4);
+empatia_por_dolor.push(practice_animation);
+empatia_por_dolor.push(practice_response);
 empatia_por_dolor.push(instructions_6);
 
 
@@ -168,47 +157,31 @@ function create_trials() {
   var index = 1;
   frames.forEach(function(frame) {
     trials.push({
-      type: 'image-keyboard-response',
-      stimulus: 'experimento/' + frame[0],
+      type: 'animation-keyboard-response',
+      stimulus: ['experimento/' + frame[0], 'experimento/' + frame[1], 'experimento/' + frame[2]],
       choices: jsPsych.NO_KEYS,
-      prompt: "<img src='experimento/" + frame[1] + "' hidden></img><img src='experimento/" + frame[2] + "' hidden></img>",
-      trial_duration: 500,
+      stimulus_duration: [500, 200],
       data: {
-        trialId: "stimulus_frame_1_id_" + index,
-        rt: 500
-      }
+        trialId: "stimulus_id_" + index
+      },
+      choices: ["downarrow"]
     })
-    trials.push({
-      type: 'image-keyboard-response',
-      stimulus: 'experimento/' + frame[1],
-      choices: jsPsych.NO_KEYS,
-      trial_duration: 200,
-      data: {
-        trialId: "stimulus_frame_2_id_" + index,
-        rt: 200
-      }
-    })
-    trials.push({
-      type: 'image-keyboard-response',
-      stimulus: 'experimento/' + frame[2],
-      choices: ["downarrow"],
-      data: {
-        trialId: "stimulus_frame_2_id_" + index
-      }
-    })
+    var question_index = 1;
     questions.forEach(function(question) {
       trials.push({
         type: 'slider-with-options',
-        prompt: '<img src="experimento/' + frame[2] + '"></img>',
+        prompt: '<img src="experimento/' + frame[2] + '" style="width:100%;"></img>',
         scale_question: question.question,
         left_option: question.low,
         rigth_option: question.high,
         data: {
-          trialId: "stimulus_frame_3_id_" + index,
+          trialId: "stimulus_question_" + question_index + "_id_" + index,
           stimulus: frame[2]
         }
       })
+      question_index += 1;
     })
+    index += 1;
   })
   jsPsych.addNodeToEndOfTimeline({
     timeline: trials
