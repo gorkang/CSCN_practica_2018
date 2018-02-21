@@ -7,23 +7,29 @@
  *
  */
 
-/**
-Blocks f1 and f5
-@name block_fkeys
-@function
-@param {event}  event
 
-*/
-onkeydown = function block_fkeys(event) {
-    var x = event.which || event.keyCode;
-    if (x == 112 || x == 116) {
-        console.log("Blocked key");
-        event.preventDefault();
-        return false;
-    } else {
-        return;
-    }
-}
+var ide = 1;
+
+
+var parameters = {};
+var parameter_name;
+var parameter_value;
+if (document.URL.includes("\?")) {
+    var parameters_string = document.URL.substring(document.URL.search("\\?") + 1);
+    while (parameters_string.length > 0) {
+        parameter_name = parameters_string.substring(0, parameters_string.search("="));
+        if (parameters_string.includes("&")) {
+            parameter_value = parameters_string.substring(parameters_string.search("=") + 1, parameters_string.search("&"));
+            parameters_string = parameters_string.substring(parameters_string.search("&") + 1);
+        } else {
+            parameter_value = parameters_string.substring(parameters_string.search("=") + 1);
+            parameters_string = "";
+        };
+        parameters[parameter_name] = parameter_value;
+    };
+    ide = parameters.user_id;
+};
+
 
 var csvData = []; // objects representing trial related data
 var follows = [];
@@ -120,7 +126,9 @@ function generate_questions() {
     d3.csv("items_bayes.csv", function(error, data) {
         if (error) throw error;
         for (var i = 0; i < data.length; i++) {
-            csvData.push(data[i]);
+            if (data[i].Participante == ide || data[i].Participante == null){
+                csvData.push(data[i]);
+            }
         }
         obtainNumbers();
         window.addEventListener("message", function(event) {
@@ -377,7 +385,7 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: "survey-multi-choice",
                 data: {
-                    trialid: i
+                    trialid: "choice_"+csvData[i].ID
                 },
                 questions: [{
                     prompt: prompts[i],
@@ -396,7 +404,7 @@ function createTrial() { //accordig to response
                 type: "fill-in-blanks",
                 preamble: prompts[i],
                 data: {
-                    trialid: i
+                    trialid: "fill_in_"+csvData[i].ID
                 },
                 fill_in_type: "number",
                 fill_in_text: responses[i]
@@ -406,15 +414,15 @@ function createTrial() { //accordig to response
 
         if(csvData[i].pregunta_seguridad == "si" || (csvData[i].pregunta_seguridad == null && askSure)){
             survey_sure.data= {
-                trialid: "seguridad_" + i
+                trialid: "seguridad_"+csvData[i].ID
             };
             temp_time.push(survey_sure);
         }
         if(csvData[i].pregunta_dificultad == "si" || (csvData[i].pregunta_dificultad == null && askDifficulty)){
             survey_difficult.data= {
-                trialid: "dificultad_" + i
+                trialid: "dificultad_" +csvData[i].ID
             };
-            
+
             temp_time.push(survey_difficult);
         }
         if(csvData[i].pregunta_follow_up == "si" || (csvData[i].pregunta_follow_up == null && askFollowUp)){
@@ -423,7 +431,7 @@ function createTrial() { //accordig to response
             var survey_follow = {
                 type: 'survey-multi-choice',
                 data: {
-                    trialid: "follow_"+i
+                    trialid: "follow_"+csvData[i].ID
                 },
                 questions: [{
                     prompt: follows[i],
