@@ -146,7 +146,7 @@ window.jsPsych = (function() {
     // check exclusions before continuing
     checkExclusions(opts.exclusions,
       function(){
-        // success! user can continue...
+        // success! user can continue.
         // start experiment, with or without preloading
         if(opts.auto_preload){
           jsPsych.pluginAPI.autoPreload(timeline, startExperiment, opts.preload_images, opts.preload_audio, opts.show_preload_progress_bar);
@@ -461,7 +461,7 @@ window.jsPsych = (function() {
         }
 
         // if we've reached the end of the timeline (which, if the code is here, we have)
-        // there are a few steps to see what to do next...
+        // there are a few steps to see what to do next.
 
         // first, check the timeline_variables to see if we need to loop through again
         // with a new set of variables
@@ -690,7 +690,7 @@ window.jsPsych = (function() {
         delete node_data.repetitions;
         delete node_data.timeline_variables;
         delete node_data.sample;
-        node_trial_data = node_data; // store for later...
+        node_trial_data = node_data; // store for later.
 
         // create a TimelineNode for each element in the timeline
         for (var i = 0; i < parameters.timeline.length; i++) {

@@ -34,7 +34,7 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
 
   plugin.info = {
     name: 'fill-in-blanks',
-    description: 'Replaces "____" with field that can be either a textarea or input_number, or replaces ____[option1,option2,...,optionN] with select. Replaces %text%, %number% and %select:[option1,option2,...,optionN]% for their respectives fields.',
+    description: 'Replaces "____" with field that can be either a textarea or input_number, or replaces ____[option1,option2,.,optionN] with select. Replaces %text%, %number% and %select:[option1,option2,.,optionN]% for their respectives fields.',
     parameters: {
       fill_in_text: {
         type: jsPsych.plugins.parameterType.STRING,

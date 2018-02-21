@@ -34,7 +34,7 @@ var trials = [{
     question: 'Soy más terco que otras personas.'
   },
   {
-    question: 'Puedo ganarle a un  detector de mentiras..'
+    question: 'Puedo ganarle a un  detector de mentiras.'
   },
   {
     question: 'He usado sustancias ilegales (ej. Marihuana, éxtasis).'

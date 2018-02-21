@@ -2,7 +2,7 @@
  * Josh de Leeuw
  *
  * This plugin displays text (including HTML formatted strings) during the experiment.
- * Use it to show instructions, provide performance feedback, etc...
+ * Use it to show instructions, provide performance feedback, etc.
  *
  * documentation: docs.jspsych.org
  *
@@ -129,7 +129,7 @@ jsPsych.plugins.instructions = (function() {
 
       current_page++;
 
-      // if done, finish up...
+      // if done, finish up.
       if (current_page >= trial.pages.length) {
         endTrial();
       } else {
