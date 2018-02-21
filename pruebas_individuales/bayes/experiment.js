@@ -102,18 +102,17 @@ var mainexplanation = {
 };
 
 var survey_sure = {
-    type: 'survey-textSure',
-    questions: [{
-        prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"
-    }],
+    type: 'html-slider-response',
+    stimulus: '¿Que tan seguro te sientes con tu respuesta (en porcentaje)?',
+    labels: ['0%', '100%'],
+    //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
 
 var survey_difficult = {
-    type: 'survey-textSure',
-    endWord: "",
-    questions: [{
-        prompt: "¿Cual es la dificultad del problema que acabas de resolver?<br> Muy baja [0-100] Muy alta"
-    }],
+    type: 'html-slider-response',
+    stimulus: '¿Cual es la dificultad del problema que acabas de resolver?',
+    labels: ['Muy baja', 'Muy alta'],
+    //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
 
 
@@ -236,9 +235,11 @@ function obtainResponse() {
 function obtainFollowUp() {
     var path;
     for (var i = 0; i < csvData.length; i++) {
-        path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu.txt";
-        //adds the process of reading the text to the list of process
-        threads.push(readTextFile(path, follows, i));
+        if(csvData[i].pregunta_follow_up == "si" || (csvData[i].pregunta_follow_up == null && askFollowUp)){
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, follows, i));
+        }
     }
 };
 
@@ -299,12 +300,13 @@ function createPrompt() {
         qResponse = responses[i];
         qQuestion = questions[i];
 
-        if (askFollowUp) {
+        if(csvData[i].pregunta_follow_up == "si" || (csvData[i].pregunta_follow_up == null && askFollowUp)){
             qFollow = follows[i];
             for (key in qNumbers) {
                 //replace the keywords with its corresponding numeric value using regular expressions
                 reg = "\\b" + key; // \bword\b
                 qFollow = qFollow.replace(new RegExp(reg, 'g'), qNumbers[key]);
+                qFollow = qFollow.replace(/\n/g, "<br />");
                 follows[i] = qFollow;
             }
         }
@@ -396,13 +398,13 @@ function createTrial() { //accordig to response
         }
         var temp_time = [introToTrial, typeTrial];
 
-        if (askSure) {
+        if(csvData[i].pregunta_seguridad == "si" || (csvData[i].pregunta_seguridad == null && askSure)){
             temp_time.push(survey_sure);
         }
-        if (askDifficulty) {
+        if(csvData[i].pregunta_dificultad == "si" || (csvData[i].pregunta_dificultad == null && askDifficulty)){
             temp_time.push(survey_difficult);
         }
-        if (askFollowUp) {
+        if(csvData[i].pregunta_follow_up == "si" || (csvData[i].pregunta_follow_up == null && askFollowUp)){
             var page_1_options = ["YES", "NO"];
 
             var survey_follow = {

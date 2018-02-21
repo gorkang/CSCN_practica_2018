@@ -1,4 +1,4 @@
-problem_context,presentation_format,response_type,prob
-ca,prre,gi,low
-ca,prre,gi,low
-ca,prre,gi,low
+problem_context,presentation_format,response_type,prob,pregunta_seguridad,pregunta_dificultad,pregunta_follow_up
+ca,prre,gi,low,no,si,no
+ca,prre,gi,low,si,si,si
+ca,prre,gi,low,si,si,si
