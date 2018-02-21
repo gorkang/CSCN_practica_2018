@@ -48,19 +48,19 @@ function shuffleArray(array) {
 }
 
 function shuffle(obj1, obj2) { //2 arrays
-  var index = obj1.length;
-  var rnd, tmp1, tmp2;
+    var index = obj1.length;
+    var rnd, tmp1, tmp2;
 
-  while (index) {
-    rnd = Math.floor(Math.random() * index);
-    index -= 1;
-    tmp1 = obj1[index];
-    tmp2 = obj2[index];
-    obj1[index] = obj1[rnd];
-    obj2[index] = obj2[rnd];
-    obj1[rnd] = tmp1;
-    obj2[rnd] = tmp2;
-  }
+    while (index) {
+        rnd = Math.floor(Math.random() * index);
+        index -= 1;
+        tmp1 = obj1[index];
+        tmp2 = obj2[index];
+        obj1[index] = obj1[rnd];
+        obj2[index] = obj2[rnd];
+        obj1[rnd] = tmp1;
+        obj2[rnd] = tmp2;
+    }
 }
 
 
@@ -137,7 +137,7 @@ var try_again = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Vamos a revisar de nuevo los items de práctica para que quede claro." +
-        "<br> <center>Presione la barra espaciadora para continuar</center>"+
+        "<br> <center>Presione la barra espaciadora para continuar</center>" +
         "</p></div>"
     ],
     allow_keys: true,
@@ -157,7 +157,7 @@ var explanation2 = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Ahora te vamos a presentar varios items de práctica, para que puedas entender como funciona la tarea." +
-        "<br> <center>Presione la barra espaciadora para continuar</center>"+
+        "<br> <center>Presione la barra espaciadora para continuar</center>" +
         "</p></div>"
     ],
     allow_keys: true,
@@ -188,7 +188,7 @@ var mainexplanation = {
         '<p><left><b><big>Razonamineto transitivo</big></b><br />' +
         "Esta prueba NO es una prueba de inteligencia. Se trata solamente de razonar y llegar a conclusiones a partir de frases. " +
         "Es importante que le prestes atencion y que intetes hacerlo lo mejor posible." +
-        "<br> <center>Presione la barra espaciadora para continuar</center>"+
+        "<br> <center>Presione la barra espaciadora para continuar</center>" +
         "</p></div>"
     ],
     allow_keys: true,
@@ -245,9 +245,9 @@ var mainexplanation = {
                     key_answer: respuesta.charCodeAt(0) - 32,
                     text_answer: respuesta,
                     choices: [verdadero, falso],
-                    correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>",
-                    incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>",
-                    prompt: "<div class='left_prompt'>"+ leftString + "</div><div class='right_prompt'>" + rightString +"</div>",
+                    correct_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>" + "<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>",
+                    incorrect_text: "<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>" + "<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>",
+                    prompt: "<div class='left_prompt'>" + leftString + "</div><div class='right_prompt'>" + rightString + "</div>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
@@ -272,14 +272,14 @@ var mainexplanation = {
                     var trialCorrect = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>"],
+                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>" + "<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>"],
                         show_clickable_nav: false
                     }
 
                     var trialWrong = {
                         type: 'instructions',
                         key_forward: 32,
-                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>"+"<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>"],
+                        pages: ["<img src='feedback/Explanation_samples_Transitive_Visual_" + statement + ".bmp'></img>" + "<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>"],
                         show_clickable_nav: false
                     }
 
@@ -363,7 +363,7 @@ var explanation3 = {
     pages: ["<div class = centerbox>" +
         "<p class = center-block-text>" +
         "Ahora empezara la verdadera prueba" +
-        "<br> <center>Presione la barra espaciadora para continuar</center>"+
+        "<br> <center>Presione la barra espaciadora para continuar</center>" +
         "</p></div>"
     ],
     allow_keys: true,
@@ -390,50 +390,61 @@ var explanation3 = {
             }
 
         }
-        doesFileExist("01", entrenamientos, "experiment")//need time to process all previous images :c
+        doesFileExist("01", entrenamientos, "experiment") //need time to process all previous images :c
 
-        console.log(experimentos_src);
+        d3.csv("experimento/respuestas.csv", function(error, correct_answer) {
 
-        if (test_random) {
-            shuffle(experimentos, experimentos_src);
-        }
+            console.log(correct_answer);
 
-        var i = 0;
-        experimentos.forEach(function(statement) {
-
-            var categorization_trial = {
-                type: 'categorize-html',
-                data: {
-                    trialid: i,
-                    stimulus: experimentos_src[i],
-                    tipo: "experiment"
-                },
-                stimulus: statement,
-                key_answer: verdadero.charCodeAt(0) - 32,
-                text_answer: verdadero,
-                choices: [verdadero, falso],
-                prompt: "<div class='left_prompt'>"+ leftString + "</div><div class='right_prompt'>" + rightString +"</div>",
-                //force_correct_button_press: !seguridad,
-                trial_duration: 60000, //60 seconds
-                show_timer: tempo,
-                feedback_duration: 0 //no feedback
-            };
-
-            test_timeline.push(categorization_trial);
-            if (seguridad) {
-                test_timeline.push(survey_trial);
+            if (test_random) {
+                shuffle(experimentos, experimentos_src);
             }
-            i += 1;
+
+            var i = 0;
+            experimentos.forEach(function(statement) {
+
+                var respuesta = verdadero;
+                console.log("se leyo en csv: "+correct_answer[i].respuesta);
+
+                if (correct_answer[i].respuesta != "t") {
+                    respuesta = falso;
+                }
+
+                var categorization_trial = {
+                    type: 'categorize-html',
+                    data: {
+                        trialid: i,
+                        stimulus: experimentos_src[i],
+                        tipo: "experiment"
+                    },
+                    stimulus: statement,
+                    key_answer: respuesta.charCodeAt(0) - 32,
+                    text_answer: respuesta,
+                    choices: [verdadero, falso],
+                    prompt: "<div class='left_prompt'>" + leftString + "</div><div class='right_prompt'>" + rightString + "</div>",
+                    //force_correct_button_press: !seguridad,
+                    trial_duration: 60000, //60 seconds
+                    show_timer: tempo,
+                    feedback_duration: 0 //no feedback
+                };
+
+                test_timeline.push(categorization_trial);
+                if (seguridad) {
+                    test_timeline.push(survey_trial);
+                }
+                i += 1;
 
 
 
+
+            });
+
+            var new_timeline = {
+                timeline: test_timeline
+            }
+            jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment);
 
         });
-
-        var new_timeline = {
-            timeline: test_timeline
-        }
-        jsPsych.addNodeToEndOfTimeline(new_timeline, jsPsych.resumeExperiment);
 
     }
 };
