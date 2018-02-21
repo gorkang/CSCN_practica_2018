@@ -55,7 +55,7 @@ var survey02 = {
 "manejar un automóvil y de repente "+
 "percatarse de que no recuerdan qué ha "+
 "pasado durante todo o parte del viaje. ",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 var survey03 = {
@@ -64,7 +64,7 @@ var survey03 = {
 "estan escuchando a alguien hablar y de "+
 "repente se percatan que no estaban "+
 "escuchando parte o todo de lo que se estaba diciendo. ",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -73,7 +73,7 @@ var survey04 = {
   preamble:"Algunas personas tienen la experiencia de "+
 "encontrarse a sí mismos en un lugar y no "+
 "tener idea de cómo llegaron allí.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -82,7 +82,7 @@ var survey05 = {
   preamble:"Algunas personas tienen la experiencia de "+
 "encontrase a sí mismos vestidos con ropa "+
 "que no recuerdan habérsela puesto.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -92,7 +92,7 @@ var survey06 = {
 "encontrar nuevas cosas entre sus "+
 "pertenencias que no recuerdan haber "+
 "comprado.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -102,7 +102,7 @@ var survey07 = {
 "que son abordados por personas que no "+
 "conocen quien lo llama por otro nombre o "+
 "insiste en que se han conocido antes. ",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -113,7 +113,7 @@ var survey08 = {
 "cerca de ellos o viéndose a si mismos y en "+
 "realidad se ven a si mismos como si "+
 "estuvieran mirando a otra persona.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -122,7 +122,7 @@ var survey09 = {
   preamble:"A algunas personas se les ha dicho que en "+
 "ocasiones no reconocen amigos o "+
 "miembros de su familia. ",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -132,7 +132,7 @@ var survey10 = {
 "tienen recuerdos de algunos eventos "+
 "importantes de su vida (por ejemplo, una "+
 "boda o graduación).",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -141,7 +141,7 @@ var survey11 = {
   preamble:"Algunas personas tienen la experiencia de "+
 "haber sido acusados de mentir cuando "+
 "ellos no creen haber mentido.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -150,7 +150,7 @@ var survey12 = {
   preamble:"Algunas personas tienen la experiencia de "+
 "mirarse en el espejo y no reconocerse a sí "+
 "mismos.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -159,7 +159,7 @@ var survey13 = {
   preamble:"Algunas personas tienen la experiencia de "+
 "sentir que otras personas, objetos y el"+
 "mundo alrededor de ellos no es real.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -167,7 +167,7 @@ var survey14 = {
   type: "survey-multi-choice1",
   preamble:"Algunas personas tienen la experiencia de "+
 "que sus cuerpos no les pertenecen a ellos.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -177,7 +177,7 @@ var survey15 = {
 "que en ocasiones estan recordando un "+
 "evento pasado tan vividamente que sienten"+
 "como si estuvieran re-viviendo ese evento.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -187,7 +187,7 @@ var survey16 = {
 "no estar seguros de si las cosas que ellos "+
 "recuerdan sucedieron realmente o si solo "+
 "lo soñaron.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -196,7 +196,7 @@ var survey17 = {
   preamble:"Algunas personas tienen la experiencia de "+
 "estar en un sitio familiar pero encontrarlo "+
 "como extraño o desconocido.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -205,7 +205,7 @@ var survey18 = {
   preamble:"Algunas personas encuentran que cuando "+
 "estan viendo televisión o una película "+
 "estan tan absortos en la historia que no se dan cuenta de otros eventos que suceden a su alrededor.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -213,8 +213,8 @@ var survey19 = {
   type: "survey-multi-choice1",
   preamble:"Algunas personas encuentran que se "+
 "involucran tanto en una fantasía que "+
-"sienten como si realmente les estuviera sucediendo a ellos..",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+"sienten como si realmente les estuviera sucediendo a ellos.",
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -222,7 +222,7 @@ var survey20 = {
   type: "survey-multi-choice1",
   preamble:"Algunas personas encuentran que en "+
 "ocasiones son capaces de ignorar el dolor.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -231,7 +231,7 @@ var survey21 = {
   preamble:"Algunas personas encuentran que en "+
 "ocasiones estan mirando fijamente al "+
 "espacio, sin pensar en nada, y no se percatan del paso del tiempo.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -240,7 +240,7 @@ var survey22 = {
   preamble:"Algunas personas en ocasiones encuentran "+
 "que cuando estan solos hablan en voz alta "+
 "a si mismos.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -249,7 +249,7 @@ var survey23 = {
   preamble:"Algunas personas encuentran que en una "+
 "situación ellos pueden actuar tan diferente "+
 "comparado con otra situación que sienten casi como si fueran dos personas diferentes.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -258,7 +258,7 @@ var survey24 = {
   preamble:"Algunas personas en ocasiones encuentran que en ciertas situaciones son capaces de "+
 "hacer cosas con tal facilidad y espontaneidad que usualmente serían "+
 "difíciles para ellos (por ejemplo, deportes, trabajo, situaciones sociales, etc.).",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -267,14 +267,14 @@ var survey25 = {
   preamble:"Algunas personas en ocasiones encuentran "+
 "que no pueden recordar si han hecho algo o que solo pensaron en hacerlo (por "+
 "ejemplo, no saber si han enviado una carta o solo haber pensado en enviarla).",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey26 = {
   type: "survey-multi-choice1",
   preamble:"Algunas personas encuentran evidencias de haber hecho cosas que no recuerdan haber hecho.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -282,7 +282,7 @@ var survey27 = {
   type: "survey-multi-choice1",
   preamble:"Algunas persona encuentran escritos, dibujos o notas entre sus pertenencias que "+
 "ellos deben haber hecho pero no pueden recordar haberlas hecho.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -290,7 +290,7 @@ var survey28 = {
   type: "survey-multi-choice1",
   preamble:"Algunas personas a veces encuentran que escuchan voces dentro de su cabeza que "+
 "les dice que hagan cosas o comentarios sobre cosas que ellos están haciendo.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
@@ -298,7 +298,7 @@ var survey29 = {
   type: "survey-multi-choice1",
   preamble:"Algunas personas a veces sienten como si estuvieran mirando al mundo a través de "+
 "una niebla de manera que las personas y objetos parecen alejados o borrosos.",
-  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD..<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Marque qué porcentaje del tiempo le sucede esto a UD.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 

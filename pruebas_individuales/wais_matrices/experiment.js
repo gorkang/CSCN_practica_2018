@@ -172,7 +172,7 @@ var m_wrong1 = {
         "Para obtener la respuesta correcta yendo de arriba hacia abajo, usted debe mirar los cuadros de la columna izquierda. " +
         "Cuando usted va de arriba hacia abajo en la primera columna los cuadros tienen la misma forma y el mismo color: estrellas azules. <br /><br />" +
         "Esto quiere decir que cuando usted va de arriba hacia abajo en la columna derecha los cuadros tambi&eacute;n deberian tener la misma forma y el mismo color: circulo amarillo. " +
-        "Usted obtiene la misma respuesta yendo de izquierda a derecha y yendo de arriba hacia abajo.<br /><br /><br /><br />Presione una tecla para continuar<br /><br /><br /><br /></div>"
+        "Usted obtiene la misma respuesta yendo de izquierda a derecha y yendo de arriba hacia abajo.</div>"
     ]
 };
 
@@ -183,7 +183,7 @@ var m_right1 = {
         "Esto quiere decir que cuando usted va de izquierda a derecha en la fila de abajo la estrella azul tambi&eacute;n deberia cambiar a un circulo amarillo. " +
         "Cuando usted va de arriba hacia abajo en la primera columna los cuadros tienen la misma forma y el mismo color: estrellas azules. <br /><br />" +
         "Esto quiere decir que cuando usted va de arriba hacia abajo en la segunda columna los cuadros tambi&eacute;n deben tener la misma forma y el mismo color: circulos amarillos. " +
-        "Usted obtiene la misma respuesta yendo de izquierda a derecha y yendo de arriba hacia abajo.<br /><br /><br /><br />Presione una tecla para continuar<br /><br /><br /><br /></div>"
+        "Usted obtiene la misma respuesta yendo de izquierda a derecha y yendo de arriba hacia abajo.</div>"
     ]
 };
 
@@ -193,7 +193,7 @@ var m_wrong2 = {
     pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/2A.png' /></div><br /><br /><div class='centered'><img src ='img/2B.png' </img></div><br /><br /><div class='matrizfeedback'>Eso no es correcto. <br />Cuando usted mira los cuadros de izquierda a derecha, usted puede ver que ellos<br />" +
         "est&aacute;n en el siguiente orden: c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande.<br /><br />" +
         "El c&iacute;rculo peque&ntilde;o va en el cuadro con un signo de interrogaci&oacute;n porque es la opci&oacute;n que mantiene el orden: un c&iacute;rculo peque&ntilde;o va luego de un c&iacute;rculo grande.<br />" +
-        "<br /><br /><br /><br />Presione una tecla para continuar<br /><br /><br /><br /></div>"
+        "</div>"
     ]
 };
 
@@ -203,7 +203,7 @@ var m_right2 = {
     pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/2A.png' /></div><br /><br /><div class='centered'><img src ='img/2B.png' </img></div><br /><br /><div class='matrizfeedback'>Eso es correcto.<br />Cuando usted mira los cuadros de izquierda a derecha, puede ver que ellos siguen este orden: " +
         "c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande. <br /><br />" +
         "El c&iacute;rculo peque&ntilde;o va en el cuadro con un signo de interrogaci&oacute;n porque es lo que mantiene el mismo orden que los anteriores.<br /><br />" +
-        "<br /><br /><br /><br />Presione una tecla para continuar<br /><br /><br /><br /></div>"
+        "</div>"
     ]
 };
 

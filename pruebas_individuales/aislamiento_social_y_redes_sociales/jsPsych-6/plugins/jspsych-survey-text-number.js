@@ -104,9 +104,9 @@ jsPsych.plugins['survey-text-number'] = (function() {
       html += '<div id="jspsych-survey-text-number-"'+i+'" class="jspsych-survey-text-number-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-text-number">' + trial.questions[i].prompt + '</p>';
       if(trial.questions[i].rows == 1){
-        html += '<input type="number" name="#jspsych-survey-text-number-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'" autofocus onfocus="advance(event)"></input> '+trial.endword;
+        html += '<input type="number" min="-1" name="#jspsych-survey-text-number-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'" autofocus></input> '+trial.endword;
       } else {
-        html += '<input type="number" name="#jspsych-survey-text-number-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus onfocus="advance(event)"></input> '+trial.endword;
+        html += '<input type="number" min="-1" name="#jspsych-survey-text-number-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus></input> '+trial.endword;
       }
       html += '</div>';
     }

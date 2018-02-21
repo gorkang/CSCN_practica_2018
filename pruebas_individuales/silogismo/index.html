@@ -11,7 +11,7 @@
 
 <body>
     <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script src="tiff.min.js"></script>
     <!-- Libreria principal JsPsych -->
     <script src="jsPsych-6/jspsych.js"></script>
@@ -24,53 +24,62 @@
 
     <script src="https://d3js.org/d3.v4.js"></script>
 
-    <script src='experiment.js'></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
 
-    <script>
-        $(document).ready(function() {
+  <script src='experiment.js'></script>
 
-            jsPsych.init({
-                timeline: silogismo_experiment,
-                fullscreen: true,
-                on_finish: function(data) {
+  <script>
+    $(document).ready(function() {
 
-                    // Serialize the data
-                    var promise = new Promise(function(resolve, reject) {
-                        var data = jsPsych.data.get().json();
-                        resolve(data);
-                    })
+      jsPsych.init({
+        timeline: silogismo_experiment,
+        fullscreen: true,
 
-                    promise.then(function(data) {
+        on_finish: function(data) {
+
+          // Serialize the data
+          var promise = new Promise(function(resolve, reject) {
+            var data = jsPsych.data.get().json();
+            resolve(data);
+          })
+
+          promise.then(function(data) {
 
 
-                        $.ajax({
-                            type: "POST",
-                            url: '/save',
-                            data: {
-                                "data": data
-                            },
-                            success: function() {
-                                document.location = "/next"
-                            },
-                            dataType: "application/json",
+            $.ajax({
+              type: "POST",
+              url: '/save',
+              data: {
+                "data": data
+              },
+              success: function() {
+                document.location = "/next"
+              },
+              dataType: "application/json",
 
-                            // Endpoint not running, local save
-                            error: function(err) {
+              // Endpoint not running, local save
+              error: function(err) {
 
-                                if (err.status == 200) {
-                                    document.location = "/next";
-                                } else {
-                                    // If error, assue local save
-                                    jsPsych.data.get().localSave('csv', 'silogismo_results.csv');
-                                }
-                            }
-                        });
-                    })
+                if (err.status == 200) {
+                  document.location = "/next";
+                } else {
+                  // If error, assue local save
+                  if (window.self !== window.top) {
+                    parent.postMessage({
+                      csv: jsPsych.data.get().csv(),
+                      name: 'silogismo_results'
+                    }, '*');
+                  } else {
+                    jsPsych.data.get().localSave('csv', 'silogismo_results.csv');
+                  }
                 }
-
-            });
-        });
-    </script>
+              }
+            })
+          })
+        }
+      })
+    })
+  </script>
 </body>
 
 </html>

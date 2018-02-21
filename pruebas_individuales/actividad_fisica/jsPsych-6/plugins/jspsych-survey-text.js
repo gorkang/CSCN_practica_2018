@@ -61,7 +61,7 @@ jsPsych.plugins['survey-text'] = (function() {
       button_label: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Button label',
-        default:  'Continue',
+        default: 'Continue',
         description: 'The text that appears on the button to finish the trial.'
       },
       endword: {
@@ -96,30 +96,36 @@ jsPsych.plugins['survey-text'] = (function() {
 
     var html = '';
     // show preamble text
-    if(trial.preamble !== null){
-      html += '<br /><p><br /><div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
+    if (trial.preamble !== null) {
+      html += '<br /><p><br /><div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">' + trial.preamble + '</div>';
     }
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
-      html += '<div id="jspsych-survey-text-"'+i+'" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
+      html += '<div id="jspsych-survey-text-"' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
-      if(trial.questions[i].rows == 1){
-        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'" autofocus onfocus="advance(event)"></input> '+trial.endword;
+      if (trial.questions[i].rows == 1) {
+        if (trial.endword == "dias") {
+          html += '<input type="number" min="-1" max="7" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
+        } else if (trial.endword == "horas") {
+          html += '<input type="number" min="-1" max="24" name="#jspsych-survey-text-response-' + i + '" size="' + trial.questions[i].columns + '" value="' + trial.questions[i].value + '" autofocus </input> ' + trial.endword;
+        } else {
+          html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus ></input> ' + trial.endword;
+        }
       } else {
-        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus onfocus="advance(event)"></input> '+trial.endword;
+        html += '<input type="number" name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '" autofocus ></input> ' + trial.endword;
       }
       html += '</div>';
     }
 
     // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
-    html +='<div class="fail-message"></div>';
+    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">' + trial.button_label + '</button>';
+    html += '<div class="fail-message"></div>';
     display_element.innerHTML = html;
     var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
     firstTextBox.focus();
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
-        var validation;
+      var validation;
       // measure response time
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
@@ -127,7 +133,7 @@ jsPsych.plugins['survey-text'] = (function() {
       // create object to hold responses
       var question_data = {};
       var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
-      for(var index=0; index<matches.length; index++){
+      for (var index = 0; index < matches.length; index++) {
         var id = "Q" + index;
         var val = matches[index].querySelector('input, input').value;
         var obje = {};
@@ -145,22 +151,22 @@ jsPsych.plugins['survey-text'] = (function() {
 
       // next trial
       if ($.isNumeric(validation) === true) {
-      //if ((validation >= 12 && validation <= 14) || (validation >= 21 && validation <= 24) || (validation >= 31 && validation <= 34) || (validation >= 41 && validation <= 43) &&  validation != 22 && validation != 33 ) {
-            console.log("bien",validation);
-            display_element.innerHTML = '';
-            jsPsych.pluginAPI.clearAllTimeouts();
-            jsPsych.finishTrial(trialdata);
-        }else{
-            firstTextBox.blur();
-            display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
-            console.log("mal",validation);
-            event.stopPropagation();
-           if (event.stopPropagation) {
-            event.stopPropagation();
-            } else{
-              event.cancelBubble = true;
-            }
+        //if ((validation >= 12 && validation <= 14) || (validation >= 21 && validation <= 24) || (validation >= 31 && validation <= 34) || (validation >= 41 && validation <= 43) &&  validation != 22 && validation != 33 ) {
+        console.log("bien", validation);
+        display_element.innerHTML = '';
+        jsPsych.pluginAPI.clearAllTimeouts();
+        jsPsych.finishTrial(trialdata);
+      } else {
+        firstTextBox.blur();
+        display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
+        console.log("mal", validation);
+        event.stopPropagation();
+        if (event.stopPropagation) {
+          event.stopPropagation();
+        } else {
+          event.cancelBubble = true;
         }
+      }
     });
 
     var startTime = (new Date()).getTime();

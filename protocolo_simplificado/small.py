@@ -40,7 +40,9 @@ else:
         else:
             print("Experimento desconocido en linea " + str(exp_number) + ".")
             exit(1)
-    if(exp_list[-1] != "]"):
+    if(exp_list[-1] == ","):
+        exp_list += str(shuffle_number) + ");\n"
+    elif(exp_list[-1] != "]"):
                 exp_list += "';\n"
 random_exp_list = "    var experiments_random = shuffle(" + str(experiments) + ");\n"
 
@@ -50,6 +52,11 @@ for line in html_list:
         html_list[html_list.index(line)] = exp_list
     elif("var experiments_random =" in line):
         html_list[html_list.index(line)] = random_exp_list
+    elif("var enable_JSZip =" in line):
+        if(raw_input("Descargar archivos en zip (Y,n):") in ['','y','Y','Yes','yes']):
+            html_list[html_list.index(line)] = "var enable_JSZip = true"
+        else:
+            html_list[html_list.index(line)] = "var enable_JSZip = false"
 index_file = open("index.html",'wb')
 index_file.writelines(html_list)
 index_file.close()

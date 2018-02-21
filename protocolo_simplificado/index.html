@@ -7,7 +7,8 @@
   <title>Experimentos CSCN</title>
 </head>
 
-<body style="height:100%;text-align:center;">
+<body style="height:100%;text-align:center;" onload="check_id_status()">
+  <script src="jszip.min.js"></script>
   <script>
     function partial_shuffle(list, index_start, index_end) {
       if (index_end < list.length && index_start >= 0 && index_end > index_start) {
@@ -31,7 +32,7 @@
       return partial_shuffle(list, 0, list.length - 1);
     }
 
-    var known_experiments = ['BART_balloon_analogue_risk_task', 'informacion_sociodemografica_simple', 'estres_percibido', 'silogismo', 'metacognicion', 'interocepcion', 'religiosidad', 'pausa_protocolo',
+    var known_experiments = ['empatia_por_dolor','BART_balloon_analogue_risk_task', 'informacion_sociodemografica_simple', 'estres_percibido', 'silogismo', 'metacognicion', 'interocepcion', 'religiosidad', 'pausa_protocolo',
       'SASS_social_adaptation_self_evaluation_scale', 'ansiedad_matematica', 'bienestar_psicosocial', 'escala_rosenberg', 'sMARS_short_mathematics_anxiety_rating_scale', 'wais_matrices', 'wais_vocabulario', 'graph_literacy',
       'DSS_decision_styles_scale', 'aislamiento_social_y_redes_sociales', 'LIPKUS_numeracy', 'rotacion_mental', 'escala_experiencias_disociativas', 'OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test',
       'EPI_eysenck_personality_inventory', 'pause_trial', 'iowa_gambling_task', 'SPR_III_self_report_psychopathy_scale', 'bienestar_social', 'estilo_atribucional', 'fin_protocolo', 'informacion_sociodemografica', 'actividad_fisica',
@@ -41,19 +42,16 @@
     ];
     var experiments_random = [];
     var experiments = "";
+    var enable_JSZip = true;
     experiments = experiments.split(',');
     experiments.reverse();
 
     if (experiments.length == 0 || experiments == '') {
-      window.onload = function() {
-        document.getElementById("user_id").disabled = true;
-        document.getElementById("start").disabled = true;
-      }
       experiments = [];
       var threads = known_experiments.length;
       known_experiments.forEach(function(experiment) {
         var http = new XMLHttpRequest();
-        http.open('HEAD', "./" + experiment + "/index.html", true);
+        http.open('HEAD', "./" + experiment + "/index.html");
         http.onreadystatechange = function() {
           if (http.readyState == 4) {
             if (http.status == 200) {
@@ -94,6 +92,11 @@
         go_fullscreen(event);
         show_experiments(event);
         document.getElementById('user_id').disabled = true;
+        document.getElementById("fullscreen").hidden = false;
+        document.getElementById("start").hidden = true;
+        document.getElementById("start_and_skip_to_last").hidden = true;
+        document.getElementById("start_and_skip_last").hidden = true;
+        document.getElementById("redo").hidden = true;
       } else if (loaded_once) {
         go_fullscreen(event);
       }
@@ -162,19 +165,16 @@
       }
     }
 
-    function local_save(csv, name) {
-      var blobToSave = new Blob([csv], {
-        type: 'text/plain'
-      });
-      var blobURL = "";
+    function local_save(file, name) {
+      var fileURL = "";
       if (typeof window.webkitURL !== 'undefined') {
-        blobURL = window.webkitURL.createObjectURL(blobToSave);
+        fileURL = window.webkitURL.createObjectURL(file);
       } else {
-        blobURL = window.URL.createObjectURL(blobToSave);
+        fileURL = window.URL.createObjectURL(file);
       }
       var link = document.createElement('a');
-      link.href = blobURL;
-      link.setAttribute('download', name + ".csv");
+      link.href = fileURL;
+      link.setAttribute('download', name);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -238,17 +238,19 @@
     }
 
     function check_id_status(event) {
-      user_id_to_check = event.target.value;
-      if (localStorage[user_id_to_check]) {
-        document.getElementById("start").hidden = true;
-        document.getElementById("start_and_skip_to_last").hidden = false;
-        document.getElementById("start_and_skip_last").hidden = false;
-        document.getElementById("redo").hidden = false;
-      } else {
-        document.getElementById("start").hidden = false;
-        document.getElementById("start_and_skip_to_last").hidden = true;
-        document.getElementById("start_and_skip_last").hidden = true;
-        document.getElementById("redo").hidden = true;
+      user_id_to_check = document.getElementById("user_id").value;
+      if (user_id_to_check != "") {
+        if (localStorage[user_id_to_check]) {
+          document.getElementById("start").hidden = true;
+          document.getElementById("start_and_skip_to_last").hidden = false;
+          document.getElementById("start_and_skip_last").hidden = false;
+          document.getElementById("redo").hidden = false;
+        } else {
+          document.getElementById("start").hidden = false;
+          document.getElementById("start_and_skip_to_last").hidden = true;
+          document.getElementById("start_and_skip_last").hidden = true;
+          document.getElementById("redo").hidden = true;
+        }
       }
     }
 
@@ -259,11 +261,25 @@
           currentExperiment = experiments.pop();
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
         } else {
-          var participan_json = JSON.parse(localStorage[user_id]);
-          for (var experiment in participan_json) {
-            if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
-              local_save(participan_json[experiment], user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_'));
+          if (enable_JSZip) {
+            var participan_json = JSON.parse(localStorage[user_id]);
+            var zip = new JSZip();
+            var folder = zip.folder("participant_" + user_id);
+            for (var experiment in participan_json) {
+              if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
+                folder.file(user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv", participan_json[experiment]);
+              }
             }
+            zip.generateAsync({
+                type: "blob"
+              })
+              .then(function(blob) {
+                local_save(blob, "participant_" + user_id + ".zip");
+              });
+          } else {
+            local_save(new Blob([participan_json[experiment]], {
+              type: 'text/plain'
+            }), user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv")
           }
         }
       });
@@ -272,6 +288,7 @@
   </script>
   <div>
     <input type="number" oninput="check_id_status(event)" required id="user_id" min="0" step="1" style="margin-top:25%;"></input>
+    <input id="fullscreen" type="button" onclick="go_fullscreen(event)" style="margin-top:25%;" value="Volver a pantalla completa" hidden></input>
     <input id="start" type="button" onclick="start_experiment(event)" style="margin-top:25%;" value="Comenzar"></input>
     <input id="start_and_skip_to_last" type="button" onclick="start_and_skip_to_last_experiment(event)" style="margin-top:25%;" value="Comenzar a partir del ultimo experimento completado" hidden></input>
     <input id="start_and_skip_last" type="button" onclick="start_and_skip_last_experiment(event)" style="margin-top:25%;" value="Comenzar despues del ultimo experimento completado" hidden></input>

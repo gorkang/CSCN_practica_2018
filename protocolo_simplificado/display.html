@@ -15,6 +15,7 @@
       border: 1px solid black;
     }
   </style>
+  <script src="jszip.min.js"></script>
   <script>
     function list_participants(event) {
       event.target.onclick = chosse_experiment;
@@ -37,7 +38,7 @@
       experiments_select.innerHTML = "";
       experiments_select.hidden = false;
       for (var experiment in JSON.parse(localStorage[participant])) {
-        if (experiment != "completed_experiments") {
+        if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
           var option = document.createElement("option");
           option.setAttribute("value", experiment);
           option.setAttribute("id", experiment);
@@ -72,33 +73,41 @@
       event.target.selectedIndex = -1;
     }
 
-    function local_save(csv, name) {
-      var blobToSave = new Blob([csv], {
-        type: 'text/plain'
-      });
-      var blobURL = "";
+    function local_save(file, name) {
+      var fileURL = "";
       if (typeof window.webkitURL !== 'undefined') {
-        blobURL = window.webkitURL.createObjectURL(blobToSave);
+        fileURL = window.webkitURL.createObjectURL(file);
       } else {
-        blobURL = window.URL.createObjectURL(blobToSave);
+        fileURL = window.URL.createObjectURL(file);
       }
       var link = document.createElement('a');
-      link.href = blobURL;
-      link.setAttribute('download', name + ".csv");
+      link.href = fileURL;
+      link.setAttribute('download', name);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     }
 
     function download_all() {
+      var zip = new JSZip();
+      zip = zip.folder("results");
       for (var participant in localStorage) {
-        var participan_json = JSON.parse(localStorage[participant]);
-        for (var experiment in participan_json) {
-          if (experiment != "completed_experiments") {
-            local_save(participan_json[experiment], participant + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_'));
+        if (parseInt(participant)) {
+          var participan_folder = zip.folder("participant_" + participant)
+          var participan_json = JSON.parse(localStorage[participant]);
+          for (var experiment in participan_json) {
+            if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
+              participan_folder.file(participant + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv", participan_json[experiment]);
+            }
           }
         }
       }
+      zip.generateAsync({
+          type: "blob"
+        })
+        .then(function(blob) {
+          local_save(blob, "results.zip");
+        });
     }
 
     function delete_all() {
