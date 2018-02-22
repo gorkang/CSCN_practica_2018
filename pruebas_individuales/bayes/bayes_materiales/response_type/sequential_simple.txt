@@ -1,0 +1,1 @@
+____ people receive a positive test result that correctly indicates the presence of the anomaly, and ____ people that receive a positive test result that incorrectly indicates the presence of the anomaly.

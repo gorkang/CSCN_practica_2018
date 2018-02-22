@@ -372,7 +372,7 @@ function createTrial() { //accordig to response
             show_clickable_nav: true
         }
 
-        if (csvData[i].response_type == "gi") { //create the trial of type "gi"
+        if (csvData[i].response_type == "probabilities_qualitative") { //create the trial of type "gi"
             //parse the responses and converts them to a list that jsPsych understands
             if (temp == "") {
                 var temp = responses[i].split(/\s\s+/);
@@ -398,7 +398,7 @@ function createTrial() { //accordig to response
                 }
             }
 
-        } else { //create the trial of type "sg"
+        } else if (csvData[i].response_type == "sequential_guided"){ //create the trial of type "sg"
 
             var typeTrial = {
                 type: "fill-in-blanks",
