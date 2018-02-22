@@ -398,7 +398,7 @@ function createTrial() { //accordig to response
                 }
             }
 
-        } else if (csvData[i].response_type == "sequential_guided" || csvData[i].response_type == "distributive" || csvData[i].response_type == "sequential_simple"){
+        } else if (csvData[i].response_type == "sequential_guided" || csvData[i].response_type == "distributive" || csvData[i].response_type == "sequential_simple" || csvData[i].response_type == "chances"){
 
             var typeTrial = {
                 type: "fill-in-blanks",
