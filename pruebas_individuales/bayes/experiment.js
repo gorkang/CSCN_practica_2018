@@ -440,6 +440,20 @@ function createTrial() { //accordig to response
                     horizontal: false
                 }]
             }
+        } else if (csvData[i].response_type == "natural_frequencies") {
+
+            var typeTrial = {
+                type: "fill-in-blanksINC",
+                preamble: prompts[i],
+                data: {
+                    trialid: "fill_in_" + csvData[i].ID
+                },
+                fill_in_type: "number",
+                fill_in_text: responses[i],
+                on_start: function(data) {
+                    console.log(responses);
+                }
+            }
         }
 
 
