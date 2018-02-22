@@ -398,7 +398,7 @@ function createTrial() { //accordig to response
                 }
             }
 
-        } else if (csvData[i].response_type == "sequential_guided"){ //create the trial of type "sg"
+        } else if (csvData[i].response_type == "sequential_guided" || csvData[i].response_type == "distributive"){ //create the trial of type "sg"
 
             var typeTrial = {
                 type: "fill-in-blanks",
