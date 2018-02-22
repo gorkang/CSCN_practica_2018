@@ -31,6 +31,8 @@ if (document.URL.includes("\?")) {
 };
 
 
+var relatives = [];
+
 var csvData = []; // objects representing trial related data
 var follows = [];
 var formats = {}; // strings with the format of each question
@@ -82,7 +84,6 @@ function advance(event) {
         }
     };
 }
-
 
 var mainexplanation = {
     type: "instructions",
@@ -253,6 +254,18 @@ function obtainFollowUp() {
     }
 };
 
+function obtainRelative() {
+    var path;
+    for (var i = 0; i < csvData.length; i++) {
+        if (csvData[i].relative_question != null && csvData[i].relative_question != "") {
+            path = "bayes_materiales/response_type/" + csvData[i].relative_question + ".txt";
+            //console.log("EL CAMINOMI ES:   "+path);
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, relatives, i));
+        }
+    }
+};
+
 /**
 Obtain numbers of each question
 @name obtainNumbers
@@ -281,6 +294,7 @@ function obtainNumbers() {
         if (askFollowUp) {
             obtainFollowUp();
         }
+        obtainRelative();
         //puts in window the message "nnumbers_got"
         window.postMessage("numbers_got", '*');
     });
@@ -424,7 +438,7 @@ function createTrial() { //accordig to response
                 required: true,
                 labels: [tempo[1], tempo[2]],
             };
-        } else if (csvData[i].response_type == "relative_frecuencies" || csvData[i].response_type == "relative_chances") {
+        } else if (csvData[i].response_type == "relative_frequencies" || csvData[i].response_type == "relative_chances") {
 
             var tempo = responses[i].split("\n");
 
@@ -473,6 +487,25 @@ function createTrial() { //accordig to response
 
         var temp_time = [introToTrial, typeTrial];
 
+        if (csvData[i].relative_question != null && csvData[i].relative_question != "") {
+
+            var tempo = relatives[i].split("\n");
+
+            var opt_rel = {
+                type: "survey-multi-choiceOG",
+                data: {
+                    trialid: csvData[i].relative_question+ "_" + csvData[i].ID
+                },
+                questions: [{
+                    prompt: tempo[0],
+                    options: [tempo[1], tempo[2]],
+                    required: true,
+                    horizontal: false
+                }]
+            }
+
+            temp_time.push(opt_rel);
+        }
         if (csvData[i].pregunta_seguridad == "si" || (csvData[i].pregunta_seguridad == null && askSure)) {
             survey_sure.data = {
                 trialid: "seguridad_" + csvData[i].ID
@@ -504,6 +537,7 @@ function createTrial() { //accordig to response
 
             temp_time.push(survey_follow);
         }
+
 
         //create a temporal timeline with the intro trial and the question trials
         //and append the temporal timeline to the definitive timeline
