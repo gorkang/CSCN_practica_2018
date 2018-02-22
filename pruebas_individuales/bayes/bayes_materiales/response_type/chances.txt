@@ -1,0 +1,1 @@
+For this new person with a positive result, there are: ____ chances that she has breast cancer and ____ chances that she doesn't have breast cancer.
