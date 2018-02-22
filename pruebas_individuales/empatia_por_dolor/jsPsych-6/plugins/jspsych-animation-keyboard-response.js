@@ -68,9 +68,8 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
     new_html = '';
 
     image_index = 0;
-    new_html += "<p style='position:absolute;top:20%;left:20%;width: 60%;'>"
+    new_html += "<p style='position:absolute;top:auto;left:20%;width: 60%;'>"
     trial.stimulus.forEach(function(image) {
-      jsPsych
       new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
       image_index += 1;
     })
@@ -86,6 +85,14 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
 
     document.getElementById("jspsych-animation-keyboard-response-stimulus-0").hidden = false;
 
+    image_index = 0;
+    trial.stimulus.forEach(function(stimulus_image) {
+      image = document.getElementById("jspsych-animation-keyboard-response-stimulus-" + image_index);
+      image.onload = function(event) {
+        event.target.style.top = Math.floor(-(event.target.parentElement.offsetWidth / event.target.width * event.target.height / 2)) + "px";
+      }
+      image_index += 1;
+    })
     // store response
     var response = {
       rt: null,

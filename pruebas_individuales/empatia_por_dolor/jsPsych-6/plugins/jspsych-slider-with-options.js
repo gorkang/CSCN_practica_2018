@@ -61,7 +61,7 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
   plugin.trial = function(display_element, trial) {
 
-    html = "<p id='prompt-container'<p style='position:absolute;top:20%;left:20%;width: 60%;'>" + trial.prompt + "</p>";
+    html = "<p id='prompt-container'<p style='position:absolute;top:auto;left:20%;width: 60%;'>" + trial.prompt + "</p>";
 
     html += "<div id='slider-container' style='position:absolute;width:40%;text-align:center;white-space: nowrap;top:20%;left:20%;'>";
 
@@ -76,8 +76,19 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
     var slider = document.getElementById('slider');
 
-    var offset = (document.getElementById("prompt-container").offsetHeight + 6);
-    document.getElementById("slider-container").style.top = "calc(20% + " + offset + "px)";
+    var offset = (document.getElementById("prompt-container").offsetHeight/2);
+    slider_container = document.getElementById("slider-container");
+    slider_container.style.top = "auto";
+    slider_container.style.marginTop = (offset + 12) + "px";
+    slider_container.style.width = document.getElementById("prompt-container").offsetWidth + "px";
+    image = document.images[0];
+    if (image) {
+      image.style.top = -(image.parentElement.offsetWidth / image.width * image.height / 2) + "px";
+      image.style.position = "absolute";
+    }
+    else{
+      document.getElementById("prompt-container").style.marginTop = -slider_container.offsetHeight + "px";
+    }
 
     document.onkeydown = function(event) {
       var key = event.keyCode;
@@ -99,7 +110,7 @@ jsPsych.plugins["slider-with-options"] = (function() {
           endtrial();
         }
       }
-    },trial.show_for)
+    }, trial.show_for)
 
     function endtrial() {
       // measure response time
