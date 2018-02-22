@@ -15,6 +15,9 @@ Blocks f1 and f5
 
 */
 
+var randomize_questions = true; //true for randomization of questions, false for questions in order
+var randomize_animations = true; //true for randomization of questions, false for questions in order
+
 onkeydown = function block_fkeys(event) {
   var x = event.which || event.keyCode;
   if (x == 112 || x == 116) {
@@ -37,6 +40,9 @@ var instructions_1 = {
   on_start: function(trial) {
     getFrames();
     getQuestions();
+  },
+  on_finish: function(data) {
+    delete(data.view_history);
   }
 }
 
@@ -47,7 +53,10 @@ var instructions_2 = {
   data: {
     trialId: "instructions_2"
   },
-  key_forward: "downarrow"
+  key_forward: "downarrow",
+  on_finish: function(data) {
+    delete(data.view_history);
+  }
 }
 
 var instructions_3 = {
@@ -68,7 +77,10 @@ var instructions_4 = {
   data: {
     trialId: "instructions_4"
   },
-  key_forward: "downarrow"
+  key_forward: "downarrow",
+  on_finish: function(data) {
+    delete(data.view_history);
+  }
 }
 
 var instructions_5 = {
@@ -78,7 +90,10 @@ var instructions_5 = {
   data: {
     trialId: "instructions_5"
   },
-  key_forward: "downarrow"
+  key_forward: "downarrow",
+  on_finish: function(data) {
+    delete(data.view_history);
+  }
 }
 
 var practice_animation = {
@@ -90,7 +105,10 @@ var practice_animation = {
     rt: 500,
     trialId: "instructions_practice"
   },
-  choices: ["downarrow"]
+  choices: ["downarrow"],
+  on_finish: function(data) {
+    delete(data.key_press);
+  }
 }
 
 var practice_response = {
@@ -111,7 +129,10 @@ var instructions_6 = {
   data: {
     trialId: "instructions_6"
   },
-  key_forward: "downarrow"
+  key_forward: "downarrow",
+  on_finish: function(data) {
+    delete(data.view_history);
+  }
 }
 
 var goodbye = {
@@ -121,7 +142,10 @@ var goodbye = {
   data: {
     trialId: "goodbye"
   },
-  key_forward: "downarrow"
+  key_forward: "downarrow",
+  on_finish: function(data) {
+    delete(data.view_history);
+  }
 }
 
 var empatia_por_dolor = [];
@@ -158,8 +182,31 @@ function create_trials() {
     stimulus: jsPsych.timelineVariable('stimulus'),
     choices: jsPsych.NO_KEYS,
     stimulus_duration: [500, 200],
-    data: jsPsych.timelineVariable('data'),
-    choices: ["downarrow"]
+    data: jsPsych.timelineVariable('data_animation'),
+    choices: ["downarrow"],
+    on_finish: function(data) {
+      data.trialId = "id_" + data.animation_id;
+      delete(data.animation_id);
+      delete(data.key_press);
+    }
+  }
+
+  var on_purpose = {
+    type: 'slider-with-options',
+    prompt: jsPsych.timelineVariable('stimulus'),
+    scale_question: "¿Fué esto a proposito?",
+    left_option: "No",
+    rigth_option: "Si",
+    scale_start: -1,
+    scale_end: 1,
+    on_start: function(trial) {
+      trial.prompt = '<img src="' + trial.prompt[2] + '">';
+    },
+    on_finish: function(data) {
+      animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11)
+      data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus
+      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId + "_question_" + 0;
+    }
   }
 
   var question = {
@@ -168,9 +215,15 @@ function create_trials() {
     scale_question: jsPsych.timelineVariable('scale_question'),
     left_option: jsPsych.timelineVariable('left_option'),
     rigth_option: jsPsych.timelineVariable('rigth_option'),
-    data: jsPsych.timelineVariable('data'),
-    on_start: function(trial){
+    data: jsPsych.timelineVariable('data_question'),
+    on_start: function(trial) {
       trial.prompt = '<img src="' + trial.prompt[2] + '">';
+    },
+    on_finish: function(data) {
+      animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11)
+      data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus
+      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId + "_question_" + data.question_id;
+      delete(data.question_id)
     }
   }
 
@@ -179,7 +232,7 @@ function create_trials() {
   frames.forEach(function(frame) {
     animations.push({
       stimulus: ['experimento/' + frame[0], 'experimento/' + frame[1], 'experimento/' + frame[2]],
-      data: {
+      data_animation: {
         animation_id: index
       }
     })
@@ -193,7 +246,7 @@ function create_trials() {
       scale_question: question.question,
       left_option: question.low,
       rigth_option: question.high,
-      data: {
+      data_question: {
         question_id: question_index
       }
     })
@@ -201,11 +254,12 @@ function create_trials() {
   })
 
   jsPsych.addNodeToEndOfTimeline({
-    timeline: [animation, {
+    timeline: [animation, on_purpose, {
       timeline: [question],
+      randomize_order: randomize_questions,
       timeline_variables: questions_variables
     }],
-    randomize_order: true, //Change to false for default order.
+    randomize_order: randomize_animations, //Change to false for default order.
     timeline_variables: animations
   })
 }
@@ -226,6 +280,7 @@ function getFrames() {
   var frames_csv = new XMLHttpRequest();
   frames_csv.open('GET', 'listado_items.csv');
   frames_csv.responseType = "text";
+  ["stimulus"]
   frames_csv.onreadystatechange = function() {
     if (frames_csv.readyState === 4) {
       if (frames_csv.status === 200 || frames_csv.status == 0) {

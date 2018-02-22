@@ -113,8 +113,8 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
       // gather the data to store for the trial
       var trial_data = {
         "rt": response.rt,
-        "stimulus": trial.stimulus,
-        "key_press": response.key
+        "key_press": response.key,
+        stimulus: trial.stimulus[2]
       };
 
       // clear the display
@@ -126,11 +126,6 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
 
     // function to handle responses by the subject
     var after_response = function(info) {
-
-      // only record the first response
-      if (response.key == null) {
-        response = info;
-      }
 
       if (trial.response_ends_trial) {
         end_trial();

@@ -76,7 +76,7 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
     var slider = document.getElementById('slider');
 
-    var offset = (document.getElementById("prompt-container").offsetHeight/2);
+    var offset = (document.getElementById("prompt-container").offsetHeight / 2);
     slider_container = document.getElementById("slider-container");
     slider_container.style.top = "auto";
     slider_container.style.marginTop = (offset + 12) + "px";
@@ -85,8 +85,7 @@ jsPsych.plugins["slider-with-options"] = (function() {
     if (image) {
       image.style.top = -(image.parentElement.offsetWidth / image.width * image.height / 2) + "px";
       image.style.position = "absolute";
-    }
-    else{
+    } else {
       document.getElementById("prompt-container").style.marginTop = -slider_container.offsetHeight + "px";
     }
 
@@ -119,8 +118,9 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
       // save data
       var trialdata = {
+        rt: response_time,
         response: slider.value,
-        rt: response_time
+        question: trial.scale_question
       };
 
       display_element.innerHTML = '';
