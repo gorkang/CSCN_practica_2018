@@ -110,6 +110,7 @@ var mainexplanation = {
 var survey_sure = {
     type: 'html-slider-response',
     stimulus: '¿Que tan seguro te sientes con tu respuesta (en porcentaje)?',
+    required: true,
     labels: ['0%', '100%'],
     //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
@@ -117,6 +118,7 @@ var survey_sure = {
 var survey_difficult = {
     type: 'html-slider-response',
     stimulus: '¿Cual es la dificultad del problema que acabas de resolver?',
+    required: true,
     labels: ['Muy baja', 'Muy alta'],
     //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
@@ -411,14 +413,37 @@ function createTrial() { //accordig to response
             }
         } else if (csvData[i].response_type == "probabilities_slider") {
 
-            var temp = responses[i].split("\n");
+            var tempo = responses[i].split("\n");
 
             var typeTrial = {
                 type: 'html-slider-response',
-                stimulus: prompts[i] + "<br>" + temp[0],
-                labels: [temp[1], temp[2]],
+                data: {
+                    trialid: "choice_" + csvData[i].ID
+                },
+                stimulus: prompts[i] + "<br>" + tempo[0],
+                required: true,
+                labels: [tempo[1], tempo[2]],
             };
+        } else if (csvData[i].response_type == "relative_frecuencies") {
+
+            var tempo = responses[i].split("\n");
+
+            var typeTrial = {
+                type: "survey-multi-choiceOG",
+                data: {
+                    trialid: "choice_" + csvData[i].ID
+                },
+                questions: [{
+                    prompt: prompts[i] + "<br>" +tempo[0],
+                    options: [tempo[1], tempo[2]],
+                    required: true,
+                    horizontal: false
+                }]
+            }
         }
+
+
+
         var temp_time = [introToTrial, typeTrial];
 
         if (csvData[i].pregunta_seguridad == "si" || (csvData[i].pregunta_seguridad == null && askSure)) {
