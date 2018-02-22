@@ -424,7 +424,7 @@ function createTrial() { //accordig to response
                 required: true,
                 labels: [tempo[1], tempo[2]],
             };
-        } else if (csvData[i].response_type == "relative_frecuencies") {
+        } else if (csvData[i].response_type == "relative_frecuencies" || csvData[i].response_type == "relative_chances") {
 
             var tempo = responses[i].split("\n");
 
