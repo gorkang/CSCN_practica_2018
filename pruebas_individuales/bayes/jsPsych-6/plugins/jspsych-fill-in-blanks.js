@@ -59,6 +59,18 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
         pretty_name: 'Button label',
         default:  'Continue',
         description: 'The text that appears on the button to finish the trial.'
+      },
+      low_limit: {
+        type: jsPsych.plugins.parameterType.FLOAT,
+        pretty_name: 'low limit',
+        default:  Number.NEGATIVE_INFINITY,
+        description: 'The inferior limit for every number in fill-in.'
+      },
+      high_limit: {
+        type: jsPsych.plugins.parameterType.FLOAT,
+        pretty_name: 'high limit',
+        default:  Number.POSITIVE_INFINITY,
+        description: 'The superior limit for every number in fill-in.'
       }
     }
   }
@@ -157,12 +169,16 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
     display_element.querySelector('#jspsych-fill-in-blanks-next').addEventListener('click', function(e) {
       var matches = display_element.querySelector('div.jspsych-fill-in-blanks-questions').querySelectorAll('textarea, input, select');
       var all_filled = true;
+      var limits = true;
       matches.forEach(function(match){
         if(match.value.length == 0){
           all_filled = false;
         }
+        if (match.value < trial.low_limit || match.value > trial.high_limit ){
+            limits = false;
+        }
       });
-      if(all_filled){
+      if(all_filled && limits){
         // measure response time
         var endTime = (new Date()).getTime();
         var response_time = endTime - startTime;
@@ -188,7 +204,7 @@ jsPsych.plugins['fill-in-blanks'] = (function() {
         jsPsych.finishTrial(trialdata);
     }
     else{
-      display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Debes rellenar todos los campos.</span>';
+      display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Debes rellenar todos los campos con valores validos.</span>';
     }
     });
 

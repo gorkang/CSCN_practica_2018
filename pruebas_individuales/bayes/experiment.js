@@ -454,6 +454,19 @@ function createTrial() { //accordig to response
                     console.log(responses);
                 }
             }
+        } else if (csvData[i].response_type == "probabilities_quantitative") {
+
+            var typeTrial = {
+                type: "fill-in-blanks",
+                preamble: prompts[i],
+                data: {
+                    trialid: "fill_in_" + csvData[i].ID
+                },
+                fill_in_type: "number",
+                fill_in_text: responses[i],
+                high_limit: 100,
+                low_limit:0
+            }
         }
 
 
