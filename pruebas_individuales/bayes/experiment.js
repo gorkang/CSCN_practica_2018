@@ -261,27 +261,27 @@ function obtainFollowUp() {
             threads.push(readTextFile(path, follows1, i));
         }
         if (csvData[i].pregunta_follow_up2 == "si" || (csvData[i].pregunta_follow_up2 == null && askFollowUp)) {
-            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_2.txt";
             //adds the process of reading the text to the list of process
             threads.push(readTextFile(path, follows2, i));
         }
         if (csvData[i].pregunta_follow_up3 == "si" || (csvData[i].pregunta_follow_up3 == null && askFollowUp)) {
-            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_3.txt";
             //adds the process of reading the text to the list of process
             threads.push(readTextFile(path, follows3, i));
         }
         if (csvData[i].pregunta_follow_up4 == "si" || (csvData[i].pregunta_follow_up4 == null && askFollowUp)) {
-            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_4.txt";
             //adds the process of reading the text to the list of process
             threads.push(readTextFile(path, follows4, i));
         }
         if (csvData[i].pregunta_follow_up5 == "si" || (csvData[i].pregunta_follow_up5 == null && askFollowUp)) {
-            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_5.txt";
             //adds the process of reading the text to the list of process
             threads.push(readTextFile(path, follows5, i));
         }
         if (csvData[i].pregunta_follow_up6 == "si" || (csvData[i].pregunta_follow_up6 == null && askFollowUp)) {
-            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_6.txt";
             //adds the process of reading the text to the list of process
             threads.push(readTextFile(path, follows6, i));
         }
@@ -408,7 +408,7 @@ function createFollows(i, temp_time){
     if (csvData[i].pregunta_follow_up1 == "si" || (csvData[i].pregunta_follow_up1 == null && askFollowUp)) {
         var page_1_options = ["YES", "NO"];
 
-        var survey_follow = {
+        var survey_follow1 = {
             type: 'survey-multi-choice',
             data: {
                 trialid: csvData[i].ID,
@@ -421,9 +421,43 @@ function createFollows(i, temp_time){
                 horizontal: true,
             }],
         };
-
-        temp_time.push(survey_follow);
+        temp_time.push(survey_follow1);
     }
+    if (csvData[i].pregunta_follow_up2 == "si" || (csvData[i].pregunta_follow_up2 == null && askFollowUp)) {
+        var tempo = follows2[i].split("\n");;
+
+        var survey_follow2 = {
+            type: 'survey-multi-choice',
+            data: {
+                trialid: csvData[i].ID,
+                trial_detail: "follow_up"
+            },
+            questions: [{
+                prompt: tempo[0],
+                options: [tempo[1], tempo[2]],
+                required: true,
+                horizontal: true,
+            }],
+        };
+        temp_time.push(survey_follow2);
+    }
+    if (csvData[i].pregunta_follow_up3 == "si" || (csvData[i].pregunta_follow_up3 == null && askFollowUp)) {
+        var tempo = follows3[i].split("\n");;
+
+        var survey_follow3 = {
+            type: 'html-slider-response',
+            data: {
+                trialid: csvData[i].ID,
+                trial_detail: "follow_up"
+            },
+            stimulus: tempo[0],
+            required: true,
+            labels: [tempo[1], tempo[2]],
+        };
+        temp_time.push(survey_follow3);
+    }
+
+
 
 }
 
@@ -492,7 +526,7 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: 'html-slider-response',
                 data: {
-                    //trialid: csvData[i].ID,
+                    trialid: csvData[i].ID,
                     trial_detail: csvData[i].response_type
                 },
                 stimulus: prompts[i] + "<br>" + tempo[0],
