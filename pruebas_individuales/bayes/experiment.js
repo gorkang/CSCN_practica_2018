@@ -420,7 +420,7 @@ function createFollows(i, temp_time) {
                 required: true,
                 horizontal: true,
             }],
-            on_finish: function(data){
+            on_finish: function(data) {
                 console.log(data.responses);
             }
         };
@@ -537,6 +537,17 @@ function createFollows(i, temp_time) {
 
             temp_time.push(survey_follow4);
         }
+    }
+    if (csvData[i].pregunta_follow_up5 == "si" || (csvData[i].pregunta_follow_up5 == null && askFollowUp)) {
+
+        var survey_follow5 = {
+            type: 'survey-text',
+            questions: [{
+                prompt: follows5[i]
+            }],
+        };
+
+        temp_time.push(survey_follow5);
     }
 
 
