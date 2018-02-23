@@ -192,3 +192,8 @@ input[type=number] {
   appearance: textfield;
   margin: 0;
 }
+
+p.indicador{
+  text-align: center;
+  color:  	#0000FF;
+}

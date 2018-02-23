@@ -1,5 +1,5 @@
 ID,problem_context,prob,presentation_format,response_type,Participante,pregunta_seguridad,pregunta_dificultad,pregunta_follow_up,relative_question
-18,ca,low,nfab,sequential_guided,1,si,si,si,
+18,ca,low,nfab,probabilities_slider,1,si,si,si,
 21,pr,high,prre,probabilities_quantitative,1,si,si,si,relative_chances
 27,ca,low,pifb,probabilities_qualitative,1,si,si,si,relative_frequencies
 32,pr,high,nfab,relative_frequencies,1,si,si,si,
