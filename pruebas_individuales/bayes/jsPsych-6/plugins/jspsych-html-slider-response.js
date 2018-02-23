@@ -144,11 +144,13 @@ jsPsych.plugins['html-slider-response'] = (function() {
     function end_trial(){
 
       jsPsych.pluginAPI.clearAllTimeouts();
-
+      var previous = {
+          "Q0" : response.response
+      }
       // save data
       var trialdata = {
         "rt": response.rt,
-        "responses": response.response,
+        "responses": JSON.stringify(previous),
         "stimulus": trial.stimulus
       };
 
