@@ -221,9 +221,13 @@ function obtainQuestion() {
     var path;
     //for each trial, make the corresponding path to file and read the data
     for (var i = 0; i < csvData.length; i++) {
-        path = "bayes_materiales/ppv_question/input/" + csvData[i].problem_context + "_question.txt";
-        //adds the process of reading the text to the list of process
-        threads.push(readTextFile(path, questions, i));
+        if (csvData[i].show_question == "si" || csvData[i].show_question == null) {
+            path = "bayes_materiales/ppv_question/input/" + csvData[i].problem_context + "_question.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, questions, i));
+        }else{
+            questions[i] = "";
+        }
     }
 };
 
@@ -452,7 +456,7 @@ function createTrial() { //accordig to response
                     trial_detail: csvData[i].response_type
                 },
                 questions: [{
-                    prompt: prompts[i] + "<br>" +tempo[0],
+                    prompt: prompts[i] + "<br>" + tempo[0],
                     options: [tempo[1], tempo[2]],
                     required: true,
                     horizontal: false
@@ -485,7 +489,7 @@ function createTrial() { //accordig to response
                 fill_in_type: "number",
                 fill_in_text: responses[i],
                 high_limit: 100,
-                low_limit:0
+                low_limit: 0
             }
         }
 
