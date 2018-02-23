@@ -68,11 +68,12 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
     new_html = '';
 
     image_index = 0;
+    new_html += "<p style='position:absolute;top:auto;left:20%;width: 60%;'>"
     trial.stimulus.forEach(function(image) {
-      jsPsych
-      new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;top:20%;left:20%;width: 60%;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
+      new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
       image_index += 1;
     })
+    new_html += "</p>"
 
     // add prompt
     if (trial.prompt !== null) {
@@ -84,6 +85,14 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
 
     document.getElementById("jspsych-animation-keyboard-response-stimulus-0").hidden = false;
 
+    image_index = 0;
+    trial.stimulus.forEach(function(stimulus_image) {
+      image = document.getElementById("jspsych-animation-keyboard-response-stimulus-" + image_index);
+      image.onload = function(event) {
+        event.target.style.top = Math.floor(-(event.target.parentElement.offsetWidth / event.target.width * event.target.height / 2)) + "px";
+      }
+      image_index += 1;
+    })
     // store response
     var response = {
       rt: null,
@@ -104,8 +113,8 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
       // gather the data to store for the trial
       var trial_data = {
         "rt": response.rt,
-        "stimulus": trial.stimulus,
-        "key_press": response.key
+        "key_press": response.key,
+        stimulus: trial.stimulus[2]
       };
 
       // clear the display
@@ -117,11 +126,6 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
 
     // function to handle responses by the subject
     var after_response = function(info) {
-
-      // only record the first response
-      if (response.key == null) {
-        response = info;
-      }
 
       if (trial.response_ends_trial) {
         end_trial();

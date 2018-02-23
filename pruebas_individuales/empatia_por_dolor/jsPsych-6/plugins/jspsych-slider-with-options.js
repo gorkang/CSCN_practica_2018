@@ -54,16 +54,16 @@ jsPsych.plugins["slider-with-options"] = (function() {
         type: jsPsych.plugins.parameterType.INT,
         array: false,
         pretty_name: 'Show for',
-        default: 200
+        default: 1000
       }
     }
   }
 
   plugin.trial = function(display_element, trial) {
 
-    html = "<p>" + trial.prompt + "</p>";
+    html = "<p id='prompt-container'<p style='position:absolute;top:auto;left:20%;width: 60%;'>" + trial.prompt + "</p>";
 
-    html += "<div id='slider-container' style='position:absolute;width:40%;text-align:center;white-space: nowrap;'>";
+    html += "<div id='slider-container' style='position:absolute;width:40%;text-align:center;white-space: nowrap;top:20%;left:20%;'>";
 
     html += "<strong>" + trial.scale_question + "</strong><br>";
     html += "<strong style='text-align:right;display:inline-block'>" + trial.left_option + "</strong>";
@@ -75,6 +75,19 @@ jsPsych.plugins["slider-with-options"] = (function() {
     display_element.innerHTML = html;
 
     var slider = document.getElementById('slider');
+
+    var offset = (document.getElementById("prompt-container").offsetHeight / 2);
+    slider_container = document.getElementById("slider-container");
+    slider_container.style.top = "auto";
+    slider_container.style.marginTop = (offset + 12) + "px";
+    slider_container.style.width = document.getElementById("prompt-container").offsetWidth + "px";
+    image = document.images[0];
+    if (image) {
+      image.style.top = -(image.parentElement.offsetWidth / image.width * image.height / 2) + "px";
+      image.style.position = "absolute";
+    } else {
+      document.getElementById("prompt-container").style.marginTop = -slider_container.offsetHeight + "px";
+    }
 
     document.onkeydown = function(event) {
       var key = event.keyCode;
@@ -96,7 +109,7 @@ jsPsych.plugins["slider-with-options"] = (function() {
           endtrial();
         }
       }
-    },trial.show_for)
+    }, trial.show_for)
 
     function endtrial() {
       // measure response time
@@ -105,8 +118,9 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
       // save data
       var trialdata = {
+        rt: response_time,
         response: slider.value,
-        rt: response_time
+        question: trial.scale_question
       };
 
       display_element.innerHTML = '';

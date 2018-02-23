@@ -181,6 +181,6 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-img#jspsych-image-keyboard-response-stimulus{
+img {
   width: 100%;
 }
