@@ -230,7 +230,7 @@ function obtainQuestion() {
             path = "bayes_materiales/ppv_question/input/" + csvData[i].problem_context + "_question.txt";
             //adds the process of reading the text to the list of process
             threads.push(readTextFile(path, questions, i));
-        }else{
+        } else {
             questions[i] = "";
         }
     }
@@ -404,7 +404,7 @@ function createPrompt() {
     console.log(prompts);
 };
 
-function createFollows(i, temp_time){
+function createFollows(i, temp_time) {
     if (csvData[i].pregunta_follow_up1 == "si" || (csvData[i].pregunta_follow_up1 == null && askFollowUp)) {
         var page_1_options = ["YES", "NO"];
 
@@ -422,9 +422,54 @@ function createFollows(i, temp_time){
             }],
         };
         temp_time.push(survey_follow1);
+
+        if (csvData[i].pregunta_follow_up6 == "si" || (csvData[i].pregunta_follow_up6 == null && askFollowUp)) {
+            var tempo = follows6[i].split("\n");
+
+            var survey_follow6A = {
+                type: 'html-slider-response',
+                data: {
+                    trialid: csvData[i].ID,
+                    trial_detail: "follow_up"
+                },
+                stimulus: tempo[0],
+                required: true,
+                labels: [0, 100],
+            };
+
+            var survey_follow6B = {
+                type: 'html-slider-response',
+                data: {
+                    trialid: csvData[i].ID,
+                    trial_detail: "follow_up"
+                },
+                stimulus: tempo[1],
+                required: true,
+                labels: [0, 100],
+            };
+
+            var if_node = {
+                timeline: [if_trial],
+                conditional_function: function() {
+                    // get the data from the previous trial,
+                    // and check which key was pressed
+                    var data = jsPsych.data.get().last(1).values()[0];
+                    if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('s')) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }
+
+            temp_time.push(survey_follow6A);
+            temp_time.push(survey_follow6B);
+
+
+        }
     }
     if (csvData[i].pregunta_follow_up2 == "si" || (csvData[i].pregunta_follow_up2 == null && askFollowUp)) {
-        var tempo = follows2[i].split("\n");;
+        var tempo = follows2[i].split("\n");
 
         var survey_follow2 = {
             type: 'survey-multi-choice',
@@ -458,7 +503,7 @@ function createFollows(i, temp_time){
     }
     if (csvData[i].pregunta_follow_up4 == "si" || (csvData[i].pregunta_follow_up4 == null && askFollowUp)) {
         var tempo = follows4[i].split("\n");;
-        for (var j = 1; j<tempo.length-1; j+=2){
+        for (var j = 1; j < tempo.length - 1; j += 2) {
 
             var survey_follow4 = {
                 type: 'html-slider-response',
@@ -466,9 +511,9 @@ function createFollows(i, temp_time){
                     trialid: csvData[i].ID,
                     trial_detail: "follow_up"
                 },
-                stimulus: tempo[0]+"<br>"+tempo[j],
+                stimulus: tempo[0] + "<br>" + tempo[j],
                 required: true,
-                labels: tempo[j+1].split("-"),
+                labels: tempo[j + 1].split("-"),
             };
 
             temp_time.push(survey_follow4);
