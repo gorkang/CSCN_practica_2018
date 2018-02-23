@@ -182,3 +182,7 @@ input[type=number]::-webkit-outer-spin-button {
 img {
     width: 100%;
 }
+
+input[type="number"] {
+    width: 5em;
+}
