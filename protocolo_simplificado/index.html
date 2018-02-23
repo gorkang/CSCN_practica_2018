@@ -39,7 +39,7 @@
       'BIS_barratt_impulsiveness_scale', 'becks_depression_inventory'
     ];
     var experiments_random = shuffle(['empatia_por_dolor']);
-    var experiments = experiments_random.slice(0,1);
+    var experiments = experiments_random.slice(0, 1);
     var enable_JSZip = true;
     if (typeof(experiments) == "string") {
       experiments = experiments.split(',');
@@ -277,9 +277,13 @@
                 local_save(blob, "participant_" + user_id + ".zip");
               });
           } else {
-            local_save(new Blob([participan_json[experiment]], {
-              type: 'text/plain'
-            }), user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv")
+            for (var experiment in participan_json) {
+              if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
+                local_save(new Blob([participan_json[experiment]], {
+                  type: 'text/plain'
+                }), user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv")
+              }
+            }
           }
         }
       });
