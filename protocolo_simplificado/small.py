@@ -22,7 +22,7 @@ else:
     for exp_number,exp_name in csv_list[1:]:
         if(exp_name in experiments):
             if(shuffle):
-                exp_list += str(shuffle_number) + ") + ',"
+                exp_list += str(shuffle_number + 1) + ") + ',"
                 shuffle_number += 1
                 shuffle = False
             experiments.remove(exp_name)

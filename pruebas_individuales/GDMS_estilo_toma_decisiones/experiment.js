@@ -138,7 +138,7 @@ var survey17 = {
 
 var survey18 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />I often prorastinate when it comes to making important decisions.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />I often procrastinate when it comes to making important decisions.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 

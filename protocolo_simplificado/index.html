@@ -3,7 +3,6 @@
 
 <head>
   <meta charset='UTF-8'>
-  <meta name="robots" content="noindex">
   <title>Experimentos CSCN</title>
 </head>
 
@@ -216,25 +215,37 @@
       }
     }
 
-    function check_local_storage(experiment) {
-      if (localStorage[user_id]) {
+    function check_local_storage(experiment, user_id) {
+      if (experiment == '') {
+        return true;
+      } else if (localStorage[user_id]) {
         user_data = JSON.parse(localStorage[user_id]);
-        if (user_data.completed_experiments.split(',').includes(experiment) || experiment == '') {
+        if (user_data.completed_experiments.split(',').includes(experiment)) {
           return true;
         } else {
           return false;
         }
-      } else if (experiment == '') {
-        return true;
       } else {
         return false;
       }
     }
 
     function skip_to_last() {
-      while (check_local_storage(currentExperiment)) {
-        currentExperiment = experiments.pop();
-      }
+      user_id = document.getElementById("user_id").value;
+      sonest_date = new Date(0);
+      last_experiment = "";
+      starting_experiments = experiments.slice();
+      starting_experiments.forEach(function(experiment) {
+        if (check_local_storage(experiment, user_id)) {
+          experiments.splice(experiments.indexOf(experiment), 1);
+          experiment_date = new Date(JSON.parse(localStorage[user_id])[experiment + "_date"]);
+          if (experiment_date > sonest_date) {
+            sonest_date = experiment_date;
+            last_experiment = experiment;
+          }
+        };
+      })
+      currentExperiment = last_experiment;
     }
 
     function check_id_status(event) {
