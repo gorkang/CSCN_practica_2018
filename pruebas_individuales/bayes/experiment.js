@@ -456,6 +456,24 @@ function createFollows(i, temp_time){
         };
         temp_time.push(survey_follow3);
     }
+    if (csvData[i].pregunta_follow_up4 == "si" || (csvData[i].pregunta_follow_up4 == null && askFollowUp)) {
+        var tempo = follows4[i].split("\n");;
+        for (var j = 1; j<tempo.length-1; j+=2){
+
+            var survey_follow4 = {
+                type: 'html-slider-response',
+                data: {
+                    trialid: csvData[i].ID,
+                    trial_detail: "follow_up"
+                },
+                stimulus: tempo[0]+"<br>"+tempo[j],
+                required: true,
+                labels: tempo[j+1].split("-"),
+            };
+
+            temp_time.push(survey_follow4);
+        }
+    }
 
 
 
