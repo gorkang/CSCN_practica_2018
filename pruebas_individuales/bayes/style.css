@@ -184,5 +184,11 @@ img {
 }
 
 input[type="number"] {
-    width: 5em;
+    width: 3em;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
 }
