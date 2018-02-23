@@ -493,7 +493,7 @@ function createTrial() { //accordig to response
             }
         }
 
-
+        typeTrial.data = Object.assign(typeTrial.data, csvData[i]);
 
         var temp_time = [introToTrial, typeTrial];
 
