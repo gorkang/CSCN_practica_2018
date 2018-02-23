@@ -41,7 +41,7 @@
     var experiments_random = shuffle(['empatia_por_dolor']);
     var experiments = experiments_random.slice(0,1);
     var enable_JSZip = true;
-    if (typeof(experiment) == "string") {
+    if (typeof(experiments) == "string") {
       experiments = experiments.split(',');
     }
     experiments.reverse();
