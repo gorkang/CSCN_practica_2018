@@ -401,7 +401,7 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: "survey-multi-choice",
                 data: {
-                    trialid: "choice_" + csvData[i].ID
+                    trialid: csvData[i].ID
                 },
                 questions: [{
                     prompt: prompts[i],
@@ -420,7 +420,7 @@ function createTrial() { //accordig to response
                 type: "fill-in-blanks",
                 preamble: prompts[i],
                 data: {
-                    trialid: "fill_in_" + csvData[i].ID
+                    trialid: csvData[i].ID
                 },
                 fill_in_type: "number",
                 fill_in_text: responses[i]
@@ -432,7 +432,7 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: 'html-slider-response',
                 data: {
-                    trialid: "choice_" + csvData[i].ID
+                    trialid: csvData[i].ID
                 },
                 stimulus: prompts[i] + "<br>" + tempo[0],
                 required: true,
@@ -445,7 +445,7 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: "survey-multi-choiceOG",
                 data: {
-                    trialid: "choice_" + csvData[i].ID
+                    trialid: csvData[i].ID
                 },
                 questions: [{
                     prompt: prompts[i] + "<br>" +tempo[0],
@@ -460,7 +460,7 @@ function createTrial() { //accordig to response
                 type: "fill-in-blanksINC",
                 preamble: prompts[i],
                 data: {
-                    trialid: "fill_in_" + csvData[i].ID
+                    trialid: csvData[i].ID
                 },
                 fill_in_type: "number",
                 fill_in_text: responses[i],
@@ -474,7 +474,7 @@ function createTrial() { //accordig to response
                 type: "fill-in-blanks",
                 preamble: prompts[i],
                 data: {
-                    trialid: "fill_in_" + csvData[i].ID
+                    trialid: csvData[i].ID
                 },
                 fill_in_type: "number",
                 fill_in_text: responses[i],
