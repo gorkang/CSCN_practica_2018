@@ -34,7 +34,12 @@ if (document.URL.includes("\?")) {
 var relatives = [];
 
 var csvData = []; // objects representing trial related data
-var follows = [];
+var follows1 = [];
+var follows2 = [];
+var follows3 = [];
+var follows4 = [];
+var follows5 = [];
+var follows6 = [];
 var formats = {}; // strings with the format of each question
 var contexts = {}; // strings with the context of each question
 var responses = {}; // strings with the response of each question
@@ -251,10 +256,36 @@ function obtainFollowUp() {
     var path;
     for (var i = 0; i < csvData.length; i++) {
         if (csvData[i].pregunta_follow_up1 == "si" || (csvData[i].pregunta_follow_up1 == null && askFollowUp)) {
-            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu.txt";
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
             //adds the process of reading the text to the list of process
-            threads.push(readTextFile(path, follows, i));
+            threads.push(readTextFile(path, follows1, i));
         }
+        if (csvData[i].pregunta_follow_up2 == "si" || (csvData[i].pregunta_follow_up2 == null && askFollowUp)) {
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, follows2, i));
+        }
+        if (csvData[i].pregunta_follow_up3 == "si" || (csvData[i].pregunta_follow_up3 == null && askFollowUp)) {
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, follows3, i));
+        }
+        if (csvData[i].pregunta_follow_up4 == "si" || (csvData[i].pregunta_follow_up4 == null && askFollowUp)) {
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, follows4, i));
+        }
+        if (csvData[i].pregunta_follow_up5 == "si" || (csvData[i].pregunta_follow_up5 == null && askFollowUp)) {
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, follows5, i));
+        }
+        if (csvData[i].pregunta_follow_up6 == "si" || (csvData[i].pregunta_follow_up6 == null && askFollowUp)) {
+            path = "bayes_materiales/follow_up/input/" + csvData[i].problem_context + "_fu_1.txt";
+            //adds the process of reading the text to the list of process
+            threads.push(readTextFile(path, follows6, i));
+        }
+
     }
 };
 
@@ -329,13 +360,13 @@ function createPrompt() {
         qQuestion = questions[i];
 
         if (csvData[i].pregunta_follow_up1 == "si" || (csvData[i].pregunta_follow_up1 == null && askFollowUp)) {
-            qFollow = follows[i];
+            qFollow = follows1[i];
             for (key in qNumbers) {
                 //replace the keywords with its corresponding numeric value using regular expressions
                 reg = "\\b" + key; // \bword\b
                 qFollow = qFollow.replace(new RegExp(reg, 'g'), qNumbers[key]);
                 qFollow = qFollow.replace(/\n/g, "<br />");
-                follows[i] = qFollow;
+                follows1[i] = qFollow;
             }
         }
 
@@ -372,6 +403,29 @@ function createPrompt() {
     console.log(questions.length);
     console.log(prompts);
 };
+
+function createFollows(i, temp_time){
+    if (csvData[i].pregunta_follow_up1 == "si" || (csvData[i].pregunta_follow_up1 == null && askFollowUp)) {
+        var page_1_options = ["YES", "NO"];
+
+        var survey_follow = {
+            type: 'survey-multi-choice',
+            data: {
+                trialid: csvData[i].ID,
+                trial_detail: "follow_up"
+            },
+            questions: [{
+                prompt: follows1[i],
+                options: page_1_options,
+                required: true,
+                horizontal: true,
+            }],
+        };
+
+        temp_time.push(survey_follow);
+    }
+
+}
 
 /**
 Creates the trials and adds them to the timeline
@@ -532,27 +586,8 @@ function createTrial() { //accordig to response
 
             temp_time.push(survey_difficult);
         }
-        if (csvData[i].pregunta_follow_up1 == "si" || (csvData[i].pregunta_follow_up1 == null && askFollowUp)) {
-            var page_1_options = ["YES", "NO"];
 
-            var survey_follow = {
-                type: 'survey-multi-choice',
-                data: {
-                    trialid: csvData[i].ID,
-                    trial_detail: "follow_up"
-                },
-                questions: [{
-                    prompt: follows[i],
-                    options: page_1_options,
-                    required: true,
-                    horizontal: true,
-                }],
-            };
-
-            temp_time.push(survey_follow);
-        }
-
-
+        createFollows(i, temp_time);
         //create a temporal timeline with the intro trial and the question trials
         //and append the temporal timeline to the definitive timeline
         var new_timeline = {
