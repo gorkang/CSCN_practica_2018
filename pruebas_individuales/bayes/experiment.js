@@ -420,6 +420,9 @@ function createFollows(i, temp_time) {
                 required: true,
                 horizontal: true,
             }],
+            on_finish: function(data){
+                console.log(data.responses);
+            }
         };
         temp_time.push(survey_follow1);
 
@@ -430,7 +433,7 @@ function createFollows(i, temp_time) {
                 type: 'html-slider-response',
                 data: {
                     trialid: csvData[i].ID,
-                    trial_detail: "follow_up"
+                    trial_detail: "follow_up_6_yes"
                 },
                 stimulus: tempo[0],
                 required: true,
@@ -441,20 +444,36 @@ function createFollows(i, temp_time) {
                 type: 'html-slider-response',
                 data: {
                     trialid: csvData[i].ID,
-                    trial_detail: "follow_up"
+                    trial_detail: "follow_up_6_no"
                 },
                 stimulus: tempo[1],
                 required: true,
                 labels: [0, 100],
             };
 
-            var if_node = {
-                timeline: [if_trial],
+            var if_correct = {
+                timeline: [survey_follow6A],
                 conditional_function: function() {
                     // get the data from the previous trial,
                     // and check which key was pressed
-                    var data = jsPsych.data.get().last(1).values()[0];
-                    if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('s')) {
+                    var respuesta = jsPsych.data.get().last(1).values()[0].responses;
+                    console.log(respuesta);
+                    if (respuesta == '{"Q0":"YES"}') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+
+            var if_wrong = {
+                timeline: [survey_follow6B],
+                conditional_function: function() {
+                    // get the data from the previous trial,
+                    // and check which key was pressed
+                    var respuesta = jsPsych.data.get().last(1).values()[0].responses;
+                    console.log(respuesta);
+                    if (respuesta == '{"Q0":"YES"}') {
                         return false;
                     } else {
                         return true;
@@ -462,8 +481,8 @@ function createFollows(i, temp_time) {
                 }
             }
 
-            temp_time.push(survey_follow6A);
-            temp_time.push(survey_follow6B);
+            temp_time.push(if_correct);
+            temp_time.push(if_wrong);
 
 
         }
