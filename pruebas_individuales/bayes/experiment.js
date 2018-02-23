@@ -401,7 +401,8 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: "survey-multi-choice",
                 data: {
-                    trialid: csvData[i].ID
+                    trialid: csvData[i].ID,
+                    trial_detail: csvData[i].response_type
                 },
                 questions: [{
                     prompt: prompts[i],
@@ -420,7 +421,8 @@ function createTrial() { //accordig to response
                 type: "fill-in-blanks",
                 preamble: prompts[i],
                 data: {
-                    trialid: csvData[i].ID
+                    trialid: csvData[i].ID,
+                    trial_detail: csvData[i].response_type
                 },
                 fill_in_type: "number",
                 fill_in_text: responses[i]
@@ -432,7 +434,8 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: 'html-slider-response',
                 data: {
-                    trialid: csvData[i].ID
+                    //trialid: csvData[i].ID,
+                    trial_detail: csvData[i].response_type
                 },
                 stimulus: prompts[i] + "<br>" + tempo[0],
                 required: true,
@@ -445,7 +448,8 @@ function createTrial() { //accordig to response
             var typeTrial = {
                 type: "survey-multi-choiceOG",
                 data: {
-                    trialid: csvData[i].ID
+                    trialid: csvData[i].ID,
+                    trial_detail: csvData[i].response_type
                 },
                 questions: [{
                     prompt: prompts[i] + "<br>" +tempo[0],
@@ -460,7 +464,8 @@ function createTrial() { //accordig to response
                 type: "fill-in-blanksINC",
                 preamble: prompts[i],
                 data: {
-                    trialid: csvData[i].ID
+                    trialid: csvData[i].ID,
+                    trial_detail: csvData[i].response_type
                 },
                 fill_in_type: "number",
                 fill_in_text: responses[i],
@@ -474,7 +479,8 @@ function createTrial() { //accordig to response
                 type: "fill-in-blanks",
                 preamble: prompts[i],
                 data: {
-                    trialid: csvData[i].ID
+                    trialid: csvData[i].ID,
+                    trial_detail: csvData[i].response_type
                 },
                 fill_in_type: "number",
                 fill_in_text: responses[i],
@@ -494,7 +500,8 @@ function createTrial() { //accordig to response
             var opt_rel = {
                 type: "survey-multi-choiceOG",
                 data: {
-                    trialid: csvData[i].relative_question+ "_" + csvData[i].ID
+                    trialid: csvData[i].ID,
+                    trial_detail: csvData[i].relative_question
                 },
                 questions: [{
                     prompt: tempo[0],
@@ -508,13 +515,15 @@ function createTrial() { //accordig to response
         }
         if (csvData[i].pregunta_seguridad == "si" || (csvData[i].pregunta_seguridad == null && askSure)) {
             survey_sure.data = {
-                trialid: "seguridad_" + csvData[i].ID
+                trialid: csvData[i].ID,
+                trial_detail: "seguridad"
             };
             temp_time.push(survey_sure);
         }
         if (csvData[i].pregunta_dificultad == "si" || (csvData[i].pregunta_dificultad == null && askDifficulty)) {
             survey_difficult.data = {
-                trialid: "dificultad_" + csvData[i].ID
+                trialid: csvData[i].ID,
+                trial_detail: "dificultad"
             };
 
             temp_time.push(survey_difficult);
@@ -525,7 +534,8 @@ function createTrial() { //accordig to response
             var survey_follow = {
                 type: 'survey-multi-choice',
                 data: {
-                    trialid: "follow_" + csvData[i].ID
+                    trialid: csvData[i].ID,
+                    trial_detail: "follow_up"
                 },
                 questions: [{
                     prompt: follows[i],
