@@ -60,6 +60,8 @@ var screen_BART_balloon_analogue_risk_task_experiment = {
     }
 };
 
+
+//BALLON TYPE RANDOM
 var survey03 = {
     type: "plugin-bart",
     colors: colores[Math.floor(Math.random() * colores.length)],
@@ -70,6 +72,8 @@ var survey03 = {
     idOfBallon: prueba_i,
     initialEarn: acumulado,
     on_finish: function(data) {
+
+        //recursively add the ballons till the limit
         if (prueba_i < pruebas) {
 
 
@@ -99,6 +103,7 @@ var survey03 = {
 
 };
 
+//BALLON TYPE MANUAL
 var survey04 = {
     type: "plugin-bart",
     colors: colors_manual[prueba_i-1],
@@ -110,6 +115,8 @@ var survey04 = {
     idOfBallon: prueba_i,
     initialEarn: acumulado,
     on_finish: function(data) {
+
+        //recursively add the ballons till the limit
         if (prueba_i < list_manual.length) {
             prueba_i += 1;
             console.log(data);

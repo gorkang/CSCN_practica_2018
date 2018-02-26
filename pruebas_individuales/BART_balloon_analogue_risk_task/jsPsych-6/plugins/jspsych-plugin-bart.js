@@ -13,25 +13,25 @@ jsPsych.plugins["plugin-bart"] = (function() {
                 type: jsPsych.plugins.parameterType.INT, // BOOL, STRING, INT, FLOAT, FUNCTION, KEYCODE, SELECT, HTML_STRING, IMAGE, AUDIO, VIDEO, OBJECT, COMPLEX
                 default: 1
             },
-            probabilities: {
+            probabilities: {//probabilitie of ballon
                 default: 10
             },
-            colors: {
+            colors: {//color of ballon
                 default: "green"
             },
-            eachEarns: {
+            eachEarns: {//earnings of ballon
                 default: 1
             },
-            manual: {
-                default: []
+            manual: {//whetever if manual or random
+                default: []//random
             },
-            initialEarn: {
+            initialEarn: {//sum of prevous erans
                 default: 0
             },
-            idOfBallon: {
+            idOfBallon: {//number of current ballon
                 default: 1
             },
-            total: {
+            total: {//total of ballons
                 default: 1
             }
         }
@@ -80,6 +80,7 @@ jsPsych.plugins["plugin-bart"] = (function() {
             });
         });
 
+        //executes everytime the trial ends
         var myend = function() {
             var response_time = (new Date()).getTime(); - startTime;
             var points = [];
