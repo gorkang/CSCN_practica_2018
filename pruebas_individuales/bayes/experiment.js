@@ -728,11 +728,11 @@ function createTrial() { //accordig to response
 };
 
 
-var bayes_experiment = []; //definitive timeline
+var razonamiento_bayesiano_experiment = []; //definitive timeline
 
 //if the experiment isn't in fullscreen, add trial to make it fullscreen
 if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
-    bayes_experiment.push({
+    razonamiento_bayesiano_experiment.push({
         type: 'fullscreen',
         message: '<p>El experimento entrara en modo pantalla completa</p>',
         button_label: "Pantalla Completa",
@@ -742,6 +742,6 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 }
 
 //add the trials to the timeline
-bayes_experiment.push(mainexplanation);
+razonamiento_bayesiano_experiment.push(mainexplanation);
 
 generate_questions();

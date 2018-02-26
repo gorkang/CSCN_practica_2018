@@ -1,11 +1,11 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"Bayes modular",
+    "instructions":"razonamiento_bayesiano modular",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "bayes",
-    "name": "Bayes",
+    "exp_id": "razonamiento_bayesiano",
+    "name": "razonamiento_bayesiano",
     "reference": [""],
     "template": "jspsych",
     "time": 10

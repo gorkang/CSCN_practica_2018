@@ -4,7 +4,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name="robots" content="noindex">
-  <title>Bayes</title>
+  <title>razonamiento_bayesiano</title>
   <!-- Documento CSS principal -->
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -34,7 +34,7 @@
     $(document).ready(function() {
 
       jsPsych.init({
-        timeline: bayes_experiment,
+        timeline: razonamiento_bayesiano_experiment,
         fullscreen: true,
 
         on_finish: function(data) {
@@ -69,10 +69,10 @@
                   if (window.self !== window.top) {
                     parent.postMessage({
                       csv: jsPsych.data.get().csv(),
-                      name: 'bayes_results'
+                      name: 'razonamiento_bayesiano_results'
                     }, '*');
                   } else {
-                    jsPsych.data.get().localSave('csv', 'bayes_results.csv');
+                    jsPsych.data.get().localSave('csv', 'razonamiento_bayesiano_results.csv');
                   }
                 }
               }
