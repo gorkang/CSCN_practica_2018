@@ -3,26 +3,28 @@ var verdadero = 'q';
 var falso = 'p';
 var leftString = "VERDADERO";
 var rightString = "FALSO";
-var train_random = false; //if the test must be randomized
+var train_random = false; //if the training must be randomized
 var test_random = false;
 var percentageWrong = 0.7; //percentage of wrong in training to repeat it
 var complex = true; //if the feedback must be complex
 var seguridad = false; //if you want to ask how sure is the subject of his answer
 var tempo = false; //if show timer on  screen
 
-var wrongs = 0;
+var wrongs = 0;//wrongs in a row
 var training;
 var exercises;
 var train_timeline = [];
 var loopTime = [];
 var trainlen;
-var showSneed = false;
+var showSneed = false;//which feedback to show
 var image = "";
 var entrenamientos = [];
 var experimentos = [];
 var experimentos_src = [];
 var respuestas = {};
 
+
+//detects iframe to extract id
 var parameters = {};
 var parameter_name;
 var parameter_value;
@@ -42,7 +44,7 @@ if (document.URL.includes("\?")) {
     ide = parameters.user_id;
 };
 
-if (ide % 2 == 0) {
+if (ide % 2 == 0) {//switch keys on even numbers
     var temp = verdadero;
     verdadero = falso;
     falso = temp;
@@ -54,6 +56,13 @@ if (ide % 2 == 0) {
 
 console.log("el codigo de verdadero es: " + verdadero + " y el de falso es: " + falso);
 
+/**
+shuffles an array
+@name shuffleArray
+@function
+@param {array}  array
+
+*/
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -62,7 +71,14 @@ function shuffleArray(array) {
         array[j] = temp;
     }
 }
+/**
+shuffle 2 arryas in the same way (indexes are related)
+@name shuffle
+@function
+@param {array}  obj1
+@param {array}  obj2
 
+*/
 function shuffle(obj1, obj2) { //2 arrays
     var index = obj1.length;
     var rnd, tmp1, tmp2;
@@ -79,7 +95,14 @@ function shuffle(obj1, obj2) { //2 arrays
     }
 }
 
+/**
+only accepts numbers in input
+@name advance
+@function
+@param {event}  event
 
+
+*/
 function advance(event) {
     document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
         console.log("el keycode del input es " + event.keyCode);
@@ -93,6 +116,14 @@ function advance(event) {
     };
 }
 
+/**
+Changes a .tif image into something acceptable by the browser
+@name loadImage
+@function
+@param {String}  filename
+@param {array}  lista
+
+*/
 var loadImage = function(filename, lista) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', filename);
@@ -109,6 +140,15 @@ var loadImage = function(filename, lista) {
     xhr.send();
 };
 
+/**
+Detects if an image exist and add it to a list
+@name doesFileExist
+@function
+@param {Integer}  ide
+@param {array}  lista
+@param {String}  tipo
+
+*/
 function doesFileExist(ide, lista, tipo) {
 
     if (tipo == "train") {
@@ -130,7 +170,7 @@ function doesFileExist(ide, lista, tipo) {
             console.log("File exists");
             if (tipo == "experiment") {
                 experimentos_src.push(urlToFile);
-                loadImage(urlToFile, lista);
+                loadImage(urlToFile, lista);//if image is .tif, transform it
             } else {
                 lista.push(ide);
             }
@@ -217,8 +257,10 @@ var mainexplanation = {
     on_start: function(trial) {
         jsPsych.pauseExperiment();
 
+        //read csv an then...
         d3.csv("feedback/respuestas.csv", function(error, correct_answer) {
 
+            //read images till the first non existant
             var continuar = true;
             var ide = 1;
             var urel = "0" + ide;
