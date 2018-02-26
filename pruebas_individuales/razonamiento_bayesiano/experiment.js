@@ -8,9 +8,9 @@
  */
 
 
-var ide = 1;
+var ide = 1;//id of participant (default: 1)
 
-
+//this part receives the id from the ifram in case this is executed trough protocolo simplificado
 var parameters = {};
 var parameter_name;
 var parameter_value;
@@ -34,12 +34,12 @@ if (document.URL.includes("\?")) {
 var relatives = [];
 
 var csvData = []; // objects representing trial related data
-var follows1 = [];
-var follows2 = [];
-var follows3 = [];
-var follows4 = [];
-var follows5 = [];
-var follows6 = [];
+var follows1 = [];//text of the follox number 1
+var follows2 = [];//text of the follox number 2
+var follows3 = [];//text of the follox number 3
+var follows4 = [];//text of the follox number 4
+var follows5 = [];//text of the follox number 5
+var follows6 = [];//text of the follox number 6
 var formats = {}; // strings with the format of each question
 var contexts = {}; // strings with the context of each question
 var responses = {}; // strings with the response of each question
@@ -48,6 +48,8 @@ var questions = {}; // strings with the question of each question
 var prompts = []; // strings with the prompt of each question
 var threads = []; // proccess reading a text file
 var number_of_calls = 0; // number of process reading a textfile
+
+
 var done = false; //indicates if all the proccess ended
 var askSure = true; //indicates if should ask if user how sure of his answer
 var askDifficulty = true; //indicates if should ask the difficulty of questions
@@ -81,6 +83,14 @@ function readTextFile(file, lista, index) {
     return rawFile;
 };
 
+/**
+Accepts only numbers in input number
+@name advance
+@async
+@function
+@param {event}  file
+
+*/
 function advance(event) {
     document.getElementsByName("#jspsych-survey-text-response-0")[0].onkeypress = function(event) {
         console.log("el keycode del input es " + event.keyCode);
@@ -113,6 +123,8 @@ var mainexplanation = {
     }
 };
 
+
+//trial of type seguridad
 var survey_sure = {
     type: 'html-slider-response',
     stimulus: '¿Que tan seguro te sientes con tu respuesta (en porcentaje)?',
@@ -121,6 +133,7 @@ var survey_sure = {
     //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
 
+//trial of type dificultad
 var survey_difficult = {
     type: 'html-slider-response',
     stimulus: '¿Cual es la dificultad del problema que acabas de resolver?',
@@ -129,20 +142,31 @@ var survey_difficult = {
     //prompt: "<p>¿Que tan seguro te sientes con tu respuesta (en porcentaje)?</p>"
 };
 
+/**
+Generate the questions of the trial accordint to the id
+@name generate_questions
+@async
+@function
+@param {event}  file
 
+*/
 function generate_questions() {
+    //read asynchronously from csv and then....
     d3.csv("items_bayes.csv", function(error, data) {
-        //if (error) throw error;
+
+        //push the questions of the participant into a list
         for (var i = 0; i < data.length; i++) {
             if (data[i].Participante == ide || data[i].Participante == null) {
                 csvData.push(data[i]);
             }
         }
+        //obtain texts and info of the questions
         obtainNumbers();
         window.addEventListener("message", function(event) {
-            if (event.data == "done") {
+
+            if (event.data == "done") {//when a call ends, update counter
                 number_of_calls -= 1;
-                if (number_of_calls == 0) {
+                if (number_of_calls == 0) {//wait till all the asynchronous calls finish to generate the trials
                     createPrompt();
                     createTrial();
                     //jsPsych.finishTrial();
@@ -252,6 +276,11 @@ function obtainResponse() {
 
 };
 
+/**
+Obtain data of trials and generates them
+@name obtainFollowUp
+@function
+*/
 function obtainFollowUp() {
     var path;
     for (var i = 0; i < csvData.length; i++) {
@@ -289,6 +318,11 @@ function obtainFollowUp() {
     }
 };
 
+/**
+Obtain data of trials and generates them
+@name obtainRelative
+@function
+*/
 function obtainRelative() {
     var path;
     for (var i = 0; i < csvData.length; i++) {
@@ -404,6 +438,11 @@ function createPrompt() {
     console.log(prompts);
 };
 
+/**
+Creates trials according to the type of follow active
+@name createFollows
+@function
+*/
 function createFollows(i, temp_time) {
     if (csvData[i].pregunta_follow_up1 == "si" || (csvData[i].pregunta_follow_up1 == null && askFollowUp)) {
         var page_1_options = ["YES", "NO"];
@@ -674,10 +713,11 @@ function createTrial() { //accordig to response
             }
         }
 
-        typeTrial.data = Object.assign(typeTrial.data, csvData[i]);
+        typeTrial.data = Object.assign(typeTrial.data, csvData[i]);//add the info of the original csv to the results
 
         var temp_time = [introToTrial, typeTrial];
 
+        //add optional questions (like follow ups) to the timeline
         if (csvData[i].relative_question != null && csvData[i].relative_question != "") {
 
             var tempo = relatives[i].split("\n");
