@@ -131,7 +131,9 @@ var mainexplanation = {
                 shuffleArray(data);
             }
 
+
             data.forEach(function(statement) {
+
 
                 var respuesta = verdadero;
                 if (statement.valido == 'F') {
@@ -148,7 +150,7 @@ var mainexplanation = {
                 var categorization_trial = {
                     type: 'categorize-html',
                     data: {
-                        trialid: data.ID,
+                        trialid: statement.ID,
                         tipo: "training"
                     },
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
@@ -331,7 +333,7 @@ var explanation2 = {
                 var categorization_trial = {
                     type: 'categorize-html',
                     data: {
-                        trialid: data.ID,
+                        trialid: statement.ID,
                         tipo: "experiment"
                     },
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
