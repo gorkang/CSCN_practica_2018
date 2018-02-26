@@ -3,7 +3,6 @@
 
 <head>
   <meta charset='UTF-8'>
-  <meta name="robots" content="noindex">
   <title>Experimentos CSCN</title>
 </head>
 
@@ -39,9 +38,9 @@
       'BIS_barratt_impulsiveness_scale', 'becks_depression_inventory'
     ];
     var experiments_random = shuffle(['empatia_por_dolor']);
-    var experiments = experiments_random.slice(0,1);
+    var experiments = experiments_random.slice(0, 1);
     var enable_JSZip = true;
-    if (typeof(experiment) == "string") {
+    if (typeof(experiments) == "string") {
       experiments = experiments.split(',');
     }
     experiments.reverse();
@@ -91,7 +90,7 @@
         loaded_once = true;
         go_fullscreen(event);
         show_experiments(event);
-        document.getElementById('user_id').disabled = true;
+        document.getElementById('user_id').hidden = true;
         document.getElementById("fullscreen").hidden = false;
         document.getElementById("start").hidden = true;
         document.getElementById("start_and_skip_to_last").hidden = true;
@@ -216,25 +215,37 @@
       }
     }
 
-    function check_local_storage(experiment) {
-      if (localStorage[user_id]) {
+    function check_local_storage(experiment, user_id) {
+      if (experiment == '') {
+        return true;
+      } else if (localStorage[user_id]) {
         user_data = JSON.parse(localStorage[user_id]);
-        if (user_data.completed_experiments.split(',').includes(experiment) || experiment == '') {
+        if (user_data.completed_experiments.split(',').includes(experiment)) {
           return true;
         } else {
           return false;
         }
-      } else if (experiment == '') {
-        return true;
       } else {
         return false;
       }
     }
 
     function skip_to_last() {
-      while (check_local_storage(currentExperiment)) {
-        currentExperiment = experiments.pop();
-      }
+      user_id = document.getElementById("user_id").value;
+      sonest_date = new Date(0);
+      last_experiment = "";
+      starting_experiments = experiments.slice();
+      starting_experiments.forEach(function(experiment) {
+        if (check_local_storage(experiment, user_id)) {
+          experiments.splice(experiments.indexOf(experiment), 1);
+          experiment_date = new Date(JSON.parse(localStorage[user_id])[experiment + "_date"]);
+          if (experiment_date > sonest_date) {
+            sonest_date = experiment_date;
+            last_experiment = experiment;
+          }
+        };
+      })
+      currentExperiment = last_experiment;
     }
 
     function check_id_status(event) {
@@ -277,9 +288,13 @@
                 local_save(blob, "participant_" + user_id + ".zip");
               });
           } else {
-            local_save(new Blob([participan_json[experiment]], {
-              type: 'text/plain'
-            }), user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv")
+            for (var experiment in participan_json) {
+              if (experiment != "completed_experiments" && experiment.slice(-4, experiment.length) != 'date') {
+                local_save(new Blob([participan_json[experiment]], {
+                  type: 'text/plain'
+                }), user_id + "_" + experiment + "_" + participan_json[experiment + "_date"].split(' ').join('_') + ".csv")
+              }
+            }
           }
         }
       });

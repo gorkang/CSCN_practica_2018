@@ -38,6 +38,11 @@ jsPsych.plugins["slider-with-options"] = (function() {
         pretty_name: 'Left side of the scale',
         default: -9
       },
+      yes_or_no_slider: {
+        type: jsPsych.plugins.parameterType.BOOLEAN,
+        pretty_name: "Yes or no slider",
+        default: false
+      },
       scale_end: {
         type: jsPsych.plugins.parameterType.INT,
         array: false,
@@ -67,7 +72,11 @@ jsPsych.plugins["slider-with-options"] = (function() {
 
     html += "<strong>" + trial.scale_question + "</strong><br>";
     html += "<strong style='text-align:right;display:inline-block'>" + trial.left_option + "</strong>";
-    html += "<input type='range' id='slider' min='" + trial.scale_start + "' max='" + trial.scale_end + "' style='width:60%;'></input>"
+    if (trial.yes_or_no_slider) {
+      html += "<input type='range' id='slider'max='1' min='-1' list='tickmarks' style='width:60%;'></input>"
+    } else {
+      html += "<input type='range' id='slider' min='" + trial.scale_start + "' max='" + trial.scale_end + "' style='width:60%;'></input>"
+    }
     html += "<strong style='text-align:left;display:inline-block'>" + trial.rigth_option + "</strong>";
 
     html += "</div>";
@@ -106,7 +115,13 @@ jsPsych.plugins["slider-with-options"] = (function() {
         } else if (key == 39) {
           slider.stepUp();
         } else if (key == 40) {
-          endtrial();
+          if (trial.yes_or_no_slider) {
+            if (slider.value != 0) {
+              endtrial();
+            }
+          } else {
+            endtrial();
+          }
         }
       }
     }, trial.show_for)

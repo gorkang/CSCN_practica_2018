@@ -197,15 +197,15 @@ function create_trials() {
     scale_question: "¿Fué esto a proposito?",
     left_option: "No",
     rigth_option: "Si",
-    scale_start: -1,
-    scale_end: 1,
+    yes_or_no_slider: true,
     on_start: function(trial) {
       trial.prompt = '<img src="' + trial.prompt[2] + '">';
     },
     on_finish: function(data) {
       animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11)
       data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus
-      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId + "_question_" + 0;
+      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId;
+      data.question_id = "question_0";
     }
   }
 
@@ -222,7 +222,8 @@ function create_trials() {
     on_finish: function(data) {
       animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11)
       data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus
-      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId + "_question_" + data.question_id;
+      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId;
+      data.question_id = "question_" + data.question_id;
       delete(data.question_id)
     }
   }
