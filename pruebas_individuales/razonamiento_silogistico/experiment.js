@@ -94,12 +94,16 @@ var try_again = {
 
 var survey_trial = {
     type: 'survey-text',
-    data: {
-        trialid: "survey_sure"
-    },
     questions: [{
         prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"
     }],
+  on_finish: function(data){
+
+    data.trialid = jsPsych.data.get().last(2).values()[0].trialid;
+    data.tipo = jsPsych.data.get().last(2).values()[0].tipo + "_seguridad";
+
+  }
+
 };
 
 
