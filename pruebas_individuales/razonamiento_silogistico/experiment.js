@@ -163,7 +163,7 @@ var mainexplanation = {
                     feedback_show: !seguridad,
                     trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
-                        if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
+                        if (data.key_press != respuesta) { // 70 is the numeric code for f
                             wrongs += 1;
                             showSneed = true;
                         }

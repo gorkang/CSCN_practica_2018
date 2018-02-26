@@ -173,12 +173,18 @@ jsPsych.plugins['categorize-html'] = (function() {
                 correct = true;
             }
 
+            var sides = "VF";
+            if($(".left_prompt").html() == "FALSO"){
+                sides = "FV";
+            }
+
             // save data
             trial_data = {
                 "rt": info.rt,
                 "correct": correct,
                 "stimulus": trial.stimulus,
-                "key_press": info.key
+                "key_press": String.fromCharCode(info.key).toLowerCase(),
+                "contrabalanceo": sides
             };
 
             display_element.innerHTML = '';
