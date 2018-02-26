@@ -31,8 +31,8 @@ onkeydown = function block_fkeys(event) {
 
 var instructions_1 = {
   type: 'instructions',
-  pages: ['Usted verá algunas imágenes y luego le haremos algunas preguntas acerca de ellas.<br><br>'],
-  show_clickable_nav: true,
+  pages: ['Usted verá algunas imágenes y luego le haremos algunas preguntas acerca de ellas.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  show_clickable_nav: false,
   data: {
     trialId: "instructions_1"
   },
@@ -48,8 +48,8 @@ var instructions_1 = {
 
 var instructions_2 = {
   type: 'instructions',
-  pages: ['No lo piense por mucho tiempo, simplemente díganos el primer pensamiento que le venga a la mente. Presione la flecha hacia abajo al terminar.'],
-  show_clickable_nav: true,
+  pages: ['No lo piense por mucho tiempo, simplemente díganos el primer pensamiento que le venga a la mente.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  show_clickable_nav: false,
   data: {
     trialId: "instructions_2"
   },
@@ -61,7 +61,7 @@ var instructions_2 = {
 
 var instructions_3 = {
   type: 'slider-with-options',
-  prompt: 'Use las flechas izquierda y derecha para mover la línea y así responder las preguntas. Presione la flecha hacia abajo al terminar.',
+  prompt: 'Use las flechas izquierda y derecha para mover la línea y así responder las preguntas.',
   scale_question: "¿Cuanto?",
   left_option: "Menos",
   rigth_option: "Mas",
@@ -72,8 +72,8 @@ var instructions_3 = {
 
 var instructions_4 = {
   type: 'instructions',
-  pages: ['Después de cada imágen, presione la FLECHA HACIA ABAJO en el momento exacto en que entienda lo que pasó, no antes ni después.'],
-  show_clickable_nav: true,
+  pages: ['Después de cada imágen, presione la FLECHA HACIA ABAJO en el momento exacto en que entienda lo que pasó, no antes ni después.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  show_clickable_nav: false,
   data: {
     trialId: "instructions_4"
   },
@@ -85,8 +85,8 @@ var instructions_4 = {
 
 var instructions_5 = {
   type: 'instructions',
-  pages: ['A continuación le presentamos un ejemplo de la tarea para que practique. Presione la flecha hacia abajo al terminar.'],
-  show_clickable_nav: true,
+  pages: ['A continuación le presentamos un ejemplo de la tarea para que practique.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  show_clickable_nav: false,
   data: {
     trialId: "instructions_5"
   },
@@ -124,8 +124,8 @@ var practice_response = {
 
 var instructions_6 = {
   type: 'instructions',
-  pages: ['¿Ha comprendido?, si tiene alguna duda, antes de comenzar  pregúntele al investigador<br>¡Ahora comenzaremos! Presione la flecha hacia abajo al terminar.'],
-  show_clickable_nav: true,
+  pages: ['¿Ha comprendido?, si tiene alguna duda, antes de comenzar  pregúntele al investigador<br>¡Ahora comenzaremos!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  show_clickable_nav: false,
   data: {
     trialId: "instructions_6"
   },
@@ -137,8 +137,8 @@ var instructions_6 = {
 
 var goodbye = {
   type: 'instructions',
-  pages: ['¡Muy buen trabajo!  ¡Gracias por su participación! Presione la flecha hacia abajo al terminar.'],
-  show_clickable_nav: true,
+  pages: ['¡Muy buen trabajo!  ¡Gracias por su participación!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  show_clickable_nav: false,
   data: {
     trialId: "goodbye"
   },
