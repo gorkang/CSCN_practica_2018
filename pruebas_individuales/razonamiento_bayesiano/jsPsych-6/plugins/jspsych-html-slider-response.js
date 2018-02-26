@@ -8,6 +8,10 @@
  *
  */
 
+ function updateTextInput(val) {
+          document.getElementById('indicador').innerHTML=val;
+        }
+
 
 jsPsych.plugins['html-slider-response'] = (function() {
 
@@ -93,7 +97,8 @@ jsPsych.plugins['html-slider-response'] = (function() {
     var html = '<div id="jspsych-html-slider-response-wrapper" style="margin: 100px 0px;">';
     html += '<div id="jspsych-html-slider-response-stimulus">' + trial.stimulus + '</div>';
     html += '<div class="jspsych-html-slider-response-container" style="position:relative;">';
-    html += '<input type="range" value="'+trial.start+'" min="'+trial.min+'" max="'+trial.max+'" step="'+trial.step+'" style="width: 100%;" id="jspsych-html-slider-response-response"></input>';
+    html += '<p id="indicador" class="indicador">'+trial.start+'</p>';
+    html += '<input type="range" value="'+trial.start+'" min="'+trial.min+'" max="'+trial.max+'" step="'+trial.step+'" style="width: 100%;" id="jspsych-html-slider-response-response" oninput="updateTextInput(this.value);"></input>';
     html += '<div>'
     for(var j=0; j < trial.labels.length; j++){
       var width = 100/(trial.labels.length-1);
@@ -105,6 +110,8 @@ jsPsych.plugins['html-slider-response'] = (function() {
     html += '</div>';
     html += '</div>';
     html += '</div>';
+
+
 
     if (trial.prompt !== null){
       html += trial.prompt;
@@ -137,11 +144,13 @@ jsPsych.plugins['html-slider-response'] = (function() {
     function end_trial(){
 
       jsPsych.pluginAPI.clearAllTimeouts();
-
+      var previous = {
+          "Q0" : response.response
+      }
       // save data
       var trialdata = {
         "rt": response.rt,
-        "responses": response.response,
+        "responses": JSON.stringify(previous),
         "stimulus": trial.stimulus
       };
 
