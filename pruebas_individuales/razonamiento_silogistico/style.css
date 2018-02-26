@@ -207,3 +207,14 @@ p.indicador {
     text-align: center;
     color: #0000FF;
 }
+
+.left_prompt {
+    text-align: left;
+}
+.right_prompt {
+    text-align: right;
+}
+.left_prompt, .right_prompt {
+    display: inline-block;
+    width: 50%;
+}
