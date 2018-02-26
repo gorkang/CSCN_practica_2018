@@ -97,7 +97,7 @@ trials.forEach(function(trial) {
       horizontal: true
     }],
     data: {
-      trialid: "estres_percibido" + index
+      trialid: "estres_percibido_" + index
     }
   })
   index += 1;

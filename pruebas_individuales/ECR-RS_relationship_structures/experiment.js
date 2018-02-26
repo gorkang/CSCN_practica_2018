@@ -53,59 +53,59 @@ var surveyexplanation={
 
 var likert_scale = ["Si","En desacuerdo","No","No aplica"];
 
-var survey02 = {
+var survey01 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me ayuda acudir a esta persona en momentos de adversidad<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_01"}
+};
+
+var survey02 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Me siento incómodo abriéndome con esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
 var survey06 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me siento incómodo abriéndome con esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey07 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_07"}
 };
 
 var survey08 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_08"}
 };
+
 
 var survey09 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-
-var survey10 = {
-  type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me preocupa que esta persona no se preocupe tanto por mí como yo me preocupo por ella<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_09"}
 };
 
 var surveyexplanation2={
@@ -120,58 +120,58 @@ var surveyexplanation2={
     data:{trialid: "Instructions_survey"}
 };
 
-var survey11 = {
+var survey10 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me ayuda acudir a esta persona en momentos de adversidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_10"}
+};
+
+var survey11 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_11"}
 };
 
 var survey12 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_12"}
 };
 
 var survey13 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_13"}
 };
 
 var survey14 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Me siento incómodo abriéndome con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_14"}
 };
 
 var survey15 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me siento incómodo abriéndome con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_15"}
 };
 
 var survey16 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_16"}
 };
 
 var survey17 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_17"}
 };
 
 var survey18 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey19 = {
-  type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me preocupa que esta persona no se preocupe tanto por mí como yo me preocupo por ella<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_18"}
 };
 
 var surveyexplanation3={
@@ -187,58 +187,58 @@ var surveyexplanation3={
     data:{trialid: "Instructions_survey"}
 };
 
-var survey20 = {
+var survey19 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me ayuda acudir a esta persona en momentos de adversidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_19"}
+};
+
+var survey20 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_20"}
 };
 
 var survey21 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_21"}
 };
 
 var survey22 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_22"}
 };
 
 var survey23 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br /> Me siento incómodo abriéndome con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_23"}
 };
 
 var survey24 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /> Me siento incómodo abriéndome con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_24"}
 };
 
 var survey25 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_25"}
 };
 
 var survey26 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_26"}
 };
 
 var survey27 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey28 = {
-  type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me preocupa que esta persona no se preocupe tanto por mí como yo me preocupo por ella<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_27"}
 };
 
 
@@ -255,58 +255,58 @@ var surveyexplanation4={
     data:{trialid: "Instructions_survey"}
 };
 
-var survey29 = {
+var survey28 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me ayuda acudir a esta persona en momentos de adversidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_28"}
+};
+
+var survey29 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_29"}
 };
 
 var survey30 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Suelo conversar de mis problemas y preocupaciones con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_30"}
 };
 
 var survey31 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Hablo más de mis cosas con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_31"}
 };
 
 var survey32 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Me resulta fácil depender emocionalmente de esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br /> Me siento incómodo abriéndome con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_32"}
 };
 
 var survey33 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br /> Me siento incómodo abriéndome con esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_33"}
 };
 
 var survey34 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Prefiero no mostrarle a esta persona como en el fondo me siento.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_34"}
 };
 
 var survey35 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Habitualmente me preocupa que yo no le importe realmente a esta persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_35"}
 };
 
 var survey36 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Temo que esta persona pueda abandonarme.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey37 = {
-  type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Me preocupa que esta persona no se preocupe tanto por mí como yo me preocupo por ella.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_36"}
 };
 
 
@@ -328,6 +328,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 //add the trials to the timeline
 escala_apego_experiment.push(screen_escala_apego_experiment);
 escala_apego_experiment.push(surveyexplanation);
+escala_apego_experiment.push(survey01);
 escala_apego_experiment.push(survey02);
 escala_apego_experiment.push(survey03);
 escala_apego_experiment.push(survey04);
@@ -336,9 +337,9 @@ escala_apego_experiment.push(survey06);
 escala_apego_experiment.push(survey07);
 escala_apego_experiment.push(survey08);
 escala_apego_experiment.push(survey09);
-escala_apego_experiment.push(survey10);
 
 escala_apego_experiment.push(surveyexplanation2);
+escala_apego_experiment.push(survey10);
 escala_apego_experiment.push(survey11);
 escala_apego_experiment.push(survey12);
 escala_apego_experiment.push(survey13);
@@ -347,9 +348,9 @@ escala_apego_experiment.push(survey15);
 escala_apego_experiment.push(survey16);
 escala_apego_experiment.push(survey17);
 escala_apego_experiment.push(survey18);
-escala_apego_experiment.push(survey19);
 
 escala_apego_experiment.push(surveyexplanation3);
+escala_apego_experiment.push(survey19);
 escala_apego_experiment.push(survey20);
 escala_apego_experiment.push(survey21);
 escala_apego_experiment.push(survey22);
@@ -358,9 +359,9 @@ escala_apego_experiment.push(survey24);
 escala_apego_experiment.push(survey25);
 escala_apego_experiment.push(survey26);
 escala_apego_experiment.push(survey27);
-escala_apego_experiment.push(survey28);
 
 escala_apego_experiment.push(surveyexplanation4);
+escala_apego_experiment.push(survey28);
 escala_apego_experiment.push(survey29);
 escala_apego_experiment.push(survey30);
 escala_apego_experiment.push(survey31);
@@ -369,4 +370,3 @@ escala_apego_experiment.push(survey33);
 escala_apego_experiment.push(survey34);
 escala_apego_experiment.push(survey35);
 escala_apego_experiment.push(survey36);
-escala_apego_experiment.push(survey37);

@@ -41,154 +41,154 @@ var screen_sMARS_short_mathematics_anxiety_rating_scale_experiment = {
 
 var likert_scale = ["Nada","Muy poco","Algo","Bastante", "Mucho"];
 
-var survey02 = {
+var survey01 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Estudiar para un examen de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_01"}
+};
+
+var survey0 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Examinarme de matemáticas en las pruebas de acceso a la universidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Examinarme de matemáticas en las pruebas de acceso a la universidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Hacer un control de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Hacer un control de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Hacer el examen final de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Hacer el examen final de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Coger el libro de matemáticas para empezar a hacer los deberes.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
 var survey06 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Coger el libro de matemáticas para empezar a hacer los deberes.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Tener deberes con muchos problemas difíciles que han de entregarse en la próxima clase.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey07 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Tener deberes con muchos problemas difíciles que han de entregarse en la próxima clase.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Pensar en el examen de matemáticas que tendré dentro de 1 semana.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_07"}
 };
 
 var survey08 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Pensar en el examen de matemáticas que tendré dentro de 1 semana.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Pensar en el examen de matemáticas que tendré en 1 día.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_08"}
 };
 
 var survey09 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Pensar en el examen de matemáticas que tendré en 1 día.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Pensar en el examen de matemáticas que tendré en 1 hora.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_09"}
 };
 
 var survey10 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Pensar en el examen de matemáticas que tendré en 1 hora.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Darme cuenta de que se debe hacer un cierto número de clases de matemáticas para cumplir con los requisitos académicos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_10"}
 };
 
 var survey11 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Darme cuenta de que se debe hacer un cierto número de clases de matemáticas para cumplir con los requisitos académicos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Coger un libro de matemáticas para comenzar una lectura difícil que se me ha pedido.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_11"}
 };
 
 var survey12 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Coger un libro de matemáticas para comenzar una lectura difícil que se me ha pedido.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Recibir por e-mail la nota final de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_12"}
 };
 
 var survey13 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Recibir por e-mail la nota final de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Abrir un libro de matemáticas o de estadística y ver una página llena de problemas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_13"}
 };
 
 var survey14 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Abrir un libro de matemáticas o de estadística y ver una página llena de problemas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Prepararme para estudiar para un examen de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_14"}
 };
 
 var survey15 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Prepararme para estudiar para un examen de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Tener que hacer un examen sorpresa de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_15"}
 };
 
 var survey16 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Tener que hacer un examen sorpresa de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Revisar el ticket de compra después de haber pagado.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_16"}
 };
 
 var survey17 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Revisar el ticket de compra después de haber pagado.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Que me den una serie de problemas numéricos que incluyan sumas para que los resuelva con papel y lápiz.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_17"}
 };
 
 var survey18 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Que me den una serie de problemas numéricos que incluyan sumas para que los resuelva con papel y lápiz.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Que me den a resolver una serie de restas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_18"}
 };
 
 var survey19 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Que me den a resolver una serie de restas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Que me den a resolver una serie de multiplicaciones.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_19"}
 };
 
 var survey20 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Que me den a resolver una serie de multiplicaciones.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Que me den a resolver una serie de divisiones.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_20"}
 };
 
 var survey21 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Que me den a resolver una serie de divisiones.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Comprar un libro de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_21"}
 };
 
 var survey22 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Comprar un libro de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Ver al profesor resolviendo una ecuación algebraica en la pizarra.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_22"}
 };
 
 var survey23 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Ver al profesor resolviendo una ecuación algebraica en la pizarra.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Matricularme en un curso de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_23"}
 };
 
-var survey24 = {
+var survey24 = {"Q" + i
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Matricularme en un curso de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  questions: [{prompt: "<div class='justified'><br />Escuchar a otro alumno que explica una fórmula matemática.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_24"}
 };
 
 var survey25 = {
   type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Escuchar a otro alumno que explica una fórmula matemática.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey26 = {
-  type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Entrar en una clase de matemáticas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_25"}
 };
 
 
@@ -210,6 +210,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 //add the trials to the timeline
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(screen_sMARS_short_mathematics_anxiety_rating_scale_experiment);
 
+sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey01);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey02);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey03);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey04);
@@ -234,4 +235,3 @@ sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey22);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey23);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey24);
 sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey25);
-sMARS_short_mathematics_anxiety_rating_scale_experiment.push(survey26);

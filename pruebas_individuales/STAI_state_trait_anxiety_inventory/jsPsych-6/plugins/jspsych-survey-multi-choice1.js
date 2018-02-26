@@ -160,7 +160,7 @@ jsPsych.plugins['survey-multi-choice1'] = (function() {
       var matches = display_element.querySelectorAll("div." + plugin_id_name + "-question");
       for(var i=0; i<matches.length; i++){
         match = matches[i];
-        var id = "Q" + i;
+        var id = trial.questions[i].prompt;
         if(match.querySelector("input[type=radio]:checked") !== null){
           var val = match.querySelector("input[type=radio]:checked").value;
         } else {

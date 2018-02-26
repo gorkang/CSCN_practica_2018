@@ -46,7 +46,7 @@ var surveyexplanation={
     allow_keys: false,
     show_clickable_nav: true,
     timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
+    data:{trialid: "Instructions_survey_images"}
 };
 
 var temp_timeline = [];
@@ -112,7 +112,7 @@ var surveyexplanation2={
     allow_keys: false,
     show_clickable_nav: true,
     timing_post_trial: 50,
-    data:{trialid: "Instructions_survey"}
+    data:{trialid: "Instructions_survey_meaning"}
 };
 
 prompts.forEach(function(operacion) {

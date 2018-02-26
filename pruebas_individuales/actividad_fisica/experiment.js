@@ -32,7 +32,7 @@ var instructions1_1 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_1_actividad_fisica"
+    trialid: "Instructions_1_1_actividad_fisica"
   }
 };
 
@@ -43,7 +43,7 @@ var instructions1_2 = {
   show_clickable_nav: true,
   timing_post_trial: 50,
   data: {
-    trialid: "Instructions_1_actividad_fisica"
+    trialid: "Instructions_1_2_actividad_fisica"
   }
 };
 

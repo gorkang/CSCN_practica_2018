@@ -259,6 +259,7 @@ function block_fkeys(event) {
 
 //----------- Create each block---------------//
 
+index = 1;
 sumas.forEach(function(operacion) {
     //add to te corresponding timeline a trial with each question
     timeline_suma.push({
@@ -267,6 +268,10 @@ sumas.forEach(function(operacion) {
             questions: [{
                 prompt: '<p>' + operacion + '</p>'
             }],
+            data:{
+              trialid: "suma_" + index,
+              operacion: operacion
+            },
             trial_duration: function() {
                 return time_left1;
             },
@@ -286,8 +291,10 @@ sumas.forEach(function(operacion) {
             }
         }
     });
+    index += 1;
 });
 
+index = 1;
 restas.forEach(function(operacion) {
     timeline_resta.push({
         timeline: [{
@@ -295,6 +302,10 @@ restas.forEach(function(operacion) {
             questions: [{
                 prompt: '<p>' + operacion + '</p>'
             }],
+            data:{
+              trialid: "resta_" + index,
+              operacion: operacion
+            },
             trial_duration: function() {
                 return time_left2;
             },
@@ -313,8 +324,10 @@ restas.forEach(function(operacion) {
             }
         }
     });
+    index += 1;
 });
 
+index = 1;
 multiplicaciones.forEach(function(operacion) {
     timeline_multiplicacion.push({
         timeline: [{
@@ -322,6 +335,10 @@ multiplicaciones.forEach(function(operacion) {
             questions: [{
                 prompt: '<p>' + operacion + '</p>'
             }],
+            data:{
+              trialid: "multiplicacion_" + index,
+              operacion: operacion
+            },
             trial_duration: function() {
                 return time_left3;
             },
@@ -340,8 +357,10 @@ multiplicaciones.forEach(function(operacion) {
             }
         }
     });
+    index += 1;
 });
 
+index = 1;
 divisiones.forEach(function(operacion) {
     timeline_division.push({
         timeline: [{
@@ -349,6 +368,10 @@ divisiones.forEach(function(operacion) {
             questions: [{
                 prompt: '<p>' + operacion + '</p>'
             }],
+            data:{
+              trialid: "division_" + index,
+              operacion: operacion
+            },
             trial_duration: function() {
                 return time_left4;
             },
@@ -367,8 +390,10 @@ divisiones.forEach(function(operacion) {
             }
         }
     });
+    index += 1;
 });
 
+index = 1;
 operaciones_mixtas.forEach(function(operacion) {
     timeline_operaciones_mixtas.push({
         timeline: [{
@@ -376,6 +401,10 @@ operaciones_mixtas.forEach(function(operacion) {
             questions: [{
                 prompt: '<p>' + operacion + '</p>'
             }],
+            data:{
+              trialid: "operacion_mixta_" + index,
+              operacion: operacion
+            },
             trial_duration: function() {
                 return time_left5;
             },
@@ -394,6 +423,7 @@ operaciones_mixtas.forEach(function(operacion) {
             }
         }
     });
+    index += 1;
 });
 
 // Inicio prueba

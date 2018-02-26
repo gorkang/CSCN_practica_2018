@@ -148,20 +148,10 @@ jsPsych.plugins['survey-numbers'] = (function() {
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
 
-      // create object to hold responses
-      var question_data = {};
-      var matches = display_element.querySelectorAll('div.jspsych-survey-numbers-question');
-      for(var index=0; index<matches.length; index++){
-        var id = "Q" + index;
-        var val = firstTextBox.innerHTML;
-        var obje = {};
-        obje[id] = val;
-        Object.assign(question_data, obje);
-      }
       // save data
       var trialdata = {
         "rt": response_time,
-        "responses": JSON.stringify(question_data)
+        "responses": firstTextBox.innerHTML
       };
 
       display_element.innerHTML = '';

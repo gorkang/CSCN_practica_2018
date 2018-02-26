@@ -122,14 +122,20 @@ var LIPKUS_numeracy2 = {
                 prompt: "4. &iquest;Cu&aacute;l de los siguientes numeros representa el mayor riesgo de padecer una enfermedad?",
                 options: ["a) 1 de cada 100", "b) 1 de cada 1000", "c) 1 de cada 10"],
                 required: true
-            }]
+            }],
+            data: {
+                trialid: "LIP_04"
+            }
         },
         {
             questions: [{
                 prompt: "5. &iquest;Cu&aacute;l de los siguientes representa el mayor riesgo de padecer una enfermedad?",
                 options: ["a) 1%", "b) 10%", "c) 5%"],
                 required: true
-            }]
+            }],
+            data: {
+                trialid: "LIP_05"
+            }
         }
     ]
 };
@@ -179,7 +185,10 @@ var LIPKUS_numeracy4 = {
     type: "survey-textnum1",
     questions: [{
         prompt: "<p class='limitnumeracy'>10. Si el riesgo de padecer una enfermedad es de 20 de cada 100, esto ser&iacute;a lo <br />mismo que tener una probabilidad del</p>"
-    }]
+    }],
+    data: {
+        trialid: "LIP_10"
+    }
 };
 
 var LIPKUS_numeracy5 = {

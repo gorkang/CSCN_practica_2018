@@ -60,7 +60,7 @@ var answers = ["Hace menos de 1 año",
 var survey01 = {
   type: "survey-multi-choice",
   questions: [{prompt: "<div class='justified'><br />¿Hace cuánto tiempo fue su última relación de pareja que duró al menos 6 meses?<br /></div>", options: answers, required: true}],
-  data: {trialid: "survey_02"}
+  data: {trialid: "survey_01"}
 };
 
 var surveyexplanation2={
@@ -110,209 +110,209 @@ var survey06 = {
 var survey07 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_07"}
 };
 
 var survey08 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Aparté o empujé a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_08"}
 };
 
 var survey09 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me apartó o empujó.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_09"}
 };
 
 var survey10 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />He utilizado un cuchillo o un arma con mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey12 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi pareja ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_02"}
-};
-
-var survey13 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Le he dicho a mi pareja, feo/a o gordo/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_03"}
-};
-
-var survey14 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha dicho, feo/a o gordo/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_04"}
-};
-
-var survey15 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Le he pegado un puñetazo o he golpeado a mi pareja con algo que podría hacerle daño.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_05"}
-};
-
-var survey16 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey17 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />He destruido algo perteneciente a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey18 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey19 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />He estrangulado a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey20 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-
-var survey21 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Le he gritado a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
-};
-var survey22 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha gritado.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_02"}
-};
-
-var survey23 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Golpeé a mi pareja contra la pared.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_03"}
-};
-
-var survey24 = {
-  type: "survey-multi-choice1",
-  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_04"}
+  data: {trialid: "survey_10"}
 };
 
 var survey11 = {
   type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Mi pareja ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_11"}
+};
+
+var survey12 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Le he dicho a mi pareja, feo/a o gordo/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_12"}
+};
+
+var survey13 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha dicho, feo/a o gordo/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_13"}
+};
+
+var survey14 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Le he pegado un puñetazo o he golpeado a mi pareja con algo que podría hacerle daño.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_14"}
+};
+
+var survey15 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_15"}
+};
+
+var survey16 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />He destruido algo perteneciente a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_16"}
+};
+
+var survey17 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_17"}
+};
+
+var survey18 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />He estrangulado a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_18"}
+};
+
+var survey19 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_19"}
+};
+
+var survey20 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Le he gritado a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_20"}
+};
+var survey21 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha gritado.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_21"}
+};
+
+var survey22 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Golpeé a mi pareja contra la pared.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_22"}
+};
+
+var survey23 = {
+  type: "survey-multi-choice1",
+  questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_23"}
+};
+
+var survey24 = {
+  type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Le he dado una paliza a mi pareja<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_24"}
 };
 
 var survey25 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja ha hecho esto conmigo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_05"}
+  data: {trialid: "survey_25"}
 };
 
 var survey26 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />He tironeado, agarrado con fuerza a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_26"}
 };
 
 var survey27 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_27"}
 };
 
 var survey28 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />He salido furioso/a de la habitación o la casa durante una pelea.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_28"}
 };
 
 var survey29 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_29"}
 };
 
 var survey30 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Le he dado una cachetada a mi pareja<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_30"}
 };
 
 var survey31 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_31"}
 };
 var survey32 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Quemé con agua hirviendo a mi pareja a propósito.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_02"}
+  data: {trialid: "survey_32"}
 };
 
 var survey33 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_03"}
+  data: {trialid: "survey_33"}
 };
 
 var survey34 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Le he dicho a mi pareja que es un pésimo amante.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_04"}
+  data: {trialid: "survey_34"}
 };
 
 var survey35 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_05"}
+  data: {trialid: "survey_35"}
 };
 
 var survey36 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Hice algo solo para molestar a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_36"}
 };
 
 var survey37 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_37"}
 };
 
 var survey38 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Amenacé con golpear o tirarle algo a mi pareja<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_38"}
 };
 
 var survey39 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_39"}
 };
 
 var survey40 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Le he dado patadas a mi pareja.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_40"}
 };
 
 var survey41 = {
   type: "survey-multi-choice1",
   questions: [{prompt: "<div class='justified'><br />Mi pareja me ha hecho esto.<br /></div>", options: likert_scale, required: true, horizontal: true}],
-  data: {trialid: "survey_06"}
+  data: {trialid: "survey_41"}
 }
 
 
@@ -344,7 +344,7 @@ escala_tacticas_experiment.push(survey07);
 escala_tacticas_experiment.push(survey08);
 escala_tacticas_experiment.push(survey09);
 escala_tacticas_experiment.push(survey10);
-
+escala_tacticas_experiment.push(survey11);//this is fine, it was a mistake :c
 escala_tacticas_experiment.push(survey12);
 escala_tacticas_experiment.push(survey13);
 escala_tacticas_experiment.push(survey14);
@@ -358,8 +358,6 @@ escala_tacticas_experiment.push(survey21);
 escala_tacticas_experiment.push(survey22);
 escala_tacticas_experiment.push(survey23);
 escala_tacticas_experiment.push(survey24);
-
-escala_tacticas_experiment.push(survey11);//this is fine, it was a mistake :c
 escala_tacticas_experiment.push(survey25);
 escala_tacticas_experiment.push(survey26);
 escala_tacticas_experiment.push(survey27);

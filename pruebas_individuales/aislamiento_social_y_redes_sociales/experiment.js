@@ -89,7 +89,7 @@ var social_network = {
     required: true
   }],
   data: {
-    trialid: "survey_aislamiento_social_y_redes_sociales_14"
+    trialid: "survey_aislamiento_social_y_redes_sociales_13"
   }
 }
 
@@ -101,7 +101,7 @@ var social_network_other = {
   }],
   endword: "",
   data: {
-    trialid: "aislamiento_social_y_redes_sociales_14_other"
+    trialid: "survey_aislamiento_social_y_redes_sociales_13_other"
   }
 }
 
@@ -114,7 +114,7 @@ var social_network_frequency = {
     horizontal: true
   }],
   data: {
-    trialid: "survey_aislamiento_social_y_redes_sociales_15"
+    trialid: "survey_aislamiento_social_y_redes_sociales_14"
   }
 }
 
@@ -404,7 +404,7 @@ aislamiento_social_y_redes_sociales.push(screen_aislamiento_social_experiment)
 aislamiento_social_y_redes_sociales.push(father);
 aislamiento_social_y_redes_sociales.push(mother);
 
-index = 4;
+index = 3;
 trials_1_to_9.forEach(function(trial) {
   aislamiento_social_y_redes_sociales.push({
     type: "survey-text-number",
@@ -414,7 +414,7 @@ trials_1_to_9.forEach(function(trial) {
     }],
     endword: "",
     data: {
-      trialid: "aislamiento_social_y_redes_sociales_" + index
+      trialid: "survey_aislamiento_social_y_redes_sociales_" + index
     }
   })
   index += 1;
@@ -445,7 +445,7 @@ aislamiento_social_y_redes_sociales.push({
 
 aislamiento_social_y_redes_sociales.push(instructions10)
 
-index = 16;
+index = 15;
 
 trials10.forEach(function(trial) {
   aislamiento_social_y_redes_sociales.push({
@@ -458,7 +458,7 @@ trials10.forEach(function(trial) {
     }],
     endword: "",
     data: {
-      trialid: "aislamiento_social_y_redes_sociales_" + index
+      trialid: "survey_aislamiento_social_y_redes_sociales_" + index
     }
   })
   index += 1;
@@ -477,7 +477,7 @@ trials11.forEach(function(trial) {
     }],
     endword: "",
     data: {
-      trialid: "aislamiento_social_y_redes_sociales_" + index
+      trialid: "survey_aislamiento_social_y_redes_sociales_" + index
     }
   })
   index += 1;

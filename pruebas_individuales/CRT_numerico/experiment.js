@@ -116,7 +116,10 @@ var CRT_numerico6 = {
                 "b) Ha ganado dinero",
                 "c) Ha perdido dinero"
             ]
-        }]
+        }],
+        data: {
+            trialid: "LIP_06"
+        }
     }]
 
 };
@@ -133,7 +136,7 @@ var CRT_numerico3_a = {
                     "&iquest;cu&aacute;nto se demorar&iacute;a el manto de lirios en cubrir la mitad del lago</p>"
             }],
             data: {
-                trialid: "LIP_06"
+                trialid: "LIP_07"
             }
         }
     ],

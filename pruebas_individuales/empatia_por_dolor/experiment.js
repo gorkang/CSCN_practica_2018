@@ -224,7 +224,6 @@ function create_trials() {
       data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus
       data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId;
       data.question_id = "question_" + data.question_id;
-      delete(data.question_id)
     }
   }
 
