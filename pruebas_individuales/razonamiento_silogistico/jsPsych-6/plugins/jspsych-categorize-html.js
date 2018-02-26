@@ -182,6 +182,7 @@ jsPsych.plugins['categorize-html'] = (function() {
             trial_data = {
                 "rt": info.rt,
                 "correct": correct,
+                "valido": String.fromCharCode(trial.key_answer),
                 "stimulus": trial.stimulus,
                 "key_press": String.fromCharCode(info.key).toLowerCase(),
                 "contrabalanceo": sides
