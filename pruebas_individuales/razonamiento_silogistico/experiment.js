@@ -1,6 +1,8 @@
 var ide = 1;
 var verdadero = 'q';
 var falso = 'p';
+var leftString = "VERDADERO";
+var rightString = "FALSO";
 var train_random = false; //if the test must be randomized
 var test_random = true;
 var percentageWrong = 0.5; //percentage of wrong in training to repeat it
@@ -92,12 +94,16 @@ var try_again = {
 
 var survey_trial = {
     type: 'survey-text',
-    data: {
-        trialid: "survey_sure"
-    },
     questions: [{
         prompt: "¿Que tan seguro te sientes con tu respuesta (en porcentaje)?"
     }],
+  on_finish: function(data){
+
+    data.trialid = jsPsych.data.get().last(2).values()[0].trialid;
+    data.tipo = jsPsych.data.get().last(2).values()[0].tipo + "_seguridad";
+
+  }
+
 };
 
 
@@ -129,7 +135,9 @@ var mainexplanation = {
                 shuffleArray(data);
             }
 
+
             data.forEach(function(statement) {
+
 
                 var respuesta = verdadero;
                 if (statement.valido == 'F') {
@@ -146,7 +154,7 @@ var mainexplanation = {
                 var categorization_trial = {
                     type: 'categorize-html',
                     data: {
-                        trialid: data.ID,
+                        trialid: statement.ID,
                         tipo: "training"
                     },
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
@@ -155,13 +163,13 @@ var mainexplanation = {
                     choices: [verdadero, falso],
                     correct_text: "<p class='prompt' style='color:green; font-weight:bold; text-align:center;'>Correcto.</p>"+image+"<br><center> Presione la barra espaciadora para continuar</center>",
                     incorrect_text: "<p class='prompt' style='color:red; font-weight:bold; text-align:center;'>Incorrecto</p>"+ image +" <br><center> Presione la barra espaciadora para continuar</center>" ,
-                    prompt: "<p>VERDADERO FALSO.</p>",
+                    prompt: "<div class='left_prompt'>" + leftString + "</div><div class='right_prompt'>" + rightString + "</div>",
                     force_correct_button_press: !seguridad,
                     show_timer: tempo,
                     feedback_show: !seguridad,
                     trial_duration: 60000, //60 seconds
                     on_finish: function(data) {
-                        if (data.key_press != respuesta.charCodeAt(0) - 32) { // 70 is the numeric code for f
+                        if (data.key_press != respuesta) { // 70 is the numeric code for f
                             wrongs += 1;
                             showSneed = true;
                         }
@@ -329,13 +337,13 @@ var explanation2 = {
                 var categorization_trial = {
                     type: 'categorize-html',
                     data: {
-                        trialid: data.ID,
+                        trialid: statement.ID,
                         tipo: "experiment"
                     },
                     stimulus: statement.premisa1 + "<br>" + statement.premisa2 + "<br>" + "<b>" + statement.conclusion + "</b>",
                     key_answer: respuesta.charCodeAt(0) - 32,
                     choices: [verdadero, falso],
-                    prompt: "<p>VERDADERO FALSO</p>",
+                    prompt: "<div class='left_prompt'>" + leftString + "</div><div class='right_prompt'>" + rightString + "</div>",
                     //force_correct_button_press:true,
                     trial_duration: 60000, //60 seconds
                     show_timer: tempo,
