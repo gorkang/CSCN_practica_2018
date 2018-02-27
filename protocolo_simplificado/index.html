@@ -272,8 +272,8 @@
           currentExperiment = experiments.pop();
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
         } else {
+          var participan_json = JSON.parse(localStorage[user_id]);
           if (enable_JSZip) {
-            var participan_json = JSON.parse(localStorage[user_id]);
             var zip = new JSZip();
             var folder = zip.folder("participant_" + user_id);
             for (var experiment in participan_json) {
