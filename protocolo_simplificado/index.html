@@ -9,6 +9,7 @@
 <body style="height:100%;text-align:center;" onload="check_id_status()">
   <script src="jszip.min.js"></script>
   <script>
+    //Shuffles a list between the index_start and index_end, inclusive
     function partial_shuffle(list, index_start, index_end) {
       if (index_end < list.length && index_start >= 0 && index_end > index_start) {
         var currentIndex = index_end;
@@ -25,10 +26,12 @@
       return (list);
     }
 
+    //Shuffles a list form start to end
     function shuffle(list) {
       return partial_shuffle(list, 0, list.length - 1);
     }
 
+    //List of known experiments, if no experiment is set in experiments variable, this will be checked in the folder of this html and added if found
     var known_experiments = ['empatia_por_dolor', 'BART_balloon_analogue_risk_task', 'informacion_sociodemografica_simple', 'estres_percibido', 'silogismo', 'metacognicion', 'interocepcion', 'religiosidad', 'pausa_protocolo',
       'SASS_social_adaptation_self_evaluation_scale', 'ansiedad_matematica', 'bienestar_psicosocial', 'escala_rosenberg', 'sMARS_short_mathematics_anxiety_rating_scale', 'wais_matrices', 'wais_vocabulario', 'graph_literacy',
       'DSS_decision_styles_scale', 'aislamiento_social_y_redes_sociales', 'LIPKUS_numeracy', 'rotacion_mental', 'escala_experiencias_disociativas', 'OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test',
@@ -37,7 +40,9 @@
       'habilidad_matematica', 'GDMS_estilo_toma_decisiones', 'escala_tacticas', 'MINI_SEA_mini_social_cognition_emotional_assessment', 'bret', 'bayes', 'ineco_frontal_screening', 'CRT_verbal', 'escala_apego', 'CRT_numerico',
       'BIS_barratt_impulsiveness_scale', 'becks_depression_inventory'
     ];
+    //List of random experiments
     var experiments_random = shuffle(['empatia_por_dolor']);
+    //Either a string of experiments separated by commas or a list of random experiments
     var experiments = experiments_random.slice(0, 1);
     var enable_JSZip = true;
     if (typeof(experiments) == "string") {
@@ -45,6 +50,7 @@
     }
     experiments.reverse();
 
+    //Check for defined experiments, if ther are no experiments set, check the known experiments
     if (experiments.length == 0 || experiments == '') {
       experiments = [];
       var threads = known_experiments.length;
@@ -77,10 +83,12 @@
       })
     }
 
+    //Sets base experiment, user and ensures that start_experiment only load experiments once
     var currentExperiment = '';
     var user_id = 0;
     var loaded_once = false;
 
+    //Triggers loading once, then only sets fullscreen
     function start_experiment(event) {
       if (currentExperiment == '') {
         currentExperiment = experiments.pop();
@@ -101,6 +109,7 @@
       }
     }
 
+    //Skips all completed experiments but the last, then skips the last and starts the experiment
     function start_and_skip_last_experiment(event) {
       skip_to_last();
       if (experiments.length > 0) {
@@ -109,11 +118,13 @@
       start_experiment(event);
     }
 
+    //SKips all completed experiments but the last, then starts the experiment
     function start_and_skip_to_last_experiment(event) {
       skip_to_last();
       start_experiment(event);
     }
 
+    //Clears local storage of selected id after backing it up, then starts the experiment
     function redo_experiment(event) {
       if (confirm("¿Esta seguro de que quiere volver a usar este id desde cero?")) {
         user_backup_id = document.getElementById('user_id').value
@@ -128,6 +139,7 @@
       }
     }
 
+    //Tries four forms of fullscreen until it succeds
     function go_fullscreen(event) {
       tries = 4;
       while (tries > 0) {
@@ -164,6 +176,7 @@
       }
     }
 
+    //Download file blob with name
     function local_save(file, name) {
       var fileURL = "";
       if (typeof window.webkitURL !== 'undefined') {
@@ -179,6 +192,7 @@
       document.body.removeChild(link);
     }
 
+    //Modifies a csv by adding adding the list of items name, and then the same items at the start of the csv
     function add_to_csv(csv, items_names_list, items_list) {
       new_csv = '';
       rows = csv.split('\n');
@@ -198,6 +212,7 @@
       return new_csv;
     }
 
+    //Saves a csv to local storage whit variable name experiment to user_id set by global variable
     function local_storage_save(csv, experiment) {
       if (localStorage[user_id]) {
         user_data = JSON.parse(localStorage[user_id])
@@ -215,6 +230,7 @@
       }
     }
 
+    //Check users_id for experiment in localStorage, returns true on empty experiment
     function check_local_storage(experiment, user_id) {
       if (experiment == '') {
         return true;
@@ -230,6 +246,7 @@
       }
     }
 
+    //Checks localStorage for experiments in variable experiments, if an experiment is in localStorage, his date is checked and the sonnest experiment is selected and set as currentExperiment, else it is discarded and removed form experiments
     function skip_to_last() {
       user_id = document.getElementById("user_id").value;
       sonest_date = new Date(0);
@@ -248,6 +265,7 @@
       currentExperiment = last_experiment;
     }
 
+    //Check the status of the selected user_id and sets buttons acordingly
     function check_id_status(event) {
       user_id_to_check = document.getElementById("user_id").value;
       if (user_id_to_check != "") {
@@ -265,6 +283,9 @@
       }
     }
 
+    //Sets up an event listener in the current window waiting for messages fromm the experiments, when received saves the data to local storage and
+    //checks for remaining experiments, if there are none left saves locally either as a ziped folder of experiments or each experiment individualy
+    //as csv, if there are remaining experiments load the next in the iframe.
     function show_experiments(event) {
       window.addEventListener('message', function(message) {
         local_storage_save(add_to_csv(message.data.csv, ['Id', 'Fecha', 'Experimento'], [user_id, Date(), currentExperiment]), currentExperiment);
@@ -272,8 +293,8 @@
           currentExperiment = experiments.pop();
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;
         } else {
+          var participan_json = JSON.parse(localStorage[user_id]);
           if (enable_JSZip) {
-            var participan_json = JSON.parse(localStorage[user_id]);
             var zip = new JSZip();
             var folder = zip.folder("participant_" + user_id);
             for (var experiment in participan_json) {
