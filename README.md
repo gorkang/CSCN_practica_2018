@@ -97,6 +97,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 - **Gorka Navarrete** - _Initial work_ - [gorkang](https://github.com/gorkang)
 - **Alejandro Cofre Garcia** - [fethrblaka](https://github.com/fethrblaka)
+- **Nicolas Alarcon** [nicomero](https://github.com/nicomero)
 
 See also the list of [contributors](https://github.com/gorkang/CSCN_practica_2018/graphs/contributors) who participated in this project.
 
