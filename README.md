@@ -1,83 +1,93 @@
 # CSCN_practica_2018
 
-One Paragraph of project description goes here
+JsPsych experiments and tools
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [CSCN_practica_2018](#cscnpractica2018)
-	- [Getting Started](#getting-started)
-		- [Prerequisites](#prerequisites)
-			- [Google drive](#google-drive)
-		- [Creating a paradigm](#creating-a-paradigm)
-		- [Deployment of the paradigm](#deployment-of-the-paradigm)
-	- [Built With](#built-with)
-	- [Contributing](#contributing)
-	- [Authors](#authors)
-	- [License](#license)
-	- [Acknowledgments](#acknowledgments)
+ - [CSCN_practica_2018](#cscnpractica2018)
+	 - [Experiments](#experiments)
+	 - [Experimental Factory Protocol](#experiment-factory)
+	 - [Simplified Protocol](#simplified-protocol)
+	 - [Built With](#built-with)
+	 - [Contributing](#contributing)
+	 - [Authors](#authors)
+	 - [License](#license)
+	 - [Acknowledgments](#acknowledgments)
 
 <!-- /TOC -->
 
-## Getting Started
+## [Experiments](./pruebas_individuales)
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+This repository host multiple adaptations of psicological experiments in jsPsych formated for experimental factory and our own html simplified protocol.
 
-### Prerequisites
+* [BART_balloon_analogue_risk_task](./pruebas_individuales/BART_balloon_analogue_risk_task)
+* [BDI_becks_depression_inventory](./pruebas_individuales/BDI_becks_depression_inventory)
+* [BIS_barratt_impulsiveness_scale](./pruebas_individuales/BIS_barratt_impulsiveness_scale)
+* [BRET_bomb_risk_elicitation_task](./pruebas_individuales/BRET_bomb_risk_elicitation_task)
+* [CRT_numerico](./pruebas_individuales/CRT_numerico)
+* [CRT_verbal](./pruebas_individuales/CRT_verbal)
+* [DSS_decision_styles_scale](./pruebas_individuales/DSS_decision_styles_scale)
+[ECR* -RS_relationship_structures](./pruebas_individuales/ECR-RS_relationship_structures)
+* [EPI_eysenck_personality_inventory](./pruebas_individuales/EPI_eysenck_personality_inventory)
+* [GDMS_estilo_toma_decisiones](./pruebas_individuales/GDMS_estilo_toma_decisiones)
+* [GHQ_general_health_questionnaire](./pruebas_individuales/GHQ_general_health_questionnaire)
+* [IRI_interpersonal_reactivity_index](./pruebas_individuales/IRI_interpersonal_reactivity_index)
+* [LIPKUS_numeracy](./pruebas_individuales/LIPKUS_numeracy)
+* [MINI_SEA_mini_social_cognition_emotional_assessment](./pruebas_individuales/MINI_SEA_mini_social_cognition_emotional_assessment)
+* [OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test](./pruebas_individuales/OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test)
+* [SASS_social_adaptation_self_evaluation_scale](./pruebas_individuales/SASS_social_adaptation_self_evaluation_scale)
+* [SPR_III_self_report_psychopathy_scale](./pruebas_individuales/SPR_III_self_report_psychopathy_scale)
+* [STAI_state_trait_anxiety_inventory](./pruebas_individuales/STAI_state_trait_anxiety_inventory)
+* [actividad_fisica](./pruebas_individuales/actividad_fisica)
+* [aislamiento_social_y_redes_sociales](./pruebas_individuales/aislamiento_social_y_redes_sociales)
+* [ansiedad_matematica](./pruebas_individuales/ansiedad_matematica)
+* [bienestar_psicosocial](./pruebas_individuales/bienestar_psicosocial)
+* [bienestar_social](./pruebas_individuales/bienestar_social)
+* [comprension_lectora](./pruebas_individuales/comprension_lectora)
+* [empatia_por_dolor](./pruebas_individuales/empatia_por_dolor)
+* [escala_experiencias_disociativas](./pruebas_individuales/cala_experiencias_disociativas)
+* [escala_rosenberg](./pruebas_individuales/cala_rosenberg)
+* [escala_tacticas](./pruebas_individuales/cala_tacticas)
+* [estilo_atribucional](./pruebas_individuales/tilo_atribucional)
+* [estres_percibido](./pruebas_individuales/tres_percibido)
+* [graph_literacy](./pruebas_individuales/graph_literacy)
+* [habilidad_matematica](./pruebas_individuales/habilidad_matematica)
+* [ineco_frontal_screening](./pruebas_individuales/ineco_frontal_screening)
+* [informacion_sociodemografica](./pruebas_individuales/informacion_sociodemografica)
+* [informacion_sociodemografica_simple](./pruebas_individuales/informacion_sociodemografica_simple)
+* [interocepcion](./pruebas_individuales/interocepcion)
+* [iowa_gambling_task](./pruebas_individuales/iowa_gambling_task)
+* [metacognicion](./pruebas_individuales/metacognicion)
+* [miradas](./pruebas_individuales/miradas)
+* [optimismo_aprendido](./pruebas_individuales/optimismo_aprendido)
+* [protocolo_fin](./pruebas_individuales/protocolo_fin)
+* [protocolo_inicio](./pruebas_individuales/protocolo_inicio)
+* [protocolo_pausa](./pruebas_individuales/protocolo_pausa)
+* [razonamiento_bayesiano](./pruebas_individuales/razonamiento_bayesiano)
+* [razonamiento_silogistico](./pruebas_individuales/razonamiento_silogistico)
+* [razonamiento_transitivo](./pruebas_individuales/razonamiento_transitivo)
+* [regulacion_emocional](./pruebas_individuales/regulacion_emocional)
+* [religiosidad](./pruebas_individuales/religiosidad)
+* [rotacion_mental](./pruebas_individuales/rotacion_mental)
+* [sMARS_short_mathematics_anxiety_rating_scale](./pruebas_individuales/MARS_short_mathematics_anxiety_rating_scale)
+* [wais_matrices](./pruebas_individuales/wais_matrices)
+* [wais_vocabulario](./pruebas_individuales/wais_vocabulario)
+* [wais_working_memory](./pruebas_individuales/wais_working_memory)
 
-You must have downloaded the project (in case you want to construct a paradigm) or have the following files if the paradigm has already been constructed:
+## [Experiment Factory Protocol](./protocolo_experiment_factory)
 
-* experiments.tar
-* service_secret.json
-* setup.py
-* start.py
+Consist of two python scripts, one for seting up an enviorement and another for running experimental factory and helpers. It's designed for more controled setings were we have control over the computers that run the experiments.
 
-To get the project/paradigm running in any computer running Linux, you must have installed python and Google chrome.
+## [Simplified Protocol](./protocolo_simplificado)
 
-Then, you can install all the dependencies of the project by running the _setup.py_ script and then rebooting (this is done in order to update the docker group)
-
-```
-$ python setup.py
-```
-
-#### Google drive
-
-To be able to use Google drive to coordinate the subjects on wish the paradigm has already been tested, you'll need to have a file called **service_secret.json**. This file can be obtained through the [Google Cloud Platform](https://console.developers.google.com/apis/dashboard?hl=ES)
-
-### Creating a paradigm
-
-To create a paradigm that can be tested in any computer, you must first run the _start.py_, indicating the folder where the results will be stored (this folder must be available in every computer where the paradigm is going to be tested)
-
-```
-$ python start.py ~/path/to/the/folder
-```
-After that, you will be asked if you want to use Google drive (for this option to work, you must have the file **service_secret.json**)
-and the amount of subjects you wish to utilize to test the paradigm or a csv file with as many rows as subject and the test you want them to perform as each column, additionally you can use the keyword random, _random_ alone can only be used once, and it will select all unchosen test remaining and place them at that position, _random(10)_ with parenthesis and a number will chose that amount of test to randomize, and _random(test1;test3)_ will chose between those test randomly, making sure they are not repeated test in the paradigm. All these are evaluated in the following order:
-
-```
-Experiment name, random(list), random(number) and random.
-```
-
-Finally, specifically for the bayes test, after the rows of commands you can put the keyword _bayesItems_ and each row after that will serve as a trial for the bayes test in the format:
-
-```
-problem_context,presentation_format,response_type,probability
-```
-This will generate a **tokens.tsv** file with the experiments to be run for each subject, which will be synchronized through Google drive if enabled, and create a compressed file called **experiments.tar** and **experiments.cfg**. These files can be shared across different computers to test the paradigm!
-
-### Deployment of the paradigm
-
-Once you have your machine with all the dependencies installed and a both **experiments.tar** and **experiments.cfg**, you can run the paradigm with the same script _start.py_ used before
-
-```
-$ python start.py
-```
-After this, you will be asked to enter the ID of the subject which you desire to test.
+It's designed with not having control of the computer in mind and using portable version of Firefox in order to have control over the used browser.
 
 ## Built With
 
-* [Experiment Factory](https://expfactory.github.io/expfactory/) - For the creation of paradigms
-* [jsPsych](http://www.jspsych.org/) - For the creations of trials in each experiment
-* [d3](https://d3js.org/) - Used to easily read from csv files
+- [Experiment Factory](https://expfactory.github.io/expfactory/) - For the creation of paradigms
+- [jsPsych](http://www.jspsych.org/) - For the creations of trials in each experiment
+- [d3](https://d3js.org/) - Used to easily read from csv files
+- [JSZip](https://github.com/Stuk/jszip) - For batch downloads as zip
 
 ## Contributing
 
@@ -85,16 +95,18 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Authors
 
-* **Gorka Navarrete** - *Initial work* - [gorkang](https://github.com/gorkang)
+- **Gorka Navarrete** - _Initial work_ - [gorkang](https://github.com/gorkang)
+- **Alejandro Cofre Garcia** - [fethrblaka](https://github.com/fethrblaka)
+- **Nicolas Alarcon** [nicomero](https://github.com/nicomero)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/gorkang/CSCN_practica_2018/graphs/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the NO LICENSE YET - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the NO LICENSE YET - see the <LICENSE.md> file for details
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+- Hat tip to anyone who's code was used
+- Inspiration
+- etc
