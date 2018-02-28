@@ -1,0 +1,6 @@
+Imagine you are participating in a routine prenatal test to detect Down's syndrome and you receive a positive result.
+
+The doctor offers you a follow-up test called amniocentesis, necessary to confirm the diagnosis. The follow-up test has a risk_percentage% procedure-related risk of complications that can result in a miscarriage.
+
+Would you take the follow-up test?
+
