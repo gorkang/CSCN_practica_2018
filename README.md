@@ -2,10 +2,9 @@
 
 JsPsych experiments and tools
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
 
  - [CSCN_practica_2018](#cscnpractica2018)
-
   - [Experiments](#experiments)
   - [Experimental Factory Protocol](#experiment-factory)
   - [Simplified Protocol](#simplified-protocol)
