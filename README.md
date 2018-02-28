@@ -16,7 +16,7 @@ JsPsych experiments and tools
 
 <!-- /TOC -->
 
-## [Experiments](./experimentos_individuales)
+## [Experiments](./pruebas_individuales)
 
 This repository host multiple adaptations of psicological experiments in jsPsych formated for experimental factory and our own html simplified protocol.
 
