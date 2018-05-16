@@ -142,7 +142,6 @@ input[type="text"] {
 }
 
 div#jspsych-content {
-    margin-left: 0;
     text-align: left;
 }
 
@@ -151,7 +150,7 @@ p.jspsych-survey-multi-choice-text.survey-multi-choice{
 }
 
 .jspsych-content {
-    max-width: 100%;
+    width: 100%;
 }
 
 .multi-choices {
@@ -162,24 +161,7 @@ div#jspsych-html-button-response-btngroup {
     white-space: nowrap;
 }
 
-div#jspsych-html-button-response-button-0{
-  width: 18%;
-}
-
-div#jspsych-html-button-response-button-1{
-  width: 18%;
-}
-
-div#jspsych-html-button-response-button-2{
-  width: 18%;
-}
-
-
-div#jspsych-html-button-response-button-3{
-  width: 18%;
-}
-
-div#jspsych-html-button-response-button-4{
+.jspsych-html-button-response-button{
   width: 18%;
 }
 
@@ -206,5 +188,5 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 img {
-    width: 50%;
+    width: 100%;
 }
