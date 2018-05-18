@@ -119,8 +119,8 @@ var matriz_practice_1 = {
         "de arriba hacia abajo. No mire diagonalmente. &iquest;Cu&aacute;l de las opciones que se encuentran abajo va en " +
         "el cuadro con un signo de interrogaci&oacute;n?" +
         "</p><br /><br /></div>" +
-        "<div class= centered><div class='centered'><img src ='img/1A.png' /></div>",
-    choices: ["<img src='img/1B_1.png' style='width: 100%'/>", "<img src='img/1B_2.png' style='width: 100%'/>", "<img src='img/1B_3.svg' style='width: 100%'/>", "<img src='img/1B_4.png' style='width: 100%'/>", "<img src='img/1B_5.png' style='width: 100%' />"],
+        "<div class= centered><div class='centered'><img src ='img/1A.png' style='width: 30%; margin-left: -4%' /></div>",
+    choices: ["<img src='img/1B_1.png' style='width: 80%'/>", "<img src='img/1B_2.png' style='width: 80%'/>", "<img src='img/1B_3.png' style='width: 80%'/>", "<img src='img/1B_4.png' style='width: 80%'/>", "<img src='img/1B_5.png' style='width: 80%' />"],
     button_html: '<button class="jspsych-matrix-button">%choice%</button>',
     data: {
         trialid: "P_MP_01"
@@ -145,8 +145,8 @@ var matriz_practice_2 = {
         "seguir&aacute; el mismo orden que usted ve en los cuadros. &iquest;Cu&aacute;l de las opciones que se encuentran abajo va " +
         "en el cuadro con un signo de interrogaci&oacute;n?" +
         "</p><br /><br /></div>" +
-        "<div class= centered><div class='centered'><img src ='img/2A.png' /></div>",
-    choices: ["<img src='img/2B_1.png' />", "<img src='img/2B_2.png' />", "<img src='img/2B_3.png' />", "<img src='img/2B_4.png' />", "<img src='img/2B_5.png' />"],
+        "<div class= centered><div class='centered'><img src ='img/2A.png' style='width: 84%; margin-left: -4%' /></div>",
+    choices: ["<img src='img/2B_1.png' style='width: 82%' />", "<img src='img/2B_2.png' style='width: 82%' />", "<img src='img/2B_3.png' style='width: 82%' />", "<img src='img/2B_4.png' style='width: 82%' />", "<img src='img/2B_5.png' style='width: 82%' />"],
     button_html: '<button class="jspsych-matrix-button">%choice%</button>',
     data: {
         trialid: "P_MP_02"
@@ -166,7 +166,7 @@ var matriz_practice_2 = {
 var m_wrong1 = {
     type: "instructions",
     show_clickable_nav: true,
-    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/1A.png' /></div><br /><br /><div class='centered'><img src ='img/1B.png' </img></div><br /><br /><div class='matrizfeedback'>Eso no es correcto. <br />Para responder correctamente debe mirar de izquierda a derecha en la fila de arriba.<br /><br />" +
+    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/1A.png' style='width: 30%; margin-left: -4%' /></div><br /><br /><div class='centered'><img src ='img/1B.png' style='width: 74%; margin-left: -4%' </img></div><br /><br /><div class='matrizfeedback'>Eso no es correcto. <br />Para responder correctamente debe mirar de izquierda a derecha en la fila de arriba.<br /><br />" +
         "Cuando usted mira la fila de arriba la estrella azul cambia a un circulo amarillo. <br />" +
         "Esto quiere decir que cuando usted va de izquierda a derecha en la fila de abajo la estrella azul tambi&eacute;n deberia cambiar a un circulo amarillo.<br /><br />" +
         "Para obtener la respuesta correcta yendo de arriba hacia abajo, usted debe mirar los cuadros de la columna izquierda. " +
@@ -179,7 +179,7 @@ var m_wrong1 = {
 var m_right1 = {
     type: "instructions",
     show_clickable_nav: true,
-    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/1A.png' /></div><br /><br /><div class='centered'><img src ='img/1B.png' </img></div><br /><br /><div class='matrizfeedback'>Eso es correcto.<br />Cuando usted va de izquierda a derecha en la fila de arriba la estrella azul cambia a un circulo amarillo. <br /><br />" +
+    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/1A.png' style='width: 30%; margin-left: -4%' /></div><br /><br /><div class='centered'><img src ='img/1B.png' style='width: 74%; margin-left: -4%' </img></div><br /><br /><div class='matrizfeedback'>Eso es correcto.<br />Cuando usted va de izquierda a derecha en la fila de arriba la estrella azul cambia a un circulo amarillo. <br /><br />" +
         "Esto quiere decir que cuando usted va de izquierda a derecha en la fila de abajo la estrella azul tambi&eacute;n deberia cambiar a un circulo amarillo. " +
         "Cuando usted va de arriba hacia abajo en la primera columna los cuadros tienen la misma forma y el mismo color: estrellas azules. <br /><br />" +
         "Esto quiere decir que cuando usted va de arriba hacia abajo en la segunda columna los cuadros tambi&eacute;n deben tener la misma forma y el mismo color: circulos amarillos. " +
@@ -190,7 +190,7 @@ var m_right1 = {
 var m_wrong2 = {
     type: "instructions",
     show_clickable_nav: true,
-    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/2A.png' /></div><br /><br /><div class='centered'><img src ='img/2B.png' </img></div><br /><br /><div class='matrizfeedback'>Eso no es correcto. <br />Cuando usted mira los cuadros de izquierda a derecha, usted puede ver que ellos<br />" +
+    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/2A.png' style='width: 84%; margin-left: -4%' /></div><br /><br /><div class='centered'><img src ='img/2B.png' style='width: 72%; margin-left: -4%' </img></div><br /><br /><div class='matrizfeedback'>Eso no es correcto. <br />Cuando usted mira los cuadros de izquierda a derecha, usted puede ver que ellos<br />" +
         "est&aacute;n en el siguiente orden: c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande.<br /><br />" +
         "El c&iacute;rculo peque&ntilde;o va en el cuadro con un signo de interrogaci&oacute;n porque es la opci&oacute;n que mantiene el orden: un c&iacute;rculo peque&ntilde;o va luego de un c&iacute;rculo grande.<br />" +
         "</div>"
@@ -200,7 +200,7 @@ var m_wrong2 = {
 var m_right2 = {
     type: "instructions",
     show_clickable_nav: true,
-    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/2A.png' /></div><br /><br /><div class='centered'><img src ='img/2B.png' </img></div><br /><br /><div class='matrizfeedback'>Eso es correcto.<br />Cuando usted mira los cuadros de izquierda a derecha, puede ver que ellos siguen este orden: " +
+    pages: ["<div class = matrizlimit><div class= centered><div class='centered'><img src ='img/2A.png' style='width: 84%; margin-left: -4%' /></div><br /><br /><div class='centered'><img src ='img/2B.png' style='width: 72%; margin-left: -4%' </img></div><br /><br /><div class='matrizfeedback'>Eso es correcto.<br />Cuando usted mira los cuadros de izquierda a derecha, puede ver que ellos siguen este orden: " +
         "c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande, c&iacute;rculo peque&ntilde;o, c&iacute;rculo grande. <br /><br />" +
         "El c&iacute;rculo peque&ntilde;o va en el cuadro con un signo de interrogaci&oacute;n porque es lo que mantiene el mismo orden que los anteriores.<br /><br />" +
         "</div>"
@@ -272,7 +272,7 @@ var matrizstarter = {
 
 var matriz01 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/3A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/3A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/3B_1.png' />", "<img src='img/3B_2.png' />", "<img src='img/3B_3.png' />", "<img src='img/3B_4.png' />", "<img src='img/3B_5.png' />"],
     button_html: '<button class="jspsych-matrix-button">%choice%</button>',
     data: {
@@ -295,7 +295,7 @@ var matriz01 = {
 
 var matriz02 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/4A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/4A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/4B_1.png' />", "<img src='img/4B_2.png' />", "<img src='img/4B_3.png' />", "<img src='img/4B_4.png' />", "<img src='img/4B_5.png' />"],
     data: {
         trialid: "MP_04"
@@ -317,7 +317,7 @@ var matriz02 = {
 
 var matriz03 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/5A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/5A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/5B_1.png' />", "<img src='img/5B_2.png' />", "<img src='img/5B_3.png' />", "<img src='img/5B_4.png' />", "<img src='img/5B_5.png' />"],
     data: {
         trialid: "MP_05"
@@ -339,8 +339,8 @@ var matriz03 = {
 /* ********************************************************************************************************* */
 var matriz04 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/6A.png' /></div>",
-    choices: ["<img src='img/6B_1.png' />", "<img src='img/6B_2.png' />", "<img src='img/6B_3.png' />", "<img src='img6/B_4.png' />", "<img src='img/6B_5.png' />"],
+    stimulus: "<div class='centered'><img src ='img/6A.png' style='width: 30%; margin-left: -4%' /></div>",
+    choices: ["<img src='img/6B_1.png' />", "<img src='img/6B_2.png' />", "<img src='img/6B_3.png' />", "<img src='img/6B_4.png' />", "<img src='img/6B_5.png' />"],
     data: {
         trialid: "MP_06"
     },
@@ -361,7 +361,7 @@ var matriz04 = {
 
 var matriz05 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/7A.png' /></div><img src ='img/7B.png' </img></div>",
+    stimulus: "<div class='centered'><img src ='img/7A.png' style='width: 79%; margin-left: -4%' /></div></div>",
     choices: ["<img src='img/7B_1.png' />", "<img src='img/7B_2.png' />", "<img src='img/7B_3.png' />", "<img src='img/7B_4.png' />", "<img src='img/7B_5.png' />"],
     data: {
         trialid: "MP_07"
@@ -386,7 +386,7 @@ var matriz05 = {
 
 var matriz06 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/8A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/8A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/8B_1.png' />", "<img src='img/8B_2.png' />", "<img src='img/8B_3.png' />", "<img src='img/8B_4.png' />", "<img src='img/8B_5.png' />"],
     data: {
         trialid: "MP_08"
@@ -404,7 +404,7 @@ var matriz06 = {
 
 var matriz07 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/9A.png' /></div><img src ='img/9B.png' </img></div>",
+    stimulus: "<div class='centered'><img src ='img/9A.png' style='width: 79%; margin-left: -4%' /></div></div>",
     choices: ["<img src='img/9B_1.png' />", "<img src='img/9B_2.png' />", "<img src='img/9B_3.png' />", "<img src='img/9B_4.png' />", "<img src='img/9B_5.png' />"],
     data: {
         trialid: "MP_09"
@@ -422,7 +422,7 @@ var matriz07 = {
 
 var matriz08 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/10A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/10A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/10B_1.png' />", "<img src='img/10B_2.png' />", "<img src='img/10B_3.png' />", "<img src='img/10B_4.png' />", "<img src='img/10B_5.png' />"],
     data: {
         trialid: "MP_10"
@@ -440,7 +440,7 @@ var matriz08 = {
 
 var matriz09 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/11A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/11A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/11B_1.png' />", "<img src='img/11B_2.png' />", "<img src='img/11B_3.png' />", "<img src='img/11B_4.png' />", "<img src='img/11B_5.png' />"],
     data: {
         trialid: "MP_11"
@@ -458,7 +458,7 @@ var matriz09 = {
 
 var matriz10 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/12A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/12A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/12B_1.png' />", "<img src='img/12B_2.png' />", "<img src='img/12B_3.png' />", "<img src='img/12B_4.png' />", "<img src='img/12B_5.png' />"],
     data: {
         trialid: "MP_12"
@@ -476,7 +476,7 @@ var matriz10 = {
 
 var matriz11 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/13A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/13A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/13B_1.png' />", "<img src='img/13B_2.png' />", "<img src='img/13B_3.png' />", "<img src='img/13B_4.png' />", "<img src='img/13B_5.png' />"],
     data: {
         trialid: "MP_13"
@@ -494,7 +494,7 @@ var matriz11 = {
 
 var matriz12 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/14A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/14A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/14B_1.png' />", "<img src='img/14B_2.png' />", "<img src='img/14B_3.png' />", "<img src='img/14B_4.png' />", "<img src='img/14B_5.png' />"],
     data: {
         trialid: "MP_14"
@@ -512,7 +512,7 @@ var matriz12 = {
 
 var matriz13 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/15A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/15A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/15B_1.png' />", "<img src='img/15B_2.png' />", "<img src='img/15B_3.png' />", "<img src='img/15B_4.png' />", "<img src='img/15B_5.png' />"],
     data: {
         trialid: "MP_15"
@@ -530,7 +530,7 @@ var matriz13 = {
 
 var matriz14 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/16A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/16A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/16B_1.png' />", "<img src='img/16B_2.png' />", "<img src='img/16B_3.png' />", "<img src='img/16B_4.png' />", "<img src='img/16B_5.png' />"],
     data: {
         trialid: "MP_16"
@@ -548,7 +548,7 @@ var matriz14 = {
 
 var matriz15 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/17A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/17A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/17B_1.png' />", "<img src='img/17B_2.png' />", "<img src='img/17B_3.png' />", "<img src='img/17B_4.png' />", "<img src='img/17B_5.png' />"],
     data: {
         trialid: "MP_17"
@@ -566,7 +566,7 @@ var matriz15 = {
 
 var matriz16 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/18A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/18A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/18B_1.png' />", "<img src='img/18B_2.png' />", "<img src='img/18B_3.png' />", "<img src='img/18B_4.png' />", "<img src='img/18B_5.png' />"],
     data: {
         trialid: "MP_18"
@@ -584,7 +584,7 @@ var matriz16 = {
 
 var matriz17 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/19A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/19A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/19B_1.png' />", "<img src='img/19B_2.png' />", "<img src='img/19B_3.png' />", "<img src='img/19B_4.png' />", "<img src='img/19B_5.png' />"],
     data: {
         trialid: "MP_19"
@@ -603,7 +603,7 @@ var matriz17 = {
 
 var matriz18 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/20A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/20A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/20B_1.png' />", "<img src='img/20B_2.png' />", "<img src='img/20B_3.png' />", "<img src='img/20B_4.png' />", "<img src='img/20B_5.png' />"],
     data: {
         trialid: "MP_20"
@@ -622,7 +622,7 @@ var matriz18 = {
 
 var matriz19 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/21A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/21A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/21B_1.png' />", "<img src='img/21B_2.png' />", "<img src='img/21B_3.png' />", "<img src='img/21B_4.png' />", "<img src='img/21B_5.png' />"],
     data: {
         trialid: "MP_21"
@@ -641,7 +641,7 @@ var matriz19 = {
 
 var matriz20 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/22A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/22A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/22B_1.png' />", "<img src='img/22B_2.png' />", "<img src='img/22B_3.png' />", "<img src='img/22B_4.png' />", "<img src='img/22B_5.png' />"],
     data: {
         trialid: "MP_22"
@@ -660,7 +660,7 @@ var matriz20 = {
 
 var matriz21 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/23A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/23A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/23B_1.png' />", "<img src='img/23B_2.png' />", "<img src='img/23B_3.png' />", "<img src='img/23B_4.png' />", "<img src='img/23B_5.png' />"],
     data: {
         trialid: "MP_23"
@@ -679,7 +679,7 @@ var matriz21 = {
 
 var matriz22 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/24A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/24A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/24B_1.png' />", "<img src='img/24B_2.png' />", "<img src='img/24B_3.png' />", "<img src='img/24B_4.png' />", "<img src='img/24B_5.png' />"],
     data: {
         trialid: "MP_24"
@@ -698,7 +698,7 @@ var matriz22 = {
 
 var matriz23 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/25A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/25A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/25B_1.png' />", "<img src='img/25B_2.png' />", "<img src='img/25B_3.png' />", "<img src='img/25B_4.png' />", "<img src='img/25B_5.png' />"],
     data: {
         trialid: "MP_25"
@@ -717,7 +717,7 @@ var matriz23 = {
 
 var matriz24 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/26A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/26A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/26B_1.png' />", "<img src='img/26B_2.png' />", "<img src='img/26B_3.png' />", "<img src='img/26B_4.png' />", "<img src='img/26B_5.png' />"],
     data: {
         trialid: "MP_26"
@@ -736,7 +736,7 @@ var matriz24 = {
 
 var matriz25 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/27A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/27A.png' style='width: 30%; margin-left: -4%' /></div>",
     choices: ["<img src='img/27B_1.png' />", "<img src='img/27B_2.png' />", "<img src='img/27B_3.png' />", "<img src='img/27B_4.png' />", "<img src='img/27B_5.png' />"],
     data: {
         trialid: "MP_27"
@@ -755,7 +755,7 @@ var matriz25 = {
 
 var matriz26 = {
     type: "html-button-response",
-    stimulus: "<div class='centered'><img src ='img/28A.png' /></div>",
+    stimulus: "<div class='centered'><img src ='img/28A.png' style='width: 79%; margin-left: -4%' /></div>",
     choices: ["<img src='img/28B_1.png' />", "<img src='img/28B_2.png' />", "<img src='img/28B_3.png' />", "<img src='img/28B_4.png' />", "<img src='img/28B_5.png' />"],
     data: {
         trialid: "MP_28"

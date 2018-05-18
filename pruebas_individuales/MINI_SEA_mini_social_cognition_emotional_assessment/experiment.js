@@ -15,7 +15,7 @@ onkeydown = function block_fkeys(event) {
 var instructions_1 = {
   type: "instructions",
   pages: ['<p><left><b><big>Mini SEA</big></b><br />'+
-  'Ahora le voy a leer 10 historias cortas. Usted tiene una copia de ellas en papel. Algunas contienen una metedura de pata, y otras no. Usted debe encontrarlas y explicármelas. Para responder a las preguntas, usted puede releer las historias el número de veces que quiera. No es un test de memoria.'],
+  'Ahora leerá 10 historias cortas. Algunas contienen una metedura de pata, y otras no. Usted debe encontrarlas y explicarlas. Para responder a las preguntas, usted puede releer las historias el número de veces que quiera. No es un test de memoria.'],
   allow_keys: false,
   show_clickable_nav: true,
   timing_post_trial: 50,
