@@ -141,7 +141,7 @@ var matriz_practice_2 = {
     type: "html-button-response",
     stimulus: "<div class = centerbox>" +
         "<p class = justified>" +
-        "&Eacute;ste es otro tipo de problema. Los cuadros solo van de izquierda a derecha. La respuesta correcta " +
+        "Este es otro tipo de problema. Los cuadros s&oacute;lo van de izquierda a derecha. La respuesta correcta " +
         "seguir&aacute; el mismo orden que usted ve en los cuadros. &iquest;Cu&aacute;l de las opciones que se encuentran abajo va " +
         "en el cuadro con un signo de interrogaci&oacute;n?" +
         "</p><br /><br /></div>" +
