@@ -53,14 +53,14 @@ var instructions = {
     "<ol>" +
     "<li>En la pantalla delante de usted, hay 4 mazos de cartas: A, B, C y D.</li>" +
     "<li>Cuando comencemos el juego, quiero que seleccione una carta a la vez haciendo click en una carta de cualquier mazo que elija.</li>" +
-    "<li>Cada vez que seleccione una carta, el computador le dirá que ganó algo de dinero. Yo no sé cuánto dinero ganará. Lo descubrirá a medida que avanzamos. Cada vez que gane, la barra se irá haciendo más grande.</li>" +
-    "<li>De vez en cuando, al hacer clic en una carta, el computador le dirá que ganó algo de dinero como siempre, pero luego también le dirá que perdió algo de dinero. No sé cuándo ni cuánto perderá. Lo descubrirá a medida que avanzamos. Cada vez que pierda, la barra se hará más pequeña.</li>" +
+    "<li>Cada vez que seleccione una carta, el computador le dir&aacute; que gan&oacute; algo de dinero. Yo no s&eacute; cu&aacute;nto dinero ganar&aacute;. Lo descubrir&aacute; a medida que avanzamos. Cada vez que gane, la barra se ir&aacute; haciendo m&aacute;s grande.</li>" +
+    "<li>De vez en cuando, al hacer click en una carta, el computador le dir&aacute; que gan&oacute; algo de dinero como siempre, pero luego tambi&eacute;n le dir&aacute; que perdi&oacute; algo de dinero. No s&eacute; cu&aacute;ndo ni cu&aacute;nto perder&aacute;. Lo descubrir&aacute; a medida que avanzamos. Cada vez que pierda, la barra se har&aacute; m&aacute;s pequeña.</li>" +
     "<li>Usted es absolutamente libre de cambiar de un mazo a otro en cualquier momento, y tan a menudo como lo desee.</li>" +
     "<li>El objetivo del juego es ganar la mayor cantidad de dinero posible y evitar perder la mayor cantidad de dinero posible.</li>" +
-    "<li>Usted no sabrá cuándo termina el juego. Simplemente siga jugando hasta que la computadora se detenga.</li>" +
-    "<li>Voy a darle $ 2000 de crédito para comenzar el juego.</li>" +
-    "<li>La única pista que puedo darle, y lo más importante a tener en cuenta es esto: de estos 4 mazos, hay algunos que son peores que otros, y para ganar debe tratar de mantenerse alejado de los mazos malos. No importa cuánto vaya perdiendo, aún puede ganar el juego si evita los peores mazos.</li>" +
-    "<li>También tenga en cuenta que la computadora no cambia el orden de las cartas una vez que comienza el juego. No le hace perder al azar, ni le hace perder dinero basado en la última carta que eligió.</li>" +
+    "<li>Usted no sabr&aacute; cu&aacute;ndo termina el juego. Simplemente siga jugando hasta que el computador se detenga.</li>" +
+    "<li>Voy a darle $ 2000 de cr&eacute;dito para comenzar el juego.</li>" +
+    "<li>La &uacute;nica pista que puedo darle, y lo m&aacute;s importante a tener en cuenta es esto: de estos 4 mazos, hay algunos que son peores que otros, y para ganar debe tratar de mantenerse alejado de los mazos malos. No importa cu&aacute;nto vaya perdiendo, a&uacute;n puede ganar el juego si evita los peores mazos.</li>" +
+    "<li>Tambi&eacute;n tenga en cuenta que el computador no cambia el orden de las cartas una vez que comienza el juego. No le hace perder al azar, ni le hace perder dinero basado en la &uacute;ltima carta que eligi&oacute;.</li>" +
     "</ol>" +
     "</div>"
   ],
