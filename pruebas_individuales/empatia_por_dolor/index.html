@@ -28,7 +28,10 @@
       jsPsych.init({
         timeline: empatia_por_dolor,
         fullscreen: true,
-
+        on_data_update: function(data) {
+          var data = jsPsych.data.get().json();
+          console.log(data);
+        },
         on_finish: function(data) {
 
           // Serialize the data

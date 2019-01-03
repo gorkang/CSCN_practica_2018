@@ -61,7 +61,7 @@ jsPsych.plugins['survey-multi-choice1'] = (function() {
       var arr = Array.prototype.slice.call(arguments, _join.length);
       return arr.join(separator = '-');
     }
-
+    
     // inject CSS for trial
     display_element.innerHTML = '<style id="jspsych-survey-multi-choice1-css"></style>';
     var cssstr = ".jspsych-survey-multi-choice1-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
@@ -84,18 +84,18 @@ jsPsych.plugins['survey-multi-choice1'] = (function() {
     }
     // add multiple-choice questions
     for (var i = 0; i < trial.questions.length; i++) {
-        // create question container
-        var question_classes = [_join(plugin_id_name, 'question')];
-        if (trial.questions[i].horizontal) {
-          question_classes.push(_join(plugin_id_name, 'horizontal'));
-        }
+      // create question container
+      var question_classes = [_join(plugin_id_name, 'question')];
+      if (trial.questions[i].horizontal) {
+        question_classes.push(_join(plugin_id_name, 'horizontal'));
+      }
 
-        trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
+      trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
 
-        var question_selector = _join(plugin_id_selector, i);
+      var question_selector = _join(plugin_id_selector, i);
 
-        // add question text
-        display_element.querySelector(question_selector).innerHTML += '<p class="' + plugin_id_name + '-text survey-multi-choice">' + trial.questions[i].prompt + '</p>';
+      // add question text
+      display_element.querySelector(question_selector).innerHTML += '<p class="' + plugin_id_name + '-text survey-multi-choice">' + trial.questions[i].prompt + '</p>';
 
       // create option radio buttons
       for (var j = 0; j < trial.questions[i].options.length; j++) {

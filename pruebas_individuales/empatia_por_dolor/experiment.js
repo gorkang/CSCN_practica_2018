@@ -34,10 +34,12 @@ var instructions_1 = {
   pages: ['Usted ver&aacute; algunas im&aacute;genes y luego le haremos algunas preguntas acerca de ellas.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
-    trialId: "instructions_1"
+    trial_id: "instructions_1"
   },
   key_forward: "downarrow",
   on_start: function(trial) {
+    console.log("------trial--------");
+    console.log(trial);
     getFrames();
     getQuestions();
   },
@@ -51,7 +53,7 @@ var instructions_2 = {
   pages: ['No lo piense por mucho tiempo, simplemente d&iacute;ganos el primer pensamiento que le venga a la mente.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
-    trialId: "instructions_2"
+    trial_id: "instructions_2"
   },
   key_forward: "downarrow",
   on_finish: function(data) {
@@ -66,7 +68,7 @@ var instructions_3 = {
   left_option: "Menos",
   rigth_option: "M&aacute;s",
   data: {
-    trialId: "instructions_3"
+    trial_id: "instructions_3"
   }
 }
 
@@ -75,7 +77,7 @@ var instructions_4 = {
   pages: ['Despu&eacute;s de cada im&aacute;gen, presione la FLECHA HACIA ABAJO en el momento exacto en que entienda lo que pas&oacute;, no antes ni despu&eacute;s.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
-    trialId: "instructions_4"
+    trial_id: "instructions_4"
   },
   key_forward: "downarrow",
   on_finish: function(data) {
@@ -88,7 +90,7 @@ var instructions_5 = {
   pages: ['A continuaci&oacute;n le presentamos un ejemplo de la tarea para que practique.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
-    trialId: "instructions_5"
+    trial_id: "instructions_5"
   },
   key_forward: "downarrow",
   on_finish: function(data) {
@@ -103,7 +105,7 @@ var practice_animation = {
   stimulus_duration: [500, 200],
   data: {
     rt: 500,
-    trialId: "instructions_practice"
+    trial_id: "instructions_practice"
   },
   choices: ["downarrow"],
   on_finish: function(data) {
@@ -118,7 +120,7 @@ var practice_response = {
   left_option: "Nada triste",
   rigth_option: "Muy triste",
   data: {
-    trialId: "instructions_practice_response"
+    trial_id: "instructions_practice_response"
   }
 }
 
@@ -127,7 +129,7 @@ var instructions_6 = {
   pages: ['¿Ha comprendido?, si tiene alguna duda, antes de comenzar  preg&uacute;ntele al investigador<br>¡Ahora comenzaremos!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
-    trialId: "instructions_6"
+    trial_id: "instructions_6"
   },
   key_forward: "downarrow",
   on_finish: function(data) {
@@ -140,7 +142,7 @@ var goodbye = {
   pages: ['¡Muy buen trabajo!  ¡Gracias por su participaci&oacute;n!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
-    trialId: "goodbye"
+    trial_id: "goodbye"
   },
   key_forward: "downarrow",
   on_finish: function(data) {
@@ -185,7 +187,7 @@ function create_trials() {
     data: jsPsych.timelineVariable('data_animation'),
     choices: ["downarrow"],
     on_finish: function(data) {
-      data.trialId = "id_" + data.animation_id;
+      data.trial_id = "id_" + data.animation_id;
       delete(data.animation_id);
       delete(data.key_press);
     }
@@ -202,10 +204,10 @@ function create_trials() {
       trial.prompt = '<img src="' + trial.prompt[2] + '">';
     },
     on_finish: function(data) {
-      animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11)
-      data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus
-      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId;
-      data.question_id = "question_0";
+      animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11);
+      data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus;
+      data.trial_id = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trial_id;
+      data.question_id = "question_0"
     }
   }
 
@@ -220,10 +222,10 @@ function create_trials() {
       trial.prompt = '<img src="' + trial.prompt[2] + '">';
     },
     on_finish: function(data) {
-      animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11)
-      data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus
-      data.trialId = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trialId;
-      data.question_id = "question_" + data.question_id;
+      animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11);
+      data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus;
+      data.trial_id = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trial_id;
+      data.question_id = "question_" + data.question_id
     }
   }
 
@@ -278,14 +280,18 @@ window.addEventListener('message', function(event) {
 
 function getFrames() {
   var frames_csv = new XMLHttpRequest();
-  frames_csv.open('GET', 'listado_items.csv');
+  frames_csv.open('GET', 'listado_items1.csv');
   frames_csv.responseType = "text";
-  ["stimulus"]
+  //["stimulus"] --> ghost variable
   frames_csv.onreadystatechange = function() {
+    console.log(frames_csv.readyState)
+    console.log(frames_csv.status)
+
     if (frames_csv.readyState === 4) {
       if (frames_csv.status === 200 || frames_csv.status == 0) {
         frames_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
           if (row_text != '') {
+            console.log(row_text.split(',').slice(1));
             frames.push(row_text.split(',').slice(1));
           }
         })

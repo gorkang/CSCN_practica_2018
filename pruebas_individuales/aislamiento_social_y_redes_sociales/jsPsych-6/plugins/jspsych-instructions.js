@@ -160,6 +160,8 @@ jsPsych.plugins.instructions = (function() {
         "view_history": JSON.stringify(view_history),
         "rt": (new Date()).getTime() - start_time
       };
+      console.log(trial_data.rt)
+      console.log(start_time)
 
       jsPsych.finishTrial(trial_data);
     }
