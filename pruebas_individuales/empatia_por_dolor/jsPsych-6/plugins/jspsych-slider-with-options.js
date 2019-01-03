@@ -135,7 +135,7 @@ jsPsych.plugins["slider-with-options"] = (function() {
       var trialdata = {
         rt: response_time,
         response: slider.value,
-        question: trial.scale_question
+        question: trial.scale_question,
       };
 
       display_element.innerHTML = '';

@@ -64,14 +64,15 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
   }
 
   plugin.trial = function(display_element, trial) {
-
     new_html = '';
 
     image_index = 0;
     new_html += "<p style='position:absolute;top:auto;left:20%;width: 60%;'>"
     trial.stimulus.forEach(function(image) {
-      new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
-      image_index += 1;
+      if((image.split(".")).length != 1){
+        new_html += '<img src="' + image + '" id="jspsych-animation-keyboard-response-stimulus-' + image_index + '" style="position:absolute;z-index:' + (trial.stimulus.length - image_index) + '"></img>';
+        image_index += 1;
+      }
     })
     new_html += "</p>"
 
@@ -88,10 +89,12 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
     image_index = 0;
     trial.stimulus.forEach(function(stimulus_image) {
       image = document.getElementById("jspsych-animation-keyboard-response-stimulus-" + image_index);
-      image.onload = function(event) {
-        event.target.style.top = Math.floor(-(event.target.parentElement.offsetWidth / event.target.width * event.target.height / 2)) + "px";
+      if (image){
+        image.onload = function(event) {
+          event.target.style.top = Math.floor(-(event.target.parentElement.offsetWidth / event.target.width * event.target.height / 2)) + "px";
+        }
+        image_index += 1;
       }
-      image_index += 1;
     })
     // store response
     var response = {
@@ -114,7 +117,8 @@ jsPsych.plugins["animation-keyboard-response"] = (function() {
       var trial_data = {
         "rt": response.rt,
         "key_press": response.key,
-        stimulus: trial.stimulus[2]
+        stimulus: trial.stimulus[2],
+        stimulus_type: trial.stimulus[3]+"_"+trial.stimulus[4]+"_"+trial.stimulus[5]
       };
 
       // clear the display

@@ -222,6 +222,8 @@ function create_trials() {
       trial.prompt = '<img src="' + trial.prompt[2] + '">';
     },
     on_finish: function(data) {
+      console.log("finish")
+      console.log(data)
       animation_nodeID = jsPsych.currentTimelineNodeID().slice(0, 8) + 0 + jsPsych.currentTimelineNodeID().slice(9, 11);
       data.stimulus = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].stimulus;
       data.trial_id = jsPsych.data.getDataByTimelineNode(animation_nodeID).values()[0].trial_id;
@@ -233,7 +235,7 @@ function create_trials() {
   var animations = [];
   frames.forEach(function(frame) {
     animations.push({
-      stimulus: ['experimento/' + frame[0], 'experimento/' + frame[1], 'experimento/' + frame[2]],
+      stimulus: ['experimento/' + frame[0], 'experimento/' + frame[1], 'experimento/' + frame[2], frame[3], frame[4], frame[5]],
       data_animation: {
         animation_id: index
       }

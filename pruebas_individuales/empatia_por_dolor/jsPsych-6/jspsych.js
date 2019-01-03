@@ -1300,7 +1300,8 @@ jsPsych.data = (function() {
     var trial = jsPsych.currentTrial();
 
     //var trial_opt_data = typeof trial.data == 'function' ? trial.data() : trial.data;
-
+    console.log("module.write trial")
+    console.log(trial)
     var default_data = {
       'trial_type': trial.type,
       'trial_index': progress.current_trial_global,
