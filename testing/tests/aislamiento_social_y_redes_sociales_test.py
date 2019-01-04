@@ -28,6 +28,14 @@ def main():
 		multi = config.basic_config['multi']
 		cont = config.basic_config['cont']
 
+	# Si no existe la carpeta Downloads, es creada para guardar las pruebas
+	if not os.path.exists('/'+PATH+'/testing/Downloads'):
+		os.makedirs('/'+PATH+'/testing/Downloads')
+
+	# Si no existe la carpeta de imagenes, es creada para guardar las fotos de la pantalla
+	if not os.path.exists('/'+PATH+'/testing/Image'):
+		os.makedirs('/'+PATH+'/testing/Image')
+
 	firefox_driver = os.path.join(os.getcwd(), "../browser_drivers/geckodriver")
 
 	profile = webdriver.FirefoxProfile();
@@ -124,7 +132,7 @@ def main():
     #elem.send_keys(Keys.RETURN)
 
     # screenshot capture (it needs pillow)
-	# image_path = "../images/aislamiento_social_y_redes_sociales.png"
+	# image_path = "../Image/aislamiento_social_y_redes_sociales.png"
 	# driver.get_screenshot_as_file(image_path)
 	
 	# close the browser
