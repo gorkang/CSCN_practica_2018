@@ -38,8 +38,6 @@ var instructions_1 = {
   },
   key_forward: "downarrow",
   on_start: function(trial) {
-    console.log("------trial--------");
-    console.log(trial);
     getFrames();
     getQuestions();
   },
@@ -286,14 +284,11 @@ function getFrames() {
   frames_csv.responseType = "text";
   //["stimulus"] --> ghost variable
   frames_csv.onreadystatechange = function() {
-    console.log(frames_csv.readyState)
-    console.log(frames_csv.status)
 
     if (frames_csv.readyState === 4) {
       if (frames_csv.status === 200 || frames_csv.status == 0) {
         frames_csv.responseText.split('\n').slice(1).forEach(function(row_text) {
           if (row_text != '') {
-            console.log(row_text.split(',').slice(1));
             frames.push(row_text.split(',').slice(1));
           }
         })
@@ -317,7 +312,8 @@ function getQuestions() {
             questions.push({
               low: row[0],
               high: row[1],
-              question: row[2]
+              question: row[2],
+              stimulus_type: row[3]+"_"+row[4]+"_"+row[5]
             });
           }
         })

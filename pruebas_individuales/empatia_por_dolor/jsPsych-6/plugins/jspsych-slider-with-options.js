@@ -130,7 +130,8 @@ jsPsych.plugins["slider-with-options"] = (function() {
       // measure response time
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
-
+      console.log("trial_");
+      console.log(trial);
       // save data
       var trialdata = {
         rt: response_time,
