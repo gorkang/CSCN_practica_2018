@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import os
+import random
 
 # Para ver la imagen final instantaneamente al terminar una prueba
 from PIL import Image
@@ -20,6 +21,12 @@ def main():
 	config = BasicConfig()
 
 	PATH = config.basic_config['PATH']
+	randomization = config.basic_config['random']
+	if randomization:
+		cont = random.randrange(10)
+	else:
+		multi = config.basic_config['multi']
+		cont = config.basic_config['cont']
 
 	firefox_driver = os.path.join(os.getcwd(), "../browser_drivers/geckodriver")
 
@@ -57,24 +64,64 @@ def main():
 	path_to_watch = '/'+PATH+'/testing/Downloads'
 	before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 
-	next_page_box.perform()
-	next_page_box.perform()
-	next_page_box.perform()
-	escape.perform()
-
 	while True:
 		try:
+			# input box with number
+			elem = driver.find_element_by_class_name("jspsych-survey-text-number-question")
 			input_box = driver.find_element_by_xpath("//input[@type='number']")
-			input_box.send_keys(str(1))
-			next_page_box.perform()
-		except Exception as e:
-			next_page.perform()
+			input_box.send_keys(str(cont))
+			button = driver.find_element_by_id("jspsych-survey-text-number-next")
+			button.click()
+			if randomization:
+				cont = random.randrange(10)
+			else:
+				cont+=1
+		except:
+			pass
+
+		try:
+			# seleccion múltiple
+			elem = driver.find_elements_by_name("jspsych-survey-multi-choice1-response-0")
+			if randomization:
+				elem[random.randrange(len(elem))].click()
+			else:
+				if multi >= len(elem):
+					multi = 0
+				elem[multi].click()
+				multi+=1
+
+			button = driver.find_element_by_id("jspsych-survey-multi-choice1-next")
+			button.click()
+		except:
+			pass
+
+		try:
+			# solo texto
+			button = driver.find_element_by_id("jspsych-instructions-next")
+			button.click()
+		except:
+			pass
+
+		try:
+			# poner pantalla completa
+			button = driver.find_element_by_id("jspsych-fullscreen-btn")
+			button.click()
+		except:
+			pass
 		
 		after = dict ([(f, None) for f in os.listdir (path_to_watch)])
 		added = [f for f in after if not f in before]
 		if added: 
 			print("Archivo nuevo almacenado en: "+path_to_watch+"/"+added[0])
 			break
+
+	
+    # ejecuta todas las acciones del actionchains
+    # actions.perform()
+
+    #elem.clear()
+    #elem.send_keys("python")
+    #elem.send_keys(Keys.RETURN)
 
     # screenshot capture (it needs pillow)
 	# image_path = "../images/aislamiento_social_y_redes_sociales.png"

@@ -7,7 +7,10 @@ class BasicConfig(object):
 	def Configuration(self):
 		# Select your GIT PATH
 		PATH = 'home/herm4nv/Documents/CSCN'
+		numeric_cont = 0
+		randomization = False
+		multichoice_init = 0
 
-		config_dict = {"PATH": PATH}
+		config_dict = {"PATH": PATH, 'cont': numeric_cont, 'random': randomization, 'multi': multichoice_init}
 
 		return config_dict

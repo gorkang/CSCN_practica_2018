@@ -801,3 +801,1106 @@ JavaScript error: , line 0: InvalidStateError: An attempt was made to use an obj
 JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
 [Parent 13998, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 [Parent 13998, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546622845481	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.gn9zxBX4rUwM"
+
+(firefox:15131): Gtk-WARNING **: 14:27:26.106: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:15131): Gtk-WARNING **: 14:27:26.106: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546622847642	Marionette	INFO	Listening on port 34945
+1546622847693	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 15131, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 15131, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546622852784	Marionette	INFO	Stopped listening on port 34945
+1546622954983	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.UiWQsg6qkdnR"
+
+(firefox:16143): Gtk-WARNING **: 14:29:15.554: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:16143): Gtk-WARNING **: 14:29:15.554: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546622957123	Marionette	INFO	Listening on port 37261
+1546622957197	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546622959516	Marionette	INFO	Stopped listening on port 37261
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 16143, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546623066271	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OSrSU6laxdG8"
+
+(firefox:16637): Gtk-WARNING **: 14:31:06.866: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:16637): Gtk-WARNING **: 14:31:06.866: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546623068484	Marionette	INFO	Listening on port 41999
+1546623068631	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546623070951	Marionette	INFO	Stopped listening on port 41999
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 16637, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 16637, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546623649258	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.7gVJIV6PHx4Y"
+
+(firefox:17380): Gtk-WARNING **: 14:40:49.931: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:17380): Gtk-WARNING **: 14:40:49.931: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546623651483	Marionette	INFO	Listening on port 32859
+1546623651631	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 17380, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 17380, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546623663899	Marionette	INFO	Stopped listening on port 32859
+1546623688353	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TZXCdUbR77SJ"
+
+(firefox:17782): Gtk-WARNING **: 14:41:28.944: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:17782): Gtk-WARNING **: 14:41:28.944: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546623690540	Marionette	INFO	Listening on port 46459
+1546623690570	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546623692925	Marionette	INFO	Stopped listening on port 46459
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 17782, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 17782, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546623805363	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.L73VxACPyCMO"
+
+(firefox:18287): Gtk-WARNING **: 14:43:25.999: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:18287): Gtk-WARNING **: 14:43:25.999: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546623807559	Marionette	INFO	Listening on port 39231
+1546623807582	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546623810062	Marionette	INFO	Stopped listening on port 39231
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 18287, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 18287, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546623878709	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FyP8axTeZdLs"
+
+(firefox:18764): Gtk-WARNING **: 14:44:39.328: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:18764): Gtk-WARNING **: 14:44:39.328: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546623880823	Marionette	INFO	Listening on port 44475
+1546623880915	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546623884171	Marionette	INFO	Stopped listening on port 44475
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 18764, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 18764, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624313221	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.gQUPUC0ei4Yz"
+
+(firefox:19353): Gtk-WARNING **: 14:51:53.852: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:19353): Gtk-WARNING **: 14:51:53.852: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624315470	Marionette	INFO	Listening on port 38435
+1546624315537	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 19353, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 19353, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624331541	Marionette	INFO	Stopped listening on port 38435
+1546624351684	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FRYRbmCczIvO"
+
+(firefox:19698): Gtk-WARNING **: 14:52:32.275: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:19698): Gtk-WARNING **: 14:52:32.275: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624353806	Marionette	INFO	Listening on port 39461
+1546624353903	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 19698, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 19698, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624359541	Marionette	INFO	Stopped listening on port 39461
+1546624374089	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TmGijnvzpssc"
+
+(firefox:20047): Gtk-WARNING **: 14:52:54.812: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:20047): Gtk-WARNING **: 14:52:54.812: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624376357	Marionette	INFO	Listening on port 39791
+1546624376402	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 20047, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 20047, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624381343	Marionette	INFO	Stopped listening on port 39791
+1546624507468	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.1wX6kv34zYxw"
+
+(firefox:20471): Gtk-WARNING **: 14:55:08.066: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:20471): Gtk-WARNING **: 14:55:08.066: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624509886	Marionette	INFO	Listening on port 35877
+1546624510024	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 20471, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 20471, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624514500	Marionette	INFO	Stopped listening on port 35877
+1546624717216	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tyaFedISDhzI"
+
+(firefox:20938): Gtk-WARNING **: 14:58:37.858: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:20938): Gtk-WARNING **: 14:58:37.858: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624719401	Marionette	INFO	Listening on port 34733
+1546624719428	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 20938, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 20938, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624725269	Marionette	INFO	Stopped listening on port 34733
+1546624766688	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.K8kEwkoJPUCW"
+
+(firefox:21279): Gtk-WARNING **: 14:59:27.359: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:21279): Gtk-WARNING **: 14:59:27.359: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624768824	Marionette	INFO	Listening on port 43679
+1546624768895	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 21279, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 21279, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624788757	Marionette	INFO	Stopped listening on port 43679
+1546624942036	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.pfhHcdhUN1up"
+
+(firefox:21656): Gtk-WARNING **: 15:02:22.669: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:21656): Gtk-WARNING **: 15:02:22.669: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624944227	Marionette	INFO	Listening on port 38681
+1546624944258	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546624946804	Marionette	INFO	Stopped listening on port 38681
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 21656, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 21656, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546624993374	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.oQrH4aYhAmBE"
+
+(firefox:22017): Gtk-WARNING **: 15:03:14.017: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22017): Gtk-WARNING **: 15:03:14.018: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546624995501	Marionette	INFO	Listening on port 41161
+1546624995583	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22017, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22017, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625004165	Marionette	INFO	Stopped listening on port 41161
+1546625099166	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.HxhPd3tjYPF1"
+
+(firefox:22392): Gtk-WARNING **: 15:04:59.742: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22392): Gtk-WARNING **: 15:04:59.742: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625101311	Marionette	INFO	Listening on port 43479
+1546625101374	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546625103802	Marionette	INFO	Stopped listening on port 43479
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22392, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22392, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625134495	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Uu1Y2iYQtubF"
+
+(firefox:22774): Gtk-WARNING **: 15:05:35.133: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22774): Gtk-WARNING **: 15:05:35.133: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625136639	Marionette	INFO	Listening on port 40429
+1546625136713	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:///home/herm4nv/Documents/CSCN/pruebas_individuales/aislamiento_social_y_redes_sociales/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+1546625140012	Marionette	INFO	Stopped listening on port 40429
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22774, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22774, Gecko_IOThread] WARNING: pipe error (96): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625202284	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3cNEoCyWCqmo"
+
+(firefox:23141): Gtk-WARNING **: 15:06:42.923: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23141): Gtk-WARNING **: 15:06:42.923: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625204531	Marionette	INFO	Listening on port 41623
+1546625204610	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23141, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23141, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625210147	Marionette	INFO	Stopped listening on port 41623
+1546625251793	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.QZALxogGTVLi"
+
+(firefox:23519): Gtk-WARNING **: 15:07:32.418: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23519): Gtk-WARNING **: 15:07:32.418: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625253932	Marionette	INFO	Listening on port 45037
+1546625254001	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23519, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23519, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625264372	Marionette	INFO	Stopped listening on port 45037
+1546625341059	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TDelG0n6J24J"
+
+(firefox:24261): Gtk-WARNING **: 15:09:01.676: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24261): Gtk-WARNING **: 15:09:01.676: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625343188	Marionette	INFO	Listening on port 41237
+1546625343356	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1546625385744	Marionette	INFO	Stopped listening on port 41237
+1546625452925	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.MCDMpGv1p2fE"
+
+(firefox:24993): Gtk-WARNING **: 15:10:53.555: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24993): Gtk-WARNING **: 15:10:53.555: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625455139	Marionette	INFO	Listening on port 46235
+1546625455237	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546625467639	Marionette	INFO	Stopped listening on port 46235
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 24993, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 24993, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625483271	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.2NnvOQ9KWbzo"
+
+(firefox:25361): Gtk-WARNING **: 15:11:23.916: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25361): Gtk-WARNING **: 15:11:23.916: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625485389	Marionette	INFO	Listening on port 44289
+1546625485483	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546625491286	Marionette	INFO	Stopped listening on port 44289
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25361, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25361, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625536990	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.VpbZUdQiUrE7"
+
+(firefox:25763): Gtk-WARNING **: 15:12:17.626: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25763): Gtk-WARNING **: 15:12:17.626: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625539131	Marionette	INFO	Listening on port 33437
+1546625539206	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546625636907	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IHIHwTgliGaO"
+
+(firefox:26479): Gtk-WARNING **: 15:13:57.585: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26479): Gtk-WARNING **: 15:13:57.585: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625639076	Marionette	INFO	Listening on port 42733
+1546625639123	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546625645208	Marionette	INFO	Stopped listening on port 42733
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26479, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 26479, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625801647	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.W00Eyy8pYZQ4"
+
+(firefox:26928): Gtk-WARNING **: 15:16:42.243: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26928): Gtk-WARNING **: 15:16:42.243: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625803682	Marionette	INFO	Listening on port 36029
+1546625803756	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546625818395	Marionette	INFO	Stopped listening on port 36029
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26928, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 26928, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625925391	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.65En4bB3rpXi"
+
+(firefox:27359): Gtk-WARNING **: 15:18:46.017: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27359): Gtk-WARNING **: 15:18:46.017: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546625927535	Marionette	INFO	Listening on port 36643
+1546625927611	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27359, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 27359, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546625943798	Marionette	INFO	Stopped listening on port 36643
+1546626184884	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.fnLaaEasSjCs"
+
+(firefox:28274): Gtk-WARNING **: 15:23:05.488: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28274): Gtk-WARNING **: 15:23:05.488: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546626187029	Marionette	INFO	Listening on port 35865
+1546626187094	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546626200485	Marionette	INFO	Stopped listening on port 35865
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28274, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28274, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546626270507	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.1XR3UUsIylCU"
+
+(firefox:28710): Gtk-WARNING **: 15:24:31.146: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28710): Gtk-WARNING **: 15:24:31.146: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546626272676	Marionette	INFO	Listening on port 34135
+1546626272720	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 28939, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546626571077	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.R2FPrmJn24xm"
+
+(firefox:29409): Gtk-WARNING **: 15:29:31.643: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29409): Gtk-WARNING **: 15:29:31.643: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546626573186	Marionette	INFO	Listening on port 42579
+1546626573287	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546626622623	Marionette	INFO	Stopped listening on port 42579
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29409, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 29409, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546626988659	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TGyCNRH0KHBN"
+
+(firefox:30094): Gtk-WARNING **: 15:36:29.235: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30094): Gtk-WARNING **: 15:36:29.235: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546626990747	Marionette	INFO	Listening on port 37331
+1546626990772	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1546627012925	Marionette	INFO	Stopped listening on port 37331
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30094, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 30094, Gecko_IOThread] WARNING: pipe error (109): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546627174700	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Y97i2XuOYjmy"
+
+(firefox:30491): Gtk-WARNING **: 15:39:35.304: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30491): Gtk-WARNING **: 15:39:35.304: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546627176890	Marionette	INFO	Listening on port 34691
+1546627176914	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1546627198512	Marionette	INFO	Stopped listening on port 34691
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30491, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 30491, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546627607178	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.wjUD4hM1ARLX"
+
+(firefox:31109): Gtk-WARNING **: 15:46:47.805: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31109): Gtk-WARNING **: 15:46:47.805: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546627609374	Marionette	INFO	Listening on port 34847
+1546627609391	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1546627631520	Marionette	INFO	Stopped listening on port 34847
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31109, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31109, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546627648178	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.0h5rAmWgsewu"
+
+(firefox:31486): Gtk-WARNING **: 15:47:28.847: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31486): Gtk-WARNING **: 15:47:28.847: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546627650370	Marionette	INFO	Listening on port 40073
+1546627650389	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1546627672294	Marionette	INFO	Stopped listening on port 40073
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31486, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31486, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546628348992	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6cIBmUdLuoxn"
+
+(firefox:32064): Gtk-WARNING **: 15:59:09.583: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32064): Gtk-WARNING **: 15:59:09.583: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546628351096	Marionette	INFO	Listening on port 44603
+1546628351102	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 32064, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 32064, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546628365405	Marionette	INFO	Stopped listening on port 44603
+1546628435010	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.0mF62Qs7kxVi"
+
+(firefox:32755): Gtk-WARNING **: 16:00:35.624: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32755): Gtk-WARNING **: 16:00:35.624: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546628437169	Marionette	INFO	Listening on port 34251
+1546628437242	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 32755, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 32755, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546628462654	Marionette	INFO	Stopped listening on port 34251
+1546628468659	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ptkLDn0urayZ"
+
+(firefox:1005): Gtk-WARNING **: 16:01:09.262: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1005): Gtk-WARNING **: 16:01:09.262: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546628470863	Marionette	INFO	Listening on port 36503
+1546628470868	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1546628493021	Marionette	INFO	Stopped listening on port 36503
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 1005, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 1005, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
