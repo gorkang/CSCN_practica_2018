@@ -10,7 +10,7 @@ foo@bar:~$ pipenv install selenium
 foo@bar:~$ pipenv shell
 ```	
 
-Una vez dentro del ambiente virtual se debe agregar la ubicación absoluta de nuestro git para poder cargar en el navegador el archivo necesario, esto se puede hacer en el archivo **Configuration.p<span></span>y** encontrado en la carpeta **tests/testing_config**
+Una vez dentro del ambiente virtual si se desea se pueden cambiar las configuraciones de randomnizacion o inicio de contadores, esto se puede hacer en el archivo **Configuration.p<span></span>y** encontrado en la carpeta **tests/testing_config**
 
 Para lanzar el sistema de pruebas simplemente usar **python3 test.py**
 

@@ -27,7 +27,9 @@ def main():
 
 	config = BasicConfig()
 
-	PATH = config.basic_config['PATH']
+	# se busca el PATH que es la carpeta actual menos la parte de /testing
+	PATH = os.getcwd()[0:-8]
+	
 	randomization = config.basic_config['random']
 	if randomization:
 		cont = random.randrange(10)
