@@ -608,3 +608,46 @@ JavaScript error: , line 0: InvalidStateError: An attempt was made to use an obj
 JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
 [Parent 4295, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 [Parent 4295, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546879118028	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.fTTxWbtDOa7X"
+
+(firefox:5729): Gtk-WARNING **: 13:38:38.673: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:5729): Gtk-WARNING **: 13:38:38.673: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546879120167	Marionette	INFO	Listening on port 39705
+1546879120239	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 5729, Gecko_IOThread] WARNING: pipe error (112): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 5729, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546879127391	Marionette	INFO	Stopped listening on port 39705
+1546879171688	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WwjPknR3Enir"
+
+(firefox:6039): Gtk-WARNING **: 13:39:32.258: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:6039): Gtk-WARNING **: 13:39:32.258: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546879173776	Marionette	INFO	Listening on port 34517
+1546879173796	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546879177205	Marionette	INFO	Stopped listening on port 34517
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 6039, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 6039, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546880653171	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.H7OkLOCv5LD3"
+
+(firefox:7473): Gtk-WARNING **: 14:04:13.771: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:7473): Gtk-WARNING **: 14:04:13.771: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546880655326	Marionette	INFO	Listening on port 46271
+1546880655395	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546880666961	Marionette	INFO	Stopped listening on port 46271
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 7473, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 7473, Gecko_IOThread] WARNING: pipe error (117): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546880762333	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.KWKJu7XEUsBf"
+
+(firefox:7833): Gtk-WARNING **: 14:06:02.934: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:7833): Gtk-WARNING **: 14:06:02.934: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546880764542	Marionette	INFO	Listening on port 36059
+1546880764644	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546880776265	Marionette	INFO	Stopped listening on port 36059
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 7833, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 7833, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
