@@ -10,7 +10,8 @@ class BasicConfig(object):
 		numeric_cont = 0
 		randomization = False
 		multichoice_init = 0
+		words_cont = 0
 
-		config_dict = {"PATH": PATH, 'cont': numeric_cont, 'random': randomization, 'multi': multichoice_init}
+		config_dict = {"PATH": PATH, 'cont': numeric_cont, 'random': randomization, 'multi': multichoice_init, 'word': words_cont}
 
 		return config_dict
