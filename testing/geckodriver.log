@@ -651,3 +651,22 @@ JavaScript error: , line 0: InvalidStateError: An attempt was made to use an obj
 JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
 [Parent 7833, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 [Parent 7833, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546882857118	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.pfcOaqmxPrPx"
+
+(firefox:8978): Gtk-WARNING **: 14:40:57.724: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:8978): Gtk-WARNING **: 14:40:57.724: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546882859256	Marionette	INFO	Listening on port 34915
+1546882859330	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1546882882456	Marionette	INFO	Stopped listening on port 34915
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 8978, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 8978, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
