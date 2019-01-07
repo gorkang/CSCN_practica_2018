@@ -689,3 +689,25 @@ console.error: BroadcastService:
 JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
 [Parent 10300, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 [Parent 10300, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546885000260	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.rZ17998FRnvt"
+
+(firefox:10870): Gtk-WARNING **: 15:16:40.844: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:10870): Gtk-WARNING **: 15:16:40.844: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546885002311	Marionette	INFO	Listening on port 46009
+1546885002380	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546885025568	Marionette	INFO	Stopped listening on port 46009
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 10870, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 10870, Gecko_IOThread] WARNING: pipe error (112): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1546885038576	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.NpjvFQ5scb2T"
+
+(firefox:11191): Gtk-WARNING **: 15:17:19.179: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:11191): Gtk-WARNING **: 15:17:19.179: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1546885040613	Marionette	INFO	Listening on port 41521
+1546885040686	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546885064015	Marionette	INFO	Stopped listening on port 41521
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 11191, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 11191, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
