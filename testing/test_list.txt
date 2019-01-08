@@ -1,5 +1,6 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
+#abreviated_mathematics_anxiety_rating_scale
 #actividad_fisica
 #aislamiento_social_y_redes_sociales
 #ansiedad_matematica
@@ -10,6 +11,8 @@
 #a_priori_screening_belief
 #beck_anxiety_inventory
 #big_five
+#multiple_stimulus_types_ambiguity_tolerance_scale
+#need_for_cognition
 
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
