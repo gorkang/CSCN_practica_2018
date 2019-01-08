@@ -1,0 +1,28 @@
+# You can comment lines with #
+# Don't forget to put a line break at the end of the file
+
+- Name of test
+test_name
+
+- Questions
+question 1
+question 2
+question 3
+question 4
+question 5
+question 6
+question 7
+question 8
+question 9
+question 10
+
+- Alternatives
+# If the answers are the same for all questions change this to No and write down the answers putting the number of options available
+Yes
+
+5
+<center>Disagree</br>Strongly</center>
+<center>Disagree</br>a little</center>
+<center>Neither agree</br>nor disagree</center>
+<center>Agree</br>a little</center>
+<center>Agree</br>Strongly</center>
