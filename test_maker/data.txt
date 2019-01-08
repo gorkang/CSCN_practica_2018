@@ -17,7 +17,7 @@ question 9
 question 10
 
 - Alternatives
-# If the answers are the same for all questions change this to No and write down the answers putting the number of options available
+# If the answers are not the same for all questions, change this to No and write the answers by putting the number of options available before them
 Yes
 
 5
