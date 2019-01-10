@@ -34,7 +34,7 @@
 #estilo_atribucional
 #estres_percibido
 #graph_literacy
-#habilidad_matematica
+habilidad_matematica
 #informacion_sociodemografica
 #interocepcion
 #metacognicion
@@ -43,9 +43,9 @@
 #regulacion_emocional
 #religiosidad
 #wais_vocabulario
-#protocolo_fin
 #protocolo_inicio
 #protocolo_pausa
+#protocolo_fin
 
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
@@ -61,4 +61,4 @@
 #rotacion_mental             --- select
 #sMARS_short_mathematics_anxiety_rating_scale --- error
 #wais_matrices
-wais_working_memory
+#wais_working_memory

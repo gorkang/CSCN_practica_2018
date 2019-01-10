@@ -3195,3 +3195,1080 @@ JavaScript error: , line 0: InvalidStateError: An attempt was made to use an obj
 [Parent 3539, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 [Parent 3539, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 1547131935825	Marionette	INFO	Stopped listening on port 36667
+1547135264733	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ihbxIFCjdBIK"
+
+(firefox:5975): Gtk-WARNING **: 12:47:45.376: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:5975): Gtk-WARNING **: 12:47:45.376: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135266806	Marionette	INFO	Listening on port 33147
+1547135266841	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135280263	Marionette	INFO	Stopped listening on port 33147
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 5975, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 5975, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135282157	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.HOwRJcVDFQYi"
+
+(firefox:6262): Gtk-WARNING **: 12:48:02.740: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:6262): Gtk-WARNING **: 12:48:02.740: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135284208	Marionette	INFO	Listening on port 45585
+1547135284274	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135294818	Marionette	INFO	Stopped listening on port 45585
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 6262, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 6262, Gecko_IOThread] WARNING: pipe error (112): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135296806	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kh1GbCkXPJsF"
+
+(firefox:6548): Gtk-WARNING **: 12:48:17.402: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:6548): Gtk-WARNING **: 12:48:17.402: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135298962	Marionette	INFO	Listening on port 40495
+1547135299029	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135321577	Marionette	INFO	Stopped listening on port 40495
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 6548, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 6548, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135323704	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.GASRfvqjcDoV"
+
+(firefox:6871): Gtk-WARNING **: 12:48:44.311: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:6871): Gtk-WARNING **: 12:48:44.311: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135325738	Marionette	INFO	Listening on port 36329
+1547135325811	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135333200	Marionette	INFO	Stopped listening on port 36329
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 6871, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 6871, Gecko_IOThread] WARNING: pipe error (112): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135334095	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5gB5i5RUfdhV"
+
+(firefox:7151): Gtk-WARNING **: 12:48:54.717: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:7151): Gtk-WARNING **: 12:48:54.717: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135336184	Marionette	INFO	Listening on port 37273
+1547135336210	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+1547135339341	Marionette	INFO	Stopped listening on port 37273
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 7151, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 7151, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135341449	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.rq2GQegirJbb"
+
+(firefox:7441): Gtk-WARNING **: 12:49:02.002: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:7441): Gtk-WARNING **: 12:49:02.002: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135343491	Marionette	INFO	Listening on port 33893
+1547135343566	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135347663	Marionette	INFO	Stopped listening on port 33893
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 7441, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 7441, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135349674	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.uCy4DtUGX7PC"
+
+(firefox:7746): Gtk-WARNING **: 12:49:10.310: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:7746): Gtk-WARNING **: 12:49:10.310: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135351760	Marionette	INFO	Listening on port 33411
+1547135351791	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135356106	Marionette	INFO	Stopped listening on port 33411
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 7746, Gecko_IOThread] WARNING: pipe error (109): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 7746, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135358101	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Rb5RAvl9eXJf"
+
+(firefox:8037): Gtk-WARNING **: 12:49:18.723: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:8037): Gtk-WARNING **: 12:49:18.723: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135360163	Marionette	INFO	Listening on port 38169
+1547135360212	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135373608	Marionette	INFO	Stopped listening on port 38169
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 8037, Gecko_IOThread] WARNING: pipe error (112): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 8037, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135375476	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.esfR20gmaWdp"
+
+(firefox:8313): Gtk-WARNING **: 12:49:36.039: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:8313): Gtk-WARNING **: 12:49:36.039: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135377550	Marionette	INFO	Listening on port 38095
+1547135377585	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135380969	Marionette	INFO	Stopped listening on port 38095
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 8313, Gecko_IOThread] WARNING: pipe error (114): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 8313, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135383051	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ZIMgu1UhFkpy"
+
+(firefox:8605): Gtk-WARNING **: 12:49:43.694: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:8605): Gtk-WARNING **: 12:49:43.694: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135385119	Marionette	INFO	Listening on port 45189
+1547135385162	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135396578	Marionette	INFO	Stopped listening on port 45189
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 8605, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 8605, Gecko_IOThread] WARNING: pipe error (114): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135398460	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.lHP63n1LEEJi"
+
+(firefox:8890): Gtk-WARNING **: 12:49:59.035: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:8890): Gtk-WARNING **: 12:49:59.035: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135400588	Marionette	INFO	Listening on port 33827
+1547135400668	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135423869	Marionette	INFO	Stopped listening on port 33827
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 8890, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 8890, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135425745	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Ct7YLFUJrfcr"
+
+(firefox:9210): Gtk-WARNING **: 12:50:26.385: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:9210): Gtk-WARNING **: 12:50:26.385: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135427809	Marionette	INFO	Listening on port 41765
+1547135427858	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135440080	Marionette	INFO	Stopped listening on port 41765
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 9210, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 9210, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135442163	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.04dHCQkun9x1"
+
+(firefox:9501): Gtk-WARNING **: 12:50:42.749: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:9501): Gtk-WARNING **: 12:50:42.749: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135444217	Marionette	INFO	Listening on port 41823
+1547135444285	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135468812	Marionette	INFO	Stopped listening on port 41823
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 9501, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 9501, Gecko_IOThread] WARNING: pipe error (109): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135470811	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.n2i5grB9dnye"
+
+(firefox:9809): Gtk-WARNING **: 12:51:11.394: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:9809): Gtk-WARNING **: 12:51:11.394: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135473220	Marionette	INFO	Listening on port 45077
+1547135473333	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135479196	Marionette	INFO	Stopped listening on port 45077
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 9809, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 9809, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135481190	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Km27YcpkfHfF"
+
+(firefox:10127): Gtk-WARNING **: 12:51:21.945: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:10127): Gtk-WARNING **: 12:51:21.945: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135483381	Marionette	INFO	Listening on port 33281
+1547135483400	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135503339	Marionette	INFO	Stopped listening on port 33281
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 10127, Gecko_IOThread] WARNING: pipe error (111): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 10127, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135505339	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zxSmawMi5b2T"
+
+(firefox:10423): Gtk-WARNING **: 12:51:45.960: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:10423): Gtk-WARNING **: 12:51:45.960: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135507502	Marionette	INFO	Listening on port 46135
+1547135507553	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135523033	Marionette	INFO	Stopped listening on port 46135
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 10423, Gecko_IOThread] WARNING: pipe error (100): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 10423, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135524911	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.onWp3wTKgrTR"
+
+(firefox:10733): Gtk-WARNING **: 12:52:05.507: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:10733): Gtk-WARNING **: 12:52:05.507: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135526964	Marionette	INFO	Listening on port 36881
+1547135527027	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135539976	Marionette	INFO	Stopped listening on port 36881
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 10733, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 10733, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135541983	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kANNHUVT7KZ8"
+
+(firefox:11025): Gtk-WARNING **: 12:52:22.583: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:11025): Gtk-WARNING **: 12:52:22.584: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135544065	Marionette	INFO	Listening on port 41985
+1547135544094	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135551044	Marionette	INFO	Stopped listening on port 41985
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 11025, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 11025, Gecko_IOThread] WARNING: pipe error (112): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135553053	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.hshAmKNrh1wO"
+
+(firefox:11316): Gtk-WARNING **: 12:52:33.656: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:11316): Gtk-WARNING **: 12:52:33.656: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135555176	Marionette	INFO	Listening on port 45669
+1547135555265	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135570186	Marionette	INFO	Stopped listening on port 45669
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 11316, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 11316, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135572192	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3B5TUvtlOPlL"
+
+(firefox:11625): Gtk-WARNING **: 12:52:52.838: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:11625): Gtk-WARNING **: 12:52:52.838: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135574338	Marionette	INFO	Listening on port 33155
+1547135574400	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135578954	Marionette	INFO	Stopped listening on port 33155
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 11625, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 11625, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135580901	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.iP6XgJK6Jqas"
+
+(firefox:11931): Gtk-WARNING **: 12:53:01.481: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:11931): Gtk-WARNING **: 12:53:01.481: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135583061	Marionette	INFO	Listening on port 40497
+1547135583113	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135666635	Marionette	INFO	Stopped listening on port 40497
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 11931, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 11931, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135668669	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.S888HJMF9r3j"
+
+(firefox:12249): Gtk-WARNING **: 12:54:29.266: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:12249): Gtk-WARNING **: 12:54:29.266: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135670672	Marionette	INFO	Listening on port 42195
+1547135670678	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135699558	Marionette	INFO	Stopped listening on port 42195
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 12249, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 12249, Gecko_IOThread] WARNING: pipe error (111): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135701539	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zx2dMQF0qovi"
+
+(firefox:12538): Gtk-WARNING **: 12:55:02.108: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:12538): Gtk-WARNING **: 12:55:02.108: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135703616	Marionette	INFO	Listening on port 33417
+1547135703648	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135715273	Marionette	INFO	Stopped listening on port 33417
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 12538, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 12538, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135717027	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.0TiWKSsy2QXb"
+
+(firefox:12856): Gtk-WARNING **: 12:55:17.626: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:12856): Gtk-WARNING **: 12:55:17.626: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135719076	Marionette	INFO	Listening on port 45515
+1547135719147	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135752707	Marionette	INFO	Stopped listening on port 45515
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 12856, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 12856, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135754704	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IRGS3BZcMdBN"
+
+(firefox:13153): Gtk-WARNING **: 12:55:55.273: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:13153): Gtk-WARNING **: 12:55:55.273: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135756728	Marionette	INFO	Listening on port 44621
+1547135756812	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135777436	Marionette	INFO	Stopped listening on port 44621
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 13153, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 13153, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135779434	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.phPqXVqoT0Nc"
+
+(firefox:13447): Gtk-WARNING **: 12:56:20.153: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:13447): Gtk-WARNING **: 12:56:20.153: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135781678	Marionette	INFO	Listening on port 35555
+1547135781747	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135802475	Marionette	INFO	Stopped listening on port 35555
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 13447, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 13447, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135803587	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FbuNrq5OgwES"
+
+(firefox:13757): Gtk-WARNING **: 12:56:44.189: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:13757): Gtk-WARNING **: 12:56:44.189: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135805650	Marionette	INFO	Listening on port 38457
+1547135805703	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135823294	Marionette	INFO	Stopped listening on port 38457
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 13757, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 13757, Gecko_IOThread] WARNING: pipe error (111): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135825310	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IVBN4CZ2IIfg"
+
+(firefox:14064): Gtk-WARNING **: 12:57:05.920: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:14064): Gtk-WARNING **: 12:57:05.920: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135827374	Marionette	INFO	Listening on port 40945
+1547135827420	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135838804	Marionette	INFO	Stopped listening on port 40945
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 14064, Gecko_IOThread] WARNING: pipe error (114): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 14064, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135840892	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.KzlzJj71CI4K"
+
+(firefox:14348): Gtk-WARNING **: 12:57:21.490: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:14348): Gtk-WARNING **: 12:57:21.490: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135842934	Marionette	INFO	Listening on port 41237
+1547135843000	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135858379	Marionette	INFO	Stopped listening on port 41237
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 14348, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135860183	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.QrPVtbEpBxch"
+
+(firefox:14633): Gtk-WARNING **: 12:57:40.801: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:14633): Gtk-WARNING **: 12:57:40.801: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135862452	Marionette	INFO	Listening on port 37041
+1547135862499	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135868327	Marionette	INFO	Stopped listening on port 37041
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 14633, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 14633, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135870331	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zJ6uHedglVWI"
+
+(firefox:14953): Gtk-WARNING **: 12:57:50.948: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:14953): Gtk-WARNING **: 12:57:50.948: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135872403	Marionette	INFO	Listening on port 39595
+1547135872449	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135894832	Marionette	INFO	Stopped listening on port 39595
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 14953, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 14953, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135896657	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Z7BYbieWHKqx"
+
+(firefox:15266): Gtk-WARNING **: 12:58:17.259: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:15266): Gtk-WARNING **: 12:58:17.259: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135898686	Marionette	INFO	Listening on port 44675
+1547135898767	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/estilo_atribucional/experiment.js, line 229: ReferenceError: survey25 is not defined
+1547135911713	Marionette	INFO	Stopped listening on port 44675
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 15266, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 15266, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135913498	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.CGKoLXdyXywI"
+
+(firefox:15558): Gtk-WARNING **: 12:58:34.077: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:15558): Gtk-WARNING **: 12:58:34.077: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135915523	Marionette	INFO	Listening on port 41593
+1547135915606	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547135923599	Marionette	INFO	Stopped listening on port 41593
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 15558, Gecko_IOThread] WARNING: pipe error (112): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 15558, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135925609	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.2o48T94oLYFE"
+
+(firefox:15841): Gtk-WARNING **: 12:58:46.189: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:15841): Gtk-WARNING **: 12:58:46.189: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135927604	Marionette	INFO	Listening on port 32925
+1547135927617	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+1547135933235	Marionette	INFO	Stopped listening on port 32925
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 15841, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 15841, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547135935114	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ozo7BDDBvHhu"
+
+(firefox:16132): Gtk-WARNING **: 12:58:55.694: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:16132): Gtk-WARNING **: 12:58:55.694: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547135937168	Marionette	INFO	Listening on port 44197
+1547135937223	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547135999890	Marionette	INFO	Stopped listening on port 44197
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 16132, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 16132, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136001575	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.CxCqjvZsrAX8"
+
+(firefox:16441): Gtk-WARNING **: 13:00:02.174: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:16441): Gtk-WARNING **: 13:00:02.174: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136003581	Marionette	INFO	Listening on port 44799
+1547136003685	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+1547136021294	Marionette	INFO	Stopped listening on port 44799
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 16441, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 16441, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136023365	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tuCaJPOzgy2J"
+
+(firefox:16762): Gtk-WARNING **: 13:00:23.911: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:16762): Gtk-WARNING **: 13:00:23.911: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136025336	Marionette	INFO	Listening on port 34443
+1547136025377	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136042598	Marionette	INFO	Stopped listening on port 34443
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 16762, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 16762, Gecko_IOThread] WARNING: pipe error (115): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136044382	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.gGc8OS26ewbu"
+
+(firefox:17053): Gtk-WARNING **: 13:00:44.968: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:17053): Gtk-WARNING **: 13:00:44.968: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136046426	Marionette	INFO	Listening on port 46607
+1547136046498	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/metacognicion/experiment.js, line 290: ReferenceError: survey31 is not defined
+1547136061845	Marionette	INFO	Stopped listening on port 46607
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 17053, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 17053, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136063695	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Kjc4trNGefIV"
+
+(firefox:17352): Gtk-WARNING **: 13:01:04.231: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:17352): Gtk-WARNING **: 13:01:04.231: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136065683	Marionette	INFO	Listening on port 41855
+1547136065707	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136075854	Marionette	INFO	Stopped listening on port 41855
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 17352, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136077623	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Ggl60PcZt0sn"
+
+(firefox:17653): Gtk-WARNING **: 13:01:18.267: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:17653): Gtk-WARNING **: 13:01:18.267: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136079674	Marionette	INFO	Listening on port 37465
+1547136079733	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136083167	Marionette	INFO	Stopped listening on port 37465
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 17653, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 17653, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136084969	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FJazIFeO1fYE"
+
+(firefox:17948): Gtk-WARNING **: 13:01:25.580: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:17948): Gtk-WARNING **: 13:01:25.580: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136087012	Marionette	INFO	Listening on port 35093
+1547136087079	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136093181	Marionette	INFO	Stopped listening on port 35093
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 17948, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 17948, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136095172	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3i7lvUAJiSZI"
+
+(firefox:18273): Gtk-WARNING **: 13:01:35.756: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:18273): Gtk-WARNING **: 13:01:35.756: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136097192	Marionette	INFO	Listening on port 35839
+1547136097279	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/religiosidad/experiment.js, line 117: ReferenceError: survey02 is not defined
+1547136098690	Marionette	INFO	Stopped listening on port 35839
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 29: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 18273, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136100947	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tS5YvHP8xWE2"
+
+(firefox:18556): Gtk-WARNING **: 13:01:41.525: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:18556): Gtk-WARNING **: 13:01:41.525: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136103048	Marionette	INFO	Listening on port 40899
+1547136103058	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136113879	Marionette	INFO	Stopped listening on port 40899
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 18556, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 18556, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136115858	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.yPmgdgZdugGy"
+
+(firefox:18881): Gtk-WARNING **: 13:01:56.439: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:18881): Gtk-WARNING **: 13:01:56.439: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136117929	Marionette	INFO	Listening on port 36821
+1547136117968	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136121660	Marionette	INFO	Stopped listening on port 36821
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 18881, Gecko_IOThread] WARNING: pipe error (111): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 18881, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136123899	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.gyFkEjMFmreC"
+
+(firefox:19166): Gtk-WARNING **: 13:02:04.506: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:19166): Gtk-WARNING **: 13:02:04.506: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136125918	Marionette	INFO	Listening on port 37589
+1547136126006	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136129681	Marionette	INFO	Stopped listening on port 37589
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 597: TypeError: this.tablesData[table] is undefined
+[Parent 19166, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 19166, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547136131680	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.C7TCkimQUuCm"
+
+(firefox:19453): Gtk-WARNING **: 13:02:12.257: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:19453): Gtk-WARNING **: 13:02:12.257: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547136133723	Marionette	INFO	Listening on port 46823
+1547136133789	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547136137709	Marionette	INFO	Stopped listening on port 46823
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 19453, Gecko_IOThread] WARNING: pipe error (115): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 19453, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547139969121	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.GxtLG9GypNKc"
+
+(firefox:22350): Gtk-WARNING **: 14:06:09.697: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22350): Gtk-WARNING **: 14:06:09.697: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547139971152	Marionette	INFO	Listening on port 42633
+1547139971234	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/experiment.js, line 455: ReferenceError: timeline_pruebas is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 30: ReferenceError: habilidad_matematica_experiment is not defined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22350, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547140010626	Marionette	INFO	Stopped listening on port 42633
+1547140023914	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.EE4MkeHWA6Xc"
+
+(firefox:23039): Gtk-WARNING **: 14:07:04.487: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23039): Gtk-WARNING **: 14:07:04.487: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547140026013	Marionette	INFO	Listening on port 40205
+1547140026026	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547140089890	Marionette	INFO	Stopped listening on port 40205
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23039, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23039, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547140329746	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WXnCuaLuwUvU"
+
+(firefox:23415): Gtk-WARNING **: 14:12:10.328: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23415): Gtk-WARNING **: 14:12:10.328: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547140331793	Marionette	INFO	Listening on port 41261
+1547140331859	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547140394520	Marionette	INFO	Stopped listening on port 41261
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23415, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547142344647	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Ijoslvage6gk"
+
+(firefox:25029): Gtk-WARNING **: 14:45:45.240: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25029): Gtk-WARNING **: 14:45:45.240: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547142346731	Marionette	INFO	Listening on port 35335
+1547142346755	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 233: SyntaxError: missing } after property list
+JavaScript note: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 225: { opened at line 225, column 17
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/experiment.js, line 58: ReferenceError: operations is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 30: ReferenceError: habilidad_matematica_experiment is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547142476835	Marionette	INFO	Stopped listening on port 35335
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25029, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25029, Gecko_IOThread] WARNING: pipe error (115): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547142502420	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Uj6BKOUOiWfZ"
+
+(firefox:25451): Gtk-WARNING **: 14:48:23.023: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25451): Gtk-WARNING **: 14:48:23.023: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547142504593	Marionette	INFO	Listening on port 45361
+1547142504629	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547142568700	Marionette	INFO	Stopped listening on port 45361
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25451, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25451, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547142599992	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kBE8BYYPqPW3"
+
+(firefox:25847): Gtk-WARNING **: 14:50:00.601: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25847): Gtk-WARNING **: 14:50:00.601: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547142602121	Marionette	INFO	Listening on port 44319
+1547142602200	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25847, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25847, Gecko_IOThread] WARNING: pipe error (114): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547142725564	Marionette	INFO	Stopped listening on port 44319
+1547142728256	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.cVB876SwNfkJ"
+
+(firefox:26311): Gtk-WARNING **: 14:52:08.826: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26311): Gtk-WARNING **: 14:52:08.826: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547142730355	Marionette	INFO	Listening on port 42879
+1547142730364	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: chrome://browser/content/urlbarBindings.xml, line 2709: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIAutoCompleteController.getStyleAt]
+
+(/usr/lib/firefox/firefox:26459): dconf-WARNING **: 14:53:30.718: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+[Parent 26311, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 26311, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547142900401	Marionette	INFO	Stopped listening on port 42879
+1547142902037	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.t93mqS8dZxYu"
+
+(firefox:26756): Gtk-WARNING **: 14:55:02.631: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26756): Gtk-WARNING **: 14:55:02.631: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547142904170	Marionette	INFO	Listening on port 38481
+1547142904244	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547142969119	Marionette	INFO	Stopped listening on port 38481
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26756, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 26756, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547143050846	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5ET3ojn6B756"
+
+(firefox:27155): Gtk-WARNING **: 14:57:31.450: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27155): Gtk-WARNING **: 14:57:31.450: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547143052973	Marionette	INFO	Listening on port 40385
+1547143053056	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/experiment.js, line 58: ReferenceError: operations is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 30: ReferenceError: habilidad_matematica_experiment is not defined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27155, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 27155, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547143119403	Marionette	INFO	Stopped listening on port 40385
+1547143143541	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.e2zh8ZbOrcop"
+
+(firefox:27828): Gtk-WARNING **: 14:59:04.125: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27828): Gtk-WARNING **: 14:59:04.125: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547143145666	Marionette	INFO	Listening on port 35967
+1547143145803	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/experiment.js, line 58: ReferenceError: operations is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 30: ReferenceError: habilidad_matematica_experiment is not defined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547143212953	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bFyKp80GKale"
+
+(firefox:28554): Gtk-WARNING **: 15:00:13.501: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28554): Gtk-WARNING **: 15:00:13.501: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547143215082	Marionette	INFO	Listening on port 33125
+1547143215161	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547143279144	Marionette	INFO	Stopped listening on port 33125
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28554, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28554, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547143354563	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.MgPpCqAuxz2y"
+
+(firefox:28942): Gtk-WARNING **: 15:02:35.123: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28942): Gtk-WARNING **: 15:02:35.123: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547143356644	Marionette	INFO	Listening on port 39139
+1547143356673	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547143420420	Marionette	INFO	Stopped listening on port 39139
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28942, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28942, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547143606610	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.wHngaY6Zj2uM"
+
+(firefox:29372): Gtk-WARNING **: 15:06:47.200: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29372): Gtk-WARNING **: 15:06:47.200: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547143608730	Marionette	INFO	Listening on port 44559
+1547143608818	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547143625542	Marionette	INFO	Stopped listening on port 44559
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29372, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 29372, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547143951113	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.oHy8O8Hm1a5L"
+
+(firefox:29839): Gtk-WARNING **: 15:12:31.699: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29839): Gtk-WARNING **: 15:12:31.699: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547143953418	Marionette	INFO	Listening on port 37443
+1547143953427	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/experiment.js, line 99: ReferenceError: sumas is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 30: ReferenceError: habilidad_matematica_experiment is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/experiment.js, line 99: ReferenceError: pruebas is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 30: ReferenceError: habilidad_matematica_experiment is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547144045944	Marionette	INFO	Stopped listening on port 37443
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29839, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547144300222	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.UpNlsEm9haGl"
+
+(firefox:30300): Gtk-WARNING **: 15:18:20.808: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30300): Gtk-WARNING **: 15:18:20.808: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547144302322	Marionette	INFO	Listening on port 46819
+1547144302335	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547144319025	Marionette	INFO	Stopped listening on port 46819
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30300, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 30300, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547144453409	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.nBGAHX7poghT"
+
+(firefox:30740): Gtk-WARNING **: 15:20:54.012: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30740): Gtk-WARNING **: 15:20:54.012: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547144455508	Marionette	INFO	Listening on port 33327
+1547144455521	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547144471768	Marionette	INFO	Stopped listening on port 33327
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30740, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 30740, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547144578487	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Id4x80Nb17Uf"
+
+(firefox:31130): Gtk-WARNING **: 15:22:59.069: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31130): Gtk-WARNING **: 15:22:59.069: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547144580510	Marionette	INFO	Listening on port 35149
+1547144580594	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547144596123	Marionette	INFO	Stopped listening on port 35149
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31130, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31130, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547145545466	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.N4pzEnakcpxS"
+
+(firefox:31605): Gtk-WARNING **: 15:39:06.047: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31605): Gtk-WARNING **: 15:39:06.047: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547145547567	Marionette	INFO	Listening on port 40755
+1547145547577	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547145611304	Marionette	INFO	Stopped listening on port 40755
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31605, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31605, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547145688031	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.nD2z0H9vHpdU"
+
+(firefox:32003): Gtk-WARNING **: 15:41:28.593: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32003): Gtk-WARNING **: 15:41:28.593: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547145690095	Marionette	INFO	Listening on port 41303
+1547145690165	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547145753481	Marionette	INFO	Stopped listening on port 41303
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 32003, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 32003, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547146096932	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WHl4qRg2vOVN"
+
+(firefox:32461): Gtk-WARNING **: 15:48:17.499: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32461): Gtk-WARNING **: 15:48:17.499: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547146099000	Marionette	INFO	Listening on port 44949
+1547146099051	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547146162323	Marionette	INFO	Stopped listening on port 44949
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 32461, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 32461, Gecko_IOThread] WARNING: pipe error (115): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547146243892	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.e8ziwMu20a1N"
+
+(firefox:393): Gtk-WARNING **: 15:50:44.500: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:393): Gtk-WARNING **: 15:50:44.500: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547146245967	Marionette	INFO	Listening on port 44845
+1547146246002	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547146309431	Marionette	INFO	Stopped listening on port 44845
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 393, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 393, Gecko_IOThread] WARNING: pipe error (114): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547146409120	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.EYVnb2dmsfb5"
+
+(firefox:792): Gtk-WARNING **: 15:53:29.730: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:792): Gtk-WARNING **: 15:53:29.730: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547146411199	Marionette	INFO	Listening on port 38395
+1547146411233	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547146474501	Marionette	INFO	Stopped listening on port 38395
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 792, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 792, Gecko_IOThread] WARNING: pipe error (114): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547146552338	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.SFXmgN37XXv6"
+
+(firefox:1423): Gtk-WARNING **: 15:55:52.905: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1423): Gtk-WARNING **: 15:55:52.905: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547146554387	Marionette	INFO	Listening on port 34505
+1547146554452	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547146618298	Marionette	INFO	Stopped listening on port 34505
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 1423, Gecko_IOThread] WARNING: pipe error (115): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 1423, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547147189291	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.KtmMhE5HOhnA"
+
+(firefox:1876): Gtk-WARNING **: 16:06:29.872: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1876): Gtk-WARNING **: 16:06:29.872: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547147191437	Marionette	INFO	Listening on port 45989
+1547147191519	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/experiment.js, line 58: SyntaxError: unexpected token: ':'
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/habilidad_matematica/index.html, line 31: ReferenceError: habilidad_matematica_experiment is not defined
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 1876, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 1876, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547147240357	Marionette	INFO	Stopped listening on port 45989
+1547147252056	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6OoQVW7o25bY"
+
+(firefox:2582): Gtk-WARNING **: 16:07:32.689: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:2582): Gtk-WARNING **: 16:07:32.690: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547147254129	Marionette	INFO	Listening on port 43819
+1547147254166	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547147256760	Marionette	INFO	Stopped listening on port 43819
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 2582, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 2582, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547147482488	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5bqvE2iL3fHV"
+
+(firefox:2982): Gtk-WARNING **: 16:11:23.078: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:2982): Gtk-WARNING **: 16:11:23.078: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547147484628	Marionette	INFO	Listening on port 39779
+1547147484701	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547147548188	Marionette	INFO	Stopped listening on port 39779
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 2982, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 2982, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
