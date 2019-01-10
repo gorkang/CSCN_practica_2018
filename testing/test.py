@@ -69,7 +69,7 @@ def main():
 		if randomization:
 			cont = random.randrange(10)
 		else:
-			 	multi = config.basic_config['multi']
+			multi = config.basic_config['multi']
 			cont = config.basic_config['cont']
 			words_cont = config.basic_config['word']
 

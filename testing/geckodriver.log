@@ -1612,3 +1612,1586 @@ JavaScript error: , line 0: InvalidStateError: An attempt was made to use an obj
 [Parent 2885, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 [Parent 2885, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 1547125148921	Marionette	INFO	Stopped listening on port 36085
+1547126742481	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jYVLFDVGYjGw"
+
+(firefox:21704): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:21704): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126745866	Marionette	INFO	Listening on port 43307
+1547126745894	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126751806	Marionette	INFO	Stopped listening on port 43307
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 21704, Gecko_IOThread] WARNING: pipe error (96): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126753940	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Yyu7At9777Jw"
+
+(firefox:21953): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:21953): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126756998	Marionette	INFO	Listening on port 37511
+1547126757069	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126775572	Marionette	INFO	Stopped listening on port 37511
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 21953, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126777571	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tarH7BsOMZRn"
+
+(firefox:22206): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22206): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126780550	Marionette	INFO	Listening on port 42256
+1547126780586	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126794939	Marionette	INFO	Stopped listening on port 42256
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22206, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22206, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126796912	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Vpz6OgUJUkvT"
+
+(firefox:22451): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22451): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126799934	Marionette	INFO	Listening on port 42862
+1547126800026	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126812139	Marionette	INFO	Stopped listening on port 42862
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22451, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22451, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126814251	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.HhG0s6fZEi1H"
+
+(firefox:22700): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22700): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126817312	Marionette	INFO	Listening on port 38501
+1547126817362	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126824024	Marionette	INFO	Stopped listening on port 38501
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22700, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126826099	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6YQwm4JxtFfV"
+
+(firefox:22941): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22941): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126829076	Marionette	INFO	Listening on port 40304
+1547126829132	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126843048	Marionette	INFO	Stopped listening on port 40304
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22941, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126845254	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.u9KBgcPVVWsH"
+
+(firefox:23180): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23180): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126848357	Marionette	INFO	Listening on port 42931
+1547126848368	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126852948	Marionette	INFO	Stopped listening on port 42931
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23180, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23180, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126855056	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.o7XibVTYgRSG"
+
+(firefox:23430): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23430): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126858060	Marionette	INFO	Listening on port 34357
+1547126858070	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547126932752	Marionette	INFO	Stopped listening on port 34357
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23430, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126934650	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6xaQXWJeNqKU"
+
+(firefox:23684): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23684): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126937456	Marionette	INFO	Listening on port 37222
+1547126937468	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547126964048	Marionette	INFO	Stopped listening on port 37222
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23684, Gecko_IOThread] WARNING: pipe error (119): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126966161	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.xCy5NFlcE0KD"
+
+(firefox:23933): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23933): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126969234	Marionette	INFO	Listening on port 39510
+1547126969281	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547126979994	Marionette	INFO	Stopped listening on port 39510
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23933, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23933, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547126982002	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.h92YZnyql0zl"
+
+(firefox:24176): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24176): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547126984858	Marionette	INFO	Listening on port 35665
+1547126984913	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547127015461	Marionette	INFO	Stopped listening on port 35665
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 24176, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 24176, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127017466	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.fiYxw6j4Z2A4"
+
+(firefox:24430): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24430): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127020475	Marionette	INFO	Listening on port 44989
+1547127020616	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127039752	Marionette	INFO	Stopped listening on port 44989
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 24430, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 24430, Gecko_IOThread] WARNING: pipe error (81): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127041835	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3FBORXVFzZSd"
+
+(firefox:24677): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24677): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127044854	Marionette	INFO	Listening on port 34834
+1547127044951	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127064047	Marionette	INFO	Stopped listening on port 34834
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547127066061	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zJkFeAqtH6fZ"
+
+(firefox:24927): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24927): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127069060	Marionette	INFO	Listening on port 34956
+1547127069075	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127085303	Marionette	INFO	Stopped listening on port 34956
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547127087373	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.MyECfdrPmXuR"
+
+(firefox:25165): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25165): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127090325	Marionette	INFO	Listening on port 35758
+1547127090387	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127101065	Marionette	INFO	Stopped listening on port 35758
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25165, Gecko_IOThread] WARNING: pipe error (100): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127103143	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.syqTSIpOPdSH"
+
+(firefox:25410): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25410): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127106096	Marionette	INFO	Listening on port 45990
+1547127106175	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127120421	Marionette	INFO	Stopped listening on port 45990
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25410, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127122505	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.P1m71YIGLanA"
+
+(firefox:25655): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25655): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127125305	Marionette	INFO	Listening on port 37054
+1547127125326	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127131125	Marionette	INFO	Stopped listening on port 37054
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25655, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25655, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127133223	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5iMRwjIjD11S"
+
+(firefox:25899): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25899): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127136107	Marionette	INFO	Listening on port 45766
+1547127136140	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127156728	Marionette	INFO	Stopped listening on port 45766
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25899, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25899, Gecko_IOThread] WARNING: pipe error (101): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127158799	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.YSXXX82xff69"
+
+(firefox:26149): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26149): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127161901	Marionette	INFO	Listening on port 40914
+1547127161911	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/estilo_atribucional/experiment.js, line 229: ReferenceError: survey25 is not defined
+1547127174098	Marionette	INFO	Stopped listening on port 40914
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26149, Gecko_IOThread] WARNING: pipe error (121): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127176301	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Amd9WSluwfOf"
+
+(firefox:26390): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26390): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127179392	Marionette	INFO	Listening on port 35566
+1547127179416	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127187007	Marionette	INFO	Stopped listening on port 35566
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26390, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127189195	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WXoAcRe02CSu"
+
+(firefox:26647): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26647): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127192223	Marionette	INFO	Listening on port 34894
+1547127192303	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+1547127197538	Marionette	INFO	Stopped listening on port 34894
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26647, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127199726	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.NMN1TdU1MScq"
+
+(firefox:26897): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26897): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127202685	Marionette	INFO	Listening on port 38621
+1547127202745	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547127256595	Marionette	INFO	Stopped listening on port 38621
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26897, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 26897, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+JavaScript error: resource://gre/modules/osfile/osfile_async_front.jsm, line 423: Error: OS.File has been shut down. Rejecting request to stat
+1547127258702	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.MYMt7AJATIMP"
+
+(firefox:27153): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27153): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127261846	Marionette	INFO	Listening on port 36062
+1547127261915	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica/index.html, line 1: ReferenceError: advance is not defined
+1547127277651	Marionette	INFO	Stopped listening on port 36062
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27153, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127279844	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XH2ZAZuU9e53"
+
+(firefox:27409): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27409): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127282969	Marionette	INFO	Listening on port 34638
+1547127283054	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/informacion_sociodemografica_simple/jsPsych-6/plugins/jspsych-survey-text-number.js, line 157: ReferenceError: event is not defined
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547127384432	Marionette	INFO	Stopped listening on port 34638
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27409, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127386403	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.dT1TzEv3dyBv"
+
+(firefox:27693): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27693): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127389430	Marionette	INFO	Listening on port 45465
+1547127389518	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127405375	Marionette	INFO	Stopped listening on port 45465
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27693, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 27693, Gecko_IOThread] WARNING: pipe error (89): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127407469	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.GjSoLjENblqp"
+
+(firefox:27946): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27946): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127410510	Marionette	INFO	Listening on port 35549
+1547127410580	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/iowa_gambling_task/jsPsych-6/plugins/jspsych-iowa-gambling-task.js, line 131: TypeError: document.getElementById(...) is null
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/iowa_gambling_task/jsPsych-6/plugins/jspsych-iowa-gambling-task.js, line 131: TypeError: document.getElementById(...) is null
+1547127463984	Marionette	INFO	Stopped listening on port 35549
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27946, Gecko_IOThread] WARNING: pipe error (100): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127465995	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.41Q4gZyQilZD"
+
+(firefox:28212): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28212): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127469068	Marionette	INFO	Listening on port 40743
+1547127469116	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/metacognicion/experiment.js, line 290: ReferenceError: survey31 is not defined
+1547127483550	Marionette	INFO	Stopped listening on port 40743
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28212, Gecko_IOThread] WARNING: pipe error (121): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127485509	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XK5x8xZWFYZl"
+
+(firefox:28468): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28468): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127488576	Marionette	INFO	Listening on port 43462
+1547127488630	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127498014	Marionette	INFO	Stopped listening on port 43462
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28468, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28468, Gecko_IOThread] WARNING: pipe error (93): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127500001	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.gvv9yWOaXPNF"
+
+(firefox:28718): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28718): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127503052	Marionette	INFO	Listening on port 37547
+1547127503113	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127506547	Marionette	INFO	Stopped listening on port 37547
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28718, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28718, Gecko_IOThread] WARNING: pipe error (93): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127508641	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.p9TcQcyfYExN"
+
+(firefox:28968): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28968): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127511775	Marionette	INFO	Listening on port 34266
+1547127511849	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127515803	Marionette	INFO	Stopped listening on port 34266
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28968, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28968, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127518027	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.7klLAx2EhRt6"
+
+(firefox:29207): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29207): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127521105	Marionette	INFO	Listening on port 35557
+1547127521153	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127525090	Marionette	INFO	Stopped listening on port 35557
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 597: TypeError: this.tablesData[table] is undefined
+[Parent 29207, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 29207, Gecko_IOThread] WARNING: pipe error (96): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127527328	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Bs1JKPpvgQWT"
+
+(firefox:29439): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29439): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127530387	Marionette	INFO	Listening on port 45609
+1547127530439	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547127534633	Marionette	INFO	Stopped listening on port 45609
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 597: TypeError: this.tablesData[table] is undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29439, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127536853	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.w9C3yIHHBlu8"
+
+(firefox:29685): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29685): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127539807	Marionette	INFO	Listening on port 33091
+1547127539874	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/razonamiento_bayesiano/experiment.js, line 171: InvalidStateError: XMLHttpRequest must not be sending.
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/razonamiento_bayesiano/experiment.js, line 683: TypeError: relatives[i] is undefined
+1547127648460	Marionette	INFO	Stopped listening on port 33091
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29685, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547127650281	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.7Npx9zagk1op"
+
+(firefox:30007): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30007): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547127653390	Marionette	INFO	Listening on port 37654
+1547127653497	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547128200258	Marionette	INFO	Stopped listening on port 37654
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30007, Gecko_IOThread] WARNING: pipe error (100): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547128201996	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zCVzgY5pUkm3"
+
+(firefox:30359): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30359): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128205106	Marionette	INFO	Listening on port 39124
+1547128205206	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/razonamiento_transitivo/tiff.min.js, line 1934: SyntaxError: "use asm" is only meaningful in the Directive Prologue of a function body
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547128313122	Marionette	INFO	Stopped listening on port 39124
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547128314323	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.POwyFwXp4caj"
+
+(firefox:30646): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30646): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128318671	Marionette	INFO	Listening on port 43761
+1547128318756	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128324591	Marionette	INFO	Stopped listening on port 43761
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547128326651	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ZVkXMXKxo2MD"
+
+(firefox:30924): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30924): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128329906	Marionette	INFO	Listening on port 32944
+1547128329961	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/religiosidad/experiment.js, line 117: ReferenceError: survey02 is not defined
+1547128331653	Marionette	INFO	Stopped listening on port 32944
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30924, Gecko_IOThread] WARNING: pipe error (99): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547128333966	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vkoRINN5Yics"
+
+(firefox:31176): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31176): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128336939	Marionette	INFO	Listening on port 33292
+1547128336980	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128407416	Marionette	INFO	Stopped listening on port 33292
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31176, Gecko_IOThread] WARNING: pipe error (89): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31176, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547128409422	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WFy7EZBOYND5"
+
+(firefox:31515): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31515): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128412421	Marionette	INFO	Listening on port 45492
+1547128412437	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/sMARS_short_mathematics_anxiety_rating_scale/experiment.js, line 182: SyntaxError: missing : after property id
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/sMARS_short_mathematics_anxiety_rating_scale/index.html, line 29: ReferenceError: sMARS_short_mathematics_anxiety_rating_scale_experiment is not defined
+Warning: getUnicodeUrl failed to get a Unicode URL fromdebugger eval code, reason: TypeError: debugger eval code is not a valid URL.Warning: getUnicodeUrl failed to get a Unicode URL fromdebugger eval code, reason: TypeError: debugger eval code is not a valid URL.console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547128490464	Marionette	INFO	Stopped listening on port 45492
+1547128564742	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.q1Wc79oLNGXr"
+
+(firefox:31917): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31917): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128567894	Marionette	INFO	Listening on port 41551
+1547128567957	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128591362	Marionette	INFO	Stopped listening on port 41551
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31917, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31917, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547128593575	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.YGvAoxm3nDQV"
+
+(firefox:32204): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32204): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128596606	Marionette	INFO	Listening on port 35096
+1547128596689	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128606287	Marionette	INFO	Stopped listening on port 35096
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 32204, Gecko_IOThread] WARNING: pipe error (89): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547128608364	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.c28oOPIj9iNh"
+
+(firefox:32461): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32461): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128611417	Marionette	INFO	Listening on port 40525
+1547128611479	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+1547128731785	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zTmI0i8e9fdz"
+
+(firefox:357): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:357): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128734866	Marionette	INFO	Listening on port 37902
+1547128734910	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128744418	Marionette	INFO	Stopped listening on port 37902
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 357, Gecko_IOThread] WARNING: pipe error (65): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 357, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547128746511	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kTVncUEqER4A"
+
+(firefox:599): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:599): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128749539	Marionette	INFO	Listening on port 34026
+1547128749626	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128753500	Marionette	INFO	Stopped listening on port 34026
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+1547128755714	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.iwr5MwqNdLVt"
+
+(firefox:853): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:853): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128758759	Marionette	INFO	Listening on port 35376
+1547128758824	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128762768	Marionette	INFO	Stopped listening on port 35376
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 853, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547128764985	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.mvvKa4m96Oz6"
+
+(firefox:1122): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1122): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547128768066	Marionette	INFO	Listening on port 34290
+1547128768107	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547128772230	Marionette	INFO	Stopped listening on port 34290
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 1122, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 1122, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547129068449	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.dTTyrhH1my4C"
+
+(firefox:1449): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1449): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547129071592	Marionette	INFO	Listening on port 38052
+1547129071661	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 1625, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 1604, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 1536, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547129163974	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.o15DZ7MOXUPC"
+
+(firefox:1786): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1786): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547129167073	Marionette	INFO	Listening on port 36429
+1547129167089	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547129895168	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TdPH7Rp18xc4"
+
+(firefox:2354): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:2354): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547129898413	Marionette	INFO	Listening on port 43267
+1547129898481	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-36116321-2&l=dataLayer, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-36116321-2&l=dataLayer, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-36116321-2&l=dataLayer, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-36116321-2&l=dataLayer, line 147: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-36116321-2&l=dataLayer, line 87: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-36116321-2&l=dataLayer, line 147: unreachable code after return statement
+[Child 2791, MediaPlayback #3] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #2] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #2] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #2] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #1] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #1] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #1] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #3] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #2] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #3] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #3] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Child 2791, MediaPlayback #3] WARNING: Decoder=7f9376e0a560 Decode error: NS_ERROR_DOM_MEDIA_FATAL_ERR (0x806e0005) - RefPtr<mozilla::MozPromise<RefPtr<mozilla::MediaTrackDemuxer::SamplesHolder>, mozilla::MediaResult, true> > mozilla::MediaSourceTrackDemuxer::DoGetSamples(int32_t): manager is detached.: file /build/firefox-j7tNrI/firefox-63.0+build2/dom/media/MediaDecoderStateMachine.cpp, line 3429
+[Parent 2354, Gecko_IOThread] WARNING: pipe error (178): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547130832523	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.a2ndAJJoW7Lv"
+
+(firefox:3539): Gtk-WARNING **: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:3539): Gtk-WARNING **: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547130835694	Marionette	INFO	Listening on port 36667
+1547130835744	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: chrome://browser/content/urlbarBindings.xml, line 2709: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIAutoCompleteController.getStyleAt]
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/wais_working_memory/jsPsych-6/jspsych.js, line 2145: TypeError: source.to_s is not a function
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/wais_working_memory/experiment.js, line 3205: ReferenceError: p3_a18 is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/wais_working_memory/index.html, line 26: ReferenceError: wais_working_memory_experiment is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/wais_working_memory/experiment.js, line 3194: ReferenceError: p3_a17 is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/wais_working_memory/index.html, line 26: ReferenceError: wais_working_memory_experiment is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: EncodingError: The given encoding is not supported.
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 3539, Gecko_IOThread] WARNING: pipe error (98): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 3539, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-j7tNrI/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547131935825	Marionette	INFO	Stopped listening on port 36667
