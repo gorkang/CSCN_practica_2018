@@ -714,7 +714,7 @@ var wmipractice_exp = {
 
 var wm_practice01 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_1."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_1." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -724,7 +724,7 @@ var wm_practice01 = {
 
 var wm_practice02 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_2."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_2." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -1446,7 +1446,7 @@ var wmspractice_exp = {
 
 var wm_practice01 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuencial/hombre_1."+extension,
+    stimulus: "sounds_" + extension + "/Secuencial/hombre_1." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -1456,7 +1456,7 @@ var wm_practice01 = {
 
 var wm_practice02 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuencial/hombre_2."+extension,
+    stimulus: "sounds_" + extension + "/Secuencial/hombre_2." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2164,7 +2164,7 @@ var answeraudio_51 = {
 
 var p1_a1 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_1."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_1." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2174,7 +2174,7 @@ var p1_a1 = {
 
 var p1_a2 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_2."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_2." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2184,7 +2184,7 @@ var p1_a2 = {
 
 var p1_a3 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_3."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_3." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2194,7 +2194,7 @@ var p1_a3 = {
 
 var p1_a4 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_4."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_4." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2204,7 +2204,7 @@ var p1_a4 = {
 
 var p1_a5 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_5."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_5." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2214,7 +2214,7 @@ var p1_a5 = {
 
 var p1_a6 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_6."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_6." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2224,7 +2224,7 @@ var p1_a6 = {
 
 var p1_a7 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_7."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_7." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2234,7 +2234,7 @@ var p1_a7 = {
 
 var p1_a8 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_8."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_8." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2244,7 +2244,7 @@ var p1_a8 = {
 
 var p1_a9 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_9."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_9." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2254,7 +2254,7 @@ var p1_a9 = {
 
 var p1_a10 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_10."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_10." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2264,7 +2264,7 @@ var p1_a10 = {
 
 var p1_a11 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_11."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_11." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2274,7 +2274,7 @@ var p1_a11 = {
 
 var p1_a12 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_12."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_12." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2284,7 +2284,7 @@ var p1_a12 = {
 
 var p1_a13 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_13."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_13." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2294,7 +2294,7 @@ var p1_a13 = {
 
 var p1_a14 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_14."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_14." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2304,7 +2304,7 @@ var p1_a14 = {
 
 var p1_a15 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_15."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_15." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2314,7 +2314,7 @@ var p1_a15 = {
 
 var p1_a16 = {
     type: 'single-audio',
-    stimulus: "sounds/Directo/hombre_16."+extension,
+    stimulus: "sounds_" + extension + "/Directo/hombre_16." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2328,7 +2328,7 @@ var p1_a16 = {
 
 var p2_a1 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_1."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_1." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2338,7 +2338,7 @@ var p2_a1 = {
 
 var p2_a2 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_2."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_2." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2348,7 +2348,7 @@ var p2_a2 = {
 
 var p2_a3 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_3."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_3." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2358,7 +2358,7 @@ var p2_a3 = {
 
 var p2_a4 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_4."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_4." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2368,7 +2368,7 @@ var p2_a4 = {
 
 var p2_a5 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_5."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_5." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2378,7 +2378,7 @@ var p2_a5 = {
 
 var p2_a6 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_6."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_6." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2388,7 +2388,7 @@ var p2_a6 = {
 
 var p2_a7 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_7."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_7." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2398,7 +2398,7 @@ var p2_a7 = {
 
 var p2_a8 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_8."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_8." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2408,7 +2408,7 @@ var p2_a8 = {
 
 var p2_a9 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_9."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_9." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2418,7 +2418,7 @@ var p2_a9 = {
 
 var p2_a10 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_10."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_10." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2428,7 +2428,7 @@ var p2_a10 = {
 
 var p2_a11 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_11."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_11." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2438,7 +2438,7 @@ var p2_a11 = {
 
 var p2_a12 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_12."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_12." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2448,7 +2448,7 @@ var p2_a12 = {
 
 var p2_a13 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_13."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_13." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2458,7 +2458,7 @@ var p2_a13 = {
 
 var p2_a14 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_14."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_14." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2468,7 +2468,7 @@ var p2_a14 = {
 
 var p2_a15 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_15."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_15." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2478,7 +2478,7 @@ var p2_a15 = {
 
 var p2_a16 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_16."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_16." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2488,7 +2488,7 @@ var p2_a16 = {
 
 var p2_a17 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_17."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_17." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2498,7 +2498,7 @@ var p2_a17 = {
 
 var p2_a18 = {
     type: 'single-audio',
-    stimulus: "sounds/Inverso/hombre_18."+extension,
+    stimulus: "sounds_" + extension + "/Inverso/hombre_18." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2512,7 +2512,7 @@ var p2_a18 = {
 
 var p3_a1 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_1."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_1." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2522,7 +2522,7 @@ var p3_a1 = {
 
 var p3_a2 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_2."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_2." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2532,7 +2532,7 @@ var p3_a2 = {
 
 var p3_a3 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_3."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_3." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2542,7 +2542,7 @@ var p3_a3 = {
 
 var p3_a4 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_4."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_4." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2552,7 +2552,7 @@ var p3_a4 = {
 
 var p3_a5 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_5."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_5." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2562,7 +2562,7 @@ var p3_a5 = {
 
 var p3_a6 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_6."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_6." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2572,7 +2572,7 @@ var p3_a6 = {
 
 var p3_a7 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_7."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_7." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2582,7 +2582,7 @@ var p3_a7 = {
 
 var p3_a8 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_8."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_8." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2592,7 +2592,7 @@ var p3_a8 = {
 
 var p3_a9 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_9."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_9." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2602,7 +2602,7 @@ var p3_a9 = {
 
 var p3_a10 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_10."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_10." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2612,7 +2612,7 @@ var p3_a10 = {
 
 var p3_a11 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_11."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_11." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2622,7 +2622,7 @@ var p3_a11 = {
 
 var p3_a12 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_12."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_12." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2632,7 +2632,7 @@ var p3_a12 = {
 
 var p3_a13 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_13."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_13." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2642,7 +2642,7 @@ var p3_a13 = {
 
 var p3_a14 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_14."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_14." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2652,7 +2652,7 @@ var p3_a14 = {
 
 var p3_a15 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_15."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_15." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2662,7 +2662,7 @@ var p3_a15 = {
 
 var p3_a16 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_16."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_16." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2672,7 +2672,7 @@ var p3_a16 = {
 
 var p3_a17 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_17."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_17." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
@@ -2682,7 +2682,7 @@ var p3_a17 = {
 
 var p3_a18 = {
     type: 'single-audio',
-    stimulus: "sounds/Secuenciacion/hombre_18."+extension,
+    stimulus: "sounds_" + extension + "/Secuenciacion/hombre_18." + extension,
     trial_ends_after_audio: true,
     choices: jsPsych.NO_KEYS,
     timing_post_trial: 0,
