@@ -19,16 +19,15 @@ from tests.testing_config.Configuration import BasicConfig
 
 def main():
 
-	# palabras para un random
-	word_url = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
-	response = urllib.request.urlopen(word_url)
-	long_txt = response.read().decode()
-	words = long_txt.splitlines()
-
-	config = BasicConfig()
-
 	# se busca el PATH que es la carpeta actual menos la parte de /testing
 	PATH = os.getcwd()[0:-8]
+
+	# palabras para un random
+	f = open(PATH+'/testing/assets/words','r')
+	words = f.readlines()
+	f.close()
+
+	config = BasicConfig()
 	
 	randomization = config.basic_config['random']
 	if randomization:
@@ -66,6 +65,13 @@ def main():
 	file = open('/'+PATH+'/testing/test_list.txt', 'r') 
 
 	for line in file: 
+
+		if randomization:
+			cont = random.randrange(10)
+		else:
+			 	multi = config.basic_config['multi']
+			cont = config.basic_config['cont']
+			words_cont = config.basic_config['word']
 
 		if line[0] != '#' and line != '\n':
 

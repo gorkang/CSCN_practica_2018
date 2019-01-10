@@ -1,0 +1,10 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de a_priori_screening_belief_experiment",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "a_priori_screening_belief_experiment",    "name": "a_priori_screening_belief_experiment",    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

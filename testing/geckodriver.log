@@ -711,3 +711,904 @@ JavaScript error: , line 0: InvalidStateError: An attempt was made to use an obj
 JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
 [Parent 11191, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
 [Parent 11191, Gecko_IOThread] WARNING: pipe error (110): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123734192	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.rcouJRBP7udB"
+
+(firefox:21536): Gtk-WARNING **: 09:35:35.165: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:21536): Gtk-WARNING **: 09:35:35.165: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123736936	Marionette	INFO	Listening on port 37673
+1547123737069	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123750774	Marionette	INFO	Stopped listening on port 37673
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 21536, Gecko_IOThread] WARNING: pipe error (69): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 21536, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123752771	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bFzP7joDAnQi"
+
+(firefox:21874): Gtk-WARNING **: 09:35:53.421: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:21874): Gtk-WARNING **: 09:35:53.421: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123754921	Marionette	INFO	Listening on port 33769
+1547123754991	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123765603	Marionette	INFO	Stopped listening on port 33769
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 21874, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 21874, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123767608	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TjQpqfeDYfER"
+
+(firefox:22196): Gtk-WARNING **: 09:36:08.201: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22196): Gtk-WARNING **: 09:36:08.201: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123769742	Marionette	INFO	Listening on port 33045
+1547123769816	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123792524	Marionette	INFO	Stopped listening on port 33045
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22196, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22196, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123794711	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.4dn3U8nL8wyO"
+
+(firefox:22513): Gtk-WARNING **: 09:36:35.417: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22513): Gtk-WARNING **: 09:36:35.417: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123796961	Marionette	INFO	Listening on port 45111
+1547123797038	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123804666	Marionette	INFO	Stopped listening on port 45111
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22513, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22513, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123806641	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bZY7hpOj7RY8"
+
+(firefox:22833): Gtk-WARNING **: 09:36:47.310: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:22833): Gtk-WARNING **: 09:36:47.310: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123808843	Marionette	INFO	Listening on port 34757
+1547123808865	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/CRT_numerico/index.html, line 1: ReferenceError: advance is not defined
+1547123812309	Marionette	INFO	Stopped listening on port 34757
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 22833, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 22833, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123814396	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.X9HKaRtPxCKm"
+
+(firefox:23145): Gtk-WARNING **: 09:36:55.119: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23145): Gtk-WARNING **: 09:36:55.119: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123816756	Marionette	INFO	Listening on port 39767
+1547123816816	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123821215	Marionette	INFO	Stopped listening on port 39767
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/nsUrlClassifierListManager.js, line 597: TypeError: this.tablesData[table] is undefined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23145, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23145, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123823196	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ufeZc5NZcnu1"
+
+(firefox:23456): Gtk-WARNING **: 09:37:03.820: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23456): Gtk-WARNING **: 09:37:03.820: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123825308	Marionette	INFO	Listening on port 43087
+1547123825404	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123830052	Marionette	INFO	Stopped listening on port 43087
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23456, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23456, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123832161	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.PCe3MjsmQyGw"
+
+(firefox:23776): Gtk-WARNING **: 09:37:12.801: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:23776): Gtk-WARNING **: 09:37:12.801: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123834292	Marionette	INFO	Listening on port 35455
+1547123834372	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123847871	Marionette	INFO	Stopped listening on port 35455
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 23776, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 23776, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123849980	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TejMQHSRYpr3"
+
+(firefox:24077): Gtk-WARNING **: 09:37:30.583: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24077): Gtk-WARNING **: 09:37:30.583: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123852367	Marionette	INFO	Listening on port 45329
+1547123852400	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123856025	Marionette	INFO	Stopped listening on port 45329
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 24077, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 24077, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123858113	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.DZSt4mkLVeV8"
+
+(firefox:24405): Gtk-WARNING **: 09:37:38.728: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24405): Gtk-WARNING **: 09:37:38.729: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123860582	Marionette	INFO	Listening on port 45737
+1547123860632	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123872179	Marionette	INFO	Stopped listening on port 45737
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 24405, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 24405, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123874319	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vYsm5nmfLK11"
+
+(firefox:24724): Gtk-WARNING **: 09:37:54.942: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:24724): Gtk-WARNING **: 09:37:54.942: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123876495	Marionette	INFO	Listening on port 46193
+1547123876543	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547123899650	Marionette	INFO	Stopped listening on port 46193
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 24724, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 24724, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123901762	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IysKtgo9Jezb"
+
+(firefox:25049): Gtk-WARNING **: 09:38:22.391: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25049): Gtk-WARNING **: 09:38:22.392: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123903907	Marionette	INFO	Listening on port 32933
+1547123903983	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123916292	Marionette	INFO	Stopped listening on port 32933
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25049, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25049, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123917434	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.cjDPG3iwARWn"
+
+(firefox:25367): Gtk-WARNING **: 09:38:38.120: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25367): Gtk-WARNING **: 09:38:38.120: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123919650	Marionette	INFO	Listening on port 38267
+1547123919749	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547123944407	Marionette	INFO	Stopped listening on port 38267
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25367, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25367, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123946521	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.z6MiH8CjlRsO"
+
+(firefox:25689): Gtk-WARNING **: 09:39:07.086: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:25689): Gtk-WARNING **: 09:39:07.086: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547123948550	Marionette	INFO	Listening on port 40425
+1547123948630	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547123996895	Marionette	INFO	Stopped listening on port 40425
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 25689, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 25689, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547123998694	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.7u48y87Tbc4B"
+
+(firefox:26015): Gtk-WARNING **: 09:39:59.353: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26015): Gtk-WARNING **: 09:39:59.353: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124000871	Marionette	INFO	Listening on port 45563
+1547124000903	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: "TypeError: this.onSelected is not a function: onDetachedFront@resource://devtools/shared/base-loader.js -> resource://devtools/client/inspector/computed/computed.js:1461:5\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5\n_onMutations@resource://devtools/shared/base-loader.js -> resource://devtools/client/framework/selection.js:105:7\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5\nWalkerFront<.getMutations</<@resource://devtools/shared/base-loader.js -> resource://devtools/shared/fronts/inspector.js:414:7\n"
+TypeError: this.onSelected is not a function: onDetachedFront@resource://devtools/shared/base-loader.js -> resource://devtools/client/inspector/computed/computed.js:1461:5
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5
+_onMutations@resource://devtools/shared/base-loader.js -> resource://devtools/client/framework/selection.js:105:7
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5
+WalkerFront<.getMutations</<@resource://devtools/shared/base-loader.js -> resource://devtools/shared/fronts/inspector.js:414:7
+
+console.error: "TypeError: this.onSelected is not a function: onDetachedFront@resource://devtools/shared/base-loader.js -> resource://devtools/client/inspector/computed/computed.js:1461:5\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5\n_onMutations@resource://devtools/shared/base-loader.js -> resource://devtools/client/framework/selection.js:105:7\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15\nemit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5\nWalkerFront<.getMutations</<@resource://devtools/shared/base-loader.js -> resource://devtools/shared/fronts/inspector.js:414:7\n"
+TypeError: this.onSelected is not a function: onDetachedFront@resource://devtools/shared/base-loader.js -> resource://devtools/client/inspector/computed/computed.js:1461:5
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5
+_onMutations@resource://devtools/shared/base-loader.js -> resource://devtools/client/framework/selection.js:105:7
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:178:15
+emit@resource://devtools/shared/base-loader.js -> resource://devtools/shared/event-emitter.js:255:5
+WalkerFront<.getMutations</<@resource://devtools/shared/base-loader.js -> resource://devtools/shared/fronts/inspector.js:414:7
+
+1547124037031	Marionette	INFO	Stopped listening on port 45563
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26015, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 26015, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124039145	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.NHO1RaCAFIVk"
+
+(firefox:26357): Gtk-WARNING **: 09:40:39.826: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:26357): Gtk-WARNING **: 09:40:39.826: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124041424	Marionette	INFO	Listening on port 46171
+1547124041454	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/BIS_barratt_impulsiveness_scale/experiment.js, line 199: SyntaxError: expected expression, got ','
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/BIS_barratt_impulsiveness_scale/index.html, line 29: ReferenceError: BIS_barratt_impulsiveness_scale_experiment is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 26357, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 26357, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124089878	Marionette	INFO	Stopped listening on port 46171
+1547124148634	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.xluDcHBu33X0"
+
+(firefox:27050): Gtk-WARNING **: 09:42:29.226: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27050): Gtk-WARNING **: 09:42:29.226: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124150897	Marionette	INFO	Listening on port 37657
+1547124150974	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124177868	Marionette	INFO	Stopped listening on port 37657
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27050, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 27050, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124179973	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Quch4lJvfZLM"
+
+(firefox:27377): Gtk-WARNING **: 09:43:00.584: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27377): Gtk-WARNING **: 09:43:00.584: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124182156	Marionette	INFO	Listening on port 34747
+1547124182181	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124188167	Marionette	INFO	Stopped listening on port 34747
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27377, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 27377, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124190263	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.YyRZ6qCo3Avk"
+
+(firefox:27697): Gtk-WARNING **: 09:43:10.876: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:27697): Gtk-WARNING **: 09:43:10.876: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124192429	Marionette	INFO	Listening on port 41745
+1547124192479	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124212437	Marionette	INFO	Stopped listening on port 41745
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 27697, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 27697, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124214434	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.8XSQ4nl46dy5"
+
+(firefox:28022): Gtk-WARNING **: 09:43:35.063: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28022): Gtk-WARNING **: 09:43:35.063: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124216707	Marionette	INFO	Listening on port 32775
+1547124216747	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124232460	Marionette	INFO	Stopped listening on port 32775
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28022, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28022, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124234567	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XCmWLS6twLLJ"
+
+(firefox:28348): Gtk-WARNING **: 09:43:55.155: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28348): Gtk-WARNING **: 09:43:55.155: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124236674	Marionette	INFO	Listening on port 39643
+1547124236820	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124249759	Marionette	INFO	Stopped listening on port 39643
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28348, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28348, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124251825	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.pdIrhCrojBJ2"
+
+(firefox:28663): Gtk-WARNING **: 09:44:12.438: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28663): Gtk-WARNING **: 09:44:12.438: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124253971	Marionette	INFO	Listening on port 38491
+1547124254033	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124261196	Marionette	INFO	Stopped listening on port 38491
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28663, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28663, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124263537	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.4TrcIaCERtIx"
+
+(firefox:28973): Gtk-WARNING **: 09:44:24.184: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:28973): Gtk-WARNING **: 09:44:24.184: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124265740	Marionette	INFO	Listening on port 35827
+1547124265746	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124280821	Marionette	INFO	Stopped listening on port 35827
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 28973, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 28973, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124283032	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.YKV66kXE9a3P"
+
+(firefox:29296): Gtk-WARNING **: 09:44:43.627: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29296): Gtk-WARNING **: 09:44:43.627: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124285226	Marionette	INFO	Listening on port 41559
+1547124285253	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124289968	Marionette	INFO	Stopped listening on port 41559
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29296, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 29296, Gecko_IOThread] WARNING: pipe error (88): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124292108	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jT93W2LqBFBs"
+
+(firefox:29620): Gtk-WARNING **: 09:44:52.756: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29620): Gtk-WARNING **: 09:44:52.757: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124294365	Marionette	INFO	Listening on port 39641
+1547124294419	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547124378786	Marionette	INFO	Stopped listening on port 39641
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29620, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 29620, Gecko_IOThread] WARNING: pipe error (83): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124380471	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.GkygwqAGF8IZ"
+
+(firefox:29950): Gtk-WARNING **: 09:46:21.263: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:29950): Gtk-WARNING **: 09:46:21.264: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124382873	Marionette	INFO	Listening on port 45599
+1547124382905	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547124411944	Marionette	INFO	Stopped listening on port 45599
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 29950, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 29950, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124413932	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.B9qbDnqCLiyd"
+
+(firefox:30263): Gtk-WARNING **: 09:46:54.588: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30263): Gtk-WARNING **: 09:46:54.588: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124416115	Marionette	INFO	Listening on port 39967
+1547124416145	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124427781	Marionette	INFO	Stopped listening on port 39967
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30263, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 30263, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124429840	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.8QwWioyOoGAI"
+
+(firefox:30579): Gtk-WARNING **: 09:47:10.462: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30579): Gtk-WARNING **: 09:47:10.462: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124431947	Marionette	INFO	Listening on port 36733
+1547124432051	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547124465567	Marionette	INFO	Stopped listening on port 36733
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30579, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 30579, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124467335	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.frRl3jxsofZA"
+
+(firefox:30903): Gtk-WARNING **: 09:47:47.986: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:30903): Gtk-WARNING **: 09:47:47.986: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124469540	Marionette	INFO	Listening on port 35785
+1547124469545	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124490345	Marionette	INFO	Stopped listening on port 35785
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 30903, Gecko_IOThread] WARNING: pipe error (63): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 30903, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124492451	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.QBIOQBvR5fsC"
+
+(firefox:31230): Gtk-WARNING **: 09:48:13.142: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31230): Gtk-WARNING **: 09:48:13.143: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124494562	Marionette	INFO	Listening on port 33563
+1547124494660	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124515264	Marionette	INFO	Stopped listening on port 33563
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31230, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31230, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124517253	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jsvznlC84jXU"
+
+(firefox:31552): Gtk-WARNING **: 09:48:37.883: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31552): Gtk-WARNING **: 09:48:37.883: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124519445	Marionette	INFO	Listening on port 41411
+1547124519462	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124537165	Marionette	INFO	Stopped listening on port 41411
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31552, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 31552, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124539281	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.uIFL3gDrO9mV"
+
+(firefox:31864): Gtk-WARNING **: 09:48:59.894: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:31864): Gtk-WARNING **: 09:48:59.894: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124541453	Marionette	INFO	Listening on port 42147
+1547124541498	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124553129	Marionette	INFO	Stopped listening on port 42147
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 31864, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124555200	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.u83tUQjCpnQu"
+
+(firefox:32183): Gtk-WARNING **: 09:49:15.817: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32183): Gtk-WARNING **: 09:49:15.817: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124557356	Marionette	INFO	Listening on port 34143
+1547124557439	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/empatia_por_dolor/jsPsych-6/jspsych.js, line 2299: TypeError: callback is not a function
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547124921793	Marionette	INFO	Stopped listening on port 34143
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 32183, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 32183, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124923418	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.pkgIwQVoCs67"
+
+(firefox:32641): Gtk-WARNING **: 09:55:24.117: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:32641): Gtk-WARNING **: 09:55:24.117: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124925846	Marionette	INFO	Listening on port 44905
+1547124925934	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124941668	Marionette	INFO	Stopped listening on port 44905
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 32641, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 32641, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124943681	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.fppF3MvnT9Se"
+
+(firefox:508): Gtk-WARNING **: 09:55:44.336: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:508): Gtk-WARNING **: 09:55:44.336: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124945862	Marionette	INFO	Listening on port 38169
+1547124945892	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124952089	Marionette	INFO	Stopped listening on port 38169
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 508, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 508, Gecko_IOThread] WARNING: pipe error (94): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124953875	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zMCip7Aql6kK"
+
+(firefox:852): Gtk-WARNING **: 09:55:54.677: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:852): Gtk-WARNING **: 09:55:54.677: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124956157	Marionette	INFO	Listening on port 43851
+1547124956183	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547124978655	Marionette	INFO	Stopped listening on port 43851
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 852, Gecko_IOThread] WARNING: pipe error (113): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 852, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124980689	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IhumUTDA8zum"
+
+(firefox:1330): Gtk-WARNING **: 09:56:21.389: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1330): Gtk-WARNING **: 09:56:21.389: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547124982861	Marionette	INFO	Listening on port 44859
+1547124982913	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/estilo_atribucional/experiment.js, line 229: ReferenceError: survey25 is not defined
+1547124996252	Marionette	INFO	Stopped listening on port 44859
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 1330, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 1330, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547124998483	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.JSbozGirhFlq"
+
+(firefox:1678): Gtk-WARNING **: 09:56:39.093: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1678): Gtk-WARNING **: 09:56:39.093: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547125000637	Marionette	INFO	Listening on port 46607
+1547125000709	Marionette	WARN	TLS certificate errors will be ignored for this session
+1547125008733	Marionette	INFO	Stopped listening on port 46607
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 1678, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 1678, Gecko_IOThread] WARNING: pipe error (85): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547125010739	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Uj9BZL0JcYmU"
+
+(firefox:1996): Gtk-WARNING **: 09:56:51.383: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:1996): Gtk-WARNING **: 09:56:51.383: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547125012917	Marionette	INFO	Listening on port 41319
+1547125012949	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/graph_literacy/index.html, line 1: ReferenceError: advance is not defined
+1547125018763	Marionette	INFO	Stopped listening on port 41319
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 1996, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 1996, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547125020884	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.v5qjdryzdYlK"
+
+(firefox:2340): Gtk-WARNING **: 09:57:01.574: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:2340): Gtk-WARNING **: 09:57:01.574: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547125023084	Marionette	INFO	Listening on port 37855
+1547125023105	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1547125086957	Marionette	INFO	Stopped listening on port 37855
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 2340, Gecko_IOThread] WARNING: pipe error (80): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 2340, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547125088779	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.t7M2Fw3wKxC4"
+
+(firefox:2885): Gtk-WARNING **: 09:58:09.409: Theme parsing error: <data>:1:34: Expected ')' in color definition
+
+(firefox:2885): Gtk-WARNING **: 09:58:09.409: Theme parsing error: <data>:1:77: Expected ')' in color definition
+1547125090917	Marionette	INFO	Listening on port 36085
+1547125090988	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/index.html, line 1: ReferenceError: advance is not defined
+JavaScript error: file:////home/herm4nv/Documents/CSCN/pruebas_individuales/ineco_frontal_screening/jsPsych-6/plugins/jspsych-survey-text0.js, line 156: ReferenceError: event is not defined
+JavaScript error: , line 0: InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable
+[Parent 2885, Gecko_IOThread] WARNING: pipe error (91): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 2885, Gecko_IOThread] WARNING: pipe error (77): Connection reset by peer: file /build/firefox-4VfQCB/firefox-63.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1547125148921	Marionette	INFO	Stopped listening on port 36085
