@@ -1,0 +1,10 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de abreviated_mathematics_anxiety_rating_scale_experiment",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "abreviated_mathematics_anxiety_rating_scale_experiment",    "name": "abreviated_mathematics_anxiety_rating_scale_experiment",    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

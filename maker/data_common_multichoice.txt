@@ -1,0 +1,221 @@
+# You can comment lines with #
+
+- Name of test
+abreviated_mathematics_anxiety_rating_scale
+
+- Fullscreen
+# Select if you want to use a Fullscreen in the test (Yes/No)
+Yes
+
+# Select Message for the fullscreen view
+The experiment will enter full screen mode
+
+- Instruction
+# If you want random mode in the questions following the instruction write Yes otherwise write No
+Yes
+
+# Title and Message for the instructions
+Abreviated Mathematics Anxiety Rating Scale Experiment
+Please indicate the level of your anxiety in the following situations.
+
+- Multi choice horizontal question
+Studying for a math test.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Taking math section of the college entrance exam.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Taking an exam (quiz) in a math course. 
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Taking an exam (final) in a math course.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Picking up math textbook to begin working on a homework assignment.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Being given homework assignments of many difficult problems that are due the next class meeting.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Thinking about an upcoming math test 1 week before.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Thinking about an upcoming math test 1 day before.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Thinking about an upcoming math test 1 hour before.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Realizing you have to take a certain number of math classes to fulfill requirements.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Picking up math textbook to begin a difficult reading assignment.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Receiving your final math grade in the mail.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Opening a math or stat book and seeing a page full of problems.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Getting ready to study for a math test.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Being given a “pop” quiz in a math class.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Reading a cash register receipt after your purchase.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Being given a set of numerical problems involving addition to solve on paper.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Being given a set of subtraction problems to solve.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Being given a set of multiplication problems to solve.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Being given a set of division problems to solve.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Buying a math textbook.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Watching a teacher work on an algebraic equation on the blackboard.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Signing up for a math course.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Listening to another student explain a math formula.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- Multi choice horizontal question
+Walking into a math class.
+Not at all
+A little
+A fair amount
+Much
+Very much
+
+- End of file
