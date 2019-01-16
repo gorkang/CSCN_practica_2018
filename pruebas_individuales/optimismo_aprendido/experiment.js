@@ -45,31 +45,31 @@ var screen_optimismo_aprendido_experiment = {
 var likert_scale = ["Nunca","Pocas veces","Algunas veces","La mayoria de las veces","Siempre"];
 
 var survey01 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />En tiempos dif&iacute;ciles, suelo esperar lo mejor.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_01"}
 };
 
 var survey02 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Si algo malo me tiene que pasar, estoy seguro de que me pasar&aacute;.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Rara vez, espero que las cosas salgan a mi manera.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Casi nunca espero que me sucedan cosas buenas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />En general, espero que me ocurran m&aacute;s cosas buenas que malas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };

@@ -92,7 +92,7 @@ miradas.push(instructions);
 index = 0;
 trials.forEach(function(trial) {
   miradas.push({
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     preamble: "<img width='100%'src='images/" + index + ".png' />",
     questions: [{
       prompt: "",

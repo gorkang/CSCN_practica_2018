@@ -8,8 +8,9 @@
  *
  */
 
-
 jsPsych.plugins['survey-textnum2'] = (function() {
+
+  console.log(jsPsych.getDisplayElement());
 
   var plugin = {};
 
@@ -69,6 +70,8 @@ jsPsych.plugins['survey-textnum2'] = (function() {
 
   plugin.trial = function(display_element, trial) {
 
+    console.log(display_element);
+
     if (typeof trial.questions[0].rows == 'undefined') {
       trial.questions[0].rows = [];
       for (var i = 0; i < trial.questions.length; i++) {
@@ -112,9 +115,8 @@ jsPsych.plugins['survey-textnum2'] = (function() {
     var firstTextBox = document.getElementsByName("#jspsych-survey-text-response-0")[0];
     firstTextBox.focus();
 
-
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
-        var validation;
+      var validation;
       // measure response time
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
@@ -136,17 +138,14 @@ jsPsych.plugins['survey-textnum2'] = (function() {
         "responses": JSON.stringify(question_data)
       };
 
-
       //checks if the answer is a valid % number
       if ($.isNumeric(validation) === true && validation <= 100 && validation >= 0) {
-          console.log("bien",validation);
           display_element.innerHTML = '';
           jsPsych.pluginAPI.clearAllTimeouts();
           jsPsych.finishTrial(trialdata);
       }else{
           firstTextBox.blur();
           display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">Por favor ingresa un número válido.</span>';
-          console.log("mal",validation);
           event.stopPropagation();
          if (event.stopPropagation) {
           event.stopPropagation();

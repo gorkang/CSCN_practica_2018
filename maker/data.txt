@@ -1,7 +1,7 @@
 # You can comment lines with #
 
 - Name of test
-abreviated_mathematics_anxiety_rating_scale
+test1
 
 - Fullscreen
 # Select if you want to use a Fullscreen in the test (Yes/No)

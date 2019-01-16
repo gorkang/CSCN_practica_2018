@@ -2,14 +2,6 @@ import shutil, math, os, subprocess
 from subprocess import PIPE, Popen, STDOUT
 from pathlib import Path
 
-import struct
-
-def convert_string_to_bytes(string):
-    bytes = b''
-    for i in string:
-        bytes += struct.pack("B", ord(i))
-    return bytes  
-
 def writeExperiment(file_name, instructions, questions, fullscreen_mode=False):
 	PATH = os.getcwd()
 	f = open(PATH + '/'+ file_name + '/experiment.js', 'r')
@@ -112,9 +104,6 @@ def writeExperiment(file_name, instructions, questions, fullscreen_mode=False):
 	f.write(content)
 	f.close()
 
-
-
-
 def writeConfig(file_name):
 	PATH = os.getcwd()
 	f = open(PATH + '/'+ file_name + '/config.json', 'r')
@@ -124,8 +113,8 @@ def writeConfig(file_name):
 	if (not content[2].startswith('    "instructions":"Responder preguntas de')):
 
 		content.insert(2, '    "instructions":"Responder preguntas de '+ file_name +'_experiment",\n')
-		content.insert(6, '    "exp_id": "'+ file_name +'_experiment",')
-		content.insert(7, '    "name": "'+ file_name +'_experiment",')
+		content.insert(6, '    "exp_id": "'+ file_name +'_experiment",\n')
+		content.insert(7, '    "name": "'+ file_name +'_experiment",\n')
 
 		f = open(PATH + '/'+ file_name + '/config.json', "w")
 		content = "".join(content)
@@ -161,8 +150,6 @@ def writeIndex(file_name, plugins):
 		content = "".join(content)
 		f.write(content)
 		f.close()
-
-	
 
 def main():
 	PATH = os.getcwd()

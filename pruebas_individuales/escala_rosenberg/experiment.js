@@ -44,61 +44,61 @@ var screen_escala_rosenberg_experiment = {
 var likert_scale = ["Muy de acuerdo","De acuerdo","En desacuerdo","Muy en desacuerdo"];
 
 var survey01 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Siento que soy una persona digna de aprecio, al menos en igual medida que los dem&aacute;s.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_01"}
 };
 
 var survey02 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Creo que tengo un buen n&uacute;mero de cualidades.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />En general me inclino a pensar que soy un/a fracasado/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Soy capaz de hacer las cosas tan bien como la mayor&iacute;a de la gente.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Siento que no tengo muchos motivos para sentirme orgulloso/a de mi.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
 var survey06 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Tengo una actitud positiva hacia mi mismo/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey07 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />En general, estoy satisfecho/a conmigo mismo/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_07"}
 };
 
 var survey08 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Desear&iacute;a valorarme m&aacute;s a mi mismo/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_08"}
 };
 
 var survey09 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />A veces me siento verdaderamente in&uacute;til.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_09"}
 };
 
 var survey10 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />A veces pienso que no soy bueno/a para nada.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_10"}
 };

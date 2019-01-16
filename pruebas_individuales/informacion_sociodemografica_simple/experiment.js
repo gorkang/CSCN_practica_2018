@@ -64,7 +64,7 @@ var survey_trial1 = {
 };
 
 var survey_trial2 = {
-  type: 'survey-multi-choice1',
+  type: 'survey-multi-choice-horizontal',
   questions: [{
     prompt: "SEXO",
     options: ["HOMBRE", "MUJER"],
@@ -76,7 +76,7 @@ var survey_trial2 = {
 };
 
 var survey_trial3 = {
-  type: 'survey-multi-choice1',
+  type: 'survey-multi-choice-horizontal',
   questions: [{
     prompt: "Nivel de estudios",
     options: ['1. Educación básica incompleta o inferior.', '2. Básica completa.', '3. Media incompleta.', '4. Media completa / Técnica incompleta.', '5. Universitaria incompleta / Técnica completa', '6. Universitaria completa.', '7. Post Grado (Master, Doctor o equivalente).'],

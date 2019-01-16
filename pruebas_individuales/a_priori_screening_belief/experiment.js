@@ -41,35 +41,35 @@ var instruction_screen_experiment = {
 questions_experiment = [];    //timeline
 
 var question1 = {
-  type: 'survey-multi-choice1',
+  type: 'survey-multi-choice-horizontal',
   questions: [{prompt: "<div class='justified'>Participating in screening always has more advantages than disadvantages. </div>", options: ['<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_1'}
 };
 questions_experiment.push(question1);
 
 var question2 = {
-  type: 'survey-multi-choice1',
+  type: 'survey-multi-choice-horizontal',
   questions: [{prompt: "<div class='justified'>Participating in screening cannot hurt anyone.</div>", options: ['<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_2'}
 };
 questions_experiment.push(question2);
 
 var question3 = {
-  type: 'survey-multi-choice1',
+  type: 'survey-multi-choice-horizontal',
   questions: [{prompt: "<div class='justified'>In my opinion, it is always better to get screened.</div>", options: ['<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_3'}
 };
 questions_experiment.push(question3);
 
 var question4 = {
-  type: 'survey-multi-choice1',
+  type: 'survey-multi-choice-horizontal',
   questions: [{prompt: "<div class='justified'>If one has the opportunity, one should always participate in screening.</div>", options: ['<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_4'}
 };
 questions_experiment.push(question4);
 
 var question5 = {
-  type: 'survey-multi-choice1',
+  type: 'survey-multi-choice-horizontal',
   questions: [{prompt: "<div class='justified'>Foregoing screening is irresponsible.</div>", options: ['<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_5'}
 };

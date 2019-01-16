@@ -92,7 +92,7 @@ var instructions5 = {
 };
 
 var working = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '¿Tiene usted actualmente un trabajo o hace algún trabajo no pago fuera de su casa?',
     options: ['Si', 'No'],

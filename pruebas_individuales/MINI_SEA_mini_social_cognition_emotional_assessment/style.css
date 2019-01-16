@@ -187,15 +187,19 @@ input[type=radio]{
   height: 20px;
 }
 
-.jspsych-survey-multi-choice1-text.survey-multi-choice{
+.jspsych-survey-multi-choice-vertical-text.survey-multi-choice{
   text-align: center;
 }
 
-div#jspsych-survey-text-preamble,div#jspsych-survey-multi-choice1-preamble{
+.jspsych-survey-multi-choice-horizontal-question{
+  text-align: left;
+}
+
+div#jspsych-survey-text-preamble,div#jspsych-survey-multi-choice-vertical-preamble{
   text-align: center;
 }
 
-div#jspsych-survey-multi-choice1-0{
+div#jspsych-survey-multi-choice-vertical-0{
   width: 100%;
 }
 div#jspsych-content{

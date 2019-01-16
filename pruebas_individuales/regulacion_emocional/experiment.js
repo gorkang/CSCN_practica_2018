@@ -93,7 +93,7 @@ regulacion_emocional.push(instructions);
 index = 1;
 trials.forEach(function(trial) {
   regulacion_emocional.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-horizontal",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
       options: trial.options,

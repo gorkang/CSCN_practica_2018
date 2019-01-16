@@ -63,61 +63,61 @@ var cl_texto1 = {
 };
 
 var cl_1 = {
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{prompt:"<p class = titulo>1. &iquest;Qu&eacute; forma c&aacute;maras de aire en los ping&#252;inos?</p>", options: ["a) Las plumas que recubren su cuerpo","b) La capa de grasa que recubre el cuerpo","c) Un abrigo de pelo que tapa su cuerpo","d) Una piel especial que recubre su cuerpo"], required: true}],
     data: {trialid:[["CL_1"]]}
 };
 
 var cl_2 = {
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{prompt:"<p class = titulo>2. &iquest;Qu&eacute; tienen en com&uacute;n todos los ping&#252;inos?</p>", options: ["a) El continente donde viven y el recubrimiento de su cuerpo","b) El recubrimiento y el tama&ntilde;o de su cuerpo","c) La ayuda que se prestan y el tama&ntilde;o de su cuerpo","d) El recubrimiento de su cuerpo y la ayuda que se prestan"], required: true}],
     data: {trialid:[["CL_2"]]}
 };
 
 var cl_3 = {
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{prompt:"<p class = titulo>3. Los ping&#252;inos Adelia tienen un comportamiento reproductor original porque:</p>", options: ["a) Los ping&#252;inos Adelia cr&iacute;an e incuban sus huevos","b) Los padres se ayudan para incubar y cuidar a las cr&iacute;as","c) Son los machos Adelia los que incuban los huevos","d) Cambian de pareja mientras cuidan de los huevos"], required:true}],
     data: {trialid:[["CL_3"]]}
 };
 
 var cl_4 = {
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{prompt:"<p class = titulo>4. El krill es:</p>", options: ["a) Un peque&ntilde;o pez que sirve de alimento a ping&#252;inos y ballenas","b) Un crust&aacute;ceo que se alimenta de peces y vive en el Polo Sur","c) Una especie de gamba que sirve de alimento a los ping&#252;inos","d) Un cr&uacute;staceo que se alimenta de gambas, al igual que los ping&#252;ino"], required:true}],
     data: {trialid:[["CL_4"]]}
 };
 
 var cl_5 = {
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{prompt:"<p class = titulo>5. &iquest;Qu&eacute; hacen los ping&#252;inos Emperador nada m&aacute;s nacer la cr&iacute;a?</p>", options: ["a) Los padres cuidan juntos del peque&ntilde;o durante varias semanas","b) El macho cuida a la cr&iacute;a y la hembra busca comida","c) Dejan a la cr&iacute;a al cuidado de adultos responsables y van a buscar comida","d) La hembra cuida a la cr&iacute;a mientras el macho se va a buscar comida"], required:true}],
     data: {trialid:[["CL_5"]]}
 };
 
 var cl_6 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>6. Entre los ping&#252;inos Emperador la incubaci&oacute;n del huevo la realiza:</p>", options:["a)El ping&#252;ino Emperador macho","b) Primero el macho y luego la hembra, indistintamente","c) El macho o la hembra","d) Primero la hembra y luego el macho"], required: true}],
   data: {trialid:[["CL_6"]]}
 };
 
 var cl_7 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>7. &iquest;Qu&eacute; animales se comen a los ping&#252;inos?</p>", options:["a)El ping&#252;ino Emperador macho incuba los huevos","b) El macho y la hembra se turnan para cuidar a sus hijos","c) Ping&#252;inos adultos cuidan de grupos de ping&#252;inos peque&ntilde;os","d) Pueden hacer frente a paisajes hostiles y climas muy duros"], required: true}],
   data: {trialid:[["CL_7"]]}
 };
 
 var cl_8 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>8. Un ejemplo de la solidaridad de los ping&#252;inos Emperador es que:</p>", options:["a)Porque el peque&ntilde;o ping&#252;ino ya puede vivir solo","b) Porque hay ping&#252;inos que habitan en el Polo Sur","c) Porque dejan a la cr&iacute;a escondida","d) Porque otros ping&#252;inos adultos cuidan de sus hijos"], required: true}],
   data: {trialid:[["CL_8"]]}
 };
 
 var cl_9 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>9. &iquest;Por qu&eacute; el macho y la hembra de ping&#252;inos Emperador pueden marcharse juntos en busca de comida?</p>", options:["a)Porque el peque&ntilde;o ping&#252;ino ya puede vivir solo","b) Porque hay ping&#252;inos que habitan en el Polo Sur","c) Porque dejan a la cr&iacute;a escondida","d) Porque otros ping&#252;inos adultos cuidan de sus hijos"], required: true}],
   data: {trialid:[["CL_9"]]}
 };
 
 var cl_10 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>10. Los ping&#252;inos Emperador y los ping&#252;inos Adelia se diferencian en:</p>", options:["a)La forma de organizar el cuidado de las cr&iacute;as","b) El lugar donde viven","c) El recubrimiento de su cuerpo para aislarse del fr&iacute;o","d) La clase de alimentos que comen "], required: true}],
   data: {trialid:[["CL_10"]]}
 };
@@ -140,61 +140,61 @@ var cl_texto2 = {
 };
 
 var cl_11 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>1. &iquest;De qu&eacute; viv&iacute;an principalmente los sioux?</p>", options:["a)De utensilios de uso cotidiano","b) De los bisontes","c) De pieles y huesos","d) De campamentos de tiendas"], required: true}],
   data: {trialid:[["CL_11"]]}
 };
 
 var cl_12 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>2. Hasta hace m&aacute;s de 200 a&ntilde;os los sioux viv&iacute;an pac&iacute;ficamente porque:</p>", options:["a)Conviv&iacute;an junto a otros indios de las praderas","b) Habitaban en campamentos de tiendas situados en las praderas","c) Sus tierras todav&iacute;a no hab&iacute;an sido invadidas por los blancos","d) Hab&iacute;a grandes manadas de bisontes, de los que obten&iacute;an alimento"], required: true}],
   data: {trialid:[["CL_12"]]}
 };
 
 var cl_13 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>3. El gobierno intent&oacute; inicialmente encerrar a los sioux en las reservas para que:</p>", options:["a)Los colonos y los mineros ocuparan las tierras indias","b) Los indios recuperaran su tierra y su libertad","c) Muchos reba&ntilde;os de bisontes fueran eliminados","d) Los indios provocaran actos salvajes"], required: true}],
   data: {trialid:[["CL_13"]]}
 };
 
 var cl_14 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>4. Los indios en un intento de recuperar su libertad:</p>", options:["a)Pactaron con el gobierno para vivir en las reservas","b) Fueron encerrados en reservas por el gobierno","c) Cometieron actos feroces contra los colonos","d) Fueron expulsados de Minnessota en 1863"], required: true}],
   data: {trialid:[["CL_14"]]}
 };
 
 var cl_15 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>5. &iquest;Qu&eacute; manten&iacute;a alejados a los sioux de las manadas de bisontes?</p>", options:["a)Minnessota, la tierra de sus antepasados","b) Las minas de oro de los colonos","c) El cauce del r&iacute;o Missouri","d) Una l&iacute;nea fortificada del ej&eacute;rcito"], required: true}],
   data: {trialid:[["CL_15"]]}
 };
 
 var cl_16 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>6. A lo largo de la historia, &iquest;por qu&eacute; se enfrentaron los sioux a los blancos?</p>", options:["a)Porque los blancos les quitaban las tierras a los indios","b) Porque el ej&eacute;rcito americano asesin&oacute; a una tribu de indios","c) Porque apareci&oacute; el movimiento religioso 'La Danza del Esp&iacute;ritu'","d) Porque los sioux derrotaron a las tropas de Custer"], required: true}],
   data: {trialid:[["CL_16"]]}
 };
 
 var cl_17 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>7. &iquest;Qui&eacute;n no sobrevivi&oacute; en 1876?</p>", options:["a)Un grupo de indios","b) Un grupo de mineros blancos","c) Todo un campamento indio","d) Los soldados de Custer"], required: true}],
   data: {trialid:[["CL_17"]]}
 };
 
 var cl_18 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>8. En resumen, la causa de las guerras entre los indios y el gobierno americano desde 1868 hasta 1876 fue que:</p>", options:["a)El gobierno firm&oacute; la paz y emprendi&oacute; una pol&iacute;tica de ayuda a los indios","b) En 1876 un grupo de indios tendi&oacute; una emboscada a las tropas de Custer","c) El gobierno no cumpli&oacute; los acuerdos que hab&iacute;a firmado con los indios","d) Las condiciones de vida de los sioux empeoraron tras la guerra con el ej&eacute;rcito"], required: true}],
   data: {trialid:[["CL_18"]]}
 };
 
 var cl_19 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>9. &iquest;Con qu&eacute; estuvieron relacionadas las &uacute;ltimas rebeliones sioux?</p>", options:["a)Con un movimiento religioso indio","b) Con las luchas sangrientas entre los blancos","c) Con una emboscada mortal a las tropas de Custer","d) Con unos esp&iacute;ritus religiosos que danzaban"], required: true}],
   data: {trialid:[["CL_19"]]}
 };
 
 var cl_20 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{prompt:"<p class = titulo>10. Las luchas de los sioux terminaron definitivamente cuando:</p>", options:["a)Apareci&oacute; un movimiento religioso llamado 'La Danza del Esp&iacute;ritu'","b) Los indios rebeldes aceptaron vivir en Dakota del Norte y del Sur","c) Los sioux cometieron una atrocidad en una revuelta","d) Una tribu de indios rebeldes fue exterminada"], required: true}],
   data: {trialid:[["CL_20"]]}
 };
