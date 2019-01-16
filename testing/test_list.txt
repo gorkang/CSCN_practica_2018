@@ -23,7 +23,7 @@
 #MINI_SEA_mini_social_cognition_emotional_assessment
 #OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test
 #SASS_social_adaptation_self_evaluation_scale
-#SPR_III_self_report_psychopathy_scale
+#SPR_III_self_report_psychopathy_scale ------------------------
 #STAI_state_trait_anxiety_inventory
 #bienestar_psicosocial
 #bienestar_social
@@ -34,8 +34,8 @@
 #estilo_atribucional
 #estres_percibido
 #graph_literacy
-habilidad_matematica
-#informacion_sociodemografica
+#habilidad_matematica
+informacion_sociodemografica
 #interocepcion
 #metacognicion
 #miradas

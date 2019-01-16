@@ -20,7 +20,7 @@ from tests.testing_config.Configuration import BasicConfig
 def main():
 
 	# se busca el PATH que es la carpeta actual menos la parte de /testing
-	PATH = os.getcwd()[0:-8]
+	PATH = '/'.join((os.getcwd().split('/'))[:-1])
 
 	# palabras para un random
 	f = open(PATH+'/testing/assets/words','r')
@@ -54,12 +54,19 @@ def main():
 	profile.set_preference('browser.download.dir', '/'+PATH+'/testing/Downloads')
 	profile.set_preference('browser.helperApps.neverAsk.saveToDisk', 'text/plain, application/vnd.ms-excel, text/csv, text/comma-separated-values, application/octet-stream, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')	
 
-	# chrome_driver = os.path.join(os.getcwd(), "../browser_drivers/chromedriver")
-	# chrome_options = Options()
-	# chrome_options.add_argument("--headless")
-	# chrome_options.add_argument("--window-size=1024x1400")
+	chrome_driver = PATH + "/testing/browser_drivers/chromedriver"
+	chrome_options = Options()
+	#chrome_options.add_argument("--headless")
+	chrome_options.add_argument("--browser.helperApps.neverAsk.saveToDisk=text/plain, application/vnd.ms-excel, text/csv, text/comma-separated-values, application/octet-stream, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+	chrome_options.add_argument("--browser.download.manager.showWhenStarting=False")
+	chrome_options.add_argument('--browser.download.folderList=2')
+	prefs = {'download.default_directory' : "/"+PATH+"/testing/Downloads"}
+	chrome_options.add_experimental_option('prefs', prefs)
 
-	# driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_driver)
+	print("Elija navegador para probar el testing:")
+	print("1 - Chrome")
+	print("2 - Firefox\n")
+	driver_selection = int(input("- "))
 
 	# Se leen las pruebas por fila para poder hacer las pruebas
 	file = open('/'+PATH+'/testing/test_list.txt', 'r') 
@@ -76,8 +83,10 @@ def main():
 		if line[0] != '#' and line != '\n':
 
 			print("Haciendo test: " + line.rstrip('\n'))
-
-			driver = webdriver.Firefox(firefox_profile=profile, executable_path=firefox_driver);
+			if driver_selection == 1:
+				driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_driver)
+			elif driver_selection == 2:	
+				driver = webdriver.Firefox(firefox_profile=profile, executable_path=firefox_driver);
 
 			driver.get('file:///'+PATH+'/pruebas_individuales/'+line+'/index.html')
 
@@ -99,20 +108,6 @@ def main():
 
 			while True:
 				try:
-					# input box with number
-					elem = driver.find_element_by_class_name("jspsych-survey-text-number-question")
-					input_box = driver.find_element_by_xpath("//input[@type='number']")
-					input_box.send_keys(str(cont))
-					button = driver.find_element_by_id("jspsych-survey-text-number-next")
-					button.click()
-					if randomization:
-						cont = random.randrange(10)
-					else:
-						cont+=1
-				except:
-					pass
-
-				try:
 					# input box with text or number
 					elem = driver.find_element_by_class_name("jspsych-survey-text-question")
 					try:
@@ -132,18 +127,22 @@ def main():
 						cont = random.randrange(10)
 					else:
 						cont+=1
+					elem1 = driver.find_element_by_class_name("jspsych-survey-text-question")
+					if elem1 == elem:
+						print("encontrada limitancia de numeros, reiniciando contador")
+						input_box.clear()
+						cont = 1
 				except:
 					pass
 
 				try:
 					# seleccion múltiple
-					elem = driver.find_elements_by_name("jspsych-survey-multi-choice1-response-0")
+					elem = driver.find_elements_by_name("jspsych-survey-multi-choice-horizontal-response-0")
 					if len(elem) == 0:
-						elem = driver.find_elements_by_name("jspsych-survey-multi-choice-response-0")
+						elem = driver.find_elements_by_name("jspsych-survey-multi-choice-vertical-response-0")
 						choice = 0
 					else:
 						choice = 1
-						
 
 					if randomization:
 						elem[random.randrange(len(elem))].click()
@@ -153,9 +152,9 @@ def main():
 						elem[multi].click()
 						multi+=1
 					if choice:
-						button = driver.find_element_by_id("jspsych-survey-multi-choice1-next")
+						button = driver.find_element_by_id("jspsych-survey-multi-choice-horizontal-next")
 					else:
-						button = driver.find_element_by_id("jspsych-survey-multi-choice-next")
+						button = driver.find_element_by_id("jspsych-survey-multi-choice-vertical-next")
 					button.click()
 				except:
 					pass
