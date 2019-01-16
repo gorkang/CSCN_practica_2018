@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name="robots" content="noindex">
+  <title>BART_balloon_analogue_risk_task</title>
+  <!-- Documento CSS principal -->
+  <link rel="stylesheet" type="text/css" href="BART/src/jquery.bart.css" />
+  <!-- additional styles for to make the BART look fancy -->
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <!-- JQuery -->
+
+  <!-- Libreria principal JsPsych -->
+  <script src="jsPsych-6/jspsych.js"></script>
+  <!-- Plugin para desplegar elementos tipo instrucciones -->
+  <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+  <!-- Plugin custom multi choice 2 -->
+  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice1.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-plugin-bart.js"></script>
+
+
+  <script type="text/javascript" src="BART/src/jquery-3.0.0.min.js"></script>
+  <!-- basic javascript library for dom manipulation -->
+  <script type="text/javascript" src="BART/src/jcanvas.min.js"></script>
+  <!-- the canvas plugin -->
+  <script type="text/javascript" src="BART/src/jquery.bart.js"></script>
+  <!-- the main BART plugin -->
+
+
+  <script src='experiment.js'></script>
+
+  <script>
+    $(document).ready(function() {
+
+      jsPsych.init({
+        timeline: BART_balloon_analogue_risk_task_experiment,
+        fullscreen: true,
+
+        on_finish: function(data) {
+
+          // Serialize the data
+          var promise = new Promise(function(resolve, reject) {
+            var data = jsPsych.data.get().json();
+            resolve(data);
+          })
+
+          promise.then(function(data) {
+
+
+            $.ajax({
+              type: "POST",
+              url: '/save',
+              data: {
+                "data": data
+              },
+              success: function() {
+                document.location = "/next"
+              },
+              dataType: "application/json",
+
+              // Endpoint not running, local save
+              error: function(err) {
+
+                if (err.status == 200) {
+                  document.location = "/next";
+                } else {
+                  // If error, assue local save
+                  if (window.self !== window.top) {
+                    parent.postMessage({
+                      csv: jsPsych.data.get().csv(),
+                      name: 'BART_balloon_analogue_risk_task_results'
+                    }, '*');
+                  } else {
+                    jsPsych.data.get().localSave('csv', 'BART_balloon_analogue_risk_task_results.csv');
+                  }
+                }
+              }
+            })
+          })
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

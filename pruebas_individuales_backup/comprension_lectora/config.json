@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de comprension lectora",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "comprension_lectora",
+    "name": "Comprension Lectora",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

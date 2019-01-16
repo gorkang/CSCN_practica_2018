@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"estres_percibido",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "estres_percibido",
+    "name": "estres_percibido",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de optimismo aprendido",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "optimismo_aprendido",
+    "name": "optimismo_aprendido",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

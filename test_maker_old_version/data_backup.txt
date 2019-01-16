@@ -1,0 +1,151 @@
+# You can comment lines with #
+
+- Name of test
+numeracy
+
+- Fullscreen
+# Select if you want to use a Fullscreen in the test (Yes/No)
+Yes
+
+# Select Message for the fullscreen view
+The experiment will enter full screen mode
+
+- Instructions
+# If you want random mode in the questions following the instruction write Yes otherwise, write No
+Yes
+
+# Title and Message for the instructions
+Numeracy
+Please answer how you agree with the following statements
+
+- Multi choice vertical question
+# Question
+A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+# Alternatives
+30/75
+10/75
+45/75
+
+- Multi choice horizontal question
+# Question
+A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+# Alternatives
+30/75
+10/75
+45/75
+
+
+- Questions
+# if you want add "" use: “foo”
+A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+The proportion of left-handed people is 4 out of 100. In a school there are 300 students. How many left-handed students are there?
+Smokers are about 35% of the population. At the airport in the waiting room there are 200 passengers. How many smokers are there?
+A fair coin is tossed nine times. Which of the following sequence of outcomes is a more likely result of nine flips of the fair coin? (H: Head, T: Tails)
+Two containers, labeled A and B, are filled with red and yellow tokens in the following quantities. Container A contains 100 tokens, 65 red and 35 yellow. Container B contains 10 tokens, 6 red and 4 yellow. Each container is shaken vigorously. After choosing one of the containers, you must draw a token (without peeking, of course). Which container gives you a better chance of drawing a yellow token?
+A marble bag contains 15 blue and 15 green marbles. After you drew 5 marbles (the marble drawn was always put back into the bag), a sequence of 5 green marbles was obtained. What is the most likely outcome if a marble is drawn a sixth time?
+A bingo game is played with 25 numbers (from 1 to 25). At the first draw, which of the following results is the most likely?
+Two decks, labeled A and B, are composed of cards with a star (star cards) and cards without any figure (white cards) on the reverse side. Deck A contains 100 cards, 80 white cards and 20 with a star. Deck B contains 10 cards, 8 white cards and 2 with a star. After choosing one of the decks, you must draw a card (without peeking, of course). Which deck gives you a better chance of drawing a star card?
+A marble bag contains 10 blue and 20 green marbles. After you drew 5 marbles (the marble drawn was always put back into the bag), a sequence of 5 green marbles was obtained. What is the most likely outcome if a marble is drawn a sixth time?
+60% of the population in a city are men and 40% are women. 50% of the men and 30% of the women smoke. We select a person from the city at random. What is the probability that this person is a smoker?
+According to a recent survey, 90% of the population in a city usually lie and 30% of those usually lie about important matters. If we pick a person at random from this city, what is the probability that the person usually lies about important matters?
+In a choir there are 100 children: 30 boys and 70 girls. Half of the boys and 1 in 10 girls learn to play the piano. We select a child from the choir at random. What is the probability that he/she plays the piano?
+A village has 1000 inhabitants. 600 people own a pet, and amongst pet owners 1 in 3 own more than 1 pet. If we select one person from this village at random, what is the probability that they own more than one pet?
+What is the probability that the person had a heart attack?
+What is the probability that the person had a heart attack and, at the same time is older than 55?
+When the person had a heart attack, what is the probability that they are over 55?
+
+- Alternatives
+# If the answers are not the same for all questions, change this to No and write the answers by putting the number of options available before them
+No
+
+# If you want the answers in horizontal mode type True, else type False
+False
+
+3
+30/75
+10/75
+45/75
+
+3
+20
+12
+25
+
+3
+70
+35
+20
+
+3
+THHTHTTHH
+HTHTHTHTH
+Both sequences are equally likely
+
+3
+Container A (with 65 red and 35 yellow)
+Container B (with 6 red and 4 yellow)
+Equal chances from each container
+
+3
+a green marble
+a blue marble
+blue and green are equally likely
+
+3
+It is more likely to be an even number
+It is more likely to be an odd number
+It is just as likely to be an even or an odd number
+
+3
+Deck A (with 80 white and 20 star cards)
+Deck B (with 8 white and 2 star cards)
+Equal chances from each deck
+
+3
+a green marble
+a blue marble
+blue and green are equally likely
+
+3
+42%
+50%
+85%
+
+3
+60%
+30%
+27%
+
+3
+22 out of 100
+30 out of 100
+50 out of 100
+
+3
+333 out of 1000
+500 out of 1000
+200 out of 1000
+
+# If you have another instruction whitout question type - Instructions and below type the instruction like: 
+
+- Instructions
+In a medical center a group of people were interviewed with the following results: </br><table style="width:100%">  <tr>    <th>Firstname</th>    <th>Lastname</th>    <th>Age</th>  </tr>  <tr>    <td>Jill</td>    <td>Smith</td>    <td>50</td>  </tr>  <tr>    <td>Eve</td>    <td>Jackson</td>    <td>94</td>  </tr></table></br>Suppose we select a person from this group at random. Based on the table:
+
+#(</br> is a line break)
+
+3
+104 out of 780
+104 out of 676
+390 out of 780
+
+3
+104 out of 350
+75 out of 350
+75 out of 780
+
+3
+75 out of 780
+75 out of 104
+104 out of 350
+
+# End of file

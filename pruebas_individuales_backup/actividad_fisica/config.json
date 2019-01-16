@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"actividad_fisica",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "actividad_fisica",
+    "name": "Survey",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

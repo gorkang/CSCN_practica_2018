@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"regulacion_emocional",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "regulacion_emocional",
+    "name": "Survey",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

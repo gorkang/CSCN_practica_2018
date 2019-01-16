@@ -1,0 +1,83 @@
+# You can comment lines with #
+
+- Name of test
+numeracy_test
+
+- Fullscreen
+# Select if you want to use a Fullscreen in the test (Yes/No)
+Yes
+
+# Select Message for the fullscreen view
+The experiment will enter full screen mode
+
+- Instruction
+# If you want random mode in the questions following the instruction write Yes otherwise write No
+Yes
+
+# Title and Message for the instructions
+Numeracy
+Please answer how you agree with the following statements
+
+- Multi choice horizontal question
+# Multichoice Question need the question and the answers in order
+# Question
+Horizontal A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+
+# Answers
+124142412
+88888888
+124125232
+
+- Multi choice vertical question
+Vertical A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+vertical1
+vertical2
+vertical3
+
+- Multi choice vertical question
+Vertical A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+vertical1
+vertical2
+vertical3
+
+- Instruction
+# If you want random mode in the questions following the instruction write Yes otherwise write No
+No
+
+# Title and Message for the instructions
+title2
+message instruction 2
+
+- Multi choice vertical question
+Vertical A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+vertical1
+vertical2
+vertical3
+
+- Multi choice vertical question
+Vertical A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+vertical1
+vertical2
+vertical3
+
+- Text question
+# text and number questions only need the text of the question
+This is a text question
+
+- Number question
+This is a number question
+
+- Multi choice vertical question
+Vertical A ball was drawn from a bag containing 10 red, 30 white, 20 blue, and 15 yellow balls. What is the probability that it is neither red nor blue?
+vertical1
+vertical2
+vertical3
+
+- Number question
+This is a number question
+
+- Number question
+This is a number question
+
+
+- End of file

@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"bienestar_social",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "bienestar_social",
+    "name": "Survey",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

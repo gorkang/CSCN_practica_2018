@@ -1,0 +1,7 @@
+prev_01 in every prev_02 are pregnant with a fetus with Trisomy 21 at the time of the screening.
+
+hit_rate_01 in every hit_rate_02 of those pregnant with a fetus with Trisomy 21 will receive a positive test result.
+
+false_positive_01 in every false_positive_02 of the remaining cases not pregnant with a fetus with Trisomy 21 will still receive a positive mammogram.
+
+

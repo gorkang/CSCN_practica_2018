@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Esperar",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "protocolo_pausa",
+    "name": "Protocolo pausa",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}
