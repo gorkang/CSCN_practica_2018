@@ -2,14 +2,11 @@
 #      Execute JavaScript
 # --------------------------
 
-import time
+import time, os, random, urllib.request
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-import os
-import random
-import urllib.request
 
 # Para ver la imagen final instantaneamente al terminar una prueba
 # from PIL import Image
@@ -114,13 +111,22 @@ def main():
 						input_box = driver.find_element_by_xpath("//input[@type='number']")
 						input_box.send_keys(str(cont))
 					except:
-						input_box = driver.find_element_by_xpath("//input[@type='text']")
-						if randomization:
-							text = words[random.randrange(len(words))]
-						else:
-							text = 'palabra numero ' + str(words_cont)
-							words_cont += 1
-						input_box.send_keys(text)
+						try:
+							input_box = driver.find_element_by_xpath("//input[@type='text']")
+							if randomization:
+								text = words[random.randrange(len(words))]
+							else:
+								text = 'palabra numero ' + str(words_cont)
+								words_cont += 1
+							input_box.send_keys(text)
+						except:
+							try:
+								date = time.strftime('%m-%d-%Y')
+								print(date)
+								input_box = driver.find_element_by_xpath("//input[@type='date']")
+								input_box.send_keys(date)
+							except Exception as e:
+								print(e)
 					button = driver.find_element_by_id("jspsych-survey-text-next")
 					button.click()
 					if randomization:
