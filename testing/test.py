@@ -64,6 +64,7 @@ def main():
 	print("1 - Chrome")
 	print("2 - Firefox\n")
 	driver_selection = int(input("- "))
+	print("")
 
 	# Se leen las pruebas por fila para poder hacer las pruebas
 	file = open('/'+PATH+'/testing/test_list.txt', 'r') 

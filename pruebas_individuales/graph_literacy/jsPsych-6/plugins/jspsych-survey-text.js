@@ -67,6 +67,12 @@ jsPsych.plugins['survey-text'] = (function() {
             array: true,
             default: [-Infinity, Infinity],
             description: 'The range of int.'
+          },
+          required: {
+            type: jsPsych.plugins.parameterType.BOOL,
+            pretty_name: 'Required',
+            default: false,
+            description: 'If true, the text box needs a answer.',
           }
         }
       },
@@ -120,7 +126,6 @@ jsPsych.plugins['survey-text'] = (function() {
         trial.questions[i].endword = "";
     }
 
-
     var html = '<br /><p><br />';
     // show preamble text
     if(trial.preamble !== null){
@@ -129,12 +134,16 @@ jsPsych.plugins['survey-text'] = (function() {
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
       // define the min and max of a question with range
-      if (typeof trial.questions[0].range == 'undefined') {
+      if (typeof trial.questions[i].range == 'undefined') {
         var min = -Infinity;
         var max = Infinity;
       } else {
         var min = trial.questions[i].range[0]
         var max = trial.questions[i].range[1]
+      }
+
+      if (typeof trial.questions[i].type == 'undefined') {
+        trial.questions[i].type = "text"
       }
       
 
@@ -203,17 +212,26 @@ jsPsych.plugins['survey-text'] = (function() {
         var validation = true;
         var val = matches[index].querySelector('textarea, input').value;
 
+        if (trial.questions[index].required != 'undefined'){
+          required = trial.questions[index].required;
+        }
+        else
+          required = false;
+
+        pass = true
+        if ((val == "") && required)
+          pass = false
         // next trial and check if is a valid element
         if (trial.questions[index].type == "number")
           validation = $.isNumeric(val) === true;
         else if (trial.questions[index].type == "range")
           validation = $.isNumeric(val) === true && val <= max && val >= min;
 
-        if (validation) {
+        if (validation && pass) {
           display_element.innerHTML = '';
           jsPsych.pluginAPI.clearAllTimeouts();
           jsPsych.finishTrial(trialdata);
-        }else{
+        } else {
           textBox.blur();
           textBox.focus();
           var message = '';

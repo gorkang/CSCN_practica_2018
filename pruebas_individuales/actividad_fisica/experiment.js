@@ -243,6 +243,7 @@ trials1.forEach(function(trial) {
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+      type: 'number',
       required: true
     }],
     endword: trial.endword,
@@ -260,6 +261,7 @@ trials2.forEach(function(trial) {
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+      type: 'number',
       required: true
     }],
     endword: trial.endword,
@@ -277,6 +279,7 @@ trials3.forEach(function(trial) {
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+      type: 'number',
       required: true
     }],
     endword: trial.endword,
@@ -294,6 +297,7 @@ trials4.forEach(function(trial) {
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+      type: 'number',
       required: true
     }],
     endword: trial.endword,
@@ -311,6 +315,7 @@ trials5.forEach(function(trial) {
     type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+      type: 'number',
       required: true
     }],
     endword: trial.endword,

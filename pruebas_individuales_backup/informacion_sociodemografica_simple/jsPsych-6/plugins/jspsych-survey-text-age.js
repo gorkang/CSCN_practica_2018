@@ -141,8 +141,6 @@ jsPsych.plugins['survey-text-age'] = (function() {
         "responses": JSON.stringify(question_data)
       };
 
-
-
       // next trial
       if ($.isNumeric(validation) === true && validation > 0 && validation <= 120) {
         //if ((validation >= 12 && validation <= 14) || (validation >= 21 && validation <= 24) || (validation >= 31 && validation <= 34) || (validation >= 41 && validation <= 43) &&  validation != 22 && validation != 33 ) {

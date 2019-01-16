@@ -1,12 +1,11 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-#abreviated_mathematics_anxiety_rating_scale
-#actividad_fisica
-#aislamiento_social_y_redes_sociales
+actividad_fisica
+#aislamiento_social_y_redes_sociales  -------------------- text-number
 #ansiedad_matematica
-#CRT_numerico
-#CRT_verbal
+#CRT_numerico ----------- multichoice2
 #CRT_MCQ4
+#habilidad_matematica  --------------- textha
 #abreviated_mathematics_anxiety_rating_scale
 #a_priori_screening_belief
 #beck_anxiety_inventory
@@ -19,7 +18,7 @@
 #GDMS_estilo_toma_decisiones
 #GHQ_general_health_questionnaire
 #IRI_interpersonal_reactivity_index
-#LIPKUS_numeracy
+#LIPKUS_numeracy   ---------------- textnumb2 - text-number
 #MINI_SEA_mini_social_cognition_emotional_assessment
 #OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test
 #SASS_social_adaptation_self_evaluation_scale
@@ -33,16 +32,12 @@
 #escala_tacticas
 #estilo_atribucional
 #estres_percibido
-#graph_literacy
-#habilidad_matematica
-informacion_sociodemografica
 #interocepcion
 #metacognicion
 #miradas
 #optimismo_aprendido
 #regulacion_emocional
 #religiosidad
-#wais_vocabulario
 #protocolo_inicio
 #protocolo_pausa
 #protocolo_fin
@@ -52,8 +47,8 @@ informacion_sociodemografica
 #BIS_barratt_impulsiveness_scale
 #BRET_bomb_risk_elicitation_task
 #empatia_por_dolor
-#ineco_frontal_screening
-#informacion_sociodemografica_simple
+#ineco_frontal_screening  --------- survey-text0
+#informacion_sociodemografica_simple  ----------- text-age number, multichoice
 #iowa_gambling_task
 #razonamiento_bayesiano
 #razonamiento_silogistico    --- agregar instrucciones (q o p),q 
@@ -62,3 +57,9 @@ informacion_sociodemografica
 #sMARS_short_mathematics_anxiety_rating_scale --- error
 #wais_matrices
 #wais_working_memory
+
+#informacion_sociodemografica
+#wais_vocabulario
+#graph_literacy
+#CRT_verbal
+#abreviated_mathematics_anxiety_rating_scale
