@@ -1,19 +1,5 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-#GHQ_general_health_questionnaire
-#IRI_interpersonal_reactivity_index
-#LIPKUS_numeracy   ---------------- textnumb2 - text-number
-#MINI_SEA_mini_social_cognition_emotional_assessment
-#OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test
-#SASS_social_adaptation_self_evaluation_scale
-#SPR_III_self_report_psychopathy_scale ------------------------
-#STAI_state_trait_anxiety_inventory
-#bienestar_psicosocial
-#bienestar_social
-#comprension_lectora
-#escala_experiencias_disociativas
-#escala_rosenberg
-#escala_tacticas
 #estilo_atribucional
 #estres_percibido
 #interocepcion
@@ -62,7 +48,20 @@
 #protocolo_inicio
 #protocolo_pausa
 #protocolo_fin
-
 #ECR-RS_relationship_structures
 #EPI_eysenck_personality_inventory
 #GDMS_estilo_toma_decisiones
+#GHQ_general_health_questionnaire
+#IRI_interpersonal_reactivity_index
+#LIPKUS_numeracy
+#MINI_SEA_mini_social_cognition_emotional_assessment
+#OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test
+#SASS_social_adaptation_self_evaluation_scale
+#SPR_III_self_report_psychopathy_scale
+#STAI_state_trait_anxiety_inventory
+#bienestar_psicosocial
+#bienestar_social
+#comprension_lectora
+#escala_experiencias_disociativas
+#escala_rosenberg
+#escala_tacticas

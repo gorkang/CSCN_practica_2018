@@ -107,11 +107,11 @@ def main():
 
 			ronda = 0
 			while True:
-				ronda += 1
-				txtfields = someElements = driver.find_elements(By.CLASS_NAME, 'jspsych-content')
-				for field in txtfields:
-					print("ronda " + str(ronda))
-					print(field.text)
+				#ronda += 1
+				#txtfields = someElements = driver.find_elements(By.CLASS_NAME, 'jspsych-content')
+				#for field in txtfields:
+				#	print("ronda " + str(ronda))
+				#	print(field.text)
 				try:
 					# input box with text or number
 					elem = driver.find_element_by_class_name("jspsych-survey-text-question")
@@ -215,5 +215,6 @@ def main():
 				print(line[1:].rstrip('\n'))
 			elif line != '\n':
 				print('Se ha omitido la prueba ' + line[1:].rstrip('\n'))
+	print("\nTesting finalizado, escriba exit para salir del ambiente virtual actual.\n")
 
 if __name__ == '__main__' : main()
