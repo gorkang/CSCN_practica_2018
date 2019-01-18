@@ -1,14 +1,5 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-#estilo_atribucional
-#estres_percibido
-#interocepcion
-#metacognicion
-#miradas
-#optimismo_aprendido
-#regulacion_emocional
-#religiosidad
-
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
 #BIS_barratt_impulsiveness_scale
@@ -65,3 +56,11 @@
 #escala_experiencias_disociativas
 #escala_rosenberg
 #escala_tacticas
+#estilo_atribucional
+#estres_percibido
+#interocepcion
+#metacognicion
+#miradas
+#optimismo_aprendido
+#regulacion_emocional
+#religiosidad
