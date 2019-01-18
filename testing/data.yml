@@ -1,0 +1,54 @@
+---
+# init document
+- instruction:
+    title: a title
+    text: a text
+- question:
+    type: multi-choice-vertical
+    preamble: Tabitha Bitumen
+    prompt: Developer
+    stimulus:
+      - lisp
+      - fortran
+      - erlang
+    options:
+      - lisp
+      - fortran
+      - erlang  
+- question:
+    type: multi-choice-horizontal
+    preamble: Tabitha Bitumen
+    prompt: Developer
+    stimulus:
+      - lisp
+      - fortran
+      - erlang
+    options:
+      - lisp
+      - fortran
+      - erlang      
+- question:
+    type: number
+    preamble: Tabitha Bitumen
+    prompt: Developer
+    stimulus:
+      - lisp
+      - fortran
+      - erlang
+- question:
+    type: text
+    preamble: Tabitha Bitumen
+    prompt: Developer
+    stimulus:
+      - lisp
+      - fortran
+      - erlang
+...
+# finish document
+
+# code: 
+#with open("data.yml", 'r') as stream:
+#...     try:
+#...             print(yaml.load(stream))
+#...     except yaml.YAMLError as exc:
+#...             print(exc)

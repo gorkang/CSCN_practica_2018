@@ -26,7 +26,7 @@ var screen_aislamiento_social_experiment = {
 
 // Inicio prueba
 var father = {
-  type: "survey-multi-choice-horizontal",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: '1.- ¿Alguna de estas personas componen tu hogar?<br>a) Padre/padrastro?',
     options: ['Si', 'No'],
@@ -38,7 +38,7 @@ var father = {
 }
 
 var mother = {
-  type: "survey-multi-choice-horizontal",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: '1.- ¿Alguna de estas personas componen tu hogar?<br>b) Madre/madrastra?',
     options: ['Si', 'No'],
@@ -82,7 +82,7 @@ var trials_1_to_9 = [{
 ]
 
 var social_network = {
-  type: "survey-multi-choice-horizontal",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: '¿Cuál es la red social que más utiliza?',
     options: ['Facebook', 'Instagram', 'Whatsapp', 'Messenger', 'Tinder', 'YouTUbe', 'Tumblr', 'LinkedIn', 'Twitter', 'Snapchat', 'Skype', 'Google+', 'Ninguna', 'Otro'],
@@ -213,7 +213,7 @@ var instructions12 = {
   }
 };
 
-var options_0_to_9 = ['Ninguno', '1', '2', '3 o 4', '5 a 8', '9 o más']
+var options_0_to_9 = ['<center>Ninguno</center>', '<center>1</center>', '<center>2</center>', '<center>3 o 4</center>', '<center>5 a 8</center>', '<center>9 o más</center>']
 
 var parents_1 = {
   type: "survey-multi-choice-horizontal",
@@ -228,7 +228,7 @@ var parents_1 = {
   }
 }
 
-var options_times = ['<br>Menos de una<br>vez por mes', '<br>Mensualmente', '<br>Algunas veces<br>al mes', '<br>Semanalmente', '<br>Algunas veces<br>por semana', '<br>Diariamente']
+var options_times = ['<center><br>Menos de una<br>vez por mes</center>', '<center><br>Mensualmente</center>', '<center><br>Algunas veces<br>al mes</center>', '<center><br>Semanalmente</center>', '<center><br>Algunas veces<br>por semana</center>', '<center><br>Diariamente</center>']
 
 var parents_2 = {
   type: "survey-multi-choice-horizontal",
@@ -407,9 +407,10 @@ aislamiento_social_y_redes_sociales.push(mother);
 index = 3;
 trials_1_to_9.forEach(function(trial) {
   aislamiento_social_y_redes_sociales.push({
-    type: "survey-text-number",
+    type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+      type: 'number',
       required: true
     }],
     endword: "",

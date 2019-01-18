@@ -7,6 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
 
 # Para ver la imagen final instantaneamente al terminar una prueba
 # from PIL import Image
@@ -104,12 +105,22 @@ def main():
 			path_to_watch = '/'+PATH+'/testing/Downloads'
 			before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 
+			ronda = 0
 			while True:
+				ronda += 1
+				txtfields = someElements = driver.find_elements(By.CLASS_NAME, 'jspsych-content')
+				for field in txtfields:
+					print("ronda " + str(ronda))
+					print(field.text)
 				try:
 					# input box with text or number
 					elem = driver.find_element_by_class_name("jspsych-survey-text-question")
 					try:
 						input_box = driver.find_element_by_xpath("//input[@type='number']")
+						if randomization:
+							cont = random.randrange(10)
+						else:
+							cont+=1
 						input_box.send_keys(str(cont))
 					except:
 						try:
@@ -130,10 +141,6 @@ def main():
 								print(e)
 					button = driver.find_element_by_id("jspsych-survey-text-next")
 					button.click()
-					if randomization:
-						cont = random.randrange(10)
-					else:
-						cont+=1
 					elem1 = driver.find_element_by_class_name("jspsych-survey-text-question")
 					if elem1 == elem:
 						print("encontrada limitancia de numeros, reiniciando contador")

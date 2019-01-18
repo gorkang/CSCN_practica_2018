@@ -1,21 +1,5 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-actividad_fisica
-#aislamiento_social_y_redes_sociales  -------------------- text-number
-#ansiedad_matematica
-#CRT_numerico ----------- multichoice2
-#CRT_MCQ4
-#habilidad_matematica  --------------- textha
-#abreviated_mathematics_anxiety_rating_scale
-#a_priori_screening_belief
-#beck_anxiety_inventory
-#big_five
-#multiple_stimulus_types_ambiguity_tolerance_scale
-#need_for_cognition
-#DSS_decision_styles_scale
-#ECR-RS_relationship_structures
-#EPI_eysenck_personality_inventory
-#GDMS_estilo_toma_decisiones
 #GHQ_general_health_questionnaire
 #IRI_interpersonal_reactivity_index
 #LIPKUS_numeracy   ---------------- textnumb2 - text-number
@@ -38,9 +22,6 @@ actividad_fisica
 #optimismo_aprendido
 #regulacion_emocional
 #religiosidad
-#protocolo_inicio
-#protocolo_pausa
-#protocolo_fin
 
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
@@ -58,8 +39,30 @@ actividad_fisica
 #wais_matrices
 #wais_working_memory
 
+# ---------------------- arregladas ------------------------
+
 #informacion_sociodemografica
 #wais_vocabulario
 #graph_literacy
 #CRT_verbal
 #abreviated_mathematics_anxiety_rating_scale
+#actividad_fisica
+#aislamiento_social_y_redes_sociales
+#ansiedad_matematica
+#CRT_numerico
+#CRT_MCQ4
+#habilidad_matematica
+#abreviated_mathematics_anxiety_rating_scale
+#a_priori_screening_belief
+#beck_anxiety_inventory
+#big_five
+#multiple_stimulus_types_ambiguity_tolerance_scale
+#need_for_cognition
+#DSS_decision_styles_scale
+#protocolo_inicio
+#protocolo_pausa
+#protocolo_fin
+
+#ECR-RS_relationship_structures
+#EPI_eysenck_personality_inventory
+#GDMS_estilo_toma_decisiones

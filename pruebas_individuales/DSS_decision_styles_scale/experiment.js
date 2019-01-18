@@ -38,7 +38,7 @@ var screen_DSS_decision_styles_scale_experiment = {
     }
 };
 
-var likert_scale = ["1 <br><p style='font-size:13px'> strongly disagree</p>","2","3","4", "5 <br> <p style='font-size:13px'> strongly agree</p>"];
+var likert_scale = ['<center>Strongly</br>Disagree</center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center>Strongly</br>Agree</center>'];
 
 var survey01 = {
   type: "survey-multi-choice-horizontal",
