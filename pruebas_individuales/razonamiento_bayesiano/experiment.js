@@ -584,7 +584,7 @@ function createTrial() { //accordig to response
             }
 
             var typeTrial = {
-                type: "survey-multi-choice",
+                type: "survey-multi-choice-vertical",
                 data: {
                     trialid: csvData[i].ID,
                     trial_detail: csvData[i].response_type

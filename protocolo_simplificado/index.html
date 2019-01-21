@@ -288,7 +288,7 @@
     //as csv, if there are remaining experiments load the next in the iframe.
     function show_experiments(event) {
       window.addEventListener('message', function(message) {
-        local_storage_save(add_to_csv(message.data.csv, ['Id', 'Fecha', 'Experimento'], [user_id, Date(), currentExperiment]), currentExperiment);
+        local_storage_save(add_to_csv(message.data.csv, ['user_id', 'date', 'experiment'], [user_id, Date(), currentExperiment]), currentExperiment);
         if (experiments.length > 0) {
           currentExperiment = experiments.pop();
           document.getElementById('iframe').src = "./" + currentExperiment + "/index.html" + "?user_id=" + user_id;

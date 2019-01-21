@@ -43,200 +43,200 @@ var screen_metacognicion_experiment = {
 var likert_scale = ["Totalmente de acuerdo","Un poco de acuerdo","Un poco en desacuerdo","Totalmente en desacuerdo"];
 
 var survey01 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Estar preocupado/a me ayuda a organizar mi mente.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_01"}
 };
 
 var survey02 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Estar preocupado/a me ayuda a afrontar las cosas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Necesito preocuparme para funcionar bien.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Estar preocupado/a me ayuda a solucionar problemas.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Necesito preocuparme para seguir organizado/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
 var survey06 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Estar preocupado/a me ayuda a evitar problemas en el futuro.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey07 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Mis pensamientos preocupantes persisten, independientemente de c&oacute;mo intente deternlos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_07"}
 };
 
 var survey08 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Cuando empiezo a preocuparme no puedo parar.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_08"}
 };
 
 var survey09 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Podr&iacute;a llegar a enfermar de preocupaci&oacute;n.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_09"}
 };
 
 var survey10 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />No puedo ignorar los pensamientos que me preocupan.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_10"}
 };
 
 var survey11 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Mi preocupaci&oacute;n podr&iacute;a volverme loco/a.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_11"}
 };
 
 
 var survey12 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Considero que preocuparme es peligroso para mi.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_12"}
 };
 
 
 var survey13 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />No conf&iacute;o en mi memoria.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_13"}
 };
 
 
 var survey14 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Tengo mala memoria.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_14"}
 };
 
 
 var survey15 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Tengo poca confianza en mi memoria sobre hechos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_15"}
 };
 
 
 var survey16 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Tengo poca confianza en mi memoria sobre lugares.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_16"}
 };
 
 
 var survey17 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Tengo poca confianza en mi memoria sobre palabras y nombres.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_17"}
 };
 
 
 var survey18 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Mi memoria me puede engañar a veces.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_18"}
 };
 
 
 var survey19 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Si no pudiera controlar mis pensamientos, yo no podr&iacute;a funcionar.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_19"}
 };
 
 
 var survey20 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />No poder controlar mis pensamientos es una señal de debilidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_20"}
 };
 
 
 var survey21 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Deber&iacute;a controlar mis pensamientos todo el tiempo.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_21"}
 };
 
 
 var survey22 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Es malo tener ciertos pensamientos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_22"}
 };
 
 
 var survey23 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Si yo no controlara un pensamiento preocupante y luego ocurriese, ser&iacute;a por mi culpa.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_23"}
 };
 
 
 var survey24 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Recibir&eacute; un castigo por no controlar ciertos pensamientos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_24"}
 };
 
 
 var survey25 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Soy consciente constantemente de lo que pienso.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_25"}
 };
 
 
 var survey26 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Presto mucha atenci&oacute;n a la manera en que mi mente funciona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_26"}
 };
 
 
 var survey27 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Pienso mucho acerca de mis pensamientos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_27"}
 };
 
 
 var survey28 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Examino constantemente mis pensamientos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_28"}
 };
 
 
 var survey29 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Monitoreo mis pensamientos.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_29"}
 };
 
 
 var survey30 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Me doy cuenta de c&oacute;mo funciona mi mente mientras pienso en c&oacute;mo solucionar un problema.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_30"}
 };

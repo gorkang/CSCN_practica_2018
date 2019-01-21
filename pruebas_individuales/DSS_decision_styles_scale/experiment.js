@@ -38,34 +38,34 @@ var screen_DSS_decision_styles_scale_experiment = {
     }
 };
 
-var likert_scale = ["1 <br><p style='font-size:13px'> strongly disagree</p>","2","3","4", "5 <br> <p style='font-size:13px'> strongly agree</p>"];
+var likert_scale = ['<center>Strongly</br>Disagree</center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center>Strongly</br>Agree</center>'];
 
 var survey01 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />I prefer to gather all the necessary information before committing to a decision.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_01"}
 };
 
 var survey02 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />I thoroughly evaluate decision alternatives before making a final choice.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
 };
 
 var survey03 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />In decision making, I take time to contemplate the pros/cons or risks/benefits of a situation.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
 var survey04 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Investigating the facts is an important part of my decision making process.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_04"}
 };
 
 var survey05 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'> I weigh a number of different factors when making decisions.<br /><br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
@@ -74,31 +74,31 @@ var survey05 = {
 //intuitivcomes now
 
 var survey06 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />When making decisions, I rely mainly on my gut feelings.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_06"}
 };
 
 var survey07 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />My initial hunch about decisions is generally what I follow.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_07"}
 };
 
 var survey08 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />I make decisions based on intuition.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_08"}
 };
 
 var survey09 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />I rely on my first impressions when making decisions.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_09"}
 };
 
 var survey10 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />I weigh feelings more than analysis in making decisions.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_10"}
 };

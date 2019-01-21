@@ -26,7 +26,7 @@ var screen_aislamiento_social_experiment = {
 
 // Inicio prueba
 var father = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: '1.- ¿Alguna de estas personas componen tu hogar?<br>a) Padre/padrastro?',
     options: ['Si', 'No'],
@@ -38,7 +38,7 @@ var father = {
 }
 
 var mother = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: '1.- ¿Alguna de estas personas componen tu hogar?<br>b) Madre/madrastra?',
     options: ['Si', 'No'],
@@ -82,7 +82,7 @@ var trials_1_to_9 = [{
 ]
 
 var social_network = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: '¿Cuál es la red social que más utiliza?',
     options: ['Facebook', 'Instagram', 'Whatsapp', 'Messenger', 'Tinder', 'YouTUbe', 'Tumblr', 'LinkedIn', 'Twitter', 'Snapchat', 'Skype', 'Google+', 'Ninguna', 'Otro'],
@@ -106,7 +106,7 @@ var social_network_other = {
 }
 
 var social_network_frequency = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '¿Con que frecuencia utiliza esta red social?',
     options: ['Casi Nunca', 'Poco', 'A veces', 'Frecuentemente', 'Muy frecuentemente'],
@@ -213,10 +213,10 @@ var instructions12 = {
   }
 };
 
-var options_0_to_9 = ['Ninguno', '1', '2', '3 o 4', '5 a 8', '9 o más']
+var options_0_to_9 = ['<center>Ninguno</center>', '<center>1</center>', '<center>2</center>', '<center>3 o 4</center>', '<center>5 a 8</center>', '<center>9 o más</center>']
 
 var parents_1 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '1. ¿Con cuántos parientes te encuentras o tienes noticias de ellos, por lo menos, una vez por mes?',
     options: options_0_to_9,
@@ -228,10 +228,10 @@ var parents_1 = {
   }
 }
 
-var options_times = ['<br>Menos de una<br>vez por mes', '<br>Mensualmente', '<br>Algunas veces<br>al mes', '<br>Semanalmente', '<br>Algunas veces<br>por semana', '<br>Diariamente']
+var options_times = ['<center><br>Menos de una<br>vez por mes</center>', '<center><br>Mensualmente</center>', '<center><br>Algunas veces<br>al mes</center>', '<center><br>Semanalmente</center>', '<center><br>Algunas veces<br>por semana</center>', '<center><br>Diariamente</center>']
 
 var parents_2 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '2. ¿Con qué frecuencia te encuentras o tienes noticias del pariente con el que tienes más contacto?',
     options: options_times,
@@ -244,7 +244,7 @@ var parents_2 = {
 }
 
 var parents_3 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '3. ¿Con cuántos parientes te sientes lo suficientemente cómodo como para conversar sobre tus asuntos personales?',
     options: options_0_to_9,
@@ -257,7 +257,7 @@ var parents_3 = {
 }
 
 var parents_4 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '4. ¿A cuántos parientes sientes lo suficientemente cercanos como para llamarlos cuando necesitas ayuda?',
     options: options_0_to_9,
@@ -272,7 +272,7 @@ var parents_4 = {
 var options_frequency = ['Nunca', 'Rara vez', 'A veces', 'Con frecuencia', 'Con mucha frecuencia', 'Siempre']
 
 var parents_5 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '5. Cuando uno de tus parientes tiene que tomar una decisión importante, ¿con qué frecuencia te lo comenta a tí?',
     options: options_frequency,
@@ -285,7 +285,7 @@ var parents_5 = {
 }
 
 var parents_6 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '6. ¿Con qué frecuencia uno de tus parientes está disponible para hablar cuando tú tienes que tomar una decisión importante?',
     options: options_frequency,
@@ -309,7 +309,7 @@ var instructions13 = {
 };
 
 var friends_1 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '7. ¿Con cuántos amigos te encuentras o tienes noticias de ellos, por lo menos, una vez por mes?',
     options: options_0_to_9,
@@ -322,7 +322,7 @@ var friends_1 = {
 }
 
 var friends_2 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '8. ¿Con qué frecuencia te encuentras o tienes noticias del amigo con el que tienes más contacto?',
     options: options_times,
@@ -335,7 +335,7 @@ var friends_2 = {
 }
 
 var friends_3 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '9. ¿Con cuántos amigos te sientes lo suficientemente cómodo como para conversar sobre tus asuntos personales?',
     options: options_0_to_9,
@@ -348,7 +348,7 @@ var friends_3 = {
 }
 
 var friends_4 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '10. ¿A cuántos amigos sientes lo suficientemente cercanos como para llamarlos cuando necesitas ayuda?',
     options: options_0_to_9,
@@ -361,7 +361,7 @@ var friends_4 = {
 }
 
 var friends_5 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '11. Cuando uno de tus amigos tiene que tomar una decisión importante, ¿con qué frecuencia te lo comenta a tí?',
     options: options_frequency,
@@ -374,7 +374,7 @@ var friends_5 = {
 }
 
 var friends_6 = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-horizontal",
   questions: [{
     prompt: '12. ¿Con qué frecuencia uno de tus amigos está disponible para hablar cuando tú tienes que tomar una decisión importante?',
     options: options_frequency,
@@ -407,9 +407,10 @@ aislamiento_social_y_redes_sociales.push(mother);
 index = 3;
 trials_1_to_9.forEach(function(trial) {
   aislamiento_social_y_redes_sociales.push({
-    type: "survey-text-number",
+    type: "survey-text",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+      type: 'number',
       required: true
     }],
     endword: "",
@@ -449,7 +450,7 @@ index = 15;
 
 trials10.forEach(function(trial) {
   aislamiento_social_y_redes_sociales.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-horizontal",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
       options: ['Nunca', 'Raramente', 'A veces', 'Siempre'],
@@ -468,7 +469,7 @@ aislamiento_social_y_redes_sociales.push(instructions11)
 
 trials11.forEach(function(trial) {
   aislamiento_social_y_redes_sociales.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-horizontal",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
       options: ['No', 'Mas o menos', 'Si'],

@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de big_five_experiment",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "big_five_experiment",
+    "name": "big_five_experiment",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

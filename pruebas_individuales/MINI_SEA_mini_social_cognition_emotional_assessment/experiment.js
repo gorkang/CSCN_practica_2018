@@ -191,7 +191,7 @@ stories.forEach(function(trial) {
     if (index_question == 1) {
       storie_timeline.push({
         timeline: [{
-          type: "survey-multi-choice1",
+          type: "survey-multi-choice-vertical",
           questions: [{
             prompt: "<div class='justified'><br/>" + question + "<br/></div>",
             options: ['Si', 'No'],
@@ -258,7 +258,7 @@ MINI_SEA_mini_social_cognition_emotional_assessment.push(instructions_2);
 
 for (var image_index = 1; image_index < 36; image_index++) {
   MINI_SEA_mini_social_cognition_emotional_assessment.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-horizontal",
     questions: [{
       prompt: "<img width='40%'src='images/" + image_index + ".png' />",
       options: ['Alegr&iacute;a', 'Sorpresa', 'Neutro', 'Tristeza', 'Miedo', 'Asco', 'Enojo'],
@@ -270,7 +270,7 @@ for (var image_index = 1; image_index < 36; image_index++) {
     }
   })
   MINI_SEA_mini_social_cognition_emotional_assessment.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "<img width='40%'src='images/" + image_index + ".png' /><br>¿Considera que su respuesta es correcta?",
       options: ['Si', 'No'],
@@ -281,10 +281,10 @@ for (var image_index = 1; image_index < 36; image_index++) {
     }
   })
   MINI_SEA_mini_social_cognition_emotional_assessment.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-horizontal",
     questions: [{
       prompt: "<img width='40%'src='images/" + image_index + ".png' /><br>¿Qu&eacute; tanta confianza siente respecto de su respuesta en esta tarea?",
-      options: ['1<br>(muy poca)', '2<br>(poca)', '3<br>(m&aacute;s o menos)', '4<br>(bastante)', '5<br>(mucha)'],
+      options: ['<center>1<br>(muy poca)</center>', '<center>2<br>(poca)</center>', '<center>3<br>(m&aacute;s o menos)</center>', '<center>4<br>(bastante)</center>', '<center>5<br>(mucha</center>'],
       horizontal: true,
       required: true
     }],

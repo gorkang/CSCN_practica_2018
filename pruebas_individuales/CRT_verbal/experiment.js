@@ -215,7 +215,7 @@ var verbal_crt9 = {
 };
 
 var verbal_crt10 = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='crt_experiment_text'>&iquest;Cu&aacute;l de las oraciones es correcta?:<br /><br /></div>",
     options: ["La yema del huevo son blancas","La yema del huevo es blanca","Otra"]

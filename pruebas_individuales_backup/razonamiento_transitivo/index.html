@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <title>razonamiento_transitivo</title>
+    <!-- Documento CSS principal -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- JQuery -->
+    <script src="jquery.min.js"></script>
+    <script src="tiff.min.js"></script>
+    <!-- Libreria principal JsPsych -->
+    <script src="jsPsych-6/jspsych.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-categorize-html.js"></script>
+    <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+
+    <!-- parseo de csv -->
+
+    <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
+    <script src="d3/d3.min.js"></script>
+
+    <script src='experiment.js'></script>
+
+    <script>
+        $(document).ready(function() {
+
+            jsPsych.init({
+                timeline: razonamiento_transitivo_experiment,
+                fullscreen: true,
+                on_finish: function(data) {
+
+                    // Serialize the data
+                    var promise = new Promise(function(resolve, reject) {
+                        var data = jsPsych.data.get().json();
+                        resolve(data);
+                    })
+
+                    promise.then(function(data) {
+
+
+                        $.ajax({
+                            type: "POST",
+                            url: '/save',
+                            data: {
+                                "data": data
+                            },
+                            success: function() {
+                                document.location = "/next"
+                            },
+                            dataType: "application/json",
+
+                            // Endpoint not running, local save
+                            error: function(err) {
+
+                                if (err.status == 200) {
+                                    document.location = "/next";
+                                } else {
+                                    // If error, assue local save
+                                    if (window.self !== window.top) {
+                                        parent.postMessage({
+                                            csv: jsPsych.data.get().csv(),
+                                            name: 'transitivo_results'
+                                        }, '*');
+                                    } else {
+                                        jsPsych.data.get().localSave('csv', 'transitivo_results.csv');
+                                    }
+                                }
+                            }
+                        });
+                    })
+                }
+
+            });
+        });
+    </script>
+</body>
+
+</html>

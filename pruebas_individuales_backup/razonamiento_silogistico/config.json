@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de razonamiento silogistico",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "razonamiento_silogistico",
+    "name": "Razonamiento Silogistico",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

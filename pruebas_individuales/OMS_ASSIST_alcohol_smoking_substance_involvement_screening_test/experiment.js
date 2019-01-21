@@ -180,7 +180,7 @@ OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test.push(instruction
 
 for (var drug in drugs) {
   OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test.push({
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
       options: yes_or_no,
@@ -226,7 +226,7 @@ school_timeline.push(instructions1_2);
 
 for (var drug in drugs) {
   school_timeline.push({
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
       options: yes_or_no,
@@ -287,7 +287,7 @@ main_timeline.push(instructions2);
 for (var drug in drugs) {
   main_timeline.push({
     timeline: [{
-      type: "survey-multi-choice",
+      type: "survey-multi-choice-vertical",
       questions: [{
         prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
         options: when_year,
@@ -306,7 +306,7 @@ for (var drug in drugs) {
 
 main_timeline.push({
   timeline: [{
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "To be filled at start of trial",
       options: when_year,
@@ -340,7 +340,7 @@ main_timeline.push(instructions3);
 for (var drug in drugs) {
   main_timeline.push({
     timeline: [{
-      type: "survey-multi-choice",
+      type: "survey-multi-choice-vertical",
       questions: [{
         prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
         options: frequency_three_months,
@@ -365,7 +365,7 @@ for (var drug in drugs) {
 
 main_timeline.push({
   timeline: [{
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "To be filled at start of trial",
       options: frequency_three_months,
@@ -402,7 +402,7 @@ timeline_4_to_6.push(instructions4);
 for (var drug in drugs) {
   timeline_4_to_6.push({
     timeline: [{
-      type: "survey-multi-choice",
+      type: "survey-multi-choice-vertical",
       questions: [{
         prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
         options: frequency_three_months,
@@ -421,7 +421,7 @@ for (var drug in drugs) {
 
 timeline_4_to_6.push({
   timeline: [{
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "To be filled at start of trial",
       options: frequency_three_months,
@@ -450,7 +450,7 @@ timeline_4_to_6.push(instructions5);
 for (var drug in drugs) {
   timeline_4_to_6.push({
     timeline: [{
-      type: "survey-multi-choice",
+      type: "survey-multi-choice-vertical",
       questions: [{
         prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
         options: frequency_three_months,
@@ -469,7 +469,7 @@ for (var drug in drugs) {
 
 timeline_4_to_6.push({
   timeline: [{
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "To be filled at start of trial",
       options: frequency_three_months,
@@ -498,7 +498,7 @@ timeline_4_to_6.push(instructions6);
 for (var drug in drugs) {
   timeline_4_to_6.push({
     timeline: [{
-      type: "survey-multi-choice",
+      type: "survey-multi-choice-vertical",
       questions: [{
         prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
         options: frequency_three_months,
@@ -517,7 +517,7 @@ for (var drug in drugs) {
 
 timeline_4_to_6.push({
   timeline: [{
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "To be filled at start of trial",
       options: frequency_three_months,
@@ -553,7 +553,7 @@ main_timeline.push(instructions7);
 for (var drug in drugs) {
   main_timeline.push({
     timeline: [{
-      type: "survey-multi-choice",
+      type: "survey-multi-choice-vertical",
       questions: [{
         prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
         options: yes_or_no_three_months,
@@ -572,7 +572,7 @@ for (var drug in drugs) {
 
 main_timeline.push({
   timeline: [{
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "To be filled at start of trial",
       options: yes_or_no_three_months,
@@ -601,7 +601,7 @@ main_timeline.push(instructions8);
 for (var drug in drugs) {
   main_timeline.push({
     timeline: [{
-      type: "survey-multi-choice",
+      type: "survey-multi-choice-vertical",
       questions: [{
         prompt: "<div class='justified'><br/>" + drugs[drug].name + "<br/></div>",
         options: yes_or_no_three_months,
@@ -620,7 +620,7 @@ for (var drug in drugs) {
 
 main_timeline.push({
   timeline: [{
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "To be filled at start of trial",
       options: yes_or_no_three_months,

@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de beck_anxiety_inventory_experiment",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "beck_anxiety_inventory_experiment",
+    "name": "beck_anxiety_inventory_experiment",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

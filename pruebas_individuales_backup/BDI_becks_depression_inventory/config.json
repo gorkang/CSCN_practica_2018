@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder encuesta",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "BDI_becks_depression_inventory",
+    "name": "BDI becks depression inventory",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

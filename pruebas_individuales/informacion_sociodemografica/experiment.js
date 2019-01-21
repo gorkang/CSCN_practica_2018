@@ -28,12 +28,12 @@ var instructions = {
 
 
 var rut = {
-  type: "survey-text-number",
+  type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + 'RUT (sin puntos, guión ni dígito verificador. Ejemplo si el rut es 17.736.727-1 escribir 17736727):' + "<br/></div>",
-    required: true
+    required: true,
+    type: "number"
   }],
-  endword: "",
   data: {
     trialid: "informacion_sociodemografica_rut"
   }
@@ -60,7 +60,7 @@ var trials_1_to_6 = [{
 ]
 
 var gender = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '7. Género' + "<br/></div>",
     options: ['Femenino', 'Masculino'],
@@ -80,9 +80,10 @@ var gender = {
 }
 
 var age = {
-  type: "survey-text-number",
+  type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + '8. ¿Cuántos años tiene?' + "<br/></div>",
+    type: 'number',
     required: true
   }],
   endword: "Años",
@@ -92,7 +93,7 @@ var age = {
 }
 
 var civil_state = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '9. ¿Cuál es su estado civil en la actualidad? Marque la alternativa correspondiente.' + "<br/></div>",
     options: ['Soltero/a', 'Casado/a', 'Convive', 'Separado/a (de hecho)', 'Divorciado/a', 'Anulado/a', 'Viudo/a', 'Otro'],
@@ -116,9 +117,10 @@ var civil_state_other = {
 }
 
 var married_years = {
-  type: "survey-text-number",
+  type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + '10. ¿Cuántos años de matrimonio o convivencia lleva o llevaba con su pareja?' + "<br/></div>",
+    type: 'number',
     required: true
   }],
   endword: "Años",
@@ -128,9 +130,10 @@ var married_years = {
 }
 
 var offspring = {
-  type: "survey-text-number",
+  type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + '11. ¿Cuántos hijos tiene?' + "<br/></div>",
+    type: 'number',
     required: true
   }],
   endword: "Hijos",
@@ -144,9 +147,10 @@ var offspring = {
 }
 
 var offspring_age = {
-  type: "survey-text-number",
+  type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + '12. Edades' + "<br/></div>",
+    type: 'number',
     required: true
   }],
   endword: "Años",
@@ -159,7 +163,7 @@ var offspring_age = {
 }
 
 var pregnant = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '13. Estado maternal' + "<br/></div>",
     options: ['Actualmente embarazada', 'Actualmente en periodo de lactancia'],
@@ -172,7 +176,7 @@ var pregnant = {
 }
 
 var study = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '14. ¿Cuál es el nivel de educación que alcanzó usted?' + "<br/></div>",
     options: ['1. Educación básica incompleta o inferior.', '2. Básica completa.', '3. Media incompleta.', '4. Media completa / Técnica incompleta.', '5. Universitaria incompleta / Técnica completa', '6. Universitaria completa.', '7. Post Grado (Master, Doctor o equivalente).'],
@@ -185,9 +189,10 @@ var study = {
 }
 
 var years_of_studies = {
-  type: "survey-text-number",
+  type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + '15. Años de estudio:' + "<br/></div>",
+    type: 'number',
     required: true
   }],
   endword: "Años",
@@ -197,7 +202,7 @@ var years_of_studies = {
 }
 
 var income_studies = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '16. ¿Cuál es el nivel de educación que alcanzó la persona que aporta el ingreso principal de este hogar?' + "<br/></div>",
     options: ['1. Educación básica incompleta o inferior.', '2. Básica completa.', '3. Media incompleta.', '4. Media completa / Técnica incompleta.', '5. Universitaria incompleta / Técnica completa', '6. Universitaria completa.', '7. Post Grado (Master, Doctor o equivalente).'],
@@ -241,7 +246,7 @@ var trials_goods = [{
 ]
 
 var home_service = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '18. ¿Cuenta con servicio doméstico?' + "<br/></div>",
     options: ['Si', 'No'],
@@ -253,7 +258,7 @@ var home_service = {
 }
 
 var working = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '19. ¿Usted trabaja remuneradamente?' + "<br/></div>",
     options: ['Si', 'No'],
@@ -265,9 +270,11 @@ var working = {
 }
 
 var months_working = {
-  type: "survey-text-number",
+  type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + '20. Durante los últimos 12 meses ¿Cuántos meses ha estado empleado? (incluya trabajos independientes)' + "<br/></div>",
+    type: 'range',
+    range: [0,12],
     required: true
   }],
   endword: "Meses",
@@ -277,7 +284,7 @@ var months_working = {
 }
 
 var ocupation = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '21. ¿Cuál es su situación ocupacional actual?' + "<br/></div>",
     options: ['1. Trabaja a tiempo completo', '2. Trabaja a tiempo parcial', '3. Trabaja esporádicamente', '4. Está desempleado/a, pero busca trabajo', '5. Es estudiante', '6. No trabaja, ni busca trabajo', '7. Es dueña/o de casa', '8. Está jubilado/a o pensionado/a', '9. Es rentista', '10. No sabe/No responde'],
@@ -289,7 +296,7 @@ var ocupation = {
 }
 
 var profesion = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '22 .¿Cuál es su profesión o trabajo?' + "<br/></div>",
     options: ['1. Trabajos ocasionales e informales (dueña/o de casa, lavado, aseo, servicio doméstico, ocasional, “pololos”, cuidador de autos, limosna, etc.).', '2. Obrero no calificado, jornalero, servicio doméstico con contrato.', '3. Obrero calificado, capataz, junior, microempresario (kiosco, taxi, comercio menor, ambulantes).', '4. Empleado administrativo medio y bajo, vendedor, secretaria, jefe de sección. Técnico especializado. Profesional independiente de carreras técnicas (contador, analista de sistemas, diseñador, músico). Profesor Primario y Secundario.', '5. Ejecutivo medio (gerente, y subgerente), gerente general de empresa media o pequeña. Profesional dependiente e independiente de carreras tradicionales (abogado, médico, arquitecto, ingeniero, agrónomo).', '6. Alto ejecutivo (gerente general) de empresa grande. Directores de grandes empresas. Empresarios propietarios de empresas medianas y grandes. Profesionales independientes de gran prestigio.', 'Otro'],
@@ -323,7 +330,7 @@ var working_place = {
 }
 
 var income_profesion = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '24. ¿Cuál es la profesión o trabajo de la persona que aporta el principal ingreso de este hogar?' + "<br/></div>",
     options: ['1. Trabajos ocasionales e informales (dueña/o de casa, lavado, aseo, servicio doméstico, ocasional, “pololos”, cuidador de autos, limosna, etc.).', '2. Obrero no calificado, jornalero, servicio doméstico con contrato.', '3. Obrero calificado, capataz, junior, microempresario (kiosco, taxi, comercio menor, ambulantes).', '4. Empleado administrativo medio y bajo, vendedor, secretaria, jefe de sección. Técnico especializado. Profesional independiente de carreras técnicas (contador, analista de sistemas, diseñador, músico). Profesor Primario y Secundario.', '5. Ejecutivo medio (gerente, y subgerente), gerente general de empresa media o pequeña. Profesional dependiente e independiente de carreras tradicionales (abogado, médico, arquitecto, ingeniero, agrónomo).', '6. Alto ejecutivo (gerente general) de empresa grande. Directores de grandes empresas. Empresarios propietarios de empresas medianas y grandes. Profesionales independientes de gran prestigio.', 'Otro'],
@@ -357,7 +364,7 @@ var income_working_place = {
 }
 
 var restricted_living = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='justified'><br/>" + '26. ¿Usted ha vivido en algún lugar restringido/supervisado en los últimos 30 días? Como por ejemplo; tratamiento hospitalario, cárcel, etc.' + "<br/></div>",
     options: ['No', 'Detenido o preso en la cárcel', 'Comunidad terapéutica o unidad de internación hospitalaria para tratamiento de Alcohol o drogas', 'Hospital general o clínica privada', 'Hospital o clínica Psiquiátrica', 'Otro'],
@@ -391,7 +398,7 @@ var restricted_living_days = {
 }
 
 var psi_diagnosis = {
-  type: "survey-multi-choice1",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: '28. Durante los últimos 12 meses ¿Ha sido diagnosticado y/o tratado por algún problema Psicológico o Psiquiátrico?',
     options: ['Si', 'No'],
@@ -433,11 +440,12 @@ informacion_sociodemografica.push(rut);
 
 index = 1;
 trials_1_to_6.forEach(function(trial) {
-  if(index != 5){
+  if(index == 3){
     informacion_sociodemografica.push({
       type: "survey-text",
       questions: [{
         prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+        type: 'date',
         required: true
       }],
       data: {
@@ -445,14 +453,27 @@ trials_1_to_6.forEach(function(trial) {
       }
     })
   }
-  else{
+  else if (index == 5){
     informacion_sociodemografica.push({
-      type: "survey-text-number",
+      type: "survey-text",
+      questions: [{
+        prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
+        type: 'number',
+        endword: "Años",
+        required: true
+      }],
+      data: {
+        trialid: "informacion_sociodemografica_" + index
+      }
+    })
+  }
+  else {
+    informacion_sociodemografica.push({
+      type: "survey-text",
       questions: [{
         prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
         required: true
       }],
-      endword: "Años",
       data: {
         trialid: "informacion_sociodemografica_" + index
       }
@@ -521,7 +542,7 @@ informacion_sociodemografica.push(instructions_goods);
 index = 1;
 trials_goods.forEach(function(trial) {
   informacion_sociodemografica.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
       options: ['Si', 'No'],

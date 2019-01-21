@@ -28,7 +28,7 @@ var instructions = {
 };
 
 var working = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "¿Tiene usted algún trabajo?",
     options: ['Si', 'No'],
@@ -48,7 +48,7 @@ var working = {
 };
 
 var if_not_working = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "1- ¿Qué tan interesado está en actividades relacionadas a su hogar?",
     options: ['Mucho', 'Medianamente', 'Poco', 'Nada'],
@@ -60,7 +60,7 @@ var if_not_working = {
 };
 
 var if_working = {
-  type: "survey-multi-choice",
+  type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "1- ¿Qué tan interesado está en su trabajo?",
     options: ['Mucho', 'Medianamente', 'Poco', 'Nada'],
@@ -182,7 +182,7 @@ SASS_social_adaptation_self_evaluation_scale.push({
 index = 3;
 trials.forEach(function(trial) {
   SASS_social_adaptation_self_evaluation_scale.push({
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
       options: trial.options,

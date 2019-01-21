@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de encuesta",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "sMARS_short_mathematics_anxiety_rating_scale",
+    "name": "sMARS_short_mathematics_anxiety_rating_scale",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

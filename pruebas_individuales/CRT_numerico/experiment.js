@@ -39,10 +39,11 @@ var CRT_numericointro = {
 
 var CRT_numerico1 = {
     type: "survey-text",
-    endword: "pesos",
     timeline: [{
         questions: [{
-            prompt: "<p class='limitnumeracy'> Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota., &iquest;Cu&aacute;nto cuesta la pelota?</p>"
+            endword: " pesos",
+            prompt: "<p class='limitnumeracy'> Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota., &iquest;Cu&aacute;nto cuesta la pelota?</p>",
+            type: 'number'
         }],
         data: {
             trialid: "LIP_01"
@@ -52,10 +53,11 @@ var CRT_numerico1 = {
 };
 var CRT_numerico2 = {
     type: "survey-text",
-    endword: "dias",
     timeline: [{
         questions: [{
-            prompt: "<p class='limitnumeracy'> Si Jos&eacute; puede beber un barril de agua en 6 d&iacute;as y Mar&iacute;a puede beber un barril de agua en 12 d&iacute;as, &iquest;Cu&aacute;nto se demorar&iacute;an en tomar un barril de agua juntos?</p>"
+            endword: " dias",
+            prompt: "<p class='limitnumeracy'> Si Jos&eacute; puede beber un barril de agua en 6 d&iacute;as y Mar&iacute;a puede beber un barril de agua en 12 d&iacute;as, &iquest;Cu&aacute;nto se demorar&iacute;an en tomar un barril de agua juntos?</p>",
+            type: 'number'
         }],
         data: {
             trialid: "LIP_02"
@@ -64,10 +66,11 @@ var CRT_numerico2 = {
 };
 var CRT_numerico3 = {
     type: "survey-text",
-    endword: "minutos",
     timeline: [{
         questions: [{
-            prompt: "<p class='limitnumeracy'> Si 5 m&aacute;quinas demoran 5 minutos en hacer 5 aparatos., &iquest;Cu&aacute;nto tiempo se demorar&iacute;an 100 m&aacute;quinas en hacer 100 aparatos?</p>"
+            endword: " minutos",
+            prompt: "<p class='limitnumeracy'> Si 5 m&aacute;quinas demoran 5 minutos en hacer 5 aparatos., &iquest;Cu&aacute;nto tiempo se demorar&iacute;an 100 m&aacute;quinas en hacer 100 aparatos?</p>",
+            type: 'number'
         }],
         data: {
             trialid: "LIP_03"
@@ -77,10 +80,11 @@ var CRT_numerico3 = {
 };
 var CRT_numerico4 = {
     type: "survey-text",
-    endword: "estudiantes",
     timeline: [{
         questions: [{
-            prompt: "<p class='limitnumeracy'> Pedro recibi&oacute; tanto la quinceava nota m&aacute;s alta como la quinceava nota m&aacute;s baja en su clase, &iquest;Cu&aacute;ntos estudiantes hay en la clase?</p>"
+            endword: " estudiantes",
+            prompt: "<p class='limitnumeracy'> Pedro recibi&oacute; tanto la quinceava nota m&aacute;s alta como la quinceava nota m&aacute;s baja en su clase, &iquest;Cu&aacute;ntos estudiantes hay en la clase?</p>",
+            type: 'number'
         }],
         data: {
             trialid: "LIP_04"
@@ -89,10 +93,11 @@ var CRT_numerico4 = {
 };
 var CRT_numerico5 = {
     type: "survey-text",
-    endword: "pesos",
     timeline: [{
         questions: [{
-            prompt: "<p class='limitnumeracy'> Un hombre compra un cerdo a $60.000, lo vende a $70.000, lo vuelve a comprar por $80.000 y finalmente lo vende por $90.000. &iquest;cu&aacute;nto ha ganado?</p>"
+            endword: " pesos",
+            prompt: "<p class='limitnumeracy'> Un hombre compra un cerdo a $60.000, lo vende a $70.000, lo vuelve a comprar por $80.000 y finalmente lo vende por $90.000. &iquest;cu&aacute;nto ha ganado?</p>",
+            type: 'number'
         }],
         data: {
             trialid: "LIP_05"
@@ -104,7 +109,7 @@ var CRT_numerico5 = {
 
 
 var CRT_numerico6 = {
-    type: "survey-multi-choice2",
+    type: "survey-multi-choice-vertical",
     timeline: [{
         questions: [{
             prompt: "Sim&oacute;n decide invertir $8.000.000 en el mercado de acciones un d&iacute;a a inicios de 2008." +
@@ -127,13 +132,14 @@ var CRT_numerico6 = {
 
 var CRT_numerico3_a = {
     type: "survey-text",
-    endword: "dias",
     timeline: [
         {
             questions: [{
+                endword: " dias",
                 prompt: "<p class='limitnumeracy'> En un lago hay un manto de hojas de lirios. Cada d&iacute;a el manto dobla su tama&ntilde;o." +
                     "Si el manto de lirios se demora 48 d&iacute;as en cubrir el lago completo" +
-                    "&iquest;cu&aacute;nto se demorar&iacute;a el manto de lirios en cubrir la mitad del lago</p>"
+                    "&iquest;cu&aacute;nto se demorar&iacute;a el manto de lirios en cubrir la mitad del lago</p>",
+                type: 'number'
             }],
             data: {
                 trialid: "LIP_07"

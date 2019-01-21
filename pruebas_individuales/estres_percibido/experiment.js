@@ -89,7 +89,7 @@ estres_percibido.push(instructions);
 index = 1;
 trials.forEach(function(trial) {
   estres_percibido.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-horizontal",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
       options: likert,

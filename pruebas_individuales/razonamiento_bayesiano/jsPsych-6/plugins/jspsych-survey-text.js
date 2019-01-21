@@ -10,7 +10,6 @@
 
 
 jsPsych.plugins['survey-text'] = (function() {
-
   var plugin = {};
 
   plugin.info = {
@@ -27,25 +26,53 @@ jsPsych.plugins['survey-text'] = (function() {
             type: jsPsych.plugins.parameterType.STRING,
             pretty_name: 'Prompt',
             default: undefined,
-            description: 'Prompt for the subject to response'
+            description: 'Prompts for the subject to response'
+          },
+          type: {
+            type: jsPsych.plugins.parameterType.STRING,
+            pretty_name: 'Type',
+            default: "text",
+            description: 'The type of answer (range, date, text, number)'
+          },
+          language: {
+            type: jsPsych.plugins.parameterType.STRING,
+            pretty_name: 'Language',
+            default: "spanish",
+            description: 'Language of fail-message'
           },
           value: {
             type: jsPsych.plugins.parameterType.STRING,
             pretty_name: 'Value',
-            default: "",
-            description: 'The string will be used to populate the response field with editable answer.'
+            array: true,
+            default: null,
+            description: 'The strings will be used to populate the response fields with editable answers.'
           },
           rows: {
             type: jsPsych.plugins.parameterType.INT,
             pretty_name: 'Rows',
+            array: true,
             default: 1,
             description: 'The number of rows for the response text box.'
           },
           columns: {
             type: jsPsych.plugins.parameterType.INT,
             pretty_name: 'Columns',
+            array: true,
             default: 40,
             description: 'The number of columns for the response text box.'
+          },
+          range: {
+            type: jsPsych.plugins.parameterType.INT,
+            pretty_name: 'Range',
+            array: true,
+            default: [-Infinity, Infinity],
+            description: 'The range of int.'
+          },
+          required: {
+            type: jsPsych.plugins.parameterType.BOOL,
+            pretty_name: 'Required',
+            default: false,
+            description: 'If true, the text box needs a answer.',
           }
         }
       },
@@ -60,53 +87,102 @@ jsPsych.plugins['survey-text'] = (function() {
         pretty_name: 'Button label',
         default:  'Continue',
         description: 'The text that appears on the button to finish the trial.'
+      },
+      endword: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'Input unit',
+        default: '',
+        description: 'The unit of the input.'
       }
     }
   }
 
   plugin.trial = function(display_element, trial) {
 
-    for (var i = 0; i < trial.questions.length; i++) {
-      if (typeof trial.questions[i].rows == 'undefined') {
-        trial.questions[i].rows = 1;
+    if (typeof trial.questions[0].rows == 'undefined') {
+      trial.questions[0].rows = [];
+      for (var i = 0; i < trial.questions.length; i++) {
+        trial.questions[i].rows.push(1);
       }
     }
-    for (var i = 0; i < trial.questions.length; i++) {
-      if (typeof trial.questions[i].columns == 'undefined') {
-        trial.questions[i].columns = 40;
+    if (typeof trial.questions[0].columns == 'undefined') {
+      trial.questions[0].columns = [];
+      for (var i = 0; i < trial.questions.length; i++) {
+        trial.questions[i].columns.push(40);
       }
     }
-    for (var i = 0; i < trial.questions.length; i++) {
-      if (typeof trial.questions[i].value == 'undefined') {
-        trial.questions[i].value = "";
+    if (typeof trial.questions[0].value == 'undefined') {
+      trial.questions[0].value = [];
+      for (var i = 0; i < trial.questions.length; i++) {
+        trial.questions[i].value.push("");
       }
+    }
+    if (typeof trial.questions[0].language == 'undefined') {
+      for (var i = 0; i < trial.questions.length; i++)
+        trial.questions[i].language = "spanish";
+    } 
+    if (typeof trial.questions[0].endword == 'undefined') {
+      for (var i = 0; i < trial.questions.length; i++)
+        trial.questions[i].endword = "";
     }
 
-    var html = '';
+    var html = '<br /><p><br />';
     // show preamble text
     if(trial.preamble !== null){
       html += '<div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
     }
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
-      html += '<div id="jspsych-survey-text-"'+i+'" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
-      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
-      if(trial.questions[i].rows == 1){
-        //html += '<input type="text" name="#jspsych-survey-text-response-' + i + '" size="'+trial.questions[i].columns+'" value="'+trial.questions[i].value+'"></input>';
-        html += '<textarea name="textarea"></textarea>';
+      // define the min and max of a question with range
+      if (typeof trial.questions[i].range == 'undefined') {
+        var min = -Infinity;
+        var max = Infinity;
       } else {
-        //html += '<textarea name="#jspsych-survey-text-response-' + i + '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows + '">'+trial.questions[i].value+'</textarea>';
-        html += '<textarea name="textarea"></textarea>';
+        var min = trial.questions[i].range[0]
+        var max = trial.questions[i].range[1]
       }
-      html += '</div>';
+
+      if (typeof trial.questions[i].type == 'undefined') {
+        trial.questions[i].type = "text"
+      }
+      
+
+      html += '<div id="jspsych-survey-text-' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
+      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt;
+      if (trial.questions[i].type == "range"){
+        html += '</p><input type="' + 'number' + '" name="#jspsych-survey-' + 'number' + '-response-' + i + '" min ="' + min + '" max ="' + max;
+      } else {
+        html += '</p><input type="' + trial.questions[0].type + '" name="#jspsych-survey-' + trial.questions[0].type + '-response-' + i;
+      }
+      if(trial.questions[i].rows == 1){
+        html += '" size="'+trial.questions[i].columns;
+      } else {
+        html += '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows;
+      }
+
+      html += '" value="' + trial.questions[i].value + '"'; 
+      
+      if (i == 0){
+        html += ' autofocus';
+      }
+
+      html += '></input>' + trial.questions[i].endword + '<p></p></div>';
+
     }
 
     // add submit button
-    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button>';
-
+    html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><p></p>';
+    html +='<div class="fail-message"></div>';
     display_element.innerHTML = html;
 
-    display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function() {
+    // Focus on first box
+    if (trial.questions[0].type == 'range')
+      var firstBox = document.getElementsByName('#jspsych-survey-'+ 'number' +'-response-0')[0];
+    else
+      var firstBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[0].type +'-response-0')[0];
+    firstBox.focus();
+
+    display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function(event) {
       // measure response time
       var endTime = (new Date()).getTime();
       var response_time = endTime - startTime;
@@ -127,10 +203,51 @@ jsPsych.plugins['survey-text'] = (function() {
         "responses": JSON.stringify(question_data)
       };
 
-      display_element.innerHTML = '';
+      for(var index=0; index<matches.length; index++){
+        if (trial.questions[index].type == 'range')
+          var textBox = document.getElementsByName('#jspsych-survey-'+ 'number' +'-response-' + [index])[0];
+        else
+          var textBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[index].type +'-response-' + [index])[0];
 
-      // next trial
-      jsPsych.finishTrial(trialdata);
+        var validation = true;
+        var val = matches[index].querySelector('textarea, input').value;
+
+        if (trial.questions[index].required != 'undefined'){
+          required = trial.questions[index].required;
+        }
+        else
+          required = false;
+
+        pass = true
+        if ((val == "") && required)
+          pass = false
+        // next trial and check if is a valid element
+        if (trial.questions[index].type == "number")
+          validation = $.isNumeric(val) === true;
+        else if (trial.questions[index].type == "range")
+          validation = $.isNumeric(val) === true && val <= max && val >= min;
+
+        if (validation && pass) {
+          display_element.innerHTML = '';
+          jsPsych.pluginAPI.clearAllTimeouts();
+          jsPsych.finishTrial(trialdata);
+        } else {
+          textBox.blur();
+          textBox.focus();
+          var message = '';
+          if (trial.questions[index].language == "english")
+            message = 'Please, verify your answer.';
+          else if (trial.questions[index].language == "spanish")
+            message = 'Por favor, verifique su respuesta.';
+          display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">' + message +'</span>';
+          event.stopPropagation();
+          if (event.stopPropagation) {
+            event.stopPropagation();
+          } else{
+            event.cancelBubble = true;
+          }
+        }
+      }
     });
 
     var startTime = (new Date()).getTime();

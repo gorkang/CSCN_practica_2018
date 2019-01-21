@@ -241,7 +241,7 @@ SPR_III_self_report_psychopathy_scale.push(instructions);
 index = 1;
 trials.forEach(function(trial) {
   SPR_III_self_report_psychopathy_scale.push({
-    type: "survey-multi-choice1",
+    type: "survey-multi-choice-horizontal",
     questions: [{
       prompt: "<div class='justified'><br/>" + trial.question + "<br/></div>",
       options: likert,

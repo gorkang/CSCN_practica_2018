@@ -93,7 +93,7 @@ GHQ_general_health_questionnaire.push(instructions);
 index = 1;
 trials.forEach(function(trial) {
   GHQ_general_health_questionnaire.push({
-    type: "survey-multi-choice",
+    type: "survey-multi-choice-vertical",
     questions: [{
       prompt: "<div>Ultimamente:</div><div class='justified'><br/>" + trial.question + "<br/></div>",
       options: trial.options,

@@ -1,0 +1,66 @@
+#Para no hacer algún test simplemente agregue '#' al inicio del nombre
+
+#BART_balloon_analogue_risk_task
+#BDI_becks_depression_inventory
+#BIS_barratt_impulsiveness_scale
+#BRET_bomb_risk_elicitation_task
+#empatia_por_dolor
+#ineco_frontal_screening  --------- survey-text0
+#informacion_sociodemografica_simple  ----------- text-age number, multichoice
+#iowa_gambling_task
+#razonamiento_bayesiano
+#razonamiento_silogistico    --- agregar instrucciones (q o p),q 
+#razonamiento_transitivo     --- arreglar imagen 
+#rotacion_mental             --- select
+#sMARS_short_mathematics_anxiety_rating_scale --- error
+#wais_matrices
+#wais_working_memory
+
+# ---------------------- arregladas ------------------------
+
+#informacion_sociodemografica
+#wais_vocabulario
+#graph_literacy
+#CRT_verbal
+#abreviated_mathematics_anxiety_rating_scale
+#actividad_fisica
+#aislamiento_social_y_redes_sociales
+#ansiedad_matematica
+#CRT_numerico
+#CRT_MCQ4
+#habilidad_matematica
+#abreviated_mathematics_anxiety_rating_scale
+#a_priori_screening_belief
+#beck_anxiety_inventory
+#big_five
+#multiple_stimulus_types_ambiguity_tolerance_scale
+#need_for_cognition
+#DSS_decision_styles_scale
+#protocolo_inicio
+#protocolo_pausa
+#protocolo_fin
+#ECR-RS_relationship_structures
+#EPI_eysenck_personality_inventory
+#GDMS_estilo_toma_decisiones
+#GHQ_general_health_questionnaire
+#IRI_interpersonal_reactivity_index
+#LIPKUS_numeracy
+#MINI_SEA_mini_social_cognition_emotional_assessment
+#OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test
+#SASS_social_adaptation_self_evaluation_scale
+#SPR_III_self_report_psychopathy_scale
+#STAI_state_trait_anxiety_inventory
+#bienestar_psicosocial
+#bienestar_social
+#comprension_lectora
+#escala_experiencias_disociativas
+#escala_rosenberg
+#escala_tacticas
+#estilo_atribucional
+#estres_percibido
+#interocepcion
+#metacognicion
+#miradas
+#optimismo_aprendido
+#regulacion_emocional
+#religiosidad
