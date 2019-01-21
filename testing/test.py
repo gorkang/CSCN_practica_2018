@@ -134,7 +134,6 @@ def main():
 						except:
 							try:
 								date = time.strftime('%m-%d-%Y')
-								print(date)
 								input_box = driver.find_element_by_xpath("//input[@type='date']")
 								input_box.send_keys(date)
 							except Exception as e:

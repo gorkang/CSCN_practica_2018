@@ -1,5 +1,5 @@
 /**
- * jspsych-survey-multi-choice-horizontal
+ * jspsych-survey-multi-choice-vertical
  * a jspsych plugin for multiple choice survey questions
  *
  * Shane Martin
@@ -9,11 +9,11 @@
  */
 
 
-jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
+jsPsych.plugins['survey-multi-choice-vertical'] = (function() {
 
   var plugin = {};
   plugin.info = {
-    name: 'survey-multi-choice-horizontal',
+    name: 'survey-multi-choice-vertical',
     description: '',
     parameters: {
       questions: {
@@ -55,7 +55,7 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
     }
   }
   plugin.trial = function(display_element, trial) {
-    var plugin_id_name = "jspsych-survey-multi-choice-horizontal";
+    var plugin_id_name = "jspsych-survey-multi-choice-vertical";
     var plugin_id_selector = '#' + plugin_id_name;
     var _join = function( /*args*/ ) {
       var arr = Array.prototype.slice.call(arguments, _join.length);
@@ -63,15 +63,15 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
     }
 
     // inject CSS for trial
-    display_element.innerHTML = '<style id="jspsych-survey-multi-choice-horizontal-css"></style>';
-    var cssstr = ".jspsych-survey-multi-choice-horizontal-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
-      ".jspsych-survey-multi-choice-horizontal-text span.required {color: darkred;}"+
-      ".jspsych-survey-multi-choice-horizontal-horizontal .jspsych-survey-multi-choice-horizontal-text {  text-align: center;}"+
-      ".jspsych-survey-multi-choice-horizontal-option { line-height: 2; }"+
-      ".jspsych-survey-multi-choice-horizontal-horizontal .jspsych-survey-multi-choice-horizontal-option {  display: inline-block;  margin-left: 1em;  margin-right: 1em;  vertical-align: top;}"+
-      "label.jspsych-survey-multi-choice-horizontal-text input[type='radio'] {margin-right: 1em;}"
+    display_element.innerHTML = '<style id="jspsych-survey-multi-choice-vertical-css"></style>';
+    var cssstr = ".jspsych-survey-multi-choice-vertical-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
+      ".jspsych-survey-multi-choice-vertical-text span.required {color: darkred;}"+
+      ".jspsych-survey-multi-choice-vertical-horizontal .jspsych-survey-multi-choice-vertical-text {  text-align: center;}"+
+      ".jspsych-survey-multi-choice-vertical-option { line-height: 2; }"+
+      ".jspsych-survey-multi-choice-vertical-horizontal .jspsych-survey-multi-choice-vertical-option {  display: inline-block;  margin-left: 1em;  margin-right: 1em;  vertical-align: top;}"+
+      "label.jspsych-survey-multi-choice-vertical-text input[type='radio'] {margin-right: 1em;}"
 
-    display_element.querySelector('#jspsych-survey-multi-choice-horizontal-css').innerHTML = cssstr;
+    display_element.querySelector('#jspsych-survey-multi-choice-vertical-css').innerHTML = cssstr;
 
     // form element
     var trial_form_id = _join(plugin_id_name, "form");
@@ -120,16 +120,9 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
         input.setAttribute('name', input_name);
         input.setAttribute('id', input_id);
         input.setAttribute('value', trial.questions[i].options[j]);
-        // modification
-        input.setAttribute('style', 'margin-left: 35%')
         form.appendChild(label);
         form.insertBefore(input, label);
 
-        //inicio modificacion
-        br = document.createElement('br')
-        form.appendChild(br)
-        form.insertBefore(br,label);
-        //fin modificacion
       }
 
       if (trial.questions[i].required) {

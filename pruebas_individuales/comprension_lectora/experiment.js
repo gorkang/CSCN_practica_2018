@@ -30,12 +30,12 @@ var screen_comprension_lectora_experiment = {
     pages: ['<p><left><b><big>Comprension lectora</big></b><br />'+
     "A continuaci&oacute;n realizar&aacute;s un test de comprensi&oacute;n, es decir, una prueba para valorar la comprensi&oacute;n<br />"+
     "cuando leen los textos. El test consiste en leer dos textos de una p&aacute;gina cada uno, y despu&eacute;s<br />"+
-    "constestar unas preguntas. Para contestar, debes elegir una alternativa entre cuatro<br />"+
+    "contestar unas preguntas. Para contestar, debes elegir una alternativa entre cuatro<br />"+
     "respuestas posibles teniendo en cuenta que solamente una de ellas es correcta. Marcar&aacute;s la<br />"+
     "alternativa correcta.<br /><br />"+
     "     En resumen, para hacer el test debes hacer lo siguiente:<br />"+
     "     1) Lee el primer texto<br />"+
-    "     2) Constesta las preguntas marcando la respuesta correcta.<br />"+
+    "     2) Contesta las preguntas marcando la respuesta correcta.<br />"+
     "     3) Cuando termines el primer texto haz lo mismo con el segundo<br /><br /><br />"+
     "Haz click en el siguiente bot&oacute;n para continuar"+
     '</p>'],

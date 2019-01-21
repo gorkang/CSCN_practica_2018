@@ -38,7 +38,7 @@ var screen_DSS_decision_styles_scale_experiment = {
     }
 };
 
-var likert_scale = ['<center>Strongly</br>Disagree</center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center>Strongly</br>Agree</center>'];
+var likert_scale = ['<center><p style="font-size:13px">Strongly</br>Disagree</p></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><p style="font-size:13px">Strongly</br>Agree</p></center>'];
 
 var survey01 = {
   type: "survey-multi-choice-horizontal",

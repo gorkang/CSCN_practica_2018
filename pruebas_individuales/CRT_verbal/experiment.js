@@ -118,7 +118,8 @@ var verbal_crt1 = {
   type: "survey-text",
   preamble: "<div class='crt_experiment_text'>El pap&aacute; de Mar&iacute;a tiene 5 hijas y ning&uacute;n hijo: Nana, Nene, Nini, Nono</div>",
   questions: [{
-    prompt: "&iquest;Cu&aacute;l es probablemente el nombre de la quinta hija ?<br /><br />"
+    prompt: "&iquest;Cu&aacute;l es probablemente el nombre de la quinta hija ?<br /><br />",
+    required: true
   }],
   data: {
     trialid: "VCRT_01"
@@ -129,7 +130,8 @@ var verbal_crt2 = {
   type: "survey-text",
   preamble: "<div class='crt_experiment_text'>Si estuvieras corriendo una carrera y pasaras a la persona que va en segundo lugar</div>",
   questions: [{
-    prompt: "&iquest;En qu&eacute; lugar estar&iacute;as ahora?<br /><br />"
+    prompt: "&iquest;En qu&eacute; lugar estar&iacute;as ahora?<br /><br />",
+    required: true
   }],
   data: {
     trialid: "VCRT_02"
@@ -140,7 +142,8 @@ var verbal_crt3 = {
   type: "survey-text",
   preamble: "<div class='crt_experiment_text'>Es una noche de tormenta y un avi&oacute;n despega desde el aeropuerto JFK en Nueva York. La tormenta empeora y el avi&oacute;n se estrella. La mitad cae en los Estados Unidos y la otra mitad en Canad&aacute;</div>",
   questions: [{
-    prompt: "&iquest;En qu&eacute; pa&iacute;s enterrar&iacute;as a los sobrevivientes?<br /><br />"
+    prompt: "&iquest;En qu&eacute; pa&iacute;s enterrar&iacute;as a los sobrevivientes?<br /><br />",
+    required: true
   }],
   data: {
     trialid: "VCRT_03"
@@ -151,7 +154,8 @@ var verbal_crt4 = {
   type: "survey-text",
   preamble: "<div class='crt_experiment_text'>Un mono, una ardilla, y un p&aacute;jaro est&aacute;n haciendo una carrera a la punta de una palmera de cocos.</div>",
   questions: [{
-    prompt: "&iquest;Qui&eacute;n conseguir&aacute; el pl&aacute;tano primero? &iquest;El mono, la ardilla o el p&aacute;jaro?<br /><br />"
+    prompt: "&iquest;Qui&eacute;n conseguir&aacute; el pl&aacute;tano primero? &iquest;El mono, la ardilla o el p&aacute;jaro?<br /><br />",
+    required: true
   }],
   data: {
     trialid: "VCRT_04"
@@ -162,7 +166,8 @@ var verbal_crt5 = {
   type: "survey-text",
   preamble: "<div class='crt_experiment_text'> En una casa de un piso color rosa, hab&iacute;a una persona rosa, un gato rosa, un pez rosa, un computador rosa, una silla rosa, una tabla rosa, un tel&eacute;fono rosa, una ducha rosa<br />&iexcl;Todo era de color rosa!</div>",
   questions: [{
-    prompt: "&iquest;De qu&eacute; color son probablemente las escaleras?<br /><br />"
+    prompt: "&iquest;De qu&eacute; color son probablemente las escaleras?<br /><br />",
+    required: true
   }],
   data: {
     trialid: "VCRT_05"
@@ -172,7 +177,8 @@ var verbal_crt5 = {
 var verbal_crt6 = {
   type: "survey-text",
   questions: [{
-    prompt: "&iquest;Cuantos de cada animal puso Mois&eacute;s en el arca?"
+    prompt: "&iquest;Cuantos de cada animal puso Mois&eacute;s en el arca?",
+    required: true
   }],
   minSize: 1,
   allowNumeric:true,
@@ -185,7 +191,8 @@ var verbal_crt7 = {
   type: "survey-text",
   preamble: "<div class='crt_experiment_text'>El viento sopla en direcci&oacute;n oeste. Un tren el&eacute;ctrico viaja hacia el este</div>",
   questions: [{
-    prompt: "&iquest;En qu&eacute; direcci&oacute;n cardinal viaja el humo de la locomotora?<br /><br />"
+    prompt: "&iquest;En qu&eacute; direcci&oacute;n cardinal viaja el humo de la locomotora?<br /><br />",
+    required: true
   }],
   data: {
     trialid: "VCRT_07"
@@ -196,7 +203,8 @@ var verbal_crt8 = {
   type: "survey-text",
   preamble: "<div class='crt_experiment_text'>Si tienes solo un f&oacute;sforo y caminas dentro de una habitaci&oacute;n oscura donde hay aceite de lampara, un peri&oacute;dico y madera</div>",
   questions: [{
-    prompt: "&iquest;Qu&eacute; cosa prender&iacute;as primero?<br /><br />"
+    prompt: "&iquest;Qu&eacute; cosa prender&iacute;as primero?<br /><br />",
+    required: true
   }],
   data: {
     trialid: "VCRT_08"
@@ -207,7 +215,8 @@ var verbal_crt9 = {
   type: "survey-text",
   minSize:2,
   questions: [{
-    prompt: "&iquest;Ser&iacute;a &eacute;tico para un hombre casarse con la hermana de su viuda?"
+    prompt: "&iquest;Ser&iacute;a &eacute;tico para un hombre casarse con la hermana de su viuda?",
+    required: true
   }],
   data: {
     trialid: "VCRT_09"
@@ -218,7 +227,8 @@ var verbal_crt10 = {
   type: "survey-multi-choice-vertical",
   questions: [{
     prompt: "<div class='crt_experiment_text'>&iquest;Cu&aacute;l de las oraciones es correcta?:<br /><br /></div>",
-    options: ["La yema del huevo son blancas","La yema del huevo es blanca","Otra"]
+    options: ["La yema del huevo son blancas","La yema del huevo es blanca","Otra"],
+    required: true
   }],
   data: {
     trialid: "VCRT_10"
@@ -228,7 +238,8 @@ var verbal_crt10 = {
 var otra_crt10 = {
     type: "survey-text",
     questions: [{
-      prompt: "Con respecto a la yemas del huevo,&iquest;Que es correcto ?"
+      prompt: "Con respecto a la yemas del huevo,&iquest;Que es correcto ?",
+      required: true
     }],
     data: {
       trialid: "VCRT_09"

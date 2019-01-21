@@ -121,7 +121,7 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
         input.setAttribute('id', input_id);
         input.setAttribute('value', trial.questions[i].options[j]);
         // modification
-        input.setAttribute('style', 'margin-left: 35%')
+        input.setAttribute('style', 'margin-left: 45%')
         form.appendChild(label);
         form.insertBefore(input, label);
 

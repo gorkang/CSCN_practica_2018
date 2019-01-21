@@ -39,8 +39,7 @@ var screen_interocepcion_experiment = {
 };
 
 // Inicio prueba
-
-var likert_scale = ["0 <br><p style='font-size:13px'>Nunca</p>","1","2","3","4","5 <br> <p style='font-size:13px'>Siempre</p>"];
+var likert_scale = ["<center>0 </br><p style='font-size:13px'>Nunca</p></center>","<center>1</center>","<center>2</center>","<center>3</center>","<center>4</center>","<center>5 </br> <p style='font-size:13px'>Siempre</p></center>"];
 
 var survey01 = {
   type: "survey-multi-choice-horizontal",

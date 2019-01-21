@@ -1,19 +1,20 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
+comidas_extravagantes
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
 #BIS_barratt_impulsiveness_scale
 #BRET_bomb_risk_elicitation_task
 #empatia_por_dolor
-#ineco_frontal_screening  --------- survey-text0
+#ineco_frontal_screening  --------- survey-text0, revisar paper
 #iowa_gambling_task
-#razonamiento_bayesiano
 #razonamiento_silogistico    --- agregar instrucciones (q o p),q 
 #razonamiento_transitivo     --- arreglar imagen 
 #rotacion_mental             --- select
 #sMARS_short_mathematics_anxiety_rating_scale --- error
 #wais_matrices
 #wais_working_memory
+#razonamiento_bayesiano
 
 # ---------------------- arregladas ------------------------
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name="robots" content="noindex">
-  <title>ineco_frontal_screening</title>
+  <title>Comidas Extravagantes</title>
   <!-- Documento CSS principal -->
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -14,10 +14,12 @@
   <script src="jquery.min.js"></script>
   <!-- Libreria principal JsPsych -->
   <script src="jsPsych-6/jspsych.js"></script>
-  <!-- Plugin para desplegar elementos tipo instrucciones -->
+  <!-- Plugins -->
   <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
   <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice-horizontal.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice-vertical.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
 
   <script src='experiment.js'></script>
 
@@ -25,7 +27,7 @@
     $(document).ready(function() {
 
       jsPsych.init({
-        timeline: ineco_frontal_screening_experiment,
+        timeline: questions,
         fullscreen: true,
 
         on_finish: function(data) {
@@ -60,10 +62,10 @@
                   if (window.self !== window.top) {
                     parent.postMessage({
                       csv: jsPsych.data.get().csv(),
-                      name: 'ineco_frontal_screening_results'
+                      name: 'comidas_extravagantes_results'
                     }, '*');
                   } else {
-                    jsPsych.data.get().localSave('csv', 'ineco_frontal_screening_results.csv');
+                    jsPsych.data.get().localSave('csv', 'comidas_extravagantes_results.csv');
                   }
                 }
               }

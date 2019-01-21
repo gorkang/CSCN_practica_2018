@@ -40,6 +40,12 @@ jsPsych.plugins['survey-text'] = (function() {
             default: "spanish",
             description: 'Language of fail-message'
           },
+          error_text: {
+            type: jsPsych.plugins.parameterType.STRING,
+            pretty_name: 'ErrorText',
+            default: undefined,
+            description: 'Especific text of fail-message'
+          },
           value: {
             type: jsPsych.plugins.parameterType.STRING,
             pretty_name: 'Value',
@@ -235,10 +241,14 @@ jsPsych.plugins['survey-text'] = (function() {
           textBox.blur();
           textBox.focus();
           var message = '';
-          if (trial.questions[index].language == "english")
-            message = 'Please, verify your answer.';
-          else if (trial.questions[index].language == "spanish")
-            message = 'Por favor, verifique su respuesta.';
+          if (typeof trial.questions[index].error_text == 'undefined') {
+            if (trial.questions[index].language == "english")
+              message = 'Please, verify your answer.';
+            else if (trial.questions[index].language == "spanish")
+              message = 'Por favor, verifique su respuesta.';
+          } else {
+            message = trial.questions[index].error_text;
+          }
           display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">' + message +'</span>';
           event.stopPropagation();
           if (event.stopPropagation) {
