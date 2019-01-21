@@ -188,7 +188,6 @@ def testing(PATH, file_name):
 	f.write(content)
 	f.close()
 	
-	print(str(Path(PATH).parents[2]))
 	os.system("pipenv shell python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py')
 	#p = Popen(str(Path(PATH).parents[2])+"/.pyenv/bin/pipenv shell", stdin=PIPE)   # set environment, start new shell
 	#p.communicate('python3 '+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit') 

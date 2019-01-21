@@ -43,8 +43,8 @@ def main():
 		os.makedirs('/'+PATH+'/testing/Downloads')
 
 	# Si no existe la carpeta de imagenes, es creada para guardar las fotos de la pantalla
-	if not os.path.exists('/'+PATH+'/testing/Image'):
-		os.makedirs('/'+PATH+'/testing/Image')
+	#if not os.path.exists('/'+PATH+'/testing/Images'):
+	#	os.makedirs('/'+PATH+'/testing/Images')
 
 	# Creacion de driver de navegacion y configuraciones
 	firefox_driver = os.path.join(os.getcwd(), '/'+PATH+'/testing/browser_drivers/geckodriver')
@@ -212,6 +212,10 @@ def main():
 			
 			# close the browser
 			driver.close()
+
+			# Si estamos en el maker solo haremos una prueba
+			if maker:
+				break
 
 			#img = Image.open(image_path)
 			#img.show()
