@@ -6,7 +6,6 @@
 #BRET_bomb_risk_elicitation_task
 #empatia_por_dolor
 #ineco_frontal_screening  --------- survey-text0
-#informacion_sociodemografica_simple  ----------- text-age number, multichoice
 #iowa_gambling_task
 #razonamiento_bayesiano
 #razonamiento_silogistico    --- agregar instrucciones (q o p),q 
@@ -18,6 +17,7 @@
 
 # ---------------------- arregladas ------------------------
 
+#informacion_sociodemografica_simple
 #informacion_sociodemografica
 #wais_vocabulario
 #graph_literacy
