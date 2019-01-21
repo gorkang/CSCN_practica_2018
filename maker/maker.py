@@ -1,8 +1,8 @@
-import shutil, math, os, subprocess
+import shutil, math, os, subprocess, yaml, importlib
 from subprocess import PIPE, Popen, STDOUT
 from pathlib import Path
 
-def writeExperiment(file_name, instructions, questions, fullscreen_mode=False):
+def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_mode": False}):
 	PATH = os.getcwd()
 	f = open(PATH + '/'+ file_name + '/experiment.js', 'r')
 	content = f.readlines()
@@ -14,10 +14,11 @@ def writeExperiment(file_name, instructions, questions, fullscreen_mode=False):
 	document_actual_line = 19
 
 	plugins = {
-		"multi_choice_horizontal_question":"jspsych-survey-multi-choice-horizontal",
-		"multi_choice_vertical_question":"jspsych-survey-multi-choice-vertical",
-		"text_question":"jspsych-survey-text",
-		"number_question":"jspsych-survey-text-number",
+		"multi_choice_horizontal":"jspsych-survey-multi-choice-horizontal",
+		"multi_choice_vertical":"jspsych-survey-multi-choice-vertical",
+		"text":"jspsych-survey-text",
+		"number":"jspsych-survey-text",
+		"date":"jspsych-survey-text"
 	}
 
 
@@ -35,36 +36,50 @@ def writeExperiment(file_name, instructions, questions, fullscreen_mode=False):
 
 		content.insert(document_actual_line + 0, "var instruction_screen_experiment = {\n")
 		content.insert(document_actual_line + 1, "    type: 'instructions',\n")
+		document_actual_line += 2
 		# *************
-		content.insert(document_actual_line + 2, "    pages: ['<p><left><b><big>" + instructions[actual_int]["title"] + "</big></b><br />'+\n" )
-		content.insert(document_actual_line + 3, "    '" + instructions[actual_int]["instruction"] + "' +'</p>'],\n")
+		try:
+			content.insert(document_actual_line + 0, "    pages: ['<p><left><b><big>" + instructions[actual_int]["title"] + "</big></b><br />'+\n" )
+			document_actual_line += 1
+		except:
+			content.insert(document_actual_line + 0, "    pages: ['<p><left>'+\n" )
+			document_actual_line += 1
+		try:
+			content.insert(document_actual_line + 0, "    '" + instructions[actual_int]["instruction"] + "' +'</p>'],\n")
+			document_actual_line += 1
+		except:
+			pass
+		
 		# *************
-		content.insert(document_actual_line + 4, "    data:{trialid: 'Screen_WM'},\n")
-		content.insert(document_actual_line + 5, "    show_clickable_nav: true,\n")
-		content.insert(document_actual_line + 6, "    on_trial_start: function(){\n")
-		content.insert(document_actual_line + 7, "        bloquear_enter = 0;\n")
-		content.insert(document_actual_line + 8, "    }\n")
-		content.insert(document_actual_line + 9, "};\n")
-		content.insert(document_actual_line + 10, "\n")
-		document_actual_line += 11
+		content.insert(document_actual_line + 0, "    data:{trialid: 'Screen_WM'},\n")
+		content.insert(document_actual_line + 1, "    show_clickable_nav: true,\n")
+		content.insert(document_actual_line + 2, "    on_trial_start: function(){\n")
+		content.insert(document_actual_line + 3, "        bloquear_enter = 0;\n")
+		content.insert(document_actual_line + 4, "    }\n")
+		content.insert(document_actual_line + 5, "};\n")
+		content.insert(document_actual_line + 6, "\n")
+		document_actual_line += 7
 
 		if instructions[actual_int] != instructions[-1]:
-			breaker = instructions[actual_int + 1]["questions_cont"] - 1
+			breaker = instructions[actual_int + 1]["previous_questions"] - 1
 		elif instructions[actual_int] == instructions[-1]:
 			breaker = len(questions)
 
-		for i in range(instructions[actual_int]["questions_cont"],len(questions)):
+		for i in range(instructions[actual_int]["previous_questions"],len(questions)):
 
 			content.insert(document_actual_line + 0, "var question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = {\n")
-			# actual question plugin:
-			content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
+
 			# *************
-			if questions[i]["type"] == "multi_choice_horizontal_question" or questions[i]["type"] == "multi_choice_vertical_question":
-				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["statement"] + "</div>"+'"'+", options: ['"+ "', '".join(questions[i]["answers"]) +"'], required: true, horizontal: " + questions[i]["horizontal_orientation"] + "}],\n")
-			elif questions[i]["type"] == "text_question" or questions[i]["type"] == "number_question":
-				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["statement"] + "</div>" +'"'+"}],\n")				
+			if questions[i]["type"] == "multi_choice":
+				# actual question plugin:
+				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"] + "_" + questions[i]["orientation"] ][8:] +"',\n")
+				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join(questions[i]["choices"]) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}],\n")
+			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date":
+				# actual question plugin:
+				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
+				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] +"', required: true}], \n")				
 			# *************
-			content.insert(document_actual_line + 3, "  data: {trialid: '"+ file_name.replace("_","-") +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
+			content.insert(document_actual_line + 3, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
 			content.insert(document_actual_line + 4, "};\n")
 
 			content.insert(document_actual_line + 5, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
@@ -87,11 +102,11 @@ def writeExperiment(file_name, instructions, questions, fullscreen_mode=False):
 		document_actual_line += 3
 
 	# Se agrega la ventana para el fullscreen si se requiere
-	if fullscreen_mode:
+	if fullscreen["fullscreen_mode"]:
 		content.insert(document_actual_line + 0, "if(window.innerWidth != screen.width || window.innerHeight != screen.height){\n")
 		content.insert(document_actual_line + 1, "  questions.unshift({\n")
 		content.insert(document_actual_line + 2, "    type: 'fullscreen',\n")	
-		content.insert(document_actual_line + 3, "    message: '<p>The experiment will enter full screen mode</p>',\n")
+		content.insert(document_actual_line + 3, "    message: '<p>" + fullscreen["base_text"] + "</p>',\n")
 		content.insert(document_actual_line + 4, "    button_label: 'Full screen',\n")
 		content.insert(document_actual_line + 5, "    delay_after: 0,\n")
 		content.insert(document_actual_line + 6, "    fullscreen_mode: true\n")
@@ -154,13 +169,55 @@ def writeIndex(file_name, plugins):
 def main():
 	PATH = os.getcwd()
 	data_file = PATH +'/data.txt'
+	yaml_file = PATH +'/data.yaml'
+	config_file = PATH +'/test_configuration.yaml'
+	
 	file = open(data_file, 'r') 
 	lines = file.readlines()
 	file.close()
 
+	with open(yaml_file, 'r') as stream:
+		try:
+			data = yaml.safe_load(stream)
+		except yaml.YAMLError as exc:
+			print("Error al procesar el archivo data.yaml, verifique que esté correctamente escrito e identado.")
+			return
+
+	#import classes
+	classes = importlib.import_module('classes')
+	items = []
+
+	for item in data:
+		# Get item id and specification.
+		item_id, spec = list(item.items())[0]
+
+		# Get experiment configuration
+		if item_id == "test configuration":
+			try:
+				file_name = spec["test_name"].replace(' ', '_')
+				order = spec["order"]
+				scales = spec["scales"]
+			except:
+				print("existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
+				return
+		else:
+			# Get actual class according to item type.
+			class_name = spec['type'].replace(' ', '_')
+			cls = classes.__dict__[class_name]    
+
+			# Create object.
+			new_item_object = cls(item_id.replace(' ', '_'), spec)
+
+			# Add to list.
+			items.append(cls(item_id.replace(' ', '_'), spec))
+
+	#next(item for item in items if item["item_id"] == "papas_fritas")
+	#for item in items: 
+	#	print(item.__dict__)
+
 	# set actual state (read file name, read questions, read answers)
 	state = 0
-	fullscreen_selected = False
+	fullscreen_mode = False
 	random_mode_selected = False
 	questions=[]
 	question_statement_selected = False
@@ -172,146 +229,109 @@ def main():
 	alternative_vertical = False
 	alternative_answers_horizontal = []
 	alternative_answers_vertical = []
+	error = False
 
 	plugins = {
 		"jspsych-survey-multi-choice-horizontal.js": False,
 		"jspsych-survey-multi-choice-vertical.js": False,
 		"jspsych-survey-text.js": False,
-		"jspsych-survey-text-number.js": False,
 	}
 
-	for i in range(len(lines)):
-		if lines[i][0] == '#' or lines[i] == '\n':
-			continue
-		elif lines[i][0] == '-':
-			selection = (''.join(e for e in lines[i] if e.isalnum())).lower()
-			if (selection=="nameoftest"):
-				state = 1
-			elif (selection=="fullscreen"):
-				state = 2
-			elif (selection=="instruction"):
-				state = 3
-			elif (selection=="multichoicehorizontalquestion") or (selection=="multichoiceverticalquestion") or (selection=="textquestion") or (selection=="numberquestion"):
-				state = 4
-				question_type = (lines[i].replace(" ", "_").replace("-","_").replace("\n","").lower()).lstrip("_")
-			elif (selection=="alternativeshorizontal"):
-				state = 5
-			elif (selection=="alternativesvertical"):
-				state = 6
-			elif (selection=="endoffile"):
-				state = 0
-			else:
-				state = 99
-		else:
-			if state == 1:
-				file_name = lines[i][0:-1]
-				# copy basic source to new folder
-				try:
-					shutil.copytree(PATH + '/sources', PATH + '/'+ file_name)
-				except:
-					shutil.rmtree(PATH + '/'+ file_name)
-					shutil.copytree(PATH + '/sources', PATH + '/'+ file_name)
+	
+	# order items
+	# ---------------------------- TODO -----------------------------
 
-			elif state == 2:
-				if (not fullscreen_selected):
-					if lines[i] == "Yes\n" or lines[i] == "yes\n":
-						fullscreen_mode = True
-					elif lines[i] == "No\n" or lines[i] == "no\n":
-						fullscreen_mode = False
-					fullscreen_selected = True
-					continue
+	experiment = []
+	# create test
+	for i in range(len(items)):
+		item_type = items[i].type
+		if (item_type=="fullscreen"):
+			try:
+				base_text = items[i].arguments["text"]
+			except:
+				base_text = "El experimento entrará en modo pantalla completa"
+			fullscreen = {"fullscreen_mode": True, "base_text": base_text}
+			fullscreen_mode = True
+		elif (item_type=="instruction"):
+			actual_instruction = {}
+			try:
+				actual_instruction["title"] = items[i].arguments["title"]
+			except:
+				pass
+			try:
+				actual_instruction["instruction"] = items[i].arguments["text"]
+			except:
+				pass
+			try:
+				actual_instruction["random_mode"] = (items[i].arguments["questions_mode"] == "random")
+			except:
+				actual_instruction["random_mode"] = False
+			actual_instruction["previous_questions"] = questions_cont
+			instructions.append(actual_instruction)
+		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date"):
+			actual_question = {}
 
-			elif state == 3:
-				alternative_horizontal = False
-				alternative_vertical = False
-				alternative_answers_horizontal = []
-				alternative_answers_vertical = []
-				if (not random_mode_selected):
-					if lines[i] == "Yes\n" or lines[i] == "yes\n":
-						random_mode = True
-					elif lines[i] == "No\n" or lines[i] == "no\n":
-						random_mode = False
-					random_mode_selected = True
-					continue
-				else:
-					if instruction_title:
-						actual_instruction = {}
-						actual_instruction["title"] = lines[i][0:-1]
-						actual_instruction["random_mode"] = random_mode
-						instruction_title = False
-						continue
-					else:
-						actual_instruction["instruction"] = lines[i][0:-1]
-						actual_instruction["questions_cont"] = questions_cont
-
-					instructions.append(actual_instruction)
-					instruction_title = True
-					random_mode_selected = False
-
-			elif state == 4:
-				# Activación de plugins
-				if question_type == "multi_choice_horizontal_question":
-					plugins["jspsych-survey-multi-choice-horizontal.js"] = True
-				elif question_type == "multi_choice_vertical_question":
+			actual_question["type"] = item_type
+			try:
+				actual_question["orientation"] = items[i].arguments["orientation"]
+			except:
+				actual_question["orientation"] = None	
+			#----------#
+			# Activación de plugins
+			if actual_question["type"] == "multi_choice":
+				if actual_question["orientation"] == "vertical":
 					plugins["jspsych-survey-multi-choice-vertical.js"] = True
-				elif question_type == "text_question":
-					plugins["jspsych-survey-text.js"] = True
-				elif question_type == "number_question":
-					plugins["jspsych-survey-text-number.js"] = True
-					
-				if (not question_statement_selected):
-					actual_question = {}
-					actual_question["type"] = question_type
-					actual_question["statement"] = lines[i][0:-1]
-					question_statement_selected = True
-					if (question_type == "multi_choice_horizontal_question"):
-						actual_question["horizontal_orientation"] = "true"
-						if alternative_horizontal:
-							actual_question["answers"] = alternative_answers_horizontal
-						continue
-					elif (question_type == "multi_choice_vertical_question"):
-						actual_question["horizontal_orientation"] = "false"
-						if alternative_vertical:
-							actual_question["answers"] = alternative_answers_vertical
-						continue
-				elif ((question_type == "multi_choice_horizontal_question" or question_type == "multi_choice_vertical_question")):
-					# si es multichoice en caso que no hayan alternativas fijas se obtienen las alternativas una a una, en caso contrario se obtienen las entregadas antes de las preguntas
-					if (not alternative_horizontal and (question_type == "multi_choice_horizontal_question")) or (not alternative_vertical and (question_type == "multi_choice_vertical_question") or (not alternative_vertical and not alternative_horizontal)):
-						if "answers" not in actual_question:
-							actual_question["answers"] = [lines[i][0:-1]]
-						else:
-							actual_question["answers"].append(lines[i][0:-1])
+				elif actual_question["orientation"] == "horizontal":
+					plugins["jspsych-survey-multi-choice-horizontal.js"] = True
+				else:
+					print("ocurrió un error al seleccionar la orientacion de la pregunta de multi choice '"+items[i].item_id+"'")
+					error = True
+				try:
+					if (type(items[i].arguments["choices"]) == list):
+						actual_question["choices"] = items[i].arguments["choices"]
+					elif (type(items[i].arguments["choices"]) == str):
+						actual_question["choices"] = scales[items[i].arguments["choices"]]
+				except:
+					print("ocurrió un error al seleccionar las alternaticas de la pregunta de multi choice '"+items[i].item_id+"'")
+					error = True
 
-					# si la linea siguiente no es un comentario, un salto de linea o un cambio de pregunta seguimos almacenando respuestas
-					if lines[i+1] != '\n' and lines[i+1][0] != '-' and lines[i+1][0] != '#': 
-						continue
-				# almacenamos la pregunta con su tipo y sus respuestas (si tuviese)
-				questions_cont += 1
-				actual_question["number"] = questions_cont
-				questions.append(actual_question)
-				question_statement_selected = False
+			elif actual_question["type"] == "text" or actual_question["type"] == "number" or actual_question["type"] == "date":
+				plugins["jspsych-survey-text.js"] = True
 
-			elif state == 5:
-				alternative_horizontal = True
-				alternative_answers_horizontal.append(lines[i][0:-1])
+			try:
+				actual_question["preamble"] = items[i].arguments["preamble"] 
+			except:
+				pass
+			try:
+				actual_question["text"] = items[i].arguments["text"] 
+			except:
+				pass
+			questions_cont += 1
+			actual_question["index"] = questions_cont
+			questions.append(actual_question)
+		else:
+			print("Ha ocurrido un error con la creación de la prueba, revise el archivo data.yaml en el item '" + items[i].item_id + "'")
+			print("Información adicional:")
+			items[i].render()
+			error = True
 
-			elif state == 6:
-				alternative_vertical = True
-				alternative_answers_vertical.append(lines[i][0:-1])
-			elif state == 99:
-				print("Ha ocurrido un error con la creación de la prueba, revise el archivo data.txt en la linea " + str(i-1))
-				break
+	if (not fullscreen_mode):
+		fullscreen = {"fullscreen_mode": False}
 
+	if error:
+		return
 
+	# copy basic source to new folder
+	try:
+		shutil.copytree(PATH + '/sources', PATH + '/'+ file_name)
+	except:
+		shutil.rmtree(PATH + '/'+ file_name)
+		shutil.copytree(PATH + '/sources', PATH + '/'+ file_name)
 
-	#	if same_answers:
-	#		for i in questions:
-	#			answer_list.append(answers)
-
-	writeExperiment(file_name, instructions, questions, fullscreen_mode=fullscreen_mode)
+	writeExperiment(file_name, instructions, questions, fullscreen=fullscreen)
 	writeConfig(file_name)
 	writeIndex(file_name, plugins)
-
+	'''
 	print(PATH)
 	# copying the finish test
 	try:
@@ -342,6 +362,7 @@ def main():
 	f.close()
 	
 	os.system("pipenv shell python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py')
+	'''
 
 if __name__ == '__main__' : main()
 
