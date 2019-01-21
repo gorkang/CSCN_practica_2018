@@ -166,6 +166,40 @@ def writeIndex(file_name, plugins):
 		f.write(content)
 		f.close()
 
+def testing(PATH, file_name):
+	# copying the finish test
+	try:
+		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
+	except:
+		shutil.rmtree(str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
+		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
+
+	# testing new test
+	file = open('/'+ str(Path(PATH).parents[0]) + '/testing/test_list.txt', 'r')
+	lines = file.readlines()
+	file.close()
+
+	erased = ""
+	for i in range(len(lines)):
+		if lines[i] != '\n':
+			if lines[i][0] != '#':
+				lines[i]= '#' + lines[i]
+			if lines[i].lstrip('#').rstrip('\n') == file_name:
+				del lines[i]
+				break
+
+	lines.insert(2, file_name+'\n')
+
+	f = open(str(Path(PATH).parents[0]) + '/testing/test_list.txt', "w")
+	content = "".join(lines)
+	f.write(content)
+	f.close()
+	
+	print(str(Path(PATH).parents[2]))
+	#os.system("pipenv shell python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit')
+	p = Popen(str(Path(PATH).parents[2])+"/.pyenv/bin/pipenv shell", stdin=PIPE)   # set environment, start new shell
+	p.communicate('python3 '+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit') 
+
 def main():
 	PATH = os.getcwd()
 	data_file = PATH +'/data.txt'
@@ -203,7 +237,10 @@ def main():
 		else:
 			# Get actual class according to item type.
 			class_name = spec['type'].replace(' ', '_')
-			cls = classes.__dict__[class_name]    
+			if class_name == "number" or class_name == "date":
+				cls = classes.__dict__["text"]
+			else:
+				cls = classes.__dict__[class_name]    
 
 			# Create object.
 			new_item_object = cls(item_id.replace(' ', '_'), spec)
@@ -331,39 +368,11 @@ def main():
 	writeExperiment(file_name, instructions, questions, fullscreen=fullscreen)
 	writeConfig(file_name)
 	writeIndex(file_name, plugins)
-	'''
-	print(PATH)
-	# copying the finish test
-	try:
-		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
-	except:
-		shutil.rmtree(str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
-		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
 
-	# testing new test
-	file = open('/'+ str(Path(PATH).parents[0]) + '/testing/test_list.txt', 'r')
-	lines = file.readlines()
-	file.close()
-
-	erased = ""
-	for i in range(len(lines)):
-		if lines[i] != '\n':
-			if lines[i][0] != '#':
-				lines[i]= '#' + lines[i]
-			if lines[i].lstrip('#').rstrip('\n') == file_name:
-				del lines[i]
-				break
-
-	lines.insert(2, file_name+'\n')
-
-	f = open('/'+ str(Path(PATH).parents[0]) + '/testing/test_list.txt', "w")
-	content = "".join(lines)
-	f.write(content)
-	f.close()
+	print("Prueba creada con éxito.")
+	print("Iniciando testing de la prueba agregada...")
+	testing(PATH, file_name)
 	
-	os.system("pipenv shell python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py')
-	'''
-
 if __name__ == '__main__' : main()
 
 
