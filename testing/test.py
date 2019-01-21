@@ -17,6 +17,9 @@ from tests.testing_config.Configuration import BasicConfig
 
 def main():
 
+	# si estamos probando desde el maker entonces es True, si es desde testing es False:
+	maker = (os.getcwd().split('/'))[-1] == "maker"
+
 	# se busca el PATH que es la carpeta actual menos la parte de /testing
 	PATH = '/'.join((os.getcwd().split('/'))[:-1])
 
@@ -87,7 +90,10 @@ def main():
 			elif driver_selection == 2:	
 				driver = webdriver.Firefox(firefox_profile=profile, executable_path=firefox_driver);
 
-			driver.get('file:///'+PATH+'/pruebas_individuales/'+line+'/index.html')
+			if maker:
+				driver.get('file:///'+PATH+'/maker/'+line+'/index.html')
+			else:
+				driver.get('file:///'+PATH+'/pruebas_individuales/'+line+'/index.html')
 
 			escape = ActionChains(driver)
 			escape.send_keys(Keys.ESCAPE)

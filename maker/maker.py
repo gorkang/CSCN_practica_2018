@@ -167,13 +167,6 @@ def writeIndex(file_name, plugins):
 		f.close()
 
 def testing(PATH, file_name):
-	# copying the finish test
-	try:
-		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
-	except:
-		shutil.rmtree(str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
-		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
-
 	# testing new test
 	file = open('/'+ str(Path(PATH).parents[0]) + '/testing/test_list.txt', 'r')
 	lines = file.readlines()
@@ -196,19 +189,24 @@ def testing(PATH, file_name):
 	f.close()
 	
 	print(str(Path(PATH).parents[2]))
-	#os.system("pipenv shell python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit')
-	p = Popen(str(Path(PATH).parents[2])+"/.pyenv/bin/pipenv shell", stdin=PIPE)   # set environment, start new shell
-	p.communicate('python3 '+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit') 
+	os.system("pipenv shell python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py')
+	#p = Popen(str(Path(PATH).parents[2])+"/.pyenv/bin/pipenv shell", stdin=PIPE)   # set environment, start new shell
+	#p.communicate('python3 '+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit') 
+
+	'''
+	# Actualmente no se está creando la carpeta automáticamente en las pruebas individuales, si se quiere hacer hay que descomentar esto
+	# copying the finish test
+	try:
+		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
+	except:
+		shutil.rmtree(str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
+		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
+	'''
 
 def main():
 	PATH = os.getcwd()
-	data_file = PATH +'/data.txt'
 	yaml_file = PATH +'/data.yaml'
 	config_file = PATH +'/test_configuration.yaml'
-	
-	file = open(data_file, 'r') 
-	lines = file.readlines()
-	file.close()
 
 	with open(yaml_file, 'r') as stream:
 		try:

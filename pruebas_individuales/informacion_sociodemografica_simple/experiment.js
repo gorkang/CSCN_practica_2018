@@ -59,7 +59,9 @@ var age = {
   type: "survey-text",
   questions: [{
     prompt: "<div class='justified'><br/>" + '8. ¿Cuántos años tiene?' + "<br/></div>",
-    type: 'number',
+    type: 'range',
+    range: [0, 150],
+    error_text: "Su edad debe estar entre los 0 y 150 años",
     required: true
   }],
   endword: "Años",

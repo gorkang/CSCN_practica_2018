@@ -1,3 +1,12 @@
 # Don't track content of these folders
 testing/Downloads
 testing/images
+
+# Ignore everything from maker
+maker/*
+
+# But not these files...
+!sources
+!data.yaml
+!maker.py
+!classes.py
