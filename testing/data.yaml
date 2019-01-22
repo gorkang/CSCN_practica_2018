@@ -1,56 +1,10 @@
 ---
-# init document
-- instruction:
-    title: a title
-    text: a text
-- question:
-    type: multi-choice-vertical
-    preamble: Tabitha Bitumen
-    prompt: Developer
-    stimulus:
-      - lisp
-      - fortran
-      - erlang
-    options:
-      - lisp
-      - fortran
-      - erlang  
-- question:
-    type: multi-choice-horizontal
-    preamble: Tabitha Bitumen
-    prompt: Developer
-    stimulus:
-      - lisp
-      - fortran
-      - erlang
-    options:
-      - lisp
-      - fortran
-      - erlang      
-- question:
-    type: number
-    preamble: Tabitha Bitumen
-    prompt: Developer
-    stimulus:
-      - lisp
-      - fortran
-      - erlang
-- question:
-    type: text
-    preamble: Tabitha Bitumen
-    prompt: Developer
-    stimulus:
-      - lisp
-      - fortran
-      - erlang
-...
-# finish document
-
 - papas fritas:
     type: multiple choice
     arguments:
       preamble: Preguntas de papas fritas
       text: ¿A usted le gustan las papas fritas?
+      orientation: vertical
       choices:
         - si: Sí. Me encantan
         - masomenos: Las puedo comer.
@@ -82,6 +36,7 @@
         - papas fritas
     tags:
         - pantallas condición 1
+...
 
 # code: 
 #with open("data.yml", 'r') as stream:

@@ -1,7 +1,3 @@
-# --------------------------
-#      Execute JavaScript
-# --------------------------
-
 import time, os, random, urllib.request
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -16,6 +12,9 @@ from selenium.webdriver.common.by import By
 from tests.testing_config.Configuration import BasicConfig
 
 def main():
+
+	# si estamos probando desde el maker entonces es True, si es desde testing es False:
+	maker = (os.getcwd().split('/'))[-1] == "maker"
 
 	# se busca el PATH que es la carpeta actual menos la parte de /testing
 	PATH = '/'.join((os.getcwd().split('/'))[:-1])
@@ -40,8 +39,8 @@ def main():
 		os.makedirs('/'+PATH+'/testing/Downloads')
 
 	# Si no existe la carpeta de imagenes, es creada para guardar las fotos de la pantalla
-	if not os.path.exists('/'+PATH+'/testing/Image'):
-		os.makedirs('/'+PATH+'/testing/Image')
+	#if not os.path.exists('/'+PATH+'/testing/Images'):
+	#	os.makedirs('/'+PATH+'/testing/Images')
 
 	# Creacion de driver de navegacion y configuraciones
 	firefox_driver = os.path.join(os.getcwd(), '/'+PATH+'/testing/browser_drivers/geckodriver')
@@ -87,7 +86,10 @@ def main():
 			elif driver_selection == 2:	
 				driver = webdriver.Firefox(firefox_profile=profile, executable_path=firefox_driver);
 
-			driver.get('file:///'+PATH+'/pruebas_individuales/'+line+'/index.html')
+			if maker:
+				driver.get('file:///'+PATH+'/maker/'+line+'/index.html')
+			else:
+				driver.get('file:///'+PATH+'/pruebas_individuales/'+line+'/index.html')
 
 			escape = ActionChains(driver)
 			escape.send_keys(Keys.ESCAPE)
@@ -134,7 +136,6 @@ def main():
 						except:
 							try:
 								date = time.strftime('%m-%d-%Y')
-								print(date)
 								input_box = driver.find_element_by_xpath("//input[@type='date']")
 								input_box.send_keys(date)
 							except Exception as e:
@@ -208,6 +209,10 @@ def main():
 			# close the browser
 			driver.close()
 
+			# Si estamos en el maker solo haremos una prueba
+			if maker:
+				break
+
 			#img = Image.open(image_path)
 			#img.show()
 		else:
@@ -215,6 +220,5 @@ def main():
 				print(line[1:].rstrip('\n'))
 			elif line != '\n':
 				print('Se ha omitido la prueba ' + line[1:].rstrip('\n'))
-	print("\nTesting finalizado, escriba exit para salir del ambiente virtual actual.\n")
 
 if __name__ == '__main__' : main()

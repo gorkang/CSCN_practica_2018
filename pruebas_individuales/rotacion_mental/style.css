@@ -166,7 +166,7 @@ button.jspsych-matrix-button {
     background: white;
 }
 
-#jspsych-survey-multi-choice1-0 {
+#jspsych-survey-multi-choice-0 {
   display: inline-block;
   white-space: nowrap;
 }
@@ -176,16 +176,16 @@ button.jspsych-matrix-button {
   white-space: nowrap;
 }
 
-input#jspsych-survey-multi-selectmr-response-0-0 {
+input#jspsych-survey-multi-select-response-0-0 {
   margin-left: 250px;
 }
-input#jspsych-survey-multi-selectmr-response-0-1 {
+input#jspsych-survey-multi-select-response-0-1 {
   margin-left: 50px;
 }
-input#jspsych-survey-multi-selectmr-response-0-2 {
+input#jspsych-survey-multi-select-response-0-2 {
   margin-left: 50px;
 }
-input#jspsych-survey-multi-selectmr-response-0-3 {
+input#jspsych-survey-multi-select-response-0-3 {
   margin-left: 50px;
 }
 
@@ -196,7 +196,11 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
-
+/*
 .fail-message {
     height: 20px;
+}
+*/
+.jspsych-survey-multi-select-text {  
+  text-align: left !important;
 }

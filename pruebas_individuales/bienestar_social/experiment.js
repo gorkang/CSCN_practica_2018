@@ -24,7 +24,7 @@ var instructions = {
   }
 };
 
-likert = ['Totalmente en<br>desacuerdo', 'Un poco<br>en desacuerdo', 'Ni de acuerdo<br>ni en desacuerdo', 'Un poco<br>de acuerdo', 'Totalmente<br>de acuerdo'];
+var likert = ['<center><p style="font-size:14px">Totalmente en<br>desacuerdo</p></center>', '<center><p style="font-size:14px">Un poco<br>en desacuerdo</p></center>', '<center><p style="font-size:14px">Ni de acuerdo<br>ni en desacuerdo</p></center>', '<center><p style="font-size:14px">Un poco<br>de acuerdo</p></center>', '<center><p style="font-size:14px">Totalmente<br>de acuerdo</p></center>'];
 
 var trials = [{
     question: 'Siento que soy parte importante de mi comunidad.'

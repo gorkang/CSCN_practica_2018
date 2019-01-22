@@ -25,7 +25,7 @@ var instructions = {
   }
 };
 
-likert = ['1.<br>Muy en desacuerdo<br>No me describe para nada', '2.<br>En desacuerdo<br>No me describe', '3.<br>Neutral<br>Puede o no describirme', '4.<br>De acuerdo<br>Me describe', '5.<br>Muy de acuerdo<br>Me describe mucho'];
+var likert = ['<center><p style="font-size:14px">1.<br>Muy en desacuerdo<br>No me describe para nada</p></center>', '<center><p style="font-size:14px">2.<br>En desacuerdo<br>No me describe</p></center>', '<center><p style="font-size:14px">3.<br>Neutral<br>Puede o no describirme</p></center>', '<center><p style="font-size:14px">4.<br>De acuerdo<br>Me describe</p></center>', '<center><p style="font-size:14px">5.<br>Muy de acuerdo<br>Me describe mucho</p></center>'];
 
 var trials = [{
     question: 'Soy una persona rebelde .'

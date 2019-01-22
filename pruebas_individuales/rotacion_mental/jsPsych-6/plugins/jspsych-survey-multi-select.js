@@ -4,15 +4,14 @@
  *
  * documentation: docs.jspsych.org
  *
- *  In this modified version, two checkboxes must be selected and there are time limits
- *
  */
 
-jsPsych.plugins['survey-multi-selectmr'] = (function() {
+
+jsPsych.plugins['survey-multi-select'] = (function() {
   var plugin = {};
 
   plugin.info = {
-    name: 'survey-multi-selectmr',
+    name: 'survey-multi-select',
     description: '',
     parameters: {
       questions: {
@@ -62,7 +61,7 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
     }
   }
   plugin.trial = function(display_element, trial) {
-    var plugin_id_name = "jspsych-survey-multi-selectmr";
+    var plugin_id_name = "jspsych-survey-multi-select";
     var plugin_id_selector = '#' + plugin_id_name;
     var _join = function( /*args*/ ) {
       var arr = Array.prototype.slice.call(arguments, _join.length);
@@ -78,15 +77,15 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
     //end modification
 
     // inject CSS for trial
-    display_element.innerHTML = '<style id="jspsych-survey-multi-selectmr-css"></style>';
-    var cssstr = ".jspsych-survey-multi-selectmr-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
-      ".jspsych-survey-multi-selectmr-text span.required {color: darkred;}"+
-      ".jspsych-survey-multi-selectmr-horizontal .jspsych-survey-multi-selectmr-text {  text-align: left;}"+
-      ".jspsych-survey-multi-selectmr-option { line-height: 2; }"+
-      ".jspsych-survey-multi-selectmr-horizontal .jspsych-survey-multi-selectmr-option {  display: inline-block;  margin-left: 1em;  margin-right: 1em;  vertical-align: top;}"+
-      "label.jspsych-survey-multi-selectmr-text input[type='checkbox'] {margin-right: 1em;}"
+    display_element.innerHTML = '<style id="jspsych-survey-multi-select-css"></style>';
+    var cssstr = ".jspsych-survey-multi-select-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
+      ".jspsych-survey-multi-select-text span.required {color: darkred;}"+
+      ".jspsych-survey-multi-select-horizontal .jspsych-survey-multi-select-text {  text-align: center;}"+
+      ".jspsych-survey-multi-select-option { line-height: 2; }"+
+      ".jspsych-survey-multi-select-horizontal .jspsych-survey-multi-select-option {  display: inline-block;  margin-left: 1em;  margin-right: 1em;  vertical-align: top;}"+
+      "label.jspsych-survey-multi-select-text input[type='checkbox'] {margin-right: 1em;}"
 
-    display_element.querySelector('#jspsych-survey-multi-selectmr-css').innerHTML = cssstr;
+    display_element.querySelector('#jspsych-survey-multi-select-css').innerHTML = cssstr;
 
     // form element
     var trial_form_id = _join(plugin_id_name, "form");
@@ -98,8 +97,6 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
       trial_form.innerHTML += '<div id="'+preamble_id_name+'" class="'+preamble_id_name+'">'+trial.preamble+'</div>';
     }
     // add multiple-select questions
-
-
     for (var i = 0; i < trial.questions.length; i++) {
       // create question container
       var question_classes = [_join(plugin_id_name, 'question')];
@@ -112,24 +109,18 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
       var question_selector = _join(plugin_id_selector, i);
 
       // add question text
-      display_element.querySelector(question_selector).innerHTML += '<p id="survey-question" class="' + plugin_id_name + '-text survey-multi-selectmr">' + trial.questions[i].prompt + '</p>';
+      display_element.querySelector(question_selector).innerHTML += '<p id="survey-question" class="' + plugin_id_name + '-text survey-multi-select">' + trial.questions[i].prompt + '</p>';
 
-
-      //start modification. Groups all checkboxes in a div.
-      check_boxes = document.createElement('div');
-      check_boxes.setAttribute('class','check_boxes');
-      display_element.querySelector(question_selector).appendChild(check_boxes);
-      //end modification
       // create option check boxes
       for (var j = 0; j < trial.questions[i].options.length; j++) {
         var option_id_name = _join(plugin_id_name, "option", i, j),
           option_id_selector = '#' + option_id_name;
 
         // add check box container
-        check_boxes.innerHTML += '<div id="'+option_id_name+'" class="'+_join(plugin_id_name, 'option')+'"></div>';
+        display_element.querySelector(question_selector).innerHTML += '<div id="'+option_id_name+'" class="'+_join(plugin_id_name, 'option')+'"></div>';
 
         // add label and question text
-        var form = document.getElementById(option_id_name);
+        var form = document.getElementById(option_id_name)
         var input_name = _join(plugin_id_name, 'response', i);
         var input_id = _join(plugin_id_name, 'response', i, j);
         var label = document.createElement('label');
@@ -154,12 +145,12 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
       }
     }
     // add submit button
-    trial_form.innerHTML += '<input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label +'"': '') + '></input>';
     trial_form.innerHTML +='<div class="fail-message"></div>'
+    trial_form.innerHTML += '<input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label +'"': '') + '></input>';
 
     //start modification
     function end_trial() {
-      var endTime = (new Date()).getTime();
+      var endTime = performance.now();
       var response_time = endTime - startTime;
      // kill any remaining setTimeout handlers
      jsPsych.pluginAPI.clearAllTimeouts();
@@ -179,7 +170,7 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
     trial_form.addEventListener('submit', function(event) {
     event.preventDefault();
       // measure response time
-      var endTime = (new Date()).getTime();
+      var endTime = performance.now();
       var response_time = endTime - startTime;
 
       // create object to hold responses
@@ -198,13 +189,7 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
-        //Check if exactly to options where selected
-        if(val.length != 2){
-           has_response.push(false);
-        }
-        else{
-           has_response.push(true);
-        }
+        if(val.length != 2){ has_response.push(false); } else { has_response.push(true); }
       }
       // adds validation to check if at least one option is selected
       if(trial.required && has_response.includes(false)) {
@@ -223,7 +208,7 @@ jsPsych.plugins['survey-multi-selectmr'] = (function() {
       }
     });
 
-    var startTime = (new Date()).getTime();
+    var startTime = performance.now();
   };
 
   return plugin;

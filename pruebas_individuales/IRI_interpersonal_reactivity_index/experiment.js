@@ -38,7 +38,7 @@ var screen_IRI_interpersonal_reactivity_index_experiment = {
     }
 };
 
-var likert_scale = ["A <br> <p style='font-size:10px'>No me <br>describe bien</p> ","B","C","D","E <br> <p style='font-size:10px'>Me describe <br> muy bien</p>"];
+var likert_scale = ['<center><p style="font-size:13px">No me</br>describe bien</p></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><span style="display:inline-block; width: 60px;"></span></center>', '<center><p style="font-size:13px">Me describe</br>muy bien</p></center>'];
 
 var survey01 = {
   type: "survey-multi-choice-horizontal",

@@ -46,7 +46,7 @@ var survey01 = {
   data: {trialid: "survey_01"}
 };
 
-var survey0 = {
+var survey02 = {
   type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Rezo a diario.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
@@ -54,7 +54,7 @@ var survey0 = {
 
 var survey03 = {
   type: "survey-multi-choice-horizontal",
-  questions: [{prompt: "<div class='justified'><br />Consireo que mi fe le otorga significado y prop&oacute;sito a mi vida.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Considero que mi fe le otorga significado y prop&oacute;sito a mi vida.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_03"}
 };
 
@@ -66,7 +66,7 @@ var survey04 = {
 
 var survey05 = {
   type: "survey-multi-choice-horizontal",
-  questions: [{prompt: "<div class='justified'><br />Mi fe es parte importante de qui&eacute;n soy como persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Mi fe es parte importante de quien soy como persona.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_05"}
 };
 
@@ -78,7 +78,7 @@ var survey06 = {
 
 var survey07 = {
   type: "survey-multi-choice-horizontal",
-  questions: [{prompt: "<div class='justified'><br />Disfruto estando al rededor de otras personas que comparten mi fe.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'><br />Disfruto estando alrededor de otras personas que comparten mi fe.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_07"}
 };
 

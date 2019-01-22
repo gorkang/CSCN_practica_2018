@@ -28,8 +28,7 @@ var instructions = {
     trialid: "Instructions_regulacion_emocional"
   }
 };
-
-likert = ['1<br>Muy en desacuerdo', '2', '3', '4<br>Neutral', '5', '6', '7<br>Muy de acuerdo'];
+var likert = ['<center>1<p style="font-size:15px">Muy en</br>desacuerdo</p></center>', '<center><span style="display:inline-block; width: 30px;">2<span style="display:inline-block; width: 30px;"></span></center>', '<center><span style="display:inline-block; width: 30px;">3<span style="display:inline-block; width: 30px;"></span></center>', '<center>4<p style="font-size:15px">Neutral</p></center>', '<center><span style="display:inline-block; width: 30px;">5<span style="display:inline-block; width: 30px;"></span></center>', '<center><span style="display:inline-block; width: 30px;">6<span style="display:inline-block; width: 30px;"></span></center>', '<center>7<p style="font-size:15px">Muy de</br>acuerdo</p></center>'];
 
 var trials = [{
     question: 'Cuando quiero sentir una emoción más positiva (como la alegría o la diversión), cambio lo que estoy pensando.',

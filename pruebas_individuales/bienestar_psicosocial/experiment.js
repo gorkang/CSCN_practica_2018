@@ -38,7 +38,7 @@ var screen_bienestar_psicosocial_experiment = {
     }
 };
 
-var likert_scale = ["Completamente<br> en desacuerdo","Moderadamente<br> en desacuerdo","Ligeramente<br> en desacuerdo","Ligeramente<br> de acuerdo","Moderadamente<br> de acuerdo","Completamente<br> de acuerdo"];
+var likert_scale = ['<center><p style="font-size:14px">Completamente<br> en desacuerdo</p></center>', '<center><p style="font-size:14px">Moderadamente<br> en desacuerdo</p></center>', '<center><p style="font-size:14px">Ligeramente<br> en desacuerdo</p></center>', '<center><p style="font-size:14px">Ligeramente<br>de acuerdo</p></center>', '<center><p style="font-size:14px">Moderadamente<br> de acuerdo</p></center>', '<center><p style="font-size:14px">Completamente<br>de acuerdo</p></center>'];
 
 var survey01 = {
   type: "survey-multi-choice-horizontal",

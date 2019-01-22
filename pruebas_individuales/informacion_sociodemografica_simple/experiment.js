@@ -43,50 +43,65 @@ var screen_informacion_sociodemografica_simple_experiment = {
 
 // Inicio prueba
 
-var survey_trial = {
-  type: 'survey-text-number',
+var rut = {
+  type: "survey-text",
   questions: [{
-    prompt: "RUT (sin puntos, guión ni dígito verificador. Ejemplo si el rut es 17.736.727-1 escribir 17736727):"
-  }],
-  data: {
-    trialid: "rut"
-  }
-};
-
-var survey_trial1 = {
-  type: 'survey-text-age',
-  questions: [{
-    prompt: "EDAD:"
-  }],
-  data: {
-    trialid: "age"
-  }
-};
-
-var survey_trial2 = {
-  type: 'survey-multi-choice-horizontal',
-  questions: [{
-    prompt: "SEXO",
-    options: ["HOMBRE", "MUJER"],
+    prompt: "<div class='justified'><br/>" + 'RUT (sin puntos, guión ni dígito verificador. Ejemplo si el rut es 17.736.727-1 escribir 17736727):' + "<br/></div>",
     required: true,
+    type: "number"
   }],
   data: {
-    trialid: "gender"
+    trialid: "informacion_sociodemografica_rut"
   }
-};
+}
 
-var survey_trial3 = {
-  type: 'survey-multi-choice-horizontal',
+var age = {
+  type: "survey-text",
   questions: [{
-    prompt: "Nivel de estudios",
-    options: ['1. Educación básica incompleta o inferior.', '2. Básica completa.', '3. Media incompleta.', '4. Media completa / Técnica incompleta.', '5. Universitaria incompleta / Técnica completa', '6. Universitaria completa.', '7. Post Grado (Master, Doctor o equivalente).'],
+    prompt: "<div class='justified'><br/>" + '8. ¿Cuántos años tiene?' + "<br/></div>",
+    type: 'range',
+    range: [0, 150],
+    error_text: "Su edad debe estar entre los 0 y 150 años",
+    required: true
+  }],
+  endword: "Años",
+  data: {
+    trialid: "informacion_sociodemografica_age"
+  }
+}
+
+var gender = {
+  type: "survey-multi-choice-vertical",
+  questions: [{
+    prompt: "<div class='justified'><br/>" + 'Género' + "<br/></div>",
+    options: ['Femenino', 'Masculino'],
     required: true
   }],
   data: {
-    trialid: "education"
+    trialid: "informacion_sociodemografica_gender"
+  },
+  on_finish: function(data){
+    if(data.responses == '{"Q0":"Femenino"}'){
+      is_female = true;
+    }
+    else{
+      is_female = false;
+    }
   }
-};
+}
 
+var study = {
+  type: "survey-multi-choice-vertical",
+  questions: [{
+    prompt: "<div class='justified'><br/>" + '14. ¿Cuál es el nivel de educación que alcanzó usted?' + "<br/></div>",
+    options: ['1. Educación básica incompleta o inferior.', '2. Básica completa.', '3. Media incompleta.', '4. Media completa / Técnica incompleta.', '5. Universitaria incompleta / Técnica completa', '6. Universitaria completa.', '7. Post Grado (Master, Doctor o equivalente).'],
+    required: true
+  }],
+  endword: "",
+  data: {
+    trialid: "informacion_sociodemografica_studies"
+  }
+}
 
 // Creacion de timeline e inclusion de trials
 informacion_sociodemografica_simple_experiment = []; //timeline
@@ -105,7 +120,7 @@ if (window.innerWidth != screen.width || window.innerHeight != screen.height) {
 //add the trials to the timeline
 informacion_sociodemografica_simple_experiment.push(screen_informacion_sociodemografica_simple_experiment);
 
-informacion_sociodemografica_simple_experiment.push(survey_trial);
-informacion_sociodemografica_simple_experiment.push(survey_trial1);
-informacion_sociodemografica_simple_experiment.push(survey_trial2);
-informacion_sociodemografica_simple_experiment.push(survey_trial3);
+informacion_sociodemografica_simple_experiment.push(rut);
+informacion_sociodemografica_simple_experiment.push(age);
+informacion_sociodemografica_simple_experiment.push(gender);
+informacion_sociodemografica_simple_experiment.push(study);
