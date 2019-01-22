@@ -5,6 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 
+[scripts]
+test = "python3 main.py"
+
 [packages]
 selenium = "*"
 

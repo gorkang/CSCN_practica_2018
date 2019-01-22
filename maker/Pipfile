@@ -5,8 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 
+[scripts]
+maker = "python3 main.py"
+
 [packages]
 selenium = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.6"

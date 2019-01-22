@@ -1,7 +1,3 @@
-# --------------------------
-#      Execute JavaScript
-# --------------------------
-
 import time, os, random, urllib.request
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -224,6 +220,5 @@ def main():
 				print(line[1:].rstrip('\n'))
 			elif line != '\n':
 				print('Se ha omitido la prueba ' + line[1:].rstrip('\n'))
-	print("\nTesting finalizado, escriba exit para salir del ambiente virtual actual.\n")
 
 if __name__ == '__main__' : main()

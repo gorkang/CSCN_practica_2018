@@ -12,3 +12,4 @@ maker/*
 !maker/classes.py
 !maker/Pipfile
 !maker/Pipfile.lock
+!maker/main.py
