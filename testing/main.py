@@ -27,12 +27,6 @@ def main():
 	config = BasicConfig()
 	
 	randomization = config.basic_config['random']
-	if randomization:
-		cont = random.randrange(10)
-	else:
-		multi = config.basic_config['multi']
-		cont = config.basic_config['cont']
-		words_cont = config.basic_config['word']
 
 	# Si no existe la carpeta Downloads, es creada para guardar las pruebas
 	if not os.path.exists('/'+PATH+'/testing/Downloads'):
@@ -73,8 +67,12 @@ def main():
 
 		if randomization:
 			cont = random.randrange(10)
+			multi_choice = config.basic_config['multi_choice']
+			multi_select = config.basic_config['multi_select']
+			words_cont = config.basic_config['word']
 		else:
-			multi = config.basic_config['multi']
+			multi_choice = config.basic_config['multi_choice']
+			multi_select = config.basic_config['multi_select']
 			cont = config.basic_config['cont']
 			words_cont = config.basic_config['word']
 
@@ -107,7 +105,7 @@ def main():
 			path_to_watch = '/'+PATH+'/testing/Downloads'
 			before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 
-			ronda = 0
+			multi_select_round = 0
 			while True:
 				#ronda += 1
 				#txtfields = someElements = driver.find_elements(By.CLASS_NAME, 'jspsych-content')
@@ -151,7 +149,7 @@ def main():
 					pass
 
 				try:
-					# seleccion múltiple
+					# multiple choice
 					elem = driver.find_elements_by_name("jspsych-survey-multi-choice-horizontal-response-0")
 					if len(elem) == 0:
 						elem = driver.find_elements_by_name("jspsych-survey-multi-choice-vertical-response-0")
@@ -162,15 +160,41 @@ def main():
 					if randomization:
 						elem[random.randrange(len(elem))].click()
 					else:
-						if multi >= len(elem):
-							multi = 0
-						elem[multi].click()
-						multi+=1
+						if multi_choice >= len(elem):
+							multi_choice = 0
+						elem[multi_choice].click()
+						multi_choice+=1
 					if choice:
 						button = driver.find_element_by_id("jspsych-survey-multi-choice-horizontal-next")
 					else:
 						button = driver.find_element_by_id("jspsych-survey-multi-choice-vertical-next")
 					button.click()
+				except:
+					pass
+
+				try:
+					# multiple select
+					elem = driver.find_elements_by_name("jspsych-survey-multi-select-response-0")
+					if (multi_select > len(elem) and multi_select_round == 0):
+						multi_select = 0
+
+					if not randomization:
+						elem[multi_select + multi_select_round].click()
+
+					multi_select_round += 1
+
+					button = driver.find_element_by_id("jspsych-survey-multi-select-next")
+					button.click()
+
+					if multi_select + multi_select_round >= len(elem):
+						multi_select_round = multi_select * -1
+
+					try:
+						# si hay error entonces hay mensaje de error
+						error_message = (driver.find_element_by_css_selector(".fail-message .required")).get_attribute('innerHTML')
+					except:
+						multi_select_round = 0
+						multi_select += 1
 				except:
 					pass
 
@@ -207,6 +231,7 @@ def main():
 			# driver.get_screenshot_as_file(image_path)
 			
 			# close the browser
+			wait = input("PRESS ENTER TO CONTINUE.")
 			driver.close()
 
 			# Si estamos en el maker solo haremos una prueba
