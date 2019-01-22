@@ -9,10 +9,10 @@
 
  // Variables globales
 
-var mr_timeleft_1 = 180000;
-var mr_timeleft_2 = 180000;
-var mr_timeleft_3 = 180000;
-var mr_timeleft_4 = 180000;
+var mr_timeleft_1 = 1000;
+var mr_timeleft_2 = 1000;
+var mr_timeleft_3 = 1000;
+var mr_timeleft_4 = 1000;
 
 var mr_timeout_status1 = 0;
 var mr_timeout_status2 = 0;
@@ -115,14 +115,14 @@ onkeydown = function block_fkeys(event){
     /* ********************************************************  INICIO ENSAYO ******************************************************** */
 
     var mr_prueba1={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["<p class='mrpreamble1'>Ahora mira este objeto:</p><p class='mrpreamble2'>Dos de estos cuatro dibujos muestran el mismo objeto.<br />&iquest;Puedes encontrar los dos?</p><br /><br /><br />"], options:["<br /><img src='img/pag1_3_1.png' />","<br /><img src='img/pag1_3_2.png' />","<br /><img src='img/pag1_3_3.png' />","<br /><img src='img/pag1_3_4.png' />"], horizontal: 'true'}],
         data: {trialid: "MR_Test1"},
         required: true
     };
 
     var mr_prueba2_a={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["2.a"], options:["<br /><img src='img/pag2_1_1.png' />","<br /><img src='img/pag2_1_2.png' />","<br /><img src='img/pag2_1_3.png' />","<br /><img src='img/pag2_1_4.png' />"], horizontal: 'true'}],
         preamble: "<p class='mrpreamble1'>Aqu&iacute; hay tres problemas m&aacute;s. De nuevo, el objeto de destino se muestra <span class='underlined'>dos veces</span> en cada<br />"+
                   "conjunto de cuatro alternativas de entre las que tienes que elegir las correctas.</p><br />",
@@ -131,7 +131,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_prueba2_b={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["3.a"], options:["<br /><img src='img/pag2_2_1.png' />","<br /><img src='img/pag2_2_2.png' />","<br /><img src='img/pag2_2_3.png' />","<br /><img src='img/pag2_2_4.png' />"], horizontal: 'true'}],
         preamble: "<p class='mrpreamble1'>Aqu&iacute; hay tres problemas m&aacute;s. De nuevo, el objeto de destino se muestra <span class='underlined'>dos veces</span> en cada<br />"+
                   "conjunto de cuatro alternativas de entre las que tienes que elegir las correctas.</p><br />",
@@ -140,7 +140,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_prueba2_c={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["4.a"], options:["<br /><img src='img/pag2_3_1.png' />","<br /><img src='img/pag2_3_2.png' />","<br /><img src='img/pag3_3_3.png' />","<br /><img src='img/pag2_3_4.png' />"], horizontal: 'true'}],
         preamble: "<p class='mrpreamble1'>Aqu&iacute; hay tres problemas m&aacute;s. De nuevo, el objeto de destino se muestra <span class='underlined'>dos veces</span> en cada<br />"+
                   "conjunto de cuatro alternativas de entre las que tienes que elegir las correctas.</p><br />",
@@ -153,7 +153,7 @@ onkeydown = function block_fkeys(event){
     /* ********************************************************  INICIO PAGINA 1 ******************************************************** */
 
     var mr_trial1_a={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["1.a"], options:["<br /><img src='img/pag3_1_1.png' />","<br /><img src='img/pag3_1_2.png' />","<br /><img src='img/pag3_1_3.png' />","<br /><img src='img/pag3_1_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial1_a"},
@@ -170,7 +170,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial1_b={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["2.a "], options:["<br /><img src='img/pag3_2_1.png' />","<br /><img src='img/pag3_2_2.png' />","<br /><img src='img/pag3_2_3.png' />","<br /><img src='img/pag3_2_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial1_b"},
@@ -187,7 +187,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial1_c={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["3.a"], options:["<br /><img src='img/pag3_3_1.png' />","<br /><img src='img/pag3_3_2.png' />","<br /><img src='img/pag3_3_3.png' />","<br /><img src='img/pag3_3_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial1_c"},
@@ -204,7 +204,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial1_d={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["4.a"], options:["<br /><img src='img/pag3_4_1.png' />","<br /><img src='img/pag3_4_2.png' />","<br /><img src='img/pag3_4_3.png' />","<br /><img src='img/pag3_4_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial1_d"},
@@ -221,7 +221,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial1_e={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["5.a"], options:["<br /><img src='img/pag3_5_1.png' />","<br /><img src='img/pag3_5_2.png' />","<br /><img src='img/pag3_5_3.png' />","<br /><img src='img/pag3_5_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial1_e"},
@@ -238,7 +238,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial1_f={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["6.a"], options:["<br /><img src='img/pag3_6_1.png' />","<br /><img src='img/pag3_6_2.png' />","<br /><img src='img/pag3_6_3.png' />","<br /><img src='img/pag3_6_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial1_f"},
@@ -259,7 +259,7 @@ onkeydown = function block_fkeys(event){
     /* ********************************************************  INICIO PAGINA 2 ******************************************************** */
 
     var mr_trial2_a={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["7.a"], options:["<br /><img src='img/pag4_1_1.png' />","<br /><img src='img/pag4_1_2.png' />","<br /><img src='img/pag4_1_3.png' />","<br /><img src='img/pag4_1_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial2_a"},
@@ -276,7 +276,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial2_b={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["8.a"], options:["<br /><img src='img/pag4_2_1.png' />","<br /><img src='img/pag4_2_2.png' />","<br /><img src='img/pag4_2_3.png' />","<br /><img src='img/pag4_2_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial2_b"},
@@ -293,7 +293,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial2_c={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["9.a"], options:["<br /><img src='img/pag4_3_1.png' />","<br /><img src='img/pag4_3_2.png' />","<br /><img src='img/pag4_3_3.png' />","<br /><img src='img/pag4_3_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial2_c"},
@@ -310,7 +310,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial2_d={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["10.a"], options:["<br /><img src='img/pag4_4_1.png' />","<br /><img src='img/pag4_4_2.png' />","<br /><img src='img/pag4_4_3.png' />","<br /><img src='img/pag4_4_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial2_d"},
@@ -327,7 +327,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial2_e={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["11.a"], options:["<br /><img src='img/pag4_5_1.png' />","<br /><img src='img/pag4_5_2.png' />","<br /><img src='img/pag4_5_3.png' />","<br /><img src='img/pag4_5_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial2_e"},
@@ -344,7 +344,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial2_f={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["12.a"], options:["<br /><img src='img/pag4_6_1.png' />","<br /><img src='img/pag4_6_2.png' />","<br /><img src='img/pag4_6_3.png' />","<br /><img src='img/pag4_6_4.png' />"], horizontal: 'true'}],
         on_finish: function(){
             clearTimeout(mr_timeout_handler1);
@@ -368,7 +368,7 @@ onkeydown = function block_fkeys(event){
     /* ********************************************************  INICIO PAGINA 3 ******************************************************** */
 
     var mr_trial3_a={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["13.a"], options:["<br /><img src='img/pag5_1_1.png' />","<br /><img src='img/pag5_1_2.png' />","<br /><img src='img/pag5_1_3.png' />","<br /><img src='img/pag5_1_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial3_a"},
@@ -385,7 +385,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial3_b={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["14.a"], options:["<br /><img src='img/pag5_2_1.png' />","<br /><img src='img/pag5_2_2.png' />","<br /><img src='img/pag5_2_3.png' />","<br /><img src='img/pag5_2_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial3_b"},
@@ -402,7 +402,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial3_c={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["15.a"], options:["<br /><img src='img/pag5_3_1.png' />","<br /><img src='img/pag5_3_2.png' />","<br /><img src='img/pag5_3_3.png' />","<br /><img src='img/pag5_3_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial3_c"},
@@ -419,7 +419,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial3_d={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["16.a"], options:["<br /><img src='img/pag5_4_1.png' />","<br /><img src='img/pag5_4_2.png' />","<br /><img src='img/pag5_4_3.png' />","<br /><img src='img/pag5_4_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial3_d"},
@@ -436,7 +436,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial3_e={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["17.a"], options:["<br /><img src='img/pag5_5_1.png' />","<br /><img src='img/pag5_5_2.png' />","<br /><img src='img/pag5_5_3.png' />","<br /><img src='img/pag5_5_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial3_e"},
@@ -453,7 +453,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial3_f={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["18.a"], options:["<br /><img src='img/pag5_6_1.png' />","<br /><img src='img/pag5_6_2.png' />","<br /><img src='img/pag5_6_3.png' />","<br /><img src='img/pag5_6_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial3_f"},
@@ -474,7 +474,7 @@ onkeydown = function block_fkeys(event){
     /* ********************************************************  INICIO PAGINA 4 ******************************************************** */
 
     var mr_trial4_a={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["19.a"], options:["<br /><img src='img/pag6_1_1.png' />","<br /><img src='img/pag6_1_2.png' />","<br /><img src='img/pag6_1_3.png' />","<br /><img src='img/pag6_1_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial4_a"},
@@ -491,7 +491,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial4_b={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["20.a"], options:["<br /><img src='img/pag6_2_1.png' />","<br /><img src='img/pag6_2_2.png' />","<br /><img src='img/pag6_2_3.png' />","<br /><img src='img/pag6_2_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial4_b"},
@@ -508,7 +508,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial4_c={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["21.a"], options:["<br /><img src='img/pag6_3_1.png' />","<br /><img src='img/pag6_3_2.png' />","<br /><img src='img/pag6_3_3.png' />","<br /><img src='img/pag6_3_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial4_c"},
@@ -525,7 +525,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial4_d={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["22.a"], options:["<br /><img src='img/pag6_4_1.png' />","<br /><img src='img/pag6_4_2.png' />","<br /><img src='img/pag6_4_3.png' />","<br /><img src='img/pag6_4_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial4_d"},
@@ -542,7 +542,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial4_e={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["23.a"], options:["<br /><img src='img/pag6_5_1.png' />","<br /><img src='img/pag6_5_2.png' />","<br /><img src='img/pag6_5_3.png' />","<br /><img src='img/pag6_5_4.png' />"], horizontal: 'true'}],
         timing_post_trial: 0,
         data: {trialid: "MR_Trial4_e"},
@@ -559,7 +559,7 @@ onkeydown = function block_fkeys(event){
     };
 
     var mr_trial4_f={
-        type: "survey-multi-selectmr",
+        type: "survey-multi-select",
         questions:[{prompt: ["24.a"], options:["<br /><img src='img/pag6_6_1.png' />","<br /><img src='img/pag6_6_2.png' />","<br /><img src='img/pag6_6_3.png' />","<br /><img src='img/pag6_6_4.png' />"], horizontal: 'true'}],
         on_finish: function(){
             clearTimeout(mr_timeout_handler2);
