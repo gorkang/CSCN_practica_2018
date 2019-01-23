@@ -9,4 +9,6 @@ def main():
 		shutil.copyfile(PATH + "/multi_maker/" + file, PATH + "/data.yaml")
 		os.system("python3 maker.py")
 
+	print("Gracias por usar el sistema multi_maker.")
+
 if __name__ == '__main__' : main()

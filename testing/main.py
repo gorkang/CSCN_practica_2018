@@ -56,9 +56,13 @@ def main():
 
 	print("Elija navegador para probar el testing:")
 	print("1 - Chrome")
-	print("2 - Firefox\n")
+	print("2 - Firefox")
+	print("3 - Salir\n")
+
 	driver_selection = int(input("- "))
 	print("")
+	if driver_selection == 3:
+		return
 
 	# Se leen las pruebas por fila para poder hacer las pruebas
 	file = open('/'+PATH+'/testing/test_list.txt', 'r') 

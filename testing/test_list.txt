@@ -1,6 +1,7 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-comidas_extravagantes
+CRT_numerico
+#comidas_extravagantes
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
 #BIS_barratt_impulsiveness_scale
@@ -27,7 +28,6 @@ comidas_extravagantes
 #actividad_fisica
 #aislamiento_social_y_redes_sociales
 #ansiedad_matematica
-#CRT_numerico
 #CRT_MCQ4
 #habilidad_matematica
 #abreviated_mathematics_anxiety_rating_scale

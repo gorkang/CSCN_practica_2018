@@ -1,88 +1,65 @@
----
 - test configuration:
-    test_name: comidas extravagantes
+    test_name: CRT_numerico
     order: sequential
-    scales:
-      choices_item:
-        - mi papa
-        - mi tio
-        - mi primo
-        - mi abuelo
 
 - initial:
     type: fullscreen
     arguments:
       text: El experimento entrará en modo pantalla completa
 
-- pizza:
+- numerico:
     type: instruction  # Only a piece of text
     arguments:
-      title: Argument Test
-      text: Por favor, responde las siguientes preguntas.
-      questions_mode: random # select mode of the next questions
+      title: Cognitive reflexive test - Numerico
+      text: <br /> En las siguientes p&aacute;ginas vas a ver varios &iacute;tems que difieren en dificultad. <br />Responde todos los que puedas<br />
+      questions_mode: sequential # select mode of the next questions (random, sequential)
     tags:
       - instruction
 
-- papas fritas:
-    type: multi choice
+- numerico:
+    type: range
     arguments:
-      preamble: Preguntas de papas fritas
-      text: ¿A usted le gustan las papas fritas?
-      orientation: vertical
-      choices:
-        - Sí. Me encantan
-        - Las puedo comer.
-        - No. No me gustan.
-    tags:
-      - comida
-      - fenomenología
+      text:  Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota., &iquest;Cu&aacute;nto cuesta la pelota?
+      error_message: creo que no
+      range: [0,10]
+      endword: pesos
 
-- churrasco:
-    type: text
-    arguments:
-      text: Más {input:respuesta_vale} pájaro en {input:respuesta_mano} que 100 volando.
-    tags:
-      - sabiduría
-
-- churrasco:
+- numerico:
     type: number
     arguments:
-      text: Cuanto es 1 + 1?
-    tags:
-      - sabiduría
+      text:  Si Jos&eacute; puede beber un barril de agua en 6 d&iacute;as y Mar&iacute;a puede beber un barril de agua en 12 d&iacute;as, &iquest;Cu&aacute;nto se demorar&iacute;an en tomar un barril de agua juntos?
+      endword: días
 
-- pizza:
-    type: date
+- numerico:
+    type: number
     arguments:
-      text: Indique su fecha de cumpleaños
-    tags:
-      - informacion personal
+      text:  Si 5 m&aacute;quinas demoran 5 minutos en hacer 5 aparatos., &iquest;Cu&aacute;nto tiempo se demorar&iacute;an 100 m&aacute;quinas en hacer 100 aparatos?
+      endword: minutos
 
-- pizza:
-    type: instruction  # Only a piece of text
+- numerico:
+    type: number
     arguments:
-      text: Por favor, responde las siguientes preguntas.
-    tags:
-      - instruction
+      text:  Pedro recibi&oacute; tanto la quinceava nota m&aacute;s alta como la quinceava nota m&aacute;s baja en su clase, &iquest;Cu&aacute;ntos estudiantes hay en la clase?
+      endword: estudiantes
 
-- papas fritas:
+- numerico:
+    type: number
+    arguments:
+      text:  Un hombre compra un cerdo a $60.000, lo vende a $70.000, lo vuelve a comprar por $80.000 y finalmente lo vende por $90.000. &iquest;cu&aacute;nto ha ganado?
+      endword: pesos
+
+- numerico:
     type: multi choice
     arguments:
-      preamble: Preguntas de papas fritas
-      text: ¿comunmente con quien comes papas fritas?
-      orientation: horizontal
-      choices: choices_item
-    tags:
-      - comida
-      - fenomenología
+      text: Sim&oacute;n decide invertir $8.000.000 en el mercado de acciones un d&iacute;a a inicios de 2008. Seis meses despu&eacute;s de haber invertido, el 17 de julio, las acciones que hab&iacute;a comprado bajaron un 50%. Afortunadamente para Sim&oacute;n, desde el 17 de julio hasta el 17 de octubre, las acciones que hab&iacute;a comprado subieron un 75%. En este momento, Sim&oacute;n ha
+      orientation: vertical
+      choices:
+        - a) No ha ganado ni perdido dinero
+        - b) Ha ganado dinero
+        - c) Ha perdido dinero
 
-#- pantalla 1:
-#    type: multiple items
-#    arguments:
-#      items:
-#        - churrasco
-#        - pizza
-#        - papas fritas
-#    tags:
-#        - pantallas condición 1
-...
+- numerico:
+    type: number
+    arguments:
+      text:  En un lago hay un manto de hojas de lirios. Cada d&iacute;a el manto dobla su tama&ntilde;o. Si el manto de lirios se demora 48 d&iacute;as en cubrir el lago completo &iquest;cu&aacute;nto se demorar&iacute;a el manto de lirios en cubrir la mitad del lago
+      endword: días

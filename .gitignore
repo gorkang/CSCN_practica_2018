@@ -16,4 +16,4 @@ maker/multi_maker/*
 !maker/main.py
 !maker/multi_maker.py
 !maker/multi_maker/
-!maker/multi_maker/example_test.yaml
+!maker/multi_maker/example_test.yml

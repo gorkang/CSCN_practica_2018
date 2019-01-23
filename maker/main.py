@@ -18,7 +18,8 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		"multi_choice_vertical":"jspsych-survey-multi-choice-vertical",
 		"text":"jspsych-survey-text",
 		"number":"jspsych-survey-text",
-		"date":"jspsych-survey-text"
+		"date":"jspsych-survey-text",
+		"range":"jspsych-survey-text"
 	}
 
 
@@ -74,10 +75,16 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				# actual question plugin:
 				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"] + "_" + questions[i]["orientation"] ][8:] +"',\n")
 				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join(questions[i]["choices"]) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}],\n")
-			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date":
+			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date" or questions[i]["type"] == "range":
 				# actual question plugin:
 				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
-				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] +"', required: true}], \n")				
+				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] + "'" 
+					+ (", endword: ' " + questions[i]["endword"] + "'" if ("endword" in questions[i]) else "" ) 
+					+ (", required: '" + questions[i]["required"].lower() + "'" if ("required" in questions[i]) else ", required: true" ) 
+					+ (", language: '" + questions[i]["language"].lower() + "'" if ("language" in questions[i]) else "" ) 
+					+ (", error_message: '" + questions[i]["error_message"] + "'" if ("error_message" in questions[i]) else "" ) 
+					+ (", range: " + '['+','.join(str(e) for e in questions[i]["range"])+']' if ("range" in questions[i]) else "" ) 
+					+ "}], \n")				
 			# *************
 			content.insert(document_actual_line + 3, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
 			content.insert(document_actual_line + 4, "};\n")
@@ -88,8 +95,6 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			if i == breaker:
 				break
 		
-		
-
 		# Las preguntas almacenadas se desordenan en caso que se requiera
 		if instructions[actual_int]["random_mode"]:
 			content.insert(document_actual_line, "questions_experiment = jsPsych.randomization.repeat(questions_experiment,1);\n")
@@ -231,15 +236,21 @@ def main():
 		if item_id == "test configuration":
 			try:
 				file_name = spec["test_name"].replace(' ', '_')
-				order = spec["order"]
-				scales = spec["scales"]
+				try:
+					order = spec["order"]
+				except:
+					pass
+				try:
+					scales = spec["scales"]
+				except:
+					pass
 			except:
 				print("existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
 				return
 		else:
 			# Get actual class according to item type.
 			class_name = spec['type'].replace(' ', '_')
-			if class_name == "number" or class_name == "date":
+			if class_name == "number" or class_name == "date" or class_name == "range":
 				cls = classes.__dict__["text"]
 			else:
 				cls = classes.__dict__[class_name]    
@@ -254,20 +265,10 @@ def main():
 	#for item in items: 
 	#	print(item.__dict__)
 
-	# set actual state (read file name, read questions, read answers)
-	state = 0
 	fullscreen_mode = False
-	random_mode_selected = False
 	questions=[]
-	question_statement_selected = False
-	horizontal_type_selected=False
 	instructions = []
-	instruction_title = True
 	questions_cont = 0
-	alternative_horizontal = False
-	alternative_vertical = False
-	alternative_answers_horizontal = []
-	alternative_answers_vertical = []
 	error = False
 
 	plugins = {
@@ -307,17 +308,17 @@ def main():
 				actual_instruction["random_mode"] = False
 			actual_instruction["previous_questions"] = questions_cont
 			instructions.append(actual_instruction)
-		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date"):
+		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date") or (item_type == "range"):
 			actual_question = {}
 
 			actual_question["type"] = item_type
-			try:
-				actual_question["orientation"] = items[i].arguments["orientation"]
-			except:
-				actual_question["orientation"] = None	
 			#----------#
 			# Activación de plugins
-			if actual_question["type"] == "multi_choice":
+			if item_type == "multi_choice":
+				try:
+					actual_question["orientation"] = items[i].arguments["orientation"]
+				except:
+					actual_question["orientation"] = None	
 				if actual_question["orientation"] == "vertical":
 					plugins["jspsych-survey-multi-choice-vertical.js"] = True
 				elif actual_question["orientation"] == "horizontal":
@@ -334,9 +335,32 @@ def main():
 					print("ocurrió un error al seleccionar las alternaticas de la pregunta de multi choice '"+items[i].item_id+"'")
 					error = True
 
-			elif actual_question["type"] == "text" or actual_question["type"] == "number" or actual_question["type"] == "date":
+			elif item_type == "text" or item_type == "number" or item_type == "date" or (item_type == "range"):
 				plugins["jspsych-survey-text.js"] = True
+				try:
+					actual_question["endword"] = items[i].arguments["endword"] 
+				except:
+					pass
 
+				try:
+					actual_question["error_message"] = items[i].arguments["error_message"] 
+				except:
+					pass
+
+				try:
+					actual_question["language"] = items[i].arguments["language"] 
+				except:
+					pass
+
+				try:
+					actual_question["range"] = items[i].arguments["range"] 
+				except:
+					pass
+
+				try:
+					actual_question["required"] = items[i].arguments["required"] 
+				except:
+					pass
 			try:
 				actual_question["preamble"] = items[i].arguments["preamble"] 
 			except:

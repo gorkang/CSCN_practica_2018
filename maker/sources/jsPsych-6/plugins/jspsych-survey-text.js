@@ -40,9 +40,9 @@ jsPsych.plugins['survey-text'] = (function() {
             default: "spanish",
             description: 'Language of fail-message'
           },
-          error_text: {
+          error_message: {
             type: jsPsych.plugins.parameterType.STRING,
-            pretty_name: 'ErrorText',
+            pretty_name: 'ErrorMessage',
             default: undefined,
             description: 'Especific text of fail-message'
           },
@@ -154,38 +154,52 @@ jsPsych.plugins['survey-text'] = (function() {
       
 
       html += '<div id="jspsych-survey-text-' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
-      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt;
-      if (trial.questions[i].type == "range"){
-        html += '</p><input type="' + 'number' + '" name="#jspsych-survey-' + 'number' + '-response-' + i + '" min ="' + min + '" max ="' + max;
-      } else {
-        html += '</p><input type="' + trial.questions[0].type + '" name="#jspsych-survey-' + trial.questions[0].type + '-response-' + i;
-      }
+      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
+
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += '<form>'
+      html += '<input type="' + trial.questions[0].type + '" name="#jspsych-survey-' + trial.questions[0].type + '-response-' + i;
+
+      if (typeof trial.questions[i].range != 'undefined')
+        html += '" min ="' + min + '" max ="' + max;
+
       if(trial.questions[i].rows == 1){
         html += '" size="'+trial.questions[i].columns;
       } else {
         html += '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows;
       }
 
-      html += '" value="' + trial.questions[i].value + '"'; 
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += '" value="0"'; 
+      else
+        html += '" value="' + trial.questions[i].value + '"'; 
       
-      if (i == 0){
-        html += ' autofocus';
-      }
+      html += ' autofocus';
 
-      html += '></input>' + trial.questions[i].endword + '<p></p></div>';
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += ' class="slider" oninput="this.form.amountInput.value=this.value"';
+
+      html += '></input>'; 
+
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        if (typeof trial.questions[i].range != 'undefined')
+          html += '&nbsp;&nbsp;<input type="number" name="amountInput" value="0" min ="' + min + '" max ="' + max+'" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
+        else
+          html += '&nbsp;&nbsp;<input type="number" name="amountInput" value="0" min ="0" max ="100" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
+      html += trial.questions[i].endword
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += '</form>'
+      html += '<p></p></div>';
 
     }
 
     // add submit button
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><p></p>';
-    html +='<div class="fail-message"></div>';
+    html += '<div class="fail-message"></div>';
     display_element.innerHTML = html;
 
     // Focus on first box
-    if (trial.questions[0].type == 'range')
-      var firstBox = document.getElementsByName('#jspsych-survey-'+ 'number' +'-response-0')[0];
-    else
-      var firstBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[0].type +'-response-0')[0];
+    var firstBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[0].type +'-response-0')[0];
     firstBox.focus();
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function(event) {
@@ -210,10 +224,7 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
       for(var index=0; index<matches.length; index++){
-        if (trial.questions[index].type == 'range')
-          var textBox = document.getElementsByName('#jspsych-survey-'+ 'number' +'-response-' + [index])[0];
-        else
-          var textBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[index].type +'-response-' + [index])[0];
+        var textBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[index].type +'-response-' + [index])[0];
 
         var validation = true;
         var val = matches[index].querySelector('textarea, input').value;
@@ -229,9 +240,10 @@ jsPsych.plugins['survey-text'] = (function() {
           pass = false
         // next trial and check if is a valid element
         if (trial.questions[index].type == "number")
-          validation = $.isNumeric(val) === true;
-        else if (trial.questions[index].type == "range")
-          validation = $.isNumeric(val) === true && val <= max && val >= min;
+          if (typeof trial.questions[index].range == 'undefined')
+            validation = $.isNumeric(val) === true;
+          else
+            validation = $.isNumeric(val) === true && val <= max && val >= min;
 
         if (validation && pass) {
           display_element.innerHTML = '';
@@ -241,13 +253,13 @@ jsPsych.plugins['survey-text'] = (function() {
           textBox.blur();
           textBox.focus();
           var message = '';
-          if (typeof trial.questions[index].error_text == 'undefined') {
+          if (typeof trial.questions[index].error_message == 'undefined') {
             if (trial.questions[index].language == "english")
               message = 'Please, verify your answer.';
             else if (trial.questions[index].language == "spanish")
               message = 'Por favor, verifique su respuesta.';
           } else {
-            message = trial.questions[index].error_text;
+            message = trial.questions[index].error_message;
           }
           display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">' + message +'</span>';
           event.stopPropagation();
