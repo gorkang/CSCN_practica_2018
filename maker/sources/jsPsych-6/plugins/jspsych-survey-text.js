@@ -182,10 +182,11 @@ jsPsych.plugins['survey-text'] = (function() {
       html += '></input>'; 
 
       if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += '&nbsp;&nbsp;<input type="number" name="amountInput" value="0" ';
         if (typeof trial.questions[i].range != 'undefined')
-          html += '&nbsp;&nbsp;<input type="number" name="amountInput" value="0" min ="' + min + '" max ="' + max+'" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
+          html += 'min ="' + min + '" max ="' + max+'" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
         else
-          html += '&nbsp;&nbsp;<input type="number" name="amountInput" value="0" min ="0" max ="100" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
+          html += 'min ="0" max ="100" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
       html += trial.questions[i].endword
       if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
         html += '</form>'

@@ -40,6 +40,7 @@
 - numerico:
     type: range
     arguments:
+      title: Number Question
       text:  Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota., &iquest;Cu&aacute;nto cuesta la pelota?
       error_message: creo que esa no es la respuesta
       range: [0,10]
@@ -58,6 +59,14 @@
       text: Cuanto es 1 + 1?
     tags:
       - sabiduría
+
+- churrasco:
+    type: number
+    arguments:
+      text: Entre 1 y 10 como me veo?
+      range: [1,10]
+    tags:
+      - vanidad
 
 - pizza:
     type: date

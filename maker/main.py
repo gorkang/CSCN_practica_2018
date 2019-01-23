@@ -1,3 +1,10 @@
+#####
+# 
+# Developed by Herman Valencia
+# if you have any question send a message to herman.valencia.13@sansano.usm.cl
+#
+#####
+
 import shutil, math, os, subprocess, yaml, importlib
 from subprocess import PIPE, Popen, STDOUT
 from pathlib import Path
@@ -69,29 +76,41 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		for i in range(instructions[actual_int]["previous_questions"],len(questions)):
 
 			content.insert(document_actual_line + 0, "var question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = {\n")
+			document_actual_line += 1
 
-			# *************
+			try:
+				content.insert(document_actual_line + 0, "  title: '"+ questions[i]["title"] +"',\n")
+				document_actual_line += 1
+			except:
+				pass
+
+			try:
+				content.insert(document_actual_line + 0, "  preamble: ' <b><big>" + questions[i]["preamble"] + "</big></b> ',\n")
+				document_actual_line += 1
+			except:
+				pass
+
 			if questions[i]["type"] == "multi_choice":
 				# actual question plugin:
-				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"] + "_" + questions[i]["orientation"] ][8:] +"',\n")
-				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join(questions[i]["choices"]) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}],\n")
+				content.insert(document_actual_line + 0, "  type: '"+ plugins[questions[i]["type"] + "_" + questions[i]["orientation"] ][8:] +"',\n")
+				content.insert(document_actual_line + 1, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join(questions[i]["choices"]) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}],\n")
 			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date" or questions[i]["type"] == "range":
 				# actual question plugin:
-				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
-				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] + "'" 
+				content.insert(document_actual_line + 0, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
+				content.insert(document_actual_line + 1, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] + "'" 
 					+ (", endword: ' " + questions[i]["endword"] + "'" if ("endword" in questions[i]) else "" ) 
 					+ (", required: '" + questions[i]["required"].lower() + "'" if ("required" in questions[i]) else ", required: true" ) 
 					+ (", language: '" + questions[i]["language"].lower() + "'" if ("language" in questions[i]) else "" ) 
 					+ (", error_message: '" + questions[i]["error_message"] + "'" if ("error_message" in questions[i]) else "" ) 
 					+ (", range: " + '['+','.join(str(e) for e in questions[i]["range"])+']' if ("range" in questions[i]) else "" ) 
 					+ "}], \n")				
-			# *************
-			content.insert(document_actual_line + 3, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
-			content.insert(document_actual_line + 4, "};\n")
 
-			content.insert(document_actual_line + 5, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
-			content.insert(document_actual_line + 6, "\n")
-			document_actual_line += 7
+			content.insert(document_actual_line + 2, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
+			content.insert(document_actual_line + 3, "};\n")
+
+			content.insert(document_actual_line + 4, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
+			content.insert(document_actual_line + 5, "\n")
+			document_actual_line += 6
 			if i == breaker:
 				break
 		
@@ -362,7 +381,7 @@ def main():
 				except:
 					pass
 			try:
-				actual_question["preamble"] = items[i].arguments["preamble"] 
+				actual_question["preamble"] = items[i].arguments["title"] 
 			except:
 				pass
 			try:

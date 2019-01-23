@@ -1,3 +1,10 @@
+#####
+# 
+# Developed by Herman Valencia
+# if you have any question send a message to herman.valencia.13@sansano.usm.cl
+#
+#####
+
 import time, os, random, urllib.request
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options

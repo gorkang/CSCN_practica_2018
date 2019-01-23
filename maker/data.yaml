@@ -19,6 +19,7 @@
 - numerico:
     type: range
     arguments:
+      title: soy un titulo
       text:  Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota., &iquest;Cu&aacute;nto cuesta la pelota?
       error_message: creo que no
       range: [0,10]
