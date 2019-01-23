@@ -175,12 +175,31 @@ def main():
 				try:
 					# multiple select
 					elem = driver.find_elements_by_name("jspsych-survey-multi-select-response-0")
-					if (multi_select > len(elem) and multi_select_round == 0):
-						multi_select = 0
+					try:
+						# si hay error entonces no estaremos en la primera ronda
+						error_message = (driver.find_element_by_css_selector(".fail-message .required")).get_attribute('innerHTML')
+					except:
+						# se define la cantidad de alternativas de la pregunta actual y se crea un arreglo para el caso de randoms
+						if randomization:
+							random_select = []
+							for i in range(len(elem)):
+								random_select.append(i)
 
-					if not randomization:
+						# en caso que si sea la primera ronda de la pregunta probaremos que pasa si apretamos el boton continuar sin elegir opciones
+						pass
+
+					if (multi_select >= len(elem) and multi_select_round == 0):
+						multi_select = 0
+						
+					if randomization:
+						try:
+							elem[random_select.pop(random.randrange(len(random_select)))].click()
+						except:
+							print("error, no hay suficientes checkboxes para seleccionar")
+					else:
+						print(str(multi_select) + " - " + str(multi_select_round) + " = " + str(multi_select + multi_select_round))
 						elem[multi_select + multi_select_round].click()
- 
+
 					multi_select_round += 1
 
 					button = driver.find_element_by_id("jspsych-survey-multi-select-next")
