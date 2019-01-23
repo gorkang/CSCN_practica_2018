@@ -180,7 +180,7 @@ def main():
 
 					if not randomization:
 						elem[multi_select + multi_select_round].click()
-
+ 
 					multi_select_round += 1
 
 					button = driver.find_element_by_id("jspsych-survey-multi-select-next")
