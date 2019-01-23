@@ -1,0 +1,88 @@
+---
+- test configuration:
+    test_name: comidas extravagantes
+    order: sequential
+    scales:
+      choices_item:
+        - mi papa
+        - mi tio
+        - mi primo
+        - mi abuelo
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+- pizza:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Argument Test
+      text: Por favor, responde las siguientes preguntas.
+      questions_mode: random # select mode of the next questions
+    tags:
+      - instruction
+
+- papas fritas:
+    type: multi choice
+    arguments:
+      preamble: Preguntas de papas fritas
+      text: ¿A usted le gustan las papas fritas?
+      orientation: vertical
+      choices:
+        - Sí. Me encantan
+        - Las puedo comer.
+        - No. No me gustan.
+    tags:
+      - comida
+      - fenomenología
+
+- churrasco:
+    type: text
+    arguments:
+      text: Más {input:respuesta_vale} pájaro en {input:respuesta_mano} que 100 volando.
+    tags:
+      - sabiduría
+
+- churrasco:
+    type: number
+    arguments:
+      text: Cuanto es 1 + 1?
+    tags:
+      - sabiduría
+
+- pizza:
+    type: date
+    arguments:
+      text: Indique su fecha de cumpleaños
+    tags:
+      - informacion personal
+
+- pizza:
+    type: instruction  # Only a piece of text
+    arguments:
+      text: Por favor, responde las siguientes preguntas.
+    tags:
+      - instruction
+
+- papas fritas:
+    type: multi choice
+    arguments:
+      preamble: Preguntas de papas fritas
+      text: ¿comunmente con quien comes papas fritas?
+      orientation: horizontal
+      choices: choices_item
+    tags:
+      - comida
+      - fenomenología
+
+#- pantalla 1:
+#    type: multiple items
+#    arguments:
+#      items:
+#        - churrasco
+#        - pizza
+#        - papas fritas
+#    tags:
+#        - pantallas condición 1
+...

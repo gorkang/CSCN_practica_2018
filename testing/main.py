@@ -197,7 +197,6 @@ def main():
 						except:
 							print("error, no hay suficientes checkboxes para seleccionar")
 					else:
-						print(str(multi_select) + " - " + str(multi_select_round) + " = " + str(multi_select + multi_select_round))
 						elem[multi_select + multi_select_round].click()
 
 					multi_select_round += 1

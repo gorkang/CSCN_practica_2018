@@ -1,5 +1,6 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
+comidas_extravagantes
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
 #BIS_barratt_impulsiveness_scale
@@ -13,7 +14,7 @@
 #wais_matrices
 #wais_working_memory
 #razonamiento_bayesiano
-rotacion_mental
+#rotacion_mental  ----- adaptar plugin multiselect
 
 # ---------------------- arregladas ------------------------
 
