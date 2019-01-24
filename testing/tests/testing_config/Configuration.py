@@ -9,8 +9,9 @@ class BasicConfig(object):
 		numeric_cont = 0
 		randomization = False
 		multichoice_init = 0
+		multiselect_init = 0
 		words_cont = 0
 
-		config_dict = {'cont': numeric_cont, 'random': randomization, 'multi': multichoice_init, 'word': words_cont}
+		config_dict = {'cont': numeric_cont, 'random': randomization, 'multi_choice': multichoice_init, 'multi_select': multichoice_init, 'word': words_cont}
 
 		return config_dict

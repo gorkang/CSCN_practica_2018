@@ -1,0 +1,105 @@
+---
+- test configuration:
+    test_name: comidas extravagantes
+    order: sequential
+    scales:
+      choices_item:
+        - mi papa
+        - mi tio
+        - mi primo
+        - mi abuelo
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+- pizza:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Argument Test
+      text: Por favor, responde las siguientes preguntas.
+      questions_mode: random # select mode of the next questions
+    tags:
+      - instruction
+
+- papas fritas:
+    type: multi choice
+    arguments:
+      preamble: Preguntas de papas fritas
+      text: ¿A usted le gustan las papas fritas?
+      orientation: vertical
+      choices:
+        - Sí. Me encantan
+        - Las puedo comer.
+        - No. No me gustan.
+    tags:
+      - comida
+      - fenomenología
+
+- numerico:
+    type: range
+    arguments:
+      title: Number Question
+      text:  Un bate y una pelota cuestan $1.100 en total. El bate cuesta $1.000 m&aacute;s que la pelota., &iquest;Cu&aacute;nto cuesta la pelota?
+      error_message: creo que esa no es la respuesta
+      range: [0,10]
+      endword: pesos
+
+- churrasco:
+    type: text
+    arguments:
+      text: Más {input:respuesta_vale} pájaro en {input:respuesta_mano} que 100 volando.
+    tags:
+      - sabiduría
+
+- churrasco:
+    type: number
+    arguments:
+      text: Cuanto es 1 + 1?
+    tags:
+      - sabiduría
+
+- churrasco:
+    type: number
+    arguments:
+      text: Entre 1 y 10 como me veo?
+      range: [1,10]
+    tags:
+      - vanidad
+
+- pizza:
+    type: date
+    arguments:
+      text: Indique su fecha de cumpleaños
+    tags:
+      - informacion personal
+
+- pizza:
+    type: instruction  # Only a piece of text
+    arguments:
+      text: Por favor, responde las siguientes preguntas.
+    tags:
+      - instruction
+
+- papas fritas:
+    type: multi choice
+    arguments:
+      preamble: Preguntas de papas fritas
+      text: ¿comunmente con quien comes papas fritas?
+      orientation: horizontal
+      choices: choices_item
+    tags:
+      - comida
+      - fenomenología
+
+#- pantalla 1:
+#    type: multiple items
+#    arguments:
+#      items:
+#        - churrasco
+#        - pizza
+#        - papas fritas
+#    tags:
+#        - pantallas condición 1
+...

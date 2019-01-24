@@ -4,6 +4,7 @@ testing/Images
 
 # Ignore everything from maker
 maker/*
+maker/multi_maker/*
 
 # But not these files...
 !maker/sources
@@ -13,3 +14,6 @@ maker/*
 !maker/Pipfile
 !maker/Pipfile.lock
 !maker/main.py
+!maker/multi_maker.py
+!maker/multi_maker/
+!maker/multi_maker/example_test.yml
