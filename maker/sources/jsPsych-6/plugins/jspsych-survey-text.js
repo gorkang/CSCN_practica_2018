@@ -181,12 +181,13 @@ jsPsych.plugins['survey-text'] = (function() {
 
       html += '></input>'; 
 
-      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range'){
         html += '&nbsp;&nbsp;<input type="number" name="amountInput" value="0" ';
         if (typeof trial.questions[i].range != 'undefined')
           html += 'min ="' + min + '" max ="' + max+'" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
         else
           html += 'min ="0" max ="100" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
+      }
       html += trial.questions[i].endword
       if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
         html += '</form>'
@@ -230,9 +231,8 @@ jsPsych.plugins['survey-text'] = (function() {
         var validation = true;
         var val = matches[index].querySelector('textarea, input').value;
 
-        if (trial.questions[index].required != 'undefined'){
+        if (trial.questions[index].required != 'undefined')
           required = trial.questions[index].required;
-        }
         else
           required = false;
 
@@ -245,7 +245,7 @@ jsPsych.plugins['survey-text'] = (function() {
             validation = $.isNumeric(val) === true;
           else
             validation = $.isNumeric(val) === true && val <= max && val >= min;
-
+ 
         if (validation && pass) {
           display_element.innerHTML = '';
           jsPsych.pluginAPI.clearAllTimeouts();
