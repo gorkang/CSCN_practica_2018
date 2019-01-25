@@ -16,7 +16,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	f.close()
 
 	breaker = 0
-	next_element = None
+	next_element = []
 	verifications = []
 
 	# inicio documento en linea 19
@@ -114,12 +114,28 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 					+ (", range: " + '['+','.join(str(e) for e in questions[i]["range"])+']' if ("range" in questions[i]) else "" ) 
 					+ "}], \n")				
 
-			content.insert(document_actual_line + 2, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
+			content.insert(document_actual_line + 2, "  data: {trialid: '"+ questions[i]["item_id"] +"'}\n")
 			content.insert(document_actual_line + 3, "};\n")
 			document_actual_line += 4
 
 			# Si existe condicional se agrega el condicional y sus caminos:
 			'''
+			var data = [{'rt': 1905, 'responses': '{"Q0":"123"}', 'trialid': "VCRT_05", 'trial_type': "survey-text", 'trial_index': 2}, {'rt': 1905, 'responses': '{"Q0":"456"}', 'trialid': "VCRT_06", 'trial_type': "survey-text", 'trial_index': 2}];
+			var answer = "";
+			verification += data.forEach(function(element) { 
+
+			verification += 'if(element.trialid == "VCRT_05"){ if (answer != "false") { answer = (element['+ "'" +'responses'+ "'" +'] == '+ "'" +'{"Q0":"123"}'+ "'" +').toString()}}'
+
+			verification += if(element.trialid == "VCRT_06"){ 
+			verification += if (answer != "false") {
+			verification += answer = (element['responses'] == '{"Q0":"456"}').toString()
+			verification += }}});
+
+			console.log(answer == "true")
+
+
+
+
 				content.insert(document_actual_line + 0, "var if_"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n"
 				content.insert(document_actual_line + 1, "    timeline:[otra_crt10], \n"
 				content.insert(document_actual_line + 2, "    conditional_function: function(){ \n"
@@ -138,44 +154,50 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				content.insert(document_actual_line + 15, "} \n"
 				document_actual_line += 16
 			'''
-			if questions[i]["previous"] != None:
-				print("previous")
-				print(questions[i]["previous"])
+			#if questions[i]["previous"] != None:
+			#	print("previous")
+			#	print(questions[i]["previous"])
+			#	print(questions[i])
 
-			if questions[i]["next"] != None:
-				for key, values in questions[i]["next"].items():
-					next_element = key
-					verifications = values
+			#if questions[i]["next"] != None:
+			#	for key, values in questions[i]["next"].items():
+			#		next_element.append(key)
+			#		verifications.append(values)
 			
-			'''
-			if questions[i]["previous"] != None or next_element != None:
-				content.insert(document_actual_line + 0, "var if_"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
+			if questions[i]["previous"] != None:
+				verification = "        data.forEach(function(element) { "
+				if questions[i]["previous"] != None:
+					for prev in questions[i]["previous"]:
+						for lista in prev:
+							for restriction in prev[lista]:
+				#				print(type(restriction))
+								for key, value in restriction.items():
+									if value == False:
+										value = 'No'
+									elif value == True:
+										value = 'Yes'
+									verification += 'if(element.trialid == "'+ key +'"){ if (answer != "false") { answer = (element['+ "'" +'responses'+ "'" +'] == '+ "'" +'{"Q0":"' + value + '"}'+ "'" +').toString()}}'
+				verification += '})\n'
+
+				content.insert(document_actual_line + 0, "var if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
 				content.insert(document_actual_line + 1, "    timeline:[question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"], \n")
 				content.insert(document_actual_line + 2, "    conditional_function: function(){ \n")
 				content.insert(document_actual_line + 3, "        var data = jsPsych.data.get().values(); \n")
-				content.insert(document_actual_line + 4, "        console.log(selected = jsPsych.data.get()); \n")
-				"        if (data != '{" + '"' + "Q0" + '"' + ":" + '"' + "Otra" + '"' + "}'){ \n"
-				verification = "        if ("
-				data != '{" + '"' + "Q0" + '"' + ":" + '"' + "Otra" + '"' + "}'){ \n"
-
+				content.insert(document_actual_line + 4, "        var answer = " + '""' + "; \n")
 				content.insert(document_actual_line + 5, verification)
-				content.insert(document_actual_line + 6, "            return false; \n")
-				content.insert(document_actual_line + 7, "        } else { \n")
-				content.insert(document_actual_line + 8, "            return true; \n")
-				content.insert(document_actual_line + 9, "        } \n")
-				content.insert(document_actual_line + 10, "    } \n")
-				content.insert(document_actual_line + 11, "} \n")
-				content.insert(document_actual_line + 12, "\n")
-				content.insert(document_actual_line + 13, "var complete_crt10 = { \n")
-				content.insert(document_actual_line + 14, "    timeline:[verbal_crt10, if_crt10] \n")
-				content.insert(document_actual_line + 15, "} \n")
-				document_actual_line += 16
-			else:
-			'''
-			# En caso contrario solo agregamos la pregunta:
-			content.insert(document_actual_line + 0, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
-			content.insert(document_actual_line + 1, "\n")
-			document_actual_line += 2
+				content.insert(document_actual_line + 6, "        return answer == 'true'; \n")
+				content.insert(document_actual_line + 7, "    } \n")
+				content.insert(document_actual_line + 8, "} \n")
+				content.insert(document_actual_line + 9, "\n")
+				content.insert(document_actual_line + 10, "questions_experiment.push(if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
+				content.insert(document_actual_line + 11, "\n")
+				document_actual_line += 12
+
+			else:	
+				# En caso contrario solo agregamos la pregunta:
+				content.insert(document_actual_line + 0, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
+				content.insert(document_actual_line + 1, "\n")
+				document_actual_line += 2
 			if i == breaker:
 				break
 		
@@ -336,7 +358,6 @@ def main():
 				print("existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
 				return
 		else:
-			print(spec)
 			# Get actual class according to item type.
 			class_name = spec['type'].replace(' ', '_')
 			if class_name == "number" or class_name == "date" or class_name == "range":
@@ -359,6 +380,7 @@ def main():
 	instructions = []
 	questions_cont = 0
 	error = False
+	ids = {}
 
 	plugins = {
 		"jspsych-survey-multi-choice-horizontal.js": False,
@@ -459,6 +481,11 @@ def main():
 			except:
 				pass
 
+			if items[i].item_id in ids:
+				ids[items[i].item_id] += 1
+			else:
+				ids[items[i].item_id] = 1
+			actual_question["item_id"] = str(items[i].item_id) + "_" + str(ids[items[i].item_id])
 			actual_question["previous"] = items[i].previous
 			actual_question["next"] = items[i].next
 
@@ -470,6 +497,10 @@ def main():
 			print("Información adicional:")
 			items[i].render()
 			error = True
+
+	# se arreglan los id's dependiendo de la cantidad de elementos de la pregunta i
+	for question in questions:
+		question["item_id"] = (''.join(question["item_id"].split('_')[:-1]) + "_" + ("0"*(len(str(abs((ids[''.join(question["item_id"].split('_')[:-1])])))) - len(str(abs(( int(question["item_id"].split('_')[-1]))))) )) + question["item_id"].split('_')[-1] )
 
 	if (not fullscreen_mode):
 		fullscreen = {"fullscreen_mode": False}

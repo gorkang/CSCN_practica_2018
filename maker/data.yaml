@@ -1,6 +1,6 @@
 ---
 - test configuration:
-    test_name: conditional test
+    test_name: Assist test
     order: sequential
     scales:
       si_no:
@@ -105,20 +105,20 @@
     type: multi choice
     previous:
       L1:
-        - Tabaco_01: si
+        - Tabaco_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
-        - Alcohol_01: No
-        - Cannabis_01: No
-        - Cocaina_01: No
-        - Anfetamina_01: No
-        - Inhalantes_01: No
-        - Tranquilizantes_01: No
-        - Alucinogenos_01: No
-        - Opiaceos_01: No
-        - Otros_01: No
+        - Alcohol_1: No
+        - Cannabis_1: No
+        - Cocaina_1: No
+        - Anfetamina_1: No
+        - Inhalantes_1: No
+        - Tranquilizantes_1: No
+        - Alucinogenos_1: No
+        - Opiaceos_1: No
+        - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -128,21 +128,21 @@
     type: multi choice
     previous:
       L1:
-        - Alcohol_01: si
+        - Alcohol_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: Nunca
-        - Cannabis_01: No
-        - Cocaina_01: No
-        - Anfetamina_01: No
-        - Inhalantes_01: No
-        - Tranquilizantes_01: No
-        - Alucinogenos_01: No
-        - Opiaceos_01: No
-        - Otros_01: No
+        - Alcohol_2: Nunca
+        - Cannabis_1: No
+        - Cocaina_1: No
+        - Anfetamina_1: No
+        - Inhalantes_1: No
+        - Tranquilizantes_1: No
+        - Alucinogenos_1: No
+        - Opiaceos_1: No
+        - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido bebidas alcohólicas (cerveza, vino, licores, destilados, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -152,23 +152,23 @@
     type: multi choice
     previous:
       L1:
-        - Cannabis_01: si
+        - Cannabis_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: Nunca
-        - Cocaina_01: No
-        - Anfetamina_01: No
-        - Inhalantes_01: No
-        - Tranquilizantes_01: No
-        - Alucinogenos_01: No
-        - Opiaceos_01: No
-        - Otros_01: No
+        - Cannabis_2: Nunca
+        - Cocaina_1: No
+        - Anfetamina_1: No
+        - Inhalantes_1: No
+        - Tranquilizantes_1: No
+        - Alucinogenos_1: No
+        - Opiaceos_1: No
+        - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido cannabis (marihuana, costo, hierba, hashish, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -178,25 +178,25 @@
     type: multi choice
     previous:
       L1:
-        - Cocaina_01: si
+        - Cocaina_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: 
+        - Cannabis_2: 
           - Nunca
           - None
-        - Cocaina_02: Nunca
-        - Anfetamina_01: No
-        - Inhalantes_01: No
-        - Tranquilizantes_01: No
-        - Alucinogenos_01: No
-        - Opiaceos_01: No
-        - Otros_01: No
+        - Cocaina_2: Nunca
+        - Anfetamina_1: No
+        - Inhalantes_1: No
+        - Tranquilizantes_1: No
+        - Alucinogenos_1: No
+        - Opiaceos_1: No
+        - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido cocaína (coca, farlopa, crack, base, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -206,27 +206,27 @@
     type: multi choice
     previous:
       L1:
-        - Anfetamina_01: si
+        - Anfetamina_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: 
+        - Cannabis_2: 
           - Nunca
           - None
-        - Cocaina_02: 
+        - Cocaina_2: 
           - Nunca
           - None
-        - Anfetamina_02: Nunca
-        - Inhalantes_02: No
-        - Tranquilizantes_02: No
-        - Alucinogenos_02: No
-        - Opiaceos_02: No
-        - Otros_02: No
+        - Anfetamina_2: Nunca
+        - Inhalantes_2: No
+        - Tranquilizantes_2: No
+        - Alucinogenos_2: No
+        - Opiaceos_2: No
+        - Otros_2: No
     arguments:
       text: ¿Con qué frecuencia ha consumido anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -236,29 +236,29 @@
     type: multi choice
     previous:
       L1:
-        - Inhalantes_01: si
+        - Inhalantes_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: 
+        - Cannabis_2: 
           - Nunca
           - None
-        - Cocaina_02: 
+        - Cocaina_2: 
           - Nunca
           - None
-        - Anfetamina_02: 
+        - Anfetamina_2: 
           - Nunca
           - None
-        - Inhalantes_02: Nunca
-        - Tranquilizantes_02: No
-        - Alucinogenos_02: No
-        - Opiaceos_02: No
-        - Otros_02: No
+        - Inhalantes_2: Nunca
+        - Tranquilizantes_2: No
+        - Alucinogenos_2: No
+        - Opiaceos_2: No
+        - Otros_2: No
     arguments:
       text: ¿Con qué frecuencia ha consumido inhalantes (colas, gasolina/nafta, pegamento, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -268,31 +268,31 @@
     type: multi choice
     previous:
       L1:
-        - Tranquilizantes_01: si
+        - Tranquilizantes_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: 
+        - Cannabis_2: 
           - Nunca
           - None
-        - Cocaina_02: 
+        - Cocaina_2: 
           - Nunca
           - None
-        - Anfetamina_02: 
+        - Anfetamina_2: 
           - Nunca
           - None
-        - Inhalantes_02: 
+        - Inhalantes_2: 
           - Nunca
           - None
-        - Tranquilizantes_02: Nunca
-        - Alucinogenos_02: No
-        - Opiaceos_02: No
-        - Otros_02: No
+        - Tranquilizantes_2: Nunca
+        - Alucinogenos_2: No
+        - Opiaceos_2: No
+        - Otros_2: No
     arguments:
       text: ¿Con qué frecuencia ha consumido tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -302,33 +302,33 @@
     type: multi choice
     previous:
       L1:
-        - Alucinogenos_01: si
+        - Alucinogenos_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: 
+        - Cannabis_2: 
           - Nunca
           - None
-        - Cocaina_02: 
+        - Cocaina_2: 
           - Nunca
           - None
-        - Anfetamina_02: 
+        - Anfetamina_2: 
           - Nunca
           - None
-        - Inhalantes_02: 
+        - Inhalantes_2: 
           - Nunca
           - None
-        - Tranquilizantes_02: 
+        - Tranquilizantes_2: 
           - Nunca
           - None
-        - Alucinogenos_02: Nunca
-        - Opiaceos_02: No
-        - Otros_02: No
+        - Alucinogenos_2: Nunca
+        - Opiaceos_2: No
+        - Otros_2: No
     arguments:
       text: ¿Con qué frecuencia ha consumido alucinógenos (LSD, ácidos, ketamina, PCP, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -338,35 +338,35 @@
     type: multi choice
     previous:
       L1:
-        - Opiaceos_01: si
+        - Opiaceos_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: 
+        - Cannabis_2: 
           - Nunca
           - None
-        - Cocaina_02: 
+        - Cocaina_2: 
           - Nunca
           - None
-        - Anfetamina_02: 
+        - Anfetamina_2: 
           - Nunca
           - None
-        - Inhalantes_02: 
+        - Inhalantes_2: 
           - Nunca
           - None
-        - Tranquilizantes_02: 
+        - Tranquilizantes_2: 
           - Nunca
           - None
-        - Alucinogenos_02: 
+        - Alucinogenos_2: 
           - Nunca
           - None
-        - Opiaceos_02: Nunca
-        - Otros_02: No
+        - Opiaceos_2: Nunca
+        - Otros_2: No
     arguments:
       text: ¿Con qué frecuencia ha consumido opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -376,37 +376,37 @@
     type: multi choice
     previous:
       L1:
-        - Otros_01: si
+        - Otros_1: Si
     next:
-      Tabaco_06:
-        - Tabaco_02: 
+      Tabaco_6:
+        - Tabaco_2: 
           - Nunca
           - None
-        - Alcohol_02: 
+        - Alcohol_2: 
           - Nunca
           - None
-        - Cannabis_02: 
+        - Cannabis_2: 
           - Nunca
           - None
-        - Cocaina_02: 
+        - Cocaina_2: 
           - Nunca
           - None
-        - Anfetamina_02: 
+        - Anfetamina_2: 
           - Nunca
           - None
-        - Inhalantes_02: 
+        - Inhalantes_2: 
           - Nunca
           - None
-        - Tranquilizantes_02: 
+        - Tranquilizantes_2: 
           - Nunca
           - None
-        - Alucinogenos_02: 
+        - Alucinogenos_2: 
           - Nunca
           - None
-        - Opiaceos_02: 
+        - Opiaceos_2: 
           - Nunca
           - None
-        - Otros_02: 
+        - Otros_2: 
           - Nunca
     arguments:
       text: ¿Con qué frecuencia ha consumido otro tipo de sustancia en los últimos 3 meses?
@@ -417,7 +417,7 @@
     type: multi choice
     previous:
       L1:
-        - Tabaco_01: si
+        - Tabaco_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
       choices: likert_5
@@ -427,7 +427,7 @@
     type: multi choice
     previous:
       L1:
-        - Alcohol_01: si
+        - Alcohol_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?
       choices: likert_5
@@ -437,7 +437,7 @@
     type: multi choice
     previous:
       L1:
-        - Cannabis_01: si
+        - Cannabis_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir cannabis (marihuana, costo, hierba, hashish, etc.)?
       choices: likert_5
@@ -447,7 +447,7 @@
     type: multi choice
     previous:
       L1:
-        - Cocaina_01: si
+        - Cocaina_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir cocaína (coca, farlopa, crack, base, etc.)?
       choices: likert_5
@@ -457,7 +457,7 @@
     type: multi choice
     previous:
       L1:
-        - Anfetamina_01: si
+        - Anfetamina_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?
       choices: likert_5
@@ -467,7 +467,7 @@
     type: multi choice
     previous:
       L1:
-        - Inhalantes_01: si
+        - Inhalantes_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir inhalantes (colas, gasolina/nafta, pegamento, etc.)?
       choices: likert_5
@@ -477,7 +477,7 @@
     type: multi choice
     previous:
       L1:
-        - Tranquilizantes_01: si
+        - Tranquilizantes_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.)?
       choices: likert_5
@@ -487,7 +487,7 @@
     type: multi choice
     previous:
       L1:
-        - Alucinogenos_01: si
+        - Alucinogenos_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?
       choices: likert_5
@@ -497,7 +497,7 @@
     type: multi choice
     previous:
       L1:
-        - Opiaceos_01: si
+        - Opiaceos_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?
       choices: likert_5
@@ -507,7 +507,7 @@
     type: multi choice
     previous:
       L1:
-        - Otros_01: si
+        - Otros_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir otro tipo de sustancia?
       choices: likert_5
@@ -517,7 +517,7 @@
     type: multi choice
     previous:
       L1:
-        - Tabaco_01: si
+        - Tabaco_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -527,7 +527,7 @@
     type: multi choice
     previous:
       L1:
-        - Alcohol_01: si
+        - Alcohol_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de bebidas alcohólicas (cerveza, vino, licores, destilados, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -537,7 +537,7 @@
     type: multi choice
     previous:
       L1:
-        - Cannabis_01: si
+        - Cannabis_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de cannabis (marihuana, costo, hierba, hashish, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -547,7 +547,7 @@
     type: multi choice
     previous:
       L1:
-        - Cocaina_01: si
+        - Cocaina_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de cocaína (coca, farlopa, crack, base, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -557,7 +557,7 @@
     type: multi choice
     previous:
       L1:
-        - Anfetamina_01: si
+        - Anfetamina_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -567,7 +567,7 @@
     type: multi choice
     previous:
       L1:
-        - Inhalantes_01: si
+        - Inhalantes_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de inhalantes (colas, gasolina/nafta, pegamento, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -577,7 +577,7 @@
     type: multi choice
     previous:
       L1:
-        - Tranquilizantes_01: si
+        - Tranquilizantes_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -587,7 +587,7 @@
     type: multi choice
     previous:
       L1:
-        - Alucinogenos_01: si
+        - Alucinogenos_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de alucinógenos (LSD, ácidos, ketamina, PCP, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -597,7 +597,7 @@
     type: multi choice
     previous:
       L1:
-        - Opiaceos_01: si
+        - Opiaceos_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.) a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -607,7 +607,7 @@
     type: multi choice
     previous:
       L1:
-        - Otros_01: si
+        - Otros_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de otro tipo de sustancia a problemas de salud, sociales, legales o económicos?
       choices: likert_5
@@ -617,7 +617,7 @@
     type: multi choice
     previous:
       L1:
-        - Alcohol_01: si
+        - Alcohol_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?
       choices: likert_5
@@ -627,7 +627,7 @@
     type: multi choice
     previous:
       L1:
-        - Cannabis_01: si
+        - Cannabis_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de cannabis (marihuana, costo, hierba, hashish, etc.)?
       choices: likert_5
@@ -637,7 +637,7 @@
     type: multi choice
     previous:
       L1:
-        - Cocaina_01: si
+        - Cocaina_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de cocaína (coca, farlopa, crack, base, etc.)?
       choices: likert_5
@@ -647,7 +647,7 @@
     type: multi choice
     previous:
       L1:
-        - Anfetamina_01: si
+        - Anfetamina_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?
       choices: likert_5
@@ -657,7 +657,7 @@
     type: multi choice
     previous:
       L1:
-        - Inhalantes_01: si
+        - Inhalantes_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de inhalantes (colas, gasolina/nafta, pegamento, etc.)?
       choices: likert_5
@@ -667,7 +667,7 @@
     type: multi choice
     previous:
       L1:
-        - Tranquilizantes_01: si
+        - Tranquilizantes_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.)?
       choices: likert_5
@@ -677,7 +677,7 @@
     type: multi choice
     previous:
       L1:
-        - Alucinogenos_01: si
+        - Alucinogenos_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?
       choices: likert_5
@@ -687,7 +687,7 @@
     type: multi choice
     previous:
       L1:
-        - Opiaceos_01: si
+        - Opiaceos_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?
       choices: likert_5
@@ -697,7 +697,7 @@
     type: multi choice
     previous:
       L1:
-        - Otros_01: si
+        - Otros_1: Si
     arguments:
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de otro tipo de sustancia?
       choices: likert_5
@@ -707,7 +707,7 @@
     type: multi choice
     previous:
       L1:
-        - Tabaco_01: si
+        - Tabaco_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
       choices: likert_3
@@ -717,7 +717,7 @@
     type: multi choice
     previous:
       L1:
-        - Alcohol_01: si
+        - Alcohol_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?
       choices: likert_3
@@ -727,7 +727,7 @@
     type: multi choice
     previous:
       L1:
-        - Cannabis_01: si
+        - Cannabis_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de cannabis (marihuana, costo, hierba, hashish, etc.)?
       choices: likert_3
@@ -737,7 +737,7 @@
     type: multi choice
     previous:
       L1:
-        - Cocaina_01: si
+        - Cocaina_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de cocaína (coca, farlopa, crack, base, etc.)?
       choices: likert_3
@@ -747,7 +747,7 @@
     type: multi choice
     previous:
       L1:
-        - Anfetamina_01: si
+        - Anfetamina_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?
       choices: likert_3
@@ -757,7 +757,7 @@
     type: multi choice
     previous:
       L1:
-        - Inhalantes_01: si
+        - Inhalantes_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de inhalantes (colas, gasolina/nafta, pegamento, etc.)?
       choices: likert_3
@@ -767,7 +767,7 @@
     type: multi choice
     previous:
       L1:
-        - Tranquilizantes_01: si
+        - Tranquilizantes_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.)?
       choices: likert_3
@@ -777,7 +777,7 @@
     type: multi choice
     previous:
       L1:
-        - Alucinogenos_01: si
+        - Alucinogenos_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?
       choices: likert_3
@@ -787,7 +787,7 @@
     type: multi choice
     previous:
       L1:
-        - Opiaceos_01: si
+        - Opiaceos_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?
       choices: likert_3
@@ -797,7 +797,7 @@
     type: multi choice
     previous:
       L1:
-        - Otros_01: si
+        - Otros_1: Si
     arguments:
       text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de otro tipo de sustancia?
       choices: likert_3
@@ -807,7 +807,7 @@
     type: multi choice
     previous:
       L1:
-        - Tabaco_01: si
+        - Tabaco_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.) y no lo ha logrado?
       choices: likert_3
@@ -817,7 +817,7 @@
     type: multi choice
     previous:
       L1:
-        - Alcohol_01: si
+        - Alcohol_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir bebidas alcohólicas (cerveza, vino, licores, destilados, etc.) y no lo ha logrado?
       choices: likert_3
@@ -827,7 +827,7 @@
     type: multi choice
     previous:
       L1:
-        - Cannabis_01: si
+        - Cannabis_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir cannabis (marihuana, costo, hierba, hashish, etc.) y no lo ha logrado?
       choices: likert_3
@@ -837,7 +837,7 @@
     type: multi choice
     previous:
       L1:
-        - Cocaina_01: si
+        - Cocaina_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir cocaína (coca, farlopa, crack, base, etc.) y no lo ha logrado?
       choices: likert_3
@@ -847,7 +847,7 @@
     type: multi choice
     previous:
       L1:
-        - Anfetamina_01: si
+        - Anfetamina_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) y no lo ha logrado?
       choices: likert_3
@@ -857,7 +857,7 @@
     type: multi choice
     previous:
       L1:
-        - Inhalantes_01: si
+        - Inhalantes_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir inhalantes (colas, gasolina/nafta, pegamento, etc.) y no lo ha logrado?
       choices: likert_3
@@ -867,7 +867,7 @@
     type: multi choice
     previous:
       L1:
-        - Tranquilizantes_01: si
+        - Tranquilizantes_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) y no lo ha logrado?
       choices: likert_3
@@ -877,7 +877,7 @@
     type: multi choice
     previous:
       L1:
-        - Alucinogenos_01: si
+        - Alucinogenos_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir alucinógenos (LSD, ácidos, ketamina, PCP, etc.) y no lo ha logrado?
       choices: likert_3
@@ -887,7 +887,7 @@
     type: multi choice
     previous:
       L1:
-        - Opiaceos_01: si
+        - Opiaceos_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.) y no lo ha logrado?
       choices: likert_3
@@ -897,7 +897,7 @@
     type: multi choice
     previous:
       L1:
-        - Otros_01: si
+        - Otros_1: Si
     arguments:
       text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir otro tipo de sustancia y no lo ha logrado?
       choices: likert_3
@@ -912,21 +912,21 @@
         - Si, alguna vez en el colegio.
         - No, nunca.
       orientation: vertical
-      previous:
-        - L1:
-          - Tabaco_01: no
-          - Alcohol_01: no
-          - Cannabis_01: no
-          - Cocaina_01: no
-          - Anfetamina_01: no
-          - Inhalantes_01: no
-          - Tranquilizantes_01: no
-          - Alucinogenos_01: no
-          - Opiaceos_01: no
-          - Otros_01: no
-      next:
-        - Tabaco_01:
-          Colegio_01: Si, alguna vez en el colegio.
+    previous:
+      - L1:
+        - Tabaco_1: no
+        - Alcohol_1: no
+        - Cannabis_1: no
+        - Cocaina_1: no
+        - Anfetamina_1: no
+        - Inhalantes_1: no
+        - Tranquilizantes_1: no
+        - Alucinogenos_1: no
+        - Opiaceos_1: no
+        - Otros_1: no
+    next:
+      - Tabaco_1:
+        Colegio_1: Si, alguna vez en el colegio.
 
 - Inyectada:
     type: multi choice
