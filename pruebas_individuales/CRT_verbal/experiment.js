@@ -250,6 +250,7 @@ var if_crt10 = {
     timeline:[otra_crt10],
     conditional_function: function(){
         var data = jsPsych.data.get().last(1).values()[0]["responses"];
+        console.log(selected = jsPsych.data.get());
         if (data != '{"Q0":"Otra"}'){
             return false;
         } else {

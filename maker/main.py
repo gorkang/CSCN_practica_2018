@@ -16,6 +16,8 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	f.close()
 
 	breaker = 0
+	next_element = None
+	verifications = []
 
 	# inicio documento en linea 19
 	document_actual_line = 19
@@ -93,7 +95,14 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			if questions[i]["type"] == "multi_choice":
 				# actual question plugin:
 				content.insert(document_actual_line + 0, "  type: '"+ plugins[questions[i]["type"] + "_" + questions[i]["orientation"] ][8:] +"',\n")
-				content.insert(document_actual_line + 1, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join(questions[i]["choices"]) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}],\n")
+				choices = []
+				for choice in questions[i]["choices"]:
+					if choice == True:
+						choice = "Yes"
+					elif choice == False:
+						choice = "No"
+					choices.append(choice)
+				content.insert(document_actual_line + 1, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}],\n")
 			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date" or questions[i]["type"] == "range":
 				# actual question plugin:
 				content.insert(document_actual_line + 0, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
@@ -107,10 +116,66 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 
 			content.insert(document_actual_line + 2, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
 			content.insert(document_actual_line + 3, "};\n")
+			document_actual_line += 4
 
-			content.insert(document_actual_line + 4, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
-			content.insert(document_actual_line + 5, "\n")
-			document_actual_line += 6
+			# Si existe condicional se agrega el condicional y sus caminos:
+			'''
+				content.insert(document_actual_line + 0, "var if_"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n"
+				content.insert(document_actual_line + 1, "    timeline:[otra_crt10], \n"
+				content.insert(document_actual_line + 2, "    conditional_function: function(){ \n"
+				content.insert(document_actual_line + 3, "        var data = jsPsych.data.get().last(1).values()[0]["responses"]; \n"
+				content.insert(document_actual_line + 4, "        console.log(selected = jsPsych.data.get()); \n"
+				content.insert(document_actual_line + 5, "        if (data != '{"Q0":"Otra"}'){ \n"
+				content.insert(document_actual_line + 6, "            return false; \n"
+				content.insert(document_actual_line + 7, "        } else { \n"
+				content.insert(document_actual_line + 8, "            return true; \n"
+				content.insert(document_actual_line + 9, "        } \n"
+				content.insert(document_actual_line + 10, "    } \n"
+				content.insert(document_actual_line + 11, "} \n"
+				content.insert(document_actual_line + 12, "\n"
+				content.insert(document_actual_line + 13, "var complete_crt10 = { \n"
+				content.insert(document_actual_line + 14, "    timeline:[verbal_crt10, if_crt10] \n"
+				content.insert(document_actual_line + 15, "} \n"
+				document_actual_line += 16
+			'''
+			if questions[i]["previous"] != None:
+				print("previous")
+				print(questions[i]["previous"])
+
+			if questions[i]["next"] != None:
+				for key, values in questions[i]["next"].items():
+					next_element = key
+					verifications = values
+			
+			'''
+			if questions[i]["previous"] != None or next_element != None:
+				content.insert(document_actual_line + 0, "var if_"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
+				content.insert(document_actual_line + 1, "    timeline:[question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"], \n")
+				content.insert(document_actual_line + 2, "    conditional_function: function(){ \n")
+				content.insert(document_actual_line + 3, "        var data = jsPsych.data.get().values(); \n")
+				content.insert(document_actual_line + 4, "        console.log(selected = jsPsych.data.get()); \n")
+				"        if (data != '{" + '"' + "Q0" + '"' + ":" + '"' + "Otra" + '"' + "}'){ \n"
+				verification = "        if ("
+				data != '{" + '"' + "Q0" + '"' + ":" + '"' + "Otra" + '"' + "}'){ \n"
+
+				content.insert(document_actual_line + 5, verification)
+				content.insert(document_actual_line + 6, "            return false; \n")
+				content.insert(document_actual_line + 7, "        } else { \n")
+				content.insert(document_actual_line + 8, "            return true; \n")
+				content.insert(document_actual_line + 9, "        } \n")
+				content.insert(document_actual_line + 10, "    } \n")
+				content.insert(document_actual_line + 11, "} \n")
+				content.insert(document_actual_line + 12, "\n")
+				content.insert(document_actual_line + 13, "var complete_crt10 = { \n")
+				content.insert(document_actual_line + 14, "    timeline:[verbal_crt10, if_crt10] \n")
+				content.insert(document_actual_line + 15, "} \n")
+				document_actual_line += 16
+			else:
+			'''
+			# En caso contrario solo agregamos la pregunta:
+			content.insert(document_actual_line + 0, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
+			content.insert(document_actual_line + 1, "\n")
+			document_actual_line += 2
 			if i == breaker:
 				break
 		
@@ -250,6 +315,10 @@ def main():
 	for item in data:
 		# Get item id and specification.
 		item_id, spec = list(item.items())[0]
+		if "previous" not in spec:
+			spec["previous"] = None
+		if "next" not in spec:
+			spec["next"] = None
 
 		# Get experiment configuration
 		if item_id == "test configuration":
@@ -267,6 +336,7 @@ def main():
 				print("existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
 				return
 		else:
+			print(spec)
 			# Get actual class according to item type.
 			class_name = spec['type'].replace(' ', '_')
 			if class_name == "number" or class_name == "date" or class_name == "range":
@@ -388,6 +458,10 @@ def main():
 				actual_question["text"] = items[i].arguments["text"] 
 			except:
 				pass
+
+			actual_question["previous"] = items[i].previous
+			actual_question["next"] = items[i].next
+
 			questions_cont += 1
 			actual_question["index"] = questions_cont
 			questions.append(actual_question)

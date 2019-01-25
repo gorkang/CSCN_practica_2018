@@ -2,8 +2,12 @@ import re
 
 class item:
     def __init__(self, item_id, spec):
+        print(spec)
+        print(spec["previous"])
         self.item_id = item_id
         self.type = spec['type'].replace(' ', '_')
+        self.previous = spec['previous']
+        self.next = spec['next']
         self.arguments = spec['arguments']
         try:
             self.tags = spec['tags']

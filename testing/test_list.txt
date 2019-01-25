@@ -1,6 +1,7 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-CRT_numerico
+conditional_test
+#CRT_numerico
 #comidas_extravagantes
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
