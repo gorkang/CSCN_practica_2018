@@ -1,10 +1,10 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
 conditional_test
-#CRT_numerico
+#CRT_cognitive-reflection-test
 #comidas_extravagantes
 #BART_balloon_analogue_risk_task
-#BDI_becks_depression_inventory
+#BDI_becks-depression-inventory
 #BIS_barratt_impulsiveness_scale
 #BRET_bomb_risk_elicitation_task
 #empatia_por_dolor
@@ -16,7 +16,7 @@ conditional_test
 #wais_matrices
 #wais_working_memory
 #razonamiento_bayesiano
-#rotacion_mental  ----- adaptar plugin multiselect
+#MRT_mental-rotation-task  ----- adaptar plugin multiselect
 
 # ---------------------- arregladas ------------------------
 
@@ -31,7 +31,7 @@ conditional_test
 #ansiedad_matematica
 #CRT_MCQ4
 #habilidad_matematica
-#abreviated_mathematics_anxiety_rating_scale
+#MARSR_mathematics-anxiety-rating-scale-revised
 #a_priori_screening_belief
 #beck_anxiety_inventory
 #big_five
@@ -48,7 +48,7 @@ conditional_test
 #IRI_interpersonal_reactivity_index
 #LIPKUS_numeracy
 #MINI_SEA_mini_social_cognition_emotional_assessment
-#OMS_ASSIST_alcohol_smoking_substance_involvement_screening_test
+#ASSIST_alcohol-smoking-substance-involvement-screening-test
 #SASS_social_adaptation_self_evaluation_scale
 #SPR_III_self_report_psychopathy_scale
 #STAI_state_trait_anxiety_inventory
@@ -61,7 +61,7 @@ conditional_test
 #estilo_atribucional
 #estres_percibido
 #interocepcion
-#metacognicion
+#MCQ30_metacognition-questionnaire
 #miradas
 #optimismo_aprendido
 #regulacion_emocional
