@@ -5,7 +5,7 @@
 #
 #####
 
-import shutil, math, os, subprocess, yaml, importlib
+import shutil, math, os, subprocess, yaml, importlib, json
 from subprocess import PIPE, Popen, STDOUT
 from pathlib import Path
 
@@ -18,9 +18,10 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	breaker = 0
 	next_element = []
 	verifications = []
+	jump_list = []
 
 	# inicio documento en linea 19
-	document_actual_line = 19
+	document_actual_line = 18
 
 	plugins = {
 		"multi_choice_horizontal":"jspsych-survey-multi-choice-horizontal",
@@ -40,33 +41,34 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	# Por cada conjunto de preguntas hay una instruccion
 	for actual_int in range(len(instructions)):
 		# creamos la lista de preguntas temporal
-		content.insert(document_actual_line + 0, "questions_experiment = [];    //temporal timeline\n")
-		content.insert(document_actual_line + 1, "\n")
-		document_actual_line += 2
+		content.insert(document_actual_line + 0, "var questions_experiment = [];    //temporal timeline\n")
+		content.insert(document_actual_line + 1, "var variables = {};    //temporal timeline\n")
+		content.insert(document_actual_line + 2, "\n")
+		document_actual_line += 3
 
 		content.insert(document_actual_line + 0, "var instruction_screen_experiment = {\n")
-		content.insert(document_actual_line + 1, "    type: 'instructions',\n")
+		content.insert(document_actual_line + 1, "  type: 'instructions',\n")
 		document_actual_line += 2
 		# *************
 		try:
-			content.insert(document_actual_line + 0, "    pages: ['<p><left><b><big>" + instructions[actual_int]["title"] + "</big></b><br />'+\n" )
+			content.insert(document_actual_line + 0, "  pages: ['<p><left><b><big>" + instructions[actual_int]["title"] + "</big></b><br />'+\n" )
 			document_actual_line += 1
 		except:
-			content.insert(document_actual_line + 0, "    pages: ['<p><left>'+\n" )
+			content.insert(document_actual_line + 0, "  pages: ['<p><left>'+\n" )
 			document_actual_line += 1
 		try:
-			content.insert(document_actual_line + 0, "    '" + instructions[actual_int]["instruction"] + "' +'</p>'],\n")
+			content.insert(document_actual_line + 0, "  '" + instructions[actual_int]["instruction"] + "' +'</p>'],\n")
 			document_actual_line += 1
 		except:
 			pass
 		
 		# *************
-		content.insert(document_actual_line + 0, "    data:{trialid: 'Screen_WM'},\n")
-		content.insert(document_actual_line + 1, "    show_clickable_nav: true,\n")
-		content.insert(document_actual_line + 2, "    on_trial_start: function(){\n")
-		content.insert(document_actual_line + 3, "        bloquear_enter = 0;\n")
-		content.insert(document_actual_line + 4, "    }\n")
-		content.insert(document_actual_line + 5, "};\n")
+		content.insert(document_actual_line + 0, "  data:{trialid: 'Screen_WM'},\n")
+		content.insert(document_actual_line + 1, "  show_clickable_nav: true,\n")
+		content.insert(document_actual_line + 2, "  on_trial_start: function (){\n")
+		content.insert(document_actual_line + 3, "    bloquear_enter = 0;\n")
+		content.insert(document_actual_line + 4, "  }\n")
+		content.insert(document_actual_line + 5, "}\n")
 		content.insert(document_actual_line + 6, "\n")
 		document_actual_line += 7
 
@@ -75,7 +77,8 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		elif instructions[actual_int] == instructions[-1]:
 			breaker = len(questions)
 
-		for i in range(instructions[actual_int]["previous_questions"],len(questions)):
+		i =  instructions[actual_int]["previous_questions"]
+		while (i < len(questions)):
 
 			content.insert(document_actual_line + 0, "var question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = {\n")
 			document_actual_line += 1
@@ -114,93 +117,168 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 					+ (", range: " + '['+','.join(str(e) for e in questions[i]["range"])+']' if ("range" in questions[i]) else "" ) 
 					+ "}], \n")				
 
-			content.insert(document_actual_line + 2, "  data: {trialid: '"+ questions[i]["item_id"] +"'}\n")
-			content.insert(document_actual_line + 3, "};\n")
-			document_actual_line += 4
-
+			content.insert(document_actual_line + 2, "  data: {trialid: '"+ questions[i]["item_id"] +"'}")
+			document_actual_line += 3
+			# almacenamiento de variables
+			#if "chocen_value" in questions[i]:
+			#	content.insert(document_actual_line + 0,",\n  on_finish: function(data) {\n")
+			#	content.insert(document_actual_line + 1,"    console.log(JSON.stringify(data.responses.split(':')[1].split('}')[0]));\n")
+			#	content.insert(document_actual_line + 2,"  }\n")
+			#	content.insert(document_actual_line + 3, "}\n")
+			#	document_actual_line += 4
+			#	print(questions[i]["chocen_value"])
+			else:
+				content.insert(document_actual_line + 0, "\n}\n")
+				document_actual_line += 1
 			# Si existe condicional se agrega el condicional y sus caminos:
-			'''
-			var data = [{'rt': 1905, 'responses': '{"Q0":"123"}', 'trialid': "VCRT_05", 'trial_type': "survey-text", 'trial_index': 2}, {'rt': 1905, 'responses': '{"Q0":"456"}', 'trialid': "VCRT_06", 'trial_type': "survey-text", 'trial_index': 2}];
-			var answer = "";
-			verification += data.forEach(function(element) { 
-
-			verification += 'if(element.trialid == "VCRT_05"){ if (answer != "false") { answer = (element['+ "'" +'responses'+ "'" +'] == '+ "'" +'{"Q0":"123"}'+ "'" +').toString()}}'
-
-			verification += if(element.trialid == "VCRT_06"){ 
-			verification += if (answer != "false") {
-			verification += answer = (element['responses'] == '{"Q0":"456"}').toString()
-			verification += }}});
-
-			console.log(answer == "true")
-
-
-
-
-				content.insert(document_actual_line + 0, "var if_"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n"
-				content.insert(document_actual_line + 1, "    timeline:[otra_crt10], \n"
-				content.insert(document_actual_line + 2, "    conditional_function: function(){ \n"
-				content.insert(document_actual_line + 3, "        var data = jsPsych.data.get().last(1).values()[0]["responses"]; \n"
-				content.insert(document_actual_line + 4, "        console.log(selected = jsPsych.data.get()); \n"
-				content.insert(document_actual_line + 5, "        if (data != '{"Q0":"Otra"}'){ \n"
-				content.insert(document_actual_line + 6, "            return false; \n"
-				content.insert(document_actual_line + 7, "        } else { \n"
-				content.insert(document_actual_line + 8, "            return true; \n"
-				content.insert(document_actual_line + 9, "        } \n"
-				content.insert(document_actual_line + 10, "    } \n"
-				content.insert(document_actual_line + 11, "} \n"
-				content.insert(document_actual_line + 12, "\n"
-				content.insert(document_actual_line + 13, "var complete_crt10 = { \n"
-				content.insert(document_actual_line + 14, "    timeline:[verbal_crt10, if_crt10] \n"
-				content.insert(document_actual_line + 15, "} \n"
-				document_actual_line += 16
-			'''
-			#if questions[i]["previous"] != None:
-			#	print("previous")
-			#	print(questions[i]["previous"])
-			#	print(questions[i])
-
-			#if questions[i]["next"] != None:
-			#	for key, values in questions[i]["next"].items():
-			#		next_element.append(key)
-			#		verifications.append(values)
-			
-			if questions[i]["previous"] != None:
-				verification = "        data.forEach(function(element) { "
+			if questions[i]["previous"] != None or not not jump_list:
+				restriction_cont = 0
+				restriction_dict = {}
+				verification = "    var answer_previous = []\n"
+				verification += "    var answer_next = []\n"
+				restriction_cont += 2
 				if questions[i]["previous"] != None:
-					for prev in questions[i]["previous"]:
-						for lista in prev:
-							for restriction in prev[lista]:
-				#				print(type(restriction))
-								for key, value in restriction.items():
-									if value == False:
-										value = 'No'
-									elif value == True:
-										value = 'Yes'
-									verification += 'if(element.trialid == "'+ key +'"){ if (answer != "false") { answer = (element['+ "'" +'responses'+ "'" +'] == '+ "'" +'{"Q0":"' + value + '"}'+ "'" +').toString()}}'
-				verification += '})\n'
+					verification += "    answer_previous = answer_previous.concat([" + ','.join(['""' for prev in range(len(questions[i]["previous"]))]) + "]) \n"
+					restriction_cont += 1
+				if not not jump_list:
+					verification += "    answer_next = answer_next.concat([" + ','.join(['""' for prev in range(len(jump_list))]) + "]) \n"
+					restriction_cont += 1
+				verification += "    data.slice().reverse().forEach (function (element) { \n"
+				restriction_cont += 1
+				temporal_cont = 0
+				final_cont = 0
+				for index,prev in enumerate(questions[i]["previous"]):
+					verification += '      if (answer_previous['+ str(index) +'] !== "false"){\n'
+					temporal_cont = index + 1
+					for lista in prev:
+						for restriction in prev[lista]:
+							for key, value in restriction.items():
+								restriction_dict[key] = "true"
+								if value == False:
+									value = 'No'
+								elif value == True:
+									value = 'Yes'
+								verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(index) + ']["'+ str(key) +'"] === "true"){ answer_previous['+ str(index) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(index) + ']["'+ str(key) +'"] = "false"}\n'
+								restriction_cont += 1
+						verification += '      }\n'
+					final_cont = index + 1
+				for index, actual in enumerate(jump_list):
+					verification += '      if (answer_next['+ str(index) +'] !== "false"){\n'
+					for actual_key, actual_value in actual.items():
+						for dictionary_list in actual_value:
+							for key_list, value_list in dictionary_list.items():
+								for restriction in value_list:
+									for key, value in restriction.items():
+										restriction_dict[key] = "true"
+										if value == False:
+											value = 'No'
+										elif value == True:
+											value = 'Yes'
+										verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(index + temporal_cont) + ']["'+ str(key) +'"] === "true"){answer_next['+ str(index) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(index + temporal_cont) + ']["'+ str(key) +'"] = "false"}\n'
+										restriction_cont += 1
+					verification += '      }\n'
+					final_cont = index + temporal_cont  + 1
+				verification += '    })\n'
 
-				content.insert(document_actual_line + 0, "var if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
-				content.insert(document_actual_line + 1, "    timeline:[question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"], \n")
-				content.insert(document_actual_line + 2, "    conditional_function: function(){ \n")
-				content.insert(document_actual_line + 3, "        var data = jsPsych.data.get().values(); \n")
-				content.insert(document_actual_line + 4, "        var answer = " + '""' + "; \n")
+				restriction_array = []
+				for temporal in range(final_cont):
+					restriction_array.append(restriction_dict)
+
+				content.insert(document_actual_line + 0, "\nvar if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
+				content.insert(document_actual_line + 1, "  timeline:[question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"], \n")
+				content.insert(document_actual_line + 2, "  conditional_function: function (){ \n")
+				content.insert(document_actual_line + 3, "    var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; \n")
+				content.insert(document_actual_line + 4, "    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
 				content.insert(document_actual_line + 5, verification)
-				content.insert(document_actual_line + 6, "        return answer == 'true'; \n")
-				content.insert(document_actual_line + 7, "    } \n")
-				content.insert(document_actual_line + 8, "} \n")
-				content.insert(document_actual_line + 9, "\n")
-				content.insert(document_actual_line + 10, "questions_experiment.push(if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
-				content.insert(document_actual_line + 11, "\n")
-				document_actual_line += 12
-
+				document_actual_line += (7 + restriction_cont) 
+				content.insert(document_actual_line + 0, "    for (var i = 0; i < answer_previous.length; i++) \n")
+				content.insert(document_actual_line + 1, "      if (answer_previous[i] === 'true') \n")
+				content.insert(document_actual_line + 2, "        cont_prev += 1; \n")
+				content.insert(document_actual_line + 3, "    for (var j=0; j < answer_next.length; j++) \n")
+				content.insert(document_actual_line + 4, "      if (answer_next[j] === 'true')\n")
+				content.insert(document_actual_line + 5, "        cont_next += 1; \n")
+				content.insert(document_actual_line + 6, "    if ((cont_next === 0 && cont_prev !== 0)) return true;\n")
+				content.insert(document_actual_line + 7, "    return false \n")
+				content.insert(document_actual_line + 8, "  } \n")
+				content.insert(document_actual_line + 9, "} \n")
+				content.insert(document_actual_line + 10, "\n")
+				content.insert(document_actual_line + 11, "questions_experiment.push(if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
+				content.insert(document_actual_line + 12, "\n")
+				document_actual_line += 13
 			else:	
 				# En caso contrario solo agregamos la pregunta:
 				content.insert(document_actual_line + 0, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
 				content.insert(document_actual_line + 1, "\n")
 				document_actual_line += 2
+
+			# En caso que exista un "next" hay 2 opciones, que el next sea a un elemento que ya pasamos o que sea a un elemento al cual aún no llegamos
+			# TODO: maxLoops?
+			if questions[i]["next"] != None:
+				for it, question in enumerate(questions):
+					# si aun no pasamos por el elemento se agregarán las restricciones al jump_list
+					if it > i:
+						jump_list.append(questions[i]["next"])
+						break
+					# en caso contrario tenemos que agregar las preguntas que hayan desde el punto al que saltamos hasta el punto actual
+					if questions[it]["item_id"] == str(next(iter(questions[i]["next"]))):
+						restriction_cont = 0
+						restriction_dict = {}
+						verification = "    data.slice().reverse().forEach (function (element) { \n"
+						temporal_cont = 0
+						for index, next_dict in enumerate(questions[i]["next"][questions[it]["item_id"]]):
+							verification += '      if (answer['+ str(index) +'] !== "false"){\n'
+							restriction_cont += 2
+							for lista in next_dict:
+								for restriction in next_dict[lista]:
+									for key, value in restriction.items():
+										restriction_dict[key] = "true"
+										if value == False:
+											value = 'No'
+										elif value == True:
+											value = 'Yes'
+										verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(index) + ']["'+ str(key) +'"] === "true"){ answer['+ str(index) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(index) + ']["'+ str(key) +'"] = "false"}\n'
+										restriction_cont += 1
+							verification += '      }\n'
+							temporal_cont = index + 1
+						verification += '    })\n'
+
+
+						restriction_array = []
+						for temporal in range(temporal_cont):
+							restriction_array.append(restriction_dict)
+
+						content.insert(document_actual_line + 0, "var if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
+						# i + 1 es para el caso de agregar tambien la pregunta llave que nos lleva al inicio del ciclo por lo que se usará solo i para agregar hasta la pregunta anterior
+						content.insert(document_actual_line + 1, "  timeline:questions_experiment.slice(" + str(it) + "," + str(i) + "), \n")
+						content.insert(document_actual_line + 2, "  conditional_function: function (){ \n")
+						content.insert(document_actual_line + 3, "    var data = jsPsych.data.get().values(); \n")
+						content.insert(document_actual_line + 4, "    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
+						content.insert(document_actual_line + 5, "    var answer = [" + ','.join(['""' for prev in questions[i]["next"][questions[it]["item_id"]]]) + "]; \n")
+						content.insert(document_actual_line + 6, verification)
+						document_actual_line += (7 + restriction_cont) 
+						content.insert(document_actual_line + 0, "    for (var i = 0; i < answer.length; i++) \n")
+						content.insert(document_actual_line + 1, "      if (answer[i] === 'true') return true; \n")
+						content.insert(document_actual_line + 2, "    return false \n")
+						content.insert(document_actual_line + 3, "  } \n")
+						content.insert(document_actual_line + 4, "} \n")
+						content.insert(document_actual_line + 5, "\n")
+						content.insert(document_actual_line + 6, "questions_experiment.push(if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
+						content.insert(document_actual_line + 7, "\n")
+						document_actual_line += 8
+						break
+
+			# si llegamos al punto mencionado en next, borramos los elementos que coincidan con este punto en la lista
+			actual = 0
+			while actual < len(jump_list):
+				election = str(next(iter(jump_list[actual])))
+				if questions[i]["item_id"] == election:
+					jump_list.pop(actual)
+					actual -= 1
+				actual += 1
+
 			if i == breaker:
 				break
-		
+			i += 1			
 		# Las preguntas almacenadas se desordenan en caso que se requiera
 		if instructions[actual_int]["random_mode"]:
 			content.insert(document_actual_line, "questions_experiment = jsPsych.randomization.repeat(questions_experiment,1);\n")
@@ -214,14 +292,14 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 
 	# Se agrega la ventana para el fullscreen si se requiere
 	if fullscreen["fullscreen_mode"]:
-		content.insert(document_actual_line + 0, "if(window.innerWidth != screen.width || window.innerHeight != screen.height){\n")
+		content.insert(document_actual_line + 0, "if (window.innerWidth != screen.width || window.innerHeight != screen.height){\n")
 		content.insert(document_actual_line + 1, "  questions.unshift({\n")
 		content.insert(document_actual_line + 2, "    type: 'fullscreen',\n")	
 		content.insert(document_actual_line + 3, "    message: '<p>" + fullscreen["base_text"] + "</p>',\n")
 		content.insert(document_actual_line + 4, "    button_label: 'Full screen',\n")
 		content.insert(document_actual_line + 5, "    delay_after: 0,\n")
 		content.insert(document_actual_line + 6, "    fullscreen_mode: true\n")
-		content.insert(document_actual_line + 7, "  });\n")
+		content.insert(document_actual_line + 7, "  })\n")
 		content.insert(document_actual_line + 8, "}\n")
 
 
@@ -393,6 +471,7 @@ def main():
 	# ---------------------------- TODO -----------------------------
 
 	experiment = []
+	variables = {}
 	# create test
 	for i in range(len(items)):
 		item_type = items[i].type
@@ -489,6 +568,11 @@ def main():
 			actual_question["previous"] = items[i].previous
 			actual_question["next"] = items[i].next
 
+			try:
+				actual_question["chocen_value"] = items[i].arguments["chocen_value"]
+			except:
+				pass
+
 			questions_cont += 1
 			actual_question["index"] = questions_cont
 			questions.append(actual_question)
@@ -497,7 +581,6 @@ def main():
 			print("Información adicional:")
 			items[i].render()
 			error = True
-
 	# se arreglan los id's dependiendo de la cantidad de elementos de la pregunta i
 	for question in questions:
 		question["item_id"] = (''.join(question["item_id"].split('_')[:-1]) + "_" + ("0"*(len(str(abs((ids[''.join(question["item_id"].split('_')[:-1])])))) - len(str(abs(( int(question["item_id"].split('_')[-1]))))) )) + question["item_id"].split('_')[-1] )

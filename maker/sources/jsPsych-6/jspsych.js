@@ -1443,10 +1443,10 @@ jsPsych.data = (function() {
       type: 'text/plain'
     });
     var blobURL = "";
-    if (typeof window.webkitURL !== 'undefined') {
-      blobURL = window.webkitURL.createObjectURL(blobToSave);
-    } else {
+    if (typeof window.URL !== 'undefined') {
       blobURL = window.URL.createObjectURL(blobToSave);
+    } else {
+      blobURL = window.webkitURL.createObjectURL(blobToSave);
     }
 
     var display_element = jsPsych.getDisplayElement();

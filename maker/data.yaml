@@ -30,7 +30,7 @@
       questions_mode: sequential # select mode of the next questions
     tags:
       - instruction
-
+#1
 - Tabaco:
     type: multi choice
     arguments:
@@ -101,15 +101,26 @@
       choices: si_no
       orientation: vertical
 
-- Tabaco:
-    type: multi choice
+- Otros:
+    type: text
     previous:
       L1:
-        - Tabaco_1: Si
-    next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
+        - Otros_1: Si
+    arguments:
+      text: ¿Cual es el nombre de este otro tipo de sustancia que consumió?
+      chocen_value: otra_sustancia
+#1.2
+- Colegio:
+    type: multi choice
+    arguments:
+      text: ¿Tampoco incluso cuando iba al colegio?
+      choices: 
+        - Si, alguna vez en el colegio.
+        - No, nunca.
+      orientation: vertical
+    previous:
+      - L1:
+        - Tabaco_1: No
         - Alcohol_1: No
         - Cannabis_1: No
         - Cocaina_1: No
@@ -119,6 +130,29 @@
         - Alucinogenos_1: No
         - Opiaceos_1: No
         - Otros_1: No
+    next:
+      Tabaco_1:
+        - L1:
+          - Colegio_1: Si, alguna vez en el colegio.
+#2
+- Tabaco:
+    type: multi choice
+    previous:
+      L1:
+        - Tabaco_1: Si
+    next:
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_1: No
+          - Cannabis_1: No
+          - Cocaina_1: No
+          - Anfetamina_1: No
+          - Inhalantes_1: No
+          - Tranquilizantes_1: No
+          - Alucinogenos_1: No
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -130,19 +164,18 @@
       L1:
         - Alcohol_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: Nunca
-        - Cannabis_1: No
-        - Cocaina_1: No
-        - Anfetamina_1: No
-        - Inhalantes_1: No
-        - Tranquilizantes_1: No
-        - Alucinogenos_1: No
-        - Opiaceos_1: No
-        - Otros_1: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_1: No
+          - Cocaina_1: No
+          - Anfetamina_1: No
+          - Inhalantes_1: No
+          - Tranquilizantes_1: No
+          - Alucinogenos_1: No
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido bebidas alcohólicas (cerveza, vino, licores, destilados, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -154,21 +187,18 @@
       L1:
         - Cannabis_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: Nunca
-        - Cocaina_1: No
-        - Anfetamina_1: No
-        - Inhalantes_1: No
-        - Tranquilizantes_1: No
-        - Alucinogenos_1: No
-        - Opiaceos_1: No
-        - Otros_1: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_1: No
+          - Anfetamina_1: No
+          - Inhalantes_1: No
+          - Tranquilizantes_1: No
+          - Alucinogenos_1: No
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido cannabis (marihuana, costo, hierba, hashish, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -180,23 +210,18 @@
       L1:
         - Cocaina_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: 
-          - Nunca
-          - None
-        - Cocaina_2: Nunca
-        - Anfetamina_1: No
-        - Inhalantes_1: No
-        - Tranquilizantes_1: No
-        - Alucinogenos_1: No
-        - Opiaceos_1: No
-        - Otros_1: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_2: Nunca.
+          - Anfetamina_1: No
+          - Inhalantes_1: No
+          - Tranquilizantes_1: No
+          - Alucinogenos_1: No
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido cocaína (coca, farlopa, crack, base, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -208,25 +233,18 @@
       L1:
         - Anfetamina_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: 
-          - Nunca
-          - None
-        - Cocaina_2: 
-          - Nunca
-          - None
-        - Anfetamina_2: Nunca
-        - Inhalantes_2: No
-        - Tranquilizantes_2: No
-        - Alucinogenos_2: No
-        - Opiaceos_2: No
-        - Otros_2: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_2: Nunca.
+          - Anfetamina_2: Nunca.
+          - Inhalantes_1: No
+          - Tranquilizantes_1: No
+          - Alucinogenos_1: No
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -238,27 +256,18 @@
       L1:
         - Inhalantes_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: 
-          - Nunca
-          - None
-        - Cocaina_2: 
-          - Nunca
-          - None
-        - Anfetamina_2: 
-          - Nunca
-          - None
-        - Inhalantes_2: Nunca
-        - Tranquilizantes_2: No
-        - Alucinogenos_2: No
-        - Opiaceos_2: No
-        - Otros_2: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_2: Nunca.
+          - Anfetamina_2: Nunca.
+          - Inhalantes_2: Nunca.
+          - Tranquilizantes_1: No
+          - Alucinogenos_1: No
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido inhalantes (colas, gasolina/nafta, pegamento, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -270,29 +279,18 @@
       L1:
         - Tranquilizantes_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: 
-          - Nunca
-          - None
-        - Cocaina_2: 
-          - Nunca
-          - None
-        - Anfetamina_2: 
-          - Nunca
-          - None
-        - Inhalantes_2: 
-          - Nunca
-          - None
-        - Tranquilizantes_2: Nunca
-        - Alucinogenos_2: No
-        - Opiaceos_2: No
-        - Otros_2: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_2: Nunca.
+          - Anfetamina_2: Nunca.
+          - Inhalantes_2: Nunca.
+          - Tranquilizantes_2: Nunca.
+          - Alucinogenos_1: No
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -304,31 +302,18 @@
       L1:
         - Alucinogenos_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: 
-          - Nunca
-          - None
-        - Cocaina_2: 
-          - Nunca
-          - None
-        - Anfetamina_2: 
-          - Nunca
-          - None
-        - Inhalantes_2: 
-          - Nunca
-          - None
-        - Tranquilizantes_2: 
-          - Nunca
-          - None
-        - Alucinogenos_2: Nunca
-        - Opiaceos_2: No
-        - Otros_2: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_2: Nunca.
+          - Anfetamina_2: Nunca.
+          - Inhalantes_2: Nunca.
+          - Tranquilizantes_2: Nunca.
+          - Alucinogenos_2: Nunca.
+          - Opiaceos_1: No
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido alucinógenos (LSD, ácidos, ketamina, PCP, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -340,33 +325,18 @@
       L1:
         - Opiaceos_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: 
-          - Nunca
-          - None
-        - Cocaina_2: 
-          - Nunca
-          - None
-        - Anfetamina_2: 
-          - Nunca
-          - None
-        - Inhalantes_2: 
-          - Nunca
-          - None
-        - Tranquilizantes_2: 
-          - Nunca
-          - None
-        - Alucinogenos_2: 
-          - Nunca
-          - None
-        - Opiaceos_2: Nunca
-        - Otros_2: No
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_2: Nunca.
+          - Anfetamina_2: Nunca.
+          - Inhalantes_2: Nunca.
+          - Tranquilizantes_2: Nunca.
+          - Alucinogenos_2: Nunca.
+          - Opiaceos_2: Nunca.
+          - Otros_1: No
     arguments:
       text: ¿Con qué frecuencia ha consumido opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.) en los últimos 3 meses?
       choices: likert_5
@@ -378,41 +348,23 @@
       L1:
         - Otros_1: Si
     next:
-      Tabaco_6:
-        - Tabaco_2: 
-          - Nunca
-          - None
-        - Alcohol_2: 
-          - Nunca
-          - None
-        - Cannabis_2: 
-          - Nunca
-          - None
-        - Cocaina_2: 
-          - Nunca
-          - None
-        - Anfetamina_2: 
-          - Nunca
-          - None
-        - Inhalantes_2: 
-          - Nunca
-          - None
-        - Tranquilizantes_2: 
-          - Nunca
-          - None
-        - Alucinogenos_2: 
-          - Nunca
-          - None
-        - Opiaceos_2: 
-          - Nunca
-          - None
-        - Otros_2: 
-          - Nunca
+      Tabaco_5:
+        - L1:
+          - Tabaco_2: Nunca.
+          - Alcohol_2: Nunca.
+          - Cannabis_2: Nunca.
+          - Cocaina_2: Nunca.
+          - Anfetamina_2: Nunca.
+          - Inhalantes_2: Nunca.
+          - Tranquilizantes_2: Nunca.
+          - Alucinogenos_2: Nunca.
+          - Opiaceos_2: Nunca.
+          - Otros_3: Nunca.
     arguments:
-      text: ¿Con qué frecuencia ha consumido otro tipo de sustancia en los últimos 3 meses?
+      text: ¿Con qué frecuencia ha consumido {otra_sustancia} en los últimos 3 meses?
       choices: likert_5
       orientation: vertical
-
+#3
 - Tabaco:
     type: multi choice
     previous:
@@ -509,10 +461,10 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir otro tipo de sustancia?
+      text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir {otra_sustancia}?
       choices: likert_5
       orientation: vertical
-
+#4
 - Tabaco:
     type: multi choice
     previous:
@@ -609,10 +561,10 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de otro tipo de sustancia a problemas de salud, sociales, legales o económicos?
+      text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de {otra_sustancia} a problemas de salud, sociales, legales o económicos?
       choices: likert_5
       orientation: vertical
-
+#5
 - Alcohol:
     type: multi choice
     previous:
@@ -699,10 +651,10 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de otro tipo de sustancia?
+      text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de {otra_sustancia}?
       choices: likert_5
       orientation: vertical
-
+#6
 - Tabaco:
     type: multi choice
     previous:
@@ -799,10 +751,10 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de otro tipo de sustancia?
+      text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de {otra_sustancia}?
       choices: likert_3
       orientation: vertical
-
+#7
 - Tabaco:
     type: multi choice
     previous:
@@ -899,39 +851,47 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir otro tipo de sustancia y no lo ha logrado?
+      text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir {otra_sustancia} y no lo ha logrado?
       choices: likert_3
       orientation: vertical
-
-
-- Colegio:
-    type: multi choice
-    arguments:
-      text: ¿Tampoco incluso cuando iba al colegio?
-      choices: 
-        - Si, alguna vez en el colegio.
-        - No, nunca.
-      orientation: vertical
-    previous:
-      - L1:
-        - Tabaco_1: no
-        - Alcohol_1: no
-        - Cannabis_1: no
-        - Cocaina_1: no
-        - Anfetamina_1: no
-        - Inhalantes_1: no
-        - Tranquilizantes_1: no
-        - Alucinogenos_1: no
-        - Opiaceos_1: no
-        - Otros_1: no
-    next:
-      - Tabaco_1:
-        Colegio_1: Si, alguna vez en el colegio.
-
+#8
 - Inyectada:
     type: multi choice
     arguments:
       text: ¿Ha consumido alguna vez alguna droga por vía inyectada?
+      choices: likert_3
+      orientation: vertical
+    previous:
+      - L01:
+        - Tabaco_1: Si
+      - L02:
+        - Alcohol_1: Si
+      - L03:
+        - Cannabis_1: Si
+      - L04:
+        - Cocaina_1: Si
+      - L05:
+        - Anfetamina_1: Si
+      - L06:
+        - Inhalantes_1: Si
+      - L07:
+        - Tranquilizantes_1: Si
+      - L08:
+        - Alucinogenos_1: Si
+      - L09:
+        - Opiaceos_1: Si
+      - L10:
+        - Otros_1: Si
+      - L11:
+        - Colegio_1: Si, alguna vez en el colegio.
+
+- Inyectada:
+    type: multi choice
+    previous:
+      L1:
+        - Inyectada_1: Si, en los últimos 3 meses.
+    arguments:
+      text: ¿Cual ha sido su patrón de inyección durante este período?
       choices: 
         - Una vez a la semana o menos
         - Menos de 3 días seguidos
