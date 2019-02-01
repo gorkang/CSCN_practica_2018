@@ -1,9 +1,16 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-conditional_test
+#Assist_test
+#conditional_test
+#CRT_numerico
+#conditional_test
 #CRT_cognitive-reflection-test
+<<<<<<< HEAD
 #comidas_extravagantes
 #BART_balloon-analogue-risk-task
+=======
+#BART_balloon_analogue_risk_task
+>>>>>>> 3b239997ac8280415a06e3c68019a508feb78a16
 #BDI_becks-depression-inventory
 #BIS11_barratt-impulsiveness-scale-11
 #BRET_bomb-risk-elicitation-task
