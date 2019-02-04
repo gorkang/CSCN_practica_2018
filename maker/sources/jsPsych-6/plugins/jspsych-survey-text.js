@@ -46,6 +46,12 @@ jsPsych.plugins['survey-text'] = (function() {
             default: undefined,
             description: 'Especific text of fail-message'
           },
+          answer: {
+            type: jsPsych.plugins.parameterType.STRING,
+            pretty_name: 'Answer',
+            default: undefined,
+            description: 'Especific answer'
+          },
           value: {
             type: jsPsych.plugins.parameterType.STRING,
             pretty_name: 'Value',
@@ -105,32 +111,18 @@ jsPsych.plugins['survey-text'] = (function() {
 
   plugin.trial = function(display_element, trial) {
 
-    if (typeof trial.questions[0].rows == 'undefined') {
-      trial.questions[0].rows = [];
-      for (var i = 0; i < trial.questions.length; i++) {
-        trial.questions[i].rows.push(1);
-      }
-    }
-    if (typeof trial.questions[0].columns == 'undefined') {
-      trial.questions[0].columns = [];
-      for (var i = 0; i < trial.questions.length; i++) {
-        trial.questions[i].columns.push(40);
-      }
-    }
-    if (typeof trial.questions[0].value == 'undefined') {
-      trial.questions[0].value = [];
-      for (var i = 0; i < trial.questions.length; i++) {
-        trial.questions[i].value.push("");
-      }
-    }
-    if (typeof trial.questions[0].language == 'undefined') {
-      for (var i = 0; i < trial.questions.length; i++)
+    for (var i = 0; i < trial.questions.length; i++) {
+      if (typeof trial.questions[i].rows === 'undefined')
+        trial.questions[i].rows = 1;
+      if (typeof trial.questions[i].columns === 'undefined')
+        trial.questions[i].columns = 40;
+      if (typeof trial.questions[i].value === 'undefined')
+        trial.questions[i].value = "";
+      if (typeof trial.questions[i].language === 'undefined')
         trial.questions[i].language = "spanish";
-    } 
-    if (typeof trial.questions[0].endword == 'undefined') {
-      for (var i = 0; i < trial.questions.length; i++)
+      if (typeof trial.questions[i].endword === 'undefined')
         trial.questions[i].endword = "";
-    }
+    } 
 
     var html = '<br /><p><br />';
     // show preamble text
@@ -240,11 +232,14 @@ jsPsych.plugins['survey-text'] = (function() {
         if ((val == "") && required)
           pass = false
         // next trial and check if is a valid element
-        if (trial.questions[index].type == "number")
+        if (trial.questions[index].type == "number"){
           if (typeof trial.questions[index].range == 'undefined')
             validation = $.isNumeric(val) === true;
           else
             validation = $.isNumeric(val) === true && val <= max && val >= min;
+        }
+        if (typeof trial.questions[index].answer !== 'undefined')
+          validation = val.toString() === (trial.questions[index].answer).toString();
  
         if (validation && pass) {
           display_element.innerHTML = '';

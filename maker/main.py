@@ -255,7 +255,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				document_actual_line += 2
 
 			# En caso que exista un "next" hay 2 opciones, que el next sea a un elemento que ya pasamos o que sea a un elemento al cual aún no llegamos
-			# TODO: maxLoops?
+			# TODO: maxLoops if next is previous
 			if questions[i]["next"] != None:
 				for it, question in enumerate(questions):
 					# si aun no pasamos por el elemento se agregarán las restricciones al jump_list
@@ -645,7 +645,7 @@ def main():
 	writeIndex(file_name, plugins)
 
 	print("Prueba creada con éxito.")
-	print("Iniciando testing de la prueba agregada...")
+	print("Iniciando testing de la prueba "+file_name+"...")
 	testing(PATH, file_name)
 	
 if __name__ == '__main__' : main()
