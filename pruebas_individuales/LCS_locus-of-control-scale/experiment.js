@@ -226,4 +226,3 @@ estilo_atribucional_experiment.push(survey21);
 estilo_atribucional_experiment.push(survey22);
 estilo_atribucional_experiment.push(survey23);
 estilo_atribucional_experiment.push(survey24);
-estilo_atribucional_experiment.push(survey25);
