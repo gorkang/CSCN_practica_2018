@@ -196,10 +196,7 @@ var survey26 = {
   questions: [{prompt: "<div class='justified'><br />Hablo rápido<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_26"}
 };
-,
-        data: {
-            trialid: "LIP_05"
-        }
+
 var survey27 = {
   type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Tengo pensamientos extraños cuando estoy pensando (a veces tengo pensamientos irrelevantes cuando pienso)<br /></div>", options: likert_scale, required: true, horizontal: true}],

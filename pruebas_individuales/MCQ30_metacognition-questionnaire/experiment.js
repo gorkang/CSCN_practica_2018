@@ -258,6 +258,7 @@ if(window.innerWidth != screen.width || window.innerHeight != screen.height){
 //add the trials to the timeline
 metacognicion_experiment.push(screen_metacognicion_experiment);
 
+metacognicion_experiment.push(survey01);
 metacognicion_experiment.push(survey02);
 metacognicion_experiment.push(survey03);
 metacognicion_experiment.push(survey04);
