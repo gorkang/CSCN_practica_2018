@@ -308,59 +308,52 @@ questions_experiment.push(question38);
 
 var question39 = {
   type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>I prefer my life to be filled with puzzles that</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'>I prefer my life to be filled with puzzles that I must solve.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_39'}
 };
 questions_experiment.push(question39);
 
 var question40 = {
   type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>I must solve.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'>I would prefer complex to simple problems.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_40'}
 };
 questions_experiment.push(question40);
 
 var question41 = {
   type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>I would prefer complex to simple problems.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'>Simply knowing the answer rather than understanding the reasons for the answer to a problem is fine with me.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_41'}
 };
 questions_experiment.push(question41);
 
 var question42 = {
   type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>Simply knowing the answer rather than understanding the reasons for the answer to a problem is fine with me.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'>When I am figuring out a problem, what I see as the solution to a problem is more important than what others believe or say is the solution.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_42'}
 };
 questions_experiment.push(question42);
 
 var question43 = {
   type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>When I am figuring out a problem, what I see as the solution to a problem is more important than what others believe or say is the solution.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'>It's enough for me that something gets the job done, I don't care how or why it works.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_43'}
 };
 questions_experiment.push(question43);
 
 var question44 = {
   type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>It's enough for me that something gets the job done, I don't care how or why it works.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'>Ignorance is bliss.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_44'}
 };
 questions_experiment.push(question44);
 
 var question45 = {
   type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>Ignorance is bliss.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
+  questions: [{prompt: "<div class='justified'>I enjoy thinking about an issue even when the results of my thought will have no effect on the outcome of the issue.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
   data: {trialid: 'Question_45'}
 };
 questions_experiment.push(question45);
-
-var question46 = {
-  type: 'survey-multi-choice-horizontal',
-  questions: [{prompt: "<div class='justified'>I enjoy thinking about an issue even when the results of my thought will have no effect on the outcome of the issue.</div>", options: ['<center>Disagree Very</br>Strongly</center>', '<center>Disagree</br>Strongly</center>', '<center>Disagree</br>a little</center>', '<center>Disagree</br>somewhat</center>', '<center>Neither agree</br>nor disagree</center>', '<center>Agree</br>somewhat</center>', '<center>Agree</br>a little</center>', '<center>Agree</br>Strongly</center>', '<center>Agree Very</br>Strongly</center>'], required: true, horizontal: true}],
-  data: {trialid: 'Question_46'}
-};
-questions_experiment.push(question46);
 
 // reorder the trials
 questions_experiment = jsPsych.randomization.repeat(questions_experiment,1);
