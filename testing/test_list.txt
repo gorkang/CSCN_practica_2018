@@ -25,7 +25,7 @@ Assist_test
 #informacion_sociodemografica_simple
 #informacion_sociodemografica
 #wais_vocabulario
-#graph_literacy
+#GL_graph-literacy
 #CRTv_cognitive-reflection-test-verbal
 #abreviated_mathematics_anxiety_rating_scale
 #actividad_fisica
@@ -38,7 +38,7 @@ Assist_test
 #BAI_becks-anxiety-inventory
 #BFI_big-five-inventory
 #multiple_stimulus_types_ambiguity_tolerance_scale
-#need_for_cognition
+#NFC_need-for-cognition
 #DSS_decision-styles-scale
 #protocolo_inicio
 #protocolo_pausa
@@ -65,6 +65,6 @@ Assist_test
 #interocepcion
 #MCQ30_metacognition-questionnaire
 #miradas
-#optimismo_aprendido
-#regulacion_emocional
-#religiosidad
+#LOTR_life-orientation-test-revised
+#ERQ_emotion-regulation-questionnaire
+#SCSORF_santa-clara-strength-of-religious-faith
