@@ -31,23 +31,23 @@ var instructions = {
 var likert = ['<center>1<p style="font-size:15px">Muy en</br>desacuerdo</p></center>', '<center><span style="display:inline-block; width: 30px;">2<span style="display:inline-block; width: 30px;"></span></center>', '<center><span style="display:inline-block; width: 30px;">3<span style="display:inline-block; width: 30px;"></span></center>', '<center>4<p style="font-size:15px">Neutral</p></center>', '<center><span style="display:inline-block; width: 30px;">5<span style="display:inline-block; width: 30px;"></span></center>', '<center><span style="display:inline-block; width: 30px;">6<span style="display:inline-block; width: 30px;"></span></center>', '<center>7<p style="font-size:15px">Muy de</br>acuerdo</p></center>'];
 
 var trials = [{
-    question: 'Cuando quiero sentir una emoción más positiva (como la alegría o la diversión), cambio lo que estoy pensando.',
+    question: 'Cuando quiero incrementar mis emociones positivas (p.ej. alegría, diversión), cambio el tema sobre el que estoy pensando.',
     options: likert
   },
   {
-    question: 'Mantengo mis emociones para mí mismo.',
+    question: 'Guardo mis emociones para mí mismo.',
     options: likert
   },
   {
-    question: 'Cuando quiero sentir una emoción menos negativa (como tristeza o enojo), cambio lo que estoy pensando.',
+    question: 'Cuando quiero reducir mis emociones negativas (p.ej. tristeza, enfado), cambio el tema sobre el que estoy pensando.',
     options: likert
   },
   {
-    question: 'Cuando siento emociones positivas, tengo cuidado de no expresarlas.',
+    question: 'Cuando estoy sintiendo emociones positivas, tengo cuidado de no expresarlas.',
     options: likert
   },
   {
-    question: 'Cuando me enfrento a una situación estresante, me hago pensar en ello de una manera que me ayuda a mantener la calma.',
+    question: 'Cuando me enfrento a una situación estresante, intento pensar en ella de un modo que me ayude a mantener la calma.',
     options: likert
   },
   {
@@ -55,11 +55,11 @@ var trials = [{
     options: likert
   },
   {
-    question: 'Cuando quiero sentir una emoción más positiva, cambio la forma en que pienso en la situación.',
+    question: 'Cuando quiero incrementar mis emociones positivas, cambio mi manera de pensar sobre la situación.',
     options: likert
   },
   {
-    question: 'Controlo mis emociones cambiando la forma en que pienso sobre la situación en que estoy.',
+    question: 'Controlo mis emociones cambiando mi forma de pensar sobre la situación en la que me encuentro.',
     options: likert
   },
   {
@@ -67,7 +67,7 @@ var trials = [{
     options: likert
   },
   {
-    question: 'Si quiero sentir una emoción menos negativa, cambio la forma en que pienso en la situación',
+    question: 'Cuando quiero reducir mis emociones negativas, cambio mi manera de pensar sobre la situación.',
     options: likert
   },
 ]
