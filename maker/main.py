@@ -35,12 +35,6 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		"range":"jspsych-survey-text"
 	}
 
-
-	#if (not content[3].startswith(' * The experiment ')):
-	#	content.insert(3,' * The experiment ' + " ".join(file_name.split('_')).title() + ' \n')
-
-	# ************* es la unica diferencia entre instruction y question, podria cambiarse el código para hacerlo mas corto
-
 	# Por cada conjunto de preguntas hay una instruccion
 	for actual_int in range(len(instructions)):
 		# creamos la lista de preguntas temporal
@@ -64,7 +58,6 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			document_actual_line += 1
 		except:
 			pass
-		
 		# *************
 		content.insert(document_actual_line + 0, "  data:{trialid: 'Screen_WM'},\n")
 		content.insert(document_actual_line + 1, "  show_clickable_nav: true,\n")

@@ -108,7 +108,10 @@ jsPsych.plugins['survey-text'] = (function() {
       }
     }
   }
-
+  
+  // this is for conditions on CSCN system
+  var conditions = {};
+  
   plugin.trial = function(display_element, trial) {
 
     for (var i = 0; i < trial.questions.length; i++) {
@@ -185,6 +188,8 @@ jsPsych.plugins['survey-text'] = (function() {
         html += '</form>'
       html += '<p></p></div>';
 
+      // this is for conditions on CSCN system
+      conditions["Q_"+str(i)] = trial.questions[i].prompt;
     }
 
     // add submit button
@@ -214,7 +219,8 @@ jsPsych.plugins['survey-text'] = (function() {
       // save data
       var trialdata = {
         "rt": response_time,
-        "responses": JSON.stringify(question_data)
+        "responses": JSON.stringify(question_data),
+        "conditions": JSON.stringify(conditions) // this is for conditions on CSCN system
       };
 
       for(var index=0; index<matches.length; index++){
@@ -249,13 +255,13 @@ jsPsych.plugins['survey-text'] = (function() {
           textBox.blur();
           textBox.focus();
           var message = '';
-          if (typeof trial.questions[index].error_message == 'undefined') {
-            if (trial.questions[index].language == "english")
-              message = 'Please, verify your answer.';
-            else if (trial.questions[index].language == "spanish")
-              message = 'Por favor, verifique su respuesta.';
-          } else {
+          if (typeof trial.questions[index].error_message !== 'undefined') {
             message = trial.questions[index].error_message;
+          } else {
+            if (trial.questions[index].language === "english")
+              message = 'Please, verify your answer.';
+            else if (trial.questions[index].language === "spanish")
+              message = 'Por favor, verifique su respuesta.';
           }
           display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">' + message +'</span>';
           event.stopPropagation();

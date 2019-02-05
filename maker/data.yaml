@@ -22,6 +22,7 @@
     arguments:
       text: El experimento entrará en modo pantalla completa
 
+# Instructions for this questions block
 - instruction:
     type: instruction  # Only a piece of text
     arguments:
