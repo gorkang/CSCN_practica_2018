@@ -95,10 +95,10 @@ def main():
 			elif driver_selection == 2:	
 				driver = webdriver.Firefox(firefox_profile=profile, executable_path=firefox_driver);
 
-			if maker:
-				driver.get('file:///'+PATH+'/maker/'+line+'/index.html')
-			else:
-				driver.get('file:///'+PATH+'/pruebas_individuales/'+line+'/index.html')
+			#if maker:
+			#	driver.get('file:///'+PATH+'/maker/'+line+'/index.html')
+			#else:
+			driver.get('file:///'+PATH+'/pruebas_individuales/'+line+'/index.html')
 
 			escape = ActionChains(driver)
 			escape.send_keys(Keys.ESCAPE)
@@ -118,11 +118,6 @@ def main():
 
 			multi_select_round = 0
 			while True:
-				#ronda += 1
-				#txtfields = someElements = driver.find_elements(By.CLASS_NAME, 'jspsych-content')
-				#for field in txtfields:
-				#	print("ronda " + str(ronda))
-				#	print(field.text)
 				try:
 					# input box with text or number
 					elem = driver.find_element_by_class_name("jspsych-survey-text-question")
@@ -246,14 +241,6 @@ def main():
 				if added: 
 					print("Archivo nuevo almacenado en: "+path_to_watch+"/"+added[0])
 					break
-
-			
-		    # ejecuta todas las acciones del actionchains
-		    # actions.perform()
-
-		    #elem.clear()
-		    #elem.send_keys("python")
-		    #elem.send_keys(Keys.RETURN)
 
 		    # screenshot capture (it needs pillow)
 			# image_path = "../Image/aislamiento_social_y_redes_sociales.png"

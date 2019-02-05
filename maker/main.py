@@ -5,7 +5,7 @@
 #
 #####
 
-import shutil, math, os, subprocess, yaml, importlib, json, re
+import shutil, math, os, subprocess, yaml, importlib, json, re, glob
 from subprocess import PIPE, Popen, STDOUT
 from pathlib import Path
 
@@ -326,7 +326,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		content.insert(document_actual_line + 2, "\n")
 		document_actual_line += 3
 
-	# Se agrega la ventana para el fullscreen si se requiere
+	# If is required, we add the fullscreen window
 	if fullscreen["fullscreen_mode"]:
 		content.insert(document_actual_line + 0, "if (window.innerWidth != screen.width || window.innerHeight != screen.height){\n")
 		content.insert(document_actual_line + 1, "  questions.unshift({\n")
@@ -367,7 +367,7 @@ def writeIndex(file_name, plugins):
 	content = f.readlines()
 	f.close()
 
-	# inicio donde se agregan los plugins
+	# Start, when we adding the plugins
 	document_actual_line = 19
 
 	if (not content[6].startswith('  <title>')):
@@ -392,7 +392,7 @@ def writeIndex(file_name, plugins):
 		f.close()
 
 def testing(PATH, file_name):
-	# testing new test
+	# Testing new experiment
 	file = open('/'+ str(Path(PATH).parents[0]) + '/testing/test_list.txt', 'r')
 	original = file.readlines()
 	file.close()
@@ -414,23 +414,31 @@ def testing(PATH, file_name):
 	content = "".join(lines)
 	f.write(content)
 	f.close()
-	
-	os.system("python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/main.py')
 
-	# restore test_list.txt
-	f = open(str(Path(PATH).parents[0]) + '/testing/test_list.txt', "w")
-	f.write("".join(original))
-	f.close()
-
-	'''
-	# Actualmente no se está creando la carpeta automáticamente en las pruebas individuales, si se quiere hacer hay que descomentar esto
-	# copying the finish test
+	# Copying the finish test
 	try:
 		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
 	except:
+		folder_elements = dict ([(f, None) for f in os.listdir (str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)])
+		# Store the documentation if exists
+		if "documentation" in folder_elements:
+			shutil.copytree(str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name + "/documentation", PATH + '/'+ file_name + "/documentation")
 		shutil.rmtree(str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
 		shutil.copytree(PATH + '/'+ file_name, str(Path(PATH).parents[0]) + '/pruebas_individuales/'+ file_name)
-	'''
+
+	# Erasing maker experiment folder
+	try:
+		shutil.rmtree(PATH + '/'+ file_name)
+	except:
+		pass
+
+	# Starting test	
+	os.system("python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/main.py')
+
+	# Restore test_list.txt
+	f = open(str(Path(PATH).parents[0]) + '/testing/test_list.txt', "w")
+	f.write("".join(original))
+	f.close()
 
 def main():
 	PATH = os.getcwd()
@@ -444,7 +452,7 @@ def main():
 			print("Error al procesar el archivo data.yaml, verifique que esté correctamente escrito e identado.")
 			return
 
-	#import classes
+	# Import classes
 	classes = importlib.import_module('classes')
 	items = []
 
@@ -484,10 +492,6 @@ def main():
 
 			# Add to list.
 			items.append(cls(item_id.replace(' ', '_'), spec))
-
-	#next(item for item in items if item["item_id"] == "papas_fritas")
-	#for item in items: 
-	#	print(item.__dict__)
 
 	fullscreen_mode = False
 	questions=[]
@@ -537,8 +541,8 @@ def main():
 			actual_question = {}
 
 			actual_question["type"] = item_type
-			#----------#
-			# Activación de plugins
+			
+			# Plugin activation 
 			if item_type == "multi_choice":
 				try:
 					actual_question["orientation"] = items[i].arguments["orientation"]
