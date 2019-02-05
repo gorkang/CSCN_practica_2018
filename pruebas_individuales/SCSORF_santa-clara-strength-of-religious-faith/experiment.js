@@ -94,6 +94,12 @@ var survey09 = {
   data: {trialid: "survey_09"}
 };
 
+var survey10 = {
+  type: "survey-multi-choice-horizontal",
+  questions: [{prompt: "<div class='justified'><br />Considero mi fe una fuente de inspiraci&oacute;n<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_09"}
+};
+
 
 
 // Creacion de timeline e inclusion de trials
@@ -116,6 +122,7 @@ religiosidad_experiment.push(screen_religiosidad_experiment);
 religiosidad_experiment.push(survey01);
 religiosidad_experiment.push(survey02);
 religiosidad_experiment.push(survey03);
+religiosidad_experiment.push(survey10);
 religiosidad_experiment.push(survey04);
 religiosidad_experiment.push(survey05);
 religiosidad_experiment.push(survey06);
