@@ -132,6 +132,10 @@ jsPsych.plugins['survey-text'] = (function() {
     if(trial.preamble !== null){
       html += '<div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
     }
+
+    // this is for conditions on CSCN system
+    trial_questions = {};
+    
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
       // define the min and max of a question with range
@@ -189,8 +193,11 @@ jsPsych.plugins['survey-text'] = (function() {
       html += '<p></p></div>';
 
       // this is for conditions on CSCN system
-      conditions["Q_"+str(i)] = trial.questions[i].prompt;
+      trial_questions["Q_"+i.toString()] = trial.questions[i].prompt;
     }
+
+    // this is for conditions on CSCN system
+    conditions["Questions"] = trial_questions; 
 
     // add submit button
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><p></p>';

@@ -18,7 +18,8 @@ Assist_test
 #wais_matrices
 #wais_working_memory
 #razonamiento_bayesiano
-#MRT_mental-rotation-task  ----- adaptar plugin multiselect
+# plugin multiselect en:
+#MRT_mental-rotation-task
 
 # ---------------------- arregladas ------------------------
 

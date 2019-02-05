@@ -54,6 +54,10 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
       }
     }
   }
+  
+  // this is for conditions on CSCN system
+  var conditions = {};
+  
   plugin.trial = function(display_element, trial) {
     var plugin_id_name = "jspsych-survey-multi-choice-horizontal";
     var plugin_id_selector = '#' + plugin_id_name;
@@ -82,20 +86,29 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
     if(trial.preamble !== null){
       trial_form.innerHTML += '<div id="'+preamble_id_name+'" class="'+preamble_id_name+'">'+trial.preamble+'</div>';
     }
+
+    // this is for conditions on CSCN system
+    trial_questions = {};
+    trial_alternatives = {};
+
     // add multiple-choice questions
     for (var i = 0; i < trial.questions.length; i++) {
-        // create question container
-        var question_classes = [_join(plugin_id_name, 'question')];
-        if (trial.questions[i].horizontal) {
-          question_classes.push(_join(plugin_id_name, 'horizontal'));
-        }
+      // create question container
+      var question_classes = [_join(plugin_id_name, 'question')];
+      if (trial.questions[i].horizontal) {
+        question_classes.push(_join(plugin_id_name, 'horizontal'));
+      }
 
-        trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
+      trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
 
-        var question_selector = _join(plugin_id_selector, i);
+      var question_selector = _join(plugin_id_selector, i);
 
-        // add question text
-        display_element.querySelector(question_selector).innerHTML += '<p class="' + plugin_id_name + '-text survey-multi-choice">' + trial.questions[i].prompt + '</p>';
+      // add question text
+      display_element.querySelector(question_selector).innerHTML += '<p class="' + plugin_id_name + '-text survey-multi-choice">' + trial.questions[i].prompt + '</p>';
+
+      // this is for conditions on CSCN system
+      trial_questions["Q_"+i.toString()] = trial.questions[i].prompt;
+      trial_alternatives["Q_"+i.toString()] = trial.questions[i].options;
 
       // create option radio buttons
       for (var j = 0; j < trial.questions[i].options.length; j++) {
@@ -140,6 +153,11 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
         display_element.querySelector(question_selector + " input[type=radio]").required = true;
       }
     }
+
+    // this is for conditions on CSCN system
+    conditions["Questions"] = trial_questions; 
+    conditions["Alternatives"] = trial_alternatives; 
+
     // add submit button
     //modificacion
     trial_form.innerHTML += "<p>"
@@ -174,7 +192,8 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
       // save data
       var trial_data = {
         "rt": response_time,
-        "responses": JSON.stringify(question_data)
+        "responses": JSON.stringify(question_data),
+        "conditions": JSON.stringify(conditions) // this is for conditions on CSCN system
       };
       display_element.innerHTML = '';
 
