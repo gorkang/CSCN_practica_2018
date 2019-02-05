@@ -1,6 +1,9 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-Assist_test
+WOC_ways-of-coping
+#ways_of_coping
+#confrontive_styles
+#Assist_test
 #conditional_test
 #CRT_numerico
 #conditional_test

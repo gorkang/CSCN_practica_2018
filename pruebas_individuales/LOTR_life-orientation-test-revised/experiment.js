@@ -41,8 +41,8 @@ var screen_optimismo_aprendido_experiment = {
     }
 };
 
-
-var likert_scale = ["Nunca","Pocas veces","Algunas veces","La mayoria de las veces","Siempre"];
+// Esta escala fue modificada de Algunas a Varias veces dado que el pocas, algunas y la mayoría son elementos muy subjetivos (aun hay que hacer pruebas respecto a esto)
+var likert_scale = ["Nunca","Pocas veces","Varias veces","La mayoria de las veces","Siempre"];
 
 // Se sugiere agregar 4 preguntas extras para hacer menos evidente el contenido del estudio en las preguntas siguientes son los items 1, 3, 4, 7, 9 y 10 en ese orden
 

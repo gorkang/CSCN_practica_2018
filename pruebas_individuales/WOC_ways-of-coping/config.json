@@ -1,0 +1,12 @@
+{
+    "cognitive_atlas_task_id": "",
+    "instructions":"Responder preguntas de WOC_ways-of-coping_experiment",
+    "description":"",
+    "url":"",
+    "contributors": [""],
+    "exp_id": "WOC_ways-of-coping_experiment",
+    "name": "WOC_ways-of-coping_experiment",
+    "reference": [""],
+    "template": "jspsych",
+    "time": 10
+}

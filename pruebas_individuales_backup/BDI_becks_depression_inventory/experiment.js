@@ -123,7 +123,7 @@ trials.forEach(function(trial) {
       options: trial.options
     }],
     required: true,
-    required_msg: 'Debeas elegir a lo menos una opcion.',
+    required_msg: 'Debes elegir a lo menos una opcion.',
     data: {
       trialid: "becks_depression_inventory_" + index
     }

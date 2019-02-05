@@ -459,7 +459,7 @@ def main():
 		# Get experiment configuration
 		if item_id == "test configuration":
 			try:
-				file_name = spec["test_name"].replace(' ', '_')
+				file_name = ("".join([word[0] for word in spec["test_name"].split()])).upper() + "_" + spec["test_name"].replace(' ', '-')
 				try:
 					order = spec["order"]
 				except:
@@ -637,8 +637,8 @@ def main():
 	writeConfig(file_name)
 	writeIndex(file_name, plugins)
 
-	print("Prueba creada con éxito.")
-	print("Iniciando testing de la prueba "+file_name+"...")
+	print("Prueba "+ file_name +" creada con éxito.")
+	print("Iniciando testing de la prueba...")
 	testing(PATH, file_name)
 	
 if __name__ == '__main__' : main()
