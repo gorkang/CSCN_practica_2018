@@ -44,6 +44,8 @@ var screen_optimismo_aprendido_experiment = {
 
 var likert_scale = ["Nunca","Pocas veces","Algunas veces","La mayoria de las veces","Siempre"];
 
+// Se sugiere agregar 4 preguntas extras para hacer menos evidente el contenido del estudio en las preguntas siguientes son los items 1, 3, 4, 7, 9 y 10 en ese orden
+
 var survey01 = {
   type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />En tiempos dif&iacute;ciles, suelo esperar lo mejor.<br /></div>", options: likert_scale, required: true, horizontal: true}],
@@ -74,6 +76,12 @@ var survey05 = {
   data: {trialid: "survey_05"}
 };
 
+var survey06 = {
+  type: "survey-multi-choice-horizontal",
+  questions: [{prompt: "<div class='justified'><br />Siempre soy optimista en cuanto al futuro.<br /></div>", options: likert_scale, required: true, horizontal: true}],
+  data: {trialid: "survey_05"}
+};
+
 
 // Creacion de timeline e inclusion de trials
 optimismo_aprendido_experiment = [];    //timeline
@@ -94,6 +102,7 @@ optimismo_aprendido_experiment.push(screen_optimismo_aprendido_experiment);
 
 optimismo_aprendido_experiment.push(survey01);
 optimismo_aprendido_experiment.push(survey02);
+optimismo_aprendido_experiment.push(survey06);
 optimismo_aprendido_experiment.push(survey03);
 optimismo_aprendido_experiment.push(survey04);
 optimismo_aprendido_experiment.push(survey05);
