@@ -111,6 +111,7 @@ jsPsych.plugins['survey-text'] = (function() {
   
   // this is for conditions on CSCN system
   var conditions = {};
+  var trial_questions = {};
   
   plugin.trial = function(display_element, trial) {
 
@@ -132,9 +133,6 @@ jsPsych.plugins['survey-text'] = (function() {
     if(trial.preamble !== null){
       html += '<div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
     }
-
-    // this is for conditions on CSCN system
-    trial_questions = {};
     
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {

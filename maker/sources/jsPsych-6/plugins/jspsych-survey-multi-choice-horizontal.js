@@ -57,6 +57,8 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
   
   // this is for conditions on CSCN system
   var conditions = {};
+  var trial_questions = {};
+  var trial_alternatives = {};
   
   plugin.trial = function(display_element, trial) {
     var plugin_id_name = "jspsych-survey-multi-choice-horizontal";
@@ -86,10 +88,6 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
     if(trial.preamble !== null){
       trial_form.innerHTML += '<div id="'+preamble_id_name+'" class="'+preamble_id_name+'">'+trial.preamble+'</div>';
     }
-
-    // this is for conditions on CSCN system
-    trial_questions = {};
-    trial_alternatives = {};
 
     // add multiple-choice questions
     for (var i = 0; i < trial.questions.length; i++) {

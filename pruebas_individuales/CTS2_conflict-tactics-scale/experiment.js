@@ -344,7 +344,7 @@ escala_tacticas_experiment.push(survey07);
 escala_tacticas_experiment.push(survey08);
 escala_tacticas_experiment.push(survey09);
 escala_tacticas_experiment.push(survey10);
-escala_tacticas_experiment.push(survey11);//this is fine, it was a mistake :c
+escala_tacticas_experiment.push(survey11);
 escala_tacticas_experiment.push(survey12);
 escala_tacticas_experiment.push(survey13);
 escala_tacticas_experiment.push(survey14);

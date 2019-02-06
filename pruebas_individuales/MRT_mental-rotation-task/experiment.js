@@ -9,10 +9,10 @@
 
  // Variables globales
 
-var mr_timeleft_1 = 180000;
-var mr_timeleft_2 = 180000;
-var mr_timeleft_3 = 180000;
-var mr_timeleft_4 = 180000;
+var mr_timeleft_1 = 1800;
+var mr_timeleft_2 = 1800;
+var mr_timeleft_3 = 1800;
+var mr_timeleft_4 = 1800;
 
 var mr_timeout_status1 = 0;
 var mr_timeout_status2 = 0;
