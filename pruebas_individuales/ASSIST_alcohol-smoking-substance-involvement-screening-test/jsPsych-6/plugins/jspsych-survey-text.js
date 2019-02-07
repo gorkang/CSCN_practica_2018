@@ -40,11 +40,17 @@ jsPsych.plugins['survey-text'] = (function() {
             default: "spanish",
             description: 'Language of fail-message'
           },
-          error_text: {
+          error_message: {
             type: jsPsych.plugins.parameterType.STRING,
-            pretty_name: 'ErrorText',
+            pretty_name: 'ErrorMessage',
             default: undefined,
             description: 'Especific text of fail-message'
+          },
+          answer: {
+            type: jsPsych.plugins.parameterType.STRING,
+            pretty_name: 'Answer',
+            default: undefined,
+            description: 'Especific answer'
           },
           value: {
             type: jsPsych.plugins.parameterType.STRING,
@@ -102,41 +108,32 @@ jsPsych.plugins['survey-text'] = (function() {
       }
     }
   }
-
+  
+  // this is for conditions on CSCN system
+  var conditions = {};
+  var trial_questions = {};
+  
   plugin.trial = function(display_element, trial) {
 
-    if (typeof trial.questions[0].rows == 'undefined') {
-      trial.questions[0].rows = [];
-      for (var i = 0; i < trial.questions.length; i++) {
-        trial.questions[i].rows.push(1);
-      }
-    }
-    if (typeof trial.questions[0].columns == 'undefined') {
-      trial.questions[0].columns = [];
-      for (var i = 0; i < trial.questions.length; i++) {
-        trial.questions[i].columns.push(40);
-      }
-    }
-    if (typeof trial.questions[0].value == 'undefined') {
-      trial.questions[0].value = [];
-      for (var i = 0; i < trial.questions.length; i++) {
-        trial.questions[i].value.push("");
-      }
-    }
-    if (typeof trial.questions[0].language == 'undefined') {
-      for (var i = 0; i < trial.questions.length; i++)
+    for (var i = 0; i < trial.questions.length; i++) {
+      if (typeof trial.questions[i].rows === 'undefined')
+        trial.questions[i].rows = 1;
+      if (typeof trial.questions[i].columns === 'undefined')
+        trial.questions[i].columns = 40;
+      if (typeof trial.questions[i].value === 'undefined')
+        trial.questions[i].value = "";
+      if (typeof trial.questions[i].language === 'undefined')
         trial.questions[i].language = "spanish";
-    } 
-    if (typeof trial.questions[0].endword == 'undefined') {
-      for (var i = 0; i < trial.questions.length; i++)
+      if (typeof trial.questions[i].endword === 'undefined')
         trial.questions[i].endword = "";
-    }
+    } 
 
     var html = '<br /><p><br />';
     // show preamble text
     if(trial.preamble !== null){
       html += '<div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
     }
+    
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
       // define the min and max of a question with range
@@ -154,38 +151,59 @@ jsPsych.plugins['survey-text'] = (function() {
       
 
       html += '<div id="jspsych-survey-text-' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
-      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt;
-      if (trial.questions[i].type == "range"){
-        html += '</p><input type="' + 'number' + '" name="#jspsych-survey-' + 'number' + '-response-' + i + '" min ="' + min + '" max ="' + max;
-      } else {
-        html += '</p><input type="' + trial.questions[0].type + '" name="#jspsych-survey-' + trial.questions[0].type + '-response-' + i;
-      }
+      html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
+
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += '<form>'
+      html += '<input type="' + trial.questions[0].type + '" name="#jspsych-survey-' + trial.questions[0].type + '-response-' + i;
+
+      if (typeof trial.questions[i].range != 'undefined')
+        html += '" min ="' + min + '" max ="' + max;
+
       if(trial.questions[i].rows == 1){
         html += '" size="'+trial.questions[i].columns;
       } else {
         html += '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows;
       }
 
-      html += '" value="' + trial.questions[i].value + '"'; 
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += '" value="0"'; 
+      else
+        html += '" value="' + trial.questions[i].value + '"'; 
       
-      if (i == 0){
-        html += ' autofocus';
+      html += ' autofocus';
+
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += ' class="slider" oninput="this.form.amountInput.value=this.value"';
+
+      html += '></input>'; 
+
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range'){
+        html += '&nbsp;&nbsp;<input type="number" name="amountInput" value="0" ';
+        if (typeof trial.questions[i].range != 'undefined')
+          html += 'min ="' + min + '" max ="' + max+'" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
+        else
+          html += 'min ="0" max ="100" oninput="this.form[' + "'" + '#jspsych-survey-' + trial.questions[0].type + '-response-' + i + "'" + '].value=this.value" />';
       }
+      html += trial.questions[i].endword
+      if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
+        html += '</form>'
+      html += '<p></p></div>';
 
-      html += '></input>' + trial.questions[i].endword + '<p></p></div>';
-
+      // this is for conditions on CSCN system
+      trial_questions["Q_"+i.toString()] = trial.questions[i].prompt;
     }
+
+    // this is for conditions on CSCN system
+    conditions["Questions"] = trial_questions; 
 
     // add submit button
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><p></p>';
-    html +='<div class="fail-message"></div>';
+    html += '<div class="fail-message"></div>';
     display_element.innerHTML = html;
 
     // Focus on first box
-    if (trial.questions[0].type == 'range')
-      var firstBox = document.getElementsByName('#jspsych-survey-'+ 'number' +'-response-0')[0];
-    else
-      var firstBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[0].type +'-response-0')[0];
+    var firstBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[0].type +'-response-0')[0];
     firstBox.focus();
 
     display_element.querySelector('#jspsych-survey-text-next').addEventListener('click', function(event) {
@@ -206,21 +224,18 @@ jsPsych.plugins['survey-text'] = (function() {
       // save data
       var trialdata = {
         "rt": response_time,
-        "responses": JSON.stringify(question_data)
+        "responses": JSON.stringify(question_data),
+        "conditions": JSON.stringify(conditions) // this is for conditions on CSCN system
       };
 
       for(var index=0; index<matches.length; index++){
-        if (trial.questions[index].type == 'range')
-          var textBox = document.getElementsByName('#jspsych-survey-'+ 'number' +'-response-' + [index])[0];
-        else
-          var textBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[index].type +'-response-' + [index])[0];
+        var textBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[index].type +'-response-' + [index])[0];
 
         var validation = true;
         var val = matches[index].querySelector('textarea, input').value;
 
-        if (trial.questions[index].required != 'undefined'){
+        if (trial.questions[index].required != 'undefined')
           required = trial.questions[index].required;
-        }
         else
           required = false;
 
@@ -228,11 +243,15 @@ jsPsych.plugins['survey-text'] = (function() {
         if ((val == "") && required)
           pass = false
         // next trial and check if is a valid element
-        if (trial.questions[index].type == "number")
-          validation = $.isNumeric(val) === true;
-        else if (trial.questions[index].type == "range")
-          validation = $.isNumeric(val) === true && val <= max && val >= min;
-
+        if (trial.questions[index].type == "number"){
+          if (typeof trial.questions[index].range == 'undefined')
+            validation = $.isNumeric(val) === true;
+          else
+            validation = $.isNumeric(val) === true && val <= max && val >= min;
+        }
+        if (typeof trial.questions[index].answer !== 'undefined')
+          validation = val.toString() === (trial.questions[index].answer).toString();
+ 
         if (validation && pass) {
           display_element.innerHTML = '';
           jsPsych.pluginAPI.clearAllTimeouts();
@@ -241,13 +260,13 @@ jsPsych.plugins['survey-text'] = (function() {
           textBox.blur();
           textBox.focus();
           var message = '';
-          if (typeof trial.questions[index].error_text == 'undefined') {
-            if (trial.questions[index].language == "english")
-              message = 'Please, verify your answer.';
-            else if (trial.questions[index].language == "spanish")
-              message = 'Por favor, verifique su respuesta.';
+          if (typeof trial.questions[index].error_message !== 'undefined') {
+            message = trial.questions[index].error_message;
           } else {
-            message = trial.questions[index].error_text;
+            if (trial.questions[index].language === "english")
+              message = 'Please, verify your answer.';
+            else if (trial.questions[index].language === "spanish")
+              message = 'Por favor, verifique su respuesta.';
           }
           display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">' + message +'</span>';
           event.stopPropagation();

@@ -32,7 +32,7 @@ var instruction_screen_experiment = {
 
 var question1 = {
   type:'survey-multi-select',
-  questions: [{prompt: "<div class='justified'>¿Con que le gusta condimentar sus comidas diarias?</div>", options: ['Mayonesa', 'Mostaza', 'Ketchup', 'Ají', 'Pebre'], required: true, horizontal: false, not_enabled_options: 0}],
+  questions: [{prompt: "<div class='justified'>¿Con que le gusta condimentar <img src='images/Mostaza.jpg' /> sus comidas diarias?</div>", options: ['<br><img src="images/Mayonesa.jpg" />', '<br><img src="images/Mostaza.jpg" />', '<br><img src="images/Ketchup.jpeg" />', '<br><img src="images/Ají.jpg" />', '<br><img src="images/Pebre.jpg" />'], required: true, horizontal: true, not_enabled_options: 0}],
   data: {trialid: 'Comidas_1'}
 }
 questions_experiment.push(question1);

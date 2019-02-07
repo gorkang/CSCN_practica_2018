@@ -1,7 +1,10 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-MST_Multi-Select-Test
+ASSIST_alcohol-smoking-substance-involvement-screening-test
+#IT_image-test
+#IT_Image-Test
 #AT_Assist-test
+#MST_Multi-Select-Test
 #WOC_ways-of-coping
 #ways_of_coping
 #confrontive_styles
@@ -56,7 +59,6 @@ MST_Multi-Select-Test
 #IRI_interpersonal_reactivity_index
 #LIPKUS_numeracy
 #MINI_SEA_mini_social_cognition_emotional_assessment
-#ASSIST_alcohol-smoking-substance-involvement-screening-test
 #SASS_social_adaptation_self_evaluation_scale
 #SPR_III_self_report_psychopathy_scale
 #STAI_state_trait_anxiety_inventory

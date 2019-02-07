@@ -4,7 +4,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name="robots" content="noindex">
-  <title>At Assist-Test</title>
+  <title>Image Test</title>
   <!-- Documento CSS principal -->
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -17,13 +17,7 @@
   <!-- Plugins -->
   <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
   <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
   <script src="jsPsych-6/plugins/jspsych-survey-multi-select.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice-vertical.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice-horizontal.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-multi-select-vertical.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-multi-select-horizontal.js"></script>
 
   <script src='experiment.js'></script>
 
@@ -66,10 +60,10 @@
                   if (window.self !== window.top) {
                     parent.postMessage({
                       csv: jsPsych.data.get().csv(),
-                      name: 'AT_Assist-test_results'
+                      name: 'IT_image-test_results'
                     }, '*');
                   } else {
-                    jsPsych.data.get().localSave('csv', 'AT_Assist-test_results.csv');
+                    jsPsych.data.get().localSave('csv', 'IT_image-test_results.csv');
                   }
                 }
               }

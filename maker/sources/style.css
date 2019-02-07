@@ -84,11 +84,6 @@ input[type="text"] {
   border-color: #ccc;
 }
 
-#jspsych-survey-multi-choice1-0 {
-    display: inline-block;
-    white-space: nowrap;
-}
-
 .jspsych-btn:hover {
   background-color: #ddd;
   border-color: #aaa;
@@ -151,16 +146,8 @@ div#jspsych-content {
     text-align: left;
 }
 
-p.jspsych-survey-multi-choice-text.survey-multi-choice{
-  text-align: left;
-}
-
 .jspsych-content {
     max-width: 100%;
-}
-
-.multi-choices {
-    text-align: center;
 }
 
 div#jspsych-html-button-response-btngroup {

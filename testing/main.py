@@ -156,12 +156,7 @@ def main():
 
 				try:
 					# multiple choice
-					elem = driver.find_elements_by_name("jspsych-survey-multi-choice-horizontal-response-0")
-					if len(elem) == 0:
-						elem = driver.find_elements_by_name("jspsych-survey-multi-choice-vertical-response-0")
-						choice = 0
-					else:
-						choice = 1
+					elem = driver.find_elements_by_name("jspsych-survey-multi-choice-response-0")
 
 					if randomization:
 						elem[random.randrange(len(elem))].click()
@@ -170,10 +165,8 @@ def main():
 							multi_choice = 0
 						elem[multi_choice].click()
 						multi_choice+=1
-					if choice:
-						button = driver.find_element_by_id("jspsych-survey-multi-choice-horizontal-next")
-					else:
-						button = driver.find_element_by_id("jspsych-survey-multi-choice-vertical-next")
+						
+					button = driver.find_element_by_id("jspsych-survey-multi-choice-next")
 					button.click()
 				except:
 					pass

@@ -1,11 +1,11 @@
 {
     "cognitive_atlas_task_id": "",
-    "instructions":"Responder preguntas de AT_Assist-test_experiment",
+    "instructions":"Responder preguntas de IT_image-test_experiment",
     "description":"",
     "url":"",
     "contributors": [""],
-    "exp_id": "AT_Assist-test_experiment",
-    "name": "AT_Assist-test_experiment",
+    "exp_id": "IT_image-test_experiment",
+    "name": "IT_image-test_experiment",
     "reference": [""],
     "template": "jspsych",
     "time": 10
