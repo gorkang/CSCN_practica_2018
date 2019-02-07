@@ -1,10 +1,7 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-ASSIST_alcohol-smoking-substance-involvement-screening-test
-#IT_image-test
-#IT_Image-Test
+MST_Multi-Select-Test
 #AT_Assist-test
-#MST_Multi-Select-Test
 #WOC_ways-of-coping
 #ways_of_coping
 #confrontive_styles
@@ -23,8 +20,8 @@ ASSIST_alcohol-smoking-substance-involvement-screening-test
 #razonamiento_silogistico    --- agregar instrucciones (q o p),q 
 #razonamiento_transitivo     --- arreglar imagen 
 #sMARS_short_mathematics_anxiety_rating_scale --- error
-#wais_matrices
-#wais_working_memory
+#WAISMAT_wais-matrices
+#WAISWM_wais-working-memory
 #razonamiento_bayesiano
 # plugin multiselect en:
 #MRT_mental-rotation-task
@@ -36,7 +33,7 @@ ASSIST_alcohol-smoking-substance-involvement-screening-test
 #wais_vocabulario
 #GL_graph-literacy
 #CRTv_cognitive-reflection-test-verbal
-#abreviated_mathematics_anxiety_rating_scale
+#SMARS_short-mathematics-anxiety-rating-scale
 #actividad_fisica
 #aislamiento_social_y_redes_sociales
 #ansiedad_matematica
@@ -59,8 +56,9 @@ ASSIST_alcohol-smoking-substance-involvement-screening-test
 #IRI_interpersonal_reactivity_index
 #LIPKUS_numeracy
 #MINI_SEA_mini_social_cognition_emotional_assessment
+#ASSIST_alcohol-smoking-substance-involvement-screening-test
 #SASS_social_adaptation_self_evaluation_scale
-#SPR_III_self_report_psychopathy_scale
+#SRPIII_self-report-psychopathy-scale
 #STAI_state_trait_anxiety_inventory
 #SPWB_scale-psychological-well-being
 #SSWB_scale-social-well-being
