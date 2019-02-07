@@ -8,6 +8,10 @@ class item:
         self.type = spec['type'].replace(' ', '_')
         self.previous = spec['previous']
         self.next = spec['next']
+        try:
+            self.images = spec['images']
+        except:
+            self.images = None
         self.arguments = spec['arguments']
         try:
             self.tags = spec['tags']

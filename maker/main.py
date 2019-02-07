@@ -368,7 +368,7 @@ def writeIndex(file_name, plugins):
 
 	if (not content[6].startswith('  <title>')):
 
-		content.insert(6, '  <title>' + " ".join(file_name.split('_')).title() + '</title>\n')
+		content.insert(6, '  <title>' + " ".join((file_name.split('_')[1]).split("-")).title() + '</title>\n')
 		# inserción de plugins
 		for plugin, validation in plugins.items():
 			if validation:
@@ -463,13 +463,17 @@ def main():
 		# Get experiment configuration
 		if item_id == "test configuration":
 			try:
-				file_name = ("".join([word[0] for word in spec["test_name"].split()])).upper() + "_" + spec["test_name"].replace(' ', '-')
+				file_name = ("".join([word[0] for word in spec["test_name"].split()])).upper() + "_" + (spec["test_name"].replace(' ', '-')).lower()
 				try:
 					order = spec["order"]
 				except:
 					pass
 				try:
 					scales = spec["scales"]
+				except:
+					pass
+				try:
+					images = spec["images"]
 				except:
 					pass
 			except:
@@ -561,6 +565,8 @@ def main():
 							actual_question["choices"][index] = 'No'
 						elif value == True:
 							actual_question["choices"][index] = 'Yes'
+						if (type(value) == dict):
+							actual_question["choices"][index] = '<img src="images/' + value["image"] + '" />'
 					if actual_question["orientation"] == "horizontal":
 						actual_question["choices"] = ["<br>" + s for s in actual_question["choices"]]
 				except:
@@ -639,6 +645,9 @@ def main():
 	except:
 		shutil.rmtree(PATH + '/'+ file_name)
 		shutil.copytree(PATH + '/sources', PATH + '/'+ file_name)
+
+	if images:
+		shutil.copytree(PATH + '/images/' + images, PATH + '/'+ file_name + "/images")
 
 	writeExperiment(file_name, instructions, questions, fullscreen=fullscreen)
 	writeConfig(file_name)

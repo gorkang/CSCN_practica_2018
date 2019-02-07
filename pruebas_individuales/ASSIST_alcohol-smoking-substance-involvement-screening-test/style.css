@@ -84,11 +84,6 @@ input[type="text"] {
   border-color: #ccc;
 }
 
-#jspsych-survey-multi-choice1-0 {
-    display: inline-block;
-    white-space: nowrap;
-}
-
 .jspsych-btn:hover {
   background-color: #ddd;
   border-color: #aaa;
@@ -151,16 +146,8 @@ div#jspsych-content {
     text-align: left;
 }
 
-p.jspsych-survey-multi-choice-text.survey-multi-choice{
-  text-align: left;
-}
-
 .jspsych-content {
     max-width: 100%;
-}
-
-.multi-choices {
-    text-align: center;
 }
 
 div#jspsych-html-button-response-btngroup {
@@ -171,29 +158,44 @@ button.jspsych-matrix-button {
     background: white;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"] {
+   width:70px;
+}
+
+.slider {
   -webkit-appearance: none;
+  width: 50%;
+  height: 15px;
+  border-radius: 5px;   
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
 
-input[type=number]::-webkit-outer-spin-button {
+.slider::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #4CAF50;
+  cursor: pointer;
 }
 
-input[type=radio]{
-  margin: auto;
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
 }
 
-div.jspsych-survey-multi-choice1-option{
-  margin: auto;
+[id^=jspsych-survey-multi-select-horizontal] {
   text-align: center;
-  width: 110px;
 }
 
-label.jspsych-survey-multi-choice1-text{
-  position: absolute;
-  transform: translateX(-50%);
-}
-
-input#jspsych-survey-multi-choice1-next{
-  transform: translateY(50px);
+[id^=jspsych-survey-multi-choice-horizontal] {
+  text-align: center;
 }

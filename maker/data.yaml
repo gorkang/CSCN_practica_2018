@@ -1,14 +1,15 @@
 
 - test configuration:
-    test_name: Multi Select Test
+    test_name: Image Test
     order: sequential
+    images: image_test
     scales:
       Condimentos:
-        - Mayonesa
-        - Mostaza
-        - Ketchup
-        - Ají
-        - Pebre
+        - {image: Mayonesa.jpg}
+        - {image: Mostaza.jpg}
+        - {image: Ketchup.jpeg}
+        - {image: Ají.jpg}
+        - {image: Pebre.jpg}
 
 - initial:
     type: fullscreen
@@ -30,4 +31,5 @@
     arguments:
       text: ¿Con que le gusta condimentar sus comidas diarias?
       choices: Condimentos
+      orientation: horizontal
 #      not_enabled_options: 1
