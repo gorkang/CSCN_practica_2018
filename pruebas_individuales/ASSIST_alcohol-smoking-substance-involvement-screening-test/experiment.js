@@ -1055,7 +1055,7 @@ var if_question22 = {
         if (element.trialid === "Otros_1" && restriction_dict[9]["Otros_1"] === "true"){answer_next[8] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[9]["Otros_1"] = "false"}
       }
     })
-    otra_sustancia = variables['otra_sustancia']; 
+    variable:otra_sustancia = variables['variable:otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -2589,7 +2589,7 @@ var if_question32 = {
         if (element.trialid === "Otros_3" && restriction_dict[10]["Otros_3"] === "true"){answer_next[9] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[10]["Otros_3"] = "false"}
       }
     })
-    otra_sustancia = variables['otra_sustancia']; 
+    variable:otra_sustancia = variables['variable:otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -4123,7 +4123,7 @@ var if_question42 = {
         if (element.trialid === "Otros_3" && restriction_dict[10]["Otros_3"] === "true"){answer_next[9] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[10]["Otros_3"] = "false"}
       }
     })
-    otra_sustancia = variables['otra_sustancia']; 
+    variable:otra_sustancia = variables['variable:otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -5504,7 +5504,7 @@ var if_question51 = {
         if (element.trialid === "Otros_3" && restriction_dict[10]["Otros_3"] === "true"){answer_next[9] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[10]["Otros_3"] = "false"}
       }
     })
-    otra_sustancia = variables['otra_sustancia']; 
+    variable:otra_sustancia = variables['variable:otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -5949,7 +5949,7 @@ var if_question61 = {
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
     })
-    otra_sustancia = variables['otra_sustancia']; 
+    variable:otra_sustancia = variables['variable:otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -6273,7 +6273,7 @@ var if_question71 = {
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
     })
-    otra_sustancia = variables['otra_sustancia']; 
+    variable:otra_sustancia = variables['variable:otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 

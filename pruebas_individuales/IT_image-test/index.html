@@ -4,7 +4,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name="robots" content="noindex">
-  <title>Alcohol Smoking Substance Involvement Screening Test</title>
+  <title>Image Test</title>
   <!-- Documento CSS principal -->
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -17,8 +17,7 @@
   <!-- Plugins -->
   <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
   <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice.js"></script>
-  <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-survey-multi-select.js"></script>
 
   <script src='experiment.js'></script>
 
@@ -61,10 +60,10 @@
                   if (window.self !== window.top) {
                     parent.postMessage({
                       csv: jsPsych.data.get().csv(),
-                      name: 'ASSIST_alcohol-smoking-substance-involvement-screening-test_results'
+                      name: 'IT_image-test_results'
                     }, '*');
                   } else {
-                    jsPsych.data.get().localSave('csv', 'ASSIST_alcohol-smoking-substance-involvement-screening-test_results.csv');
+                    jsPsych.data.get().localSave('csv', 'IT_image-test_results.csv');
                   }
                 }
               }

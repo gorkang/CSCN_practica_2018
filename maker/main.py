@@ -94,8 +94,11 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			if ("{" in questions[i]["text"]):
 				text_variables = re.findall(r'{(.*?)}', questions[i]["text"])
 				for variable in text_variables:
-					questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", '"+variables["' + variable + '"]+"')
-					text_modify = True
+					if variable.split(":")[0] == "variable":
+						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", '"+variables["' + variable.split(":")[1] + '"]+"')
+						text_modify = True
+					elif variable.split(":")[0] == "image":
+						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", "<img src='images/" + variable.split(":")[1] + "' />")
 
 			if questions[i]["type"] == "multi_choice" or questions[i]["type"] == "multi_select":
 				# actual question plugin:
@@ -475,7 +478,7 @@ def main():
 				try:
 					images = spec["images"]
 				except:
-					pass
+					images = None
 			except:
 				print("existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
 				return
