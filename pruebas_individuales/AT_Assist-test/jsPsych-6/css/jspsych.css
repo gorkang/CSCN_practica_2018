@@ -84,11 +84,6 @@ input[type="text"] {
   border-color: #ccc;
 }
 
-#jspsych-survey-multi-choice1-0 {
-    display: inline-block;
-    white-space: nowrap;
-}
-
 .jspsych-btn:hover {
   background-color: #ddd;
   border-color: #aaa;
@@ -137,78 +132,116 @@ input[type="text"] {
   text-align: left;
 }
 
-
-/* CSS Propio*/
-
-.jspsych-content-wrapper {
-    margin-left: 25%;
-    width: auto;
-    margin-right: 25%;
-}
-
-div#jspsych-content {
-    margin-left: 0;
-    text-align: left;
-}
-
-p.jspsych-survey-multi-choice-text.survey-multi-choice{
-  text-align: left;
-}
-
-.jspsych-content {
-    max-width: 100%;
-}
-
-.multi-choices {
+/****************************MODIFICACION*******************************/
+input#jspsych-survey-multi-choice1-next {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    cursor: pointer;
+    line-height: 1.4;
     text-align: center;
-}
-
-div#jspsych-html-button-response-btngroup {
     white-space: nowrap;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    margin-left: 20% !important;
 }
 
-button.jspsych-matrix-button {
-    background: white;
+.jspsych-survey-multi-choice1-next:hover {
+  background-color: #ddd;
+  border-color: #aaa;
+  margin-left: 20% !important;
+}
+/****************************MODIFICACION*******************************/
+
+/***************************************MODIFICACION********************************************/
+/*
+ *
+ * PLUGIN: jspsych-survey-multi-choice1
+ *
+ */
+.jspsych-survey-multi-choice1-question {
+  margin-top: 2em;
+  margin-bottom: 2em;
+ }
+
+.jspsych-survey-multi-choice1-text span.required {
+  color: darkred;
 }
 
-input[type="number"] {
-   width:70px;
-}
-
-.slider {
-  -webkit-appearance: none;
-  width: 50%;
-  height: 15px;
-  border-radius: 5px;   
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  background: #4CAF50;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
-}
-
-[id^=jspsych-survey-multi-select-horizontal] {
+.jspsych-survey-multi-choice1-horizontal .jspsych-survey-multi-choice1-text {
   text-align: center;
 }
 
-[id^=jspsych-survey-multi-choice-horizontal] {
+.jspsych-survey-multi-choice1-option {
+  line-height: 2;
+}
+.jspsych-survey-multi-choice1-horizontal .jspsych-survey-multi-choice1-option {
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
+  vertical-align: top;
+}
+
+label.jspsych-survey-multi-choice1-text input[type="radio"] {
+  margin-right: 1em;
+}
+
+#jspsych-survey-multi-choice1-next {
+  display: block;
+  margin: auto;
+}
+#jspsych-survey-multi-choice1-next input {
+  display: block;
+  margin: auto;
+}
+/***************************************MODIFICACION********************************************/
+/*
+ *
+ * PLUGIN: jspsych-survey-multi-choice2
+ *
+ */
+.jspsych-survey-multi-choice2-question {
+  margin-top: 2em;
+  margin-bottom: 2em;
+ }
+
+.jspsych-survey-multi-choice2-text span.required {
+  color: darkred;
+}
+
+.jspsych-survey-multi-choice2-horizontal .jspsych-survey-multi-choice2-text {
   text-align: center;
 }
+
+.jspsych-survey-multi-choice2-option {
+  line-height: 2;
+  margin-left: 20%;
+}
+.jspsych-survey-multi-choice2-horizontal .jspsych-survey-multi-choice2-option {
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
+  vertical-align: top;
+}
+
+label.jspsych-survey-multi-choice2-text input[type="radio"] {
+  margin-right: 1em;
+}
+
+#jspsych-survey-multi-choice1-next {
+  display: block;
+  margin: auto;
+}
+#jspsych-survey-multi-choice1-next input {
+  display: block;
+  margin: auto;
+}
+/***************************************MODIFICACION********************************************/

@@ -19,36 +19,24 @@ jsPsych.plugins['survey-multi-select'] = (function() {
         array: true,
         pretty_name: 'Questions',
         nested: {
-          prompt: {
-            type: jsPsych.plugins.parameterType.STRING,
-            pretty_name: 'Prompt',
-            default: undefined,
-            description: 'The strings that will be associated with a group of options.'
-          },
-          options: {
-            type: jsPsych.plugins.parameterType.STRING,
-            pretty_name: 'Options',
-            array: true,
-            default: undefined,
-            description: 'Displays options for an individual question.'
-          },
-          horizontal: {
-            type: jsPsych.plugins.parameterType.BOOL,
-            pretty_name: 'Horizontal',
-            default: false,
-            description: 'If true, then questions are centered and options are displayed horizontally.'
-          },
+          prompt: {type: jsPsych.plugins.parameterType.STRING,
+                    pretty_name: 'Prompt',
+                    default: undefined,
+                    description: 'The strings that will be associated with a group of options.'},
+          options: {type: jsPsych.plugins.parameterType.STRING,
+                    pretty_name: 'Options',
+                    array: true,
+                    default: undefined,
+                    description: 'Displays options for an individual question.'},
+          horizontal: {type: jsPsych.plugins.parameterType.BOOL,
+                        pretty_name: 'Horizontal',
+                        default: false,
+                        description: 'If true, then questions are centered and options are displayed horizontally.'},
           expected_options: {
             type: jsPsych.plugins.parameterType.INT,
             pretty_name: 'Expected options',
             default: undefined,
             description: 'Number of elements that the user must choose.'
-          },
-          not_enabled_options: {
-            type: jsPsych.plugins.parameterType.INT,
-            pretty_name: 'Not enabled options',
-            default: undefined,
-            description: 'If you need images or texts to the left side of the alternatives.'
           },
         }
       },
@@ -132,10 +120,6 @@ jsPsych.plugins['survey-multi-select'] = (function() {
       trial_questions["Q_"+i.toString()] = trial.questions[i].prompt;
       trial_alternatives["Q_"+i.toString()] = trial.questions[i].options;
 
-      // If you need images or texts to the left side of the alternatives
-      if (typeof trial.questions[i].not_enabled_options === 'undefined')
-        trial.questions[i].not_enabled_options = 0
-
       // create option check boxes
       for (var j = 0; j < trial.questions[i].options.length; j++) {
         var option_id_name = _join(plugin_id_name, ((trial.questions[i].horizontal.toString() === "true") ? "horizontal-" : "") + "option", i, j),
@@ -152,14 +136,13 @@ jsPsych.plugins['survey-multi-select'] = (function() {
         label.setAttribute('class', plugin_id_name+'-text');
         label.innerHTML = trial.questions[i].options[j];
         label.setAttribute('for', input_id)
-        if (trial.questions[i].not_enabled_options <= j){
-          // create  checkboxes
-          var input = document.createElement('input');
-          input.setAttribute('type', "checkbox");
-          input.setAttribute('name', input_name);
-          input.setAttribute('id', input_id);
-          input.setAttribute('value', trial.questions[i].options[j])
-        } else {var input = document.createTextNode( '\u00A0' );}
+
+        // create  checkboxes
+        var input = document.createElement('input');
+        input.setAttribute('type', "checkbox");
+        input.setAttribute('name', input_name);
+        input.setAttribute('id', input_id);
+        input.setAttribute('value', trial.questions[i].options[j])
         form.appendChild(label)
         form.insertBefore(input, label)
       }

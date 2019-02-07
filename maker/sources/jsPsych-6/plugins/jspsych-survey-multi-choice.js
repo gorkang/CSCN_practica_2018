@@ -1,5 +1,5 @@
 /**
- * jspsych-survey-multi-choice-vertical
+ * jspsych-survey-multi-choice
  * a jspsych plugin for multiple choice survey questions
  *
  * Shane Martin
@@ -9,11 +9,11 @@
  */
 
 
-jsPsych.plugins['survey-multi-choice-vertical'] = (function() {
+jsPsych.plugins['survey-multi-choice'] = (function() {
 
   var plugin = {};
   plugin.info = {
-    name: 'survey-multi-choice-vertical',
+    name: 'survey-multi-choice',
     description: '',
     parameters: {
       questions: {
@@ -21,23 +21,37 @@ jsPsych.plugins['survey-multi-choice-vertical'] = (function() {
         array: true,
         pretty_name: 'Questions',
         nested: {
-          prompt: {type: jsPsych.plugins.parameterType.STRING,
-                     pretty_name: 'Prompt',
-                     default: undefined,
-                     description: 'The strings that will be associated with a group of options.'},
-          options: {type: jsPsych.plugins.parameterType.STRING,
-                     pretty_name: 'Options',
-                     array: true,
-                     default: undefined,
-                     description: 'Displays options for an individual question.'},
-          required: {type: jsPsych.plugins.parameterType.BOOL,
-                     pretty_name: 'Required',
-                     default: false,
-                     description: 'Subject will be required to pick an option for each question.'},
-          horizontal: {type: jsPsych.plugins.parameterType.BOOL,
-                        pretty_name: 'Horizontal',
-                        default: false,
-                        description: 'If true, then questions are centered and options are displayed horizontally.'},
+          prompt: {
+            type: jsPsych.plugins.parameterType.STRING,
+           pretty_name: 'Prompt',
+           default: undefined,
+           description: 'The strings that will be associated with a group of options.'
+         },
+          options: {
+            type: jsPsych.plugins.parameterType.STRING,
+           pretty_name: 'Options',
+           array: true,
+           default: undefined,
+           description: 'Displays options for an individual question.'
+         },
+          required: {
+            type: jsPsych.plugins.parameterType.BOOL,
+           pretty_name: 'Required',
+           default: false,
+           description: 'Subject will be required to pick an option for each question.'
+          },
+          horizontal: {
+            type: jsPsych.plugins.parameterType.BOOL,
+            pretty_name: 'Horizontal',
+            default: false,
+            description: 'If true, then questions are centered and options are displayed horizontally.'
+          },
+          not_enabled_options: {
+            type: jsPsych.plugins.parameterType.INT,
+            pretty_name: 'Not enabled options',
+            default: undefined,
+            description: 'If you need images or texts to the left side of the alternatives.'
+          },
         }
       },
       preamble: {
@@ -61,7 +75,7 @@ jsPsych.plugins['survey-multi-choice-vertical'] = (function() {
   var trial_alternatives = {};
   
   plugin.trial = function(display_element, trial) {
-    var plugin_id_name = "jspsych-survey-multi-choice-vertical";
+    var plugin_id_name = "jspsych-survey-multi-choice";
     var plugin_id_selector = '#' + plugin_id_name;
     var _join = function( /*args*/ ) {
       var arr = Array.prototype.slice.call(arguments, _join.length);
@@ -69,15 +83,15 @@ jsPsych.plugins['survey-multi-choice-vertical'] = (function() {
     }
 
     // inject CSS for trial
-    display_element.innerHTML = '<style id="jspsych-survey-multi-choice-vertical-css"></style>';
-    var cssstr = ".jspsych-survey-multi-choice-vertical-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
-      ".jspsych-survey-multi-choice-vertical-text span.required {color: darkred;}"+
-      ".jspsych-survey-multi-choice-vertical-horizontal .jspsych-survey-multi-choice-vertical-text {  text-align: center;}"+
-      ".jspsych-survey-multi-choice-vertical-option { line-height: 2; }"+
-      ".jspsych-survey-multi-choice-vertical-horizontal .jspsych-survey-multi-choice-vertical-option {  display: inline-block;  margin-left: 1em;  margin-right: 1em;  vertical-align: top;}"+
-      "label.jspsych-survey-multi-choice-vertical-text input[type='radio'] {margin-right: 1em;}"
+    display_element.innerHTML = '<style id="jspsych-survey-multi-choice-css"></style>';
+    var cssstr = ".jspsych-survey-multi-choice-question { margin-top: 2em; margin-bottom: 2em; text-align: left; }"+
+      ".jspsych-survey-multi-choice-text span.required {color: darkred;}"+
+      ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-text {  text-align: center;}"+
+      ".jspsych-survey-multi-choice-option { line-height: 2; }"+
+      ".jspsych-survey-multi-choice-horizontal .jspsych-survey-multi-choice-option {  display: inline-block;  margin-left: 1em;  margin-right: 1em;  vertical-align: top;}"+
+      "label.jspsych-survey-multi-choice-text input[type='radio'] {margin-right: 1em;}"
 
-    display_element.querySelector('#jspsych-survey-multi-choice-vertical-css').innerHTML = cssstr;
+    display_element.querySelector('#jspsych-survey-multi-choice-css').innerHTML = cssstr;
 
     // form element
     var trial_form_id = _join(plugin_id_name, "form");
@@ -107,10 +121,14 @@ jsPsych.plugins['survey-multi-choice-vertical'] = (function() {
       // this is for conditions on CSCN system
       trial_questions["Q_"+i.toString()] = trial.questions[i].prompt;
       trial_alternatives["Q_"+i.toString()] = trial.questions[i].options;
+      
+      // If you need images or texts to the left side of the alternatives
+      if (typeof trial.questions[i].not_enabled_options === 'undefined')
+        trial.questions[i].not_enabled_options = 0
 
       // create option radio buttons
       for (var j = 0; j < trial.questions[i].options.length; j++) {
-        var option_id_name = _join(plugin_id_name, "option", i, j),
+        var option_id_name = _join(plugin_id_name, ((trial.questions[i].horizontal.toString() === "true") ? "horizontal-" : "") + "option", i, j),
         option_id_selector = '#' + option_id_name;
 
         // add radio button container
@@ -125,12 +143,14 @@ jsPsych.plugins['survey-multi-choice-vertical'] = (function() {
         label.innerHTML = trial.questions[i].options[j];
         label.setAttribute('for', input_id)
 
-        // create radio button
-        var input = document.createElement('input');
-        input.setAttribute('type', "radio");
-        input.setAttribute('name', input_name);
-        input.setAttribute('id', input_id);
-        input.setAttribute('value', trial.questions[i].options[j]);
+        if (trial.questions[i].not_enabled_options <= j){
+          // create radio button
+          var input = document.createElement('input');
+          input.setAttribute('type', "radio");
+          input.setAttribute('name', input_name);
+          input.setAttribute('id', input_id);
+          input.setAttribute('value', trial.questions[i].options[j]);
+        } else {var input = document.createTextNode( '\u00A0' );}
         form.appendChild(label);
         form.insertBefore(input, label);
 

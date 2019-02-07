@@ -27,8 +27,8 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	document_actual_line = 18
 
 	plugins = {
-		"multi_choice_horizontal":"jspsych-survey-multi-choice-horizontal",
-		"multi_choice_vertical":"jspsych-survey-multi-choice-vertical",
+		"multi_choice":"jspsych-survey-multi-choice",
+		"multi_select":"jspsych-survey-multi-select",
 		"text":"jspsych-survey-text",
 		"number":"jspsych-survey-text",
 		"date":"jspsych-survey-text",
@@ -97,9 +97,9 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 					questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", '"+variables["' + variable + '"]+"')
 					text_modify = True
 
-			if questions[i]["type"] == "multi_choice":
+			if questions[i]["type"] == "multi_choice" or questions[i]["type"] == "multi_select":
 				# actual question plugin:
-				content.insert(document_actual_line + 0, "  type:'"+ plugins[questions[i]["type"] + "_" + questions[i]["orientation"] ][8:] +"',\n")
+				content.insert(document_actual_line + 0, "  type:'"+ plugins[questions[i]["type"]][8:] +"',\n")
 				document_actual_line += 1
 				if text_modify:
 					content.insert(document_actual_line + 0, "  questions:[{prompt: '',options: ['']}],\n")
@@ -107,16 +107,12 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 					document_actual_line += 2
 				choices = []
 				for choice in questions[i]["choices"]:
-					if choice == True:
-						choice = "Yes"
-					elif choice == False:
-						choice = "No"
 					choices.append(choice)
 				if text_modify:
-					content.insert(document_actual_line + 0, "    trial.questions = [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}];\n")
+					content.insert(document_actual_line + 0, "    trial.questions = [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + "}];\n")
 					document_actual_line += 1
 				else:
-					content.insert(document_actual_line + 0, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str(questions[i]["orientation"] == "horizontal").lower() + "}],\n")		
+					content.insert(document_actual_line + 0, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + "}],\n")		
 					document_actual_line += 1
 			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date" or questions[i]["type"] == "range":
 				# actual question plugin:
@@ -484,6 +480,8 @@ def main():
 			class_name = spec['type'].replace(' ', '_')
 			if class_name == "number" or class_name == "date" or class_name == "range":
 				cls = classes.__dict__["text"]
+			elif class_name == "multi_select":
+				cls = classes.__dict__["multi_choice"]
 			else:
 				cls = classes.__dict__[class_name]    
 
@@ -501,9 +499,9 @@ def main():
 	ids = {}
 
 	plugins = {
-		"jspsych-survey-multi-choice-horizontal.js": False,
-		"jspsych-survey-multi-choice-vertical.js": False,
+		"jspsych-survey-multi-choice.js": False,
 		"jspsych-survey-text.js": False,
+		"jspsych-survey-multi-select.js": False
 	}
 
 	
@@ -537,31 +535,36 @@ def main():
 				actual_instruction["random_mode"] = False
 			actual_instruction["previous_questions"] = questions_cont
 			instructions.append(actual_instruction)
-		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date") or (item_type == "range"):
+		elif (item_type == "multi_choice") or (item_type == "multi_select") or (item_type=="text") or (item_type=="number")  or (item_type=="date") or (item_type == "range"):
 			actual_question = {}
 
 			actual_question["type"] = item_type
 			
 			# Plugin activation 
-			if item_type == "multi_choice":
+			if item_type == "multi_choice" or item_type == "multi_select":
+				plugins["jspsych-survey-"+ item_type.replace("_","-") + ".js"] = True
 				try:
 					actual_question["orientation"] = items[i].arguments["orientation"]
 				except:
-					actual_question["orientation"] = None	
-				if actual_question["orientation"] == "vertical":
-					plugins["jspsych-survey-multi-choice-vertical.js"] = True
-				elif actual_question["orientation"] == "horizontal":
-					plugins["jspsych-survey-multi-choice-horizontal.js"] = True
-				else:
-					print("ocurrió un error al seleccionar la orientacion de la pregunta de multi choice '"+items[i].item_id+"'")
-					error = True
+					actual_question["orientation"] = "vertical"
+				try:
+					actual_question["not_enabled_options"] = items[i].arguments["not_enabled_options"]
+				except:
+					actual_question["not_enabled_options"] = 0					
 				try:
 					if (type(items[i].arguments["choices"]) == list):
 						actual_question["choices"] = items[i].arguments["choices"]
 					elif (type(items[i].arguments["choices"]) == str):
 						actual_question["choices"] = scales[items[i].arguments["choices"]]
+					for index, value in enumerate(actual_question["choices"]):
+						if value == False:
+							actual_question["choices"][index] = 'No'
+						elif value == True:
+							actual_question["choices"][index] = 'Yes'
+					if actual_question["orientation"] == "horizontal":
+						actual_question["choices"] = ["<br>" + s for s in actual_question["choices"]]
 				except:
-					print("ocurrió un error al seleccionar las alternaticas de la pregunta de multi choice '"+items[i].item_id+"'")
+					print("ocurrió un error al seleccionar las alternativas de la pregunta de "+ item_type.replace("_"," ") +" '"+items[i].item_id+"'")
 					error = True
 
 			elif item_type == "text" or item_type == "number" or item_type == "date" or (item_type == "range"):
