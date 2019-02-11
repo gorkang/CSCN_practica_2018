@@ -60,6 +60,7 @@
       expected_options: 2
       orientation: horizontal
       not_enabled_options: 1
+      error_message: nop
 
 - Mental-rotation:
     type: multi select

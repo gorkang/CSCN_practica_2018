@@ -56,6 +56,12 @@ jsPsych.plugins['survey-multi-select'] = (function() {
             default: false,
             description: 'Subject will be required to pick an option for each question.'
           },
+          error_message: {
+            type: jsPsych.plugins.parameterType.STRING,
+            pretty_name: 'ErrorMessage',
+            default: undefined,
+            description: 'Especific text of fail-message'
+          },
         }
       },
       preamble: {
@@ -120,7 +126,6 @@ jsPsych.plugins['survey-multi-select'] = (function() {
       if (trial.questions[i].horizontal) {
         question_classes.push(_join(plugin_id_name, 'horizontal'));
       }
-
       trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
 
       var question_selector = _join(plugin_id_selector, i);
@@ -166,6 +171,7 @@ jsPsych.plugins['survey-multi-select'] = (function() {
         form.appendChild(label)
         form.insertBefore(input, label)
       }
+      trial_form.innerHTML +='<div class="fail-message-' + i.toString() + '"></div>'
     }
 
     // this is for conditions on CSCN system
@@ -173,7 +179,6 @@ jsPsych.plugins['survey-multi-select'] = (function() {
     conditions["Alternatives"] = trial_alternatives; 
 
     // add submit button
-    trial_form.innerHTML +='<div class="fail-message"></div>'
     trial_form.innerHTML += '<input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label +'"': '') + '></input>';
 
     if (trial.trial_duration !== null) {
@@ -192,8 +197,9 @@ jsPsych.plugins['survey-multi-select'] = (function() {
       // create object to hold responses
       var matches = display_element.querySelectorAll("div." + plugin_id_name + "-question");
       var question_data = {};
-      var has_response = [];
+      var pass = true;
       for(var index=0; index<matches.length; index++){
+        var has_response = [];
         match = matches[index];
         var val = [];
         var inputboxes = match.querySelectorAll("input[type=checkbox]:checked")
@@ -214,22 +220,23 @@ jsPsych.plugins['survey-multi-select'] = (function() {
         else
           var expected = (val.length).toString() === (trial.questions[index].expected_options).toString();
         if ( (val.length == 0 || !expected) && (typeof event.detail === 'undefined' || event.detail.trial_finished !== false) ){ has_response.push(false); } else { has_response.push(true); }
+
+        if(has_response.includes(false)) {
+          var inputboxes = display_element.querySelectorAll("input[type=checkbox]")
+          if (typeof trial.questions[index].error_message === 'undefined')
+            trial.questions[index].error_message = "Por favor verifique su respuesta";
+          display_element.querySelector(".fail-message-"+index.toString()).innerHTML = '<span style="color: red;" class="required">'+trial.questions[index].error_message+'</span>';
+          pass = false;
+        }
       }
       
-      // adds validation to check if at least one option is selected
-      if(has_response.includes(false)) {
-        var inputboxes = display_element.querySelectorAll("input[type=checkbox]")
-        if (typeof trial.required_msg === 'undefined')
-          trial.required_msg = "Por favor verifique su respuesta";
-        display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">'+trial.required_msg+'</span>';
-      } else {
+      if (pass) {
         // save data
         var trial_data = {
           "rt": response_time,
           "responses": JSON.stringify(question_data),
           "conditions": JSON.stringify(conditions) // this is for conditions on CSCN system
         };
-        display_element.innerHTML = '';
 
         // next trial
         jsPsych.finishTrial(trial_data);

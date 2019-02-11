@@ -129,10 +129,22 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				for choice in questions[i]["choices"]:
 					choices.append(choice)
 				if text_modify:
-					content.insert(document_actual_line + 0, "    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + (", expected_options: " + str(questions[i]["expected_options"]) if (questions[i]["expected_options"]) else "") + "}];\n")
+					content.insert(document_actual_line + 0, "    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>'" 
+						+ ", options: ['"+ "', '".join( choices ) +"'], required: true" 
+						+ ", horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() 
+						+ ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) 
+						+ (", error_message: '" + questions[i]["error_message"] + "'" if ("error_message" in questions[i]) else "" ) 
+						+ (", expected_options: " + str(questions[i]["expected_options"]) if (questions[i]["expected_options"]) else "") 
+						+ "}];\n")
 					document_actual_line += 1
 				else:
-					content.insert(document_actual_line + 0, "  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + (", expected_options: " + str(questions[i]["expected_options"]) if (questions[i]["expected_options"]) else "") + "}],\n")
+					content.insert(document_actual_line + 0, "  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>'" 
+						+ ", options: ['"+ "', '".join( choices ) +"'], required: true" 
+						+ ", horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() 
+						+ ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) 
+						+ (", error_message: '" + questions[i]["error_message"] + "'" if ("error_message" in questions[i]) else "" ) 
+						+ (", expected_options: " + str(questions[i]["expected_options"]) if (questions[i]["expected_options"]) else "") 
+						+ "}],\n")
 					document_actual_line += 1
 			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date" or questions[i]["type"] == "range":
 				# actual question plugin:
@@ -605,11 +617,6 @@ def main():
 					pass
 
 				try:
-					actual_question["error_message"] = items[i].arguments["error_message"] 
-				except:
-					pass
-
-				try:
 					actual_question["language"] = items[i].arguments["language"] 
 				except:
 					pass
@@ -623,6 +630,10 @@ def main():
 					actual_question["required"] = items[i].arguments["required"] 
 				except:
 					pass
+			try:
+				actual_question["error_message"] = items[i].arguments["error_message"] 
+			except:
+				pass
 			try:
 				actual_question["title"] = str(items[i].arguments["title"])
 			except:

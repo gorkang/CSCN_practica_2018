@@ -66,7 +66,7 @@ var instruction_screen_experiment = {
 
 var question01 = {
   type:'survey-multi-select',
-  questions: [{prompt: '<div class="justified">Ahora mira este objeto:<br/><br/>Dos de estos cuatro dibujos muestran el mismo objeto.<br />&iquest;Puedes encontrar los dos? <br/></div>', options: ['<br><img src="images/pag1_3_0.png" />', '<br><img src="images/pag1_3_1.png" />', '<br><img src="images/pag1_3_2.png" />', '<br><img src="images/pag1_3_3.png" />', '<br><img src="images/pag1_3_4.png" />'], required: true, horizontal: true, not_enabled_options: 1, expected_options: 2}],
+  questions: [{prompt: '<div class="justified">Ahora mira este objeto:<br/><br/>Dos de estos cuatro dibujos muestran el mismo objeto.<br />&iquest;Puedes encontrar los dos? <br/></div>', options: ['<br><img src="images/pag1_3_0.png" />', '<br><img src="images/pag1_3_1.png" />', '<br><img src="images/pag1_3_2.png" />', '<br><img src="images/pag1_3_3.png" />', '<br><img src="images/pag1_3_4.png" />'], required: true, horizontal: true, not_enabled_options: 1, error_message: 'nop', expected_options: 2}],
   data: {trialid: 'Mental-rotation_01'}
 }
 questions_experiment.push(question01);
