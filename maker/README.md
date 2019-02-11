@@ -33,11 +33,11 @@ A continuación se explicarán las opciones disponibles en la escritura del arch
 
 Primero que todo, se debe definir un id para el item en cuestión, este será precedido por un guión (-), es lo primero que leerá el sistema maker y será el identificador que podrá usar para acceder al item desde otro item (esto será explicado más adelante).
 
->```
+```
 - Item-prueba:
 - Item-extra:
 - Item-prueba:
->```
+```
 
 Luego, si se desea acceder al primer item llamado Item-prueba se puede llamar usando __Item-prueba\_1__ y al segundo de la forma __Item-prueba\_2__, al item extra se puede acceder como __Item-extra\_1__ ya que es el primer item con ese nombre en la lista mostrada. La mayoría de los nombres de los items son de elección personal del usuario, el único que está restringido es "- test configuration:" ya que es usado para almacenar los datos del experimento y debe ser el primer item en la lista. 
 
@@ -52,31 +52,31 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
 
     un ejemplo del test configuration sería el siguiente:
 
-    ```
-    - test configuration:
-        test_name: Nombre test
-        images: test_images
-        scales:
-            likert_4:
-                - Nunca
-                - Pocas veces
-                - Bastantes veces
-                - Todos los días
-    ```
+        ```
+        - test configuration:
+            test_name: Nombre test
+            images: test_images
+            scales:
+                likert_4:
+                    - Nunca
+                    - Pocas veces
+                    - Bastantes veces
+                    - Todos los días
+        ```
 
     Esto generará un experimento llamado NT_nombre-test donde se podrá usar una lista de opciones llamada likert\_4. Además agregará la carpeta de imágenes llamada "test\_images" al sistema para su posterior uso.
 
 - fullscreen: este item usa el plugin jspsych-fullscreen para poder crear una página en la que el usuario pueda aceptar el uso de la pantalla completa en la prueba. Solo necesita un texto, el cual debe ir en el área de argumentos de la pregunta actual y será mostrado por pantalla al entrar en este item, si no se ingresa ningún texto, el sistema automáticamente mostrará el texto "El experimento entrará en modo pantalla completa"
     
     Un ejemplo de fullscreen sería el siguiente:
-    ```
-    - initial-window:
-        type: fullscreen
-        arguments:
-            - text: El experimento entrará el pantalla completa al apretar continuar.
-    ```
+        ```
+        + initial-window:
+            type: fullscreen
+            arguments:
+                + text: El experimento entrará el pantalla completa al apretar continuar.
+        ```
 
-- instruction: este item usa el plugin jspsych-instructions para poder crear una página en la que el usuario pueda ser guiado para el avance del experimento. Solo necesita un texto, el cual debe ir en el área de argumentos de la pregunta actual y será mostrado por pantalla al entrar en este item, si se desea se puede ingresar también un título para mostrar. En este item también se agregará el orden de las preguntas que le seguirán a continuación (y antes de la siguiente instrucción) usando el tag "questions_mode", si no es seleccionado, las preguntas automáticamente serán ordenadas en orden secuencial, actualmente las preguntas pueden ser mostradas en orden secuencial o random escribiendo "- questions_mode: sequential" o "- questions_mode: random"
+- instruction: Este item usa el plugin jspsych-instructions para poder crear una página en la que el usuario pueda ser guiado para el avance del experimento. Solo necesita un texto, el cual debe ir en el área de argumentos de la pregunta actual y será mostrado por pantalla al entrar en este item, si se desea se puede ingresar también un título para mostrar. En este item también se agregará el orden de las preguntas que le seguirán a continuación (y antes de la siguiente instrucción) usando el tag "questions_mode", si no es seleccionado, las preguntas automáticamente serán ordenadas en orden secuencial, actualmente las preguntas pueden ser mostradas en orden secuencial o random escribiendo "- questions_mode: sequential" o "- questions_mode: random"
 
     Un ejemplo de instruction sería el siguiente:
     ```
@@ -87,6 +87,45 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
             - text: En las siguientes preguntas deberá contestar segun la escala de likert mostrada.
             - questions_mode: sequential
     ```
+
+> Los items que siguen son de tipo "pregunta" y tienen acceso a 2 opciones extras además del tipo de pregunta que son "previous" y "next", estas opciones van separadas de los argumentos y definen una forma de crear árboles según las decisiones que el usuario vaya eligiendo en el camino.
+> 
+> Previous permite "ocultar" una pregunta si no se cumple alguna condición, las distintas opciones se escriben como una lista de listas, los elementos dentro de cada lista deben cumplirse como restricciones "and", esto significa que deben cumplirse todos los elementos dentro de la lista, y la separación de listas genera la opción de restricciones "or" lo que significa que deben cumplirse todas las condiciones de la lista 1 o todas las condiciones de la lista 2 para que la pregunta sea mostrada.
+> 
+> Next permite saltar de una pregunta a otra dependiendo de las distintas condiciones que se hayan creado durante el experimento, al igual que en la opción previous se tiene una lista de listas pero estas están adjuntas a un elemento mas grande que es el item al cual se quiere saltar en caso que se cumplan las condiciones de las listas. La pregunta de salto puede ser una pregunta siguiente en el test o una anterior. 
+> 
+> Los nombres de las listas tanto de previous o next no tienen relevancia, solo son usadas para poder identificar los and's de los or's, por orden se recomienda usar L1, L2, etc.
+> 
+> Además de esto también se puede usar el tag "chocen_value" para guardar una variable que se quiera usar más adelante, la variable almacenará la respuesta del usuario y puede ser usada de la forma {variable:nombre\_de\_variable} en los textos de las preguntas posteriores.
+> 
+> Por otro lado, en los argumentos hay algunos tags que son comunes para todos los tipos de preguntas, en este caso tenemos: 
+> 
+> - "title", para seleccionar un texto que se mostrará con letra tipo __negrita__ en la pregunta. 
+> - "text", que es el texto de la pregunta en si. 
+> - "error_message", para seleccionar un mensaje de error para la pregunta, en caso que no se elija ninguno se usará el mensaje automático "Por favor verifique su respuesta". 
+> - "chocen_value", para poder almacenar la respuesta del usuario en una variable que se pueda usar más adelante.
+
+- text: Este item usa el plugin jspsych-survey-text con el cual se crea una página con preguntas del tipo texto, en el cual el usuario podrá ver un texto y responder en un cuadro de texto que se encontrará después de la pregunta.
+
+    Un ejemplo de text sería el siguiente:
+    ```
+    - Otros:
+        type: text
+        previous:
+          L1:
+            - Otros_1: Si
+        arguments:
+          text: ¿Cual es el nombre de este otro tipo de sustancia que consumió?
+          chocen_value: otra_sustancia
+    ```
+
+    Como se puede ver esta es una pregunta de texto que solo se mostrará si en la primera pregunta con nombre de item "Otros" se seleccionó "Si", además, una vez se responda a esta pregunta, el sistema almacenará la respuesta del usuario en una variable llamada "otra\_sustancia", el cual podrá ser usado más adelante de la forma {variable:otra\_sustancia}.
+
+- number: Este item usa el plugin jspsych-survey-text
+- date: Este item usa el plugin jspsych-survey-text
+- range:  Este item usa el plugin jspsych-survey-text
+- multi choice:
+- multi select:
 
 ### Agregar imágenes al sistema
 
