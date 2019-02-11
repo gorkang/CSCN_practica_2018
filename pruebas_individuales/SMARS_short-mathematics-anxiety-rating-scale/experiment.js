@@ -47,7 +47,7 @@ var survey01 = {
   data: {trialid: "survey_01"}
 };
 
-var survey0 = {
+var survey02 = {
   type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Examinarme de matemáticas en las pruebas de acceso a la universidad.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_02"}
@@ -179,7 +179,7 @@ var survey23 = {
   data: {trialid: "survey_23"}
 };
 
-var survey24 = {"Q" + i
+var survey24 = {
   type: "survey-multi-choice-horizontal",
   questions: [{prompt: "<div class='justified'><br />Escuchar a otro alumno que explica una fórmula matemática.<br /></div>", options: likert_scale, required: true, horizontal: true}],
   data: {trialid: "survey_24"}

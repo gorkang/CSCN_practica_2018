@@ -22,6 +22,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	variables = {}
 	text_modify = False
 	text_variables = []
+	jump_while = False
 
 	# inicio documento en linea 19
 	document_actual_line = 18
@@ -46,7 +47,17 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		content.insert(document_actual_line + 0, "var instruction_screen_experiment = {\n")
 		content.insert(document_actual_line + 1, "  type: 'instructions',\n")
 		document_actual_line += 2
-		# *************
+
+		if ("{" in instructions[actual_int]["instruction"]):
+			text_variables = re.findall(r'{(.*?)}', instructions[actual_int]["instruction"])
+			for variable in text_variables:
+				if variable.split(":")[0] == "variable":
+					instructions[actual_int]["instruction"] = instructions[actual_int]["instruction"].replace("{"+ variable +"}", "' + variables["' + variable.split(":")[1] + '"]+ '")
+					text_modify = True
+				elif variable.split(":")[0] == "image":
+					instructions[actual_int]["instruction"] = instructions[actual_int]["instruction"].replace("{"+ variable +"}", '<img src="images/' + variable.split(":")[1] + '" />')
+
+
 		try:
 			content.insert(document_actual_line + 0, "  pages: ['<p><left><b><big>" + instructions[actual_int]["title"] + "</big></b><br />'+\n" )
 			document_actual_line += 1
@@ -58,7 +69,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			document_actual_line += 1
 		except:
 			pass
-		# *************
+
 		content.insert(document_actual_line + 0, "  data:{trialid: 'Screen_WM'},\n")
 		content.insert(document_actual_line + 1, "  show_clickable_nav: true,\n")
 		content.insert(document_actual_line + 2, "  on_trial_start: function (){\n")
@@ -70,11 +81,17 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 
 		if instructions[actual_int] != instructions[-1]:
 			breaker = instructions[actual_int + 1]["previous_questions"] - 1
+			if instructions[actual_int]["previous_questions"] == instructions[actual_int + 1]["previous_questions"]:
+				jump_while = True
 		elif instructions[actual_int] == instructions[-1]:
 			breaker = len(questions)
 
 		i =  instructions[actual_int]["previous_questions"]
+
 		while (i < len(questions)):
+			if jump_while:
+				jump_while = False
+				break
 
 			content.insert(document_actual_line + 0, "var question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = {\n")
 			document_actual_line += 1
@@ -95,10 +112,10 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				text_variables = re.findall(r'{(.*?)}', questions[i]["text"])
 				for variable in text_variables:
 					if variable.split(":")[0] == "variable":
-						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", '"+variables["' + variable.split(":")[1] + '"]+"')
+						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", "' + variables["' + variable.split(":")[1] + '"] + '")
 						text_modify = True
 					elif variable.split(":")[0] == "image":
-						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", "<img src='images/" + variable.split(":")[1] + "' />")
+						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", '<img src="images/' + variable.split(":")[1] + '" />')
 
 			if questions[i]["type"] == "multi_choice" or questions[i]["type"] == "multi_select":
 				# actual question plugin:
@@ -112,10 +129,10 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				for choice in questions[i]["choices"]:
 					choices.append(choice)
 				if text_modify:
-					content.insert(document_actual_line + 0, "    trial.questions = [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + "}];\n")
+					content.insert(document_actual_line + 0, "    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + (", expected_options: " + str(questions[i]["expected_options"]) if (questions[i]["expected_options"]) else "") + "}];\n")
 					document_actual_line += 1
 				else:
-					content.insert(document_actual_line + 0, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>"+'"'+", options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + "}],\n")		
+					content.insert(document_actual_line + 0, "  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', options: ['"+ "', '".join( choices ) +"'], required: true, horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() + ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) + (", expected_options: " + str(questions[i]["expected_options"]) if (questions[i]["expected_options"]) else "") + "}],\n")
 					document_actual_line += 1
 			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date" or questions[i]["type"] == "range":
 				# actual question plugin:
@@ -124,7 +141,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				if text_modify:
 					content.insert(document_actual_line + 0, "  questions:[{prompt: '',options: ['']}],\n")
 					content.insert(document_actual_line + 1, "  on_start: function(trial) {\n")
-					content.insert(document_actual_line + 2, "    trial.questions = [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] + "'" 
+					content.insert(document_actual_line + 2, "    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', type: '"+ questions[i]["type"] + "'" 
 						+ (", endword: ' " + questions[i]["endword"] + "'" if ("endword" in questions[i]) else "" ) 
 						+ (", required: '" + questions[i]["required"].lower() + "'" if ("required" in questions[i]) else ", required: true" ) 
 						+ (", language: '" + questions[i]["language"].lower() + "'" if ("language" in questions[i]) else "" ) 
@@ -134,7 +151,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 					content.insert(document_actual_line + 3, "  },\n")
 					document_actual_line += 4
 				else:				
-					content.insert(document_actual_line + 0, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] + "'" 
+					content.insert(document_actual_line + 0, "  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', type: '"+ questions[i]["type"] + "'" 
 						+ (", endword: ' " + questions[i]["endword"] + "'" if ("endword" in questions[i]) else "" ) 
 						+ (", required: '" + questions[i]["required"].lower() + "'" if ("required" in questions[i]) else ", required: true" ) 
 						+ (", language: '" + questions[i]["language"].lower() + "'" if ("language" in questions[i]) else "" ) 
@@ -521,7 +538,7 @@ def main():
 		item_type = items[i].type
 		if (item_type=="fullscreen"):
 			try:
-				base_text = items[i].arguments["text"]
+				base_text = str(items[i].arguments["text"])
 			except:
 				base_text = "El experimento entrará en modo pantalla completa"
 			fullscreen = {"fullscreen_mode": True, "base_text": base_text}
@@ -529,11 +546,11 @@ def main():
 		elif (item_type=="instruction"):
 			actual_instruction = {}
 			try:
-				actual_instruction["title"] = items[i].arguments["title"]
+				actual_instruction["title"] = str(items[i].arguments["title"])
 			except:
 				pass
 			try:
-				actual_instruction["instruction"] = items[i].arguments["text"]
+				actual_instruction["instruction"] = str(items[i].arguments["text"])
 			except:
 				pass
 			try:
@@ -554,6 +571,10 @@ def main():
 					actual_question["orientation"] = items[i].arguments["orientation"]
 				except:
 					actual_question["orientation"] = "vertical"
+				try:
+					actual_question["expected_options"] = items[i].arguments["expected_options"]
+				except:
+					actual_question["expected_options"] = None
 				try:
 					actual_question["not_enabled_options"] = items[i].arguments["not_enabled_options"]
 				except:
@@ -603,11 +624,15 @@ def main():
 				except:
 					pass
 			try:
-				actual_question["preamble"] = items[i].arguments["title"] 
+				actual_question["title"] = str(items[i].arguments["title"])
 			except:
 				pass
 			try:
-				actual_question["text"] = items[i].arguments["text"] 
+				actual_question["preamble"] = str(items[i].arguments["preamble"])
+			except:
+				pass
+			try:
+				actual_question["text"] = str(items[i].arguments["text"])
 			except:
 				pass
 

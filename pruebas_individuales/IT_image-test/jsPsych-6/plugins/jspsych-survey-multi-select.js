@@ -50,13 +50,13 @@ jsPsych.plugins['survey-multi-select'] = (function() {
             default: undefined,
             description: 'If you need images or texts to the left side of the alternatives.'
           },
+          required: {
+            type: jsPsych.plugins.parameterType.BOOL,
+            pretty_name: 'Required',
+            default: false,
+            description: 'Subject will be required to pick an option for each question.'
+          },
         }
-      },
-      required: {
-        type: jsPsych.plugins.parameterType.BOOL,
-        pretty_name: 'Required',
-        default: false,
-        description: 'Subject will be required to pick an option for each question.'
       },
       preamble: {
         type: jsPsych.plugins.parameterType.STRING,
@@ -135,14 +135,13 @@ jsPsych.plugins['survey-multi-select'] = (function() {
       // If you need images or texts to the left side of the alternatives
       if (typeof trial.questions[i].not_enabled_options === 'undefined')
         trial.questions[i].not_enabled_options = 0
-
       // create option check boxes
       for (var j = 0; j < trial.questions[i].options.length; j++) {
         var option_id_name = _join(plugin_id_name, ((trial.questions[i].horizontal.toString() === "true") ? "horizontal-" : "") + "option", i, j),
           option_id_selector = '#' + option_id_name;
 
         // add check box container
-        display_element.querySelector(question_selector).innerHTML += '<div id="'+option_id_name+'" class="'+_join(plugin_id_name, 'option')+'"></div>';
+        display_element.querySelector(question_selector).innerHTML += '<div id="'+option_id_name + ((trial.questions[i].not_enabled_options == j && j != 0) ? '" style= "margin-left:5em"' : '"')  + ' class="'+_join(plugin_id_name, 'option')+'"></div>';
 
         // add label and question text
         var form = document.getElementById(option_id_name)
@@ -159,7 +158,11 @@ jsPsych.plugins['survey-multi-select'] = (function() {
           input.setAttribute('name', input_name);
           input.setAttribute('id', input_id);
           input.setAttribute('value', trial.questions[i].options[j])
-        } else {var input = document.createTextNode( '\u00A0' );}
+        } else {
+          // add option to question
+          trial_questions["Q_"+i.toString()] += " " + trial.questions[i].options[j];
+          var input = document.createTextNode( '\u00A0' );
+        }
         form.appendChild(label)
         form.insertBefore(input, label)
       }
@@ -179,7 +182,6 @@ jsPsych.plugins['survey-multi-select'] = (function() {
         trial_form.dispatchEvent(event);
       }, trial.trial_duration);
     }
-
     trial_form.addEventListener('submit', function(event) {
       jsPsych.pluginAPI.clearAllTimeouts();
       event.preventDefault();
@@ -203,15 +205,22 @@ jsPsych.plugins['survey-multi-select'] = (function() {
         var obje = {};
         obje[id] = val;
         Object.assign(question_data, obje);
+
+        if (val.length == 0 && trial.questions[index].required){
+          has_response.push(false);
+        }
         if (typeof trial.questions[index].expected_options === 'undefined')
           var expected = true;
         else
           var expected = (val.length).toString() === (trial.questions[index].expected_options).toString();
         if ( (val.length == 0 || !expected) && (typeof event.detail === 'undefined' || event.detail.trial_finished !== false) ){ has_response.push(false); } else { has_response.push(true); }
       }
+      
       // adds validation to check if at least one option is selected
-      if(trial.required && has_response.includes(false)) {
+      if(has_response.includes(false)) {
         var inputboxes = display_element.querySelectorAll("input[type=checkbox]")
+        if (typeof trial.required_msg === 'undefined')
+          trial.required_msg = "Por favor verifique su respuesta";
         display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">'+trial.required_msg+'</span>';
       } else {
         // save data
