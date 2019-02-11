@@ -16,7 +16,7 @@ Actualmente hay 2 formas de uso para el sistema de maker.
 
 	desde la carpeta de maker, con esto se lanzará el sistema de maker de manera normal leyendo el archivo data.yaml encontrado en la misma carpeta (el cual debe ser llenado con los datos del experimento que se desee crear).
 
-- El segundo es usar el sistema de multimaker como se explica en su sección respectiva ([Multimaker](#sistema-multimaker.)).
+- El segundo es usar el sistema de multimaker como se explica en su sección respectiva ([Multimaker](#sistema-multimaker)).
 
 ### Detalles del archivo yaml
 
@@ -29,7 +29,7 @@ Es importante destacar que yaml funciona como una extensión para armar el docum
 
 Esta sección será usada para poder explicar los módulos actualmente agregados al sistema maker, los cuales se pretende que sean mejorados y aumentados en cantidad.
 
-### Sistema Multimaker.
+### Sistema Multimaker
 
 El sistema multimaker es una extensión del sistema maker, en el cual se podrán crear varias pruebas en un solo lanzamiento del sistema maker, para su uso se debe agregar los archivos yaml que se deseen usar a la carpeta "multimaker" que se encuentra dentro del sistema maker, y luego correr el comando: 
 
