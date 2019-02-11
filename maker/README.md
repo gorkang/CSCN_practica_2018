@@ -16,7 +16,7 @@ Actualmente hay 2 formas de uso para el sistema de maker.
 
 	desde la carpeta de maker, con esto se lanzará el sistema de maker de manera normal leyendo el archivo data.yaml encontrado en la misma carpeta (el cual debe ser llenado con los datos del experimento que se desee crear).
 
-- El segundo es usar el sistema de multimaker como se explica en su sección respectiva ([Multimaker](###sistema-multimaker.)).
+- El segundo es usar el sistema de multimaker como se explica en su sección respectiva ([Multimaker](#sistema-multimaker.)).
 
 ### Detalles del archivo yaml
 
