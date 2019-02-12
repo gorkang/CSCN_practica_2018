@@ -126,7 +126,6 @@ jsPsych.plugins['survey-multi-select'] = (function() {
       if (trial.questions[i].horizontal) {
         question_classes.push(_join(plugin_id_name, 'horizontal'));
       }
-      console.log(trial.questions[i].error_message)
       trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
 
       var question_selector = _join(plugin_id_selector, i);
@@ -222,15 +221,10 @@ jsPsych.plugins['survey-multi-select'] = (function() {
           var expected = (val.length).toString() === (trial.questions[index].expected_options).toString();
         if ( (val.length == 0 || !expected) && (typeof event.detail === 'undefined' || event.detail.trial_finished !== false) ){ has_response.push(false); } else { has_response.push(true); }
 
-        console.log(trial.questions[index].error_message)
-        console.log(questions = trial.questions)
-
         if(has_response.includes(false)) {
           var inputboxes = display_element.querySelectorAll("input[type=checkbox]")
           if (typeof trial.questions[index].error_message === 'undefined')
             trial.questions[index].error_message = "Por favor verifique su respuesta";
-          console.log(_display_element = display_element)
-          console.log(".fail-message-"+index.toString())
           display_element.querySelector(".fail-message-"+index.toString()).innerHTML = '<span style="color: red;" class="required">'+trial.questions[index].error_message+'</span>';
           pass = false;
         }

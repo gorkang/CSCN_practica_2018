@@ -201,6 +201,8 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
           expected_options: 2
           orientation: horizontal
           not_enabled_options: 1
+          required: True
+          error_message: Por favor seleccione 2 opciones
     ```
 
     Podemos ver que el usuario deberá elegir 2 de las 4 opciones disponibles (como dice en expected_options), además la primera opcion no está habilitada para respuesta (en este caso "image: pag1_3_0.png"), la orientación de las alternativas es horizontal y también se puede ver el uso de imágenes en las alternativas de la forma image: "nombre_imagen.extension".

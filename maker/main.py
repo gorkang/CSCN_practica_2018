@@ -36,13 +36,15 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		"range":"jspsych-survey-text"
 	}
 
+	content.insert(document_actual_line + 0, "var variables = {};  \n")
+	document_actual_line += 1
+
 	# Por cada conjunto de preguntas hay una instruccion
 	for actual_int in range(len(instructions)):
 		# creamos la lista de preguntas temporal
 		content.insert(document_actual_line + 0, "var questions_experiment = [];    //temporal timeline\n")
-		content.insert(document_actual_line + 1, "var variables = {};  \n")
-		content.insert(document_actual_line + 2, "\n")
-		document_actual_line += 3
+		content.insert(document_actual_line + 1, "\n")
+		document_actual_line += 2
 
 		content.insert(document_actual_line + 0, "var instruction_screen_experiment = {\n")
 		content.insert(document_actual_line + 1, "  type: 'instructions',\n")
