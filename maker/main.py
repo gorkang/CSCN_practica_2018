@@ -50,27 +50,29 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		content.insert(document_actual_line + 1, "  type: 'instructions',\n")
 		document_actual_line += 2
 
-		if ("{" in instructions[actual_int]["instruction"]):
-			text_variables = re.findall(r'{(.*?)}', instructions[actual_int]["instruction"])
-			for variable in text_variables:
-				if variable.split(":")[0] == "variable":
-					instructions[actual_int]["instruction"] = instructions[actual_int]["instruction"].replace("{"+ variable +"}", "' + variables["' + variable.split(":")[1] + '"]+ '")
-					text_modify = True
-				elif variable.split(":")[0] == "image":
-					instructions[actual_int]["instruction"] = instructions[actual_int]["instruction"].replace("{"+ variable +"}", '<img src="images/' + variable.split(":")[1] + '" />')
+		pages = "  pages: ['<p><left>"
+		pages_lines = 0
+		for index, instruction in enumerate(instructions[actual_int]["instruction"]):
+			if index != 0:
+				pages += ",\n    '<p>"
+				pages_lines += 1
+			if ("{" in instruction):
+				text_variables = re.findall(r'{(.*?)}', instruction)
+				for variable in text_variables:
+					if variable.split(":")[0] == "variable":
+						instruction = instruction.replace("{"+ variable +"}", "' + variables['" + variable.split(":")[1] + "']+ '")
+						text_modify = True
+					elif variable.split(":")[0] == "image":
+						instruction = instruction.replace("{"+ variable +"}", '<img src="images/' + variable.split(":")[1] + '" />')
 
+			if "title" in instructions[actual_int]:
+				pages += "<b><big>" + instructions[actual_int]["title"] + "</big></b><br/>"
+			pages += instruction
 
-		try:
-			content.insert(document_actual_line + 0, "  pages: ['<p><left><b><big>" + instructions[actual_int]["title"] + "</big></b><br />'+\n" )
-			document_actual_line += 1
-		except:
-			content.insert(document_actual_line + 0, "  pages: ['<p><left>'+\n" )
-			document_actual_line += 1
-		try:
-			content.insert(document_actual_line + 0, "  '" + instructions[actual_int]["instruction"] + "' +'</p>'],\n")
-			document_actual_line += 1
-		except:
-			pass
+			pages += "</p>'"
+		pages += "],\n"
+		content.insert(document_actual_line + 0, pages)
+		document_actual_line += pages_lines
 
 		content.insert(document_actual_line + 0, "  data:{trialid: 'Screen_WM'},\n")
 		content.insert(document_actual_line + 1, "  show_clickable_nav: true,\n")
@@ -114,7 +116,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				text_variables = re.findall(r'{(.*?)}', questions[i]["text"])
 				for variable in text_variables:
 					if variable.split(":")[0] == "variable":
-						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", "' + variables["' + variable.split(":")[1] + '"] + '")
+						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", "' + variables['" + variable.split(":")[1] + "'] + '")
 						text_modify = True
 					elif variable.split(":")[0] == "image":
 						questions[i]["text"] = questions[i]["text"].replace("{"+ variable +"}", '<img src="images/' + variable.split(":")[1] + '" />')
@@ -564,7 +566,12 @@ def main():
 			except:
 				pass
 			try:
-				actual_instruction["instruction"] = str(items[i].arguments["text"])
+				actual_instruction["instruction"] = items[i].arguments["text"]
+				# en caso que sea un número o un flotante
+				if ( type(actual_instruction["instruction"]) != str and type(actual_instruction["instruction"]) != list ):
+					actual_instruction["instruction"] = str(actual_instruction["instruction"])
+				if ( type(actual_instruction["instruction"]) == str ):
+					actual_instruction["instruction"] = [actual_instruction["instruction"]] 
 			except:
 				pass
 			try:

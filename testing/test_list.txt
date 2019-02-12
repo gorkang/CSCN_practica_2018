@@ -1,7 +1,7 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-IT_image-test
-#ASSIST_alcohol-smoking-substance-involvement-screening-test
+ASSIST_alcohol-smoking-substance-involvement-screening-test
+#IT_image-test
 #MST_Multi-Select-Test
 #AT_Assist-test
 #WOC_ways-of-coping

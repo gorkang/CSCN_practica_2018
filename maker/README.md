@@ -83,7 +83,7 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
                 + text: El experimento entrará el pantalla completa al apretar continuar.
         ```
 
-- **instruction**: Este item usa el plugin jspsych-instructions para poder crear una página en la que el usuario pueda ser guiado para el avance del experimento. Solo necesita un texto, el cual debe ir en el área de argumentos de la pregunta actual y será mostrado por pantalla al entrar en este item, si se desea se puede ingresar también un título para mostrar. En este item también se agregará el orden de las preguntas que le seguirán a continuación (y antes de la siguiente instrucción) usando el tag "questions_mode", si no es seleccionado, las preguntas automáticamente serán ordenadas en orden secuencial, actualmente las preguntas pueden ser mostradas en orden secuencial o random escribiendo "- questions_mode: sequential" o "- questions_mode: random"
+- **instruction**: Este item usa el plugin jspsych-instructions para poder crear una página en la que el usuario pueda ser guiado para el avance del experimento. Solo necesita un texto o lista de textos, el cual debe ir en el área de argumentos de la pregunta actual y será mostrado por pantalla al entrar en este item, si se desea se puede ingresar también un título, el cual se mostrará en todas las instrucciones. En este item también se agregará el orden de las preguntas que le seguirán a continuación (y antes de la siguiente instrucción) usando el tag "questions_mode", si no es seleccionado, las preguntas automáticamente serán ordenadas en orden secuencial, actualmente las preguntas pueden ser mostradas en orden secuencial o random escribiendo "- questions_mode: sequential" o "- questions_mode: random"
 
     Un ejemplo de instruction sería el siguiente:
     ```
@@ -94,6 +94,23 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
             - text: En las siguientes preguntas deberá contestar segun la escala de likert mostrada.
             - questions_mode: sequential
     ```
+
+    Otro ejemplo de instruction sería el siguiente:
+
+    ```
+    - initial-window:
+        type: instruction
+        arguments:
+            - title: Sistema de Pruebas
+            - text: 
+            	- A continuación podrá ver una serie de instrucciones, lealas con atención.
+            	- Elija la opción que le parezca más correcta según su método de trabajo.
+            	- Una vez terminado el test favor llamar al instructor.
+            - questions_mode: sequential
+    ```
+
+
+
 
 > Los items que siguen son de tipo "pregunta" y tienen acceso a 2 opciones extras además del tipo de pregunta que son "previous" y "next", estas opciones van separadas de los argumentos y definen una forma de crear árboles según las decisiones que el usuario vaya eligiendo en el camino.
 >

@@ -17,4 +17,5 @@ maker/multi_maker/*
 !maker/multi_maker.py
 !maker/multi_maker/
 !maker/multi_maker/example_test.yml
+!maker/multi_maker/ASSIST.yml
 !maker/README.md
