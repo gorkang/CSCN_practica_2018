@@ -29,7 +29,11 @@
       title: OMS - Assist
       text: 
         - Conteste las siguientes preguntas.
-        - Recuerde contestar todas
+        - Recuerde contestar todas.
+        - extra extra
+        - asdas
+        - dasd-
+        - dasdas
       questions_mode: sequential # select mode of the next questions
     tags:
       - instruction

@@ -19,10 +19,14 @@ var questions = [];    //final timeline
 var variables = {};  
 var questions_experiment = [];    //temporal timeline
 
-var instruction_screen_experiment = {
+var instruction_screen_experiment_1 = {
   type: 'instructions',
   pages: ['<p><left><b><big>OMS - Assist</big></b><br/>Conteste las siguientes preguntas.</p>',
-    '<p><b><big>OMS - Assist</big></b><br/>Recuerde contestar todas</p>'],
+    '<p><b><big>OMS - Assist</big></b><br/>Recuerde contestar todas.</p>',
+    '<p><b><big>OMS - Assist</big></b><br/>extra extra</p>',
+    '<p><b><big>OMS - Assist</big></b><br/>asdas</p>',
+    '<p><b><big>OMS - Assist</big></b><br/>dasd-</p>',
+    '<p><b><big>OMS - Assist</big></b><br/>dasdas</p>'],
   data:{trialid: 'Screen_WM'},
   show_clickable_nav: true,
   on_trial_start: function (){
@@ -35,71 +39,51 @@ var question01 = {
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tabaco_1'}
 }
-questions_experiment.push(question01);
-
 var question02 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alcohol_1'}
 }
-questions_experiment.push(question02);
-
 var question03 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez cannabis (marihuana, costo, hierba, hashish, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cannabis_1'}
 }
-questions_experiment.push(question03);
-
 var question04 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez cocaína (coca, farlopa, crack, base, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cocaina_1'}
 }
-questions_experiment.push(question04);
-
 var question05 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Anfetamina_1'}
 }
-questions_experiment.push(question05);
-
 var question06 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez inhalantes (colas, gasolina/nafta, pegamento, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Inhalantes_1'}
 }
-questions_experiment.push(question06);
-
 var question07 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tranquilizantes_1'}
 }
-questions_experiment.push(question07);
-
 var question08 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alucinogenos_1'}
 }
-questions_experiment.push(question08);
-
 var question09 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Opiaceos_1'}
 }
-questions_experiment.push(question09);
-
 var question10 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez otro tipo de sustancia?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Otros_1'}
 }
-questions_experiment.push(question10);
-
 var question11 = {
   type: 'survey-text',
   questions: [{prompt: '<div class="justified">¿Cual es el nombre de este otro tipo de sustancia que consumió?</div>', type: 'text', required: true}], 
@@ -122,7 +106,6 @@ var if_question11 = {
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
     })
-
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -133,8 +116,6 @@ var if_question11 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question11);
 
 var question12 = {
   type:'survey-multi-choice',
@@ -175,8 +156,6 @@ var if_question12 = {
   } 
 } 
 
-questions_experiment.push(if_question12);
-
 var if_repeat_question12 = { 
   timeline:questions_experiment.slice(0,11), 
   conditional_function: function (){ 
@@ -193,8 +172,6 @@ var if_repeat_question12 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_repeat_question12);
 
 var question13 = {
   type:'survey-multi-choice',
@@ -225,8 +202,6 @@ var if_question13 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question13);
 
 var question14 = {
   type:'survey-multi-choice',
@@ -270,8 +245,6 @@ var if_question14 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question14);
 
 var question15 = {
   type:'survey-multi-choice',
@@ -327,8 +300,6 @@ var if_question15 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question15);
 
 var question16 = {
   type:'survey-multi-choice',
@@ -396,8 +367,6 @@ var if_question16 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question16);
 
 var question17 = {
   type:'survey-multi-choice',
@@ -477,8 +446,6 @@ var if_question17 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question17);
 
 var question18 = {
   type:'survey-multi-choice',
@@ -570,8 +537,6 @@ var if_question18 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question18);
 
 var question19 = {
   type:'survey-multi-choice',
@@ -675,8 +640,6 @@ var if_question19 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question19);
 
 var question20 = {
   type:'survey-multi-choice',
@@ -792,8 +755,6 @@ var if_question20 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question20);
 
 var question21 = {
   type:'survey-multi-choice',
@@ -921,8 +882,6 @@ var if_question21 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question21);
 
 var question22 = {
   type:'survey-multi-choice',
@@ -1066,8 +1025,6 @@ var if_question22 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question22);
 
 var question23 = {
   type:'survey-multi-choice',
@@ -1220,8 +1177,6 @@ var if_question23 = {
   } 
 } 
 
-questions_experiment.push(if_question23);
-
 var question24 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -1372,8 +1327,6 @@ var if_question24 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question24);
 
 var question25 = {
   type:'survey-multi-choice',
@@ -1526,8 +1479,6 @@ var if_question25 = {
   } 
 } 
 
-questions_experiment.push(if_question25);
-
 var question26 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir cocaína (coca, farlopa, crack, base, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -1678,8 +1629,6 @@ var if_question26 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question26);
 
 var question27 = {
   type:'survey-multi-choice',
@@ -1832,8 +1781,6 @@ var if_question27 = {
   } 
 } 
 
-questions_experiment.push(if_question27);
-
 var question28 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir inhalantes (colas, gasolina/nafta, pegamento, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -1984,8 +1931,6 @@ var if_question28 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question28);
 
 var question29 = {
   type:'survey-multi-choice',
@@ -2138,8 +2083,6 @@ var if_question29 = {
   } 
 } 
 
-questions_experiment.push(if_question29);
-
 var question30 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -2291,8 +2234,6 @@ var if_question30 = {
   } 
 } 
 
-questions_experiment.push(if_question30);
-
 var question31 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -2443,8 +2384,6 @@ var if_question31 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question31);
 
 var question32 = {
   type:'survey-multi-choice',
@@ -2601,8 +2540,6 @@ var if_question32 = {
   } 
 } 
 
-questions_experiment.push(if_question32);
-
 var question33 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -2753,8 +2690,6 @@ var if_question33 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question33);
 
 var question34 = {
   type:'survey-multi-choice',
@@ -2907,8 +2842,6 @@ var if_question34 = {
   } 
 } 
 
-questions_experiment.push(if_question34);
-
 var question35 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de cannabis (marihuana, costo, hierba, hashish, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -3059,8 +2992,6 @@ var if_question35 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question35);
 
 var question36 = {
   type:'survey-multi-choice',
@@ -3213,8 +3144,6 @@ var if_question36 = {
   } 
 } 
 
-questions_experiment.push(if_question36);
-
 var question37 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -3365,8 +3294,6 @@ var if_question37 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question37);
 
 var question38 = {
   type:'survey-multi-choice',
@@ -3519,8 +3446,6 @@ var if_question38 = {
   } 
 } 
 
-questions_experiment.push(if_question38);
-
 var question39 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -3671,8 +3596,6 @@ var if_question39 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question39);
 
 var question40 = {
   type:'survey-multi-choice',
@@ -3825,8 +3748,6 @@ var if_question40 = {
   } 
 } 
 
-questions_experiment.push(if_question40);
-
 var question41 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -3977,8 +3898,6 @@ var if_question41 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question41);
 
 var question42 = {
   type:'survey-multi-choice',
@@ -4135,8 +4054,6 @@ var if_question42 = {
   } 
 } 
 
-questions_experiment.push(if_question42);
-
 var question43 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -4287,8 +4204,6 @@ var if_question43 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question43);
 
 var question44 = {
   type:'survey-multi-choice',
@@ -4441,8 +4356,6 @@ var if_question44 = {
   } 
 } 
 
-questions_experiment.push(if_question44);
-
 var question45 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de cocaína (coca, farlopa, crack, base, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -4593,8 +4506,6 @@ var if_question45 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question45);
 
 var question46 = {
   type:'survey-multi-choice',
@@ -4747,8 +4658,6 @@ var if_question46 = {
   } 
 } 
 
-questions_experiment.push(if_question46);
-
 var question47 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de inhalantes (colas, gasolina/nafta, pegamento, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -4899,8 +4808,6 @@ var if_question47 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question47);
 
 var question48 = {
   type:'survey-multi-choice',
@@ -5053,8 +4960,6 @@ var if_question48 = {
   } 
 } 
 
-questions_experiment.push(if_question48);
-
 var question49 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5206,8 +5111,6 @@ var if_question49 = {
   } 
 } 
 
-questions_experiment.push(if_question49);
-
 var question50 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5358,8 +5261,6 @@ var if_question50 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question50);
 
 var question51 = {
   type:'survey-multi-choice',
@@ -5516,8 +5417,6 @@ var if_question51 = {
   } 
 } 
 
-questions_experiment.push(if_question51);
-
 var question52 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5669,8 +5568,6 @@ var if_question52 = {
   } 
 } 
 
-questions_experiment.push(if_question52);
-
 var question53 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5700,8 +5597,6 @@ var if_question53 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question53);
 
 var question54 = {
   type:'survey-multi-choice',
@@ -5733,8 +5628,6 @@ var if_question54 = {
   } 
 } 
 
-questions_experiment.push(if_question54);
-
 var question55 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de cocaína (coca, farlopa, crack, base, etc.)?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5764,8 +5657,6 @@ var if_question55 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question55);
 
 var question56 = {
   type:'survey-multi-choice',
@@ -5797,8 +5688,6 @@ var if_question56 = {
   } 
 } 
 
-questions_experiment.push(if_question56);
-
 var question57 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de inhalantes (colas, gasolina/nafta, pegamento, etc.)?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5828,8 +5717,6 @@ var if_question57 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question57);
 
 var question58 = {
   type:'survey-multi-choice',
@@ -5861,8 +5748,6 @@ var if_question58 = {
   } 
 } 
 
-questions_experiment.push(if_question58);
-
 var question59 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5893,8 +5778,6 @@ var if_question59 = {
   } 
 } 
 
-questions_experiment.push(if_question59);
-
 var question60 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5924,8 +5807,6 @@ var if_question60 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question60);
 
 var question61 = {
   type:'survey-multi-choice',
@@ -5961,8 +5842,6 @@ var if_question61 = {
   } 
 } 
 
-questions_experiment.push(if_question61);
-
 var question62 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Ha intentado alguna vez controlar, reducir o dejar de consumir tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.) y no lo ha logrado?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -5992,8 +5871,6 @@ var if_question62 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question62);
 
 var question63 = {
   type:'survey-multi-choice',
@@ -6025,8 +5902,6 @@ var if_question63 = {
   } 
 } 
 
-questions_experiment.push(if_question63);
-
 var question64 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Ha intentado alguna vez controlar, reducir o dejar de consumir cannabis (marihuana, costo, hierba, hashish, etc.) y no lo ha logrado?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -6056,8 +5931,6 @@ var if_question64 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question64);
 
 var question65 = {
   type:'survey-multi-choice',
@@ -6089,8 +5962,6 @@ var if_question65 = {
   } 
 } 
 
-questions_experiment.push(if_question65);
-
 var question66 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Ha intentado alguna vez controlar, reducir o dejar de consumir anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) y no lo ha logrado?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -6120,8 +5991,6 @@ var if_question66 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question66);
 
 var question67 = {
   type:'survey-multi-choice',
@@ -6153,8 +6022,6 @@ var if_question67 = {
   } 
 } 
 
-questions_experiment.push(if_question67);
-
 var question68 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Ha intentado alguna vez controlar, reducir o dejar de consumir tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) y no lo ha logrado?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -6184,8 +6051,6 @@ var if_question68 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question68);
 
 var question69 = {
   type:'survey-multi-choice',
@@ -6217,8 +6082,6 @@ var if_question69 = {
   } 
 } 
 
-questions_experiment.push(if_question69);
-
 var question70 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Ha intentado alguna vez controlar, reducir o dejar de consumir opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.) y no lo ha logrado?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -6248,8 +6111,6 @@ var if_question70 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question70);
 
 var question71 = {
   type:'survey-multi-choice',
@@ -6284,8 +6145,6 @@ var if_question71 = {
     return false 
   } 
 } 
-
-questions_experiment.push(if_question71);
 
 var question72 = {
   type:'survey-multi-choice',
@@ -6347,8 +6206,6 @@ var if_question72 = {
   } 
 } 
 
-questions_experiment.push(if_question72);
-
 var question73 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">¿Cual ha sido su patrón de inyección durante este período?</div>', options: ['Una vez a la semana o menos', 'Menos de 3 días seguidos', 'Más de una vez a la semana', '3 o más días seguidos'], required: true, horizontal: false, not_enabled_options: 0}],
@@ -6379,9 +6236,83 @@ var if_question73 = {
   } 
 } 
 
+questions = []
+questions_experiment = []
+questions_experiment.push(question01);
+questions_experiment.push(question02);
+questions_experiment.push(question03);
+questions_experiment.push(question04);
+questions_experiment.push(question05);
+questions_experiment.push(question06);
+questions_experiment.push(question07);
+questions_experiment.push(question08);
+questions_experiment.push(question09);
+questions_experiment.push(question10);
+questions_experiment.push(if_question11);
+questions_experiment.push(if_question12);
+questions_experiment.push(if_repeat_question12);
+questions_experiment.push(if_question13);
+questions_experiment.push(if_question14);
+questions_experiment.push(if_question15);
+questions_experiment.push(if_question16);
+questions_experiment.push(if_question17);
+questions_experiment.push(if_question18);
+questions_experiment.push(if_question19);
+questions_experiment.push(if_question20);
+questions_experiment.push(if_question21);
+questions_experiment.push(if_question22);
+questions_experiment.push(if_question23);
+questions_experiment.push(if_question24);
+questions_experiment.push(if_question25);
+questions_experiment.push(if_question26);
+questions_experiment.push(if_question27);
+questions_experiment.push(if_question28);
+questions_experiment.push(if_question29);
+questions_experiment.push(if_question30);
+questions_experiment.push(if_question31);
+questions_experiment.push(if_question32);
+questions_experiment.push(if_question33);
+questions_experiment.push(if_question34);
+questions_experiment.push(if_question35);
+questions_experiment.push(if_question36);
+questions_experiment.push(if_question37);
+questions_experiment.push(if_question38);
+questions_experiment.push(if_question39);
+questions_experiment.push(if_question40);
+questions_experiment.push(if_question41);
+questions_experiment.push(if_question42);
+questions_experiment.push(if_question43);
+questions_experiment.push(if_question44);
+questions_experiment.push(if_question45);
+questions_experiment.push(if_question46);
+questions_experiment.push(if_question47);
+questions_experiment.push(if_question48);
+questions_experiment.push(if_question49);
+questions_experiment.push(if_question50);
+questions_experiment.push(if_question51);
+questions_experiment.push(if_question52);
+questions_experiment.push(if_question53);
+questions_experiment.push(if_question54);
+questions_experiment.push(if_question55);
+questions_experiment.push(if_question56);
+questions_experiment.push(if_question57);
+questions_experiment.push(if_question58);
+questions_experiment.push(if_question59);
+questions_experiment.push(if_question60);
+questions_experiment.push(if_question61);
+questions_experiment.push(if_question62);
+questions_experiment.push(if_question63);
+questions_experiment.push(if_question64);
+questions_experiment.push(if_question65);
+questions_experiment.push(if_question66);
+questions_experiment.push(if_question67);
+questions_experiment.push(if_question68);
+questions_experiment.push(if_question69);
+questions_experiment.push(if_question70);
+questions_experiment.push(if_question71);
+questions_experiment.push(if_question72);
 questions_experiment.push(if_question73);
-
-questions_experiment.unshift(instruction_screen_experiment);
+questions_experiment.unshift(instruction_screen_experiment_1);
 questions.push.apply(questions, questions_experiment)
 
 if (window.innerWidth != screen.width || window.innerHeight != screen.height){

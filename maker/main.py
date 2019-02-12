@@ -27,6 +27,8 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	# inicio documento en linea 19
 	document_actual_line = 18
 
+	print(content)
+
 	plugins = {
 		"multi_choice":"jspsych-survey-multi-choice",
 		"multi_select":"jspsych-survey-multi-select",
@@ -36,26 +38,27 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		"range":"jspsych-survey-text"
 	}
 
-	content.insert(document_actual_line + 0, "var variables = {};  \n")
+	content.append("var variables = {};  \n")
 	document_actual_line += 1
+
+	# variable donde almacenaremos el orden de las preguntas
+	questions_experiment = []
 
 	# Por cada conjunto de preguntas hay una instruccion
 	for actual_int in range(len(instructions)):
 		# creamos la lista de preguntas temporal
-		content.insert(document_actual_line + 0, "var questions_experiment = [];    //temporal timeline\n")
-		content.insert(document_actual_line + 1, "\n")
+		content.append("var questions_experiment = [];    //temporal timeline\n")
+		content.append("\n")
 		document_actual_line += 2
-
-		content.insert(document_actual_line + 0, "var instruction_screen_experiment = {\n")
-		content.insert(document_actual_line + 1, "  type: 'instructions',\n")
+		content.append("var instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1) + " = {\n")
+		content.append("  type: 'instructions',\n")
 		document_actual_line += 2
 
 		pages = "  pages: ['<p><left>"
-		pages_lines = 0
+		pages_lines = 1
 		for index, instruction in enumerate(instructions[actual_int]["instruction"]):
 			if index != 0:
 				pages += ",\n    '<p>"
-				pages_lines += 1
 			if ("{" in instruction):
 				text_variables = re.findall(r'{(.*?)}', instruction)
 				for variable in text_variables:
@@ -68,20 +71,23 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			if "title" in instructions[actual_int]:
 				pages += "<b><big>" + instructions[actual_int]["title"] + "</big></b><br/>"
 			pages += instruction
-
 			pages += "</p>'"
+			pages_lines = index
 		pages += "],\n"
-		content.insert(document_actual_line + 0, pages)
-		document_actual_line += pages_lines
 
-		content.insert(document_actual_line + 0, "  data:{trialid: 'Screen_WM'},\n")
-		content.insert(document_actual_line + 1, "  show_clickable_nav: true,\n")
-		content.insert(document_actual_line + 2, "  on_trial_start: function (){\n")
-		content.insert(document_actual_line + 3, "    bloquear_enter = 0;\n")
-		content.insert(document_actual_line + 4, "  }\n")
-		content.insert(document_actual_line + 5, "}\n")
-		content.insert(document_actual_line + 6, "\n")
+		content.append(pages)
+		# TODO: revisar lógica de aumento de lineas
+		document_actual_line += 1
+		content.append("  data:{trialid: 'Screen_WM'},\n")
+		content.append("  show_clickable_nav: true,\n")
+		content.append("  on_trial_start: function (){\n")
+		content.append("    bloquear_enter = 0;\n")
+		content.append("  }\n")
+		content.append("}\n")
+		content.append("\n")
 		document_actual_line += 7
+
+		questions_experiment.append({"instruction": "instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1), "questions": []})
 
 		if instructions[actual_int] != instructions[-1]:
 			breaker = instructions[actual_int + 1]["previous_questions"] - 1
@@ -97,17 +103,17 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				jump_while = False
 				break
 
-			content.insert(document_actual_line + 0, "var question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = {\n")
+			content.append("var question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = {\n")
 			document_actual_line += 1
 
 			try:
-				content.insert(document_actual_line + 0, "  title: '"+ questions[i]["title"] +"',\n")
+				content.append("  title: '"+ questions[i]["title"] +"',\n")
 				document_actual_line += 1
 			except:
 				pass
 
 			try:
-				content.insert(document_actual_line + 0, "  preamble: ' <b><big>" + questions[i]["preamble"] + "</big></b> ',\n")
+				content.append("  preamble: ' <b><big>" + questions[i]["preamble"] + "</big></b> ',\n")
 				document_actual_line += 1
 			except:
 				pass
@@ -123,17 +129,17 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 
 			if questions[i]["type"] == "multi_choice" or questions[i]["type"] == "multi_select":
 				# actual question plugin:
-				content.insert(document_actual_line + 0, "  type:'"+ plugins[questions[i]["type"]][8:] +"',\n")
+				content.append("  type:'"+ plugins[questions[i]["type"]][8:] +"',\n")
 				document_actual_line += 1
 				if text_modify:
-					content.insert(document_actual_line + 0, "  questions:[{prompt: '',options: ['']}],\n")
-					content.insert(document_actual_line + 1, "  on_start: function(trial) {\n")
+					content.append("  questions:[{prompt: '',options: ['']}],\n")
+					content.append("  on_start: function(trial) {\n")
 					document_actual_line += 2
 				choices = []
 				for choice in questions[i]["choices"]:
 					choices.append(choice)
 				if text_modify:
-					content.insert(document_actual_line + 0, "    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>'" 
+					content.append("    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>'" 
 						+ ", options: ['"+ "', '".join( choices ) +"'], required: true" 
 						+ ", horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() 
 						+ ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) 
@@ -142,7 +148,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 						+ "}];\n")
 					document_actual_line += 1
 				else:
-					content.insert(document_actual_line + 0, "  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>'" 
+					content.append("  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>'" 
 						+ ", options: ['"+ "', '".join( choices ) +"'], required: true" 
 						+ ", horizontal: " + str((questions[i]["orientation"]).lower() == "horizontal").lower() 
 						+ ", not_enabled_options: " + str(questions[i]["not_enabled_options"]) 
@@ -152,22 +158,22 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 					document_actual_line += 1
 			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date" or questions[i]["type"] == "range":
 				# actual question plugin:
-				content.insert(document_actual_line + 0, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
+				content.append("  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
 				document_actual_line += 1
 				if text_modify:
-					content.insert(document_actual_line + 0, "  questions:[{prompt: '',options: ['']}],\n")
-					content.insert(document_actual_line + 1, "  on_start: function(trial) {\n")
-					content.insert(document_actual_line + 2, "    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', type: '"+ questions[i]["type"] + "'" 
+					content.append("  questions:[{prompt: '',options: ['']}],\n")
+					content.append("  on_start: function(trial) {\n")
+					content.append("    trial.questions = [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', type: '"+ questions[i]["type"] + "'" 
 						+ (", endword: ' " + questions[i]["endword"] + "'" if ("endword" in questions[i]) else "" ) 
 						+ (", required: '" + questions[i]["required"].lower() + "'" if ("required" in questions[i]) else ", required: true" ) 
 						+ (", language: '" + questions[i]["language"].lower() + "'" if ("language" in questions[i]) else "" ) 
 						+ (", error_message: '" + questions[i]["error_message"] + "'" if ("error_message" in questions[i]) else "" ) 
 						+ (", range: " + '['+','.join(str(e) for e in questions[i]["range"])+']' if ("range" in questions[i]) else "" ) 
 						+ "}]; \n")
-					content.insert(document_actual_line + 3, "  },\n")
+					content.append("  },\n")
 					document_actual_line += 4
 				else:				
-					content.insert(document_actual_line + 0, "  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', type: '"+ questions[i]["type"] + "'" 
+					content.append("  questions: [{prompt: '<div class=" + '"' + "justified" + '"' + ">" + questions[i]["text"] + "</div>', type: '"+ questions[i]["type"] + "'" 
 						+ (", endword: ' " + questions[i]["endword"] + "'" if ("endword" in questions[i]) else "" ) 
 						+ (", required: '" + questions[i]["required"].lower() + "'" if ("required" in questions[i]) else ", required: true" ) 
 						+ (", language: '" + questions[i]["language"].lower() + "'" if ("language" in questions[i]) else "" ) 
@@ -176,20 +182,20 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 						+ "}], \n")
 					document_actual_line += 1
 			if text_modify:
-				content.insert(document_actual_line + 0, "  },\n")
+				content.append("  },\n")
 				document_actual_line += 1
-			content.insert(document_actual_line + 0, "  data: {trialid: '"+ questions[i]["item_id"] +"'}")
+			content.append("  data: {trialid: '"+ questions[i]["item_id"] +"'}")
 			document_actual_line += 1
 
 			if ("variable" in questions[i]):
 				variables[questions[i]["variable"]] = questions[i]["item_id"]
-				content.insert(document_actual_line + 0, ",\n  on_finish: function(data) {\n")
-				content.insert(document_actual_line + 1, "      variables['"+questions[i]["variable"]+"'] = data.responses.substr(7, data.responses.length - 9);\n")
-				content.insert(document_actual_line + 2, "  }\n")
-				content.insert(document_actual_line + 3, "}\n")
+				content.append(",\n  on_finish: function(data) {\n")
+				content.append("      variables['"+questions[i]["variable"]+"'] = data.responses.substr(7, data.responses.length - 9);\n")
+				content.append("  }\n")
+				content.append("}\n")
 				document_actual_line += 4
 			else:
-				content.insert(document_actual_line + 0, "\n}\n")
+				content.append("\n}\n")
 				document_actual_line += 1
 			# Si existe condicional se agrega el condicional y sus caminos:
 			if questions[i]["previous"] != None or not not jump_list or text_modify:
@@ -247,37 +253,34 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				for temporal in range(final_cont):
 					restriction_array.append(restriction_dict)
 
-				content.insert(document_actual_line + 0, "\nvar if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
-				content.insert(document_actual_line + 1, "  timeline:[question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"], \n")
-				content.insert(document_actual_line + 2, "  conditional_function: function (){ \n")
-				content.insert(document_actual_line + 3, "    var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; \n")
-				content.insert(document_actual_line + 4, "    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
-				content.insert(document_actual_line + 5, verification)
+				content.append("\nvar if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
+				content.append("  timeline:[question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"], \n")
+				content.append("  conditional_function: function (){ \n")
+				content.append("    var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; \n")
+				content.append("    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
+				content.append(verification)
 				document_actual_line += (6 + restriction_cont) 
 				if text_modify:
 					for index, variable in enumerate(text_variables):
-						content.insert(document_actual_line + 0, "    "+ variable +" = variables['"+ variable +"']; \n")
+						content.append("    "+ variable +" = variables['"+ variable +"']; \n")
 						document_actual_line += 1
 					text_modify = False
-				content.insert(document_actual_line + 0, "    for (var i = 0; i < answer_previous.length; i++) \n")
-				content.insert(document_actual_line + 1, "      if (answer_previous[i] === 'true') \n")
-				content.insert(document_actual_line + 2, "        cont_prev += 1; \n")
-				content.insert(document_actual_line + 3, "    for (var j=0; j < answer_next.length; j++) \n")
-				content.insert(document_actual_line + 4, "      if (answer_next[j] === 'true')\n")
-				content.insert(document_actual_line + 5, "        cont_next += 1; \n")
-				content.insert(document_actual_line + 6, "    if ((cont_next === 0 && cont_prev !== 0)) return true;\n")
-				content.insert(document_actual_line + 7, "    return false \n")
-				content.insert(document_actual_line + 8, "  } \n")
-				content.insert(document_actual_line + 9, "} \n")
-				content.insert(document_actual_line + 10, "\n")
-				content.insert(document_actual_line + 11, "questions_experiment.push(if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
-				content.insert(document_actual_line + 12, "\n")
-				document_actual_line += 13
+				content.append("    for (var i = 0; i < answer_previous.length; i++) \n")
+				content.append("      if (answer_previous[i] === 'true') \n")
+				content.append("        cont_prev += 1; \n")
+				content.append("    for (var j=0; j < answer_next.length; j++) \n")
+				content.append("      if (answer_next[j] === 'true')\n")
+				content.append("        cont_next += 1; \n")
+				content.append("    if ((cont_next === 0 && cont_prev !== 0)) return true;\n")
+				content.append("    return false \n")
+				content.append("  } \n")
+				content.append("} \n")
+				content.append( "\n")
+				document_actual_line += 11
+				questions_experiment[actual_int]["questions"].append("if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1))
 			else:	
 				# En caso contrario solo agregamos la pregunta:
-				content.insert(document_actual_line + 0, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
-				content.insert(document_actual_line + 1, "\n")
-				document_actual_line += 2
+				questions_experiment[actual_int]["questions"].append("question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1))
 
 			# En caso que exista un "next" hay 2 opciones, que el next sea a un elemento que ya pasamos o que sea a un elemento al cual aún no llegamos
 			# TODO: maxLoops if next is previous
@@ -315,24 +318,23 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 						for temporal in range(temporal_cont):
 							restriction_array.append(restriction_dict)
 
-						content.insert(document_actual_line + 0, "var if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
+						content.append("var if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
 						# i + 1 es para el caso de agregar tambien la pregunta llave que nos lleva al inicio del ciclo por lo que se usará solo i para agregar hasta la pregunta anterior
-						content.insert(document_actual_line + 1, "  timeline:questions_experiment.slice(" + str(it) + "," + str(i) + "), \n")
-						content.insert(document_actual_line + 2, "  conditional_function: function (){ \n")
-						content.insert(document_actual_line + 3, "    var data = jsPsych.data.get().values(); \n")
-						content.insert(document_actual_line + 4, "    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
-						content.insert(document_actual_line + 5, "    var answer = [" + ','.join(['""' for prev in questions[i]["next"][questions[it]["item_id"]]]) + "]; \n")
-						content.insert(document_actual_line + 6, verification)
+						content.append("  timeline:questions_experiment.slice(" + str(it) + "," + str(i) + "), \n")
+						content.append("  conditional_function: function (){ \n")
+						content.append("    var data = jsPsych.data.get().values(); \n")
+						content.append("    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
+						content.append("    var answer = [" + ','.join(['""' for prev in questions[i]["next"][questions[it]["item_id"]]]) + "]; \n")
+						content.append(verification)
 						document_actual_line += (7 + restriction_cont) 
-						content.insert(document_actual_line + 0, "    for (var i = 0; i < answer.length; i++) \n")
-						content.insert(document_actual_line + 1, "      if (answer[i] === 'true') return true; \n")
-						content.insert(document_actual_line + 2, "    return false \n")
-						content.insert(document_actual_line + 3, "  } \n")
-						content.insert(document_actual_line + 4, "} \n")
-						content.insert(document_actual_line + 5, "\n")
-						content.insert(document_actual_line + 6, "questions_experiment.push(if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
-						content.insert(document_actual_line + 7, "\n")
-						document_actual_line += 8
+						content.append("    for (var i = 0; i < answer.length; i++) \n")
+						content.append("      if (answer[i] === 'true') return true; \n")
+						content.append("    return false \n")
+						content.append("  } \n")
+						content.append("} \n")
+						content.append("\n")
+						document_actual_line += 6
+						questions_experiment[actual_int]["questions"].append("if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1))
 						break
 
 			# si llegamos al punto mencionado en next, borramos los elementos que coincidan con este punto en la lista
@@ -346,30 +348,40 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 
 			if i == breaker:
 				break
-			i += 1			
-		# Las preguntas almacenadas se desordenan en caso que se requiera
-		if instructions[actual_int]["random_mode"]:
-			content.insert(document_actual_line, "questions_experiment = jsPsych.randomization.repeat(questions_experiment,1);\n")
+			i += 1	
+
+	# impresión de orden de preguntas:
+	content.append("questions = []\n")
+	document_actual_line += 1
+	for index, actual_dict in enumerate(questions_experiment):
+		content.append("questions_experiment = []\n")
+		document_actual_line += 1
+		for question in actual_dict["questions"]:
+			content.append("questions_experiment.push(" + question + ");\n")
 			document_actual_line += 1
 
-		# Se agrega al inicio la pantalla de instrucciones y se guarda en la lista final de preguntas
-		content.insert(document_actual_line + 0, "questions_experiment.unshift(instruction_screen_experiment);\n")
-		content.insert(document_actual_line + 1, "questions.push.apply(questions, questions_experiment)\n")
-		content.insert(document_actual_line + 2, "\n")
+		if instructions[index]["random_mode"]:
+			content.append("questions_experiment = jsPsych.randomization.repeat(questions_experiment,1);\n")
+			document_actual_line += 1
+
+		content.append("questions_experiment.unshift(" + actual_dict["instruction"] + ");\n")
+		content.append("questions.push.apply(questions, questions_experiment)\n\n")
 		document_actual_line += 3
 
 	# If is required, we add the fullscreen window
 	if fullscreen["fullscreen_mode"]:
-		content.insert(document_actual_line + 0, "if (window.innerWidth != screen.width || window.innerHeight != screen.height){\n")
-		content.insert(document_actual_line + 1, "  questions.unshift({\n")
-		content.insert(document_actual_line + 2, "    type: 'fullscreen',\n")	
-		content.insert(document_actual_line + 3, "    message: '<p>" + fullscreen["base_text"] + "</p>',\n")
-		content.insert(document_actual_line + 4, "    button_label: 'Full screen',\n")
-		content.insert(document_actual_line + 5, "    delay_after: 0,\n")
-		content.insert(document_actual_line + 6, "    fullscreen_mode: true\n")
-		content.insert(document_actual_line + 7, "  })\n")
-		content.insert(document_actual_line + 8, "}\n")
+		content.append("if (window.innerWidth != screen.width || window.innerHeight != screen.height){\n")
+		content.append("  questions.unshift({\n")
+		content.append("    type: 'fullscreen',\n")	
+		content.append("    message: '<p>" + fullscreen["base_text"] + "</p>',\n")
+		content.append("    button_label: 'Full screen',\n")
+		content.append("    delay_after: 0,\n")
+		content.append("    fullscreen_mode: true\n")
+		content.append("  })\n")
+		content.append("}\n")
+	document_actual_line += 9
 
+	print(document_actual_line)
 
 	f = open(PATH + '/'+ file_name + '/experiment.js', "w")
 	content = "".join(content)

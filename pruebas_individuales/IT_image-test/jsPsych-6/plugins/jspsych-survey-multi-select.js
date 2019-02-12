@@ -143,7 +143,7 @@ jsPsych.plugins['survey-multi-select'] = (function() {
       // create option check boxes
       for (var j = 0; j < trial.questions[i].options.length; j++) {
         var option_id_name = _join(plugin_id_name, ((trial.questions[i].horizontal.toString() === "true") ? "horizontal-" : "") + "option", i, j),
-          option_id_selector = '#' + option_id_name;
+        option_id_selector = '#' + option_id_name;
 
         // add check box container
         display_element.querySelector(question_selector).innerHTML += '<div id="'+option_id_name + ((trial.questions[i].not_enabled_options == j && j != 0) ? '" style= "margin-left:5em"' : '"')  + ' class="'+_join(plugin_id_name, 'option')+'"></div>';
@@ -162,7 +162,7 @@ jsPsych.plugins['survey-multi-select'] = (function() {
           input.setAttribute('type', "checkbox");
           input.setAttribute('name', input_name);
           input.setAttribute('id', input_id);
-          input.setAttribute('value', trial.questions[i].options[j])
+          input.setAttribute('value', trial.questions[i].options[j]);
         } else {
           // add option to question
           trial_questions["Q_"+i.toString()] += " " + trial.questions[i].options[j];
@@ -222,7 +222,6 @@ jsPsych.plugins['survey-multi-select'] = (function() {
         if ( (val.length == 0 || !expected) && (typeof event.detail === 'undefined' || event.detail.trial_finished !== false) ){ has_response.push(false); } else { has_response.push(true); }
 
         if(has_response.includes(false)) {
-          var inputboxes = display_element.querySelectorAll("input[type=checkbox]")
           if (typeof trial.questions[index].error_message === 'undefined')
             trial.questions[index].error_message = "Por favor verifique su respuesta";
           display_element.querySelector(".fail-message-"+index.toString()).innerHTML = '<span style="color: red;" class="required">'+trial.questions[index].error_message+'</span>';
