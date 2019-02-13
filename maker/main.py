@@ -46,10 +46,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 
 	# Por cada conjunto de preguntas hay una instruccion
 	for actual_int in range(len(instructions)):
-		# creamos la lista de preguntas temporal
-		content.append("var questions_experiment = [];    //temporal timeline\n")
-		content.append("\n")
-		document_actual_line += 2
+		
 		content.append("var instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1) + " = {\n")
 		content.append("  type: 'instructions',\n")
 		document_actual_line += 2
