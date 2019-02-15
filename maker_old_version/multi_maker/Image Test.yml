@@ -1,0 +1,36 @@
+
+- test configuration:
+    test_name: Image Test
+    order: sequential
+    images: image_test
+    scales:
+      Condimentos:
+        - image: Mayonesa.jpg
+        - image: Mostaza.jpg
+        - image: Ketchup.jpeg
+        - image: Ají.jpg
+        - image: Pebre.jpg
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+# Instructions for this questions block
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Tipos de Comida
+      text: Conteste las siguientes preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+#1
+- Comidas:
+    type: multi select
+    arguments:
+      # IMPORTANTE: si se desea agregar imagenes o variables en el texto tiene que escribirse de la forma {image:imagen.extension} SIN ESPACIOS
+      text: ¿Con que le gusta condimentar {image:Mostaza.jpg} sus comidas diarias?
+      choices: Condimentos
+      orientation: horizontal
+#      not_enabled_options: 1

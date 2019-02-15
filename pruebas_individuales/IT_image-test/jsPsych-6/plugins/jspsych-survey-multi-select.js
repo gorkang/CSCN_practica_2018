@@ -134,8 +134,8 @@ jsPsych.plugins['survey-multi-select'] = (function() {
       display_element.querySelector(question_selector).innerHTML += '<p id="survey-question" class="' + plugin_id_name + '-text survey-multi-select">' + trial.questions[i].prompt + '</p>';
 
       // this is for conditions on CSCN system
-      trial_questions["Q_"+i.toString()] = trial.questions[i].prompt;
-      trial_alternatives["Q_"+i.toString()] = trial.questions[i].options;
+      trial_questions["Q"+i.toString()] = trial.questions[i].prompt;
+      trial_alternatives["Q"+i.toString()] = trial.questions[i].options;
 
       // If you need images or texts to the left side of the alternatives
       if (typeof trial.questions[i].not_enabled_options === 'undefined')
@@ -165,7 +165,7 @@ jsPsych.plugins['survey-multi-select'] = (function() {
           input.setAttribute('value', trial.questions[i].options[j]);
         } else {
           // add option to question
-          trial_questions["Q_"+i.toString()] += " " + trial.questions[i].options[j];
+          trial_questions["Q"+i.toString()] += " " + trial.questions[i].options[j];
           var input = document.createTextNode( '\u00A0' );
         }
         form.appendChild(label)

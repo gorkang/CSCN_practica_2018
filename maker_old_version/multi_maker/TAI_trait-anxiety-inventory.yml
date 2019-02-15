@@ -1,0 +1,166 @@
+---
+- test configuration:
+    test_name: trait anxiety inventory
+    order: sequential
+    scales:
+      likert_5:
+        - Nunca.
+        - Pocas veces.
+        - Varias veces.
+        - La mayoría de las veces.
+        - Siempre.
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+# Instructions for this questions block
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Cuestionario Autoevaluativo STAI (rasgo)
+      text: Conteste las siguientes preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Intenté sentirme mejor comiendo, bebiendo, fumando, tomando drogas o medicamentos más de lo acostumbrado.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Soñé o imaginé que las cosas eran mejores.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Tuve el deseo de que el problema se acabara o terminara.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Tuve fantasías o imaginé el modo en que podían cambiar las cosas.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Busqué un poco de esperanza, intenté mirar las cosas por su lado bueno.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Me dije cosas que me ayudaron a sentirme mejor.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Me inspiré a hacer algo creativo.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Cambié y maduré como persona.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Tuve fe en algo nuevo.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Seguí adelante con mi destino (simplemente algunas veces tengo mala suerte).
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Seguí adelante como si no hubiera pasado nada.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Me consolé pensando que las cosas podían ser peores.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Esperé a que ocurriera un milagro.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Traté de olvidarme por completo del problema.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Esperé a ver qué pasaba antes de hacer algo.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Evité que los demás se enteraran de lo mal que estaban las cosas.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Me negué a creer lo que estaba pasando.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Me critiqué o cuestioné a mí mismo.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Me disculpé o hice algo para compensar el problema.
+      choices: likert_5
+      orientation: horizontal
+
+- Confrontative:
+    type: multi choice
+    arguments:
+      text: Me di cuenta que yo mismo(a) causé el problema.
+      choices: likert_5
+      orientation: horizontal

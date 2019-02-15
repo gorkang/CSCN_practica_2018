@@ -17,6 +17,41 @@
         - Si, en los últimos 3 meses.
         - Si, pero no en los últimos 3 meses.
 
+    end-criterion:
+      - consecutive:
+          type: incorrect
+          tags: [preguntas_complicadas]
+          value: 3
+
+    loops:
+      loop1:
+        tags: 
+          - alola
+        questions_mode: sequential #sequential, random, reverse
+        end-criterion:
+          - consecutive:
+              type: correct
+              value: 2
+              next: 
+                question: pregunta6
+          - total:
+              type: incorrect
+              value: 3
+              next: 
+                loop: loop2
+      loop2:
+        questions:
+          - Tabaco_2
+          - Tabaco_5
+          - Tabaco_4
+          - Tabaco_3
+        questions_mode: random
+        end-criterion:
+          - consecutive:
+              type: incorrect
+              value: 2
+              next: Final
+   
 - initial:
     type: fullscreen
     arguments:
@@ -27,13 +62,7 @@
     type: instruction  # Only a piece of text
     arguments:
       title: OMS - Assist
-      text: 
-        - Conteste las siguientes preguntas.
-        - Recuerde contestar todas.
-        - extra extra
-        - asdas
-        - dasd-
-        - dasdas
+      text: Conteste las siguientes preguntas.
       questions_mode: sequential # select mode of the next questions
     tags:
       - instruction
@@ -41,9 +70,19 @@
 - Tabaco:
     type: multi choice
     arguments:
-      text: A lo largo de su vida, ¿consumió alguna vez tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
+      text: |
+        A lo largo de su vida, ¿consumió alguna vez tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
+        sdadas
+        asfasdasw
+        saasasas
       choices: si_no
       orientation: vertical
+    loop:
+      id: loop1
+      restrictions:
+        L1:
+          - Tabaco_1: Si 
+
 
 - Alcohol:
     type: multi choice
@@ -126,7 +165,7 @@
         - No, nunca.
       orientation: vertical
     previous:
-      - L1:
+      L1:
         - Tabaco_1: No
         - Alcohol_1: No
         - Cannabis_1: No
@@ -139,7 +178,7 @@
         - Otros_1: No
     next:
       Tabaco_1:
-        - L1:
+        L1:
           - Colegio_1: Si, alguna vez en el colegio.
 #2
 - Tabaco:
@@ -149,7 +188,7 @@
         - Tabaco_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_1: No
           - Cannabis_1: No
@@ -172,7 +211,7 @@
         - Alcohol_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_1: No
@@ -195,7 +234,7 @@
         - Cannabis_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -218,7 +257,7 @@
         - Cocaina_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -241,7 +280,7 @@
         - Anfetamina_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -264,7 +303,7 @@
         - Inhalantes_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -287,7 +326,7 @@
         - Tranquilizantes_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -310,7 +349,7 @@
         - Alucinogenos_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -333,7 +372,7 @@
         - Opiaceos_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -356,7 +395,7 @@
         - Otros_1: Si
     next:
       Tabaco_5:
-        - L1:
+        L1:
           - Tabaco_2: Nunca.
           - Alcohol_2: Nunca.
           - Cannabis_2: Nunca.
@@ -368,7 +407,8 @@
           - Opiaceos_2: Nunca.
           - Otros_3: Nunca.
     arguments:
-      text: ¿Con qué frecuencia ha consumido {variable:otra_sustancia} en los últimos 3 meses?
+      text: |
+        ¿Con qué frecuencia ha consumido {variable:  otra_sustancia} en los últimos 3 meses?
       choices: likert_5
       orientation: vertical
 #3
@@ -468,7 +508,8 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir {variable:otra_sustancia}?
+      text: |
+        En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir {variable: otra_sustancia}?
       choices: likert_5
       orientation: vertical
 #4
@@ -568,7 +609,8 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de {variable:otra_sustancia} a problemas de salud, sociales, legales o económicos?
+      text: |
+        En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de {variable: otra_sustancia} a problemas de salud, sociales, legales o económicos?
       choices: likert_5
       orientation: vertical
 #5
@@ -658,7 +700,8 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de {variable:otra_sustancia}?
+      text: |
+        En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de {variable: otra_sustancia}?
       choices: likert_5
       orientation: vertical
 #6
@@ -758,7 +801,8 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de {variable:otra_sustancia}?
+      text: |
+        ¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de {variable: otra_sustancia}?
       choices: likert_3
       orientation: vertical
 #7
@@ -858,7 +902,8 @@
       L1:
         - Otros_1: Si
     arguments:
-      text: ¿Ha intentado alguna vez controlar, reducir o dejar de consumir {variable:otra_sustancia} y no lo ha logrado?
+      text: |
+        ¿Ha intentado alguna vez controlar, reducir o dejar de consumir {variable: otra_sustancia} y no lo ha logrado?
       choices: likert_3
       orientation: vertical
 #8
@@ -869,27 +914,27 @@
       choices: likert_3
       orientation: vertical
     previous:
-      - L01:
+      L01:
         - Tabaco_1: Si
-      - L02:
+      L02:
         - Alcohol_1: Si
-      - L03:
+      L03:
         - Cannabis_1: Si
-      - L04:
+      L04:
         - Cocaina_1: Si
-      - L05:
+      L05:
         - Anfetamina_1: Si
-      - L06:
+      L06:
         - Inhalantes_1: Si
-      - L07:
+      L07:
         - Tranquilizantes_1: Si
-      - L08:
+      L08:
         - Alucinogenos_1: Si
-      - L09:
+      L09:
         - Opiaceos_1: Si
-      - L10:
+      L10:
         - Otros_1: Si
-      - L11:
+      L11:
         - Colegio_1: Si, alguna vez en el colegio.
 
 - Inyectada:

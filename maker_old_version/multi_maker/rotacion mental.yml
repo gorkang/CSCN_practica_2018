@@ -1,0 +1,494 @@
+
+- test configuration:
+    test_name: Image Test
+    order: sequential
+    images: rotacion_mental
+    scales:
+      Condimentos:
+        - None
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Rotacion mental
+      text: 
+        - Lee atentamente las siguientes instrucciones
+        - Por favor, mira estas cinco im&aacute;genes. <br /> {image:pag1_1.png} <br /> Observa que todas son dibujos del mismo objeto que se muestra desde diferentes &aacute;ngulos. <br /> 
+          Intenta imaginar el movimiento del objeto (o a ti mismo con respecto del objeto), al pasar de<br /> una imagen a otra.<br /> {image:pag1_2.png} <br /> Aqu&iacute; hay dos dibujos de una nueva imagen que es diferente de la que se muestra en los primeros<br />
+          5 dibujos. Date cuenta que estos dos dibujos muestran un objeto que es diferente y no puede ser<br /> "rotado" para ser igual que el objeto representado en los cinco primeros dibujos.<br /><br /> 
+          Por favor, aseg&uacute;rate de <strong>seleccionar solamente 2 alternativas por cada imagen.</strong><br /> Si tienes alguna duda, avisa al examinador. 
+        - Al hacer la prueba recuerda que, para cada conjunto de problemas, hay s&oacute;lo dos im&aacute;genes
+          que coinciden con la imagen original.<br />
+          S&oacute;lo se te dar&aacute; un punto si marcas correctamente las dos im&aacute;genes que coinciden. Si se&ntilde;alas s&oacute;lo
+          una de ellas no recibir&aacute;s ning&uacute;n punto.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+# Prueba
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: Ahora mira este objeto:<br/><br/>Dos de estos cuatro dibujos muestran el mismo objeto.<br />&iquest;Puedes encontrar los dos? <br/>
+      choices: 
+        - image: pag1_3_0.png   
+        - image: pag1_3_1.png   
+        - image: pag1_3_2.png
+        - image: pag1_3_3.png
+        - image: pag1_3_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: Aqu&iacute; hay tres problemas m&aacute;s. De nuevo, el objeto de destino se muestra <span class="underlined">dos veces</span> en cada<br />conjunto de cuatro alternativas de entre las que tienes que elegir las correctas. <br/>
+      choices: 
+        - image: pag2_1_0.png   
+        - image: pag2_1_1.png   
+        - image: pag2_1_2.png
+        - image: pag2_1_3.png
+        - image: pag2_1_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: Aqu&iacute; hay tres problemas m&aacute;s. De nuevo, el objeto de destino se muestra <span class="underlined">dos veces</span> en cada<br />conjunto de cuatro alternativas de entre las que tienes que elegir las correctas. <br/>
+      choices: 
+        - image: pag2_2_0.png   
+        - image: pag2_2_1.png   
+        - image: pag2_2_2.png
+        - image: pag2_2_3.png
+        - image: pag2_2_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: Aqu&iacute; hay tres problemas m&aacute;s. De nuevo, el objeto de destino se muestra <span class="underlined">dos veces</span> en cada<br />conjunto de cuatro alternativas de entre las que tienes que elegir las correctas. <br/>
+      choices: 
+        - image: pag2_3_0.png   
+        - image: pag2_3_1.png   
+        - image: pag2_3_2.png
+        - image: pag2_3_3.png
+        - image: pag2_3_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- instruction:
+    type: instruction
+    arguments:
+      text: Al hacer la prueba recuerda que, para cada conjunto de problemas, hay s&oacute;lo dos im&aacute;genes que coinciden con la imagen original.<br /> 
+        S&oacute;lo se te dar&aacute; un punto si marcas correctamente las dos im&aacute;genes que coinciden. Si se&ntilde;alas s&oacute;lo
+        una de ellas no recibir&aacute;s ning&uacute;n punto.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 1.
+      choices: 
+        - image: pag3_1_0.png
+        - image: pag3_1_1.png
+        - image: pag3_1_2.png
+        - image: pag3_1_3.png
+        - image: pag3_1_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 2.
+      choices: 
+        - image: pag3_2_0.png
+        - image: pag3_2_1.png
+        - image: pag3_2_2.png
+        - image: pag3_2_3.png
+        - image: pag3_2_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 3.
+      choices: 
+        - image: pag3_3_0.png
+        - image: pag3_3_1.png
+        - image: pag3_3_2.png
+        - image: pag3_3_3.png
+        - image: pag3_3_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 4.
+      choices: 
+        - image: pag3_4_0.png
+        - image: pag3_4_1.png
+        - image: pag3_4_2.png
+        - image: pag3_4_3.png
+        - image: pag3_4_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 5.
+      choices: 
+        - image: pag3_5_0.png
+        - image: pag3_5_1.png
+        - image: pag3_5_2.png
+        - image: pag3_5_3.png
+        - image: pag3_5_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 6.
+      choices: 
+        - image: pag3_6_0.png
+        - image: pag3_6_1.png
+        - image: pag3_6_2.png
+        - image: pag3_6_3.png
+        - image: pag3_6_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- instruction:
+    type: instruction
+    arguments:
+      text: Haga click para seguir con el proximo bloque de preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 7.
+      choices: 
+        - image: pag4_1_0.png
+        - image: pag4_1_1.png
+        - image: pag4_1_2.png
+        - image: pag4_1_3.png
+        - image: pag4_1_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 8.
+      choices: 
+        - image: pag4_2_0.png
+        - image: pag4_2_1.png
+        - image: pag4_2_2.png
+        - image: pag4_2_3.png
+        - image: pag4_2_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 9.
+      choices: 
+        - image: pag4_3_0.png
+        - image: pag4_3_1.png
+        - image: pag4_3_2.png
+        - image: pag4_3_3.png
+        - image: pag4_3_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 10.
+      choices: 
+        - image: pag4_4_0.png
+        - image: pag3_4_1.png
+        - image: pag4_4_2.png
+        - image: pag4_4_3.png
+        - image: pag4_4_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 11.
+      choices: 
+        - image: pag4_5_0.png
+        - image: pag4_5_1.png
+        - image: pag4_5_2.png
+        - image: pag4_5_3.png
+        - image: pag4_5_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 12.
+      choices: 
+        - image: pag4_6_0.png
+        - image: pag4_6_1.png
+        - image: pag4_6_2.png
+        - image: pag4_6_3.png
+        - image: pag4_6_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- instruction:
+    type: instruction
+    arguments:
+      text: Haga click para seguir con el proximo bloque de preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 13.
+      choices: 
+        - image: pag5_1_0.png
+        - image: pag5_1_1.png
+        - image: pag5_1_2.png
+        - image: pag5_1_3.png
+        - image: pag5_1_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 14.
+      choices: 
+        - image: pag5_2_0.png
+        - image: pag5_2_1.png
+        - image: pag5_2_2.png
+        - image: pag5_2_3.png
+        - image: pag5_2_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 15.
+      choices: 
+        - image: pag5_3_0.png
+        - image: pag5_3_1.png
+        - image: pag5_3_2.png
+        - image: pag5_3_3.png
+        - image: pag5_3_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 16.
+      choices: 
+        - image: pag5_4_0.png
+        - image: pag3_4_1.png
+        - image: pag5_4_2.png
+        - image: pag5_4_3.png
+        - image: pag5_4_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 17.
+      choices: 
+        - image: pag5_5_0.png
+        - image: pag5_5_1.png
+        - image: pag5_5_2.png
+        - image: pag5_5_3.png
+        - image: pag5_5_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 18.
+      choices: 
+        - image: pag5_6_0.png
+        - image: pag5_6_1.png
+        - image: pag5_6_2.png
+        - image: pag5_6_3.png
+        - image: pag5_6_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- instruction:
+    type: instruction
+    arguments:
+      text: Haga click para seguir con el proximo bloque de preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 19.
+      choices: 
+        - image: pag6_1_0.png
+        - image: pag6_1_1.png
+        - image: pag6_1_2.png
+        - image: pag6_1_3.png
+        - image: pag6_1_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 20.
+      choices: 
+        - image: pag6_2_0.png
+        - image: pag6_2_1.png
+        - image: pag6_2_2.png
+        - image: pag6_2_3.png
+        - image: pag6_2_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 21.
+      choices: 
+        - image: pag6_3_0.png
+        - image: pag6_3_1.png
+        - image: pag6_3_2.png
+        - image: pag6_3_3.png
+        - image: pag6_3_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 22.
+      choices: 
+        - image: pag6_4_0.png
+        - image: pag3_4_1.png
+        - image: pag6_4_2.png
+        - image: pag6_4_3.png
+        - image: pag6_4_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 23.
+      choices: 
+        - image: pag6_5_0.png
+        - image: pag6_5_1.png
+        - image: pag6_5_2.png
+        - image: pag6_5_3.png
+        - image: pag6_5_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- Mental-rotation:
+    type: multi select
+    arguments:
+      text: 24.
+      choices: 
+        - image: pag6_6_0.png
+        - image: pag6_6_1.png
+        - image: pag6_6_2.png
+        - image: pag6_6_3.png
+        - image: pag6_6_4.png
+      expected_options: 2
+      orientation: horizontal
+      not_enabled_options: 1
+      error_message: Por favor seleccione 2 opciones
+
+- instruction:
+    type: instruction
+    arguments:
+      text: Tarea terminada. Presiona el siguiente botón para continuar.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction

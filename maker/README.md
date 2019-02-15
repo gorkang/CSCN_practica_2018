@@ -24,7 +24,15 @@ Es importante destacar que yaml funciona como una extensión para armar el docum
 
 - Si se desea escribir comillas **debe ser** con doble comillas (**"element"**) no comillas simples (**'element'**), dado que el sistema que se está usando para reescribir el javascript está escrito con comillas simples, por esto, las comillas simples podrían generar fallos en el archivo resultante.
 - Los nombres de item no deben contener guión bajo ( **_** ) dado que es usado en el sistema para poder referirse a los distintos objetos y dividir la iteración de preguntas, el usar guión bajo generará nombres indeterminados fuera del acceso del sistema de creación, por lo que si se desea usar guiones se pide que sean del tipo **-**
-- Si se quiere ocupar la función de agregar imágenes o variables a un texto es importante que se escriba sin espacios de la forma {image:nombre_imagen.png} o {variable:nombre_variable}, dado que si se pone un espacio luego de los ":" el archivo yaml leerá automáticamente estos datos como un diccionario.
+- En cualquier caso que se quiera agregar en un texto (text, title) o estímulo (stimulus), una variable o una imagen, o se quiera insertar saltos de linea se debe ocupar la sintaxis de YAML usando el símbolo "|" de la siguiente forma:
+
+  ```
+    text: |
+      acá va el texto con variables como {variable: nombre_variable},
+      saltos de linea
+      o imágenes {imagen: nombre_imagen.extension} 
+  ```
+
 - El nombre de item de la configuración siempre debe ser "test configuration"
 
 ### Escritura de archivo yaml
@@ -76,12 +84,13 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
 - **fullscreen**: este item usa el plugin jspsych-fullscreen para poder crear una página en la que el usuario pueda aceptar el uso de la pantalla completa en la prueba. Solo necesita un texto, el cual debe ir en el área de argumentos de la pregunta actual y será mostrado por pantalla al entrar en este item, si no se ingresa ningún texto, el sistema automáticamente mostrará el texto "El experimento entrará en modo pantalla completa"
 
     Un ejemplo de fullscreen sería el siguiente:
-        ```
-        + initial-window:
-            type: fullscreen
-            arguments:
-                + text: El experimento entrará el pantalla completa al apretar continuar.
-        ```
+
+      ```
+      * initial-window:
+          type: fullscreen
+          arguments:
+              * text: El experimento entrará el pantalla completa al apretar continuar.
+      ```
 
 - **instruction**: Este item usa el plugin jspsych-instructions para poder crear una página en la que el usuario pueda ser guiado para el avance del experimento. Solo necesita un texto o lista de textos, el cual debe ir en el área de argumentos de la pregunta actual y será mostrado por pantalla al entrar en este item, si se desea se puede ingresar también un título, el cual se mostrará en todas las instrucciones. En este item también se agregará el orden de las preguntas que le seguirán a continuación (y antes de la siguiente instrucción) usando el tag "questions_mode", si no es seleccionado, las preguntas automáticamente serán ordenadas en orden secuencial, actualmente las preguntas pueden ser mostradas en orden secuencial o random escribiendo "- questions_mode: sequential" o "- questions_mode: random"
 
@@ -167,7 +176,8 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
 
 - **date**: Este item usa el plugin jspsych-survey-text, al igual que el item texto este item muestra un cuadro en el que el usuario puede responder, la diferencia es que en este caso al apretar en el cuadro se despliega una ventana con el calendario para poder seleccionar la fecha de una manera más simple.
 
-- **range**:  Este item usa el plugin jspsych-survey-text, a pesar de usar este plugin, en este caso este item generará un slider y un cuadro numérico, el usuario podrá seleccionar su respuesta en cualquiera de los 2 lados.  
+- **range**:  Este item usa el plugin jspsych-survey-text, a pesar de usar este plugin, en este caso este item generará un slider y un cuadro numérico, el usuario podrá seleccionar su respuesta en cualquiera de los 2 lados. 
+  >Nota: Este slider está hecho para preguntas en las que haya que dar una respuesta con porcentajes o númerica como "De las 20 personas presentadas ¿Que porcentaje de personas cree usted que leyeron el periódico el día de hoy?", no un slider de decisión como "¿Que tan mala crees que haya sido esta acción?" en la cual el slider tendrá que tener las palabras muy mala y nada mala en los extremos derecho e izquierdo respectivamente, para este último slider usar el tipo [slider](#slider)
 
 - **multi choice**: Este item usa el plugin jspsych-survey-multi-choice. Permite crear preguntas con respuestas prediseñadas de manera que el usuario pueda seleccionar una de ellas al responder y no sea necesario que escriba sus propias respuestas. 
 
@@ -224,6 +234,9 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
 
     Podemos ver que el usuario deberá elegir 2 de las 4 opciones disponibles (como dice en expected_options), además la primera opcion no está habilitada para respuesta (en este caso "image: pag1_3_0.png"), la orientación de las alternativas es horizontal y también se puede ver el uso de imágenes en las alternativas de la forma image: "nombre_imagen.extension".
 
+- <a name="slider"></a>**slider**:
+- **animation**:
+
 ### Agregar imágenes al sistema
 
 Para agregar imágenes al sistema, primero que todo, se debe acceder a la carpeta "images" encontrada en la carpeta maker del sistema, una vez ahí se debe crear la carpeta de imágenes que se usará y agregar todas las imágenes que se desee a esta carpeta. 
@@ -232,7 +245,7 @@ Una vez creada la carpeta y agregadas las imágenes deseadas se debe agregar la 
 
 Para el uso de las imágenes hay 2 opciones:
 
-- Uso de imágenes en textos: Para este caso el método de acceso es de la forma "{image:nombre_image.extension}" **sin espacios y sin comillas**, se puede agregar a cualquier argumento "text" de las preguntas creadas.
+- Uso de imágenes en textos: Para este caso tomar en cuenta lo que se menciona en los [detalles del archivo yaml](#detalles_del_archivo_yaml), donde se menciona que se debe usar el símbolo "|" para el uso de imágenes.
 - Uso de imágenes en alternativas de multi choice o multi select: Para este caso el método de acceso es "image: nombre_imagen.extension" **con espacio y sin comillas**, notar que en este caso el editor de texto de markdown comúnmente debería mostrar el texto "image" de otro color, identificando que es una llave para acceso a la imagen.
 
 ## Sobre Módulos actuales del Maker

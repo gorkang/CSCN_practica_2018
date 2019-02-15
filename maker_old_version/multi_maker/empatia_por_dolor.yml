@@ -1,0 +1,77 @@
+---
+- test configuration:
+    test_name: pain empathy
+    order: sequential
+    images: empatia_por_dolor
+ 
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+# Instructions for this questions block
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      text: Usted verá algunas imágenes y luego le haremos algunas preguntas acerca de ellas. <br/> <br/> Presione la flecha hacia abajo para continuar.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      text: No lo piense por mucho tiempo, simplemente díganos el primer pensamiento que le venga a la mente. <br/> <br/> Presione la flecha hacia abajo para continuar.
+      questions_mode: sequential # select mode of the next questions
+    tags: instruction
+
+# Testing 
+- test:
+    type: slider  # Only a piece of text
+    arguments:
+      stimulus: Use las flechas izquierda y derecha para mover la línea y así responder las preguntas.
+      text: ¿Cuanto?
+      max: [9, "Más"]
+      min: [-9, "Menos"]
+
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      text: Después de cada imagen, presione la FLECHA HACIA ABAJO en el momento exacto en que entienda lo que pasó, no antes ni después. <br/> <br/> Presione la flecha hacia abajo para continuar.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      text: A continuación le presentamos un ejemplo de la tarea para que practique. <br/> <br/> Presione la flecha hacia abajo para continuar.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+      
+- test:
+    type: animation  # Only a piece of text
+    arguments:
+      images: [p_i2_umbrella_frame001.bmp, p_i2_umbrella_frame002.bmp, p_i2_umbrella_frame003.bmp]
+      show_last_image: true
+      frame_time: 400
+      required: false
+
+- test:
+    type: slider  # Only a piece of text
+    arguments:
+      stimulus:
+        text: "Hola"
+        image: p_i2_umbrella_frame003.bmp
+      text: ¿Qué tan triste se siente por la persona lastimada?
+      max: [9, "Muy triste"]
+      min: [-9, "Nada triste"]
+
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      text: ¿Ha comprendido?, si tiene alguna duda, antes de comenzar pregúntele al investigador <br/> ¡Ahora comenzaremos! <br/> <br/> Presione la flecha hacia abajo para continuar.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction

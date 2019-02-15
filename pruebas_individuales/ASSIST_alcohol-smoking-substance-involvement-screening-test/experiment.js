@@ -17,73 +17,73 @@ onkeydown = function block_fkeys(event){
 
 var questions = [];    //final timeline
 var variables = {};  
-var questions_experiment = [];    //temporal timeline
-
 var instruction_screen_experiment_1 = {
   type: 'instructions',
-  pages: ['<p><left><b><big>OMS - Assist</big></b><br/>Conteste las siguientes preguntas.</p>',
-    '<p><b><big>OMS - Assist</big></b><br/>Recuerde contestar todas.</p>',
-    '<p><b><big>OMS - Assist</big></b><br/>extra extra</p>',
-    '<p><b><big>OMS - Assist</big></b><br/>asdas</p>',
-    '<p><b><big>OMS - Assist</big></b><br/>dasd-</p>',
-    '<p><b><big>OMS - Assist</big></b><br/>dasdas</p>'],
+  pages: ['<p><left><b><big>OMS - Assist</big></b><br/>Conteste las siguientes preguntas.</p>'],
   data:{trialid: 'Screen_WM'},
   show_clickable_nav: true,
-  on_trial_start: function (){
-    bloquear_enter = 0;
-  }
 }
 
 var question01 = {
   type:'survey-multi-choice',
-  questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
+  questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?<br>sdadas<br>asfasdasw<br>saasasas<br></div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tabaco_1'}
 }
+
 var question02 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alcohol_1'}
 }
+
 var question03 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez cannabis (marihuana, costo, hierba, hashish, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cannabis_1'}
 }
+
 var question04 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez cocaína (coca, farlopa, crack, base, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cocaina_1'}
 }
+
 var question05 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Anfetamina_1'}
 }
+
 var question06 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez inhalantes (colas, gasolina/nafta, pegamento, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Inhalantes_1'}
 }
+
 var question07 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tranquilizantes_1'}
 }
+
 var question08 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alucinogenos_1'}
 }
+
 var question09 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.)?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Opiaceos_1'}
 }
+
 var question10 = {
   type:'survey-multi-choice',
   questions: [{prompt: '<div class="justified">A lo largo de su vida, ¿consumió alguna vez otro tipo de sustancia?</div>', options: ['Si', 'No'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Otros_1'}
 }
+
 var question11 = {
   type: 'survey-text',
   questions: [{prompt: '<div class="justified">¿Cual es el nombre de este otro tipo de sustancia que consumió?</div>', type: 'text', required: true}], 
@@ -93,11 +93,12 @@ var question11 = {
   }
 }
 
+
 var if_question11 = { 
   timeline:[question11], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Otros_1": "true"}]; 
+    var restriction_dict = [{"Otros_1": "true"}, {"Otros_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -123,11 +124,12 @@ var question12 = {
   data: {trialid: 'Colegio_1'}
 }
 
+
 var if_question12 = { 
   timeline:[question12], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}]; 
+    var restriction_dict = [{"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -157,7 +159,7 @@ var if_question12 = {
 } 
 
 var if_repeat_question12 = { 
-  timeline:questions_experiment.slice(0,11), 
+  timeline:[question01, question02, question03, question04, question05, question06, question07, question08, question09, question10, if_question11], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); 
     var restriction_dict = [{"Colegio_1": "true"}]; 
@@ -179,11 +181,12 @@ var question13 = {
   data: {trialid: 'Tabaco_2'}
 }
 
+
 var if_question13 = { 
   timeline:[question13], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Tabaco_1": "true"}]; 
+    var restriction_dict = [{"Tabaco_1": "true"}, {"Tabaco_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -208,6 +211,7 @@ var question14 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido bebidas alcohólicas (cerveza, vino, licores, destilados, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alcohol_2'}
 }
+
 
 var if_question14 = { 
   timeline:[question14], 
@@ -251,6 +255,7 @@ var question15 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido cannabis (marihuana, costo, hierba, hashish, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cannabis_2'}
 }
+
 
 var if_question15 = { 
   timeline:[question15], 
@@ -306,6 +311,7 @@ var question16 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido cocaína (coca, farlopa, crack, base, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cocaina_2'}
 }
+
 
 var if_question16 = { 
   timeline:[question16], 
@@ -373,6 +379,7 @@ var question17 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Anfetamina_2'}
 }
+
 
 var if_question17 = { 
   timeline:[question17], 
@@ -452,6 +459,7 @@ var question18 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido inhalantes (colas, gasolina/nafta, pegamento, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Inhalantes_2'}
 }
+
 
 var if_question18 = { 
   timeline:[question18], 
@@ -543,6 +551,7 @@ var question19 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tranquilizantes_2'}
 }
+
 
 var if_question19 = { 
   timeline:[question19], 
@@ -646,6 +655,7 @@ var question20 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido alucinógenos (LSD, ácidos, ketamina, PCP, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alucinogenos_2'}
 }
+
 
 var if_question20 = { 
   timeline:[question20], 
@@ -761,6 +771,7 @@ var question21 = {
   questions: [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido opiáceos (heroína, metadona, codeína, morfina, dolantina/petidina, etc.) en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Opiaceos_2'}
 }
+
 
 var if_question21 = { 
   timeline:[question21], 
@@ -887,10 +898,11 @@ var question22 = {
   type:'survey-multi-choice',
   questions:[{prompt: '',options: ['']}],
   on_start: function(trial) {
-    trial.questions = [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido ' + variables['otra_sustancia'] + ' en los últimos 3 meses?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
+    trial.questions = [{prompt: '<div class="justified">¿Con qué frecuencia ha consumido ' + variables['otra_sustancia'] + ' en los últimos 3 meses?<br></div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
   },
   data: {trialid: 'Otros_3'}
 }
+
 
 var if_question22 = { 
   timeline:[question22], 
@@ -1014,7 +1026,7 @@ var if_question22 = {
         if (element.trialid === "Otros_1" && restriction_dict[9]["Otros_1"] === "true"){answer_next[8] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[9]["Otros_1"] = "false"}
       }
     })
-    variable:otra_sustancia = variables['variable:otra_sustancia']; 
+    variable:  otra_sustancia = variables['variable:  otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -1031,6 +1043,7 @@ var question23 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tabaco_3'}
 }
+
 
 var if_question23 = { 
   timeline:[question23], 
@@ -1183,6 +1196,7 @@ var question24 = {
   data: {trialid: 'Alcohol_3'}
 }
 
+
 var if_question24 = { 
   timeline:[question24], 
   conditional_function: function (){ 
@@ -1333,6 +1347,7 @@ var question25 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir cannabis (marihuana, costo, hierba, hashish, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cannabis_3'}
 }
+
 
 var if_question25 = { 
   timeline:[question25], 
@@ -1485,6 +1500,7 @@ var question26 = {
   data: {trialid: 'Cocaina_3'}
 }
 
+
 var if_question26 = { 
   timeline:[question26], 
   conditional_function: function (){ 
@@ -1635,6 +1651,7 @@ var question27 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Anfetamina_3'}
 }
+
 
 var if_question27 = { 
   timeline:[question27], 
@@ -1787,6 +1804,7 @@ var question28 = {
   data: {trialid: 'Inhalantes_3'}
 }
 
+
 var if_question28 = { 
   timeline:[question28], 
   conditional_function: function (){ 
@@ -1937,6 +1955,7 @@ var question29 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tranquilizantes_3'}
 }
+
 
 var if_question29 = { 
   timeline:[question29], 
@@ -2089,6 +2108,7 @@ var question30 = {
   data: {trialid: 'Alucinogenos_3'}
 }
 
+
 var if_question30 = { 
   timeline:[question30], 
   conditional_function: function (){ 
@@ -2240,6 +2260,7 @@ var question31 = {
   data: {trialid: 'Opiaceos_3'}
 }
 
+
 var if_question31 = { 
   timeline:[question31], 
   conditional_function: function (){ 
@@ -2389,10 +2410,11 @@ var question32 = {
   type:'survey-multi-choice',
   questions:[{prompt: '',options: ['']}],
   on_start: function(trial) {
-    trial.questions = [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir ' + variables['otra_sustancia'] + '?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
+    trial.questions = [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia ha tenido deseos fuertes o ansias de consumir ' + variables['otra_sustancia'] + '?<br></div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
   },
   data: {trialid: 'Otros_4'}
 }
+
 
 var if_question32 = { 
   timeline:[question32], 
@@ -2528,7 +2550,7 @@ var if_question32 = {
         if (element.trialid === "Otros_3" && restriction_dict[10]["Otros_3"] === "true"){answer_next[9] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[10]["Otros_3"] = "false"}
       }
     })
-    variable:otra_sustancia = variables['variable:otra_sustancia']; 
+    variable: otra_sustancia = variables['variable: otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -2545,6 +2567,7 @@ var question33 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tabaco_4'}
 }
+
 
 var if_question33 = { 
   timeline:[question33], 
@@ -2697,6 +2720,7 @@ var question34 = {
   data: {trialid: 'Alcohol_4'}
 }
 
+
 var if_question34 = { 
   timeline:[question34], 
   conditional_function: function (){ 
@@ -2847,6 +2871,7 @@ var question35 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de cannabis (marihuana, costo, hierba, hashish, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cannabis_4'}
 }
+
 
 var if_question35 = { 
   timeline:[question35], 
@@ -2999,6 +3024,7 @@ var question36 = {
   data: {trialid: 'Cocaina_4'}
 }
 
+
 var if_question36 = { 
   timeline:[question36], 
   conditional_function: function (){ 
@@ -3149,6 +3175,7 @@ var question37 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Anfetamina_4'}
 }
+
 
 var if_question37 = { 
   timeline:[question37], 
@@ -3301,6 +3328,7 @@ var question38 = {
   data: {trialid: 'Inhalantes_4'}
 }
 
+
 var if_question38 = { 
   timeline:[question38], 
   conditional_function: function (){ 
@@ -3451,6 +3479,7 @@ var question39 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.) a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tranquilizantes_4'}
 }
+
 
 var if_question39 = { 
   timeline:[question39], 
@@ -3603,6 +3632,7 @@ var question40 = {
   data: {trialid: 'Alucinogenos_4'}
 }
 
+
 var if_question40 = { 
   timeline:[question40], 
   conditional_function: function (){ 
@@ -3754,6 +3784,7 @@ var question41 = {
   data: {trialid: 'Opiaceos_4'}
 }
 
+
 var if_question41 = { 
   timeline:[question41], 
   conditional_function: function (){ 
@@ -3903,10 +3934,11 @@ var question42 = {
   type:'survey-multi-choice',
   questions:[{prompt: '',options: ['']}],
   on_start: function(trial) {
-    trial.questions = [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de ' + variables['otra_sustancia'] + ' a problemas de salud, sociales, legales o económicos?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
+    trial.questions = [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia le ha llevado su consumo de ' + variables['otra_sustancia'] + ' a problemas de salud, sociales, legales o económicos?<br></div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
   },
   data: {trialid: 'Otros_5'}
 }
+
 
 var if_question42 = { 
   timeline:[question42], 
@@ -4042,7 +4074,7 @@ var if_question42 = {
         if (element.trialid === "Otros_3" && restriction_dict[10]["Otros_3"] === "true"){answer_next[9] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[10]["Otros_3"] = "false"}
       }
     })
-    variable:otra_sustancia = variables['variable:otra_sustancia']; 
+    variable: otra_sustancia = variables['variable: otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -4059,6 +4091,7 @@ var question43 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alcohol_5'}
 }
+
 
 var if_question43 = { 
   timeline:[question43], 
@@ -4211,6 +4244,7 @@ var question44 = {
   data: {trialid: 'Cannabis_5'}
 }
 
+
 var if_question44 = { 
   timeline:[question44], 
   conditional_function: function (){ 
@@ -4361,6 +4395,7 @@ var question45 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de cocaína (coca, farlopa, crack, base, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Cocaina_5'}
 }
+
 
 var if_question45 = { 
   timeline:[question45], 
@@ -4513,6 +4548,7 @@ var question46 = {
   data: {trialid: 'Anfetamina_5'}
 }
 
+
 var if_question46 = { 
   timeline:[question46], 
   conditional_function: function (){ 
@@ -4663,6 +4699,7 @@ var question47 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de inhalantes (colas, gasolina/nafta, pegamento, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Inhalantes_5'}
 }
+
 
 var if_question47 = { 
   timeline:[question47], 
@@ -4815,6 +4852,7 @@ var question48 = {
   data: {trialid: 'Tranquilizantes_5'}
 }
 
+
 var if_question48 = { 
   timeline:[question48], 
   conditional_function: function (){ 
@@ -4965,6 +5003,7 @@ var question49 = {
   questions: [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Alucinogenos_5'}
 }
+
 
 var if_question49 = { 
   timeline:[question49], 
@@ -5117,6 +5156,7 @@ var question50 = {
   data: {trialid: 'Opiaceos_5'}
 }
 
+
 var if_question50 = { 
   timeline:[question50], 
   conditional_function: function (){ 
@@ -5266,10 +5306,11 @@ var question51 = {
   type:'survey-multi-choice',
   questions:[{prompt: '',options: ['']}],
   on_start: function(trial) {
-    trial.questions = [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de ' + variables['otra_sustancia'] + '?</div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
+    trial.questions = [{prompt: '<div class="justified">En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de ' + variables['otra_sustancia'] + '?<br></div>', options: ['Nunca.', '1 o 2 veces.', 'Cada mes.', 'Cada semana.', 'A diario o casi a diario.'], required: true, horizontal: false, not_enabled_options: 0}];
   },
   data: {trialid: 'Otros_6'}
 }
+
 
 var if_question51 = { 
   timeline:[question51], 
@@ -5405,7 +5446,7 @@ var if_question51 = {
         if (element.trialid === "Otros_3" && restriction_dict[10]["Otros_3"] === "true"){answer_next[9] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[10]["Otros_3"] = "false"}
       }
     })
-    variable:otra_sustancia = variables['variable:otra_sustancia']; 
+    variable: otra_sustancia = variables['variable: otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -5422,6 +5463,7 @@ var question52 = {
   questions: [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}],
   data: {trialid: 'Tabaco_5'}
 }
+
 
 var if_question52 = { 
   timeline:[question52], 
@@ -5574,11 +5616,12 @@ var question53 = {
   data: {trialid: 'Alcohol_6'}
 }
 
+
 var if_question53 = { 
   timeline:[question53], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Alcohol_1": "true"}]; 
+    var restriction_dict = [{"Alcohol_1": "true"}, {"Alcohol_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5604,11 +5647,12 @@ var question54 = {
   data: {trialid: 'Cannabis_6'}
 }
 
+
 var if_question54 = { 
   timeline:[question54], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Cannabis_1": "true"}]; 
+    var restriction_dict = [{"Cannabis_1": "true"}, {"Cannabis_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5634,11 +5678,12 @@ var question55 = {
   data: {trialid: 'Cocaina_6'}
 }
 
+
 var if_question55 = { 
   timeline:[question55], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Cocaina_1": "true"}]; 
+    var restriction_dict = [{"Cocaina_1": "true"}, {"Cocaina_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5664,11 +5709,12 @@ var question56 = {
   data: {trialid: 'Anfetamina_6'}
 }
 
+
 var if_question56 = { 
   timeline:[question56], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Anfetamina_1": "true"}]; 
+    var restriction_dict = [{"Anfetamina_1": "true"}, {"Anfetamina_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5694,11 +5740,12 @@ var question57 = {
   data: {trialid: 'Inhalantes_6'}
 }
 
+
 var if_question57 = { 
   timeline:[question57], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Inhalantes_1": "true"}]; 
+    var restriction_dict = [{"Inhalantes_1": "true"}, {"Inhalantes_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5724,11 +5771,12 @@ var question58 = {
   data: {trialid: 'Tranquilizantes_6'}
 }
 
+
 var if_question58 = { 
   timeline:[question58], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Tranquilizantes_1": "true"}]; 
+    var restriction_dict = [{"Tranquilizantes_1": "true"}, {"Tranquilizantes_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5754,11 +5802,12 @@ var question59 = {
   data: {trialid: 'Alucinogenos_6'}
 }
 
+
 var if_question59 = { 
   timeline:[question59], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Alucinogenos_1": "true"}]; 
+    var restriction_dict = [{"Alucinogenos_1": "true"}, {"Alucinogenos_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5784,11 +5833,12 @@ var question60 = {
   data: {trialid: 'Opiaceos_6'}
 }
 
+
 var if_question60 = { 
   timeline:[question60], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Opiaceos_1": "true"}]; 
+    var restriction_dict = [{"Opiaceos_1": "true"}, {"Opiaceos_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5812,16 +5862,17 @@ var question61 = {
   type:'survey-multi-choice',
   questions:[{prompt: '',options: ['']}],
   on_start: function(trial) {
-    trial.questions = [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de ' + variables['otra_sustancia'] + '?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}];
+    trial.questions = [{prompt: '<div class="justified">¿Un amigo, un familiar o alguien más alguna vez ha mostrado preocupación por su consumo de ' + variables['otra_sustancia'] + '?<br></div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}];
   },
   data: {trialid: 'Otros_7'}
 }
+
 
 var if_question61 = { 
   timeline:[question61], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Otros_1": "true"}]; 
+    var restriction_dict = [{"Otros_1": "true"}, {"Otros_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5830,7 +5881,7 @@ var if_question61 = {
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
     })
-    variable:otra_sustancia = variables['variable:otra_sustancia']; 
+    variable: otra_sustancia = variables['variable: otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -5848,11 +5899,12 @@ var question62 = {
   data: {trialid: 'Tabaco_6'}
 }
 
+
 var if_question62 = { 
   timeline:[question62], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Tabaco_1": "true"}]; 
+    var restriction_dict = [{"Tabaco_1": "true"}, {"Tabaco_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5878,11 +5930,12 @@ var question63 = {
   data: {trialid: 'Alcohol_7'}
 }
 
+
 var if_question63 = { 
   timeline:[question63], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Alcohol_1": "true"}]; 
+    var restriction_dict = [{"Alcohol_1": "true"}, {"Alcohol_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5908,11 +5961,12 @@ var question64 = {
   data: {trialid: 'Cannabis_7'}
 }
 
+
 var if_question64 = { 
   timeline:[question64], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Cannabis_1": "true"}]; 
+    var restriction_dict = [{"Cannabis_1": "true"}, {"Cannabis_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5938,11 +5992,12 @@ var question65 = {
   data: {trialid: 'Cocaina_7'}
 }
 
+
 var if_question65 = { 
   timeline:[question65], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Cocaina_1": "true"}]; 
+    var restriction_dict = [{"Cocaina_1": "true"}, {"Cocaina_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5968,11 +6023,12 @@ var question66 = {
   data: {trialid: 'Anfetamina_7'}
 }
 
+
 var if_question66 = { 
   timeline:[question66], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Anfetamina_1": "true"}]; 
+    var restriction_dict = [{"Anfetamina_1": "true"}, {"Anfetamina_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -5998,11 +6054,12 @@ var question67 = {
   data: {trialid: 'Inhalantes_7'}
 }
 
+
 var if_question67 = { 
   timeline:[question67], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Inhalantes_1": "true"}]; 
+    var restriction_dict = [{"Inhalantes_1": "true"}, {"Inhalantes_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -6028,11 +6085,12 @@ var question68 = {
   data: {trialid: 'Tranquilizantes_7'}
 }
 
+
 var if_question68 = { 
   timeline:[question68], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Tranquilizantes_1": "true"}]; 
+    var restriction_dict = [{"Tranquilizantes_1": "true"}, {"Tranquilizantes_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -6058,11 +6116,12 @@ var question69 = {
   data: {trialid: 'Alucinogenos_7'}
 }
 
+
 var if_question69 = { 
   timeline:[question69], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Alucinogenos_1": "true"}]; 
+    var restriction_dict = [{"Alucinogenos_1": "true"}, {"Alucinogenos_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -6088,11 +6147,12 @@ var question70 = {
   data: {trialid: 'Opiaceos_7'}
 }
 
+
 var if_question70 = { 
   timeline:[question70], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Opiaceos_1": "true"}]; 
+    var restriction_dict = [{"Opiaceos_1": "true"}, {"Opiaceos_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -6116,16 +6176,17 @@ var question71 = {
   type:'survey-multi-choice',
   questions:[{prompt: '',options: ['']}],
   on_start: function(trial) {
-    trial.questions = [{prompt: '<div class="justified">¿Ha intentado alguna vez controlar, reducir o dejar de consumir ' + variables['otra_sustancia'] + ' y no lo ha logrado?</div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}];
+    trial.questions = [{prompt: '<div class="justified">¿Ha intentado alguna vez controlar, reducir o dejar de consumir ' + variables['otra_sustancia'] + ' y no lo ha logrado?<br></div>', options: ['No, nunca.', 'Si, en los últimos 3 meses.', 'Si, pero no en los últimos 3 meses.'], required: true, horizontal: false, not_enabled_options: 0}];
   },
   data: {trialid: 'Otros_8'}
 }
+
 
 var if_question71 = { 
   timeline:[question71], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Otros_1": "true"}]; 
+    var restriction_dict = [{"Otros_1": "true"}, {"Otros_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 
@@ -6134,7 +6195,7 @@ var if_question71 = {
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
     })
-    variable:otra_sustancia = variables['variable:otra_sustancia']; 
+    variable: otra_sustancia = variables['variable: otra_sustancia']; 
     for (var i = 0; i < answer_previous.length; i++) 
       if (answer_previous[i] === 'true') 
         cont_prev += 1; 
@@ -6152,47 +6213,48 @@ var question72 = {
   data: {trialid: 'Inyectada_1'}
 }
 
+
 var if_question72 = { 
   timeline:[question72], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}]; 
+    var restriction_dict = [{"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat(["","","","","","","","","","",""]) 
+    answer_previous = answer_previous.concat([""]) 
     data.slice().reverse().forEach (function (element) { 
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
       }
       if (answer_previous[1] !== "false"){
-        if (element.trialid === "Alcohol_1" && restriction_dict[1]["Alcohol_1"] === "true"){ answer_previous[1] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[1]["Alcohol_1"] = "false"}
+        if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[1] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
       }
       if (answer_previous[2] !== "false"){
-        if (element.trialid === "Cannabis_1" && restriction_dict[2]["Cannabis_1"] === "true"){ answer_previous[2] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[2]["Cannabis_1"] = "false"}
+        if (element.trialid === "Cannabis_1" && restriction_dict[0]["Cannabis_1"] === "true"){ answer_previous[2] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cannabis_1"] = "false"}
       }
       if (answer_previous[3] !== "false"){
-        if (element.trialid === "Cocaina_1" && restriction_dict[3]["Cocaina_1"] === "true"){ answer_previous[3] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[3]["Cocaina_1"] = "false"}
+        if (element.trialid === "Cocaina_1" && restriction_dict[0]["Cocaina_1"] === "true"){ answer_previous[3] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cocaina_1"] = "false"}
       }
       if (answer_previous[4] !== "false"){
-        if (element.trialid === "Anfetamina_1" && restriction_dict[4]["Anfetamina_1"] === "true"){ answer_previous[4] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[4]["Anfetamina_1"] = "false"}
+        if (element.trialid === "Anfetamina_1" && restriction_dict[0]["Anfetamina_1"] === "true"){ answer_previous[4] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Anfetamina_1"] = "false"}
       }
       if (answer_previous[5] !== "false"){
-        if (element.trialid === "Inhalantes_1" && restriction_dict[5]["Inhalantes_1"] === "true"){ answer_previous[5] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[5]["Inhalantes_1"] = "false"}
+        if (element.trialid === "Inhalantes_1" && restriction_dict[0]["Inhalantes_1"] === "true"){ answer_previous[5] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Inhalantes_1"] = "false"}
       }
       if (answer_previous[6] !== "false"){
-        if (element.trialid === "Tranquilizantes_1" && restriction_dict[6]["Tranquilizantes_1"] === "true"){ answer_previous[6] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[6]["Tranquilizantes_1"] = "false"}
+        if (element.trialid === "Tranquilizantes_1" && restriction_dict[0]["Tranquilizantes_1"] === "true"){ answer_previous[6] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tranquilizantes_1"] = "false"}
       }
       if (answer_previous[7] !== "false"){
-        if (element.trialid === "Alucinogenos_1" && restriction_dict[7]["Alucinogenos_1"] === "true"){ answer_previous[7] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[7]["Alucinogenos_1"] = "false"}
+        if (element.trialid === "Alucinogenos_1" && restriction_dict[0]["Alucinogenos_1"] === "true"){ answer_previous[7] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alucinogenos_1"] = "false"}
       }
       if (answer_previous[8] !== "false"){
-        if (element.trialid === "Opiaceos_1" && restriction_dict[8]["Opiaceos_1"] === "true"){ answer_previous[8] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[8]["Opiaceos_1"] = "false"}
+        if (element.trialid === "Opiaceos_1" && restriction_dict[0]["Opiaceos_1"] === "true"){ answer_previous[8] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Opiaceos_1"] = "false"}
       }
       if (answer_previous[9] !== "false"){
-        if (element.trialid === "Otros_1" && restriction_dict[9]["Otros_1"] === "true"){ answer_previous[9] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[9]["Otros_1"] = "false"}
+        if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[9] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
       if (answer_previous[10] !== "false"){
-        if (element.trialid === "Colegio_1" && restriction_dict[10]["Colegio_1"] === "true"){ answer_previous[10] = (element['responses'] === '{"Q0":"Si, alguna vez en el colegio."}').toString(); restriction_dict[10]["Colegio_1"] = "false"}
+        if (element.trialid === "Colegio_1" && restriction_dict[0]["Colegio_1"] === "true"){ answer_previous[10] = (element['responses'] === '{"Q0":"Si, alguna vez en el colegio."}').toString(); restriction_dict[0]["Colegio_1"] = "false"}
       }
     })
     for (var i = 0; i < answer_previous.length; i++) 
@@ -6212,11 +6274,12 @@ var question73 = {
   data: {trialid: 'Inyectada_2'}
 }
 
+
 var if_question73 = { 
   timeline:[question73], 
   conditional_function: function (){ 
     var data = jsPsych.data.get().values(); var cont_prev = 0; var cont_next = 0; 
-    var restriction_dict = [{"Inyectada_1": "true"}]; 
+    var restriction_dict = [{"Inyectada_1": "true"}, {"Inyectada_1": "true"}]; 
     var answer_previous = []
     var answer_next = []
     answer_previous = answer_previous.concat([""]) 

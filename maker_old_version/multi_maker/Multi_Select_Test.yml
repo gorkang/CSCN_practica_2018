@@ -1,0 +1,34 @@
+
+- test configuration:
+    test_name: Multi Select Test
+    order: sequential
+    scales:
+      Condimentos:
+        - Mayonesa
+        - Mostaza
+        - Ketchup
+        - Ají
+        - Pebre
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+# Instructions for this questions block
+- instruction:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Tipos de Comida
+      text: Conteste las siguientes preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+#1
+- Comidas:
+    type: multi choice
+    arguments:
+      text: ¿Con que le gusta condimentar sus comidas diarias?
+      choices: Condimentos
+      orientation: horizontal
+#      not_enabled_options: 1
