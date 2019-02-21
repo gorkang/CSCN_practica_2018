@@ -66,8 +66,20 @@ def main():
 	print("2 - Firefox")
 	print("3 - Salir\n")
 
-	driver_selection = int(input("- "))
+	driver_selection = 0
+	try:
+		driver_selection = int(input("- "))
+	except:
+		pass
 	print("")
+
+	while driver_selection not in [1,3]:
+		print("La elección tomada no está entre las opciones, ingrese nuevamente (seleccione solo el número de su elección):")
+		try:
+			driver_selection = int(input("- "))
+		except:
+			driver_selection = 0
+		print("")
 	if driver_selection == 3:
 		return
 

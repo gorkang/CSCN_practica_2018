@@ -8,11 +8,14 @@ class item:
         self.type = spec['type'].replace(' ', '_')
         self.previous = spec['previous']
         self.next = spec['next']
-        self.loop = spec['loop']
         try:
             self.images = spec['images']
         except:
             self.images = None
+        try:
+            self.invisible = spec['invisible']
+        except:
+            pass
         self.arguments = spec['arguments']
         try:
             self.tags = spec['tags']
