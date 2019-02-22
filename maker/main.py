@@ -42,7 +42,7 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 		"slider":"jspsych-html-slider-response"
 	}
 
-	content.append("var variables = {};  \n")
+	content.append("var variables = {};\n\n")
 
 	# variable donde almacenaremos el orden de las preguntas
 	questions_experiment = []
@@ -465,57 +465,43 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 
 	for key, value in loop_questions.items():
 		for element in value:
-			if not any(d.get('id', None) == ("if_" + element) for d in questions_experiment):
+			content.append("temporal_function = function(){ }\n\n")
+			content.append('if ("on_finish" in '+ element +')\n')
+			content.append('  temporal_function = '+ element +'.on_finish;\n')
+			content.append('\n')
 
-				content.append("temporal_function = function(){ }\n\n")
+			content.append(element +".on_finish = function(){ \n")
+			content.append("  temporal_function; \n")
+			content.append("  var data = jsPsych.data.get().values(); \n")
+			for criterio in criteria:
+				actual = criterio[0].split("_")
+				for actual_question in questions:
+					if actual_question["question_id"] == element:
+						if "correct_answer" in actual_question:
+							content.append('  if ( JSON.parse(data[data.length - 1].responses)["Q0"] ' +( ("==") if (actual[3] == "correct") else ("!=") )+ ' "' + actual_question["correct_answer"] + '") \n')
+							content.append('    ' + criterio[0] + ' += 1; \n')
+							if actual[2] == "consecutive":
+								content.append('  else \n')
+								content.append('    ' + criterio[0] + ' = 0; \n')
+							content.append('\n')
+			content.pop()
+			content.append("}\n\n")
 
-				content.append('if ("on_finish" in '+ element +'){\n')
-				content.append('  temporal_function = '+ element +'.on_finish\n')
-				content.append('}\n\n')
+			content.append("var if_"+ element +" = { \n")
+			content.append("  timeline:["+ element +"], \n")
+			content.append("  conditional_function: function (){ } \n")
+			content.append("}\n\n")
 
+			content.append("if_"+ element +".conditional_function = function(){ \n")
+			content.append("  var data = jsPsych.data.get().values(); \n")
 
-				content.append(element +".on_finish = function(){ \n")
-				content.append("  temporal_function; \n")
-				content.append("  var data = jsPsych.data.get().values(); \n")
-				for criterio in criteria:
-					actual = criterio[0].split("_")
-					for actual_question in questions:
-						if actual_question["question_id"] == element:
-							if "correct_answer" in actual_question:
-								content.append('  if ( JSON.parse(data[data.length - 1].responses)["Q0"] ' +( ("==") if (actual[3] == "correct") else ("!=") )+ ' "' + actual_question["correct_answer"] + '") \n')
-								content.append('    ' + criterio[0] + ' += 1; \n')
-								if actual[2] == "consecutive":
-									content.append('  else \n')
-									content.append('    ' + criterio[0] + ' = 0; \n')
-								content.append('\n')
-				content.pop()
-				content.append("}\n\n")
+			for criterio in criteria:
+				content.append("  if(" + criterio[0] + " >= " + str(criterio[1]) + ")\n")
+				content.append("    return false\n")
+				content.append('\n')
 
-
-				content.append("var if_"+ element +" = { \n")
-				content.append("  timeline:["+ element +"], \n")
-				content.append("  conditional_function: function (){ \n")
-				content.append("    var data = jsPsych.data.get().values(); \n")
-
-				for criterio in criteria:
-					content.append("    if(" + criterio[0] + " >= " + str(criterio[1]) + ")\n")
-					content.append("      return false\n")
-					content.append('\n')
-
-			#	content.append("    if (data.values()[0] == ) \n")
-			#	content.append("    for (var i = 0; i < answer_previous.length; i++) \n")
-			#	content.append("      if (answer_previous[i] === 'true') \n")
-			#	content.append("        cont_prev += 1; \n")
-			#	content.append("    for (var j=0; j < answer_next.length; j++) \n")
-			#	content.append("      if (answer_next[j] === 'true')\n")
-			#	content.append("        cont_next += 1; \n")
-			#	content.append("    if ((cont_next === 0 && cont_prev !== 0)) return true;\n")
-				content.append("    return true \n")
-				content.append("  } \n")
-				content.append("} \n")
-				content.append( "\n")
-			#else:
-			#	content.append("if_"+ element +".conditional_function")
+			content.append("  return true \n")
+			content.append("}\n\n")
 
 	for key, value in loops_dict.items():
 		content.append("var loop_"+ key +" = { \n")
@@ -526,7 +512,7 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 			content.append("      return false;\n")
 			content.append("    }\n")
 
-		content.append("    return true\n")
+		content.append("    return (true)\n")
 		content.append("  }\n")
 
 		content.append("} \n")
@@ -558,10 +544,9 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 		content.append("  })\n")
 		content.append("}\n")
 
-	content.insert(0, "/**\n * CSCN lab\n/**\nThis document was made with test_maker\n*/\n" +
-		'\nonkeydown = function block_fkeys(event){\n  var x = event.which || event.keyCode;\n  if(x == 112 || x == 116){\n    console.log("Blocked key");\n    event.preventDefault();\n    return false;\n  }else{\n    return;\n  }\n}\n\n' +
-		'var questions = [];    //final timeline\n')
-
+	content.insert(0, 'var questions = [];    //final timeline\n')
+	#content.insert(0, '\nonkeydown = function block_fkeys(event){\n  var x = event.which || event.keyCode;\n  if(x == 112 || x == 116){\n    console.log("Blocked key");\n    event.preventDefault();\n    return false;\n  }else{\n    return;\n  }\n}\n\n')
+	content.insert(0, "/**\n * CSCN lab\n**\n * This document was made with test_maker\n **\n*/\n")
 
 	f = open(PATH + '/'+ file_name + '/experiment.js', "w")
 	content = "".join(content)

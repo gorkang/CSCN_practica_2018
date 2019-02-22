@@ -70,10 +70,9 @@
 #1
 - Tabaco:
     type: text
-    invisible: true
     arguments:
       text: |
-        A lo largo de su vida, {input: text} ¿consumió alguna {input: number} vez tabaco {input: number; range: [1,5]} (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
+        A lo largo de su vida, {input: text; name: texto_pajaritos} ¿consumió alguna {input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number} vez tabaco {input: number; range: [1,5]} (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
       answers_in_text: true
     next:
       type: loop
@@ -97,6 +96,7 @@
 
 - Cannabis:
     type: multi choice
+    invisible: true
     arguments:
       text: A lo largo de su vida, ¿consumió alguna vez cannabis (marihuana, costo, hierba, hachis, etc.)?
       choices: si_no
@@ -107,6 +107,7 @@
 
 - Cocaina:
     type: multi choice
+    invisible: true
     arguments:
       text: A lo largo de su vida, ¿consumió alguna vez cocaína (coca, falopa, crack, base, etc.)?
       choices: si_no
@@ -267,6 +268,8 @@
       text: ¿Con qué frecuencia ha consumido cannabis (marihuana, costo, hierba, hashish, etc.) en los últimos 3 meses?
       choices: likert_5
       orientation: vertical
+    tags:
+      - alola
 
 - Cocaina:
     type: multi choice
