@@ -1,24 +1,14 @@
 /**
  * CSCN lab
-/**
-This document was made with test_maker
+**
+ * This document was made with test_maker
+ **
 */
-
-onkeydown = function block_fkeys(event){
-  var x = event.which || event.keyCode;
-  if(x == 112 || x == 116){
-    console.log("Blocked key");
-    event.preventDefault();
-    return false;
-  }else{
-    return;
-  }
-}
-
 var questions = [];    //final timeline
 var loop_criterion_total_incorrect_question01 = 0
 var loop_criterion_consecutive_correct_question01 = 0
-var variables = {};  
+var variables = {};
+
 var instruction_screen_experiment_1 = {
   type: 'instructions',
   pages: ['<p><left><b><big>OMS - Assist</big></b><br/>Conteste las siguientes preguntas.</p>'],
@@ -28,7 +18,7 @@ var instruction_screen_experiment_1 = {
 
 var question01 = {
   type: 'survey-text',
-  questions: [{prompt: '<div class="justified">A lo largo de su vida, {input: text} ¿consumió alguna {input: number} vez tabaco {input: number; range: [1,5]} (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?<br></div>', type: 'text', required: true, answers_in_text: 'true'}], 
+  questions: [{prompt: '<div class="justified">A lo largo de su vida, {input: text; name: texto_pajaritos} ¿consumió alguna {input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number} vez tabaco {input: number; range: [1,5]} (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?<br></div>', type: 'text', required: true, answers_in_text: 'true'}],
   data: {trialid: 'Tabaco_1'}
 }
 
@@ -88,7 +78,7 @@ var question10 = {
 
 var question11 = {
   type: 'survey-text',
-  questions: [{prompt: '<div class="justified">¿Cual es el nombre de este otro tipo de sustancia que consumió?</div>', type: 'text', required: true}], 
+  questions: [{prompt: '<div class="justified">¿Cual es el nombre de este otro tipo de sustancia que consumió?</div>', type: 'text', required: true}],
   data: {trialid: 'Otros_2'},
   on_finish: function(data) {
       variables['otra_sustancia'] = data.responses.substr(7, data.responses.length - 9);
@@ -96,31 +86,31 @@ var question11 = {
 }
 
 
-var if_question11 = { 
-  timeline:[question11], 
-  conditional_function: function (){ 
+var if_question11 = {
+  timeline:[question11],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Otros_1": "true"}, {"Otros_1": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question12 = {
   type:'survey-multi-choice',
@@ -129,17 +119,17 @@ var question12 = {
 }
 
 
-var if_question12 = { 
-  timeline:[question12], 
-  conditional_function: function (){ 
+var if_question12 = {
+  timeline:[question12],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
         if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
@@ -153,16 +143,16 @@ var if_question12 = {
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question13 = {
   type:'survey-multi-choice',
@@ -171,18 +161,18 @@ var question13 = {
 }
 
 
-var if_question13 = { 
-  timeline:[question13], 
-  conditional_function: function (){ 
+var if_question13 = {
+  timeline:[question13],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tabaco_1": "true", "Colegio_1": "true"}, {"Tabaco_1": "true", "Colegio_1": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat([""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat([""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
       }
@@ -190,16 +180,16 @@ var if_question13 = {
         if (element.trialid === "Colegio_1" && restriction_dict[1]["Colegio_1"] === "true"){answer_next[0] = (element['responses'] === '{"Q0":"Si, alguna vez en el colegio."}').toString(); restriction_dict[1]["Colegio_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question14 = {
   type:'survey-multi-choice',
@@ -208,18 +198,18 @@ var question14 = {
 }
 
 
-var if_question14 = { 
-  timeline:[question14], 
-  conditional_function: function (){ 
+var if_question14 = {
+  timeline:[question14],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
       }
@@ -239,16 +229,16 @@ var if_question14 = {
         if (element.trialid === "Otros_1" && restriction_dict[2]["Otros_1"] === "true"){answer_next[1] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[2]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question15 = {
   type:'survey-multi-choice',
@@ -257,18 +247,18 @@ var question15 = {
 }
 
 
-var if_question15 = { 
-  timeline:[question15], 
-  conditional_function: function (){ 
+var if_question15 = {
+  timeline:[question15],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cannabis_1" && restriction_dict[0]["Cannabis_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cannabis_1"] = "false"}
       }
@@ -300,16 +290,16 @@ var if_question15 = {
         if (element.trialid === "Otros_1" && restriction_dict[3]["Otros_1"] === "true"){answer_next[2] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[3]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question16 = {
   type:'survey-multi-choice',
@@ -318,18 +308,18 @@ var question16 = {
 }
 
 
-var if_question16 = { 
-  timeline:[question16], 
-  conditional_function: function (){ 
+var if_question16 = {
+  timeline:[question16],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cocaina_1" && restriction_dict[0]["Cocaina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cocaina_1"] = "false"}
       }
@@ -373,16 +363,16 @@ var if_question16 = {
         if (element.trialid === "Otros_1" && restriction_dict[4]["Otros_1"] === "true"){answer_next[3] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[4]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question17 = {
   type:'survey-multi-choice',
@@ -391,18 +381,18 @@ var question17 = {
 }
 
 
-var if_question17 = { 
-  timeline:[question17], 
-  conditional_function: function (){ 
+var if_question17 = {
+  timeline:[question17],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Anfetamina_1" && restriction_dict[0]["Anfetamina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Anfetamina_1"] = "false"}
       }
@@ -458,16 +448,16 @@ var if_question17 = {
         if (element.trialid === "Otros_1" && restriction_dict[5]["Otros_1"] === "true"){answer_next[4] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[5]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question18 = {
   type:'survey-multi-choice',
@@ -476,18 +466,18 @@ var question18 = {
 }
 
 
-var if_question18 = { 
-  timeline:[question18], 
-  conditional_function: function (){ 
+var if_question18 = {
+  timeline:[question18],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Inhalantes_1" && restriction_dict[0]["Inhalantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Inhalantes_1"] = "false"}
       }
@@ -555,16 +545,16 @@ var if_question18 = {
         if (element.trialid === "Otros_1" && restriction_dict[6]["Otros_1"] === "true"){answer_next[5] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[6]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question19 = {
   type:'survey-multi-choice',
@@ -573,18 +563,18 @@ var question19 = {
 }
 
 
-var if_question19 = { 
-  timeline:[question19], 
-  conditional_function: function (){ 
+var if_question19 = {
+  timeline:[question19],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tranquilizantes_1" && restriction_dict[0]["Tranquilizantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tranquilizantes_1"] = "false"}
       }
@@ -664,16 +654,16 @@ var if_question19 = {
         if (element.trialid === "Otros_1" && restriction_dict[7]["Otros_1"] === "true"){answer_next[6] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[7]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question20 = {
   type:'survey-multi-choice',
@@ -682,18 +672,18 @@ var question20 = {
 }
 
 
-var if_question20 = { 
-  timeline:[question20], 
-  conditional_function: function (){ 
+var if_question20 = {
+  timeline:[question20],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alucinogenos_1" && restriction_dict[0]["Alucinogenos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alucinogenos_1"] = "false"}
       }
@@ -785,16 +775,16 @@ var if_question20 = {
         if (element.trialid === "Otros_1" && restriction_dict[8]["Otros_1"] === "true"){answer_next[7] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[8]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question21 = {
   type:'survey-multi-choice',
@@ -803,18 +793,18 @@ var question21 = {
 }
 
 
-var if_question21 = { 
-  timeline:[question21], 
-  conditional_function: function (){ 
+var if_question21 = {
+  timeline:[question21],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Opiaceos_1" && restriction_dict[0]["Opiaceos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Opiaceos_1"] = "false"}
       }
@@ -918,16 +908,16 @@ var if_question21 = {
         if (element.trialid === "Otros_1" && restriction_dict[9]["Otros_1"] === "true"){answer_next[8] = (element['responses'] === '{"Q0":"No"}').toString(); restriction_dict[9]["Otros_1"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question22 = {
   type:'survey-multi-choice',
@@ -939,18 +929,18 @@ var question22 = {
 }
 
 
-var if_question22 = { 
-  timeline:[question22], 
-  conditional_function: function (){ 
+var if_question22 = {
+  timeline:[question22],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
@@ -1067,16 +1057,16 @@ var if_question22 = {
       }
     })
     variable:  otra_sustancia = variables['variable:  otra_sustancia'];
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question23 = {
   type:'survey-multi-choice',
@@ -1085,18 +1075,18 @@ var question23 = {
 }
 
 
-var if_question23 = { 
-  timeline:[question23], 
-  conditional_function: function (){ 
+var if_question23 = {
+  timeline:[question23],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
       }
@@ -1224,16 +1214,16 @@ var if_question23 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question24 = {
   type:'survey-multi-choice',
@@ -1242,18 +1232,18 @@ var question24 = {
 }
 
 
-var if_question24 = { 
-  timeline:[question24], 
-  conditional_function: function (){ 
+var if_question24 = {
+  timeline:[question24],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
       }
@@ -1381,16 +1371,16 @@ var if_question24 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question25 = {
   type:'survey-multi-choice',
@@ -1399,18 +1389,18 @@ var question25 = {
 }
 
 
-var if_question25 = { 
-  timeline:[question25], 
-  conditional_function: function (){ 
+var if_question25 = {
+  timeline:[question25],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cannabis_1" && restriction_dict[0]["Cannabis_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cannabis_1"] = "false"}
       }
@@ -1538,16 +1528,16 @@ var if_question25 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question26 = {
   type:'survey-multi-choice',
@@ -1556,18 +1546,18 @@ var question26 = {
 }
 
 
-var if_question26 = { 
-  timeline:[question26], 
-  conditional_function: function (){ 
+var if_question26 = {
+  timeline:[question26],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cocaina_1" && restriction_dict[0]["Cocaina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cocaina_1"] = "false"}
       }
@@ -1695,16 +1685,16 @@ var if_question26 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question27 = {
   type:'survey-multi-choice',
@@ -1713,18 +1703,18 @@ var question27 = {
 }
 
 
-var if_question27 = { 
-  timeline:[question27], 
-  conditional_function: function (){ 
+var if_question27 = {
+  timeline:[question27],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Anfetamina_1" && restriction_dict[0]["Anfetamina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Anfetamina_1"] = "false"}
       }
@@ -1852,16 +1842,16 @@ var if_question27 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question28 = {
   type:'survey-multi-choice',
@@ -1870,18 +1860,18 @@ var question28 = {
 }
 
 
-var if_question28 = { 
-  timeline:[question28], 
-  conditional_function: function (){ 
+var if_question28 = {
+  timeline:[question28],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Inhalantes_1" && restriction_dict[0]["Inhalantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Inhalantes_1"] = "false"}
       }
@@ -2009,16 +1999,16 @@ var if_question28 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question29 = {
   type:'survey-multi-choice',
@@ -2027,18 +2017,18 @@ var question29 = {
 }
 
 
-var if_question29 = { 
-  timeline:[question29], 
-  conditional_function: function (){ 
+var if_question29 = {
+  timeline:[question29],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tranquilizantes_1" && restriction_dict[0]["Tranquilizantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tranquilizantes_1"] = "false"}
       }
@@ -2166,16 +2156,16 @@ var if_question29 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question30 = {
   type:'survey-multi-choice',
@@ -2184,18 +2174,18 @@ var question30 = {
 }
 
 
-var if_question30 = { 
-  timeline:[question30], 
-  conditional_function: function (){ 
+var if_question30 = {
+  timeline:[question30],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alucinogenos_1" && restriction_dict[0]["Alucinogenos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alucinogenos_1"] = "false"}
       }
@@ -2323,16 +2313,16 @@ var if_question30 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question31 = {
   type:'survey-multi-choice',
@@ -2341,18 +2331,18 @@ var question31 = {
 }
 
 
-var if_question31 = { 
-  timeline:[question31], 
-  conditional_function: function (){ 
+var if_question31 = {
+  timeline:[question31],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Opiaceos_1" && restriction_dict[0]["Opiaceos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Opiaceos_1"] = "false"}
       }
@@ -2480,16 +2470,16 @@ var if_question31 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question32 = {
   type:'survey-multi-choice',
@@ -2501,18 +2491,18 @@ var question32 = {
 }
 
 
-var if_question32 = { 
-  timeline:[question32], 
-  conditional_function: function (){ 
+var if_question32 = {
+  timeline:[question32],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
@@ -2641,16 +2631,16 @@ var if_question32 = {
       }
     })
     variable: otra_sustancia = variables['variable: otra_sustancia'];
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question33 = {
   type:'survey-multi-choice',
@@ -2659,18 +2649,18 @@ var question33 = {
 }
 
 
-var if_question33 = { 
-  timeline:[question33], 
-  conditional_function: function (){ 
+var if_question33 = {
+  timeline:[question33],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
       }
@@ -2798,16 +2788,16 @@ var if_question33 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question34 = {
   type:'survey-multi-choice',
@@ -2816,18 +2806,18 @@ var question34 = {
 }
 
 
-var if_question34 = { 
-  timeline:[question34], 
-  conditional_function: function (){ 
+var if_question34 = {
+  timeline:[question34],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
       }
@@ -2955,16 +2945,16 @@ var if_question34 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question35 = {
   type:'survey-multi-choice',
@@ -2973,18 +2963,18 @@ var question35 = {
 }
 
 
-var if_question35 = { 
-  timeline:[question35], 
-  conditional_function: function (){ 
+var if_question35 = {
+  timeline:[question35],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cannabis_1" && restriction_dict[0]["Cannabis_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cannabis_1"] = "false"}
       }
@@ -3112,16 +3102,16 @@ var if_question35 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question36 = {
   type:'survey-multi-choice',
@@ -3130,18 +3120,18 @@ var question36 = {
 }
 
 
-var if_question36 = { 
-  timeline:[question36], 
-  conditional_function: function (){ 
+var if_question36 = {
+  timeline:[question36],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cocaina_1" && restriction_dict[0]["Cocaina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cocaina_1"] = "false"}
       }
@@ -3269,16 +3259,16 @@ var if_question36 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question37 = {
   type:'survey-multi-choice',
@@ -3287,18 +3277,18 @@ var question37 = {
 }
 
 
-var if_question37 = { 
-  timeline:[question37], 
-  conditional_function: function (){ 
+var if_question37 = {
+  timeline:[question37],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Anfetamina_1" && restriction_dict[0]["Anfetamina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Anfetamina_1"] = "false"}
       }
@@ -3426,16 +3416,16 @@ var if_question37 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question38 = {
   type:'survey-multi-choice',
@@ -3444,18 +3434,18 @@ var question38 = {
 }
 
 
-var if_question38 = { 
-  timeline:[question38], 
-  conditional_function: function (){ 
+var if_question38 = {
+  timeline:[question38],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Inhalantes_1" && restriction_dict[0]["Inhalantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Inhalantes_1"] = "false"}
       }
@@ -3583,16 +3573,16 @@ var if_question38 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question39 = {
   type:'survey-multi-choice',
@@ -3601,18 +3591,18 @@ var question39 = {
 }
 
 
-var if_question39 = { 
-  timeline:[question39], 
-  conditional_function: function (){ 
+var if_question39 = {
+  timeline:[question39],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tranquilizantes_1" && restriction_dict[0]["Tranquilizantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tranquilizantes_1"] = "false"}
       }
@@ -3740,16 +3730,16 @@ var if_question39 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question40 = {
   type:'survey-multi-choice',
@@ -3758,18 +3748,18 @@ var question40 = {
 }
 
 
-var if_question40 = { 
-  timeline:[question40], 
-  conditional_function: function (){ 
+var if_question40 = {
+  timeline:[question40],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alucinogenos_1" && restriction_dict[0]["Alucinogenos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alucinogenos_1"] = "false"}
       }
@@ -3897,16 +3887,16 @@ var if_question40 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question41 = {
   type:'survey-multi-choice',
@@ -3915,18 +3905,18 @@ var question41 = {
 }
 
 
-var if_question41 = { 
-  timeline:[question41], 
-  conditional_function: function (){ 
+var if_question41 = {
+  timeline:[question41],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Opiaceos_1" && restriction_dict[0]["Opiaceos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Opiaceos_1"] = "false"}
       }
@@ -4054,16 +4044,16 @@ var if_question41 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question42 = {
   type:'survey-multi-choice',
@@ -4075,18 +4065,18 @@ var question42 = {
 }
 
 
-var if_question42 = { 
-  timeline:[question42], 
-  conditional_function: function (){ 
+var if_question42 = {
+  timeline:[question42],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
@@ -4215,16 +4205,16 @@ var if_question42 = {
       }
     })
     variable: otra_sustancia = variables['variable: otra_sustancia'];
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question43 = {
   type:'survey-multi-choice',
@@ -4233,18 +4223,18 @@ var question43 = {
 }
 
 
-var if_question43 = { 
-  timeline:[question43], 
-  conditional_function: function (){ 
+var if_question43 = {
+  timeline:[question43],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
       }
@@ -4372,16 +4362,16 @@ var if_question43 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question44 = {
   type:'survey-multi-choice',
@@ -4390,18 +4380,18 @@ var question44 = {
 }
 
 
-var if_question44 = { 
-  timeline:[question44], 
-  conditional_function: function (){ 
+var if_question44 = {
+  timeline:[question44],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cannabis_1" && restriction_dict[0]["Cannabis_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cannabis_1"] = "false"}
       }
@@ -4529,16 +4519,16 @@ var if_question44 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question45 = {
   type:'survey-multi-choice',
@@ -4547,18 +4537,18 @@ var question45 = {
 }
 
 
-var if_question45 = { 
-  timeline:[question45], 
-  conditional_function: function (){ 
+var if_question45 = {
+  timeline:[question45],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cocaina_1" && restriction_dict[0]["Cocaina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cocaina_1"] = "false"}
       }
@@ -4686,16 +4676,16 @@ var if_question45 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question46 = {
   type:'survey-multi-choice',
@@ -4704,18 +4694,18 @@ var question46 = {
 }
 
 
-var if_question46 = { 
-  timeline:[question46], 
-  conditional_function: function (){ 
+var if_question46 = {
+  timeline:[question46],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Anfetamina_1" && restriction_dict[0]["Anfetamina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Anfetamina_1"] = "false"}
       }
@@ -4843,16 +4833,16 @@ var if_question46 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question47 = {
   type:'survey-multi-choice',
@@ -4861,18 +4851,18 @@ var question47 = {
 }
 
 
-var if_question47 = { 
-  timeline:[question47], 
-  conditional_function: function (){ 
+var if_question47 = {
+  timeline:[question47],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Inhalantes_1" && restriction_dict[0]["Inhalantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Inhalantes_1"] = "false"}
       }
@@ -5000,16 +4990,16 @@ var if_question47 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question48 = {
   type:'survey-multi-choice',
@@ -5018,18 +5008,18 @@ var question48 = {
 }
 
 
-var if_question48 = { 
-  timeline:[question48], 
-  conditional_function: function (){ 
+var if_question48 = {
+  timeline:[question48],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tranquilizantes_1" && restriction_dict[0]["Tranquilizantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tranquilizantes_1"] = "false"}
       }
@@ -5157,16 +5147,16 @@ var if_question48 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question49 = {
   type:'survey-multi-choice',
@@ -5175,18 +5165,18 @@ var question49 = {
 }
 
 
-var if_question49 = { 
-  timeline:[question49], 
-  conditional_function: function (){ 
+var if_question49 = {
+  timeline:[question49],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alucinogenos_1" && restriction_dict[0]["Alucinogenos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alucinogenos_1"] = "false"}
       }
@@ -5314,16 +5304,16 @@ var if_question49 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question50 = {
   type:'survey-multi-choice',
@@ -5332,18 +5322,18 @@ var question50 = {
 }
 
 
-var if_question50 = { 
-  timeline:[question50], 
-  conditional_function: function (){ 
+var if_question50 = {
+  timeline:[question50],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Opiaceos_1" && restriction_dict[0]["Opiaceos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Opiaceos_1"] = "false"}
       }
@@ -5471,16 +5461,16 @@ var if_question50 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question51 = {
   type:'survey-multi-choice',
@@ -5492,18 +5482,18 @@ var question51 = {
 }
 
 
-var if_question51 = { 
-  timeline:[question51], 
-  conditional_function: function (){ 
+var if_question51 = {
+  timeline:[question51],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
@@ -5632,16 +5622,16 @@ var if_question51 = {
       }
     })
     variable: otra_sustancia = variables['variable: otra_sustancia'];
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question52 = {
   type:'survey-multi-choice',
@@ -5650,18 +5640,18 @@ var question52 = {
 }
 
 
-var if_question52 = { 
-  timeline:[question52], 
-  conditional_function: function (){ 
+var if_question52 = {
+  timeline:[question52],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
       }
@@ -5789,16 +5779,16 @@ var if_question52 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question53 = {
   type:'survey-multi-choice',
@@ -5807,18 +5797,18 @@ var question53 = {
 }
 
 
-var if_question53 = { 
-  timeline:[question53], 
-  conditional_function: function (){ 
+var if_question53 = {
+  timeline:[question53],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
       }
@@ -5946,16 +5936,16 @@ var if_question53 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question54 = {
   type:'survey-multi-choice',
@@ -5964,18 +5954,18 @@ var question54 = {
 }
 
 
-var if_question54 = { 
-  timeline:[question54], 
-  conditional_function: function (){ 
+var if_question54 = {
+  timeline:[question54],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cannabis_1" && restriction_dict[0]["Cannabis_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cannabis_1"] = "false"}
       }
@@ -6103,16 +6093,16 @@ var if_question54 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question55 = {
   type:'survey-multi-choice',
@@ -6121,18 +6111,18 @@ var question55 = {
 }
 
 
-var if_question55 = { 
-  timeline:[question55], 
-  conditional_function: function (){ 
+var if_question55 = {
+  timeline:[question55],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cocaina_1" && restriction_dict[0]["Cocaina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cocaina_1"] = "false"}
       }
@@ -6260,16 +6250,16 @@ var if_question55 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question56 = {
   type:'survey-multi-choice',
@@ -6278,18 +6268,18 @@ var question56 = {
 }
 
 
-var if_question56 = { 
-  timeline:[question56], 
-  conditional_function: function (){ 
+var if_question56 = {
+  timeline:[question56],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Anfetamina_1" && restriction_dict[0]["Anfetamina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Anfetamina_1"] = "false"}
       }
@@ -6417,16 +6407,16 @@ var if_question56 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question57 = {
   type:'survey-multi-choice',
@@ -6435,18 +6425,18 @@ var question57 = {
 }
 
 
-var if_question57 = { 
-  timeline:[question57], 
-  conditional_function: function (){ 
+var if_question57 = {
+  timeline:[question57],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Inhalantes_1" && restriction_dict[0]["Inhalantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Inhalantes_1"] = "false"}
       }
@@ -6574,16 +6564,16 @@ var if_question57 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question58 = {
   type:'survey-multi-choice',
@@ -6592,18 +6582,18 @@ var question58 = {
 }
 
 
-var if_question58 = { 
-  timeline:[question58], 
-  conditional_function: function (){ 
+var if_question58 = {
+  timeline:[question58],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tranquilizantes_1" && restriction_dict[0]["Tranquilizantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tranquilizantes_1"] = "false"}
       }
@@ -6731,16 +6721,16 @@ var if_question58 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question59 = {
   type:'survey-multi-choice',
@@ -6749,18 +6739,18 @@ var question59 = {
 }
 
 
-var if_question59 = { 
-  timeline:[question59], 
-  conditional_function: function (){ 
+var if_question59 = {
+  timeline:[question59],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alucinogenos_1" && restriction_dict[0]["Alucinogenos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alucinogenos_1"] = "false"}
       }
@@ -6888,16 +6878,16 @@ var if_question59 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question60 = {
   type:'survey-multi-choice',
@@ -6906,18 +6896,18 @@ var question60 = {
 }
 
 
-var if_question60 = { 
-  timeline:[question60], 
-  conditional_function: function (){ 
+var if_question60 = {
+  timeline:[question60],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Opiaceos_1" && restriction_dict[0]["Opiaceos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Opiaceos_1"] = "false"}
       }
@@ -7045,16 +7035,16 @@ var if_question60 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question61 = {
   type:'survey-multi-choice',
@@ -7066,18 +7056,18 @@ var question61 = {
 }
 
 
-var if_question61 = { 
-  timeline:[question61], 
-  conditional_function: function (){ 
+var if_question61 = {
+  timeline:[question61],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
@@ -7206,16 +7196,16 @@ var if_question61 = {
       }
     })
     variable: otra_sustancia = variables['variable: otra_sustancia'];
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question62 = {
   type:'survey-multi-choice',
@@ -7224,18 +7214,18 @@ var question62 = {
 }
 
 
-var if_question62 = { 
-  timeline:[question62], 
-  conditional_function: function (){ 
+var if_question62 = {
+  timeline:[question62],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
       }
@@ -7363,16 +7353,16 @@ var if_question62 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question63 = {
   type:'survey-multi-choice',
@@ -7381,18 +7371,18 @@ var question63 = {
 }
 
 
-var if_question63 = { 
-  timeline:[question63], 
-  conditional_function: function (){ 
+var if_question63 = {
+  timeline:[question63],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alcohol_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alcohol_1" && restriction_dict[0]["Alcohol_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alcohol_1"] = "false"}
       }
@@ -7520,16 +7510,16 @@ var if_question63 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question64 = {
   type:'survey-multi-choice',
@@ -7538,18 +7528,18 @@ var question64 = {
 }
 
 
-var if_question64 = { 
-  timeline:[question64], 
-  conditional_function: function (){ 
+var if_question64 = {
+  timeline:[question64],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cannabis_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cannabis_1" && restriction_dict[0]["Cannabis_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cannabis_1"] = "false"}
       }
@@ -7677,16 +7667,16 @@ var if_question64 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question65 = {
   type:'survey-multi-choice',
@@ -7695,18 +7685,18 @@ var question65 = {
 }
 
 
-var if_question65 = { 
-  timeline:[question65], 
-  conditional_function: function (){ 
+var if_question65 = {
+  timeline:[question65],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Cocaina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Cocaina_1" && restriction_dict[0]["Cocaina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Cocaina_1"] = "false"}
       }
@@ -7834,16 +7824,16 @@ var if_question65 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question66 = {
   type:'survey-multi-choice',
@@ -7852,18 +7842,18 @@ var question66 = {
 }
 
 
-var if_question66 = { 
-  timeline:[question66], 
-  conditional_function: function (){ 
+var if_question66 = {
+  timeline:[question66],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Anfetamina_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Anfetamina_1" && restriction_dict[0]["Anfetamina_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Anfetamina_1"] = "false"}
       }
@@ -7991,16 +7981,16 @@ var if_question66 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question67 = {
   type:'survey-multi-choice',
@@ -8009,18 +7999,18 @@ var question67 = {
 }
 
 
-var if_question67 = { 
-  timeline:[question67], 
-  conditional_function: function (){ 
+var if_question67 = {
+  timeline:[question67],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inhalantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Inhalantes_1" && restriction_dict[0]["Inhalantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Inhalantes_1"] = "false"}
       }
@@ -8148,16 +8138,16 @@ var if_question67 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question68 = {
   type:'survey-multi-choice',
@@ -8166,18 +8156,18 @@ var question68 = {
 }
 
 
-var if_question68 = { 
-  timeline:[question68], 
-  conditional_function: function (){ 
+var if_question68 = {
+  timeline:[question68],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tranquilizantes_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tranquilizantes_1" && restriction_dict[0]["Tranquilizantes_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tranquilizantes_1"] = "false"}
       }
@@ -8305,16 +8295,16 @@ var if_question68 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question69 = {
   type:'survey-multi-choice',
@@ -8323,18 +8313,18 @@ var question69 = {
 }
 
 
-var if_question69 = { 
-  timeline:[question69], 
-  conditional_function: function (){ 
+var if_question69 = {
+  timeline:[question69],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Alucinogenos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Alucinogenos_1" && restriction_dict[0]["Alucinogenos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Alucinogenos_1"] = "false"}
       }
@@ -8462,16 +8452,16 @@ var if_question69 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question70 = {
   type:'survey-multi-choice',
@@ -8480,18 +8470,18 @@ var question70 = {
 }
 
 
-var if_question70 = { 
-  timeline:[question70], 
-  conditional_function: function (){ 
+var if_question70 = {
+  timeline:[question70],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Opiaceos_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Opiaceos_1" && restriction_dict[0]["Opiaceos_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Opiaceos_1"] = "false"}
       }
@@ -8619,16 +8609,16 @@ var if_question70 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question71 = {
   type:'survey-multi-choice',
@@ -8640,18 +8630,18 @@ var question71 = {
 }
 
 
-var if_question71 = { 
-  timeline:[question71], 
-  conditional_function: function (){ 
+var if_question71 = {
+  timeline:[question71],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Otros_1" && restriction_dict[0]["Otros_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Otros_1"] = "false"}
       }
@@ -8780,16 +8770,16 @@ var if_question71 = {
       }
     })
     variable: otra_sustancia = variables['variable: otra_sustancia'];
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question72 = {
   type:'survey-multi-choice',
@@ -8798,18 +8788,18 @@ var question72 = {
 }
 
 
-var if_question72 = { 
-  timeline:[question72], 
-  conditional_function: function (){ 
+var if_question72 = {
+  timeline:[question72],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Tabaco_1": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Tabaco_1" && restriction_dict[0]["Tabaco_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si"}').toString(); restriction_dict[0]["Tabaco_1"] = "false"}
       }
@@ -8967,16 +8957,16 @@ var if_question72 = {
         if (element.trialid === "Otros_3" && restriction_dict[21]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[21]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 var question73 = {
   type:'survey-multi-choice',
@@ -8985,18 +8975,18 @@ var question73 = {
 }
 
 
-var if_question73 = { 
-  timeline:[question73], 
-  conditional_function: function (){ 
+var if_question73 = {
+  timeline:[question73],
+  conditional_function: function (){
     var data = jsPsych.data.get().values();
     var cont_prev = 0;
     var cont_next = 0;
     var restriction_dict = [{"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}, {"Inyectada_1": "true", "Colegio_1": "true", "Tabaco_2": "true", "Alcohol_1": "true", "Cannabis_1": "true", "Cocaina_1": "true", "Anfetamina_1": "true", "Inhalantes_1": "true", "Tranquilizantes_1": "true", "Alucinogenos_1": "true", "Opiaceos_1": "true", "Otros_1": "true", "Alcohol_2": "true", "Cannabis_2": "true", "Cocaina_2": "true", "Anfetamina_2": "true", "Inhalantes_2": "true", "Tranquilizantes_2": "true", "Alucinogenos_2": "true", "Opiaceos_2": "true", "Otros_3": "true"}];
     var answer_previous = []
     var answer_next = []
-    answer_previous = answer_previous.concat([""]) 
-    answer_next = answer_next.concat(["","","","","","","","","","",""]) 
-    data.slice().reverse().forEach (function (element) { 
+    answer_previous = answer_previous.concat([""])
+    answer_next = answer_next.concat(["","","","","","","","","","",""])
+    data.slice().reverse().forEach (function (element) {
       if (answer_previous[0] !== "false"){
         if (element.trialid === "Inyectada_1" && restriction_dict[0]["Inyectada_1"] === "true"){ answer_previous[0] = (element['responses'] === '{"Q0":"Si, en los últimos 3 meses."}').toString(); restriction_dict[0]["Inyectada_1"] = "false"}
       }
@@ -9124,115 +9114,143 @@ var if_question73 = {
         if (element.trialid === "Otros_3" && restriction_dict[11]["Otros_3"] === "true"){answer_next[10] = (element['responses'] === '{"Q0":"Nunca."}').toString(); restriction_dict[11]["Otros_3"] = "false"}
       }
     })
-    for (var i = 0; i < answer_previous.length; i++) 
-      if (answer_previous[i] === 'true') 
+    for (var i = 0; i < answer_previous.length; i++)
+      if (answer_previous[i] === 'true')
         cont_prev += 1;
-    for (var j=0; j < answer_next.length; j++) 
+    for (var j=0; j < answer_next.length; j++)
       if (answer_next[j] === 'true')
         cont_next += 1;
     if ((cont_next === 0 && cont_prev !== 0)) return true;
-    return false 
-  } 
-} 
+    return false
+  }
+}
 
 temporal_function = function(){ }
 
-if ("on_finish" in question02){
-  temporal_function = question02.on_finish
+if ("on_finish" in question02)
+  temporal_function = question02.on_finish;
+
+question02.on_finish = function(){
+  temporal_function;
+  var data = jsPsych.data.get().values();
+  if ( JSON.parse(data[data.length - 1].responses)["Q0"] == "Si")
+    loop_criterion_consecutive_correct_question01 += 1;
+  else
+    loop_criterion_consecutive_correct_question01 = 0;
+
+  if ( JSON.parse(data[data.length - 1].responses)["Q0"] != "Si")
+    loop_criterion_total_incorrect_question01 += 1;
 }
 
-question02.on_finish = function(){ 
-  temporal_function; 
-  var data = jsPsych.data.get().values(); 
-  if ( JSON.parse(data[data.length - 1].responses)["Q0"] == "Si") 
-    loop_criterion_consecutive_correct_question01 += 1; 
-  else 
-    loop_criterion_consecutive_correct_question01 = 0; 
-
-  if ( JSON.parse(data[data.length - 1].responses)["Q0"] != "Si") 
-    loop_criterion_total_incorrect_question01 += 1; 
+var if_question02 = {
+  timeline:[question02],
+  conditional_function: function (){ }
 }
 
-var if_question02 = { 
-  timeline:[question02], 
-  conditional_function: function (){ 
-    var data = jsPsych.data.get().values(); 
-    if(loop_criterion_consecutive_correct_question01 >= 2)
-      return false
+if_question02.conditional_function = function(){
+  var data = jsPsych.data.get().values();
+  if(loop_criterion_consecutive_correct_question01 >= 2)
+    return false
 
-    if(loop_criterion_total_incorrect_question01 >= 3)
-      return false
+  if(loop_criterion_total_incorrect_question01 >= 3)
+    return false
 
-    return true 
-  } 
-} 
+  return true
+}
 
 temporal_function = function(){ }
 
-if ("on_finish" in question03){
-  temporal_function = question03.on_finish
+if ("on_finish" in question03)
+  temporal_function = question03.on_finish;
+
+question03.on_finish = function(){
+  temporal_function;
+  var data = jsPsych.data.get().values();
+  if ( JSON.parse(data[data.length - 1].responses)["Q0"] == "Si")
+    loop_criterion_consecutive_correct_question01 += 1;
+  else
+    loop_criterion_consecutive_correct_question01 = 0;
+
+  if ( JSON.parse(data[data.length - 1].responses)["Q0"] != "Si")
+    loop_criterion_total_incorrect_question01 += 1;
 }
 
-question03.on_finish = function(){ 
-  temporal_function; 
-  var data = jsPsych.data.get().values(); 
-  if ( JSON.parse(data[data.length - 1].responses)["Q0"] == "Si") 
-    loop_criterion_consecutive_correct_question01 += 1; 
-  else 
-    loop_criterion_consecutive_correct_question01 = 0; 
-
-  if ( JSON.parse(data[data.length - 1].responses)["Q0"] != "Si") 
-    loop_criterion_total_incorrect_question01 += 1; 
+var if_question03 = {
+  timeline:[question03],
+  conditional_function: function (){ }
 }
 
-var if_question03 = { 
-  timeline:[question03], 
-  conditional_function: function (){ 
-    var data = jsPsych.data.get().values(); 
-    if(loop_criterion_consecutive_correct_question01 >= 2)
-      return false
+if_question03.conditional_function = function(){
+  var data = jsPsych.data.get().values();
+  if(loop_criterion_consecutive_correct_question01 >= 2)
+    return false
 
-    if(loop_criterion_total_incorrect_question01 >= 3)
-      return false
+  if(loop_criterion_total_incorrect_question01 >= 3)
+    return false
 
-    return true 
-  } 
-} 
+  return true
+}
 
 temporal_function = function(){ }
 
-if ("on_finish" in question04){
-  temporal_function = question04.on_finish
+if ("on_finish" in question04)
+  temporal_function = question04.on_finish;
+
+question04.on_finish = function(){
+  temporal_function;
+  var data = jsPsych.data.get().values();
+  if ( JSON.parse(data[data.length - 1].responses)["Q0"] == "Si")
+    loop_criterion_consecutive_correct_question01 += 1;
+  else
+    loop_criterion_consecutive_correct_question01 = 0;
+
+  if ( JSON.parse(data[data.length - 1].responses)["Q0"] != "Si")
+    loop_criterion_total_incorrect_question01 += 1;
 }
 
-question04.on_finish = function(){ 
-  temporal_function; 
-  var data = jsPsych.data.get().values(); 
-  if ( JSON.parse(data[data.length - 1].responses)["Q0"] == "Si") 
-    loop_criterion_consecutive_correct_question01 += 1; 
-  else 
-    loop_criterion_consecutive_correct_question01 = 0; 
-
-  if ( JSON.parse(data[data.length - 1].responses)["Q0"] != "Si") 
-    loop_criterion_total_incorrect_question01 += 1; 
+var if_question04 = {
+  timeline:[question04],
+  conditional_function: function (){ }
 }
 
-var if_question04 = { 
-  timeline:[question04], 
-  conditional_function: function (){ 
-    var data = jsPsych.data.get().values(); 
-    if(loop_criterion_consecutive_correct_question01 >= 2)
-      return false
+if_question04.conditional_function = function(){
+  var data = jsPsych.data.get().values();
+  if(loop_criterion_consecutive_correct_question01 >= 2)
+    return false
 
-    if(loop_criterion_total_incorrect_question01 >= 3)
-      return false
+  if(loop_criterion_total_incorrect_question01 >= 3)
+    return false
 
-    return true 
-  } 
-} 
+  return true
+}
 
-var loop_question01 = { 
-  timeline: [if_question02, if_question03, if_question04],
+temporal_function = function(){ }
+
+if ("on_finish" in if_question15)
+  temporal_function = if_question15.on_finish;
+
+if_question15.on_finish = function(){
+  temporal_function;
+}
+
+var if_if_question15 = {
+  timeline:[if_question15],
+  conditional_function: function (){ }
+}
+
+if_if_question15.conditional_function = function(){
+  var data = jsPsych.data.get().values();
+  if(loop_criterion_consecutive_correct_question01 >= 2)
+    return false
+
+  if(loop_criterion_total_incorrect_question01 >= 3)
+    return false
+
+  return true
+}
+
+var loop_question01 = {
+  timeline: [if_question02, if_question03, if_question04, if_if_question15],
   loop_function: function(data){
     if(loop_criterion_consecutive_correct_question01 >= 2  ){
       return false;
@@ -9240,84 +9258,13 @@ var loop_question01 = {
     if(loop_criterion_total_incorrect_question01 >= 3  ){
       return false;
     }
-    return true
+    return (true)
   }
-} 
+}
 
 questions = []
 questions_experiment = []
-questions_experiment.push(loop_question01);
-questions_experiment.push(question03);
-questions_experiment.push(question04);
-questions_experiment.push(question05);
-questions_experiment.push(question06);
-questions_experiment.push(question07);
-questions_experiment.push(question08);
-questions_experiment.push(question09);
-questions_experiment.push(question10);
-questions_experiment.push(if_question11);
-questions_experiment.push(if_question12);
-questions_experiment.push(if_question13);
-questions_experiment.push(if_question14);
-questions_experiment.push(if_question15);
-questions_experiment.push(if_question16);
-questions_experiment.push(if_question17);
-questions_experiment.push(if_question18);
-questions_experiment.push(if_question19);
-questions_experiment.push(if_question20);
-questions_experiment.push(if_question21);
-questions_experiment.push(if_question22);
-questions_experiment.push(if_question23);
-questions_experiment.push(if_question24);
-questions_experiment.push(if_question25);
-questions_experiment.push(if_question26);
-questions_experiment.push(if_question27);
-questions_experiment.push(if_question28);
-questions_experiment.push(if_question29);
-questions_experiment.push(if_question30);
-questions_experiment.push(if_question31);
-questions_experiment.push(if_question32);
-questions_experiment.push(if_question33);
-questions_experiment.push(if_question34);
-questions_experiment.push(if_question35);
-questions_experiment.push(if_question36);
-questions_experiment.push(if_question37);
-questions_experiment.push(if_question38);
-questions_experiment.push(if_question39);
-questions_experiment.push(if_question40);
-questions_experiment.push(if_question41);
-questions_experiment.push(if_question42);
-questions_experiment.push(if_question43);
-questions_experiment.push(if_question44);
-questions_experiment.push(if_question45);
-questions_experiment.push(if_question46);
-questions_experiment.push(if_question47);
-questions_experiment.push(if_question48);
-questions_experiment.push(if_question49);
-questions_experiment.push(if_question50);
-questions_experiment.push(if_question51);
-questions_experiment.push(if_question52);
-questions_experiment.push(if_question53);
-questions_experiment.push(if_question54);
-questions_experiment.push(if_question55);
-questions_experiment.push(if_question56);
-questions_experiment.push(if_question57);
-questions_experiment.push(if_question58);
-questions_experiment.push(if_question59);
-questions_experiment.push(if_question60);
-questions_experiment.push(if_question61);
-questions_experiment.push(if_question62);
-questions_experiment.push(if_question63);
-questions_experiment.push(if_question64);
-questions_experiment.push(if_question65);
-questions_experiment.push(if_question66);
-questions_experiment.push(if_question67);
-questions_experiment.push(if_question68);
-questions_experiment.push(if_question69);
-questions_experiment.push(if_question70);
-questions_experiment.push(if_question71);
-questions_experiment.push(if_question72);
-questions_experiment.push(if_question73);
+questions_experiment.push(question01);
 questions_experiment.unshift(instruction_screen_experiment_1);
 questions.push.apply(questions, questions_experiment)
 
