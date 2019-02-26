@@ -118,6 +118,7 @@ jsPsych.plugins['survey-text'] = (function() {
   // this is for conditions on CSCN system
   var conditions = {};
   var trial_questions = {};
+  var error_color_list = ["red", "orange", "blue"]
 
   plugin.trial = function(display_element, trial) {
 
@@ -148,10 +149,12 @@ jsPsych.plugins['survey-text'] = (function() {
         trial.questions[i].type = "text"
       }
 
+      trial.questions[i].list_type = Array()
+      trial.questions[i].list_ids = Array()
+      trial.questions[i].list_errors = Array()
+
       if (trial.questions[i].answers_in_text) {
         str = trial.questions[i].prompt
-        trial.questions[i].list_type = Array()
-        trial.questions[i].list_ids = Array()
         elements = [];
         // get dicts
         while (1){
@@ -166,41 +169,47 @@ jsPsych.plugins['survey-text'] = (function() {
         }
         // create inputs
         for (actual_index in elements){
-          element_options = (elements[actual_index].replace(/ /g,"")).split(";");
-          actual_input = '<input name="#jspsych-survey-text-response-'+ i.toString() + '"';
+          element_options = elements[actual_index].split(";");
+          actual_input = ' <input name="#jspsych-survey-text-response-'+ i.toString() + '"';
           range = false;
           number_question = false;
           actual_min = -Infinity;
           actual_max = Infinity;
           name_selected = false;
+          error_selected = false;
           for (actual_option in element_options) {
-            if (element_options[actual_option].split(":")[0] === "input"){
-              actual_input += "type=" + element_options[actual_option].split(":")[1] + " ";
-              trial.questions[i].list_type.push(element_options[actual_option].split(":")[1])
-              if (element_options[actual_option].split(":")[1] === "number")
+            if ((element_options[actual_option].replace(/ /g,"")).split(":")[0] === "input"){
+              actual_input += "type=" + (element_options[actual_option].replace(/ /g,"")).split(":")[1] + " ";
+              trial.questions[i].list_type.push((element_options[actual_option].replace(/ /g,"")).split(":")[1])
+              if ((element_options[actual_option].replace(/ /g,"")).split(":")[1] === "number")
                 number_question = true
             }
-            if (element_options[actual_option].split(":")[0] === "range"){
-              actual_input += "min=" + ((element_options[actual_option].split(":")[1]).substring(1,4)).split(",")[0] + " ";
-              actual_input += "max=" + ((element_options[actual_option].split(":")[1]).substring(1,4)).split(",")[1] + " ";
-              actual_min = ((element_options[actual_option].split(":")[1]).substring(1,4)).split(",")[0]
-              actual_max = ((element_options[actual_option].split(":")[1]).substring(1,4)).split(",")[1]
+            if ((element_options[actual_option].replace(/ /g,"")).split(":")[0] === "range"){
+              actual_input += "min=" + (((element_options[actual_option].replace(/ /g,"")).split(":")[1]).substring(1,4)).split(",")[0] + " ";
+              actual_input += "max=" + (((element_options[actual_option].replace(/ /g,"")).split(":")[1]).substring(1,4)).split(",")[1] + " ";
+              actual_min = (((element_options[actual_option].replace(/ /g,"")).split(":")[1]).substring(1,4)).split(",")[0]
+              actual_max = (((element_options[actual_option].replace(/ /g,"")).split(":")[1]).substring(1,4)).split(",")[1]
             }
-            if (element_options[actual_option].split(":")[0] === "name"){
-              trial.questions[i].list_ids.push(element_options[actual_option].split(":")[1])
+            if ((element_options[actual_option].replace(/ /g,"")).split(":")[0] === "name"){
+              trial.questions[i].list_ids.push((element_options[actual_option].replace(/ /g,"")).split(":")[1])
               name_selected = true
+            }
+            if ((element_options[actual_option].replace(/ /g,"")).split(":")[0] === "error_message"){
+              trial.questions[i].list_errors.push((element_options[actual_option].split(":")[1]).trim())
+              error_selected = true
             }
           }
           if (number_question){
             min.push(actual_min.toString());
             max.push(actual_max.toString());
           }
+          if (! (error_selected)){
+            trial.questions[i].list_errors.push("")
+          }
           if (! (name_selected)){
             trial.questions[i].list_ids.push("input_" + ("0".repeat((((elements.length).toString()).length) - (( parseInt(actual_index) + 1).toString()).length)) + (parseInt(actual_index) + 1).toString())
-          } else {
-            name_selected = false;
           }
-          actual_input += 'autofocus></input>';
+          actual_input += 'autofocus></input><span class="boxNumber" style="position: relative; top: -10px; font-size: 12px;"></span> ';
           trial.questions[i].prompt = trial.questions[i].prompt.replace("{" + elements[actual_index] + "}", actual_input)
         }
       } else {
@@ -218,6 +227,13 @@ jsPsych.plugins['survey-text'] = (function() {
       html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt + '</p>';
 
       if (!(trial.questions[i].answers_in_text)) {
+
+        if (typeof trial.questions[i].error_message !== 'undefined') {
+          trial.questions[i].list_errors.push(trial.questions[i].error_message)
+        } else {
+          trial.questions[i].list_errors.push("")
+        }
+
         if (typeof trial.questions[i].range != 'undefined' && trial.questions[i].type == 'range')
           html += '<form>'
         html += '<input type="' + trial.questions[0].type + '" name="#jspsych-survey-' + trial.questions[0].type + '-response-' + i;
@@ -282,13 +298,9 @@ jsPsych.plugins['survey-text'] = (function() {
       var matches = display_element.querySelectorAll('div.jspsych-survey-text-question');
       for(var index=0; index<matches.length; index++){
         var id = "Q" + index;
-        console.log(trial.questions[index].answers_in_text)
-        console.log(trial.questions[index].list_ids)
         if ( (typeof (trial.questions[index].answers_in_text) != 'undefined') && (trial.questions[index].answers_in_text)) {
           var val = {}
-          console.log(trial.questions[index].list_ids)
           for (i = 0; i < matches[index].querySelectorAll('textarea, input').length; i++){
-            console.log(trial.questions[index].list_ids[i])
             val[trial.questions[index].list_ids[i]] = matches[index].querySelectorAll('textarea, input')[i].value;
           }
         }
@@ -307,9 +319,6 @@ jsPsych.plugins['survey-text'] = (function() {
       };
 
       for(var index=0; index<matches.length; index++){
-        var textBox = document.getElementsByName('#jspsych-survey-'+ trial.questions[index].type +'-response-' + [index])[0];
-
-        var validation = true;
         if ( (typeof (trial.questions[index].answers_in_text) != 'undefined') && (trial.questions[index].answers_in_text)) {
           var val = Array()
           for (i = 0; i < matches[index].querySelectorAll('textarea, input').length; i++)
@@ -324,44 +333,67 @@ jsPsych.plugins['survey-text'] = (function() {
         else
           required = false;
 
-        pass = true
         var range_cont = 0
         if (!(Array.isArray(val))) {
           val = [val]
         }
+        numbers = document.getElementsByClassName('boxNumber')
+        mistakes = []
         for(var actual_val=0; actual_val<val.length; actual_val++)  {
-          if ((val[actual_val] == "") && required)
-            pass = false
+          actual_element = document.getElementsByName('#jspsych-survey-'+ trial.questions[index].type +'-response-' + [index])[actual_val];
+          if (typeof(actual_element) === 'undefined')
+            continue
+          if ((trial.questions[index].type == "number" || trial.questions[index].type == "range") || ((trial.questions[index].answers_in_text) && trial.questions[index].list_type[actual_val] === "number")){
+            range_cont += 1;
+          }
+
+          if ((val[actual_val] == "") && required){
+            mistakes.push(actual_val);
+            actual_element.style.border = "1px solid " + error_color_list[ Math.round((( (mistakes.length - 1) / error_color_list.length) - parseInt((mistakes.length - 1)/ error_color_list.length)) * error_color_list.length) ];
+            continue
+          }
+          validation = true
           // next trial and check if is a valid element
-          if (trial.questions[index].type == "number" || ( typeof(trial.questions[index].answers_in_text) !== 'undefined') && trial.questions[index].answers_in_text){
-            if ((typeof trial.questions[index].range !== 'undefined') || ((trial.questions[index].answers_in_text) && trial.questions[index].list_type[actual_val] === "number"))
-              validation = $.isNumeric(val[actual_val]) === true && parseFloat(val[actual_val]) <= parseFloat(max[range_cont]) && parseFloat(val[actual_val]) >= parseFloat(min[range_cont]);
+          if (trial.questions[index].type == "number" || ( typeof(trial.questions[index].answers_in_text) !== 'undefined') && (trial.questions[index].answers_in_text && trial.questions[index].list_type[actual_val] === "number")) {
+            if ((typeof trial.questions[index].range !== 'undefined') || (trial.questions[index].answers_in_text))
+              validation = $.isNumeric(val[actual_val]) === true && parseFloat(val[actual_val]) <= parseFloat(max[range_cont-1]) && parseFloat(val[actual_val]) >= parseFloat(min[range_cont-1]);
             else
               validation = $.isNumeric(val[actual_val]) === true;
           }
           if (typeof trial.questions[index].answer !== 'undefined')
             validation = val[actual_val].toString() === (trial.questions[index].answer).toString();
 
-          if ((trial.questions[index].type == "number" || trial.questions[index].type == "range") || ((trial.questions[index].answers_in_text) && trial.questions[index].list_type[actual_val] === "number"))
-            range_cont += 1;
+          if (!(validation)){
+            mistakes.push(actual_val)
+            actual_element.style.border = "1px solid " + error_color_list[ Math.round((( (mistakes.length - 1) / 3) - parseInt((mistakes.length - 1)/ 3)) * 3) ];
+          } else {
+            actual_element.style.border = "";
+            if (typeof(numbers[actual_val]) !== 'undefined')
+              numbers[actual_val].innerHTML = "";
+          }
         }
-        if (validation && pass) {
+        if (!(mistakes && mistakes.length)) {
           display_element.innerHTML = '';
           jsPsych.pluginAPI.clearAllTimeouts();
           jsPsych.finishTrial(trialdata);
         } else {
-          textBox.blur();
-          textBox.focus();
-          var message = '';
-          if (typeof trial.questions[index].error_message !== 'undefined') {
-            message = trial.questions[index].error_message;
-          } else {
-            if (trial.questions[index].language === "english")
-              message = 'Please, verify your answer.';
-            else if (trial.questions[index].language === "spanish")
-              message = 'Por favor, verifique su respuesta.';
+          //textBox.blur();
+          //textBox.focus();
+          display_element.querySelector(".fail-message").innerHTML = ""
+          for (var i = 0; i < mistakes.length; i++) {
+            if (typeof(numbers[mistakes[i]]) !== 'undefined')
+              numbers[mistakes[i]].innerHTML = i + 1
+            var message = '';
+            if (trial.questions[index].list_errors[mistakes[i]] !== "" ) {
+              message = trial.questions[index].list_errors[mistakes[i]]
+            } else {
+              if (trial.questions[index].language === "english")
+                message = 'Please, verify your answer.';
+              else if (trial.questions[index].language === "spanish")
+                message = 'Por favor, verifique su respuesta.';
+            }
+            display_element.querySelector(".fail-message").innerHTML += '<span style="color: ' + error_color_list[ Math.round((( i / 3) - parseInt(i/ 3)) * 3) ] + ';" class="required">' + ((typeof(numbers[mistakes[i]]) !== 'undefined') ? ( (i + 1) + ".- " ) : ("")) + message +'</span><br>';
           }
-          display_element.querySelector(".fail-message").innerHTML = '<span style="color: red;" class="required">' + message +'</span>';
           event.stopPropagation();
           if (event.stopPropagation) {
             event.stopPropagation();
