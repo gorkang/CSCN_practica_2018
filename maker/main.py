@@ -11,7 +11,7 @@ import shutil, math, os, subprocess, yaml, importlib, json, re, glob, collection
 from subprocess import PIPE, Popen, STDOUT
 from pathlib import Path
 
-def writeExperiment(file_name, instructions, questions, loops, fullscreen={"fullscreen_mode": False}):
+def writeExperiment(file_name, instructions, questions, loops, fullscreen={"fullscreen_mode": False}, end_criterion = None):
 	PATH = os.getcwd()
 	f = open(PATH + '/'+ file_name + '/experiment.js', 'r')
 	content = f.readlines()
@@ -29,7 +29,6 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 	tags_dict = {}
 	total_loops = 0
 	loops_dict = {}
-
 
 	plugins = {
 		"multi_choice":"jspsych-survey-multi-choice",
@@ -518,6 +517,44 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 		content.append("} \n")
 		content.append("\n")
 
+	# Criterio de termino
+	for index, criteria in enumerate(end_criterion):
+		content.insert(0, "var end_criterion_" + str(index + 1) + " = 0\n")
+		for key, value in criteria.items():
+			tags_cont = 0
+			for tag in value["tags"]:
+				tags_cont += 1
+				if not (tag in tags_dict):
+					print("Error al encontrar el tag " + tag + " definido en los criterios de término.")
+					return False
+				for question in tags_dict[tag]:
+					element = question.split("_")[-1]
+
+					content.append("temporal_function = function(){ }\n\n")
+					content.append('if ("on_finish" in '+ element +')\n')
+					content.append('  temporal_function = '+ element +'.on_finish;\n')
+					content.append('\n')
+
+					content.append(element +".on_finish = function(){ \n")
+					content.append("  temporal_function; \n")
+					content.append("  var data = jsPsych.data.get().values(); \n")
+					for actual_question in questions:
+						if actual_question["question_id"] == element:
+							if "correct_answer" in actual_question:
+								content.append('  if ( JSON.parse(data[data.length - 1].responses)["Q0"] ' +( ("==") if (value["type"] == "correct") else ("!=") )+ ' "' + actual_question["correct_answer"] + '") \n')
+								content.append('    end_criterion_' + str(index + 1) + ' += 1; \n')
+								if key == "consecutive":
+									content.append('  else \n')
+									content.append('    end_criterion_' + str(index + 1) + ' = 0; \n')
+								content.append('\n')
+					content.pop()
+					content.append('  if ( end_criterion_' + str(index + 1) +' >= ' + str(value["value"]) + ' ) \n')
+					content.append('    jsPsych.endExperiment("' + ((value["message"]) if ("message" in value) else (""))  + '");\n')
+					content.append("}\n\n")
+
+
+			print(key)
+
 	# impresión de orden de preguntas:
 	content.append("questions = []\n")
 	for index, actual_dict in enumerate(questions_experiment):
@@ -552,6 +589,8 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 	content = "".join(content)
 	f.write(content)
 	f.close()
+
+	return True
 
 def writeConfig(file_name):
 	PATH = os.getcwd()
@@ -696,7 +735,7 @@ def main():
 				try:
 					end_criterion = spec["end-criterion"]
 				except:
-					pass
+					end_criterion = None
 			except:
 				print("existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
 				return
@@ -951,11 +990,15 @@ def main():
 	if images:
 		shutil.copytree(PATH + '/images/' + images, PATH + '/'+ file_name + "/images")
 
-	writeExperiment(file_name, instructions, questions, loops, fullscreen=fullscreen)
+	experiment = writeExperiment(file_name, instructions, questions, loops, fullscreen=fullscreen, end_criterion=end_criterion)
 	writeConfig(file_name)
 	writeIndex(file_name, plugins)
 
-	print("Prueba "+ file_name +" creada con éxito.")
+	if experiment:
+		print("Prueba "+ file_name +" creada con éxito.")
+	else:
+		print("Encontrados errores en la prueba "+ file_name +".")
+		return
 	print("Iniciando testing de la prueba...")
 	testing(PATH, file_name)
 

@@ -20,9 +20,9 @@
     end-criterion:
       - consecutive:
           type: incorrect
-          tags: [preguntas_complicadas]
-          value: 3
-          next: end_experiment
+          tags: [drogas]
+          value: 2
+          message: "Fin del experimento."
 
     loops:
       loop1:
@@ -72,7 +72,7 @@
     type: text
     arguments:
       text: |
-        A lo largo de su vida, {input: text; name: texto_pajaritos} ¿consumió alguna {input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number} vez tabaco {input: number; range: [1,5]} (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
+        A lo largo de su vida, {input: text; name: texto_pajaritos; error_message: Debe elegir una palabra mas decente} ¿consumió alguna {input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number}{input: number} vez tabaco {input: number; range: [1,5]; error_message: Ingrese un número entre 1 y 5} (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
       answers_in_text: true
     next:
       type: loop
@@ -122,6 +122,9 @@
       text: A lo largo de su vida, ¿consumió alguna vez anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?
       choices: si_no
       orientation: vertical
+      correct_answer: Si
+    tags:
+      - drogas
 
 - Inhalantes:
     type: multi choice
@@ -129,6 +132,9 @@
       text: A lo largo de su vida, ¿consumió alguna vez inhalantes (colas, gasolina/nafta, pegamento, etc.)?
       choices: si_no
       orientation: vertical
+      correct_answer: Si
+    tags:
+      - drogas
 
 - Tranquilizantes:
     type: multi choice
@@ -136,6 +142,9 @@
       text: A lo largo de su vida, ¿consumió alguna vez tranquilizantes o pastillas para dormir (valium/diazepam, Trankimazin/Alprazolam/Xanax, Orfidal/Lorazepam, Rohipnol, etc.)?
       choices: si_no
       orientation: vertical
+      correct_answer: Si
+    tags:
+      - drogas
 
 - Alucinogenos:
     type: multi choice
@@ -143,6 +152,9 @@
       text: A lo largo de su vida, ¿consumió alguna vez alucinógenos (LSD, ácidos, ketamina, PCP, etc.)?
       choices: si_no
       orientation: vertical
+      correct_answer: Si
+    tags:
+      - drogas
 
 - Opiaceos:
     type: multi choice
@@ -268,8 +280,10 @@
       text: ¿Con qué frecuencia ha consumido cannabis (marihuana, costo, hierba, hashish, etc.) en los últimos 3 meses?
       choices: likert_5
       orientation: vertical
+      correct_answer: Nunca.
     tags:
       - alola
+      - drogas
 
 - Cocaina:
     type: multi choice
@@ -688,6 +702,8 @@
       text: En los últimos tres meses, ¿con qué frecuencia dejó de hacer lo que se esperaba de usted habitualmente por el consumo de anfetaminas u otro tipo de estimulantes (speed, éxtasis, píldoras adelgazantes, etc.)?
       choices: likert_5
       orientation: vertical
+    tags:
+      - drogas
 
 - Inhalantes:
     type: multi choice
