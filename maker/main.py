@@ -47,71 +47,73 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 	questions_experiment = []
 
 	# Por cada conjunto de preguntas hay una instruccion
-	for actual_int in range(len(instructions)):
+	instruction_cont = 0
+	for i in range(len(questions)):
 
-		content.append("var instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1) + " = {\n")
-		content.append("  type: 'instructions',\n")
+		if questions[i]["item_id"].split("_")[0] == "Instruction":
+			instruction_random_mode = questions[i]["random_mode"]
+			instruction_cont += 1
+			content.append("var instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont) + " = {\n")
+			content.append("  type: 'instructions',\n")
 
-		pages = "  pages: ['<p><left>"
-		pages_lines = 1
-		for index, instruction in enumerate(instructions[actual_int]["instruction"]):
-			if index != 0:
-				pages += ",\n    '<p>"
-			if ("{" in instruction):
-				text_variables = re.findall(r'{(.*?)}', instruction)
-				for variable in text_variables:
-					if variable.split(":")[0] == "variable":
-						instruction = instruction.replace("{"+ variable +"}", "' + variables['" + (variable.split(":")[1]).strip() + "']+ '")
-						text_modify = True
-					elif variable.split(":")[0] == "image":
-						instruction = instruction.replace("{"+ variable +"}", '<img src="images/' + (variable.split(":")[1]).strip() + '" />')
+			pages = "  pages: ['<p><left>"
+			pages_lines = 1
+			for index, instruction in enumerate(questions[i]["instruction"]):
+				if index != 0:
+					pages += ",\n    '<p>"
+				if ("{" in instruction):
+					text_variables = re.findall(r'{(.*?)}', instruction)
+					for variable in text_variables:
+						if variable.split(":")[0] == "variable":
+							instruction = instruction.replace("{"+ variable +"}", "' + variables['" + (variable.split(":")[1]).strip() + "']+ '")
+							text_modify = True
+						elif variable.split(":")[0] == "image":
+							instruction = instruction.replace("{"+ variable +"}", '<img src="images/' + (variable.split(":")[1]).strip() + '" />')
 
-			if "title" in instructions[actual_int]:
-				pages += "<b><big>" + instructions[actual_int]["title"] + "</big></b><br/>"
-			pages += instruction
-			pages += "</p>'"
-			pages_lines = index
-		pages += "],\n"
+				if "title" in questions[i]:
+					pages += "<b><big>" + questions[i]["title"] + "</big></b><br/>"
+				pages += instruction
+				pages += "</p>'"
+				pages_lines = index
+			pages += "],\n"
 
-		content.append(pages)
-		# TODO: revisar lógica de aumento de lineas
-		content.append("  data:{trialid: 'Screen_WM'},\n")
-		content.append("  show_clickable_nav: true,\n")
-		content.append("}\n")
-		content.append("\n")
+			content.append(pages)
+			# TODO: revisar lógica de aumento de lineas
+			content.append("  data:{trialid: 'Screen_WM'},\n")
+			content.append("  show_clickable_nav: true,\n")
+			content.append("}\n")
+			content.append("\n")
+			questions[i]["question_id"] = "instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont)
 
-		questions_experiment.append({"instruction": "instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1), "tags": instructions[actual_int]["tags"], "questions": []})
+			questions_experiment.append({"id": "instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont), "item_id": "Instruction_" + str(instruction_cont), "tags": questions[i]["tags"], "questions": []})
 
-		if instructions[actual_int]["tags"] != None:
-			for tag in instructions[actual_int]["tags"]:
-				if tag in tags_dict:
-					tags_dict[tag].append("instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1))
+			if questions[i]["tags"] != None:
+				for tag in questions[i]["tags"]:
+					if tag in tags_dict:
+						tags_dict[tag].append("instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont))
+					else:
+						tags_dict[tag] = ["instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont)]
+
+			'''
+			if instructions[actual_int] != instructions[-1]:
+				breaker = instructions[actual_int + 1]["previous_questions"] - 1
+				if instructions[actual_int]["previous_questions"] == instructions[instruction_cont]["previous_questions"]:
+					jump_while = True
+			elif instructions[actual_int] == instructions[-1]:
+				breaker = len(questions)
+			'''
+
+			if "next" in questions[i]:
+				if loops != None and questions[i]["next"]["data"] in loops:
+					total_loops += 1
+					loops_dict["instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont)] = loops[questions[i]["next"]["data"]]
+					#questions_experiment[actual_int]["questions"].append({"id": "loop"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(total_loops)})
 				else:
-					tags_dict[tag] = ["instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1)]
+					print("Error, loop " + questions[i]["next"]["data"] + " no encontrado en la lista de loops")
 
-		if instructions[actual_int] != instructions[-1]:
-			breaker = instructions[actual_int + 1]["previous_questions"] - 1
-			if instructions[actual_int]["previous_questions"] == instructions[actual_int + 1]["previous_questions"]:
-				jump_while = True
-		elif instructions[actual_int] == instructions[-1]:
-			breaker = len(questions)
-
-		i =  instructions[actual_int]["previous_questions"]
-
-		if "next" in instructions[actual_int]:
-			if loops != None and instructions[actual_int]["next"]["data"] in loops:
-				total_loops += 1
-				loops_dict["instruction_screen_experiment_" + ("{:0"+str(len(str(abs(len(instructions)))))+"d}").format(actual_int+1)] = loops[instructions[actual_int]["next"]["data"]]
-				#questions_experiment[actual_int]["questions"].append({"id": "loop"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(total_loops)})
-			else:
-				print("Error, loop " + instructions[actual_int]["next"]["data"] + " no encontrado en la lista de loops")
-
-		while (i < len(questions)):
-			if jump_while:
-				jump_while = False
-				break
-			questions[i]["question_id"] = "question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1)
-			content.append("var question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = {\n")
+		else:
+			questions[i]["question_id"] = "question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont)
+			content.append("var question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont) +" = {\n")
 
 			try:
 				content.append("  title: '"+ questions[i]["title"] +"',\n")
@@ -272,20 +274,15 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 				content.append("\n}\n\n")
 			# Si existe condicional se agrega el condicional y sus caminos:
 			if questions[i]["previous"] != None or not not jump_list or text_modify:
-				restriction_cont = 0
 				restriction_dict = {}
 				verification = "    var answer_previous = []\n"
 				verification += "    var answer_next = []\n"
-				restriction_cont += 2
 				if questions[i]["previous"] != None:
 					verification += "    answer_previous = answer_previous.concat([" + ','.join(['""' for prev in range(len(questions[i]["previous"]))]) + "]) \n"
-					restriction_cont += 1
 				if not not jump_list:
 					verification += "    answer_next = answer_next.concat([" + ','.join(['""' for prev in range(len(jump_list))]) + "]) \n"
-					restriction_cont += 1
 				if questions[i]["previous"] != None or not not jump_list:
 					verification += "    data.slice().reverse().forEach (function (element) { \n"
-				restriction_cont += 1
 				temporal_cont = 0
 				final_cont = 0
 				if questions[i]["previous"] != None:
@@ -300,10 +297,9 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 									elif value == True:
 										value = 'Yes'
 									verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(index) + ']["'+ str(key) +'"] === "true"){ answer_previous['+ str(temporal_cont) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(index) + ']["'+ str(key) +'"] = "false"}\n'
-									restriction_cont += 1
 							verification += '      }\n'
 							temporal_cont += 1
-						final_cont = temporal_cont + 1
+						final_cont = temporal_cont
 				for index, actual in enumerate(jump_list):
 					verification += '      if (answer_next['+ str(index) +'] !== "false"){\n'
 					for key_list, value_list in actual["restrictions"].items():
@@ -314,19 +310,16 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 									value = 'No'
 								elif value == True:
 									value = 'Yes'
-								verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(index + temporal_cont) + ']["'+ str(key) +'"] === "true"){answer_next['+ str(index) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(index + temporal_cont) + ']["'+ str(key) +'"] = "false"}\n'
-								restriction_cont += 1
+								verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(temporal_cont) + ']["'+ str(key) +'"] === "true"){answer_next['+ str(index) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(temporal_cont) + ']["'+ str(key) +'"] = "false"}\n'
 					verification += '      }\n'
-					final_cont = index + temporal_cont  + 1
+					temporal_cont += 1
+					final_cont = temporal_cont
 				if questions[i]["previous"] != None or not not jump_list:
 					verification += '    })\n'
+				restriction_array = ([restriction_dict] * final_cont)
 
-				restriction_array = []
-				for temporal in range(final_cont):
-					restriction_array.append(restriction_dict)
-
-				content.append("\nvar if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
-				content.append("  timeline:[question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"], \n")
+				content.append("\nvar if_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont) +" = { \n")
+				content.append("  timeline:[question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont) +"], \n")
 				content.append("  conditional_function: function (){ \n")
 				content.append("    var data = jsPsych.data.get().values();\n")
 				content.append("    var cont_prev = 0;\n")
@@ -349,90 +342,90 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 				content.append("  } \n")
 				content.append("} \n")
 				content.append( "\n")
-				questions_experiment[actual_int]["questions"].append({"id": "if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1), "tags": questions[i]["tags"]})
+				questions_experiment.append({"id": "if_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont), "tags": questions[i]["tags"]})
 				if questions[i]["tags"] != None:
 					for tag in questions[i]["tags"]:
 						if tag in tags_dict:
-							tags_dict[tag].append("if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1))
+							tags_dict[tag].append("if_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont))
 						else:
-							tags_dict[tag] = ["if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1)]
-				actual_id = "if_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1)
+							tags_dict[tag] = ["if_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont)]
+				actual_id = "if_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont)
 			else:
 				# En caso contrario solo agregamos la pregunta:
 				if ((not ("invisible" in questions[i])) or (questions[i]["invisible"] != True)):
-					questions_experiment[actual_int]["questions"].append({"id": "question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1), "tags": questions[i]["tags"]})
+					questions_experiment.append({"id": "question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont), "tags": questions[i]["tags"]})
 				if questions[i]["tags"] != None:
 					for tag in questions[i]["tags"]:
 						if tag in tags_dict:
-							tags_dict[tag].append("question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1))
+							tags_dict[tag].append("question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont))
 						else:
-							tags_dict[tag] = ["question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1)]
-				actual_id = "question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1)
+							tags_dict[tag] = ["question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont)]
+				actual_id = "question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont)
 
 			# En caso que exista un "next" hay 2 opciones, que el next sea a un elemento que ya pasamos o que sea a un elemento al cual aún no llegamos
 			# TODO: maxLoops if next is previous
 			if questions[i]["next"] != None:
-				if not ("type" in questions[i]["next"]):
-					for it, question in enumerate(questions):
-						# si aun no pasamos por el elemento se agregarán las restricciones al jump_list
-						if it > i:
-							jump_list.append(questions[i]["next"]["data"])
-							break
-						# en caso contrario tenemos que agregar las preguntas que hayan desde el punto al que saltamos hasta el punto actual
-						if questions[it]["item_id"] == str(next(iter(questions[i]["next"]["data"]))):
-							restriction_cont = 0
-							restriction_dict = {}
-							verification = "    data.slice().reverse().forEach (function (element) { \n"
-							temporal_cont = 0
-							for index, next_dict in enumerate(questions[i]["next"]["data"][questions[it]["item_id"]]):
-								verification += '      if (answer['+ str(index) +'] !== "false"){\n'
-								restriction_cont += 2
-								for restriction in questions[i]["next"]["data"][questions[it]["item_id"]][next_dict]:
-									for key, value in restriction.items():
-										restriction_dict[key] = "true"
-										if value == False:
-											value = 'No'
-										elif value == True:
-											value = 'Yes'
-										verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(index) + ']["'+ str(key) +'"] === "true"){ answer['+ str(index) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(index) + ']["'+ str(key) +'"] = "false"}\n'
-										restriction_cont += 1
-								verification += '      }\n'
-								temporal_cont = index + 1
-							verification += '    });\n'
+				for actual_next in questions[i]["next"]:
+					selected = str(next(iter(actual_next)))
+					if selected == "question":
+						for it, question in enumerate(questions):
+							# si aun no pasamos por el elemento se agregarán las restricciones al jump_list
+							if it > i:
+								jump_list.append(actual_next[selected]["data"])
+								break
+							# en caso contrario tenemos que agregar las preguntas que hayan desde el punto al que saltamos hasta el punto actual
+							if questions[it]["item_id"] == actual_next[selected]["data"]["id"]:
+								restriction_dict = {}
+								verification = "    data.slice().reverse().forEach (function (element) { \n"
+								temporal_cont = 0
+								for index, next_dict in enumerate(actual_next[selected]["data"]["restrictions"]):
+									verification += '      if (answer['+ str(index) +'] !== "false"){\n'
+									for restriction in actual_next[selected]["data"]["restrictions"][next_dict]:
+										for key, value in restriction.items():
+											restriction_dict[key] = "true"
+											if value == False:
+												value = 'No'
+											elif value == True:
+												value = 'Yes'
+											verification += '        if (element.trialid === "'+ str(key) +'" && restriction_dict[' + str(temporal_cont) + ']["'+ str(key) +'"] === "true"){ answer['+ str(index) +'] = (element['+ "'" +'responses'+ "'" +'] === '+ "'" +'{"Q0":"' + str(value) + '"}'+ "'" +').toString(); restriction_dict[' + str(index) + ']["'+ str(key) +'"] = "false"}\n'
+									verification += '      }\n'
+									temporal_cont = index + 1
+								verification += '    });\n'
 
+								restriction_array = [restriction_dict] * temporal_cont
 
-							restriction_array = []
-							for temporal in range(temporal_cont):
-								restriction_array.append(restriction_dict)
-							content.append("var if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +" = { \n")
-							# i + 1 es para el caso de agregar tambien la pregunta llave que nos lleva al inicio del ciclo por lo que se usará solo i para agregar hasta la pregunta anterior
-							content.append("  timeline:[" + ", ".join([str(questions_experiment[actual_int]["questions"][e]["id"]) for e in range(it, i)]) + "], \n")
-							content.append("  conditional_function: function (){ \n")
-							content.append("    var data = jsPsych.data.get().values(); \n")
-							content.append("    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
-							content.append("    var answer = [" + ','.join(['""' for prev in questions[i]["next"]["data"][questions[it]["item_id"]]]) + "]; \n")
-							content.append(verification)
-							content.append("    for (var i = 0; i < answer.length; i++) \n")
-							content.append("      if (answer[i] === 'true') return true; \n")
-							content.append("    return false \n")
-							content.append("  } \n")
-							content.append("} \n")
-							content.append("\n")
-							questions_experiment[actual_int]["questions"].append({"id": "if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1), "tags": questions[i]["tags"]})
-							if questions[i]["tags"] != None:
-								for tag in questions[i]["tags"]:
-									if tag in tags_dict:
-										tags_dict[tag].append("if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1))
-									else:
-										tags_dict[tag] = ["if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1)]
-							break
-				elif questions[i]["next"]["type"] == "loop":
-					if loops != None and questions[i]["next"]["data"]["id"] in loops:
-						total_loops += 1
-						loops_dict[actual_id] = loops[questions[i]["next"]["data"] ["id"]]
-						questions_experiment[actual_int]["questions"].append({"id": "loop_"+ actual_id})
+								content.append("var if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont) +" = { \n")
+								# i + 1 es para el caso de agregar tambien la pregunta llave que nos lleva al inicio del ciclo por lo que se usará solo i para agregar hasta la pregunta anterior
+								content.append("  timeline:[" + ", ".join([str(questions_experiment[e]["id"]) for e in range(it, i)]) + "], \n")
+								content.append("  conditional_function: function (){ \n")
+								content.append("    var data = jsPsych.data.get().values(); \n")
+								content.append("    var restriction_dict = "+ json.dumps(restriction_array) +"; \n")
+								content.append("    var answer = [" + ','.join(['""' for prev in actual_next[selected]["data"]["restrictions"]]) + "]; \n")
+								content.append(verification)
+								content.append("    for (var i = 0; i < answer.length; i++) \n")
+								content.append("      if (answer[i] === 'true') return true; \n")
+								content.append("    return false \n")
+								content.append("  } \n")
+								content.append("} \n")
+								content.append("\n")
+								questions_experiment.append({"id": "if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont), "tags": questions[i]["tags"]})
+								if questions[i]["tags"] != None:
+									for tag in questions[i]["tags"]:
+										if tag in tags_dict:
+											tags_dict[tag].append("if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont))
+										else:
+											tags_dict[tag] = ["if_repeat_question"+ ("{:0"+str(len(str(abs(len(questions) - instructions))))+"d}").format(i+1-instruction_cont)]
+								break
+					elif selected == "loop":
+						if loops != None and questions[i]["next"]["data"]["id"] in loops:
+							total_loops += 1
+							loops_dict[actual_id] = loops[questions[i]["next"]["data"] ["id"]]
+							questions_experiment.append({"id": "loop_"+ actual_id})
+						else:
+							print("Error, loop " + questions[i]["next"]["data"]["id"] + " no encontrado en la lista de loops")
 					else:
-						print("Error, loop " + questions[i]["next"]["data"]["id"] + " no encontrado en la lista de loops")
+						print("error al seleccionar la pregunta siguiente en " + actual_next[selected]["data"]["id"])
+						return
 
 			# si llegamos al punto mencionado en next, borramos los elementos que coincidan con este punto en la lista
 			actual = 0
@@ -518,56 +511,60 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 		content.append("\n")
 
 	# Criterio de termino
-	for index, criteria in enumerate(end_criterion):
-		content.insert(0, "var end_criterion_" + str(index + 1) + " = 0\n")
-		for key, value in criteria.items():
-			tags_cont = 0
-			for tag in value["tags"]:
-				tags_cont += 1
-				if not (tag in tags_dict):
-					print("Error al encontrar el tag " + tag + " definido en los criterios de término.")
-					return False
-				for question in tags_dict[tag]:
-					element = question.split("_")[-1]
+	if end_criterion != None:
+		for index, criteria in enumerate(end_criterion):
+			content.insert(0, "var end_criterion_" + str(index + 1) + " = 0\n")
+			for key, value in criteria.items():
+				tags_cont = 0
+				for tag in value["tags"]:
+					tags_cont += 1
+					if not (tag in tags_dict):
+						print("Error al encontrar el tag " + tag + " definido en los criterios de término.")
+						return False
+					for question in tags_dict[tag]:
+						element = question.split("_")[-1]
 
-					content.append("temporal_function = function(){ }\n\n")
-					content.append('if ("on_finish" in '+ element +')\n')
-					content.append('  temporal_function = '+ element +'.on_finish;\n')
-					content.append('\n')
+						content.append("temporal_function = function(){ }\n\n")
+						content.append('if ("on_finish" in '+ element +')\n')
+						content.append('  temporal_function = '+ element +'.on_finish;\n')
+						content.append('\n')
 
-					content.append(element +".on_finish = function(){ \n")
-					content.append("  temporal_function; \n")
-					content.append("  var data = jsPsych.data.get().values(); \n")
-					for actual_question in questions:
-						if actual_question["question_id"] == element:
-							if "correct_answer" in actual_question:
-								content.append('  if ( JSON.parse(data[data.length - 1].responses)["Q0"] ' +( ("==") if (value["type"] == "correct") else ("!=") )+ ' "' + actual_question["correct_answer"] + '") \n')
-								content.append('    end_criterion_' + str(index + 1) + ' += 1; \n')
-								if key == "consecutive":
-									content.append('  else \n')
-									content.append('    end_criterion_' + str(index + 1) + ' = 0; \n')
-								content.append('\n')
-					content.pop()
-					content.append('  if ( end_criterion_' + str(index + 1) +' >= ' + str(value["value"]) + ' ) \n')
-					content.append('    jsPsych.endExperiment("' + ((value["message"]) if ("message" in value) else (""))  + '");\n')
-					content.append("}\n\n")
-
-
-			print(key)
+						content.append(element +".on_finish = function(){ \n")
+						content.append("  temporal_function; \n")
+						content.append("  var data = jsPsych.data.get().values(); \n")
+						for actual_question in questions:
+							if actual_question["question_id"] == element:
+								if "correct_answer" in actual_question:
+									content.append('  if ( JSON.parse(data[data.length - 1].responses)["Q0"] ' +( ("==") if (value["type"] == "correct") else ("!=") )+ ' "' + actual_question["correct_answer"] + '") \n')
+									content.append('    end_criterion_' + str(index + 1) + ' += 1; \n')
+									if key == "consecutive":
+										content.append('  else \n')
+										content.append('    end_criterion_' + str(index + 1) + ' = 0; \n')
+									content.append('\n')
+						content.pop()
+						content.append('  if ( end_criterion_' + str(index + 1) +' >= ' + str(value["value"]) + ' ) \n')
+						content.append('    jsPsych.endExperiment("' + ((value["message"]) if ("message" in value) else (""))  + '");\n')
+						content.append("}\n\n")
 
 	# impresión de orden de preguntas:
-	content.append("questions = []\n")
-	for index, actual_dict in enumerate(questions_experiment):
-		content.append("questions_experiment = []\n")
-		#print( "_".join(element["id"] for element in questions_experiment[index]["questions"]))
-		for question in actual_dict["questions"]:
+	actual_int = questions_experiment[0]["id"]
+	for index, question in enumerate(questions_experiment):
+
+		if not (("item_id" in question) and question["item_id"].split("_")[0] == "Instruction"):
 			content.append("questions_experiment.push(" + question["id"] + ");\n")
 
-		if instructions[index]["random_mode"]:
-			content.append("questions_experiment = jsPsych.randomization.repeat(questions_experiment,1);\n")
+		if (index == len(questions_experiment) - 1 or (("item_id" in question) and question["item_id"].split("_")[0] == "Instruction")) and index > 0:
+			if instruction_random_mode:
+				content.append("questions_experiment = jsPsych.randomization.repeat(questions_experiment,1);\n")
 
-		content.append("questions_experiment.unshift(" + actual_dict["instruction"] + ");\n")
-		content.append("questions.push.apply(questions, questions_experiment)\n\n")
+			content.append("questions_experiment.unshift(" + actual_int + ");\n")
+			content.append("questions.push.apply(questions, questions_experiment)\n\n")
+
+		if (("item_id" in question) and (question["item_id"].split("_")[0] == "Instruction")):
+			actual_int = question["id"]
+			content.append("questions_experiment = []\n")
+
+
 
 	# If is required, we add the fullscreen window
 	if fullscreen["fullscreen_mode"]:
@@ -779,6 +776,7 @@ def main():
 	# ---------------------------- TODO -----------------------------
 
 	experiment = []
+	instruction_cont = 0
 	# create test
 	for i in range(len(items)):
 		item_type = items[i].type
@@ -790,39 +788,41 @@ def main():
 			fullscreen = {"fullscreen_mode": True, "base_text": base_text}
 			fullscreen_mode = True
 		elif (item_type=="instruction"):
-			actual_instruction = {}
+			actual_question = {}
+			actual_question["type"] = item_type
 			try:
-				actual_instruction["title"] = str(items[i].arguments["title"])
+				actual_question["title"] = str(items[i].arguments["title"])
 			except:
 				pass
 			try:
-				actual_instruction["instruction"] = items[i].arguments["text"].replace("\n", "<br>")
-
-				if ( type(actual_instruction["instruction"]) != str and type(actual_instruction["instruction"]) != list ):
-					actual_instruction["instruction"] = str(actual_instruction["instruction"]).replace("\n", "<br>")
-				elif ( type(actual_instruction["instruction"]) == str ):
-					actual_instruction["instruction"] = [(actual_instruction["instruction"]).replace("\n", "<br>")]
-				elif ( type(actual_instruction["instruction"]) == list ):
-					for index in len(actual_instruction["instruction"]):
-						actual_instruction["instruction"][index] = str(actual_instruction["instruction"][index]).replace("\n", "<br>")
+				actual_question["instruction"] = items[i].arguments["text"]
+				if ( type(actual_question["instruction"]) != str and type(actual_question["instruction"]) != list ):
+					actual_question["instruction"] = str(actual_question["instruction"]).replace("\n", "<br>")
+				elif ( type(actual_question["instruction"]) == str ):
+					actual_question["instruction"] = [(actual_question["instruction"]).replace("\n", "<br>")]
+				elif ( type(actual_question["instruction"]) == list ):
+					for index in len(actual_question["instruction"]):
+						actual_question["instruction"][index] = str(actual_question["instruction"][index]).replace("\n", "<br>")
 			except:
 				pass
 			try:
-				actual_instruction["random_mode"] = (items[i].arguments["questions_mode"] == "random")
+				actual_question["random_mode"] = (items[i].arguments["questions_mode"] == "random")
 			except:
-				actual_instruction["random_mode"] = False
+				actual_question["random_mode"] = False
 			try:
 				if items[i].tags != None:
-					actual_instruction["tags"] = (([str(e) for e in items[i].tags]) if (type(items[i].tags) == list) else ([str(items[i].tags)]))
+					actual_question["tags"] = (([str(e) for e in items[i].tags]) if (type(items[i].tags) == list) else ([str(items[i].tags)]))
 				else:
-					actual_instruction["tags"] = None
+					actual_question["tags"] = None
 			except:
 				pass
 
-			actual_instruction["previous_questions"] = questions_cont
+			actual_question["previous_questions"] = questions_cont
 			#actual_instruction["loop"] = items[i].loop
+			instruction_cont += 1
+			actual_question["item_id"] = "Instruction_" + str(instruction_cont)
 
-			instructions.append(actual_instruction)
+			questions.append(actual_question)
 		elif (item_type == "multi_choice") or (item_type == "multi_select") or (item_type=="text") or (item_type=="number")  or (item_type=="date") or (item_type == "range") or (item_type == "animation") or (item_type == "slider"):
 			actual_question = {}
 			actual_question["type"] = item_type
@@ -972,7 +972,8 @@ def main():
 			error = True
 	# se arreglan los id's dependiendo de la cantidad de elementos de la pregunta i
 	for question in questions:
-		question["item_id"] = (''.join(question["item_id"].split('_')[:-1]) + "_" + ("0"*(len(str(abs((ids[''.join(question["item_id"].split('_')[:-1])])))) - len(str(abs(( int(question["item_id"].split('_')[-1]))))) )) + question["item_id"].split('_')[-1] )
+		if question["item_id"].split("_")[0] != "Instruction":
+			question["item_id"] = (''.join(question["item_id"].split('_')[:-1]) + "_" + ("0"*(len(str(abs((ids[''.join(question["item_id"].split('_')[:-1])])))) - len(str(abs(( int(question["item_id"].split('_')[-1]))))) )) + question["item_id"].split('_')[-1] )
 
 	if (not fullscreen_mode):
 		fullscreen = {"fullscreen_mode": False}
@@ -990,7 +991,7 @@ def main():
 	if images:
 		shutil.copytree(PATH + '/images/' + images, PATH + '/'+ file_name + "/images")
 
-	experiment = writeExperiment(file_name, instructions, questions, loops, fullscreen=fullscreen, end_criterion=end_criterion)
+	experiment = writeExperiment(file_name, instruction_cont, questions, loops, fullscreen=fullscreen, end_criterion=end_criterion)
 	writeConfig(file_name)
 	writeIndex(file_name, plugins)
 
