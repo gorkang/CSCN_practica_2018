@@ -13,7 +13,7 @@ Actualmente hay 2 formas de uso para el sistema de maker.
 - El primero y más simple es correr el comando
 
 	> python3 maker.&#8203;py
-  
+
 	desde la carpeta de maker, con esto se lanzará el sistema de maker de manera normal leyendo el archivo data.yaml encontrado en la misma carpeta (el cual debe ser llenado con los datos del experimento que se desee crear).
 
 - El segundo es usar el sistema de multimaker como se explica en su sección respectiva ([Multimaker](#sistema-multimaker)).
@@ -30,7 +30,7 @@ Es importante destacar que yaml funciona como una extensión para armar el docum
     text: |
       acá va el texto con variables como {variable: nombre_variable},
       saltos de linea
-      o imágenes {imagen: nombre_imagen.extension} 
+      o imágenes {imagen: nombre_imagen.extension}
   ```
 
 - El nombre de item de la configuración siempre debe ser "test configuration"
@@ -47,7 +47,7 @@ Primero que todo, se debe definir un id para el item en cuestión, este será pr
 - Item-prueba:
 ```
 
-Luego, si se desea acceder al primer item llamado Item-prueba se puede llamar usando __Item-prueba\_1__ y al segundo de la forma __Item-prueba\_2__, al item extra se puede acceder como __Item-extra\_1__ ya que es el primer item con ese nombre en la lista mostrada. La mayoría de los nombres de los items son de elección personal del usuario, el único que está restringido es "- test configuration:" ya que es usado para almacenar los datos del experimento y debe ser el primer item en la lista. 
+Luego, si se desea acceder al primer item llamado Item-prueba se puede llamar usando __Item-prueba\_1__ y al segundo de la forma __Item-prueba\_2__, al item extra se puede acceder como __Item-extra\_1__ ya que es el primer item con ese nombre en la lista mostrada. La mayoría de los nombres de los items son de elección personal del usuario, el único que está restringido es "- test configuration:" ya que es usado para almacenar los datos del experimento y debe ser el primer item en la lista.
 
 Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta, a continuación se mostrarán los distintos tipos de items que pueden ser creados:
 
@@ -111,7 +111,7 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
         type: instruction
         arguments:
             - title: Sistema de Pruebas
-            - text: 
+            - text:
             	- A continuación podrá ver una serie de instrucciones, lealas con atención.
             	- Elija la opción que le parezca más correcta según su método de trabajo.
             	- Una vez terminado el test favor llamar al instructor.
@@ -125,17 +125,17 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
 >
 > Previous permite "ocultar" una pregunta si no se cumple alguna condición, las distintas opciones se escriben como una lista de listas, los elementos dentro de cada lista deben cumplirse como restricciones "and", esto significa que deben cumplirse todos los elementos dentro de la lista, y la separación de listas genera la opción de restricciones "or" lo que significa que deben cumplirse todas las condiciones de la lista 1 o todas las condiciones de la lista 2 para que la pregunta sea mostrada.
 >
-> Next permite saltar de una pregunta a otra dependiendo de las distintas condiciones que se hayan creado durante el experimento, al igual que en la opción previous se tiene una lista de listas pero estas están adjuntas a un elemento mas grande que es el item al cual se quiere saltar en caso que se cumplan las condiciones de las listas. La pregunta de salto puede ser una pregunta siguiente en el test o una anterior. 
+> Next permite saltar de una pregunta a otra dependiendo de las distintas condiciones que se hayan creado durante el experimento, al igual que en la opción previous se tiene una lista de listas pero estas están adjuntas a un elemento mas grande que es el item al cual se quiere saltar en caso que se cumplan las condiciones de las listas. La pregunta de salto puede ser una pregunta siguiente en el test o una anterior.
 >
 > Los nombres de las listas tanto de previous o next no tienen relevancia, solo son usadas para poder identificar los and's de los or's, por orden se recomienda usar L1, L2, etc.
 >
 > Además de esto también se puede usar el tag "chocen_value" para guardar una variable que se quiera usar más adelante, la variable almacenará la respuesta del usuario y puede ser usada de la forma {variable:nombre\_de\_variable} en los textos de las preguntas posteriores.
 >
-> Por otro lado, en los argumentos hay algunos tags que son comunes para todos los tipos de preguntas, en este caso tenemos: 
+> Por otro lado, en los argumentos hay algunos tags que son comunes para todos los tipos de preguntas, en este caso tenemos:
 >
-> - "title", para seleccionar un texto que se mostrará con letra tipo __negrita__ en la pregunta. 
-> - "text", que es el texto de la pregunta en si. 
-> - "error_message", para seleccionar un mensaje de error para la pregunta, en caso que no se elija ninguno se usará el mensaje automático "Por favor verifique su respuesta". 
+> - "title", para seleccionar un texto que se mostrará con letra tipo __negrita__ en la pregunta.
+> - "text", que es el texto de la pregunta en si.
+> - "error_message", para seleccionar un mensaje de error para la pregunta, en caso que no se elija ninguno se usará el mensaje automático "Por favor verifique su respuesta".
 > - "chocen_value", para poder almacenar la respuesta del usuario en una variable que se pueda usar más adelante.
 > - "required", para hacer que la pregunta deba responderse obligatoriamente.
 
@@ -163,23 +163,26 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
     - Personal-information:
         type: number
         next:
-        	Mayor_1:
-              L1:
-                - number: 20
+          - question:
+              data:
+                id: Mayor_1
+                restrictions:
+                  L1:
+                    - number: 20
         arguments:
           text: A continuación indique su edad
           range: [0,150]
           chocen_value: edad
     ```
 
-    
+
 
 - **date**: Este item usa el plugin jspsych-survey-text, al igual que el item texto este item muestra un cuadro en el que el usuario puede responder, la diferencia es que en este caso al apretar en el cuadro se despliega una ventana con el calendario para poder seleccionar la fecha de una manera más simple.
 
-- **range**:  Este item usa el plugin jspsych-survey-text, a pesar de usar este plugin, en este caso este item generará un slider y un cuadro numérico, el usuario podrá seleccionar su respuesta en cualquiera de los 2 lados. 
+- **range**:  Este item usa el plugin jspsych-survey-text, a pesar de usar este plugin, en este caso este item generará un slider y un cuadro numérico, el usuario podrá seleccionar su respuesta en cualquiera de los 2 lados.
   >Nota: Este slider está hecho para preguntas en las que haya que dar una respuesta con porcentajes o númerica como "De las 20 personas presentadas ¿Que porcentaje de personas cree usted que leyeron el periódico el día de hoy?", no un slider de decisión como "¿Que tan mala crees que haya sido esta acción?" en la cual el slider tendrá que tener las palabras muy mala y nada mala en los extremos derecho e izquierdo respectivamente, para este último slider usar el tipo [slider](#slider)
 
-- **multi choice**: Este item usa el plugin jspsych-survey-multi-choice. Permite crear preguntas con respuestas prediseñadas de manera que el usuario pueda seleccionar una de ellas al responder y no sea necesario que escriba sus propias respuestas. 
+- **multi choice**: Este item usa el plugin jspsych-survey-multi-choice. Permite crear preguntas con respuestas prediseñadas de manera que el usuario pueda seleccionar una de ellas al responder y no sea necesario que escriba sus propias respuestas.
 
     Un ejemplo de multi choice sería el siguiente:
 
@@ -190,18 +193,21 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
           L1:
             - Alcohol_1: Si
         next:
-          Tabaco_5:
-            - L1:
-              - Tabaco_2: Nunca.
-              - Alcohol_2: Nunca.
-              - Cannabis_1: No
-              - Cocaina_1: No
-              - Anfetamina_1: No
-              - Inhalantes_1: No
-              - Tranquilizantes_1: No
-              - Alucinogenos_1: No
-              - Opiaceos_1: No
-              - Otros_1: No
+          - question:				
+            data:
+              id: Tabaco_5
+              restrictions:
+                L1:
+                  - Tabaco_2: Nunca.
+                  - Alcohol_2: Nunca.
+                  - Cannabis_1: No
+                  - Cocaina_1: No
+                  - Anfetamina_1: No
+                  - Inhalantes_1: No
+                  - Tranquilizantes_1: No
+                  - Alucinogenos_1: No
+                  - Opiaceos_1: No
+                  - Otros_1: No
         arguments:
           text: ¿Con qué frecuencia ha consumido bebidas alcohólicas (cerveza, vino, licores, destilados, etc.) en los últimos 3 meses?
           choices: likert_5
@@ -219,7 +225,7 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
         type: multi select
         arguments:
           text: Ahora mira este objeto:<br/><br/>Dos de estos cuatro dibujos muestran el mismo objeto.<br />&iquest;Puedes encontrar los dos? <br/>
-          choices: 
+          choices:
             - image: pag1_3_0.png   
             - image: pag1_3_1.png   
             - image: pag1_3_2.png
@@ -239,7 +245,7 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
 
 ### Agregar imágenes al sistema
 
-Para agregar imágenes al sistema, primero que todo, se debe acceder a la carpeta "images" encontrada en la carpeta maker del sistema, una vez ahí se debe crear la carpeta de imágenes que se usará y agregar todas las imágenes que se desee a esta carpeta. 
+Para agregar imágenes al sistema, primero que todo, se debe acceder a la carpeta "images" encontrada en la carpeta maker del sistema, una vez ahí se debe crear la carpeta de imágenes que se usará y agregar todas las imágenes que se desee a esta carpeta.
 
 Una vez creada la carpeta y agregadas las imágenes deseadas se debe agregar la misma al sistema maker, esto se hace desde el item [test configuration](#test_configuration) como se explica en la sección anterior, esto permitirá el acceso del sistema maker a todas las imágenes que estén almacenadas en esa carpeta.
 
@@ -254,7 +260,7 @@ Esta sección será usada para poder explicar los módulos actualmente agregados
 
 ### Sistema Multimaker
 
-El sistema multimaker es una extensión del sistema maker, en el cual se podrán crear varias pruebas en un solo lanzamiento del sistema maker, para su uso se debe agregar los archivos yaml que se deseen usar a la carpeta "multi_maker" que se encuentra dentro del sistema maker, y luego correr el comando: 
+El sistema multimaker es una extensión del sistema maker, en el cual se podrán crear varias pruebas en un solo lanzamiento del sistema maker, para su uso se debe agregar los archivos yaml que se deseen usar a la carpeta "multi_maker" que se encuentra dentro del sistema maker, y luego correr el comando:
 
 > python3 multi_maker.py
 

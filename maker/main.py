@@ -17,11 +17,8 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 	content = f.readlines()
 	f.close()
 
-	breaker = 0
-	next_element = []
-	verifications = []
 	jump_list = []
-	variables = {}
+	#variables = {}
 	text_modify = False
 	text_variables = []
 	stimulus_variables = []
@@ -93,15 +90,6 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 						tags_dict[tag].append("instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont))
 					else:
 						tags_dict[tag] = ["instruction_screen_experiment_" + ("{:0"+str(len(str(abs(instructions))))+"d}").format(instruction_cont)]
-
-			'''
-			if instructions[actual_int] != instructions[-1]:
-				breaker = instructions[actual_int + 1]["previous_questions"] - 1
-				if instructions[actual_int]["previous_questions"] == instructions[instruction_cont]["previous_questions"]:
-					jump_while = True
-			elif instructions[actual_int] == instructions[-1]:
-				breaker = len(questions)
-			'''
 
 			if "next" in questions[i]:
 				if loops != None and questions[i]["next"]["data"] in loops:
@@ -265,7 +253,7 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 			content.append("  data: {trialid: '"+ questions[i]["item_id"] +"'}")
 
 			if ("variable" in questions[i]):
-				variables[questions[i]["variable"]] = questions[i]["item_id"]
+				#variables[questions[i]["variable"]] = questions[i]["item_id"]
 				content.append(",\n  on_finish: function(data) {\n")
 				content.append("      variables['"+questions[i]["variable"]+"'] = data.responses.substr(7, data.responses.length - 9);\n")
 				content.append("  }\n")
@@ -436,8 +424,6 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 					actual -= 1
 				actual += 1
 
-			if i == breaker:
-				break
 			i += 1
 
 	loop_questions = {}
