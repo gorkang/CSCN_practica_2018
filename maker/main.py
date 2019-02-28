@@ -15,7 +15,6 @@ def writeExperiment(file_name, instructions, questions, loops, fullscreen={"full
 	PATH = os.getcwd()
 	f = open(PATH + '/'+ file_name + '/experiment.js', 'r')
 	content = f.readlines()
-	print(content)
 	f.close()
 
 	jump_list = []
