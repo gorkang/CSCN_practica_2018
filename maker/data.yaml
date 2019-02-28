@@ -16,6 +16,22 @@
         - No, nunca.
         - Si, en los últimos 3 meses.
         - Si, pero no en los últimos 3 meses.
+    loops:
+      loop1:
+        tags:
+          - alola
+        questions_mode: sequential #sequential, (TODO random, reverse)
+        end-criterion:
+          - consecutive:
+              type: correct
+              value: 2
+              #next: TODO
+              #  question: pregunta6
+          - total:
+              type: incorrect
+              value: 3
+              #next:
+              #  loop: loop2
 
 - initial:
     type: fullscreen
@@ -37,6 +53,13 @@
       text: A lo largo de su vida, ¿consumió alguna vez tabaco (cigarrillos, cigarros habanos, tabaco de mascar, pipa, etc.)?
       choices: si_no
       orientation: vertical
+    next:
+      - loop:
+          data:
+            id: loop1
+            restrictions:
+              L1:
+                - Tabaco_1: Si
 
 - Alcohol:
     type: multi choice
@@ -44,6 +67,9 @@
       text: A lo largo de su vida, ¿consumió alguna vez bebidas alcohólicas (cerveza, vino, licores, destilados, etc.)?
       choices: si_no
       orientation: vertical
+      correct_answer: Si
+    tags:
+      - alola
 
 - Cannabis:
     type: multi choice

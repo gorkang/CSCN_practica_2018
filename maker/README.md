@@ -129,7 +129,7 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
 >
 > Los nombres de las listas tanto de previous o next no tienen relevancia, solo son usadas para poder identificar los and's de los or's, por orden se recomienda usar L1, L2, etc.
 >
-> Además de esto también se puede usar el tag "chocen_value" para guardar una variable que se quiera usar más adelante, la variable almacenará la respuesta del usuario y puede ser usada de la forma {variable:nombre\_de\_variable} en los textos de las preguntas posteriores.
+> Además de esto también se puede usar el tag "chocen_value" para guardar una variable que se quiera usar más adelante, la variable almacenará la respuesta del usuario y puede ser usada de la forma {variable: nombre\_de\_variable} en los textos de las preguntas posteriores.
 >
 > Por otro lado, en los argumentos hay algunos tags que son comunes para todos los tipos de preguntas, en este caso tenemos:
 >
@@ -153,7 +153,7 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
           chocen_value: otra_sustancia
     ```
 
-    Como se puede ver esta es una pregunta de texto que solo se mostrará si en la primera pregunta con nombre de item "Otros" se seleccionó "Si", además, una vez se responda a esta pregunta, el sistema almacenará la respuesta del usuario en una variable llamada "otra\_sustancia", el cual podrá ser usado más adelante de la forma {variable:otra\_sustancia}.
+    Como se puede ver esta es una pregunta de texto que solo se mostrará si en la primera pregunta con nombre de item "Otros" se seleccionó "Si", además, una vez se responda a esta pregunta, el sistema almacenará la respuesta del usuario en una variable llamada "otra\_sustancia", el cual podrá ser usado más adelante de la forma {variable: otra\_sustancia}.
 
 - **number**: Este item usa el plugin jspsych-survey-text y funciona de manera parecida al item de texto, la diferencia es que en este caso el usuario debe ingresar un número y se puede poner un rango o número determinado a la respuesta, en caso que el usuario escriba un número fuera del rango o del valor decidido la pregunta lanzará un error y el usuario deberá responder nuevamente
 
@@ -194,20 +194,20 @@ Dependiendo del tipo de item que se quiera escribir, la sintaxis será distinta,
             - Alcohol_1: Si
         next:
           - question:				
-            data:
-              id: Tabaco_5
-              restrictions:
-                L1:
-                  - Tabaco_2: Nunca.
-                  - Alcohol_2: Nunca.
-                  - Cannabis_1: No
-                  - Cocaina_1: No
-                  - Anfetamina_1: No
-                  - Inhalantes_1: No
-                  - Tranquilizantes_1: No
-                  - Alucinogenos_1: No
-                  - Opiaceos_1: No
-                  - Otros_1: No
+              data:
+                id: Tabaco_5
+                restrictions:
+                  L1:
+                    - Tabaco_2: Nunca.
+                    - Alcohol_2: Nunca.
+                    - Cannabis_1: No
+                    - Cocaina_1: No
+                    - Anfetamina_1: No
+                    - Inhalantes_1: No
+                    - Tranquilizantes_1: No
+                    - Alucinogenos_1: No
+                    - Opiaceos_1: No
+                    - Otros_1: No
         arguments:
           text: ¿Con qué frecuencia ha consumido bebidas alcohólicas (cerveza, vino, licores, destilados, etc.) en los últimos 3 meses?
           choices: likert_5
@@ -274,4 +274,4 @@ Actualmente hay 5 plugins implementados para el uso del sistema maker:
 - __jspsych-instructions:__ Plugin para poder mostrar instrucciones al usuario y guiarlo durante el experimento. Permite que los sujetos naveguen a través de múltiples páginas de instrucciones a su propio ritmo, registrando cuánto tiempo pasa el sujeto en cada página. La navegación se puede hacer con el mouse o el teclado. Se puede permitir que los sujetos naveguen hacia adelante y hacia atrás a través de las páginas, si lo desea. Se puede agregar título y texto, en el texto también se pueden incluir imágenes si así se desea usando las llaves del modo {image:nombre_imagen} (previamente habiendo seleccionado la carpeta para agregar estas imágenes).
 - __jspsych-survey-multi-choice:__ Plugin para agregar un conjunto de preguntas con campos de respuesta de opción múltiple. El sujeto selecciona una sola respuesta. Las opciones se muestran con botones circulares (de radio).
 - __jspsych-survey-multi-select:__ Plugin para agregar un conjunto de preguntas con campos de respuesta de opción múltiple. El sujeto selecciona una múltiples respuestas. Las opciones se muestran con botones cuadrados (de tipo select).
-- __jspsych-survey-text:__ Plugin que muestra un conjunto de preguntas con campos de texto de respuesta libre. Actualmente está optimizado para recibir respuestas numéricas, de texto, de fecha o un slider.
+- __jspsych-survey-text:__ Plugin que muestra un conjunto de preguntas con campos de texto de respuesta libre. Actualmente está optimizado para recibir respuestas numéricas, de texto, de fecha o un slider. Explicaciones detalladas del uso y manejo del plugin en javascript se pueden encontrar en el pull request realizado al [git de jsPsych](https://github.com/jspsych/jsPsych/pull/593).
