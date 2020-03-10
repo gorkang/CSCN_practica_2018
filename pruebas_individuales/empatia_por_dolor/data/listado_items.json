@@ -1,0 +1,218 @@
+listado_items = [
+  {
+    "ID_item": 1,
+    "frame1": "p_i2_baseballbat_frame001.bmp",
+    "frame2": "p_i2_baseballbat_frame002.bmp",
+    "frame3": "p_i2_baseballbat_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 2,
+    "frame1": "p_i2_hairpulling_frame001.bmp",
+    "frame2": "p_i2_hairpulling_frame002.bmp",
+    "frame3": "p_i2_hairpulling_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 3,
+    "frame1": "p_u2_doorleg_frame001.bmp",
+    "frame2": "p_u2_doorleg_frame002.bmp",
+    "frame3": "p_u2_doorleg_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 4,
+    "frame1": "p_i2_pushlockers_frame001.bmp",
+    "frame2": "p_i2_pushlockers_frame002.bmp",
+    "frame3": "p_i2_pushlockers_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 5,
+    "frame1": "action_flower_frame001_R.bmp",
+    "frame2": "action_flower_frame002_R.bmp",
+    "frame3": "action_flower_frame003_R.bmp",
+    "intentionality": "action",
+    "personal": "no_person",
+    "R": "r"
+  },
+  {
+    "ID_item": 6,
+    "frame1": "p_i2_trip_frame001.bmp",
+    "frame2": "p_i2_trip_frame002.bmp",
+    "frame3": "p_i2_trip_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 7,
+    "frame1": "p_u2_tennis_frame001.bmp",
+    "frame2": "p_u2_tennis_frame002.bmp",
+    "frame3": "p_u2_tennis_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 8,
+    "frame1": "p_u2_bowling_frame001.bmp",
+    "frame2": "p_u2_bowling_frame002.bmp",
+    "frame3": "p_u2_bowling_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 9,
+    "frame1": "p_i2_benchshove_frame001_R.bmp",
+    "frame2": "p_i2_benchshove_frame002_R.bmp",
+    "frame3": "p_i2_benchshove_frame003_R.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "r"
+  },
+  {
+    "ID_item": 10,
+    "frame1": "p_u2_soccer_frame001.bmp",
+    "frame2": "p_u2_soccer_frame002.bmp",
+    "frame3": "p_u2_soccer_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 11,
+    "frame1": "p_u2_bump_frame001.bmp",
+    "frame2": "p_u2_bump_frame002.bmp",
+    "frame3": "p_u2_bump_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 12,
+    "frame1": "p_i2_scissors_001.bmp",
+    "frame2": "p_i2_scissors_002.bmp",
+    "frame3": "p_i2_scissors_003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 13,
+    "frame1": "p_u2_chairbump_frame001.bmp",
+    "frame2": "p_u2_chairbump_frame002.bmp",
+    "frame3": "p_u2_chairbump_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 14,
+    "frame1": "p_u2_bikefoot_frame001.bmp",
+    "frame2": "p_u2_bikefoot_frame002.bmp",
+    "frame3": "p_u2_bikefoot_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 15,
+    "frame1": "action_dumpster_frame001_R.bmp",
+    "frame2": "action_dumpster_frame002_R.bmp",
+    "frame3": "action_dumpster_frame003_R.bmp",
+    "intentionality": "action",
+    "personal": "no_person",
+    "R": "r"
+  },
+  {
+    "ID_item": 16,
+    "frame1": "p_i2_choke_frame001.bmp",
+    "frame2": "p_i2_choke_frame002.bmp",
+    "frame3": "p_i2_choke_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 17,
+    "frame1": "p_u2_fingerdrawer_frame001.bmp",
+    "frame2": "p_u2_fingerdrawer_frame002.bmp",
+    "frame3": "p_u2_fingerdrawer_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 18,
+    "frame1": "p_u2_garbagebump_frame001.bmp",
+    "frame2": "p_u2_garbagebump_frame002.bmp",
+    "frame3": "p_u2_garbagebump_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 19,
+    "frame1": "p_i2_knifestab_frame001.bmp",
+    "frame2": "p_i2_knifestab_frame002.bmp",
+    "frame3": "p_i2_knifestab_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 20,
+    "frame1": "p_u2_golf_frame001.bmp",
+    "frame2": "p_u2_golf_frame002.bmp",
+    "frame3": "p_u2_golf_frame003.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 21,
+    "frame1": "p_u2_poolstick_frame001_R.bmp",
+    "frame2": "p_u2_poolstick_frame002_R.bmp",
+    "frame3": "p_u2_poolstick_frame003_R.bmp",
+    "intentionality": "unintencional",
+    "personal": "person",
+    "R": "r"
+  },
+  {
+    "ID_item": 22,
+    "frame1": "action_notebook2_frame001.bmp",
+    "frame2": "action_notebook2_frame002.bmp",
+    "frame3": "action_notebook2_frame003.bmp",
+    "intentionality": "action",
+    "personal": "no_person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 23,
+    "frame1": "p_i2_batbycar_frame001.bmp",
+    "frame2": "p_i2_batbycar_frame002.bmp",
+    "frame3": "p_i2_batbycar_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  },
+  {
+    "ID_item": 24,
+    "frame1": "p_i2_cane_frame001.bmp",
+    "frame2": "p_i2_cane_frame002.bmp",
+    "frame3": "p_i2_cane_frame003.bmp",
+    "intentionality": "intencional",
+    "personal": "person",
+    "R": "nr"
+  }
+]

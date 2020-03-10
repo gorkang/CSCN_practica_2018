@@ -1,0 +1,32 @@
+preguntas = [
+  {
+    "Anclaje_bajo": "nada triste",
+    "Anclaje_alto": "muy triste",
+    "Pregunta": "¿Qué tan triste se siente por la persona lastimada?"
+  },
+  {
+    "Anclaje_bajo": "ninguna molestia",
+    "Anclaje_alto": "mucha molestia",
+    "Pregunta": "¿Qué tanta molestia siente por lo que pasó?"
+  },
+  {
+    "Anclaje_bajo": "nada de mala",
+    "Anclaje_alto": "muy mala",
+    "Pregunta": "¿Qué tan mala es la persona que hizo la acción?"
+  },
+  {
+    "Anclaje_bajo": "nada feliz",
+    "Anclaje_alto": "muy feliz",
+    "Pregunta": "¿Qué tan feliz se siente la persona que hizo la acción?"
+  },
+  {
+    "Anclaje_bajo": "nada incorrecta",
+    "Anclaje_alto": "muy incorrecta",
+    "Pregunta": "¿Qué tan incorrecta fue la acción?"
+  },
+  {
+    "Anclaje_bajo": "ningún castigo",
+    "Anclaje_alto": "mucho castigo",
+    "Pregunta": "¿Cuánto castigo le daría a la persona que hizo la acción?"
+  }
+]

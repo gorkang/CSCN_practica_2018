@@ -233,7 +233,7 @@ function create_trials() {
   var animations = [];
   frames.forEach(function(frame) {
     animations.push({
-      stimulus: ['experimento/' + frame[0], 'experimento/' + frame[1], 'experimento/' + frame[2], frame[3], frame[4], frame[5]],
+      stimulus: ['experimento/' + frame[1], 'experimento/' + frame[2], 'experimento/' + frame[3], frame[4], frame[5], frame[6]],
       data_animation: {
         animation_id: index
       }
@@ -279,6 +279,7 @@ window.addEventListener('message', function(event) {
 })
 
 function getFrames() {
+  /*
   var frames_csv = new XMLHttpRequest();
   frames_csv.open('GET', 'data/listado_items1.csv');
   frames_csv.responseType = "text";
@@ -296,10 +297,17 @@ function getFrames() {
       }
     }
   }
-  frames_csv.send();
+  */
+  // frames_csv.send();
+
+  listado_items.forEach(element => {
+    frames.push(Object.values(element));
+  });
+  window.postMessage("frames_done", "*");
 }
 
 function getQuestions() {
+  /*
   var questions_csv = new XMLHttpRequest();
   questions_csv.open('GET', 'data/preguntas.csv');
   questions_csv.responseType = "text";
@@ -322,4 +330,10 @@ function getQuestions() {
     }
   }
   questions_csv.send();
+  */
+
+  preguntas.forEach(element => {
+    questions.push(Object.values(element));
+  });
+  window.postMessage("questions_done", "*");
 }
