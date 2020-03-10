@@ -280,7 +280,7 @@ window.addEventListener('message', function(event) {
 
 function getFrames() {
   var frames_csv = new XMLHttpRequest();
-  frames_csv.open('GET', 'listado_items1.csv');
+  frames_csv.open('GET', 'data/listado_items1.csv');
   frames_csv.responseType = "text";
   //["stimulus"] --> ghost variable
   frames_csv.onreadystatechange = function() {
@@ -301,7 +301,7 @@ function getFrames() {
 
 function getQuestions() {
   var questions_csv = new XMLHttpRequest();
-  questions_csv.open('GET', 'preguntas.csv');
+  questions_csv.open('GET', 'data/preguntas.csv');
   questions_csv.responseType = "text";
   questions_csv.onreadystatechange = function() {
     if (questions_csv.readyState === 4) {

@@ -49,7 +49,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			document_actual_line += 1
 		except:
 			pass
-		
+
 		# *************
 		content.insert(document_actual_line + 0, "    data:{trialid: 'Screen_WM'},\n")
 		content.insert(document_actual_line + 1, "    show_clickable_nav: true,\n")
@@ -77,7 +77,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			elif questions[i]["type"] == "text" or questions[i]["type"] == "number" or questions[i]["type"] == "date":
 				# actual question plugin:
 				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
-				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] +"', required: true}], \n")				
+				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] +"', required: true}], \n")
 			# *************
 			content.insert(document_actual_line + 3, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
 			content.insert(document_actual_line + 4, "};\n")
@@ -87,8 +87,8 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 			document_actual_line += 7
 			if i == breaker:
 				break
-		
-		
+
+
 
 		# Las preguntas almacenadas se desordenan en caso que se requiera
 		if instructions[actual_int]["random_mode"]:
@@ -105,7 +105,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	if fullscreen["fullscreen_mode"]:
 		content.insert(document_actual_line + 0, "if(window.innerWidth != screen.width || window.innerHeight != screen.height){\n")
 		content.insert(document_actual_line + 1, "  questions.unshift({\n")
-		content.insert(document_actual_line + 2, "    type: 'fullscreen',\n")	
+		content.insert(document_actual_line + 2, "    type: 'fullscreen',\n")
 		content.insert(document_actual_line + 3, "    message: '<p>" + fullscreen["base_text"] + "</p>',\n")
 		content.insert(document_actual_line + 4, "    button_label: 'Full screen',\n")
 		content.insert(document_actual_line + 5, "    delay_after: 0,\n")
@@ -156,7 +156,7 @@ def writeIndex(file_name, plugins):
 			else:
 				if os.path.exists(PATH + '/'+ file_name + '/jsPsych-6/plugins/'+plugin):
   					os.remove(PATH + '/'+ file_name + '/jsPsych-6/plugins/'+plugin)
-		
+
 		document_actual_line+=42
 		content.insert(document_actual_line, "                      name: '" + file_name + "_results'\n")
 		content.insert(document_actual_line + 3, "                    jsPsych.data.get().localSave('csv', '" + file_name + "_results.csv');\n")
@@ -187,10 +187,10 @@ def testing(PATH, file_name):
 	content = "".join(lines)
 	f.write(content)
 	f.close()
-	
+
 	os.system("pipenv shell python3 "+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py')
 	#p = Popen(str(Path(PATH).parents[2])+"/.pyenv/bin/pipenv shell", stdin=PIPE)   # set environment, start new shell
-	#p.communicate('python3 '+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit') 
+	#p.communicate('python3 '+'/'+ str(Path(PATH).parents[0]) + '/testing/test.py\n\nexit')
 
 	'''
 	# Actualmente no se está creando la carpeta automáticamente en las pruebas individuales, si se quiere hacer hay que descomentar esto
@@ -237,7 +237,7 @@ def main():
 			if class_name == "number" or class_name == "date":
 				cls = classes.__dict__["text"]
 			else:
-				cls = classes.__dict__[class_name]    
+				cls = classes.__dict__[class_name]
 
 			# Create object.
 			new_item_object = cls(item_id.replace(' ', '_'), spec)
@@ -246,7 +246,7 @@ def main():
 			items.append(cls(item_id.replace(' ', '_'), spec))
 
 	#next(item for item in items if item["item_id"] == "papas_fritas")
-	#for item in items: 
+	#for item in items:
 	#	print(item.__dict__)
 
 	# set actual state (read file name, read questions, read answers)
@@ -271,7 +271,7 @@ def main():
 		"jspsych-survey-text.js": False,
 	}
 
-	
+
 	# order items
 	# ---------------------------- TODO -----------------------------
 
@@ -309,7 +309,7 @@ def main():
 			try:
 				actual_question["orientation"] = items[i].arguments["orientation"]
 			except:
-				actual_question["orientation"] = None	
+				actual_question["orientation"] = None
 			#----------#
 			# Activación de plugins
 			if actual_question["type"] == "multi_choice":
@@ -333,11 +333,11 @@ def main():
 				plugins["jspsych-survey-text.js"] = True
 
 			try:
-				actual_question["preamble"] = items[i].arguments["preamble"] 
+				actual_question["preamble"] = items[i].arguments["preamble"]
 			except:
 				pass
 			try:
-				actual_question["text"] = items[i].arguments["text"] 
+				actual_question["text"] = items[i].arguments["text"]
 			except:
 				pass
 			questions_cont += 1
@@ -367,9 +367,7 @@ def main():
 	writeIndex(file_name, plugins)
 
 	print("Prueba creada con éxito.")
-	print("Iniciando testing de la prueba agregada...")
-	testing(PATH, file_name)
-	
+	#print("Iniciando testing de la prueba agregada...")
+	#testing(PATH, file_name)
+
 if __name__ == '__main__' : main()
-
-
