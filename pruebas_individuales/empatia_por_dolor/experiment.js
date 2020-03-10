@@ -233,9 +233,12 @@ function create_trials() {
   var animations = [];
   frames.forEach(function(frame) {
     animations.push({
-      stimulus: ['experimento/' + frame[1], 'experimento/' + frame[2], 'experimento/' + frame[3], frame[4], frame[5], frame[6]],
+      stimulus: ['experimento/' + frame[1], 'experimento/' + frame[2], 'experimento/' + frame[3]],
       data_animation: {
-        animation_id: index
+        animation_id: index,
+        animation_intentionality: frame[4],
+        animation_personal: frame[5],
+        animation_r: frame[6]
       }
     })
     index += 1;
