@@ -245,9 +245,9 @@ function create_trials() {
   var questions_variables = [];
   questions.forEach(function(question) {
     questions_variables.push({
-      scale_question: question.question,
-      left_option: question.low,
-      rigth_option: question.high,
+      scale_question: question[2],
+      left_option: question[0],
+      rigth_option: question[1],
       data_question: {
         question_id: question_index
       }
@@ -303,6 +303,7 @@ function getFrames() {
   listado_items.forEach(element => {
     frames.push(Object.values(element));
   });
+  // se llama a la funcion create_trials
   window.postMessage("frames_done", "*");
 }
 
