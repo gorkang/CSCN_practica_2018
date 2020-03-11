@@ -18,22 +18,22 @@
 
 # ---------------------- arregladas ------------------------
 
-#informacion_sociodemografica_simple
-#informacion_sociodemografica
-#wais_vocabulario
-#graph_literacy
-#CRT_verbal
-#abreviated_mathematics_anxiety_rating_scale
-#actividad_fisica
-#aislamiento_social_y_redes_sociales
-#ansiedad_matematica
-#CRT_numerico
-#CRT_MCQ4
-#habilidad_matematica
-#abreviated_mathematics_anxiety_rating_scale
-#a_priori_screening_belief
-#beck_anxiety_inventory
-#big_five
+informacion_sociodemografica_simple
+informacion_sociodemografica
+wais_vocabulario
+graph_literacy
+CRT_verbal
+abreviated_mathematics_anxiety_rating_scale
+actividad_fisica
+aislamiento_social_y_redes_sociales
+ansiedad_matematica
+CRT_numerico
+CRT_MCQ4
+habilidad_matematica
+abreviated_mathematics_anxiety_rating_scale
+a_priori_screening_belief
+beck_anxiety_inventory
+big_five
 #multiple_stimulus_types_ambiguity_tolerance_scale
 #need_for_cognition
 #DSS_decision_styles_scale
