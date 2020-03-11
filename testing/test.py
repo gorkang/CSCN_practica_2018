@@ -237,9 +237,17 @@ def main():
 				print('Se ha omitido la prueba ' + line[1:].rstrip('\n'))
 
 	if one_csv == True:
+		dataframes = []
 		all_filenames = [i for i in glob.glob('/'+PATH+'/testing/Downloads/*.{}'.format("csv"))]
+		filename_column = []
 		#combine all files in the list
-		combined_csv = pd.concat([pd.read_csv(f) for f in all_filenames ])
+		for file in all_filenames:
+			df = pandas.read_csv(file)
+			dataframes.append(df)
+			# se agrega a un arreglo el nombre de el experimento para guardarlo despues
+			filename_column += len(df) * [(file.split("/")[-1])]
+		combined_csv = pd.concat(dataframes)
+		combined_csv.insert(0, "filename", filename_column)
 		#export to csv
 		combined_csv.to_csv( "/"+PATH+"/testing/Downloads/combined_csv.csv", index=False, encoding='utf-8-sig')
 
