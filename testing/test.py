@@ -2,12 +2,13 @@
 #      Execute JavaScript
 # --------------------------
 
-import time, os, random, urllib.request
+import time, os, random, urllib.request, glob
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
+import pandas as pd
 
 # Para ver la imagen final instantaneamente al terminar una prueba
 # from PIL import Image
@@ -29,7 +30,7 @@ def main():
 	f.close()
 
 	config = BasicConfig()
-	
+
 	randomization = config.basic_config['random']
 	if randomization:
 		cont = random.randrange(10)
@@ -46,6 +47,9 @@ def main():
 	#if not os.path.exists('/'+PATH+'/testing/Images'):
 	#	os.makedirs('/'+PATH+'/testing/Images')
 
+	# Variable que activa la posibilidad de almacenar todos los datos en un solo csv
+	one_csv = True
+
 	# Creacion de driver de navegacion y configuraciones
 	firefox_driver = os.path.join(os.getcwd(), '/'+PATH+'/testing/browser_drivers/geckodriver')
 
@@ -53,16 +57,19 @@ def main():
 	profile.set_preference('browser.download.folderList', 2)
 	profile.set_preference('browser.download.manager.showWhenStarting', False)
 	profile.set_preference('browser.download.dir', '/'+PATH+'/testing/Downloads')
-	profile.set_preference('browser.helperApps.neverAsk.saveToDisk', 'text/plain, application/vnd.ms-excel, text/csv, text/comma-separated-values, application/octet-stream, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')	
+	profile.set_preference('browser.helperApps.neverAsk.saveToDisk', 'text/plain, application/vnd.ms-excel, text/csv, text/comma-separated-values, application/octet-stream, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
 	chrome_driver = PATH + "/testing/browser_drivers/chromedriver"
 	chrome_options = Options()
 	#chrome_options.add_argument("--headless")
+	chrome_options.binary_location = "/opt/google/chrome/google-chrome"
 	chrome_options.add_argument("--browser.helperApps.neverAsk.saveToDisk=text/plain, application/vnd.ms-excel, text/csv, text/comma-separated-values, application/octet-stream, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 	chrome_options.add_argument("--browser.download.manager.showWhenStarting=False")
 	chrome_options.add_argument('--browser.download.folderList=2')
 	prefs = {'download.default_directory' : "/"+PATH+"/testing/Downloads"}
 	chrome_options.add_experimental_option('prefs', prefs)
+
+
 
 	print("Elija navegador para probar el testing:")
 	print("1 - Chrome")
@@ -71,9 +78,9 @@ def main():
 	print("")
 
 	# Se leen las pruebas por fila para poder hacer las pruebas
-	file = open('/'+PATH+'/testing/test_list.txt', 'r') 
+	file = open('/'+PATH+'/testing/test_list.txt', 'r')
 
-	for line in file: 
+	for line in file:
 
 		if randomization:
 			cont = random.randrange(10)
@@ -87,7 +94,7 @@ def main():
 			print("Haciendo test: " + line.rstrip('\n'))
 			if driver_selection == 1:
 				driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_driver)
-			elif driver_selection == 2:	
+			elif driver_selection == 2:
 				driver = webdriver.Firefox(firefox_profile=profile, executable_path=firefox_driver);
 
 			if maker:
@@ -107,7 +114,7 @@ def main():
 			next_page_box.send_keys(Keys.TAB)
 			next_page_box.send_keys(Keys.RETURN)
 
-			
+
 			path_to_watch = '/'+PATH+'/testing/Downloads'
 			before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 
@@ -131,6 +138,7 @@ def main():
 					except:
 						try:
 							input_box = driver.find_element_by_xpath("//input[@type='text']")
+							print(input_box)
 							if randomization:
 								text = words[random.randrange(len(words))]
 							else:
@@ -139,7 +147,10 @@ def main():
 							input_box.send_keys(text)
 						except:
 							try:
-								date = time.strftime('%m-%d-%Y')
+								if driver_selection == 1:
+									date = time.strftime('%m-%d-%Y')
+								elif driver_selection == 2:
+									date = time.strftime('%Y-%m-%d')
 								input_box = driver.find_element_by_xpath("//input[@type='date']")
 								input_box.send_keys(date)
 							except Exception as e:
@@ -191,14 +202,14 @@ def main():
 					button.click()
 				except:
 					pass
-				
+
 				after = dict ([(f, None) for f in os.listdir (path_to_watch)])
 				added = [f for f in after if not f in before]
-				if added: 
+				if added:
 					print("Archivo nuevo almacenado en: "+path_to_watch+"/"+added[0])
 					break
 
-			
+
 		    # ejecuta todas las acciones del actionchains
 		    # actions.perform()
 
@@ -209,7 +220,7 @@ def main():
 		    # screenshot capture (it needs pillow)
 			# image_path = "../Image/aislamiento_social_y_redes_sociales.png"
 			# driver.get_screenshot_as_file(image_path)
-			
+
 			# close the browser
 			driver.close()
 
@@ -224,6 +235,14 @@ def main():
 				print(line[1:].rstrip('\n'))
 			elif line != '\n':
 				print('Se ha omitido la prueba ' + line[1:].rstrip('\n'))
+
+	if one_csv == True:
+		all_filenames = [i for i in glob.glob('/'+PATH+'/testing/Downloads/*.{}'.format("csv"))]
+		#combine all files in the list
+		combined_csv = pd.concat([pd.read_csv(f) for f in all_filenames ])
+		#export to csv
+		combined_csv.to_csv( "/"+PATH+"/testing/Downloads/combined_csv.csv", index=False, encoding='utf-8-sig')
+
 	print("\nTesting finalizado, escriba exit para salir del ambiente virtual actual.\n")
 
 if __name__ == '__main__' : main()
