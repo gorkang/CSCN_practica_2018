@@ -8,6 +8,12 @@
  *
  */
 
+ function stripHtml(html)
+ {
+    var tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+ }
 
 jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
 
@@ -82,6 +88,9 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
     if(trial.preamble !== null){
       trial_form.innerHTML += '<div id="'+preamble_id_name+'" class="'+preamble_id_name+'">'+trial.preamble+'</div>';
     }
+
+    questions_list = {}
+
     // add multiple-choice questions
     for (var i = 0; i < trial.questions.length; i++) {
         // create question container
@@ -89,6 +98,8 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
         if (trial.questions[i].horizontal) {
           question_classes.push(_join(plugin_id_name, 'horizontal'));
         }
+
+        questions_list["Q".concat(i.toString())] = trial.questions[i].prompt;
 
         trial_form.innerHTML += '<div id="'+_join(plugin_id_name, i)+'" class="'+question_classes.join(' ')+'"></div>';
 
@@ -173,8 +184,9 @@ jsPsych.plugins['survey-multi-choice-horizontal'] = (function() {
       }
       // save data
       var trial_data = {
+        "question text": stripHtml(JSON.stringify(questions_list)),
         "rt": response_time,
-        "responses": JSON.stringify(question_data)
+        "responses": stripHtml(JSON.stringify(question_data))
       };
       display_element.innerHTML = '';
 

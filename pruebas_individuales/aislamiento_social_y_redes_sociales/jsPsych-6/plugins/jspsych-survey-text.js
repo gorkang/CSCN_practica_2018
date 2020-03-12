@@ -8,6 +8,12 @@
  *
  */
 
+ function stripHtml(html)
+ {
+    var tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+ }
 
 jsPsych.plugins['survey-text'] = (function() {
   var plugin = {};
@@ -126,7 +132,7 @@ jsPsych.plugins['survey-text'] = (function() {
     if (typeof trial.questions[0].language == 'undefined') {
       for (var i = 0; i < trial.questions.length; i++)
         trial.questions[i].language = "spanish";
-    } 
+    }
     if (typeof trial.questions[0].endword == 'undefined') {
       for (var i = 0; i < trial.questions.length; i++)
         trial.questions[i].endword = "";
@@ -137,6 +143,9 @@ jsPsych.plugins['survey-text'] = (function() {
     if(trial.preamble !== null){
       html += '<div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
     }
+
+    questions_list = {}
+
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
       // define the min and max of a question with range
@@ -151,7 +160,8 @@ jsPsych.plugins['survey-text'] = (function() {
       if (typeof trial.questions[i].type == 'undefined') {
         trial.questions[i].type = "text"
       }
-      
+
+      questions_list["Q".concat(i.toString())] = trial.questions[i].prompt;
 
       html += '<div id="jspsych-survey-text-' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt;
@@ -166,8 +176,8 @@ jsPsych.plugins['survey-text'] = (function() {
         html += '" cols="' + trial.questions[i].columns + '" rows="' + trial.questions[i].rows;
       }
 
-      html += '" value="' + trial.questions[i].value + '"'; 
-      
+      html += '" value="' + trial.questions[i].value + '"';
+
       if (i == 0){
         html += ' autofocus';
       }
@@ -178,7 +188,7 @@ jsPsych.plugins['survey-text'] = (function() {
 
     // add submit button
     html += '<button id="jspsych-survey-text-next" class="jspsych-btn jspsych-survey-text">'+trial.button_label+'</button><p></p>';
-    html +='<div class="fail-message"></div>';
+    html += '<div class="fail-message"></div>';
     display_element.innerHTML = html;
 
     // Focus on first box
@@ -205,8 +215,9 @@ jsPsych.plugins['survey-text'] = (function() {
       }
       // save data
       var trialdata = {
+        "question text": stripHtml(JSON.stringify(questions_list)),
         "rt": response_time,
-        "responses": JSON.stringify(question_data)
+        "responses": stripHtml(JSON.stringify(question_data))
       };
 
       for(var index=0; index<matches.length; index++){

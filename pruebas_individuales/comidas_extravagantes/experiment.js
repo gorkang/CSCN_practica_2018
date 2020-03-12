@@ -38,8 +38,8 @@ var question1 = {
 questions_experiment.push(question1);
 
 var question2 = {
-  type: 'survey-text',
-  questions: [{prompt: "<div class='justified'>Más {input:respuesta_vale} pájaro en {input:respuesta_mano} que 100 volando.</div>", type: 'text', required: true}], 
+  type: 'cloze',
+  text: "<div class='justified'>Más % vale % pájaro en % mano % que 100 volando.</div>", required: true, 
   data: {trialid: 'comidas_extravagantes_2'}
 };
 questions_experiment.push(question2);

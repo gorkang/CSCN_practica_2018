@@ -8,6 +8,12 @@
  *
  */
 
+function stripHtml(html)
+{
+  var tmp = document.createElement("DIV");
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || "";
+}
 
 jsPsych.plugins['survey-text'] = (function() {
   var plugin = {};
@@ -137,6 +143,9 @@ jsPsych.plugins['survey-text'] = (function() {
     if(trial.preamble !== null){
       html += '<div id="jspsych-survey-text-preamble" class="jspsych-survey-text-preamble">'+trial.preamble+'</div>';
     }
+
+    questions_list = {}
+
     // add questions
     for (var i = 0; i < trial.questions.length; i++) {
       // define the min and max of a question with range
@@ -152,6 +161,7 @@ jsPsych.plugins['survey-text'] = (function() {
         trial.questions[i].type = "text"
       }
 
+      questions_list["Q".concat(i.toString())] = trial.questions[i].prompt;
 
       html += '<div id="jspsych-survey-text-' + i + '" class="jspsych-survey-text-question" style="margin: 2em 0em;">';
       html += '<p class="jspsych-survey-text">' + trial.questions[i].prompt;
@@ -205,8 +215,9 @@ jsPsych.plugins['survey-text'] = (function() {
       }
       // save data
       var trialdata = {
+        "question text": stripHtml(JSON.stringify(questions_list)),
         "rt": response_time,
-        "responses": JSON.stringify(question_data)
+        "responses": stripHtml(JSON.stringify(question_data))
       };
 
       for(var index=0; index<matches.length; index++){
