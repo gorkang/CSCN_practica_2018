@@ -38,9 +38,9 @@
       - fenomenología
 
 - churrasco:
-    type: text
+    type: multi text
     arguments:
-      text: Más {input:respuesta_vale} pájaro en {input:respuesta_mano} que 100 volando.
+      text: Más % vale % pájaro en % mano % que 100 volando.
     tags:
       - sabiduría
 

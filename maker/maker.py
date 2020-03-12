@@ -16,6 +16,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 	plugins = {
 		"multi_choice_horizontal":"jspsych-survey-multi-choice-horizontal",
 		"multi_choice_vertical":"jspsych-survey-multi-choice-vertical",
+		"multi_text":"jspsych-cloze",
 		"text":"jspsych-survey-text",
 		"number":"jspsych-survey-text",
 		"date":"jspsych-survey-text"
@@ -78,6 +79,10 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				# actual question plugin:
 				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
 				content.insert(document_actual_line + 2, "  questions: [{prompt: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+", type: '"+ questions[i]["type"] +"', required: true}], \n")
+			elif questions[i]["type"] == "multi_text":
+				# actual question plugin:
+				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
+				content.insert(document_actual_line + 2, "  text: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+', required: true, \n')
 			# *************
 			content.insert(document_actual_line + 3, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
 			content.insert(document_actual_line + 4, "};\n")
@@ -269,6 +274,7 @@ def main():
 		"jspsych-survey-multi-choice-horizontal.js": False,
 		"jspsych-survey-multi-choice-vertical.js": False,
 		"jspsych-survey-text.js": False,
+		"jspsych-cloze.js":False
 	}
 
 
@@ -302,7 +308,8 @@ def main():
 				actual_instruction["random_mode"] = False
 			actual_instruction["previous_questions"] = questions_cont
 			instructions.append(actual_instruction)
-		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date"):
+		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date")  or (item_type=="multi_text"):
+
 			actual_question = {}
 
 			actual_question["type"] = item_type
@@ -331,6 +338,8 @@ def main():
 
 			elif actual_question["type"] == "text" or actual_question["type"] == "number" or actual_question["type"] == "date":
 				plugins["jspsych-survey-text.js"] = True
+			elif actual_question["type"] == "multi_text":
+				plugins["jspsych-cloze.js"] = True
 
 			try:
 				actual_question["preamble"] = items[i].arguments["preamble"]

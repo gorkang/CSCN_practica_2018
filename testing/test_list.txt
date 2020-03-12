@@ -1,6 +1,6 @@
 #Para no hacer algún test simplemente agregue '#' al inicio del nombre
 
-#comidas_extravagantes
+comidas_extravagantes
 #BART_balloon_analogue_risk_task
 #BDI_becks_depression_inventory
 #BIS_barratt_impulsiveness_scale
@@ -18,22 +18,22 @@
 
 # ---------------------- arregladas ------------------------
 
-informacion_sociodemografica_simple
-informacion_sociodemografica
-wais_vocabulario
-graph_literacy
-CRT_verbal
-abreviated_mathematics_anxiety_rating_scale
-actividad_fisica
-aislamiento_social_y_redes_sociales
-ansiedad_matematica
-CRT_numerico
-CRT_MCQ4
-habilidad_matematica
-abreviated_mathematics_anxiety_rating_scale
-a_priori_screening_belief
-beck_anxiety_inventory
-big_five
+#informacion_sociodemografica_simple
+#informacion_sociodemografica
+#wais_vocabulario
+#graph_literacy
+#CRT_verbal
+#abreviated_mathematics_anxiety_rating_scale
+#actividad_fisica
+#aislamiento_social_y_redes_sociales
+#ansiedad_matematica
+#CRT_numerico
+#CRT_MCQ4
+#habilidad_matematica
+#abreviated_mathematics_anxiety_rating_scale
+#a_priori_screening_belief
+#beck_anxiety_inventory
+#big_five
 #multiple_stimulus_types_ambiguity_tolerance_scale
 #need_for_cognition
 #DSS_decision_styles_scale
@@ -51,9 +51,9 @@ big_five
 #SASS_social_adaptation_self_evaluation_scale
 #SPR_III_self_report_psychopathy_scale
 #STAI_state_trait_anxiety_inventory
-#bienestar_psicosocial
+bienestar_psicosocial
 #bienestar_social
-#comprension_lectora
+comprension_lectora
 #escala_experiencias_disociativas
 #escala_rosenberg
 #escala_tacticas
