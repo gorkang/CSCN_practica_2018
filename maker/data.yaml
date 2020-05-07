@@ -1,88 +1,141 @@
 ---
 - test configuration:
-    test_name: comidas extravagantes
+    test_name: Supernatural Belief Scale
     order: sequential
     scales:
-      choices_item:
-        - mi papa
-        - mi tio
-        - mi primo
-        - mi abuelo
+      Agreement:
+        - Definitivamente en desacuerdo
+        - Tiende a estar en desacuerdo
+        - Inseguro
+        - Tiende a estar de acuerdo
+        - Definitivamente de acuerdo
+      Truly:
+        - Definitivamente no es cierto para mí
+        - Tiende a no ser cierto
+        - Inseguro
+        - Tiende a ser verdad
+        - Definitivamente cierto de mí
 
 - initial:
     type: fullscreen
     arguments:
       text: El experimento entrará en modo pantalla completa
 
-- pizza:
+- Instructions:
     type: instruction  # Only a piece of text
     arguments:
-      title: Argument Test
+      title: Escala de creencias sobrenaturales
       text: Por favor, responde las siguientes preguntas.
-      questions_mode: random # select mode of the next questions
+      questions_mode: sequential # select mode of the next questions
     tags:
       - instruction
 
-- papas fritas:
-    type: multi choice
+- Supernatural_Belief:
+    type: slider
     arguments:
-      preamble: Preguntas de papas fritas
-      text: ¿A usted le gustan las papas fritas?
-      orientation: vertical
-      choices:
-        - Sí. Me encantan
-        - Las puedo comer.
-        - No. No me gustan.
-    tags:
-      - comida
-      - fenomenología
+      text: 1. Existe un Dios todopoderoso, omnisciente y amoroso.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
 
-- churrasco:
-    type: multi text
+- Supernatural_Belief:
+    type: slider
     arguments:
-      text: Más % vale % pájaro en % mano % que 100 volando.
-    tags:
-      - sabiduría
+      text: 2. Existe un ser espiritual espiritual maligno, a quien podríamos llamar el Diablo.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
 
-- churrasco:
-    type: number
+- Supernatural_Belief:
+    type: slider
     arguments:
-      text: Cuanto es 1 + 1?
-    tags:
-      - sabiduría
+      text: 3. Existen buenos seres espirituales personales, a quienes podríamos llamar ángeles.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
 
-- pizza:
-    type: date
+- Supernatural_Belief:
+    type: slider
     arguments:
-      text: Indique su fecha de cumpleaños
-    tags:
-      - informacion personal
+      text: 4. Existen seres espirituales personales malvados, a quienes podríamos llamar demonios.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
 
-- pizza:
-    type: instruction  # Only a piece of text
+- Supernatural_Belief:
+    type: slider
     arguments:
-      text: Por favor, responde las siguientes preguntas.
-    tags:
-      - instruction
+      text: 5. Los seres humanos tienen almas inmateriales e inmortales.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
 
-- papas fritas:
-    type: multi choice
+- Supernatural_Belief:
+    type: slider
     arguments:
-      preamble: Preguntas de papas fritas
-      text: ¿comunmente con quien comes papas fritas?
-      orientation: horizontal
-      choices: choices_item
-    tags:
-      - comida
-      - fenomenología
+      text: 6. Hay un reino espiritual además del físico.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
 
-#- pantalla 1:
-#    type: multiple items
-#    arguments:
-#      items:
-#        - churrasco
-#        - pizza
-#        - papas fritas
-#    tags:
-#        - pantallas condición 1
-...
+- Supernatural_Belief:
+    type: slider
+    arguments:
+      text: 7. Algunas personas irán al cielo cuando mueran.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
+
+- Supernatural_Belief:
+    type: slider
+    arguments:
+      text: 8. Algunas personas irán al infierno cuando mueran.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
+
+- Supernatural_Belief:
+    type: slider
+    arguments:
+      text: 9. Los milagros, eventos divinamente causados que no tienen una explicación natural, pueden suceder y lo hacen.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500
+
+- Supernatural_Belief:
+    type: slider
+    arguments:
+      text: 10. Hay individuos que son mensajeros de Dios y / o pueden prever el futuro.
+      min: -4
+      max: 4
+      start: 0
+      step: 1
+      labels: ["Totalmente en desacuerdo","Totalmente de acuerdo"]
+      slider_width: 500

@@ -49,6 +49,16 @@ class multi_text(item):
         print(text_rep)
         print()
 
+class slider(item):
+    def __init__(self, item_id, spec):
+        item.__init__(self, item_id, spec)
+
+    def render(self):
+        item.render(self)
+        text_orig = self.arguments['text']
+        text_rep = re.sub(r"\{([^:]+):([^}]+)\}", '[______]', text_orig)
+        print(text_rep)
+        print()
 
 class multiple_items(item):
     def __init__(self, item_id, spec):

@@ -17,6 +17,7 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 		"multi_choice_horizontal":"jspsych-survey-multi-choice-horizontal",
 		"multi_choice_vertical":"jspsych-survey-multi-choice-vertical",
 		"multi_text":"jspsych-cloze",
+		"slider": "jspsych-html-slider-response",
 		"text":"jspsych-survey-text",
 		"number":"jspsych-survey-text",
 		"date":"jspsych-survey-text"
@@ -83,8 +84,12 @@ def writeExperiment(file_name, instructions, questions, fullscreen={"fullscreen_
 				# actual question plugin:
 				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
 				content.insert(document_actual_line + 2, "  text: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div>" +'"'+', required: true, \n')
+			elif questions[i]["type"] == "slider":
+				# actual question plugin:
+				content.insert(document_actual_line + 1, "  type: '"+ plugins[questions[i]["type"]][8:] +"',\n")
+				content.insert(document_actual_line + 2, "  stimulus: "+'"'+"<div class='justified'>" + questions[i]["text"] + "</div></br>" +'"'+', required: true, min: ' + str(questions[i]["min"]) + ', max: ' + str(questions[i]["max"]) + ', slider_width: ' + str(questions[i]["slider_width"]) + ', start: ' + str(questions[i]["start"]) + ', step: ' + str(questions[i]["step"]) + ', labels: ["' + '", "'.join(questions[i]["labels"]) + '"], button_label: "' + questions[i]["next_button"] +  '",\n')
 			# *************
-			content.insert(document_actual_line + 3, "  data: {trialid: '"+ file_name +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
+			content.insert(document_actual_line + 3, "  data: {trialid: '"+ questions[i]["item_id"] +"_"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +"'}\n")
 			content.insert(document_actual_line + 4, "};\n")
 
 			content.insert(document_actual_line + 5, "questions_experiment.push(question"+ ("{:0"+str(len(str(abs(len(questions)))))+"d}").format(i+1) +");\n")
@@ -234,7 +239,7 @@ def main():
 				order = spec["order"]
 				scales = spec["scales"]
 			except:
-				print("existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
+				print("Existe un error en la configuración, verifique la configuración del experimento al principio del archivo data.yaml")
 				return
 		else:
 			# Get actual class according to item type.
@@ -274,7 +279,8 @@ def main():
 		"jspsych-survey-multi-choice-horizontal.js": False,
 		"jspsych-survey-multi-choice-vertical.js": False,
 		"jspsych-survey-text.js": False,
-		"jspsych-cloze.js":False
+		"jspsych-cloze.js":False,
+		"jspsych-html-slider-response.js": False
 	}
 
 
@@ -308,10 +314,11 @@ def main():
 				actual_instruction["random_mode"] = False
 			actual_instruction["previous_questions"] = questions_cont
 			instructions.append(actual_instruction)
-		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date")  or (item_type=="multi_text"):
+		elif (item_type == "multi_choice") or (item_type=="text") or (item_type=="number")  or (item_type=="date")  or (item_type=="multi_text") or (item_type=="slider"):
 
 			actual_question = {}
 
+			actual_question["item_id"] = items[i].item_id
 			actual_question["type"] = item_type
 			try:
 				actual_question["orientation"] = items[i].arguments["orientation"]
@@ -340,6 +347,40 @@ def main():
 				plugins["jspsych-survey-text.js"] = True
 			elif actual_question["type"] == "multi_text":
 				plugins["jspsych-cloze.js"] = True
+			elif actual_question["type"] == "slider":
+				plugins["jspsych-html-slider-response.js"] = True
+				try:
+					actual_question["min"] = items[i].arguments["min"]
+				except:
+					actual_question["min"] = 0
+				try:
+					actual_question["max"] = items[i].arguments["max"]
+				except:
+					actual_question["max"] = 100
+				try:
+					actual_question["start"] = items[i].arguments["start"]
+				except:
+					actual_question["start"] = 50
+				try:
+					actual_question["step"] = items[i].arguments["step"]
+				except:
+					actual_question["step"] = 1
+				try:
+					actual_question["labels"] = items[i].arguments["labels"]
+				except:
+					actual_question["labels"] = []
+				try:
+					actual_question["next_button"] = items[i].arguments["next_button"]
+				except:
+					actual_question["next_button"] = "Siguiente"
+				try:
+					actual_question["prompt"] = items[i].arguments["prompt"]
+				except:
+					actual_question["prompt"] = None
+				try:
+					actual_question["slider_width"] = items[i].arguments["slider_width"]
+				except:
+					actual_question["slider_width"] = None
 
 			try:
 				actual_question["preamble"] = items[i].arguments["preamble"]
