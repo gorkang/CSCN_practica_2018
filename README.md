@@ -1,3 +1,8 @@
+# IMPORTANT
+
+This repo is **OUT OF DATE**. See [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) FOR AN UPDATED VERSION
+
+
 # CSCN_practica_2018
 
 JsPsych experiments and tools
