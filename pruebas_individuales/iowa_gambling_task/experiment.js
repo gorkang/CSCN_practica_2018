@@ -49,18 +49,18 @@ var welcome = {
 var instructions = {
   type: 'instructions',
   pages: ["<div>" +
-    "<p>Rules:</p>" +
+    "<p>Reglas:</p>" +
     "<ol>" +
-    "<li>In front of you on the screen, there are 4 decks of cards: A, B, C, and D.</li>" +
-    "<li>When we begin the game, I want you to select one card at a time by clicking on a card from any deck you choose.</li>" +
-    "<li>Each time you select a card, the computer will tell you that you won some money. I don't know how much money you will win. You will find out as we go along. Every time you win, the bar gets bigger.</li>" +
-    "<li>Every so often, when you click on a card, the computer will tell you that you won some money as usual, but then it will say that you lost some money as well. I don't know when you will lose or how much. You will find out as we go along. Every time you lose, the bar gets smaller.</li>" +
-    "<li>You are absolutely free to switch from one deck to the other at any time, and as often as you wish.</li>" +
-    "<li>The goal of the game is to win as much money as possible and avoid losing as much money as possible.</li>" +
-    "<li>You won't know when the game will end. Simply keep on playing until the computer stops.</li>" +
-    "<li>I am going to give you $2000 of credit to start the game. </li>" +
-    "<li>The only hint I can give you, and the most important thing to note is this: Out of these four decks of cards, there are some that are worse than others, and to win you should try to stay away from bad decks. No matter how much you find yourself losing, you can still win the game if you avoid the worst decks.</li>" +
-    "<li>Also note that the computer does not change the order of the cards once the game begins. It does not make you lose at random, or make you lose money based on the last card you picked.</li>" +
+    "<li>En la pantalla delante de usted, hay 4 mazos de cartas: A, B, C y D.</li>" +
+    "<li>Cuando comencemos el juego, quiero que seleccione una carta a la vez haciendo click en una carta de cualquier mazo que elija.</li>" +
+    "<li>Cada vez que seleccione una carta, el computador le dir&aacute; que gan&oacute; algo de dinero. Yo no s&eacute; cu&aacute;nto dinero ganar&aacute;. Lo descubrir&aacute; a medida que avanzamos. Cada vez que gane, la barra se ir&aacute; haciendo m&aacute;s grande.</li>" +
+    "<li>De vez en cuando, al hacer click en una carta, el computador le dir&aacute; que gan&oacute; algo de dinero como siempre, pero luego tambi&eacute;n le dir&aacute; que perdi&oacute; algo de dinero. No s&eacute; cu&aacute;ndo ni cu&aacute;nto perder&aacute;. Lo descubrir&aacute; a medida que avanzamos. Cada vez que pierda, la barra se har&aacute; m&aacute;s pequeña.</li>" +
+    "<li>Usted es absolutamente libre de cambiar de un mazo a otro en cualquier momento, y tan a menudo como lo desee.</li>" +
+    "<li>El objetivo del juego es ganar la mayor cantidad de dinero posible y evitar perder la mayor cantidad de dinero posible.</li>" +
+    "<li>Usted no sabr&aacute; cu&aacute;ndo termina el juego. Simplemente siga jugando hasta que el computador se detenga.</li>" +
+    "<li>Voy a darle $ 2000 de cr&eacute;dito para comenzar el juego.</li>" +
+    "<li>La &uacute;nica pista que puedo darle, y lo m&aacute;s importante a tener en cuenta es esto: de estos 4 mazos, hay algunos que son peores que otros, y para ganar debe tratar de mantenerse alejado de los mazos malos. No importa cu&aacute;nto vaya perdiendo, a&uacute;n puede ganar el juego si evita los peores mazos.</li>" +
+    "<li>Tambi&eacute;n tenga en cuenta que el computador no cambia el orden de las cartas una vez que comienza el juego. No le hace perder al azar, ni le hace perder dinero basado en la &uacute;ltima carta que eligi&oacute;.</li>" +
     "</ol>" +
     "</div>"
   ],

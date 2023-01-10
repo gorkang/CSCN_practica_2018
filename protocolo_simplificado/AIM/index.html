@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name="robots" content="noindex">
+  <title>AIM</title>
+  <!-- Documento CSS principal -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="jsPsych-6/css/bootstrap.min.css">
+  <!-- JQuery -->
+  <script src="jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- Libreria principal JsPsych -->
+  <script src="jsPsych-6/jspsych.js"></script>
+  <!-- Plugins -->
+  <script src="jsPsych-6/plugins/jspsych-instructions.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-fullscreen.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-survey-multi-choice-vertical.js"></script>
+  <script src="jsPsych-6/plugins/jspsych-survey-text.js"></script>
+
+  <script src='experiment.js'></script>
+
+  <script>
+
+    function saveData(name, data, uid, pid, version = 'original'){
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'write_data.php', false);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({short_name: name, filedata: data, user_id: uid, version: version, project_code: pid}));
+      location.replace("http://cscn.uai.cl/");
+    }
+
+    $(document).ready(function() {
+
+      online = false;
+      let params = new URLSearchParams(location.search);
+
+      jsPsych.init({
+        timeline: questions,
+        fullscreen: true,
+
+        on_finish: function(data) {
+
+          // Serialize the data
+          var promise = new Promise(function(resolve, reject) {
+            if (online) {
+              var data = jsPsych.data.get().csv();
+            } else {
+              var data = jsPsych.data.get().json();
+            }
+            resolve(data);
+
+          })
+
+          promise.then(function(data) {
+            if (online) {
+              saveData('AIM', data, params.get('uid'), params.get('pid'));
+            } else {
+              $.ajax({
+                type: "POST",
+                url: '/save',
+                data: {
+                  "data": data
+                },
+                success: function() {
+                  document.location = "/next"
+                },
+                dataType: "application/json",
+
+                // Endpoint not running, local save
+                error: function(err) {
+
+                  if (err.status == 200) {
+                    document.location = "/next";
+                  } else {
+                    // If error, assue local save
+                    if (window.self !== window.top) {
+                      parent.postMessage({
+                        csv: jsPsych.data.get().csv(),
+                        name: 'AIM_results'
+                      }, '*');
+                    } else {
+                      jsPsych.data.get().localSave('csv', 'AIM_results.csv');
+                    }
+                  }
+                }
+              })
+            }
+          })
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

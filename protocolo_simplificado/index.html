@@ -41,10 +41,10 @@
       'BIS_barratt_impulsiveness_scale', 'becks_depression_inventory'
     ];
     //List of random experiments
-    var experiments_random = shuffle(['empatia_por_dolor']);
+    var experiments_random = shuffle(['bRCOPE', 'AIM']);
     //Either a string of experiments separated by commas or a list of random experiments
-    var experiments = experiments_random.slice(0, 1);
-    var enable_JSZip = true;
+    var experiments = experiments_random.slice(0,2);
+    var enable_JSZip = false;
     if (typeof(experiments) == "string") {
       experiments = experiments.split(',');
     }

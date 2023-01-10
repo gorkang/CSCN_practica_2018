@@ -31,7 +31,7 @@ onkeydown = function block_fkeys(event) {
 
 var instructions_1 = {
   type: 'instructions',
-  pages: ['Usted verá algunas imágenes y luego le haremos algunas preguntas acerca de ellas.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  pages: ['Usted ver&aacute; algunas im&aacute;genes y luego le haremos algunas preguntas acerca de ellas.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
     trialId: "instructions_1"
@@ -48,7 +48,7 @@ var instructions_1 = {
 
 var instructions_2 = {
   type: 'instructions',
-  pages: ['No lo piense por mucho tiempo, simplemente díganos el primer pensamiento que le venga a la mente.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  pages: ['No lo piense por mucho tiempo, simplemente d&iacute;ganos el primer pensamiento que le venga a la mente.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
     trialId: "instructions_2"
@@ -61,10 +61,10 @@ var instructions_2 = {
 
 var instructions_3 = {
   type: 'slider-with-options',
-  prompt: 'Use las flechas izquierda y derecha para mover la línea y así responder las preguntas.',
+  prompt: 'Use las flechas izquierda y derecha para mover la l&iacute;nea y as&iacute; responder las preguntas.',
   scale_question: "¿Cuanto?",
   left_option: "Menos",
-  rigth_option: "Mas",
+  rigth_option: "M&aacute;s",
   data: {
     trialId: "instructions_3"
   }
@@ -72,7 +72,7 @@ var instructions_3 = {
 
 var instructions_4 = {
   type: 'instructions',
-  pages: ['Después de cada imágen, presione la FLECHA HACIA ABAJO en el momento exacto en que entienda lo que pasó, no antes ni después.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  pages: ['Despu&eacute;s de cada im&aacute;gen, presione la FLECHA HACIA ABAJO en el momento exacto en que entienda lo que pas&oacute;, no antes ni despu&eacute;s.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
     trialId: "instructions_4"
@@ -85,7 +85,7 @@ var instructions_4 = {
 
 var instructions_5 = {
   type: 'instructions',
-  pages: ['A continuación le presentamos un ejemplo de la tarea para que practique.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  pages: ['A continuaci&oacute;n le presentamos un ejemplo de la tarea para que practique.<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
     trialId: "instructions_5"
@@ -114,7 +114,7 @@ var practice_animation = {
 var practice_response = {
   type: 'slider-with-options',
   prompt: '<img src="practica/p_i2_umbrella_frame003.bmp";"></img>',
-  scale_question: "¿Qué tan triste se siente por la persona lastimada?",
+  scale_question: "¿Qu&eacute; tan triste se siente por la persona lastimada?",
   left_option: "Nada triste",
   rigth_option: "Muy triste",
   data: {
@@ -124,7 +124,7 @@ var practice_response = {
 
 var instructions_6 = {
   type: 'instructions',
-  pages: ['¿Ha comprendido?, si tiene alguna duda, antes de comenzar  pregúntele al investigador<br>¡Ahora comenzaremos!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  pages: ['¿Ha comprendido?, si tiene alguna duda, antes de comenzar  preg&uacute;ntele al investigador<br>¡Ahora comenzaremos!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
     trialId: "instructions_6"
@@ -137,7 +137,7 @@ var instructions_6 = {
 
 var goodbye = {
   type: 'instructions',
-  pages: ['¡Muy buen trabajo!  ¡Gracias por su participación!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
+  pages: ['¡Muy buen trabajo!  ¡Gracias por su participaci&oacute;n!<br><br><p style="text-align:center">Presione la flecha hacia abajo para continuar.</p>'],
   show_clickable_nav: false,
   data: {
     trialId: "goodbye"
@@ -194,7 +194,7 @@ function create_trials() {
   var on_purpose = {
     type: 'slider-with-options',
     prompt: jsPsych.timelineVariable('stimulus'),
-    scale_question: "¿Fué esto a proposito?",
+    scale_question: "¿Fue esto a prop&oacute;sito?",
     left_option: "No",
     rigth_option: "Si",
     yes_or_no_slider: true,

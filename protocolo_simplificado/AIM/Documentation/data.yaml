@@ -1,0 +1,173 @@
+---
+- test configuration:
+    test_name: AIM
+    order: sequential
+    scales:
+      Verdadero_Falso:
+        - 0 <br> No es verdad para mi
+        - "1"
+        - 2 <br> Es verdad para mi
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+- Instructions:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Grupos socioeconómicos AIM
+      text: Por favor, responda las siguientes preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: "¿Cuál es el nivel educacional alcanzado (último año aprobado) por el principal sostenedor del hogar?"
+      orientation: vertical
+      choices:
+        - Sin estudios formales.
+        - Básica incompleta; primaria o preparatoria incompleta.
+        - Básica completa; primaria o preparatoria completa.
+        - Media científico humanista o media técnico profesional incompleta; humanidades incompletas.
+        - Media científico humanista o media técnico profesional completa; humanidades completas.
+        - Instituto técnico (CFT) o instituto profesional incompleto (carreras de 1 a 3 años).
+        - Instituto técnico (CFT) o instituto profesional completo (carreras de 1 a 3 años); hasta suboficial de FFAA y Carabineros.
+        - Universitaria incompleta (carreras de 4 o más años).
+        - Universitaria completa (carreras de 4 o más años); oficial de FFAA y Carabineros.
+        - Postgrado (postítulo, master, magíster, doctor).
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: "¿Cuál de las siguientes ocupaciones corresponde al trabajo del principal sostenedor del hogar? [Si el principal sostenedor del hogar está cesante o es jubilado, debe ser la última ocupación remunerada que tuvo. Si el principal sostenedor tiene más de 1 trabajo, debe registrarse el de mayor ingreso.]"
+      orientation: vertical
+      choices:
+        - Trabajadores no calificados en ventas y servicios, peones agropecuarios, forestales, construcción, etc.
+        - Obreros, operarios y artesanos de artes mecánicas y de otros oficios.
+        - Trabajadores de los servicios y vendedores de comercio y mercados.
+        - Agricultores y trabajadores calificados agropecuarios y pesqueros.
+        - Operadores de instalaciones y máquinas y montadores / conductores de vehículos.
+        - Empleados de oficina públicos y privados.
+        - Técnicos y profesionales de nivel medio (incluye hasta suboficiales FFAA y Carabineros).
+        - Profesionales, científicos e intelectuales.
+        - Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o pública- Director o dueño de grandes empresa- Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública (incluye oficiales de FFAA y Carabineros).
+        - Otros grupos no identificados (incluye rentistas, incapacitados, etc.)
+
+- AIM:
+    type: number
+    arguments:
+      text: Ahora, hablando de su hogar:<br> <br>Incluyéndose usted, ¿cuántas personas viven en su hogar en la actualidad? No considere el servicio doméstico, aunque sea puertas adentro.
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: Por favor, piense en ingreso total de su hogar en un mes promedio, considerando el aporte de todos sus miembros y otros ingresos adicionales como rentas de propiedades, jubilaciones o pensiones. ¿en cuál de estos tramos está el ingreso total mensual de su hogar?
+      orientation: vertical
+      choices:
+        - Menos de 120 mil
+        - 120 mil – 207 mil
+        - 208 mil – 361 mil
+        - 362 mil – 630 mil
+        - 631 mil – 1.099.000
+        - 1.100.000 – 1.916.000
+        - Más de 1.916.000
+        - NS/NR
+
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: Por favor, piense en ingreso total de su hogar en un mes promedio, considerando el aporte de todos sus miembros y otros ingresos adicionales como rentas de propiedades, jubilaciones o pensiones. ¿en cuál de estos tramos está el ingreso total mensual de su hogar?
+      orientation: vertical
+      choices:
+        - Menos de 194 mil
+        - 194 mil – 336 mil
+        - 337 mil – 586 mil
+        - 587 mil – 1.023.000
+        - 1.024.000 – 1.785.000
+        - 1.786.000 – 3.113.000
+        - Más de 3.113.000
+        - NS/NR 
+
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: Por favor, piense en ingreso total de su hogar en un mes promedio, considerando el aporte de todos sus miembros y otros ingresos adicionales como rentas de propiedades, jubilaciones o pensiones. ¿en cuál de estos tramos está el ingreso total mensual de su hogar?
+      orientation: vertical
+      choices:
+        - Menos de 257 mil
+        - 257 mil – 446 mil
+        - 447 mil – 779 mil
+        - 780 mil – 1.359.000
+        - 1.360.000 – 2.370.000
+        - 2.371.000 – 4.135.000
+        - Más de 4.135.000
+        - NS/NR 
+
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: Por favor, piense en ingreso total de su hogar en un mes promedio, considerando el aporte de todos sus miembros y otros ingresos adicionales como rentas de propiedades, jubilaciones o pensiones. ¿en cuál de estos tramos está el ingreso total mensual de su hogar?
+      orientation: vertical
+      choices:
+        - Menos de 314 mil
+        - 314 mil – 546 mil
+        - 547 mil – 953 mil
+        - 954 mil – 1.662.000
+        - 1.663.000 – 2.899.000
+        - 2.900.000 – 5.057.000
+        - Más de 5.057.000
+        - NS/NR 
+
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: Por favor, piense en ingreso total de su hogar en un mes promedio, considerando el aporte de todos sus miembros y otros ingresos adicionales como rentas de propiedades, jubilaciones o pensiones. ¿en cuál de estos tramos está el ingreso total mensual de su hogar?
+      orientation: vertical
+      choices:
+        - Menos de 367 mil
+        - 367 mil – 638 mil
+        - 639 mil – 1.114.000 mil
+        - 1.115.000 mil – 1.943.000
+        - 1.944.000 – 3.389.000
+        - 3.3980.000 – 5.912.000
+        - Más de 5.912.000
+        - NS/NR 
+
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: Por favor, piense en ingreso total de su hogar en un mes promedio, considerando el aporte de todos sus miembros y otros ingresos adicionales como rentas de propiedades, jubilaciones o pensiones. ¿en cuál de estos tramos está el ingreso total mensual de su hogar?
+      orientation: vertical
+      choices:
+        - Menos de 417 mil
+        - 417 mil – 725 mil
+        - 726 mil – 1.265.000 mil
+        - 1.266.000 mil – 2.207.000
+        - 2.208.000 – 3.850.000
+        - 3.851.000 – 6.717.000
+        - Más de 6.717.000
+        - NS/NR 
+
+
+- AIM:
+    type: multi choice
+    arguments:
+      text: Por favor, piense en ingreso total de su hogar en un mes promedio, considerando el aporte de todos sus miembros y otros ingresos adicionales como rentas de propiedades, jubilaciones o pensiones. ¿en cuál de estos tramos está el ingreso total mensual de su hogar?
+      orientation: vertical
+      choices:
+        - Menos de 464 mil
+        - 464 mil – 808 mil
+        - 809 mil – 1.409.000 mil
+        - 1.410.000 mil – 2.459.000
+        - 2.460.000 – 4.289.000
+        - 4.290.000 – 7.482.000
+        - Más de 7.482.000
+        - NS/NR 

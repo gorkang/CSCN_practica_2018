@@ -1,0 +1,137 @@
+---
+- test configuration:
+    test_name: Religious Coping
+    order: sequential
+    scales:
+      Likert:
+        - Nunca
+        - Casi\n Nunca
+        - A veces
+        - Casi\n Siempre
+        - Siempre
+
+- initial:
+    type: fullscreen
+    arguments:
+      text: El experimento entrará en modo pantalla completa
+
+- Instructions:
+    type: instruction  # Only a piece of text
+    arguments:
+      title: Afrontamiento Religioso
+      text: Por favor, responda las siguientes preguntas.
+      questions_mode: sequential # select mode of the next questions
+    tags:
+      - instruction
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 1. Supongo que mi Iglesia por momentos me abandona.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 2. Trato de comprender que Dios me fortalece a través de ciertas situaciones.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 3. Pongo en entredicho el poder de Dios.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 4. Junto con Dios, intento llevar a cabo mis planes.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 5. Busco la ayuda de Dios, para olvidar mi enojo.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 6. Busco el amor y el cuidado de Dios.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 7. Pido perdón por mis faltas.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 8. Me siento castigado por Dios por mi falta de devoción.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 9. Pongo en duda el amor que Dios siente por mí.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 10. Me enfoco en mi religión para dejar de preocuparme por los problemas.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 11. Me pregunto qué pude haber hecho para que Dios me castigue de esa manera.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 12. Supongo que Dios me abandona.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 13. Me siento convencido que el demonio hace que las cosas pasen.
+      orientation: horizontal
+      choices: Likert
+
+- Religious_Coping:
+    type: multi choice
+    arguments:
+      preamble: Seleccione alguna de las siguientes opciones
+      text: 14. Busco la cercanía de Dios.
+      orientation: horizontal
+      choices: Likert
