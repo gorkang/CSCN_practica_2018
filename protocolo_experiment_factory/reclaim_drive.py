@@ -25,5 +25,5 @@ if(open(config_file_name, "r").readline() == "usingGDrive: true\n"):
     folder_id = open(config_file_name, "r").readlines()[1][10:-1]
     email = str(raw_input("Input drive email:"))
     drive_service.permissions().create(fileId=folder_id,transferOwnership=True,body={'type': 'user', 'role': 'owner','emailAddress': email},fields='id').execute()
-else:
-    exit(1)
+    else:
+        exit(1)
